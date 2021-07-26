@@ -16,15 +16,15 @@ public final class d {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f69964a;
+    public final String f70418a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f69965b;
+    public final String f70419b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f69966c;
+    public final String f70420c;
 
     public d(@NonNull String str, @Nullable String str2, @Nullable String str3) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public final class d {
                 return;
             }
         }
-        this.f69964a = str;
-        this.f69965b = str2;
-        this.f69966c = str3;
+        this.f70418a = str;
+        this.f70419b = str2;
+        this.f70420c = str3;
     }
 
     public boolean equals(Object obj) {
@@ -57,7 +57,7 @@ public final class d {
                 return false;
             }
             d dVar = (d) obj;
-            return v.a(this.f69964a, dVar.f69964a) && v.a(this.f69965b, dVar.f69965b) && v.a(this.f69966c, dVar.f69966c);
+            return v.a(this.f70418a, dVar.f70418a) && v.a(this.f70419b, dVar.f70419b) && v.a(this.f70420c, dVar.f70420c);
         }
         return invokeL.booleanValue;
     }
@@ -66,11 +66,11 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f69964a;
+            String str = this.f70418a;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.f69965b;
+            String str2 = this.f70419b;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.f69966c;
+            String str3 = this.f70420c;
             return hashCode2 + (str3 != null ? str3.hashCode() : 0);
         }
         return invokeV.intValue;

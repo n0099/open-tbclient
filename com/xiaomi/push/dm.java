@@ -10,7 +10,7 @@ public class dm {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f39980a;
+    public static final Object f40252a;
     @Deprecated
 
     /* renamed from: a  reason: collision with other field name */
@@ -18,7 +18,7 @@ public class dm {
     @Deprecated
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39981b;
+    public static final String f40253b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class dm {
                 return;
             }
         }
-        f39980a = new Object();
+        f40252a = new Object();
         f239a = String.valueOf(hh.o.a());
-        f39981b = String.valueOf(hh.p.a());
+        f40253b = String.valueOf(hh.p.a());
     }
 }

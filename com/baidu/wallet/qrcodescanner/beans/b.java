@@ -20,7 +20,7 @@ public class b extends BaseBean<QRCodeWhiteListResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27273a;
+    public String f27431a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -40,13 +40,13 @@ public class b extends BaseBean<QRCodeWhiteListResponse> {
                 return;
             }
         }
-        this.f27273a = "";
+        this.f27431a = "";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f27273a = str;
+            this.f27431a = str;
         }
     }
 
@@ -64,10 +64,10 @@ public class b extends BaseBean<QRCodeWhiteListResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (TextUtils.isEmpty(this.f27273a)) {
-                this.f27273a = "";
+            if (TextUtils.isEmpty(this.f27431a)) {
+                this.f27431a = "";
             }
-            arrayList.add(new RestNameValuePair("cate[whitelist]", this.f27273a));
+            arrayList.add(new RestNameValuePair("cate[whitelist]", this.f27431a));
             return arrayList;
         }
         return (List) invokeV.objValue;

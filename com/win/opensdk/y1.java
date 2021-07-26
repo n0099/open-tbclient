@@ -1,21 +1,18 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 /* loaded from: classes6.dex */
-public class y1 extends Handler {
+public class y1 implements x2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ A1 f39724a;
+    public final /* synthetic */ A1 f39991a;
 
     public y1(A1 a1) {
         Interceptable interceptable = $ic;
@@ -32,36 +29,36 @@ public class y1 extends Handler {
                 return;
             }
         }
-        this.f39724a = a1;
+        this.f39991a = a1;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        String str;
-        Context context;
+    @Override // com.win.opensdk.x2
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i2 = message.what;
-            try {
-                if (i2 != 11) {
-                    if (i2 == 12) {
-                        str = (String) message.obj;
-                        context = this.f39724a.f39321a;
-                    }
-                }
-                str = (String) message.obj;
-                w0 a2 = x0.a(this.f39724a.f39321a);
-                try {
-                    a2.f39697b = x0.a("ps", new y0(this.f39724a.f39322b));
-                    a2.a("co", 2002);
-                    a2.a("msg", str);
-                } catch (JSONException unused) {
-                }
-                a2.a();
-                context = this.f39724a.f39321a;
-                x1.a(context, Uri.parse(str));
-            } catch (Exception unused2) {
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
+    }
+
+    @Override // com.win.opensdk.x2
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            A1 a1 = this.f39991a;
+            if (Q1.a(a1.f39541c, a1.f39546h)) {
+                this.f39991a.f39546h = System.currentTimeMillis();
+                A1 a12 = this.f39991a;
+                Q1.a(a12.f39539a, str, a12.f39541c, a12.f39545g, str2);
+                Z0.a(this.f39991a.f39539a).a(new a1(this.f39991a.f39541c), str).a("desc", str2).a();
+                F f2 = this.f39991a.f39544f;
+                if (f2 != null) {
+                    f2.onClicked();
+                }
+                N.a(this.f39991a.f39541c, str2);
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

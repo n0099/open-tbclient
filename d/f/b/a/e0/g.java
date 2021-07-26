@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.Format;
 public interface g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f70138a = new a();
+    public static final g f70592a = new a();
 
     /* loaded from: classes8.dex */
     public static class a implements g {

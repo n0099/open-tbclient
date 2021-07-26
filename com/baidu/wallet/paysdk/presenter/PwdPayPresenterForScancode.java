@@ -77,7 +77,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PwdPayPresenterForScancode f26219a;
+                public final /* synthetic */ PwdPayPresenterForScancode f26377a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,7 +94,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                     }
-                    this.f26219a = this;
+                    this.f26377a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -116,8 +116,8 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                         BaseBean baseBean = (BaseBean) obj;
-                        baseBean.setBeanParams(this.f26219a.mOrderInfo.sp_no, this.f26219a.mOrderInfo.order_no, this.f26219a.mOrderInfo.pay_code, "");
-                        baseBean.setResponseCallback(this.f26219a);
+                        baseBean.setBeanParams(this.f26377a.mOrderInfo.sp_no, this.f26377a.mOrderInfo.order_no, this.f26377a.mOrderInfo.pay_code, "");
+                        baseBean.setResponseCallback(this.f26377a);
                         baseBean.execBean();
                     }
                 }

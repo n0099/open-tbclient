@@ -1,12 +1,15 @@
 package com.baidu.tbadk.editortools.pb;
 
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
+import d.a.d.a.f;
 /* loaded from: classes3.dex */
 public abstract class DataModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -32,9 +35,43 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public abstract String w();
+    public abstract String A();
 
-    public abstract WriteData x(String str);
+    public abstract String B();
 
-    public abstract boolean y();
+    public abstract WriteData C(String str);
+
+    public boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? E() || F() : invokeV.booleanValue;
+    }
+
+    public abstract boolean E();
+
+    public abstract boolean F();
+
+    public abstract boolean G();
+
+    public abstract String getFromForumId();
+
+    @Nullable
+    public String w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getFromForumId() : (String) invokeV.objValue;
+    }
+
+    public int x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public abstract String y();
+
+    public abstract String z();
 }

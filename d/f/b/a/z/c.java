@@ -13,20 +13,20 @@ public final class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final MediaCrypto f70770a;
+    public final MediaCrypto f71224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f70771b;
+    public final boolean f71225b;
 
     public MediaCrypto a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70770a : (MediaCrypto) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71224a : (MediaCrypto) invokeV.objValue;
     }
 
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !this.f70771b && this.f70770a.requiresSecureDecoderComponent(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !this.f71225b && this.f71224a.requiresSecureDecoderComponent(str) : invokeL.booleanValue;
     }
 }

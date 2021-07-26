@@ -19,13 +19,13 @@ public interface g extends q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final a f70361a;
+        public final a f70815a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f70362b;
+        public final int f70816b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Object f70363c;
+        public final Object f70817c;
 
         public b(a aVar, int i2, Object obj) {
             Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public interface g extends q {
                     return;
                 }
             }
-            this.f70361a = aVar;
-            this.f70362b = i2;
-            this.f70363c = obj;
+            this.f70815a = aVar;
+            this.f70816b = i2;
+            this.f70817c = obj;
         }
     }
 

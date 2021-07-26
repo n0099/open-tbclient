@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.u0.f2.a.b;
+import d.a.q0.u0.f2.a.b;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes4.dex */

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes3.dex */
 public class EntelechyUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
@@ -37,17 +37,17 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, d.a.o0.r.f0.t.b
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, d.a.p0.s.f0.t.b
     public void e(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.f12758g = z;
+            this.f12807g = z;
             if (z) {
                 setClickable(false);
-                setText(this.f12756e);
+                setText(this.f12805e);
             } else {
                 setClickable(true);
-                setText(this.f12757f);
+                setText(this.f12806f);
             }
             g(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -69,7 +69,7 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f12758g) {
+            if (this.f12807g) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0109);
                 setBackgroundDrawable(null);

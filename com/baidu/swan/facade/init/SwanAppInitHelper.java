@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import d.a.g0.b.a.e;
-import d.a.n0.a.a2.d;
-import d.a.n0.a.h0.m.i;
-import d.a.n0.a.h0.s.b;
-import d.a.n0.a.k;
-import d.a.n0.a.n0.f;
-import d.a.n0.a.v2.q;
-import d.a.n0.n.i.m.h;
-import d.a.n0.r.p;
+import d.a.h0.b.a.e;
+import d.a.o0.a.a2.d;
+import d.a.o0.a.h0.m.i;
+import d.a.o0.a.h0.s.b;
+import d.a.o0.a.k;
+import d.a.o0.a.n0.f;
+import d.a.o0.a.v2.q;
+import d.a.o0.n.i.m.h;
+import d.a.o0.r.p;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanAppInitHelper {
@@ -43,7 +43,7 @@ public class SwanAppInitHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11694e;
+        public final /* synthetic */ boolean f11720e;
 
         public a(boolean z) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public class SwanAppInitHelper {
                     return;
                 }
             }
-            this.f11694e = z;
+            this.f11720e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f11694e) {
-                d.a.n0.n.b.k(new h(0), new i(null), d.a.n0.a.c1.b.i().p(null));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f11720e) {
+                d.a.o0.n.b.k(new h(0), new i(null), d.a.o0.a.c1.b.i().p(null));
             }
         }
     }
@@ -121,7 +121,7 @@ public class SwanAppInitHelper {
             }
         }
 
-        @Override // d.a.n0.a.h0.s.b.c
+        @Override // d.a.o0.a.h0.s.b.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -162,7 +162,7 @@ public class SwanAppInitHelper {
     public static void asyncUpdateSwanAppCore() {
         boolean c2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (c2 = d.a.n0.n.n.a.c(0))) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (c2 = d.a.o0.n.n.a.c(0))) {
             q.j(new a(c2), "asyncUpdateSwanAppCore by PMS");
         }
     }
@@ -178,23 +178,23 @@ public class SwanAppInitHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVarArr) == null) {
             if (ProcessUtils.isMainProcess()) {
-                d.a.n0.a.h0.s.b.g(context).e(new b());
+                d.a.o0.a.h0.s.b.g(context).e(new b());
             }
             if (cVarArr != null && cVarArr.length > 0) {
                 for (b.c cVar : cVarArr) {
                     if (cVar != null) {
-                        d.a.n0.a.h0.s.b.g(context).e(cVar);
+                        d.a.o0.a.h0.s.b.g(context).e(cVar);
                     }
                 }
             }
-            d.a.n0.a.h0.s.b.g(context).j(ProcessUtils.isMainProcess());
+            d.a.o0.a.h0.s.b.g(context).j(ProcessUtils.isMainProcess());
         }
     }
 
     public static boolean entranceOK() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? !sOnlyInitForLollipopAndAbove || d.a.n0.a.v2.d.f() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? !sOnlyInitForLollipopAndAbove || d.a.o0.a.v2.d.f() : invokeV.booleanValue;
     }
 
     public static void initConfig() {
@@ -228,7 +228,7 @@ public class SwanAppInitHelper {
 
     public static void initStatisticsModule(Application application) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, null, application) == null) && d.a.g0.b.a.a.g()) {
+        if ((interceptable == null || interceptable.invokeL(65548, null, application) == null) && d.a.h0.b.a.a.g()) {
             OpenStatisticIPCManager.a();
             initConfig();
         }
@@ -241,13 +241,13 @@ public class SwanAppInitHelper {
                 Fresco.initialize(application);
             }
             if (ProcessUtils.isMainProcess()) {
-                d.a.n0.e.k.b.d(application).i();
+                d.a.o0.e.k.b.d(application).i();
             }
             initWebView(application);
             if (ProcessUtils.isMainProcess()) {
                 asyncUpdateSwanAppCore();
-                if (k.f45831a) {
-                    d.a.n0.a.t2.a.d(0, 1);
+                if (k.f46335a) {
+                    d.a.o0.a.t2.a.d(0, 1);
                 }
             }
         }
@@ -256,7 +256,7 @@ public class SwanAppInitHelper {
     public static void initWebView(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
-            boolean d2 = d.a.n0.a.c1.a.n0().d();
+            boolean d2 = d.a.o0.a.c1.a.n0().d();
             WebViewFactory.setAbTestInterface(new DefaultSailorAbTest());
             WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), d2, false);
             doWebViewInit(context, new b.c[0]);
@@ -278,7 +278,7 @@ public class SwanAppInitHelper {
     public static void onTerminate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            d.a.n0.a.h0.s.b.g(AppRuntime.getAppContext()).m();
+            d.a.o0.a.h0.s.b.g(AppRuntime.getAppContext()).m();
         }
     }
 
@@ -313,8 +313,8 @@ public class SwanAppInitHelper {
             if (entranceOK() && !isDelayInit() && isProcessNeedInit()) {
                 initStatisticsModule(application);
                 initSwanAppModule(application);
-                d.a.n0.e.f.a().a(application);
-                d.a.n0.e.f.b().a(application, z, z2);
+                d.a.o0.e.f.a().a(application);
+                d.a.o0.e.f.b().a(application, z, z2);
             }
         }
     }

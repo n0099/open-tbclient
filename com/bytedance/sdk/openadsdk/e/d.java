@@ -22,7 +22,7 @@ import com.bytedance.JProtect;
 import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.core.r;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.q.s;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -73,8 +73,8 @@ public class d {
                 return;
             }
             a(com.bytedance.sdk.openadsdk.core.o.a(), mVar, str, "open_appback", Long.valueOf(j));
-            com.bytedance.sdk.openadsdk.r.d.a(0L);
-            com.bytedance.sdk.openadsdk.r.d.c("");
+            com.bytedance.sdk.openadsdk.q.e.a(0L);
+            com.bytedance.sdk.openadsdk.q.e.c("");
         }
     }
 
@@ -91,7 +91,7 @@ public class d {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        e(context, mVar, "splash_ad", FreeSpaceBox.TYPE, jSONObject);
+        c(context, mVar, "splash_ad", FreeSpaceBox.TYPE, jSONObject);
     }
 
     public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar) {
@@ -105,7 +105,7 @@ public class d {
                 jSONObject.putOpt("ad_extra_data", jSONObject2);
             } catch (Exception unused) {
             }
-            c(context, mVar, "landingpage", "open_url_h5", jSONObject);
+            d(context, mVar, "landingpage", "open_url_h5", jSONObject);
         }
     }
 
@@ -197,7 +197,7 @@ public class d {
                     str2 = "";
                     break;
             }
-            e(context, mVar, str, str2, jSONObject);
+            c(context, mVar, str, str2, jSONObject);
         }
     }
 
@@ -220,12 +220,12 @@ public class d {
             j = com.bytedance.sdk.openadsdk.core.e.o.e(mVar);
         }
         hashMap.put("playable_url", j);
-        hashMap.put("memory_total", Integer.valueOf(com.bytedance.sdk.openadsdk.r.o.m()));
-        hashMap.put("memory_use", Integer.valueOf(com.bytedance.sdk.openadsdk.r.o.o() - com.bytedance.sdk.openadsdk.r.o.n()));
-        hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, com.bytedance.sdk.openadsdk.r.o.h(mVar.ao()));
+        hashMap.put("memory_total", Integer.valueOf(com.bytedance.sdk.openadsdk.q.q.m()));
+        hashMap.put("memory_use", Integer.valueOf(com.bytedance.sdk.openadsdk.q.q.o() - com.bytedance.sdk.openadsdk.q.q.n()));
+        hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, com.bytedance.sdk.openadsdk.q.q.h(mVar.ao()));
         hashMap.put("timestamp", Long.valueOf(System.currentTimeMillis()));
         hashMap.put("color_percent_type", Integer.valueOf(i3));
-        k(context, mVar, str, str2, hashMap);
+        j(context, mVar, str, str2, hashMap);
     }
 
     public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, long j, int i2, Map<String, Object> map) {
@@ -245,7 +245,7 @@ public class d {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            e(context, mVar, str, str2, jSONObject);
+            c(context, mVar, str, str2, jSONObject);
         }
     }
 
@@ -261,7 +261,7 @@ public class d {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        e(context, mVar, str, str2, jSONObject2);
+        c(context, mVar, str, str2, jSONObject2);
     }
 
     public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Long l) {
@@ -272,7 +272,7 @@ public class d {
                 jSONObject.put("duration", l);
             } catch (Exception unused) {
             }
-            e(context, mVar, str, str2, jSONObject);
+            c(context, mVar, str, str2, jSONObject);
         }
     }
 
@@ -288,7 +288,7 @@ public class d {
             jSONObject.put("ad_extra_data", jSONObject2.toString());
         } catch (Exception unused) {
         }
-        e(context, mVar, str, str2, jSONObject);
+        c(context, mVar, str, str2, jSONObject);
     }
 
     public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
@@ -307,7 +307,7 @@ public class d {
                 jSONObject.put("ad_extra_data", jSONObject2.toString());
             } catch (Exception unused) {
             }
-            e(context, mVar, str, str2, jSONObject);
+            c(context, mVar, str, str2, jSONObject);
         }
     }
 
@@ -324,7 +324,7 @@ public class d {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            e(context, mVar, str, str2, jSONObject2);
+            c(context, mVar, str, str2, jSONObject2);
         }
     }
 
@@ -336,26 +336,26 @@ public class d {
             return;
         }
         r.b();
-        float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - com.bytedance.sdk.openadsdk.r.o.g(mVar.ao())).floatValue();
+        float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - com.bytedance.sdk.openadsdk.q.q.g(mVar.ao())).floatValue();
         if (Looper.getMainLooper() == Looper.myLooper()) {
-            com.bytedance.sdk.component.e.e.b(new com.bytedance.sdk.component.e.g("onShow", context, mVar, str, map, floatValue) { // from class: com.bytedance.sdk.openadsdk.e.d.1
+            com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g("onShow", context, mVar, str, map, floatValue) { // from class: com.bytedance.sdk.openadsdk.e.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f31189a;
+                public final /* synthetic */ Context f31432a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31190b;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31433b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31191c;
+                public final /* synthetic */ String f31434c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Map f31192d;
+                public final /* synthetic */ Map f31435d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ float f31193e;
+                public final /* synthetic */ float f31436e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -375,18 +375,18 @@ public class d {
                             return;
                         }
                     }
-                    this.f31189a = context;
-                    this.f31190b = mVar;
-                    this.f31191c = str;
-                    this.f31192d = map;
-                    this.f31193e = floatValue;
+                    this.f31432a = context;
+                    this.f31433b = mVar;
+                    this.f31434c = str;
+                    this.f31435d = map;
+                    this.f31436e = floatValue;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.b(this.f31189a, this.f31190b, this.f31191c, this.f31192d, this.f31193e);
+                        d.b(this.f31432a, this.f31433b, this.f31434c, this.f31435d, this.f31436e);
                     }
                 }
             });
@@ -409,35 +409,35 @@ public class d {
         if (!(interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{context, str, mVar, fVar, str2, Boolean.valueOf(z), map}) == null) || a(str2, mVar)) {
             return;
         }
-        float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - com.bytedance.sdk.openadsdk.r.o.g(mVar.ao())).floatValue();
+        float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - com.bytedance.sdk.openadsdk.q.q.g(mVar.ao())).floatValue();
         if (Looper.getMainLooper() == Looper.myLooper()) {
-            com.bytedance.sdk.component.e.e.b(new com.bytedance.sdk.component.e.g("onClick", context, str, mVar, fVar, str2, z, map, floatValue) { // from class: com.bytedance.sdk.openadsdk.e.d.3
+            com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g("onClick", context, str, mVar, fVar, str2, z, map, floatValue) { // from class: com.bytedance.sdk.openadsdk.e.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f31197a;
+                public final /* synthetic */ Context f31440a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f31198b;
+                public final /* synthetic */ String f31441b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31199c;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31442c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.f f31200d;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.f f31443d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f31201e;
+                public final /* synthetic */ String f31444e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f31202f;
+                public final /* synthetic */ boolean f31445f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ Map f31203g;
+                public final /* synthetic */ Map f31446g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ float f31204h;
+                public final /* synthetic */ float f31447h;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -457,21 +457,21 @@ public class d {
                             return;
                         }
                     }
-                    this.f31197a = context;
-                    this.f31198b = str;
-                    this.f31199c = mVar;
-                    this.f31200d = fVar;
-                    this.f31201e = str2;
-                    this.f31202f = z;
-                    this.f31203g = map;
-                    this.f31204h = floatValue;
+                    this.f31440a = context;
+                    this.f31441b = str;
+                    this.f31442c = mVar;
+                    this.f31443d = fVar;
+                    this.f31444e = str2;
+                    this.f31445f = z;
+                    this.f31446g = map;
+                    this.f31447h = floatValue;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.b(this.f31197a, this.f31198b, this.f31199c, this.f31200d, this.f31201e, this.f31202f, this.f31203g, this.f31204h);
+                        d.b(this.f31440a, this.f31441b, this.f31442c, this.f31443d, this.f31444e, this.f31445f, this.f31446g, this.f31447h);
                     }
                 }
             });
@@ -489,8 +489,8 @@ public class d {
             } catch (JSONException unused) {
             }
             com.bytedance.sdk.openadsdk.core.o.c().a(com.bytedance.sdk.openadsdk.e.a.a(context, str3, str4, str, jSONObject));
-            if (com.bytedance.sdk.component.utils.j.c()) {
-                com.bytedance.sdk.component.utils.j.c("AdEvent", "tag: " + str3 + "label: " + str4 + " " + str);
+            if (com.bytedance.sdk.component.utils.k.c()) {
+                com.bytedance.sdk.component.utils.k.c("AdEvent", "tag: " + str3 + "label: " + str4 + " " + str);
             }
         }
     }
@@ -505,16 +505,16 @@ public class d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65558, null, mVar, activity) == null) && mVar != null && activity != null) {
             try {
-                String a2 = com.bytedance.sdk.openadsdk.r.o.a(mVar);
+                String a2 = com.bytedance.sdk.openadsdk.q.q.a(mVar);
                 if (a2 == null) {
                     return;
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("page_name", activity.getClass().getName());
-                q.a(jSONObject);
+                s.a(jSONObject);
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("ad_extra_data", jSONObject);
-                e(com.bytedance.sdk.openadsdk.core.o.a(), mVar, a2, "page_on_create", jSONObject2);
+                c(com.bytedance.sdk.openadsdk.core.o.a(), mVar, a2, "page_on_create", jSONObject2);
             } catch (Throwable unused) {
             }
         }
@@ -524,18 +524,18 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{mVar, str, Long.valueOf(j)}) == null) {
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                com.bytedance.sdk.component.e.e.b(new com.bytedance.sdk.component.e.g("onDownloadCreativeDuration", mVar, str, j) { // from class: com.bytedance.sdk.openadsdk.e.d.2
+                com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g("onDownloadCreativeDuration", mVar, str, j) { // from class: com.bytedance.sdk.openadsdk.e.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31194a;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31437a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f31195b;
+                    public final /* synthetic */ String f31438b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ long f31196c;
+                    public final /* synthetic */ long f31439c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -555,16 +555,16 @@ public class d {
                                 return;
                             }
                         }
-                        this.f31194a = mVar;
-                        this.f31195b = str;
-                        this.f31196c = j;
+                        this.f31437a = mVar;
+                        this.f31438b = str;
+                        this.f31439c = j;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.c(this.f31194a, this.f31195b, this.f31196c);
+                            d.c(this.f31437a, this.f31438b, this.f31439c);
                         }
                     }
                 });
@@ -593,8 +593,8 @@ public class d {
             ArrayList arrayList = new ArrayList();
             arrayList.add(filterWord);
             com.bytedance.sdk.openadsdk.core.o.f().a(bVar, arrayList);
-            if (com.bytedance.sdk.component.utils.j.c()) {
-                com.bytedance.sdk.component.utils.j.c("AdEvent", "tt_dislike_icon " + bVar.d());
+            if (com.bytedance.sdk.component.utils.k.c()) {
+                com.bytedance.sdk.component.utils.k.c("AdEvent", "tt_dislike_icon " + bVar.d());
             }
         }
     }
@@ -610,38 +610,38 @@ public class d {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        e(com.bytedance.sdk.openadsdk.core.o.a(), mVar, str2, "ad_show_time", jSONObject);
+        c(com.bytedance.sdk.openadsdk.core.o.a(), mVar, str2, "ad_show_time", jSONObject);
     }
 
     public static void a(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), jSONObject}) == null) {
-            float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - com.bytedance.sdk.openadsdk.r.o.g(jSONObject.optString("log_extra"))).floatValue();
+            float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - com.bytedance.sdk.openadsdk.q.q.g(jSONObject.optString("log_extra"))).floatValue();
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                com.bytedance.sdk.component.e.e.b(new com.bytedance.sdk.component.e.g("sendJsAdEvent", str, str2, str3, j, j2, jSONObject, floatValue) { // from class: com.bytedance.sdk.openadsdk.e.d.4
+                com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g("sendJsAdEvent", str, str2, str3, j, j2, jSONObject, floatValue) { // from class: com.bytedance.sdk.openadsdk.e.d.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f31205a;
+                    public final /* synthetic */ String f31448a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f31206b;
+                    public final /* synthetic */ String f31449b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f31207c;
+                    public final /* synthetic */ String f31450c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ long f31208d;
+                    public final /* synthetic */ long f31451d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ long f31209e;
+                    public final /* synthetic */ long f31452e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ JSONObject f31210f;
+                    public final /* synthetic */ JSONObject f31453f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ float f31211g;
+                    public final /* synthetic */ float f31454g;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -661,20 +661,20 @@ public class d {
                                 return;
                             }
                         }
-                        this.f31205a = str;
-                        this.f31206b = str2;
-                        this.f31207c = str3;
-                        this.f31208d = j;
-                        this.f31209e = j2;
-                        this.f31210f = jSONObject;
-                        this.f31211g = floatValue;
+                        this.f31448a = str;
+                        this.f31449b = str2;
+                        this.f31450c = str3;
+                        this.f31451d = j;
+                        this.f31452e = j2;
+                        this.f31453f = jSONObject;
+                        this.f31454g = floatValue;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.b(this.f31205a, this.f31206b, this.f31207c, this.f31208d, this.f31209e, this.f31210f, this.f31211g);
+                            d.b(this.f31448a, this.f31449b, this.f31450c, this.f31451d, this.f31452e, this.f31453f, this.f31454g);
                         }
                     }
                 });
@@ -702,7 +702,7 @@ public class d {
                 jSONObject.put("duration", Math.min(j, (long) TTAdConstant.AD_MAX_EVENT_TIME));
             } catch (Exception unused) {
             }
-            c(context, mVar, str, "load", jSONObject);
+            d(context, mVar, str, "load", jSONObject);
         }
     }
 
@@ -729,7 +729,7 @@ public class d {
                 jSONObject.put("ad_extra_data", jSONObject2.toString());
             } catch (Exception unused) {
             }
-            e(context, mVar, str, str2, jSONObject);
+            c(context, mVar, str, str2, jSONObject);
         }
     }
 
@@ -743,7 +743,7 @@ public class d {
                 } catch (Exception unused) {
                 }
             }
-            e(context, mVar, str, str2, jSONObject2);
+            c(context, mVar, str, str2, jSONObject2);
         }
     }
 
@@ -761,7 +761,7 @@ public class d {
                         jSONObject2.put(entry.getKey(), entry.getValue());
                     }
                 }
-                q.a(jSONObject2);
+                s.a(jSONObject2);
                 jSONObject.put("ad_extra_data", jSONObject2.toString());
                 jSONObject.putOpt("log_extra", mVar.ao());
                 if (f2 <= 0.0f) {
@@ -775,7 +775,7 @@ public class d {
             if (!TextUtils.isEmpty(a3)) {
                 com.bytedance.sdk.openadsdk.core.o.g().a(a3, mVar.af(), true);
             }
-            com.bytedance.sdk.openadsdk.n.a.b(context);
+            com.bytedance.sdk.openadsdk.m.a.b(context);
         }
     }
 
@@ -791,7 +791,7 @@ public class d {
                     JSONObject a2 = fVar.a();
                     a2.put("device", com.bytedance.sdk.openadsdk.core.k.c.e(context).toString());
                     a2.put("is_valid", z);
-                    q.a(a2);
+                    s.a(a2);
                     if (map != null) {
                         for (Map.Entry<String, Object> entry : map.entrySet()) {
                             a2.put(entry.getKey(), entry.getValue());
@@ -812,8 +812,8 @@ public class d {
             if (!TextUtils.isEmpty(a3) && PrefetchEvent.STATE_CLICK.equals(str)) {
                 com.bytedance.sdk.openadsdk.core.o.g().a(a3, mVar.ag(), true);
             }
-            if (com.bytedance.sdk.component.utils.j.c()) {
-                com.bytedance.sdk.component.utils.j.c("AdEvent", str + " " + mVar.ak());
+            if (com.bytedance.sdk.component.utils.k.c()) {
+                com.bytedance.sdk.component.utils.k.c("AdEvent", str + " " + mVar.ak());
             }
         }
     }
@@ -841,8 +841,8 @@ public class d {
                 }
             }
             com.bytedance.sdk.openadsdk.core.o.c().a(com.bytedance.sdk.openadsdk.e.a.a(str, str2, str3, j, j2, jSONObject));
-            if (com.bytedance.sdk.component.utils.j.c()) {
-                com.bytedance.sdk.component.utils.j.c("AdEvent", "sendJsAdEvent");
+            if (com.bytedance.sdk.component.utils.k.c()) {
+                com.bytedance.sdk.component.utils.k.c("AdEvent", "sendJsAdEvent");
             }
         }
     }
@@ -858,8 +858,8 @@ public class d {
         } catch (JSONException unused) {
         }
         com.bytedance.sdk.openadsdk.core.o.c().a(com.bytedance.sdk.openadsdk.e.a.a(context, str, str2, mVar.ak(), jSONObject));
-        if (com.bytedance.sdk.component.utils.j.c()) {
-            com.bytedance.sdk.component.utils.j.c("AdEvent", "tag: " + str + "label: " + str2 + " " + mVar.ak());
+        if (com.bytedance.sdk.component.utils.k.c()) {
+            com.bytedance.sdk.component.utils.k.c("AdEvent", "tag: " + str + "label: " + str2 + " " + mVar.ak());
         }
     }
 
@@ -874,21 +874,28 @@ public class d {
                         jSONObject.put(entry.getKey(), entry.getValue());
                     }
                 } catch (Throwable th) {
-                    com.bytedance.sdk.component.utils.j.b(th.toString());
+                    com.bytedance.sdk.component.utils.k.c(th.toString());
                 }
             }
             jSONObject2.put("ad_extra_data", jSONObject.toString());
-            e(context, mVar, str, str2, jSONObject2);
+            c(context, mVar, str, str2, jSONObject2);
         }
     }
 
     public static void c(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65576, null, context, mVar, str, str2, jSONObject) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
+        if (!(interceptable == null || interceptable.invokeLLLLL(65576, null, context, mVar, str, str2, jSONObject) == null) || mVar == null) {
+            return;
+        }
+        if (jSONObject != null) {
+            try {
+                jSONObject.putOpt("log_extra", mVar.ao());
+            } catch (JSONException unused) {
             }
-            e(context, mVar, str, str2, jSONObject);
+        }
+        com.bytedance.sdk.openadsdk.core.o.c().a(com.bytedance.sdk.openadsdk.e.a.a(context, str, str2, mVar.ak(), jSONObject));
+        if (com.bytedance.sdk.component.utils.k.c()) {
+            com.bytedance.sdk.component.utils.k.c("AdEvent", "tag: " + str + "label: " + str2 + " " + mVar.ak());
         }
     }
 
@@ -911,6 +918,23 @@ public class d {
     public static void d(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65578, null, context, mVar, str, str2, map) == null) {
+            e(context, mVar, str, str2, map);
+        }
+    }
+
+    public static void d(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65579, null, context, mVar, str, str2, jSONObject) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            c(context, mVar, str, str2, jSONObject);
+        }
+    }
+
+    public static void e(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65580, null, context, mVar, str, str2, map) == null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             if (map != null) {
@@ -919,39 +943,34 @@ public class d {
                         jSONObject.put(entry.getKey(), entry.getValue());
                     }
                 } catch (Throwable th) {
-                    com.bytedance.sdk.component.utils.j.b(th.toString());
+                    com.bytedance.sdk.component.utils.k.c(th.toString());
                 }
             }
             jSONObject2.put("ad_extra_data", jSONObject.toString());
-            e(context, mVar, str, str2, jSONObject2);
-        }
-    }
-
-    public static void e(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65580, null, context, mVar, str, str2, map) == null) {
-            f(context, mVar, str, str2, map);
-        }
-    }
-
-    public static void e(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65581, null, context, mVar, str, str2, jSONObject) == null) || mVar == null) {
-            return;
-        }
-        if (jSONObject != null) {
-            try {
-                jSONObject.putOpt("log_extra", mVar.ao());
-            } catch (JSONException unused) {
-            }
-        }
-        com.bytedance.sdk.openadsdk.core.o.c().a(com.bytedance.sdk.openadsdk.e.a.a(context, str, str2, mVar.ak(), jSONObject));
-        if (com.bytedance.sdk.component.utils.j.c()) {
-            com.bytedance.sdk.component.utils.j.c("AdEvent", "tag: " + str + "label: " + str2 + " " + mVar.ak());
+            c(context, mVar, str, str2, jSONObject2);
         }
     }
 
     public static void f(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65581, null, context, mVar, str, str2, map) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            if (map != null) {
+                try {
+                    for (Map.Entry<String, Object> entry : map.entrySet()) {
+                        jSONObject2.put(entry.getKey(), entry.getValue());
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            jSONObject.put("ad_extra_data", jSONObject2.toString());
+            c(context, mVar, str, str2, jSONObject);
+        }
+    }
+
+    public static void g(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65582, null, context, mVar, str, str2, map) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -959,25 +978,6 @@ public class d {
             if (map != null) {
                 try {
                     for (Map.Entry<String, Object> entry : map.entrySet()) {
-                        jSONObject.put(entry.getKey(), entry.getValue());
-                    }
-                } catch (Throwable th) {
-                    com.bytedance.sdk.component.utils.j.b(th.toString());
-                }
-            }
-            jSONObject2.put("ad_extra_data", jSONObject.toString());
-            e(context, mVar, str, str2, jSONObject2);
-        }
-    }
-
-    public static void g(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65583, null, context, mVar, str, str2, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            if (map != null) {
-                try {
-                    for (Map.Entry<String, Object> entry : map.entrySet()) {
                         jSONObject2.put(entry.getKey(), entry.getValue());
                     }
                 } catch (JSONException e2) {
@@ -985,30 +985,48 @@ public class d {
                 }
             }
             jSONObject.put("ad_extra_data", jSONObject2.toString());
-            e(context, mVar, str, str2, jSONObject);
+            c(context, mVar, str, str2, jSONObject);
         }
     }
 
     public static void h(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65584, null, context, mVar, str, str2, map) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65583, null, context, mVar, str, str2, map) == null) {
             JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            if (map != null) {
-                try {
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                if (map != null) {
                     for (Map.Entry<String, Object> entry : map.entrySet()) {
                         jSONObject2.put(entry.getKey(), entry.getValue());
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
                 }
+                jSONObject.put("ad_extra_data", jSONObject2.toString());
+            } catch (Exception unused) {
             }
-            jSONObject.put("ad_extra_data", jSONObject2.toString());
-            e(context, mVar, str, str2, jSONObject);
+            c(context, mVar, str, str2, jSONObject);
         }
     }
 
     public static void i(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65584, null, context, mVar, str, str2, map) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(TiebaStatic.Params.REFER, str2);
+                if (map != null) {
+                    for (Map.Entry<String, Object> entry : map.entrySet()) {
+                        jSONObject2.put(entry.getKey(), entry.getValue());
+                    }
+                }
+                jSONObject.put("ad_extra_data", jSONObject2.toString());
+            } catch (Throwable unused) {
+            }
+            c(context, mVar, str, "click_open", jSONObject);
+        }
+    }
+
+    public static void j(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65585, null, context, mVar, str, str2, map) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -1022,44 +1040,7 @@ public class d {
                 jSONObject.put("ad_extra_data", jSONObject2.toString());
             } catch (Exception unused) {
             }
-            e(context, mVar, str, str2, jSONObject);
-        }
-    }
-
-    public static void j(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65586, null, context, mVar, str, str2, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(TiebaStatic.Params.REFER, str2);
-                if (map != null) {
-                    for (Map.Entry<String, Object> entry : map.entrySet()) {
-                        jSONObject2.put(entry.getKey(), entry.getValue());
-                    }
-                }
-                jSONObject.put("ad_extra_data", jSONObject2.toString());
-            } catch (Throwable unused) {
-            }
-            e(context, mVar, str, "click_open", jSONObject);
-        }
-    }
-
-    public static void k(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65587, null, context, mVar, str, str2, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                if (map != null) {
-                    for (Map.Entry<String, Object> entry : map.entrySet()) {
-                        jSONObject2.put(entry.getKey(), entry.getValue());
-                    }
-                }
-                jSONObject.put("ad_extra_data", jSONObject2.toString());
-            } catch (Exception unused) {
-            }
-            e(context, mVar, str, str2, jSONObject);
+            c(context, mVar, str, str2, jSONObject);
         }
     }
 
@@ -1072,13 +1053,13 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, str, jSONObject, mVar) == null) {
                 try {
-                    String a2 = com.bytedance.sdk.openadsdk.r.o.a(mVar);
+                    String a2 = com.bytedance.sdk.openadsdk.q.q.a(mVar);
                     if (a2 == null) {
                         return;
                     }
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("ad_extra_data", jSONObject.toString());
-                    d.e(com.bytedance.sdk.openadsdk.core.o.a(), mVar, a2 + "_landingpage", str, jSONObject2);
+                    d.c(com.bytedance.sdk.openadsdk.core.o.a(), mVar, a2 + "_landingpage", str, jSONObject2);
                 } catch (Throwable th) {
                     Log.d("AdEvent", "Gecko.loadEvent error", th);
                 }
@@ -1089,7 +1070,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(65536, null, i2, i3, mVar) == null) {
                 try {
-                    String a2 = com.bytedance.sdk.openadsdk.r.o.a(mVar);
+                    String a2 = com.bytedance.sdk.openadsdk.q.q.a(mVar);
                     if (a2 == null) {
                         return;
                     }
@@ -1098,7 +1079,7 @@ public class d {
                     jSONObject.put("hit_times", i2);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("ad_extra_data", jSONObject.toString());
-                    d.e(com.bytedance.sdk.openadsdk.core.o.a(), mVar, a2 + "_landingpage", "local_res_hit_rate", jSONObject2);
+                    d.c(com.bytedance.sdk.openadsdk.core.o.a(), mVar, a2 + "_landingpage", "local_res_hit_rate", jSONObject2);
                 } catch (Throwable th) {
                     Log.d("AdEvent", "Gecko.localResHitRate error", th);
                 }

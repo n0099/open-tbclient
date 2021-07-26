@@ -4,34 +4,42 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.win.opensdk.image.gif2.GifImageView;
 /* loaded from: classes6.dex */
-public class t0 {
+public class t0 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39661a;
+    public final /* synthetic */ GifImageView f39945a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public byte[] f39662b;
-
-    public t0(int i2, byte[] bArr, Map map) {
+    public t0(GifImageView gifImageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bArr, map};
+            Object[] objArr = {gifImageView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39661a = i2;
-        this.f39662b = bArr;
+        this.f39945a = gifImageView;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GifImageView gifImageView = this.f39945a;
+            gifImageView.f39835b = null;
+            gifImageView.f39834a = null;
+            gifImageView.f39840g = null;
+            gifImageView.f39839f = false;
+        }
     }
 }

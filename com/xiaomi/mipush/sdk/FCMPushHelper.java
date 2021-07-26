@@ -33,7 +33,7 @@ public class FCMPushHelper {
     public static void clearToken(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            i.m131a(context, e.f39802b);
+            i.m131a(context, e.f40074b);
         }
     }
 
@@ -47,7 +47,7 @@ public class FCMPushHelper {
     public static boolean isFCMSwitchOpen(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m133a(context, e.f39802b) && MiPushClient.getOpenFCMPush(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m133a(context, e.f40074b) && MiPushClient.getOpenFCMPush(context) : invokeL.booleanValue;
     }
 
     public static void notifyFCMNotificationCome(Context context, Map<String, String> map) {
@@ -77,14 +77,14 @@ public class FCMPushHelper {
     public static void reportFCMMessageDelete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            MiTinyDataClient.upload(i.b(e.f39802b), "fcm", 1L, "some fcm messages was deleted ");
+            MiTinyDataClient.upload(i.b(e.f40074b), "fcm", 1L, "some fcm messages was deleted ");
         }
     }
 
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
-            i.a(context, e.f39802b, str);
+            i.a(context, e.f40074b, str);
         }
     }
 }

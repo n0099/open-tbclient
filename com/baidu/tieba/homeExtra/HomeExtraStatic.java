@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.m3.c;
+import d.a.q0.m3.c;
 /* loaded from: classes4.dex */
 public class HomeExtraStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class HomeExtraStatic {
         public CustomResponsedMessage<c.a> run(CustomMessage<c.a> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2156671, new d.a.p0.d1.d.a()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2156671, new d.a.q0.d1.d.a()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -58,7 +58,7 @@ public class HomeExtraStatic {
                 return;
             }
         }
-        MessageManager.getInstance().registerTask(new d.a.p0.d1.a());
+        MessageManager.getInstance().registerTask(new d.a.q0.d1.a());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001407, Boolean.TRUE));
         CustomMessageTask customMessageTask = new CustomMessageTask(2156671, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

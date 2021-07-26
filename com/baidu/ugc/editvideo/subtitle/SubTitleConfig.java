@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import d.a.v0.b;
-import d.a.v0.t.g;
+import d.a.w0.b;
+import d.a.w0.t.g;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */

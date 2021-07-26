@@ -13,7 +13,7 @@ public class FaceEnum {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FaceType {
         public static final /* synthetic */ FaceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ImageType {
         public static final /* synthetic */ ImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -141,7 +141,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LivenessControl {
         public static final /* synthetic */ LivenessControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -48,29 +48,29 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f10323b;
+    public static Context f10349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f10324c;
+    public static boolean f10350c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<Integer> f10325d;
+    public static List<Integer> f10351d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f10326f;
+    public static c f10352f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f10327g;
+    public static int f10353g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.sofire.h.a f10328a;
+    public com.baidu.sofire.h.a f10354a;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f10329e;
+    public volatile boolean f10355e;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.sofire.a.a f10330h;
+    public com.baidu.sofire.a.a f10356h;
 
     static {
         InterceptResult invokeClinit;
@@ -85,7 +85,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 return;
             }
         }
-        f10325d = new ArrayList();
+        f10351d = new ArrayList();
     }
 
     public c(Context context) {
@@ -103,13 +103,13 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 return;
             }
         }
-        this.f10329e = false;
+        this.f10355e = false;
         Context applicationContext = context.getApplicationContext();
-        f10323b = applicationContext;
-        this.f10330h = com.baidu.sofire.a.a.a(applicationContext);
-        com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(f10323b);
-        this.f10328a = a2;
-        SharedPreferences sharedPreferences = a2.f10412c;
+        f10349b = applicationContext;
+        this.f10356h = com.baidu.sofire.a.a.a(applicationContext);
+        com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(f10349b);
+        this.f10354a = a2;
+        SharedPreferences sharedPreferences = a2.f10438c;
         if (sharedPreferences != null) {
             sharedPreferences.registerOnSharedPreferenceChangeListener(this);
         }
@@ -121,23 +121,23 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
                 try {
-                    if (this.f10329e) {
+                    if (this.f10355e) {
                         return;
                     }
-                    this.f10329e = true;
-                    s.a(f10323b);
-                    com.baidu.sofire.utility.c.n(f10323b);
-                    this.f10328a.a(true);
-                    com.baidu.sofire.j.a.a().a(f10323b, null);
-                    JSONObject o = com.baidu.sofire.utility.c.o(f10323b);
-                    com.baidu.sofire.utility.c.d(f10323b);
-                    com.baidu.sofire.h.a aVar = this.f10328a;
-                    aVar.f10411b.putString("ssv", "3.5.8.7");
-                    aVar.f10411b.commit();
-                    Report.getInstance(f10323b).n();
-                    for (ApkInfo apkInfo : this.f10330h.a()) {
+                    this.f10355e = true;
+                    s.a(f10349b);
+                    com.baidu.sofire.utility.c.n(f10349b);
+                    this.f10354a.a(true);
+                    com.baidu.sofire.j.a.a().a(f10349b, null);
+                    JSONObject o = com.baidu.sofire.utility.c.o(f10349b);
+                    com.baidu.sofire.utility.c.d(f10349b);
+                    com.baidu.sofire.h.a aVar = this.f10354a;
+                    aVar.f10437b.putString("ssv", "3.5.8.7");
+                    aVar.f10437b.commit();
+                    Report.getInstance(f10349b).n();
+                    for (ApkInfo apkInfo : this.f10356h.a()) {
                         try {
-                            str = f10323b.getFilesDir().getCanonicalPath();
+                            str = f10349b.getFilesDir().getCanonicalPath();
                         } catch (IOException unused) {
                             com.baidu.sofire.utility.c.a();
                             str = null;
@@ -150,18 +150,18 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                             com.baidu.sofire.utility.c.d(sb.toString());
                         }
                     }
-                    this.f10330h.d();
-                    if (!this.f10328a.f10410a.getBoolean("iio", false)) {
-                        com.baidu.sofire.h.a aVar2 = this.f10328a;
-                        aVar2.f10411b.putBoolean("iio", true);
-                        aVar2.f10411b.commit();
+                    this.f10356h.d();
+                    if (!this.f10354a.f10436a.getBoolean("iio", false)) {
+                        com.baidu.sofire.h.a aVar2 = this.f10354a;
+                        aVar2.f10437b.putBoolean("iio", true);
+                        aVar2.f10437b.commit();
                     } else {
-                        com.baidu.sofire.a.a aVar3 = this.f10330h;
+                        com.baidu.sofire.a.a aVar3 = this.f10356h;
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("n", (Integer) 0);
-                        aVar3.f10259c.update("pgn", contentValues, "n=-1", null);
+                        aVar3.f10285c.update("pgn", contentValues, "n=-1", null);
                     }
-                    x.a(f10323b).b(new U(f10323b, 1, false, o));
+                    x.a(f10349b).b(new U(f10349b, 1, false, o));
                 } catch (Throwable unused2) {
                     com.baidu.sofire.utility.c.a();
                 }
@@ -173,9 +173,9 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
-                List<ApkInfo> a2 = this.f10330h.a();
-                List<Integer> q = this.f10328a.q();
-                List<Integer> p = this.f10328a.p();
+                List<ApkInfo> a2 = this.f10356h.a();
+                List<Integer> q = this.f10354a.q();
+                List<Integer> p = this.f10354a.p();
                 for (int i2 = 0; i2 < p.size(); i2++) {
                     if (!q.contains(p.get(i2))) {
                         q.add(p.get(i2));
@@ -186,10 +186,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ List f10331a;
+                    public final /* synthetic */ List f10357a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ c f10332b;
+                    public final /* synthetic */ c f10358b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -206,8 +206,8 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                 return;
                             }
                         }
-                        this.f10332b = this;
-                        this.f10331a = q;
+                        this.f10358b = this;
+                        this.f10357a = q;
                     }
 
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
@@ -222,10 +222,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                 if (i3 > i4) {
                                     return 1;
                                 }
-                                List list = this.f10331a;
-                                int indexOf = (list == null || !list.contains(Integer.valueOf(apkInfo3.key))) ? -1 : this.f10331a.indexOf(Integer.valueOf(apkInfo3.key));
-                                List list2 = this.f10331a;
-                                int indexOf2 = (list2 == null || !list2.contains(Integer.valueOf(apkInfo4.key))) ? -1 : this.f10331a.indexOf(Integer.valueOf(apkInfo4.key));
+                                List list = this.f10357a;
+                                int indexOf = (list == null || !list.contains(Integer.valueOf(apkInfo3.key))) ? -1 : this.f10357a.indexOf(Integer.valueOf(apkInfo3.key));
+                                List list2 = this.f10357a;
+                                int indexOf2 = (list2 == null || !list2.contains(Integer.valueOf(apkInfo4.key))) ? -1 : this.f10357a.indexOf(Integer.valueOf(apkInfo4.key));
                                 if (indexOf == -1 || indexOf2 != -1) {
                                     if ((indexOf != -1 || indexOf2 == -1) && indexOf <= indexOf2) {
                                         return indexOf < indexOf2 ? -1 : 0;
@@ -242,9 +242,9 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 for (ApkInfo apkInfo : a2) {
                     f a3 = f.a();
                     if ((a3 != null ? a3.d(apkInfo.packageName) : null) == null) {
-                        boolean z = this.f10330h.g(apkInfo.key) != 3;
-                        if (this.f10328a.b() && z) {
-                            File file = new File(f10323b.getFilesDir(), ".b");
+                        boolean z = this.f10356h.g(apkInfo.key) != 3;
+                        if (this.f10354a.b() && z) {
+                            File file = new File(f10349b.getFilesDir(), ".b");
                             if (!file.exists()) {
                                 file.mkdir();
                             }
@@ -253,9 +253,9 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                             if (!com.baidu.sofire.utility.c.a(file3)) {
                                 com.baidu.sofire.utility.c.a(file2, file3);
                             }
-                            com.baidu.sofire.c.a(f10323b, apkInfo.key, file2, file3);
+                            com.baidu.sofire.c.a(f10349b, apkInfo.key, file2, file3);
                         } else {
-                            File file4 = new File(f10323b.getFilesDir(), ".b");
+                            File file4 = new File(f10349b.getFilesDir(), ".b");
                             if (file4.exists()) {
                                 File file5 = new File(file4, apkInfo.key + "-" + apkInfo.versionName);
                                 if (com.baidu.sofire.utility.c.a(file5)) {
@@ -281,10 +281,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         }
         try {
             if (str.equals("xytk")) {
-                d.f10339a = this.f10328a.E();
+                d.f10365a = this.f10354a.E();
             }
             if (str.equals("xyus")) {
-                this.f10328a.k();
+                this.f10354a.k();
             }
         } catch (Throwable unused) {
             com.baidu.sofire.utility.c.a();
@@ -294,7 +294,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f10326f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f10352f : (c) invokeV.objValue;
     }
 
     public static synchronized c a(Context context) {
@@ -303,10 +303,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (c.class) {
-                if (f10326f == null) {
-                    f10326f = new c(context.getApplicationContext());
+                if (f10352f == null) {
+                    f10352f = new c(context.getApplicationContext());
                 }
-                cVar = f10326f;
+                cVar = f10352f;
             }
             return cVar;
         }
@@ -369,7 +369,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                             packageInfo.activities = (ActivityInfo[]) arrayList.toArray(new ActivityInfo[arrayList.size()]);
                         }
                     }
-                    if (com.baidu.sofire.utility.c.f10495h != null && (apkInfo = com.baidu.sofire.utility.c.f10495h.get(Integer.valueOf(optInt2))) != null && packageInfo != null && !TextUtils.isEmpty(packageInfo.packageName)) {
+                    if (com.baidu.sofire.utility.c.f10521h != null && (apkInfo = com.baidu.sofire.utility.c.f10521h.get(Integer.valueOf(optInt2))) != null && packageInfo != null && !TextUtils.isEmpty(packageInfo.packageName)) {
                         try {
                             a(apkInfo.key, apkInfo.versionName, apkInfo.apkMD5, packageInfo);
                         } catch (Throwable unused2) {
@@ -379,9 +379,9 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                     }
                 }
             }
-            if (com.baidu.sofire.utility.c.f10495h != null) {
-                com.baidu.sofire.utility.c.f10495h.clear();
-                com.baidu.sofire.utility.c.f10495h = null;
+            if (com.baidu.sofire.utility.c.f10521h != null) {
+                com.baidu.sofire.utility.c.f10521h.clear();
+                com.baidu.sofire.utility.c.f10521h = null;
             }
         } catch (Throwable unused3) {
         }
@@ -397,7 +397,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                     return;
                 }
                 Class<?> a3 = ((e) d2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                Object invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, f10323b);
+                Object invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, f10349b);
                 if (invoke == null) {
                     return;
                 }
@@ -412,9 +412,9 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.f10330h.d();
-            this.f10329e = true;
-            return a(f10323b, str);
+            this.f10356h.d();
+            this.f10355e = true;
+            return a(f10349b, str);
         }
         return invokeL.booleanValue;
     }
@@ -435,14 +435,14 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             return;
         }
         try {
-            ApkInfo a2 = this.f10330h.a(i2);
+            ApkInfo a2 = this.f10356h.a(i2);
             if (a2 != null) {
                 if (!com.baidu.sofire.utility.c.b(str, a2.versionName)) {
                     return;
                 }
-                ApkInfo a3 = this.f10330h.a(i2);
+                ApkInfo a3 = this.f10356h.a(i2);
                 if (a3 != null) {
-                    this.f10330h.h(i2);
+                    this.f10356h.h(i2);
                     File file = new File(a3.pkgPath);
                     if (file.exists()) {
                         com.baidu.sofire.c.a(file);
@@ -459,7 +459,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             if (TextUtils.isEmpty(str)) {
                 fileOutputStream = null;
             } else {
-                File file3 = new File(f10323b.getFilesDir(), ".tmp");
+                File file3 = new File(f10349b.getFilesDir(), ".tmp");
                 if (!file3.exists()) {
                     file3.mkdir();
                 }
@@ -467,7 +467,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 try {
                     fileOutputStream = new FileOutputStream(file4);
                     try {
-                        inputStream2 = f10323b.getAssets().open(String.valueOf(i2));
+                        inputStream2 = f10349b.getAssets().open(String.valueOf(i2));
                         byte[] bArr = new byte[8192];
                         while (true) {
                             int read = inputStream2.read(bArr);
@@ -484,12 +484,12 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                             ApkInfo apkInfo = new ApkInfo(i2, str, file4.getAbsolutePath());
                             apkInfo.apkMD5 = a4;
                             apkInfo.priority = 1;
-                            this.f10330h.a(apkInfo);
-                            if (this.f10330h.g(i2) != 3) {
+                            this.f10356h.a(apkInfo);
+                            if (this.f10356h.g(i2) != 3) {
                                 z = true;
                             }
-                            if (this.f10328a.b() && z) {
-                                File file5 = new File(f10323b.getFilesDir(), ".b");
+                            if (this.f10354a.b() && z) {
+                                File file5 = new File(f10349b.getFilesDir(), ".b");
                                 if (!file5.exists()) {
                                     file5.mkdir();
                                 }
@@ -497,9 +497,9 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                 if (!com.baidu.sofire.utility.c.a(file6)) {
                                     com.baidu.sofire.utility.c.a(file4, file6);
                                 }
-                                com.baidu.sofire.c.a(f10323b, i2, file4, file6);
+                                com.baidu.sofire.c.a(f10349b, i2, file4, file6);
                             } else {
-                                File file7 = new File(f10323b.getFilesDir(), ".b");
+                                File file7 = new File(f10349b.getFilesDir(), ".b");
                                 if (file7.exists()) {
                                     File file8 = new File(file7, i2 + "-" + str);
                                     if (com.baidu.sofire.utility.c.a(file8)) {
@@ -539,7 +539,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                 return;
                             }
                             com.baidu.sofire.c.a(file2);
-                            this.f10330h.h(i2);
+                            this.f10356h.h(i2);
                             file2.delete();
                             if (inputStream != null) {
                                 try {
@@ -576,13 +576,13 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                     fileOutputStream = null;
                 }
             }
-            ApkInfo a5 = this.f10330h.a(i2);
+            ApkInfo a5 = this.f10356h.a(i2);
             if (a5 != null && com.baidu.sofire.utility.c.c(a5.pkgPath)) {
                 if (a(i2, str, packageInfo)) {
-                    f10325d.add(Integer.valueOf(i2));
-                    com.baidu.sofire.h.a aVar = this.f10328a;
-                    aVar.f10411b.putString("g_l_l_p_v_" + i2, str);
-                    aVar.f10411b.commit();
+                    f10351d.add(Integer.valueOf(i2));
+                    com.baidu.sofire.h.a aVar = this.f10354a;
+                    aVar.f10437b.putString("g_l_l_p_v_" + i2, str);
+                    aVar.f10437b.commit();
                 }
                 if (inputStream2 != null) {
                     try {
@@ -634,7 +634,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             synchronized (this) {
                 if (z) {
                     try {
-                        if (this.f10330h.c(i2) != 1) {
+                        if (this.f10356h.c(i2) != 1) {
                             return false;
                         }
                     } catch (Throwable unused) {
@@ -642,50 +642,50 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         return false;
                     }
                 }
-                ApkInfo a2 = this.f10330h.a(i2);
+                ApkInfo a2 = this.f10356h.a(i2);
                 if (a2 == null) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("0", 1);
                     hashMap.put("1", String.valueOf(i2));
                     hashMap.put("2", str);
                     if (!z) {
-                        com.baidu.sofire.utility.c.a(f10323b, "1003105", (Map<String, Object>) hashMap, false);
+                        com.baidu.sofire.utility.c.a(f10349b, "1003105", (Map<String, Object>) hashMap, false);
                     }
                     return false;
                 } else if (!com.baidu.sofire.utility.c.a(new File(a2.pkgPath))) {
-                    this.f10330h.f(i2);
+                    this.f10356h.f(i2);
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("0", 3);
                     hashMap2.put("1", String.valueOf(i2));
                     hashMap2.put("2", str);
                     if (!z) {
-                        com.baidu.sofire.utility.c.a(f10323b, "1003105", (Map<String, Object>) hashMap2, false);
+                        com.baidu.sofire.utility.c.a(f10349b, "1003105", (Map<String, Object>) hashMap2, false);
                     }
                     return false;
                 } else {
                     if (packageInfo != null) {
                         a2.cloudPkgInfo = packageInfo;
                     }
-                    f a3 = f.a(f10323b.getApplicationContext());
+                    f a3 = f.a(f10349b.getApplicationContext());
                     if (!a3.a(a2, false)) {
-                        this.f10330h.f(i2);
+                        this.f10356h.f(i2);
                         a3.a(a2.pkgPath);
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("0", 4);
                         hashMap3.put("1", String.valueOf(i2));
                         hashMap3.put("2", str);
                         if (!z) {
-                            com.baidu.sofire.utility.c.a(f10323b, "1003105", (Map<String, Object>) hashMap3, false);
+                            com.baidu.sofire.utility.c.a(f10349b, "1003105", (Map<String, Object>) hashMap3, false);
                         }
                         return false;
                     }
-                    String[] g2 = com.baidu.sofire.utility.c.g(f10323b);
+                    String[] g2 = com.baidu.sofire.utility.c.g(f10349b);
                     if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
                         str2 = g2[0];
                         str3 = g2[1];
                     } else {
-                        str2 = com.baidu.sofire.utility.c.f10492e;
-                        str3 = com.baidu.sofire.utility.c.f10493f;
+                        str2 = com.baidu.sofire.utility.c.f10518e;
+                        str3 = com.baidu.sofire.utility.c.f10519f;
                     }
                     ApkInfo c2 = a3.c(a2.pkgPath);
                     e eVar = (e) c2.classLoader;
@@ -698,12 +698,12 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         hashMap4.put("2", str);
                         hashMap4.put("3", Base64.encodeToString(("classloader=" + eVar + ",StringClass=" + a5).getBytes(), 0).replace("\n", "").replace(TrackUI.SEPERATOR, "").replace("\r", ""));
                         if (!z) {
-                            com.baidu.sofire.utility.c.a(f10323b, "1003105", (Map<String, Object>) hashMap4, false);
+                            com.baidu.sofire.utility.c.a(f10349b, "1003105", (Map<String, Object>) hashMap4, false);
                         }
-                        this.f10330h.f(i2);
+                        this.f10356h.f(i2);
                         return false;
                     }
-                    Object invoke = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, f10323b);
+                    Object invoke = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, f10349b);
                     try {
                         com.baidu.sofire.utility.c.a(invoke, "setSecurityVerifyInfo", new Class[]{String.class, String.class}, str2, str3);
                     } catch (Throwable unused2) {
@@ -715,27 +715,27 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         hashMap5.put("1", String.valueOf(i2));
                         hashMap5.put("2", str);
                         if (!z) {
-                            com.baidu.sofire.utility.c.a(f10323b, "1003105", (Map<String, Object>) hashMap5, false);
+                            com.baidu.sofire.utility.c.a(f10349b, "1003105", (Map<String, Object>) hashMap5, false);
                         }
-                        this.f10330h.f(i2);
+                        this.f10356h.f(i2);
                         a3.a(c2.pkgPath);
                         return false;
                     }
                     c2.initStatus = 1;
                     c2.apkParseSuc = 1;
-                    this.f10330h.a(c2);
-                    int g3 = this.f10330h.g(c2.key);
+                    this.f10356h.a(c2);
+                    int g3 = this.f10356h.g(c2.key);
                     if (g3 < 3 && g3 != -1) {
-                        this.f10330h.b(c2.key, g3 + 1);
+                        this.f10356h.b(c2.key, g3 + 1);
                     }
                     HashMap hashMap6 = new HashMap();
                     hashMap6.put("0", 0);
                     hashMap6.put("1", Integer.valueOf(i2));
                     hashMap6.put("2", str);
                     if (!z) {
-                        com.baidu.sofire.utility.c.a(f10323b, "1003105", (Map<String, Object>) hashMap6, false);
+                        com.baidu.sofire.utility.c.a(f10349b, "1003105", (Map<String, Object>) hashMap6, false);
                     }
-                    com.baidu.sofire.utility.c.c(f10323b);
+                    com.baidu.sofire.utility.c.c(f10349b);
                     return true;
                 }
             }
@@ -747,7 +747,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             try {
-                this.f10330h.a(str);
+                this.f10356h.a(str);
                 File file = new File(str2);
                 if (file.exists()) {
                     com.baidu.sofire.c.a(file);
@@ -853,16 +853,16 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             sb2.append(" - ");
             sb2.append(str);
             hashMap.put("3", Base64.encodeToString(sb2.toString().getBytes(), 0).replace("\n", "").replace(TrackUI.SEPERATOR, "").replace("\r", ""));
-            com.baidu.sofire.utility.c.a(f10323b, "1003106", (Map<String, Object>) hashMap, false);
+            com.baidu.sofire.utility.c.a(f10349b, "1003106", (Map<String, Object>) hashMap, false);
             return false;
         }
-        if (!this.f10330h.b(apkInfo2.key)) {
-            this.f10330h.a(apkInfo2);
+        if (!this.f10356h.b(apkInfo2.key)) {
+            this.f10356h.a(apkInfo2);
         }
-        f a3 = f.a(f10323b.getApplicationContext());
+        f a3 = f.a(f10349b.getApplicationContext());
         ?? r152 = 1;
         try {
-            this.f10330h.a(apkInfo2.key, 1);
+            this.f10356h.a(apkInfo2.key, 1);
             c(apkInfo2.packageName);
             a2 = a3.a(apkInfo2, true);
             try {
@@ -887,11 +887,11 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 try {
                     hashMap2.put(obj4, sb3.toString());
                     hashMap2.put("2", apkInfo2.versionName);
-                    com.baidu.sofire.utility.c.a(f10323b, "1003106", (Map<String, Object>) hashMap2, false);
+                    com.baidu.sofire.utility.c.a(f10349b, "1003106", (Map<String, Object>) hashMap2, false);
                     com.baidu.sofire.c.a(file2);
                     file2.delete();
                     a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
-                    this.f10330h.a(apkInfo2.key, 0);
+                    this.f10356h.a(apkInfo2.key, 0);
                     return false;
                 } catch (Throwable th5) {
                     th = th5;
@@ -907,7 +907,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         c(apkInfo2.packageName);
                         file2.delete();
                         a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
-                        this.f10330h.a(apkInfo2.key, 0);
+                        this.f10356h.a(apkInfo2.key, 0);
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put(obj2, 5);
                         StringBuilder sb4 = new StringBuilder();
@@ -915,7 +915,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         hashMap3.put(str2, sb4.toString());
                         hashMap3.put(r15, apkInfo2.versionName);
                         hashMap3.put(obj, Base64.encodeToString(com.baidu.sofire.b.a(th).getBytes(), 0).replace("\n", "").replace(TrackUI.SEPERATOR, "").replace(charSequence, ""));
-                        com.baidu.sofire.utility.c.a(f10323b, "1003106", (Map<String, Object>) hashMap3, false);
+                        com.baidu.sofire.utility.c.a(f10349b, "1003106", (Map<String, Object>) hashMap3, false);
                         return false;
                     } catch (Throwable unused) {
                         com.baidu.sofire.utility.c.a();
@@ -929,7 +929,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         } else {
             str2 = "1";
             r15 = "2";
-            String[] g2 = com.baidu.sofire.utility.c.g(f10323b);
+            String[] g2 = com.baidu.sofire.utility.c.g(f10349b);
             if (g2 == null) {
                 cls = String.class;
                 num = 0;
@@ -956,10 +956,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                             hashMap4.put(str2, sb5.toString());
                             hashMap4.put(r15, apkInfo2.versionName);
                             hashMap4.put("3", Base64.encodeToString(("classloader=" + eVar + ",StringClass=" + a5).getBytes(), 0).replace("\n", "").replace(TrackUI.SEPERATOR, "").replace("\r", ""));
-                            com.baidu.sofire.utility.c.a(f10323b, "1003106", (Map<String, Object>) hashMap4, false);
+                            com.baidu.sofire.utility.c.a(f10349b, "1003106", (Map<String, Object>) hashMap4, false);
                             com.baidu.sofire.c.a(file2);
                             file2.delete();
-                            this.f10330h.a(apkInfo2.key, 0);
+                            this.f10356h.a(apkInfo2.key, 0);
                             return false;
                         } catch (Throwable th7) {
                             th = th7;
@@ -970,7 +970,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         obj3 = "0";
                         obj = "3";
                         try {
-                            obj2 = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, f10323b);
+                            obj2 = a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, f10349b);
                             try {
                                 clsArr = new Class[]{cls, cls};
                                 charSequence = "\r";
@@ -994,26 +994,26 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                     c(apkInfo2.packageName);
                                     file2.delete();
                                     a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
-                                    this.f10330h.a(apkInfo2.key, 0);
+                                    this.f10356h.a(apkInfo2.key, 0);
                                     HashMap hashMap5 = new HashMap();
                                     hashMap5.put(obj3, 4);
                                     StringBuilder sb6 = new StringBuilder();
                                     sb6.append(apkInfo2.key);
                                     hashMap5.put(str2, sb6.toString());
                                     hashMap5.put(r15, apkInfo2.versionName);
-                                    com.baidu.sofire.utility.c.a(f10323b, "1003106", (Map<String, Object>) hashMap5, false);
+                                    com.baidu.sofire.utility.c.a(f10349b, "1003106", (Map<String, Object>) hashMap5, false);
                                     return false;
                                 }
                                 if (apkInfo2.isMem) {
                                     com.baidu.sofire.c.a(file2);
                                     file2.delete();
                                     com.baidu.sofire.utility.c.d(apkInfo2.dataDir);
-                                    if (f.f10364b != null) {
-                                        f.f10364b.add(Integer.valueOf(apkInfo2.key));
+                                    if (f.f10390b != null) {
+                                        f.f10390b.add(Integer.valueOf(apkInfo2.key));
                                     }
                                 }
                                 try {
-                                    ApkInfo a6 = this.f10330h.a(apkInfo2.key);
+                                    ApkInfo a6 = this.f10356h.a(apkInfo2.key);
                                     if (a6 == null || a6.versionName.equals(apkInfo2.versionName)) {
                                         i2 = 1;
                                         file = null;
@@ -1023,19 +1023,19 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                     }
                                     apkInfo2.initStatus = i2;
                                     apkInfo2.apkParseSuc = i2;
-                                    if (this.f10330h.a(apkInfo2) > 0 && file != null && file.exists()) {
+                                    if (this.f10356h.a(apkInfo2) > 0 && file != null && file.exists()) {
                                         com.baidu.sofire.c.a(file);
                                         file.delete();
                                     }
-                                    this.f10330h.a(apkInfo2.key, 0);
-                                    com.baidu.sofire.utility.c.c(f10323b);
+                                    this.f10356h.a(apkInfo2.key, 0);
+                                    com.baidu.sofire.utility.c.c(f10349b);
                                     HashMap hashMap6 = new HashMap();
                                     hashMap6.put(obj3, num);
                                     StringBuilder sb7 = new StringBuilder();
                                     sb7.append(apkInfo2.key);
                                     hashMap6.put(str2, sb7.toString());
                                     hashMap6.put(r15, apkInfo2.versionName);
-                                    com.baidu.sofire.utility.c.a(f10323b, "1003106", (Map<String, Object>) hashMap6, false);
+                                    com.baidu.sofire.utility.c.a(f10349b, "1003106", (Map<String, Object>) hashMap6, false);
                                     return true;
                                 } catch (Throwable unused4) {
                                     com.baidu.sofire.utility.c.a();
@@ -1054,7 +1054,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                     c(apkInfo2.packageName);
                     file2.delete();
                     a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
-                    this.f10330h.a(apkInfo2.key, 0);
+                    this.f10356h.a(apkInfo2.key, 0);
                     HashMap hashMap32 = new HashMap();
                     hashMap32.put(obj2, 5);
                     StringBuilder sb42 = new StringBuilder();
@@ -1062,12 +1062,12 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                     hashMap32.put(str2, sb42.toString());
                     hashMap32.put(r15, apkInfo2.versionName);
                     hashMap32.put(obj, Base64.encodeToString(com.baidu.sofire.b.a(th).getBytes(), 0).replace("\n", "").replace(TrackUI.SEPERATOR, "").replace(charSequence, ""));
-                    com.baidu.sofire.utility.c.a(f10323b, "1003106", (Map<String, Object>) hashMap32, false);
+                    com.baidu.sofire.utility.c.a(f10349b, "1003106", (Map<String, Object>) hashMap32, false);
                     return false;
                 }
             }
-            str4 = com.baidu.sofire.utility.c.f10492e;
-            str5 = com.baidu.sofire.utility.c.f10493f;
+            str4 = com.baidu.sofire.utility.c.f10518e;
+            str5 = com.baidu.sofire.utility.c.f10519f;
             apkInfo2 = a3.c(apkInfo2.pkgPath);
             if (apkInfo2 != null) {
             }
@@ -1087,13 +1087,13 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 hashMap.put("0", Integer.toString(i2));
                 hashMap.put("1", !TextUtils.isEmpty(str) ? str : " ");
                 hashMap.put("2", "0");
-                com.baidu.sofire.utility.c.a(f10323b, "1003136", (Map<String, Object>) hashMap, false);
+                com.baidu.sofire.utility.c.a(f10349b, "1003136", (Map<String, Object>) hashMap, false);
                 if (TextUtils.isEmpty(str)) {
                     if (callback != null) {
                         callback.onError(1);
                     }
                     hashMap.put("3", "11");
-                    com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, false);
+                    com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, false);
                     return;
                 }
                 int i3 = 18;
@@ -1110,7 +1110,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                 if (i3 != 0) {
                                     try {
                                         hashMap.put("3", Integer.toString(i3));
-                                        com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, false);
+                                        com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, false);
                                     } catch (Throwable unused2) {
                                     }
                                 }
@@ -1119,7 +1119,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         }
                         try {
                             hashMap.put("3", Integer.toString(16));
-                            com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, false);
+                            com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, false);
                             return;
                         } catch (Throwable unused3) {
                             return;
@@ -1138,7 +1138,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         }
                         try {
                             hashMap.put("3", Integer.toString(17));
-                            com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, false);
+                            com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, false);
                             return;
                         } catch (Throwable unused5) {
                             return;
@@ -1157,7 +1157,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         }
                         try {
                             hashMap.put("3", Integer.toString(14));
-                            com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, false);
+                            com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, false);
                             return;
                         } catch (Throwable unused7) {
                             return;
@@ -1176,7 +1176,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         }
                         try {
                             hashMap.put("3", Integer.toString(15));
-                            com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, false);
+                            com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, false);
                             return;
                         } catch (Throwable unused9) {
                             return;
@@ -1194,40 +1194,40 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         }
                         try {
                             hashMap.put("3", Integer.toString(18));
-                            com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, false);
+                            com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, false);
                             return;
                         } catch (Throwable unused11) {
                             return;
                         }
                     }
                 }
-                if (this.f10330h.d(i2)) {
+                if (this.f10356h.d(i2)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    while (this.f10330h.d(i2) && System.currentTimeMillis() - currentTimeMillis < 10000) {
+                    while (this.f10356h.d(i2) && System.currentTimeMillis() - currentTimeMillis < 10000) {
                         SystemClock.sleep(300L);
                     }
                 }
-                if (this.f10330h.d(i2)) {
+                if (this.f10356h.d(i2)) {
                     if (callback != null) {
                         callback.onError(3);
                     }
                     try {
                         hashMap.put("3", Integer.toString(12));
-                        com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, false);
+                        com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, false);
                         return;
                     } catch (Throwable unused12) {
                         return;
                     }
                 }
-                if (!this.f10329e) {
+                if (!this.f10355e) {
                     a(3);
                     b();
                 }
-                f a2 = f.a(f10323b.getApplicationContext());
+                f a2 = f.a(f10349b.getApplicationContext());
                 ApkInfo apkInfo = null;
                 long currentTimeMillis2 = System.currentTimeMillis();
                 while (System.currentTimeMillis() - currentTimeMillis2 <= 15000) {
-                    apkInfo = this.f10330h.a(i2);
+                    apkInfo = this.f10356h.a(i2);
                     if (apkInfo != null) {
                         if (a2.d(apkInfo.packageName) == null) {
                             if (apkInfo.initStatus == -1) {
@@ -1247,14 +1247,14 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                     }
                     try {
                         hashMap.put("3", Integer.toString(13));
-                        com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, false);
+                        com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, false);
                         return;
                     } catch (Throwable unused13) {
                         return;
                     }
                 }
                 Class<?> a3 = ((e) a2.d(apkInfo.packageName).classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                Object a4 = com.baidu.sofire.utility.c.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, f10323b), str, clsArr, objArr);
+                Object a4 = com.baidu.sofire.utility.c.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, f10349b), str, clsArr, objArr);
                 if (callback != null) {
                     callback.onEnd(a4);
                 }
@@ -1276,10 +1276,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             hashMap.put("0", Integer.toString(i2));
             hashMap.put("1", !TextUtils.isEmpty(str) ? str : " ");
             hashMap.put("2", "1");
-            com.baidu.sofire.utility.c.a(f10323b, "1003136", (Map<String, Object>) hashMap, true);
+            com.baidu.sofire.utility.c.a(f10349b, "1003136", (Map<String, Object>) hashMap, true);
             if (TextUtils.isEmpty(str)) {
                 hashMap.put("3", "1");
-                com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                 return new Pair<>(1, null);
             }
             int i3 = 10;
@@ -1289,19 +1289,19 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         try {
                             try {
                                 try {
-                                    if (this.f10330h.d(i2)) {
+                                    if (this.f10356h.d(i2)) {
                                         Pair<Integer, Object> pair = new Pair<>(3, null);
                                         try {
                                             hashMap.put("3", Integer.toString(2));
-                                            com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                                            com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                                         } catch (Throwable unused) {
                                         }
                                         return pair;
-                                    } else if (!this.f10329e) {
+                                    } else if (!this.f10355e) {
                                         Pair<Integer, Object> pair2 = new Pair<>(3, null);
                                         try {
                                             hashMap.put("3", Integer.toString(3));
-                                            com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                                            com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                                         } catch (Throwable unused2) {
                                         }
                                         return pair2;
@@ -1311,23 +1311,23 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                             Pair<Integer, Object> pair3 = new Pair<>(3, null);
                                             try {
                                                 hashMap.put("3", Integer.toString(4));
-                                                com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                                                com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                                             } catch (Throwable unused3) {
                                             }
                                             return pair3;
                                         }
-                                        ApkInfo a3 = this.f10330h.a(i2);
+                                        ApkInfo a3 = this.f10356h.a(i2);
                                         if (!((a3 == null || a2.d(a3.packageName) == null) ? false : true)) {
                                             Pair<Integer, Object> pair4 = new Pair<>(4, null);
                                             try {
                                                 hashMap.put("3", Integer.toString(5));
-                                                com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                                                com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                                             } catch (Throwable unused4) {
                                             }
                                             return pair4;
                                         }
                                         Class<?> a4 = ((e) a2.d(a3.packageName).classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                                        return new Pair<>(0, com.baidu.sofire.utility.c.a(a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, f10323b), str, clsArr, objArr));
+                                        return new Pair<>(0, com.baidu.sofire.utility.c.a(a4.getDeclaredMethod("getInstance", Context.class).invoke(a4, f10349b), str, clsArr, objArr));
                                     }
                                 } catch (Throwable th) {
                                     th = th;
@@ -1335,7 +1335,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                     if (i3 != 0) {
                                         try {
                                             hashMap.put("3", Integer.toString(i3));
-                                            com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                                            com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                                         } catch (Throwable unused5) {
                                         }
                                     }
@@ -1372,7 +1372,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 Pair<Integer, Object> pair5 = new Pair<>(2, null);
                 try {
                     hashMap.put("3", Integer.toString(8));
-                    com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                    com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                 } catch (Throwable unused7) {
                 }
                 return pair5;
@@ -1380,7 +1380,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 Pair<Integer, Object> pair6 = new Pair<>(2, null);
                 try {
                     hashMap.put("3", Integer.toString(9));
-                    com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                    com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                 } catch (Throwable unused9) {
                 }
                 return pair6;
@@ -1388,7 +1388,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 Pair<Integer, Object> pair7 = new Pair<>(2, null);
                 try {
                     hashMap.put("3", Integer.toString(6));
-                    com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                    com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                 } catch (Throwable unused11) {
                 }
                 return pair7;
@@ -1396,7 +1396,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 Pair<Integer, Object> pair8 = new Pair<>(2, null);
                 try {
                     hashMap.put("3", Integer.toString(7));
-                    com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                    com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                 } catch (Throwable unused13) {
                 }
                 return pair8;
@@ -1404,7 +1404,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 Pair<Integer, Object> pair9 = new Pair<>(3, null);
                 try {
                     hashMap.put("3", Integer.toString(10));
-                    com.baidu.sofire.utility.c.a(f10323b, "1003141", (Map<String, Object>) hashMap, true);
+                    com.baidu.sofire.utility.c.a(f10349b, "1003141", (Map<String, Object>) hashMap, true);
                 } catch (Throwable unused15) {
                 }
                 return pair9;
@@ -1417,15 +1417,15 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             try {
-                x.a(f10323b).a(new Runnable(this, str) { // from class: com.baidu.sofire.core.c.2
+                x.a(f10349b).a(new Runnable(this, str) { // from class: com.baidu.sofire.core.c.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f10333a;
+                    public final /* synthetic */ String f10359a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ c f10334b;
+                    public final /* synthetic */ c f10360b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1442,8 +1442,8 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                 return;
                             }
                         }
-                        this.f10334b = this;
-                        this.f10333a = str;
+                        this.f10360b = this;
+                        this.f10359a = str;
                     }
 
                     @Override // java.lang.Runnable
@@ -1452,17 +1452,17 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                if (TextUtils.isEmpty(this.f10333a) || (a2 = f.a(c.f10323b.getApplicationContext())) == null) {
+                                if (TextUtils.isEmpty(this.f10359a) || (a2 = f.a(c.f10349b.getApplicationContext())) == null) {
                                     return;
                                 }
-                                File file = new File(c.f10323b.getFilesDir(), ".b");
-                                ApkInfo d2 = a2.d(this.f10333a);
+                                File file = new File(c.f10349b.getFilesDir(), ".b");
+                                ApkInfo d2 = a2.d(this.f10359a);
                                 if (d2 == null) {
-                                    ApkInfo b2 = this.f10334b.f10330h.b(this.f10333a);
+                                    ApkInfo b2 = this.f10360b.f10356h.b(this.f10359a);
                                     if (b2 == null) {
                                         return;
                                     }
-                                    this.f10334b.a(this.f10333a, b2.pkgPath);
+                                    this.f10360b.a(this.f10359a, b2.pkgPath);
                                     if (file.exists()) {
                                         File file2 = new File(file, b2.key + "-" + b2.versionName);
                                         if (com.baidu.sofire.utility.c.a(file2)) {
@@ -1470,20 +1470,20 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                         }
                                     }
                                     if (b2 != null) {
-                                        String canonicalPath = c.f10323b.getFilesDir().getCanonicalPath();
+                                        String canonicalPath = c.f10349b.getFilesDir().getCanonicalPath();
                                         com.baidu.sofire.utility.c.d(canonicalPath + "/." + b2.key);
-                                        com.baidu.sofire.utility.c.d(c.f10323b.getFileStreamPath(b2.packageName).getAbsolutePath());
+                                        com.baidu.sofire.utility.c.d(c.f10349b.getFileStreamPath(b2.packageName).getAbsolutePath());
                                     }
-                                    String sb = new StringBuilder(this.f10333a).reverse().toString();
-                                    ApkInfo b3 = this.f10334b.f10330h.b(sb);
+                                    String sb = new StringBuilder(this.f10359a).reverse().toString();
+                                    ApkInfo b3 = this.f10360b.f10356h.b(sb);
                                     if (b3 != null) {
-                                        this.f10334b.a(sb, b3.pkgPath);
+                                        this.f10360b.a(sb, b3.pkgPath);
                                         return;
                                     }
                                     return;
                                 }
                                 Class<?> a3 = ((e) d2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                                Object invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, c.f10323b);
+                                Object invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, c.f10349b);
                                 if (invoke == null) {
                                     return;
                                 }
@@ -1492,16 +1492,16 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ f f10335a;
+                                    public final /* synthetic */ f f10361a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ ApkInfo f10336b;
+                                    public final /* synthetic */ ApkInfo f10362b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ File f10337c;
+                                    public final /* synthetic */ File f10363c;
 
                                     /* renamed from: d  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass2 f10338d;
+                                    public final /* synthetic */ AnonymousClass2 f10364d;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -1518,10 +1518,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                                 return;
                                             }
                                         }
-                                        this.f10338d = this;
-                                        this.f10335a = a2;
-                                        this.f10336b = d2;
-                                        this.f10337c = file;
+                                        this.f10364d = this;
+                                        this.f10361a = a2;
+                                        this.f10362b = d2;
+                                        this.f10363c = file;
                                     }
 
                                     @Override // java.util.TimerTask, java.lang.Runnable
@@ -1529,35 +1529,35 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                         ApkInfo d3;
                                         String str2;
                                         Interceptable interceptable3 = $ic;
-                                        if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (d3 = this.f10335a.d(this.f10338d.f10333a)) == null || (str2 = d3.versionName) == null || !str2.equals(this.f10336b.versionName)) {
+                                        if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (d3 = this.f10361a.d(this.f10364d.f10359a)) == null || (str2 = d3.versionName) == null || !str2.equals(this.f10362b.versionName)) {
                                             return;
                                         }
-                                        this.f10335a.b(this.f10338d.f10333a);
-                                        this.f10338d.f10334b.f10330h.a(this.f10338d.f10333a);
-                                        com.baidu.sofire.utility.c.c(c.f10323b);
-                                        File file3 = new File(this.f10336b.pkgPath);
+                                        this.f10361a.b(this.f10364d.f10359a);
+                                        this.f10364d.f10360b.f10356h.a(this.f10364d.f10359a);
+                                        com.baidu.sofire.utility.c.c(c.f10349b);
+                                        File file3 = new File(this.f10362b.pkgPath);
                                         if (file3.exists()) {
                                             com.baidu.sofire.c.a(file3);
                                             file3.delete();
                                         }
-                                        if (this.f10337c.exists()) {
-                                            File file4 = this.f10337c;
-                                            File file5 = new File(file4, this.f10336b.key + "-" + this.f10336b.versionName);
+                                        if (this.f10363c.exists()) {
+                                            File file4 = this.f10363c;
+                                            File file5 = new File(file4, this.f10362b.key + "-" + this.f10362b.versionName);
                                             if (com.baidu.sofire.utility.c.a(file5)) {
                                                 file5.delete();
                                             }
                                         }
-                                        String sb2 = new StringBuilder(this.f10338d.f10333a).reverse().toString();
-                                        ApkInfo b4 = this.f10338d.f10334b.f10330h.b(sb2);
+                                        String sb2 = new StringBuilder(this.f10364d.f10359a).reverse().toString();
+                                        ApkInfo b4 = this.f10364d.f10360b.f10356h.b(sb2);
                                         if (b4 != null) {
-                                            this.f10338d.f10334b.a(sb2, b4.pkgPath);
+                                            this.f10364d.f10360b.a(sb2, b4.pkgPath);
                                         }
                                     }
                                 }, TTAdConstant.AD_MAX_EVENT_TIME);
                                 com.baidu.sofire.utility.c.a(invoke, "unload", (Class<?>[]) null, new Object[0]);
-                                a2.b(this.f10333a);
-                                this.f10334b.f10330h.a(this.f10333a);
-                                com.baidu.sofire.utility.c.c(c.f10323b);
+                                a2.b(this.f10359a);
+                                this.f10360b.f10356h.a(this.f10359a);
+                                com.baidu.sofire.utility.c.c(c.f10349b);
                                 File file3 = new File(d2.pkgPath);
                                 if (file3.exists()) {
                                     com.baidu.sofire.c.a(file3);
@@ -1569,10 +1569,10 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                         file4.delete();
                                     }
                                 }
-                                String sb2 = new StringBuilder(this.f10333a).reverse().toString();
-                                ApkInfo b4 = this.f10334b.f10330h.b(sb2);
+                                String sb2 = new StringBuilder(this.f10359a).reverse().toString();
+                                ApkInfo b4 = this.f10360b.f10356h.b(sb2);
                                 if (b4 != null) {
-                                    this.f10334b.a(sb2, b4.pkgPath);
+                                    this.f10360b.a(sb2, b4.pkgPath);
                                 }
                             } catch (Throwable unused) {
                             }
@@ -1587,8 +1587,8 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
 
     public static void a(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2) == null) && f10327g == 0) {
-            f10327g = i2;
+        if ((interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2) == null) && f10353g == 0) {
+            f10353g = i2;
         }
     }
 
@@ -1604,13 +1604,13 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 if (a2.d(str) != null) {
                     return true;
                 }
-                if (this.f10330h == null) {
-                    this.f10330h = com.baidu.sofire.a.a.a(f10323b);
+                if (this.f10356h == null) {
+                    this.f10356h = com.baidu.sofire.a.a.a(f10349b);
                 }
-                ApkInfo b2 = this.f10330h.b(str);
+                ApkInfo b2 = this.f10356h.b(str);
                 if (b2 != null) {
-                    if (this.f10328a.b()) {
-                        File file = new File(f10323b.getFilesDir(), ".b");
+                    if (this.f10354a.b()) {
+                        File file = new File(f10349b.getFilesDir(), ".b");
                         if (!file.exists()) {
                             file.mkdir();
                         }
@@ -1619,7 +1619,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                         if (!com.baidu.sofire.utility.c.a(file3)) {
                             com.baidu.sofire.utility.c.a(file2, file3);
                         }
-                        com.baidu.sofire.c.a(f10323b, b2.key, file2, file3);
+                        com.baidu.sofire.c.a(f10349b, b2.key, file2, file3);
                     }
                     if (a(b2.key, b2.versionName, null)) {
                         return true;

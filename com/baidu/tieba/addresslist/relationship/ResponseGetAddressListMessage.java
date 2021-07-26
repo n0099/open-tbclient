@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.o0.r.d0.b;
-import d.a.p0.s.f.a;
+import d.a.p0.s.d0.b;
+import d.a.q0.s.f.a;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -29,6 +29,6 @@ public final class h1 extends b.a {
     public Object b(int i2, long j, String str, Object obj) throws Throwable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) ? Integer.valueOf(v1.a(a.a().c())) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) ? Integer.valueOf(v1.a(a.c().a())) : invokeCommon.objValue;
     }
 }

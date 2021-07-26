@@ -48,35 +48,35 @@ public class c {
     public static final String Z = "ParseSchemeQueryError";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1823a = "net";
+    public static final String f1856a = "net";
     public static final String aa = "tid_context_null";
     public static final String ab = "partner";
     public static final String ac = "out_trade_no";
     public static final String ad = "trade_no";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1824b = "biz";
+    public static final String f1857b = "biz";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1825c = "cp";
+    public static final String f1858c = "cp";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1826d = "auth";
+    public static final String f1859d = "auth";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1827e = "third";
+    public static final String f1860e = "third";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1828f = "tid";
+    public static final String f1861f = "tid";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1829g = "FormatResultEx";
+    public static final String f1862g = "FormatResultEx";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1830h = "GetApdidEx";
+    public static final String f1863h = "GetApdidEx";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f1831i = "GetApdidNull";
+    public static final String f1864i = "GetApdidNull";
     public static final String j = "GetApdidTimeout";
     public static final String k = "GetUtdidEx";
     public static final String l = "GetPackageInfoEx";

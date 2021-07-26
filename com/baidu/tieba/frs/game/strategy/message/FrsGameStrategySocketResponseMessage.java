@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.c.k.e.n;
-import d.a.p0.u0.r1.a.c.a;
-import d.a.p0.u0.r1.a.d.e;
+import d.a.d.k.e.n;
+import d.a.q0.u0.r1.a.c.a;
+import d.a.q0.u0.r1.a.d.e;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
@@ -87,8 +87,8 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
                 setError(error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = d.a.p0.u0.r1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = d.a.p0.u0.r1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = d.a.q0.u0.r1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = d.a.q0.u0.r1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }

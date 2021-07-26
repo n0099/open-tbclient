@@ -16,19 +16,19 @@ public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f15231a;
+    public int f15279a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f15232b;
+    public RelativeLayout f15280b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f15233c;
+    public View f15281c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15234d;
+    public TextView f15282d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f15235e;
+    public ImageView f15283e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ComplaintBarlordViewHolder(View view) {
@@ -48,10 +48,10 @@ public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15231a = 3;
-        this.f15232b = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
-        this.f15233c = view.findViewById(R.id.info_complaint_diver_top);
-        this.f15234d = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.f15235e = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+        this.f15279a = 3;
+        this.f15280b = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
+        this.f15281c = view.findViewById(R.id.info_complaint_diver_top);
+        this.f15282d = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
+        this.f15283e = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
     }
 }

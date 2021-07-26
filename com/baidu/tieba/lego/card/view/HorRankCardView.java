@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h3.v;
-import d.a.p0.n1.i;
-import d.a.p0.n1.o.j.c;
+import d.a.q0.h3.v;
+import d.a.q0.n1.i;
+import d.a.q0.n1.o.j.c;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
@@ -46,10 +46,10 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorRankCard f18244e;
+        public final /* synthetic */ HorRankCard f18300e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HorRankCardView f18245f;
+        public final /* synthetic */ HorRankCardView f18301f;
 
         public a(HorRankCardView horRankCardView, HorRankCard horRankCard) {
             Interceptable interceptable = $ic;
@@ -66,18 +66,18 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                     return;
                 }
             }
-            this.f18245f = horRankCardView;
-            this.f18244e = horRankCard;
+            this.f18301f = horRankCardView;
+            this.f18300e = horRankCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f18244e.getScheme())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f18300e.getScheme())) {
                 return;
             }
-            i.e(this.f18244e).d(TiebaStatic.Params.OBJ_URL, this.f18244e.getScheme()).b("obj_locate", this.f18245f.getStatPosition()).a(this.f18244e);
-            v.c(this.f18245f.m, this.f18244e.getScheme());
+            i.e(this.f18300e).d(TiebaStatic.Params.OBJ_URL, this.f18300e.getScheme()).b("obj_locate", this.f18301f.getStatPosition()).a(this.f18300e);
+            v.c(this.f18301f.m, this.f18300e.getScheme());
         }
     }
 
@@ -118,7 +118,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     public void v(HorRankCard horRankCard, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, horRankCard, i2) == null) {
-            d.a.o0.s0.a.a(this.m, getRootView());
+            d.a.p0.u0.a.a(this.m, getRootView());
             SkinManager.setBackgroundColor(this.u, R.color.CAM_X0308);
             SkinManager.setBackgroundColor(this.y, R.color.CAM_X0201);
             SkinManager.setImageResource(this.y, R.color.CAM_X0204);

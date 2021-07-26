@@ -1,26 +1,26 @@
 package com.win.opensdk;
 
+import android.util.Log;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class H0 implements Runnable {
+public class H0 implements ViewTreeObserver.OnGlobalFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBError f39368a;
+    public final /* synthetic */ N0 f39582a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ K0 f39369b;
-
-    public H0(K0 k0, PBError pBError) {
+    public H0(O0 o0, N0 n0) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k0, pBError};
+            Object[] objArr = {o0, n0};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -30,17 +30,18 @@ public class H0 implements Runnable {
                 return;
             }
         }
-        this.f39369b = k0;
-        this.f39368a = pBError;
+        this.f39582a = n0;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        L0 l0;
+    @Override // android.view.ViewTreeObserver.OnGlobalFocusChangeListener
+    public void onGlobalFocusChanged(View view, View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (l0 = this.f39369b.f39399g) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) {
+            Log.e("register", "onGlobalFocusChanged:" + view + ",newFocus:" + view2);
+            N0 n0 = this.f39582a;
+            if (n0 != null) {
+                n0.b();
+            }
         }
-        l0.onFail(this.f39368a);
     }
 }

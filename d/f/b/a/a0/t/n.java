@@ -13,31 +13,31 @@ public final class n implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.f.b.a.i0.l f69612a;
+    public final d.f.b.a.i0.l f70066a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.f.b.a.a0.j f69613b;
+    public final d.f.b.a.a0.j f70067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f69614c;
+    public final String f70068c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f69615d;
+    public String f70069d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.f.b.a.a0.m f69616e;
+    public d.f.b.a.a0.m f70070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f69617f;
+    public int f70071f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f69618g;
+    public int f70072g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f69619h;
+    public boolean f70073h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f69620i;
+    public boolean f70074i;
     public long j;
     public int k;
     public long l;
@@ -63,18 +63,18 @@ public final class n implements h {
     public final void a(d.f.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, lVar) == null) {
-            byte[] bArr = lVar.f70489a;
+            byte[] bArr = lVar.f70943a;
             int d2 = lVar.d();
             for (int c2 = lVar.c(); c2 < d2; c2++) {
                 boolean z = (bArr[c2] & 255) == 255;
-                boolean z2 = this.f69620i && (bArr[c2] & 224) == 224;
-                this.f69620i = z;
+                boolean z2 = this.f70074i && (bArr[c2] & 224) == 224;
+                this.f70074i = z;
                 if (z2) {
                     lVar.J(c2 + 1);
-                    this.f69620i = false;
-                    this.f69612a.f70489a[1] = bArr[c2];
-                    this.f69618g = 2;
-                    this.f69617f = 1;
+                    this.f70074i = false;
+                    this.f70066a.f70943a[1] = bArr[c2];
+                    this.f70072g = 2;
+                    this.f70071f = 1;
                     return;
                 }
             }
@@ -86,9 +86,9 @@ public final class n implements h {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f69617f = 0;
-            this.f69618g = 0;
-            this.f69620i = false;
+            this.f70071f = 0;
+            this.f70072g = 0;
+            this.f70074i = false;
         }
     }
 
@@ -97,7 +97,7 @@ public final class n implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
             while (lVar.a() > 0) {
-                int i2 = this.f69617f;
+                int i2 = this.f70071f;
                 if (i2 == 0) {
                     a(lVar);
                 } else if (i2 == 1) {
@@ -129,56 +129,56 @@ public final class n implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, gVar, dVar) == null) {
             dVar.a();
-            this.f69615d = dVar.b();
-            this.f69616e = gVar.a(dVar.c(), 1);
+            this.f70069d = dVar.b();
+            this.f70070e = gVar.a(dVar.c(), 1);
         }
     }
 
     public final void g(d.f.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, lVar) == null) {
-            int min = Math.min(lVar.a(), this.k - this.f69618g);
-            this.f69616e.a(lVar, min);
-            int i2 = this.f69618g + min;
-            this.f69618g = i2;
+            int min = Math.min(lVar.a(), this.k - this.f70072g);
+            this.f70070e.a(lVar, min);
+            int i2 = this.f70072g + min;
+            this.f70072g = i2;
             int i3 = this.k;
             if (i2 < i3) {
                 return;
             }
-            this.f69616e.c(this.l, 1, i3, 0, null);
+            this.f70070e.c(this.l, 1, i3, 0, null);
             this.l += this.j;
-            this.f69618g = 0;
-            this.f69617f = 0;
+            this.f70072g = 0;
+            this.f70071f = 0;
         }
     }
 
     public final void h(d.f.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, lVar) == null) {
-            int min = Math.min(lVar.a(), 4 - this.f69618g);
-            lVar.g(this.f69612a.f70489a, this.f69618g, min);
-            int i2 = this.f69618g + min;
-            this.f69618g = i2;
+            int min = Math.min(lVar.a(), 4 - this.f70072g);
+            lVar.g(this.f70066a.f70943a, this.f70072g, min);
+            int i2 = this.f70072g + min;
+            this.f70072g = i2;
             if (i2 < 4) {
                 return;
             }
-            this.f69612a.J(0);
-            if (!d.f.b.a.a0.j.b(this.f69612a.i(), this.f69613b)) {
-                this.f69618g = 0;
-                this.f69617f = 1;
+            this.f70066a.J(0);
+            if (!d.f.b.a.a0.j.b(this.f70066a.i(), this.f70067b)) {
+                this.f70072g = 0;
+                this.f70071f = 1;
                 return;
             }
-            d.f.b.a.a0.j jVar = this.f69613b;
-            this.k = jVar.f69222c;
-            if (!this.f69619h) {
-                int i3 = jVar.f69223d;
-                this.j = (jVar.f69226g * 1000000) / i3;
-                this.f69616e.b(Format.createAudioSampleFormat(this.f69615d, jVar.f69221b, null, -1, 4096, jVar.f69224e, i3, null, null, 0, this.f69614c));
-                this.f69619h = true;
+            d.f.b.a.a0.j jVar = this.f70067b;
+            this.k = jVar.f69676c;
+            if (!this.f70073h) {
+                int i3 = jVar.f69677d;
+                this.j = (jVar.f69680g * 1000000) / i3;
+                this.f70070e.b(Format.createAudioSampleFormat(this.f70069d, jVar.f69675b, null, -1, 4096, jVar.f69678e, i3, null, null, 0, this.f70068c));
+                this.f70073h = true;
             }
-            this.f69612a.J(0);
-            this.f69616e.a(this.f69612a, 4);
-            this.f69617f = 2;
+            this.f70066a.J(0);
+            this.f70070e.a(this.f70066a, 4);
+            this.f70071f = 2;
         }
     }
 
@@ -197,11 +197,11 @@ public final class n implements h {
                 return;
             }
         }
-        this.f69617f = 0;
+        this.f70071f = 0;
         d.f.b.a.i0.l lVar = new d.f.b.a.i0.l(4);
-        this.f69612a = lVar;
-        lVar.f70489a[0] = -1;
-        this.f69613b = new d.f.b.a.a0.j();
-        this.f69614c = str;
+        this.f70066a = lVar;
+        lVar.f70943a[0] = -1;
+        this.f70067b = new d.f.b.a.a0.j();
+        this.f70068c = str;
     }
 }

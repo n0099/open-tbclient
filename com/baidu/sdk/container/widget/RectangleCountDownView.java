@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.a.k.h;
+import d.a.i0.a.k.h;
 @SuppressLint({"AppCompatCustomView", "DefaultLocale", "NewApi"})
 /* loaded from: classes2.dex */
 public class RectangleCountDownView extends AbsCountDownView {
@@ -21,10 +21,10 @@ public class RectangleCountDownView extends AbsCountDownView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f10189h;
+    public long f10215h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f10190i;
+    public long f10216i;
     public long j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -53,8 +53,8 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setTaskPeriod(250L);
-            this.f10189h = System.currentTimeMillis();
-            setText(String.format("跳过 %02d", Long.valueOf(this.f10190i / 1000)));
+            this.f10215h = System.currentTimeMillis();
+            setText(String.format("跳过 %02d", Long.valueOf(this.f10216i / 1000)));
             super.b();
         }
     }
@@ -71,13 +71,13 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = this.f10190i - (System.currentTimeMillis() - this.f10189h);
+            long currentTimeMillis = this.f10216i - (System.currentTimeMillis() - this.f10215h);
             this.j = currentTimeMillis;
             if (currentTimeMillis > 0) {
                 postInvalidate();
                 return;
             }
-            AbsCountDownView.b bVar = this.f10161f;
+            AbsCountDownView.b bVar = this.f10187f;
             if (bVar != null) {
                 bVar.onEnd();
                 c();
@@ -105,7 +105,7 @@ public class RectangleCountDownView extends AbsCountDownView {
             gradientDrawable.setCornerRadius(h.a(context, 15.0f));
             gradientDrawable.setColor(Color.parseColor("#33000000"));
             setBackground(gradientDrawable);
-            setText(String.format("跳过 %02d", Long.valueOf(this.f10190i / 1000)));
+            setText(String.format("跳过 %02d", Long.valueOf(this.f10216i / 1000)));
         }
     }
 
@@ -122,7 +122,7 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void setTimeMillis(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.f10190i = j;
+            this.f10216i = j;
             this.j = j;
         }
     }
@@ -167,7 +167,7 @@ public class RectangleCountDownView extends AbsCountDownView {
                 return;
             }
         }
-        this.f10189h = 0L;
+        this.f10215h = 0L;
         f(context, attributeSet);
     }
 }

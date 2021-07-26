@@ -23,13 +23,13 @@ public class az {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ WebView f36539a;
+                    public final /* synthetic */ WebView f36728a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f36540b;
+                    public final /* synthetic */ String f36729b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ ValueCallback f36541c;
+                    public final /* synthetic */ ValueCallback f36730c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -46,16 +46,16 @@ public class az {
                                 return;
                             }
                         }
-                        this.f36539a = webView;
-                        this.f36540b = str;
-                        this.f36541c = valueCallback;
+                        this.f36728a = webView;
+                        this.f36729b = str;
+                        this.f36730c = valueCallback;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f36539a.evaluateJavascript(this.f36540b, this.f36541c);
+                            this.f36728a.evaluateJavascript(this.f36729b, this.f36730c);
                         }
                     }
                 });

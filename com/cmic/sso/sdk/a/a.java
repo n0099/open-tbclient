@@ -23,7 +23,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f32495a;
+        public static final /* synthetic */ int[] f32682a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,14 +39,14 @@ public class a {
                     return;
                 }
             }
-            int[] iArr = new int[EnumC0370a.values().length];
-            f32495a = iArr;
+            int[] iArr = new int[EnumC0372a.values().length];
+            f32682a = iArr;
             try {
-                iArr[EnumC0370a.f32498c.ordinal()] = 1;
+                iArr[EnumC0372a.f32685c.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f32495a[EnumC0370a.f32497b.ordinal()] = 2;
+                f32682a[EnumC0372a.f32684b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -55,20 +55,20 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class EnumC0370a {
+    public static final class EnumC0372a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final EnumC0370a f32496a;
+        public static final EnumC0372a f32683a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC0370a f32497b;
+        public static final EnumC0372a f32684b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final EnumC0370a f32498c;
+        public static final EnumC0372a f32685c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ EnumC0370a[] f32499d;
+        public static final /* synthetic */ EnumC0372a[] f32686d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -84,14 +84,14 @@ public class a {
                     return;
                 }
             }
-            f32496a = new EnumC0370a(RomUtils.UNKNOWN, 0);
-            f32497b = new EnumC0370a("SAMSUNG", 1);
-            EnumC0370a enumC0370a = new EnumC0370a("HUAWEI", 2);
-            f32498c = enumC0370a;
-            f32499d = new EnumC0370a[]{f32496a, f32497b, enumC0370a};
+            f32683a = new EnumC0372a(RomUtils.UNKNOWN, 0);
+            f32684b = new EnumC0372a("SAMSUNG", 1);
+            EnumC0372a enumC0372a = new EnumC0372a("HUAWEI", 2);
+            f32685c = enumC0372a;
+            f32686d = new EnumC0372a[]{f32683a, f32684b, enumC0372a};
         }
 
-        public EnumC0370a(String str, int i2) {
+        public EnumC0372a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,16 +110,16 @@ public class a {
             }
         }
 
-        public static EnumC0370a valueOf(String str) {
+        public static EnumC0372a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0370a) Enum.valueOf(EnumC0370a.class, str) : (EnumC0370a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0372a) Enum.valueOf(EnumC0372a.class, str) : (EnumC0372a) invokeL.objValue;
         }
 
-        public static EnumC0370a[] values() {
+        public static EnumC0372a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0370a[]) f32499d.clone() : (EnumC0370a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0372a[]) f32686d.clone() : (EnumC0372a[]) invokeV.objValue;
         }
     }
 
@@ -129,27 +129,27 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a(b()) : invokeV.intValue;
     }
 
-    public static EnumC0370a b() {
+    public static EnumC0372a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = Build.BRAND;
             if (str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG)) {
-                return EnumC0370a.f32497b;
+                return EnumC0372a.f32684b;
             }
             if (str.equalsIgnoreCase("Huawei")) {
-                return EnumC0370a.f32498c;
+                return EnumC0372a.f32685c;
             }
-            return EnumC0370a.f32496a;
+            return EnumC0372a.f32683a;
         }
-        return (EnumC0370a) invokeV.objValue;
+        return (EnumC0372a) invokeV.objValue;
     }
 
-    public static int a(EnumC0370a enumC0370a) {
+    public static int a(EnumC0372a enumC0372a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC0370a)) == null) {
-            int i2 = AnonymousClass1.f32495a[enumC0370a.ordinal()];
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC0372a)) == null) {
+            int i2 = AnonymousClass1.f32682a[enumC0372a.ordinal()];
             if (i2 != 1) {
                 return i2 != 2 ? -1 : 1;
             }

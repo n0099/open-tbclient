@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class f<E> extends g<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f72696g;
+    public static final int f73150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final long f72697h;
+    public static final long f73151h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f72698i;
+    public static final int f73152i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f72699e;
+    public final long f73153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final E[] f72700f;
+    public final E[] f73154f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,16 +43,16 @@ public abstract class f<E> extends g<E> {
                 return;
             }
         }
-        f72696g = Integer.getInteger("sparse.shift", 0).intValue();
-        int b2 = f0.f72701a.b(Object[].class);
+        f73150g = Integer.getInteger("sparse.shift", 0).intValue();
+        int b2 = f0.f73155a.b(Object[].class);
         if (4 == b2) {
-            f72698i = f72696g + 2;
+            f73152i = f73150g + 2;
         } else if (8 == b2) {
-            f72698i = f72696g + 3;
+            f73152i = f73150g + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        f72697h = f0.f72701a.a(Object[].class) + (32 << (f72698i - f72696g));
+        f73151h = f0.f73155a.a(Object[].class) + (32 << (f73152i - f73150g));
     }
 
     public f(int i2) {
@@ -71,26 +71,26 @@ public abstract class f<E> extends g<E> {
             }
         }
         int b2 = i.b(i2);
-        this.f72699e = b2 - 1;
-        this.f72700f = (E[]) new Object[(b2 << f72696g) + 64];
+        this.f73153e = b2 - 1;
+        this.f73154f = (E[]) new Object[(b2 << f73150g) + 64];
     }
 
     public final long a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? b(j, this.f72699e) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? b(j, this.f73153e) : invokeJ.longValue;
     }
 
     public final long b(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f72697h + ((j & j2) << f72698i) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f73151h + ((j & j2) << f73152i) : invokeCommon.longValue;
     }
 
     public final E c(E[] eArr, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) ? (E) f0.f72701a.e(eArr, j) : (E) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) ? (E) f0.f73155a.e(eArr, j) : (E) invokeLJ.objValue;
     }
 
     @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
@@ -109,26 +109,26 @@ public abstract class f<E> extends g<E> {
     public final E d(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? e(this.f72700f, j) : (E) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? e(this.f73154f, j) : (E) invokeJ.objValue;
     }
 
     public final E e(E[] eArr, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) ? (E) f0.f72701a.f(eArr, j) : (E) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) ? (E) f0.f73155a.f(eArr, j) : (E) invokeLJ.objValue;
     }
 
     public final void f(E[] eArr, long j, E e2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            f0.f72701a.j(eArr, j, e2);
+            f0.f73155a.j(eArr, j, e2);
         }
     }
 
     public final void g(E[] eArr, long j, E e2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            f0.f72701a.h(eArr, j, e2);
+            f0.f73155a.h(eArr, j, e2);
         }
     }
 

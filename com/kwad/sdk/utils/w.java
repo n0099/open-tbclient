@@ -13,7 +13,7 @@ public class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f36601a;
+    public static final char[] f36790a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class w {
                 return;
             }
         }
-        f36601a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f36790a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     @NonNull
@@ -81,7 +81,7 @@ public class w {
                 for (int i6 = 0; i6 < i3; i6++) {
                     int i7 = bArr[i6 + i2] & 255;
                     int i8 = i5 + 1;
-                    char[] cArr2 = f36601a;
+                    char[] cArr2 = f36790a;
                     cArr[i5] = cArr2[i7 >> 4];
                     i5 = i8 + 1;
                     cArr[i8] = cArr2[i7 & 15];

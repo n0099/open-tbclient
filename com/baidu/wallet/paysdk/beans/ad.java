@@ -17,13 +17,13 @@ public class ad extends PayBaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25962a;
+    public String f26120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25963b;
+    public String f26121b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25964c;
+    public String f26122c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(Context context) {
@@ -43,15 +43,15 @@ public class ad extends PayBaseBean<Object> {
                 return;
             }
         }
-        this.f25962a = "";
-        this.f25963b = "";
-        this.f25964c = "";
+        this.f26120a = "";
+        this.f26121b = "";
+        this.f26122c = "";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f25964c = str;
+            this.f26122c = str;
         }
     }
 
@@ -69,7 +69,7 @@ public class ad extends PayBaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("paymethod_list", this.f25964c));
+            arrayList.add(new RestNameValuePair("paymethod_list", this.f26122c));
             return arrayList;
         }
         return (List) invokeV.objValue;

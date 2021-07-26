@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.c.e.l.d;
-import d.a.c.k.d.a;
-import d.a.o0.a0.c;
+import d.a.d.e.l.d;
+import d.a.d.k.d.a;
+import d.a.p0.b0.c;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
@@ -143,7 +143,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    d.h().m(this.val$fImage, 10, new d.a.c.e.l.c<a>(this) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                                    d.h().m(this.val$fImage, 10, new d.a.d.e.l.c<a>(this) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass1 this$1;
@@ -167,7 +167,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                         }
 
                                         /* JADX DEBUG: Method merged with bridge method */
-                                        @Override // d.a.c.e.l.c
+                                        @Override // d.a.d.e.l.c
                                         public void onLoaded(a aVar, String str3, int i3) {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, aVar, str3, i3) == null) {

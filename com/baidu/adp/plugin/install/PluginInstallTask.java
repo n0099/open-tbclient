@@ -12,16 +12,16 @@ public class PluginInstallTask extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2214e;
+    public String f2240e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2215f;
+    public String f2241f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f2216g;
+    public boolean f2242g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f2217h;
+    public long f2243h;
 
     public PluginInstallTask() {
         Interceptable interceptable = $ic;
@@ -40,6 +40,6 @@ public class PluginInstallTask extends OrmObject {
     public long w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.max(Math.min(this.f2217h * 80, 240000L), 60000L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.max(Math.min(this.f2243h * 80, 240000L), 60000L) : invokeV.longValue;
     }
 }

@@ -23,9 +23,9 @@ import com.baidu.ugc.editvideo.magicmusic.EffectType;
 import com.baidu.ugc.editvideo.magicmusic.EffectUtil;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
-import d.a.v0.b;
-import d.a.v0.t.c;
-import d.a.v0.t.h;
+import d.a.w0.b;
+import d.a.w0.t.c;
+import d.a.w0.t.h;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -356,7 +356,7 @@ public class VideoKeyFrameModel {
         r1 = r2;
      */
     /* JADX WARN: Code restructure failed: missing block: B:55:0x00fd, code lost:
-        d.a.v0.t.c.g(r0);
+        d.a.w0.t.c.g(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:56:0x0100, code lost:
         if (r1 != null) goto L38;

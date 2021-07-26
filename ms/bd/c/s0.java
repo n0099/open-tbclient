@@ -30,7 +30,7 @@ public final class s0 extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            y1.a(a.a().c()).f();
+            y1.a(a.c().a()).a();
             return null;
         }
         return invokeCommon.objValue;

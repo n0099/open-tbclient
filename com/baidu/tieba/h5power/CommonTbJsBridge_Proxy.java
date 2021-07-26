@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
-import d.a.c.e.p.k;
-import d.a.p0.h3.l0.d.a;
-import d.a.p0.h3.l0.d.b;
-import d.a.p0.h3.l0.d.c;
-import d.a.p0.h3.l0.d.e;
+import d.a.d.e.p.k;
+import d.a.q0.h3.l0.d.a;
+import d.a.q0.h3.l0.d.b;
+import d.a.q0.h3.l0.d.c;
+import d.a.q0.h3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -62,7 +62,7 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
     }
 
-    @Override // d.a.p0.h3.l0.d.a
+    @Override // d.a.q0.h3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -425,7 +425,7 @@ public class CommonTbJsBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // d.a.p0.h3.l0.d.a
+    @Override // d.a.q0.h3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

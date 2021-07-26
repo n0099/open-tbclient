@@ -21,19 +21,19 @@ import d.l.a.e.b.g.k;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f72087c;
+    public static volatile b f72541c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, Long> f72088a;
+    public final Map<Integer, Long> f72542a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<a> f72089b;
+    public final SparseArray<a> f72543b;
 
     static {
         InterceptResult invokeClinit;
@@ -63,23 +63,23 @@ public class b {
                 return;
             }
         }
-        this.f72088a = new HashMap();
+        this.f72542a = new HashMap();
         new HashSet();
-        this.f72089b = new SparseArray<>();
+        this.f72543b = new SparseArray<>();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f72087c == null) {
+            if (f72541c == null) {
                 synchronized (b.class) {
-                    if (f72087c == null) {
-                        f72087c = new b();
+                    if (f72541c == null) {
+                        f72541c = new b();
                     }
                 }
             }
-            return f72087c;
+            return f72541c;
         }
         return (b) invokeV.objValue;
     }
@@ -113,13 +113,13 @@ public class b {
             return;
         }
         if (i3 == 4) {
-            synchronized (this.f72088a) {
-                Long l = this.f72088a.get(Integer.valueOf(i2));
+            synchronized (this.f72542a) {
+                Long l = this.f72542a.get(Integer.valueOf(i2));
                 long currentTimeMillis = System.currentTimeMillis();
                 if (l != null && Math.abs(currentTimeMillis - l.longValue()) < 1000) {
                     return;
                 }
-                this.f72088a.put(Integer.valueOf(i2), Long.valueOf(currentTimeMillis));
+                this.f72542a.put(Integer.valueOf(i2), Long.valueOf(currentTimeMillis));
             }
         }
         try {
@@ -152,8 +152,8 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
             return;
         }
-        synchronized (this.f72089b) {
-            this.f72089b.put(aVar.a(), aVar);
+        synchronized (this.f72543b) {
+            this.f72543b.put(aVar.a(), aVar);
         }
     }
 
@@ -162,8 +162,8 @@ public class b {
         SparseArray<a> sparseArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.f72089b) {
-                sparseArray = this.f72089b;
+            synchronized (this.f72543b) {
+                sparseArray = this.f72543b;
             }
             return sparseArray;
         }
@@ -201,10 +201,10 @@ public class b {
             if (i2 == 0) {
                 return null;
             }
-            synchronized (this.f72089b) {
-                aVar = this.f72089b.get(i2);
+            synchronized (this.f72543b) {
+                aVar = this.f72543b.get(i2);
                 if (aVar != null) {
-                    this.f72089b.remove(i2);
+                    this.f72543b.remove(i2);
                     d.l.a.e.b.c.a.b("removeNotificationId " + i2);
                 }
             }
@@ -221,8 +221,8 @@ public class b {
             if (i2 == 0) {
                 return null;
             }
-            synchronized (this.f72089b) {
-                aVar = this.f72089b.get(i2);
+            synchronized (this.f72543b) {
+                aVar = this.f72543b.get(i2);
             }
             return aVar;
         }

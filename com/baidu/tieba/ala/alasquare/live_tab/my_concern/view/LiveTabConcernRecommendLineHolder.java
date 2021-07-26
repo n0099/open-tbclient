@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v.d.c.f.d.h;
+import d.a.q0.v.d.c.f.d.h;
 /* loaded from: classes4.dex */
 public class LiveTabConcernRecommendLineHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f14033a;
+    public h f14081a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveTabConcernRecommendLineHolder(h hVar) {
@@ -33,6 +33,6 @@ public class LiveTabConcernRecommendLineHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14033a = hVar;
+        this.f14081a = hVar;
     }
 }

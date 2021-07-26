@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.z2.c.c;
+import d.a.q0.z2.c.c;
 /* loaded from: classes4.dex */
 public class BrowseSettingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;

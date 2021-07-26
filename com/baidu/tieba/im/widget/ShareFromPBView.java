@@ -19,16 +19,16 @@ public final class ShareFromPBView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17701e;
+    public TextView f17757e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f17702f;
+    public HeadImageView f17758f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17703g;
+    public TextView f17759g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ShareFromPBMsgData f17704h;
+    public ShareFromPBMsgData f17760h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -57,27 +57,27 @@ public final class ShareFromPBView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
             setOrientation(1);
-            this.f17701e = (TextView) findViewById(R.id.chat_title);
-            this.f17702f = (HeadImageView) findViewById(R.id.chat_group_img);
-            this.f17703g = (TextView) findViewById(R.id.chat_group_desc);
+            this.f17757e = (TextView) findViewById(R.id.chat_title);
+            this.f17758f = (HeadImageView) findViewById(R.id.chat_group_img);
+            this.f17759g = (TextView) findViewById(R.id.chat_group_desc);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f17701e.setText(this.f17704h.getTitle());
-            this.f17702f.setPlaceHolder(1);
-            this.f17702f.setAutoChangeStyle(false);
-            this.f17702f.M(this.f17704h.getImageUrl(), 10, false);
-            this.f17703g.setText(this.f17704h.getContent());
+            this.f17757e.setText(this.f17760h.getTitle());
+            this.f17758f.setPlaceHolder(1);
+            this.f17758f.setAutoChangeStyle(false);
+            this.f17758f.M(this.f17760h.getImageUrl(), 10, false);
+            this.f17759g.setText(this.f17760h.getContent());
         }
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareFromPBMsgData) == null) {
-            this.f17704h = shareFromPBMsgData;
+            this.f17760h = shareFromPBMsgData;
             b();
         }
     }
@@ -86,12 +86,12 @@ public final class ShareFromPBView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.f17701e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-                this.f17703g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f17757e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+                this.f17759g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
                 return;
             }
-            this.f17701e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f17703g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f17757e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f17759g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
     }
 

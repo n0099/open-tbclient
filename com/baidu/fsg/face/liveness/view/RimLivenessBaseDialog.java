@@ -20,16 +20,16 @@ public class RimLivenessBaseDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f6224a;
+    public TextView f6250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f6225b;
+    public LinearLayout f6251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f6226c;
+    public Button f6252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f6227d;
+    public Button f6253d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RimLivenessBaseDialog(Context context) {
@@ -57,10 +57,10 @@ public class RimLivenessBaseDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             setContentView(R.layout.rim_liveness_alert_dialog_base);
-            this.f6224a = (TextView) findViewById(R.id.dialog_title);
-            this.f6225b = (LinearLayout) findViewById(R.id.dialog_content);
-            this.f6226c = (Button) findViewById(R.id.positive_btn);
-            this.f6227d = (Button) findViewById(R.id.negative_btn);
+            this.f6250a = (TextView) findViewById(R.id.dialog_title);
+            this.f6251b = (LinearLayout) findViewById(R.id.dialog_content);
+            this.f6252c = (Button) findViewById(R.id.positive_btn);
+            this.f6253d = (Button) findViewById(R.id.negative_btn);
             setCancelable(false);
         }
     }
@@ -68,7 +68,7 @@ public class RimLivenessBaseDialog extends Dialog {
     public void addContentView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f6225b, true);
+            LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f6251b, true);
         }
     }
 
@@ -76,17 +76,17 @@ public class RimLivenessBaseDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, onClickListener) == null) {
             findViewById(R.id.btn_line).setVisibility(0);
-            this.f6227d.setVisibility(0);
-            this.f6227d.setText(charSequence);
-            this.f6227d.setOnClickListener(onClickListener);
+            this.f6253d.setVisibility(0);
+            this.f6253d.setText(charSequence);
+            this.f6253d.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, charSequence, onClickListener) == null) {
-            this.f6226c.setText(charSequence);
-            this.f6226c.setOnClickListener(onClickListener);
+            this.f6252c.setText(charSequence);
+            this.f6252c.setOnClickListener(onClickListener);
         }
     }
 
@@ -102,7 +102,7 @@ public class RimLivenessBaseDialog extends Dialog {
             int dimension = (int) getContext().getResources().getDimension(R.dimen.rim_dimen_20dp);
             textView.setPadding(dimension, dimension, dimension, dimension);
             textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f6225b.addView(textView);
+            this.f6251b.addView(textView);
         }
     }
 
@@ -110,7 +110,7 @@ public class RimLivenessBaseDialog extends Dialog {
     public void setTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            this.f6224a.setText(charSequence);
+            this.f6250a.setText(charSequence);
         }
     }
 

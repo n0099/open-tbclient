@@ -13,13 +13,13 @@ public class a implements com.kwad.sdk.collector.model.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f34064a;
+    public b f34253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f34065b;
+    public Set<String> f34254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f34066c;
+    public long f34255c;
 
     public a(b bVar, Set<String> set, long j) {
         Interceptable interceptable = $ic;
@@ -36,16 +36,16 @@ public class a implements com.kwad.sdk.collector.model.a {
                 return;
             }
         }
-        this.f34064a = bVar;
-        this.f34065b = set;
-        this.f34066c = j;
+        this.f34253a = bVar;
+        this.f34254b = set;
+        this.f34255c = j;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b bVar = this.f34064a;
+            b bVar = this.f34253a;
             if (bVar == null) {
                 return null;
             }
@@ -57,12 +57,12 @@ public class a implements com.kwad.sdk.collector.model.a {
     public Set<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34065b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34254b : (Set) invokeV.objValue;
     }
 
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34064a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34253a : (b) invokeV.objValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.k.c;
+import d.a.d.a.k.c;
 /* loaded from: classes3.dex */
 public class TiebaMainDatabaseHelper extends c {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,7 +45,7 @@ public class TiebaMainDatabaseHelper extends c {
         }
     }
 
-    @Override // d.a.c.a.k.c
+    @Override // d.a.d.a.k.c
     public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
@@ -81,7 +81,7 @@ public class TiebaMainDatabaseHelper extends c {
         }
     }
 
-    @Override // d.a.c.a.k.c
+    @Override // d.a.d.a.k.c
     public void createAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
@@ -110,7 +110,7 @@ public class TiebaMainDatabaseHelper extends c {
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper, d.a.c.a.k.a
+    @Override // android.database.sqlite.SQLiteOpenHelper, d.a.d.a.k.a
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i2, i3) == null) {

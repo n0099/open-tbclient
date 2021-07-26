@@ -1,204 +1,380 @@
 package com.bytedance.sdk.component.utils;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.telephony.ServiceState;
-import android.telephony.SubscriptionManager;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile m f29001c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, TelephonyManager telephonyManager) {
-        InterceptResult invokeLL;
-        ServiceState serviceState;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, telephonyManager)) == null) {
-            if (context != null && Build.VERSION.SDK_INT >= 29 && context.checkSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
-                try {
-                    int a2 = a();
-                    if (a2 == -1) {
-                        serviceState = telephonyManager.getServiceState();
-                    } else {
-                        Method declaredMethod = TelephonyManager.class.getDeclaredMethod("getServiceStateForSubscriber", Integer.TYPE);
-                        declaredMethod.setAccessible(true);
-                        serviceState = (ServiceState) declaredMethod.invoke(telephonyManager, Integer.valueOf(a2));
-                    }
-                    return a(serviceState);
-                } catch (Exception e2) {
-                    j.f("NetworkUtils", e2.toString());
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public Map<String, String> f29002a;
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            int c2 = c(context);
-            if (c2 != 1) {
-                if (c2 != 4) {
-                    if (c2 != 5) {
-                        if (c2 != 6) {
-                            return c2;
-                        }
-                        return 6;
-                    }
-                    return 4;
-                }
-                return 1;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public volatile boolean f29003b;
 
-    public static int c(Context context) {
-        InterceptResult invokeL;
+    /* renamed from: d  reason: collision with root package name */
+    public Context f29004d;
+
+    public m(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            try {
-                NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-                if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                    int type = activeNetworkInfo.getType();
-                    if (type != 0) {
-                        return type != 1 ? 1 : 4;
-                    }
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    switch (telephonyManager.getNetworkType()) {
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                        case 16:
-                            return 2;
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 12:
-                        case 14:
-                        case 15:
-                        case 17:
-                            return 3;
-                        case 13:
-                        case 18:
-                        case 19:
-                            return a(context, telephonyManager) ? 6 : 5;
-                        case 20:
-                            return 6;
-                        default:
-                            String subtypeName = activeNetworkInfo.getSubtypeName();
-                            return (TextUtils.isEmpty(subtypeName) || !(subtypeName.equalsIgnoreCase("TD-SCDMA") || subtypeName.equalsIgnoreCase("WCDMA") || subtypeName.equalsIgnoreCase("CDMA2000"))) ? 1 : 3;
-                    }
-                }
-                return 0;
-            } catch (Throwable unused) {
-                return 1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.intValue;
+        this.f29003b = false;
+        if (context != null && this.f29004d == null) {
+            this.f29004d = context.getApplicationContext();
+            a();
+        }
+        this.f29004d = context;
     }
 
-    public static boolean d(Context context) {
+    public static String b(String str) {
         InterceptResult invokeL;
+        String substring;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? c(context) == 4 : invokeL.booleanValue;
-    }
-
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? c(context) == 5 : invokeL.booleanValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? c(context) == 6 : invokeL.booleanValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            int c2 = c(context);
-            return c2 != 2 ? c2 != 3 ? c2 != 4 ? c2 != 5 ? c2 != 6 ? "mobile" : "5g" : "4g" : "wifi" : "3g" : "2g";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            int indexOf = str.indexOf(47);
+            int indexOf2 = str.indexOf(59);
+            if (indexOf < 0) {
+                return null;
+            }
+            String lowerCase = str.substring(0, indexOf).trim().toLowerCase(Locale.ENGLISH);
+            if (c(lowerCase)) {
+                int i2 = indexOf + 1;
+                if (indexOf2 < 0) {
+                    substring = str.substring(i2);
+                } else {
+                    substring = str.substring(i2, indexOf2);
+                }
+                String lowerCase2 = substring.trim().toLowerCase(Locale.ENGLISH);
+                if (c(lowerCase2)) {
+                    StringBuilder sb = new StringBuilder(lowerCase.length() + lowerCase2.length() + 1);
+                    sb.append(lowerCase);
+                    sb.append('/');
+                    sb.append(lowerCase2);
+                    return sb.toString();
+                }
+                return null;
+            }
+            return null;
         }
         return (String) invokeL.objValue;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return SubscriptionManager.getDefaultDataSubscriptionId();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean a(ServiceState serviceState) {
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, serviceState)) == null) {
-            try {
-                Method method = serviceState.getClass().getMethod("getNrState", new Class[0]);
-                if (method != null) {
-                    method.setAccessible(true);
-                    int intValue = ((Integer) method.invoke(serviceState, new Object[0])).intValue();
-                    return intValue == 3 || intValue == 2;
-                }
-            } catch (Exception e2) {
-                j.f("NetworkUtils", e2.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            int length = str.length();
+            if (length == 0) {
+                return false;
             }
-            return false;
+            for (int i2 = 0; i2 < length; i2++) {
+                if (!a(str.charAt(i2))) {
+                    return false;
+                }
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean a(Context context) {
+    private String d(String str) {
         InterceptResult invokeL;
-        NetworkInfo[] allNetworkInfo;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager != null && (allNetworkInfo = connectivityManager.getAllNetworkInfo()) != null) {
-                    for (NetworkInfo networkInfo : allNetworkInfo) {
-                        if (networkInfo.getState() == NetworkInfo.State.CONNECTED || networkInfo.getState() == NetworkInfo.State.CONNECTING) {
-                            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) {
+            String e2 = e(str);
+            if (e2.isEmpty()) {
+                return null;
+            }
+            a();
+            Map<String, String> map = this.f29002a;
+            if (map == null || map.isEmpty()) {
+                return null;
+            }
+            do {
+                str2 = this.f29002a.get(e2);
+                if (str2 == null) {
+                    e2 = e(e2);
+                }
+                if (str2 != null) {
+                    break;
+                }
+            } while (!e2.isEmpty());
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? (str == null || str.isEmpty() || (indexOf = str.indexOf(46)) < 0 || indexOf >= str.length() + (-1)) ? "" : str.substring(indexOf + 1) : (String) invokeL.objValue;
+    }
+
+    private void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, this, str) == null) {
+            String trim = str.trim();
+            if (trim.isEmpty()) {
+                return;
+            }
+            if (trim.charAt(0) == '#') {
+                return;
+            }
+            String replaceAll = trim.replaceAll("\\s*#.*", "");
+            if (replaceAll.indexOf(61) > 0) {
+                Matcher matcher = Pattern.compile("\\btype=(\"\\p{Graph}+?/\\p{Graph}+?\"|\\p{Graph}+/\\p{Graph}+\\b)").matcher(replaceAll);
+                if (matcher.find()) {
+                    String substring = matcher.group().substring(5);
+                    if (substring.charAt(0) == '\"') {
+                        substring = substring.substring(1, substring.length() - 1);
+                    }
+                    Matcher matcher2 = Pattern.compile("\\bexts=(\"[\\p{Graph}|\\p{Blank}]+?\"|\\p{Graph}+\\b)").matcher(replaceAll);
+                    if (matcher2.find()) {
+                        String substring2 = matcher2.group().substring(5);
+                        if (substring2.charAt(0) == '\"') {
+                            substring2 = substring2.substring(1, substring2.length() - 1);
+                        }
+                        for (String str2 : substring2.split("[\\p{Blank}|\\p{Punct}]+")) {
+                            a(str2, substring);
+                        }
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            String[] split = replaceAll.split("\\s+");
+            for (int i2 = 1; i2 < split.length; i2++) {
+                a(split[i2], split[0]);
+            }
+        }
+    }
+
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (str != null) {
+                try {
+                    if (str.startsWith("http") && str.contains("?")) {
+                        str = str.split("\\?")[0];
+                        if (str.endsWith("/")) {
+                            str = str.substring(0, str.length() - 1);
                         }
                     }
+                } catch (Throwable unused) {
                 }
-            } catch (Throwable unused) {
             }
-            return false;
+            return a(context).a(str);
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static boolean a(String str) {
+    public static m a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? !TextUtils.isEmpty(str) && (str.startsWith("http://") || str.startsWith("https://")) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (f29001c == null) {
+                synchronized (m.class) {
+                    if (f29001c == null) {
+                        f29001c = new m(context);
+                    }
+                }
+            }
+            return f29001c;
+        }
+        return (m) invokeL.objValue;
+    }
+
+    public final String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String d2 = d(str);
+            if (TextUtils.isEmpty(d2)) {
+                return null;
+            }
+            return b(d2);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean a(char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 > ' ' && c2 < 127 && "()<>@,;:/[]?=\\\"".indexOf(c2) < 0 : invokeCommon.booleanValue;
+    }
+
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f29004d == null || this.f29003b) {
+            return;
+        }
+        synchronized (this) {
+            if (!this.f29003b) {
+                List list = (List) AccessController.doPrivileged(new PrivilegedAction<List<String>>(this) { // from class: com.bytedance.sdk.component.utils.m.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ m f29005a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f29005a = this;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // java.security.PrivilegedAction
+                    /* renamed from: a */
+                    public List<String> run() {
+                        InterceptResult invokeV;
+                        BufferedReader bufferedReader;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
+                            return (List) invokeV.objValue;
+                        }
+                        InputStream inputStream = null;
+                        try {
+                            ArrayList arrayList = new ArrayList();
+                            InputStream open = this.f29005a.f29004d.getAssets().open("tt_mime_type.pro");
+                            try {
+                                bufferedReader = new BufferedReader(new InputStreamReader(open));
+                                while (true) {
+                                    try {
+                                        String readLine = bufferedReader.readLine();
+                                        if (readLine == null) {
+                                            break;
+                                        } else if (!TextUtils.isEmpty(readLine)) {
+                                            arrayList.add(readLine);
+                                        }
+                                    } catch (Throwable unused) {
+                                        inputStream = open;
+                                        try {
+                                            List<String> emptyList = Collections.emptyList();
+                                            if (bufferedReader != null) {
+                                                try {
+                                                    bufferedReader.close();
+                                                } catch (Throwable unused2) {
+                                                }
+                                            }
+                                            return emptyList;
+                                        } finally {
+                                            if (inputStream != null) {
+                                                try {
+                                                    inputStream.close();
+                                                } catch (Throwable unused3) {
+                                                }
+                                            }
+                                            if (bufferedReader != null) {
+                                                try {
+                                                    bufferedReader.close();
+                                                } catch (Throwable unused4) {
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (open != null) {
+                                    try {
+                                        open.close();
+                                    } catch (Throwable unused5) {
+                                    }
+                                }
+                                try {
+                                    bufferedReader.close();
+                                } catch (Throwable unused6) {
+                                }
+                                return arrayList;
+                            } catch (Throwable unused7) {
+                                bufferedReader = null;
+                            }
+                        } catch (Throwable unused8) {
+                            bufferedReader = null;
+                        }
+                    }
+                });
+                this.f29002a = new HashMap(list.size());
+                String str = "";
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    String str2 = str + ((String) it.next());
+                    if (str2.endsWith(IStringUtil.WINDOWS_FOLDER_SEPARATOR)) {
+                        str = str2.substring(0, str2.length() - 1);
+                    } else {
+                        f(str2);
+                        str = "";
+                    }
+                }
+                if (!str.isEmpty()) {
+                    f(str);
+                }
+                this.f29003b = true;
+            }
+        }
+    }
+
+    private void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2) == null) || str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f29002a.containsKey(str)) {
+            return;
+        }
+        this.f29002a.put(str, str2);
     }
 }

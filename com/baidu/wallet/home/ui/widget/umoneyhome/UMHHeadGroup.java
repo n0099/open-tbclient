@@ -22,7 +22,7 @@ public class UMHHeadGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f25268a;
+    public LinearLayout f25426a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UMHHeadGroup(Context context) {
@@ -58,8 +58,8 @@ public class UMHHeadGroup extends BaseItemLayout {
     public void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f25268a = new LinearLayout(getContext());
-            addView(this.f25268a, new ViewGroup.LayoutParams(-1, (DisplayUtils.getDisplayWidth(getContext()) * 185) / 750));
+            this.f25426a = new LinearLayout(getContext());
+            addView(this.f25426a, new ViewGroup.LayoutParams(-1, (DisplayUtils.getDisplayWidth(getContext()) * 185) / 750));
             setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_umh_background"));
         }
     }
@@ -81,7 +81,7 @@ public class UMHHeadGroup extends BaseItemLayout {
         }
         UMHHeadItem uMHHeadItem = new UMHHeadItem(getContext());
         uMHHeadItem.setData(this.mConfigData.list[0], getWalletInterface());
-        this.f25268a.addView(uMHHeadItem, new ViewGroup.LayoutParams(-1, -1));
+        this.f25426a.addView(uMHHeadItem, new ViewGroup.LayoutParams(-1, -1));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.q2.a;
-import d.a.n0.n.h.e;
+import d.a.o0.a.q2.a;
+import d.a.o0.n.h.e;
 /* loaded from: classes3.dex */
 public class PkgDownloadError extends Throwable {
     public static /* synthetic */ Interceptable $ic;

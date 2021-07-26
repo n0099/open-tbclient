@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i1.o.c;
+import d.a.q0.i1.o.c;
 import java.util.ArrayList;
 import protobuf.GetGroupMsg.DataReq;
 import protobuf.GetGroupMsg.GetGroupMsgReqIdl;

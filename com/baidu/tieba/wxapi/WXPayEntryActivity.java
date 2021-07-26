@@ -16,7 +16,7 @@ import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import d.a.o0.l0.e;
+import d.a.p0.n0.e;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -85,9 +85,9 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
                 e2.printStackTrace();
             }
             e eVar = new e();
-            eVar.f52128g = true;
-            eVar.f52123b = baseResp.getType();
-            eVar.f52124c = str;
+            eVar.f52784g = true;
+            eVar.f52779b = baseResp.getType();
+            eVar.f52780c = str;
             Intent intent = new Intent("WXPayResult");
             intent.putExtra("errorCode", baseResp.errCode);
             intent.putExtra("errorMsg", baseResp.errStr);

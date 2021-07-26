@@ -30,9 +30,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduWallet;
-import d.a.o0.l0.d;
-import d.a.o0.l0.e;
-import d.a.o0.l0.f;
+import d.a.p0.n0.d;
+import d.a.p0.n0.e;
+import d.a.p0.n0.f;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
@@ -120,9 +120,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         str3 = null;
                     }
                     e eVar = new e();
-                    eVar.f52122a = this.val$tag;
-                    eVar.f52123b = i2;
-                    eVar.f52124c = str3;
+                    eVar.f52778a = this.val$tag;
+                    eVar.f52779b = i2;
+                    eVar.f52780c = str3;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                 }
             }
@@ -172,8 +172,8 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f52123b = i2;
-                        eVar.f52124c = str2;
+                        eVar.f52779b = i2;
+                        eVar.f52780c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921335, eVar));
                     }
                 }
@@ -226,9 +226,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f52122a = this.val$tag;
-                        eVar.f52123b = i2;
-                        eVar.f52124c = str2;
+                        eVar.f52778a = this.val$tag;
+                        eVar.f52779b = i2;
+                        eVar.f52780c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }
@@ -502,7 +502,7 @@ public class WalletPluginImpl implements IWalletPlugin {
                         int i2 = -1;
                         String str2 = null;
                         for (String str3 : map.keySet()) {
-                            if (TextUtils.equals(str3, l.f1991a)) {
+                            if (TextUtils.equals(str3, l.f2024a)) {
                                 i2 = Integer.parseInt(map.get(str3));
                             } else if (TextUtils.equals(str3, "result")) {
                                 str2 = map.get(str3);
@@ -510,9 +510,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         }
                         int i3 = i2 == 9000 ? 0 : i2 == 8000 ? 1 : i2 == 6001 ? 2 : 6;
                         e eVar = new e();
-                        eVar.f52122a = this.val$tag;
-                        eVar.f52123b = i3;
-                        eVar.f52124c = str2;
+                        eVar.f52778a = this.val$tag;
+                        eVar.f52779b = i3;
+                        eVar.f52780c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }

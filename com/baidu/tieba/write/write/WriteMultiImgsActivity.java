@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-import d.a.p0.a4.u.j;
-import d.a.p0.a4.u.k;
-import d.a.p0.a4.u.n.b.c;
+import d.a.q0.a4.u.j;
+import d.a.q0.a4.u.k;
+import d.a.q0.a4.u.n.b.c;
 /* loaded from: classes4.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -37,7 +37,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteMultiImgsActivity f22881a;
+        public final /* synthetic */ WriteMultiImgsActivity f23039a;
 
         public a(WriteMultiImgsActivity writeMultiImgsActivity) {
             Interceptable interceptable = $ic;
@@ -54,39 +54,39 @@ public class WriteMultiImgsActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f22881a = writeMultiImgsActivity;
+            this.f23039a = writeMultiImgsActivity;
         }
 
-        @Override // d.a.p0.a4.u.n.b.c
+        @Override // d.a.q0.a4.u.n.b.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f22881a.mControler.s();
-                this.f22881a.mControler.r(false);
+                this.f23039a.mControler.s();
+                this.f23039a.mControler.r(false);
             }
         }
 
-        @Override // d.a.p0.a4.u.n.b.c
+        @Override // d.a.q0.a4.u.n.b.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f22881a.mControler.A();
+                this.f23039a.mControler.A();
             }
         }
 
-        @Override // d.a.p0.a4.u.n.b.c
+        @Override // d.a.q0.a4.u.n.b.c
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.f22881a.mControler.q(bitmap) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.f23039a.mControler.q(bitmap) : invokeL.booleanValue;
         }
 
-        @Override // d.a.p0.a4.u.n.b.c
+        @Override // d.a.q0.a4.u.n.b.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f22881a.mControler.n();
-                this.f22881a.mControler.r(true);
+                this.f23039a.mControler.n();
+                this.f23039a.mControler.r(true);
             }
         }
     }
@@ -183,7 +183,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             if (jVar != null) {
                 jVar.h(i2);
             }
-            this.mControler.f54445c.notifyDataSetChanged();
+            this.mControler.f54989c.notifyDataSetChanged();
         }
     }
 
@@ -227,11 +227,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             k kVar = this.mControler;
-            if (kVar != null && (multiImagePagerAdapter = kVar.f54445c) != null) {
+            if (kVar != null && (multiImagePagerAdapter = kVar.f54989c) != null) {
                 bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.k());
                 bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
                 bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-                this.mControler.f54445c.h(true);
+                this.mControler.f54989c.h(true);
                 if (this.mControler.w() != null) {
                     bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
                 }

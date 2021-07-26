@@ -29,9 +29,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.d;
-import d.a.c.a.f;
-import d.a.c.e.p.l;
+import d.a.d.a.d;
+import d.a.d.a.f;
+import d.a.d.e.p.l;
 /* loaded from: classes4.dex */
 public class WalletPayResultView extends d implements IWalletPayResultView {
     public static /* synthetic */ Interceptable $ic;
@@ -85,7 +85,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
             Bitmap moneyIconBitmap = CurrencySwitchUtil.getMoneyIconBitmap();
             BitmapDrawable bitmapDrawable = new BitmapDrawable(moneyIconBitmap);
             bitmapDrawable.setBounds(0, 0, moneyIconBitmap.getWidth(), moneyIconBitmap.getHeight());
-            d.a.o0.b1.d dVar = new d.a.o0.b1.d(bitmapDrawable);
+            d.a.p0.d1.d dVar = new d.a.p0.d1.d(bitmapDrawable);
             dVar.b(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             dVar.c(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             SpannableString spannableString = new SpannableString(str);
@@ -218,7 +218,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
         }
     }
 
-    @Override // d.a.c.a.d
+    @Override // d.a.d.a.d
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

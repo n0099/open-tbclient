@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.z0.w;
+import d.a.p0.b1.w;
 import tbclient.CommonReq;
 import tbclient.GetTopicRelateThread.DataReq;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadReqIdl;
@@ -19,7 +19,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f17149common;
+    public CommonReq f17205common;
     public Long last_id;
     public Integer page_no;
     public Integer pmy_source;
@@ -59,7 +59,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f73545common = getCommon();
+                builder.f74001common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.rn = getRn();
@@ -88,7 +88,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17149common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17205common : (CommonReq) invokeV.objValue;
     }
 
     public Long getLastId() {
@@ -166,7 +166,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, commonReq) == null) {
-            this.f17149common = commonReq;
+            this.f17205common = commonReq;
         }
     }
 

@@ -280,7 +280,7 @@ public final class CodedOutputStream {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65566, null, i2)) == null) {
-            if ((i2 & a.f1889g) == 0) {
+            if ((i2 & a.f1922g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -742,7 +742,7 @@ public final class CodedOutputStream {
     public void writeRawVarint32(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            while ((i2 & a.f1889g) != 0) {
+            while ((i2 & a.f1922g) != 0) {
                 writeRawByte((i2 & 127) | 128);
                 i2 >>>= 7;
             }

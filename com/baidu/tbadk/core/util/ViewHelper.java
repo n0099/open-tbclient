@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.k.a;
+import d.a.d.e.k.a;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class ViewHelper {
@@ -379,7 +379,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65558, null, context) == null) || context == null) {
             return;
         }
-        d.a.o0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        d.a.p0.s.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
     }
 
@@ -388,7 +388,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLL(65559, null, context, str, str2) == null) || context == null) {
             return;
         }
-        d.a.o0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        d.a.p0.s.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
@@ -398,7 +398,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65560, null, context) == null) || context == null) {
             return;
         }
-        d.a.o0.r.z.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        d.a.p0.s.z.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 

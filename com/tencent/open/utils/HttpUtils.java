@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.auth.QQToken;
-import com.tencent.open.utils.j;
+import com.tencent.open.log.SLog;
+import com.tencent.open.utils.l;
 import com.tencent.tauth.IRequestListener;
 import java.io.ByteArrayOutputStream;
 import java.io.CharConversionException;
 import java.io.EOFException;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,7 +46,6 @@ import java.net.MalformedURLException;
 import java.net.NoRouteToHostException;
 import java.net.PortUnreachableException;
 import java.net.ProtocolException;
-import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
@@ -55,24 +54,13 @@ import java.nio.channels.ClosedChannelException;
 import java.nio.channels.FileLockInterruptionException;
 import java.nio.charset.MalformedInputException;
 import java.nio.charset.UnmappableCharacterException;
-import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 import java.util.InvalidPropertiesFormatException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.ZipException;
-import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLKeyException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-import javax.net.ssl.X509TrustManager;
 import org.apache.http.ConnectionClosedException;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
@@ -159,156 +147,17 @@ public class HttpUtils {
     }
 
     /* loaded from: classes6.dex */
-    public static class a extends SSLSocketFactory {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final SSLContext f38989a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(KeyStore keyStore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
-            super(keyStore);
-            b bVar;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = objArr;
-                Object[] objArr = {keyStore};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super((KeyStore) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f38989a = SSLContext.getInstance("TLS");
-            try {
-                bVar = new b();
-            } catch (Exception unused) {
-                bVar = null;
-            }
-            this.f38989a.init(null, new TrustManager[]{bVar}, null);
-        }
-
-        @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.LayeredSocketFactory
-        public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException, UnknownHostException {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.f38989a.getSocketFactory().createSocket(socket, str, i2, z) : (Socket) invokeCommon.objValue;
-        }
-
-        @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.SocketFactory
-        public Socket createSocket() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38989a.getSocketFactory().createSocket() : (Socket) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements X509TrustManager {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public X509TrustManager f38990a;
-
-        public b() throws Exception {
-            KeyStore keyStore;
-            FileInputStream fileInputStream;
-            Throwable th;
-            TrustManager[] trustManagers;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            try {
-                keyStore = KeyStore.getInstance("JKS");
-            } catch (Exception unused) {
-                keyStore = null;
-            }
-            if (keyStore != null) {
-                try {
-                    fileInputStream = new FileInputStream("trustedCerts");
-                    try {
-                        keyStore.load(fileInputStream, "passphrase".toCharArray());
-                        TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("SunX509", "SunJSSE");
-                        trustManagerFactory.init(keyStore);
-                        trustManagers = trustManagerFactory.getTrustManagers();
-                        fileInputStream.close();
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th3) {
-                    fileInputStream = null;
-                    th = th3;
-                }
-            } else {
-                TrustManagerFactory trustManagerFactory2 = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-                trustManagerFactory2.init((KeyStore) null);
-                trustManagers = trustManagerFactory2.getTrustManagers();
-            }
-            for (int i4 = 0; i4 < trustManagers.length; i4++) {
-                if (trustManagers[i4] instanceof X509TrustManager) {
-                    this.f38990a = (X509TrustManager) trustManagers[i4];
-                    return;
-                }
-            }
-            throw new Exception("Couldn't initialize");
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-                this.f38990a.checkClientTrusted(x509CertificateArr, str);
-            }
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
-                this.f38990a.checkServerTrusted(x509CertificateArr, str);
-            }
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public X509Certificate[] getAcceptedIssuers() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38990a.getAcceptedIssuers() : (X509Certificate[]) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final String f38991a;
+        public final String f39205a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f38992b;
+        public final int f39206b;
 
-        public c(String str, int i2) {
+        public a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -323,8 +172,8 @@ public class HttpUtils {
                     return;
                 }
             }
-            this.f38991a = str;
-            this.f38992b = i2;
+            this.f39205a = str;
+            this.f39206b = i2;
         }
     }
 
@@ -563,21 +412,19 @@ public class HttpUtils {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, str2)) == null) {
             SchemeRegistry schemeRegistry = new SchemeRegistry();
             schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-            if (Build.VERSION.SDK_INT < 16) {
-                try {
-                    KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-                    keyStore.load(null, null);
-                    a aVar = new a(keyStore);
-                    aVar.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                    schemeRegistry.register(new Scheme("https", aVar, com.baidu.android.imsdk.internal.Constants.SOCKET_PORT_SSL));
-                } catch (Exception unused) {
-                    schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), com.baidu.android.imsdk.internal.Constants.SOCKET_PORT_SSL));
+            try {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    SSLSocketFactory socketFactory = SSLSocketFactory.getSocketFactory();
+                    socketFactory.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+                    schemeRegistry.register(new Scheme("https", socketFactory, com.baidu.android.imsdk.internal.Constants.SOCKET_PORT_SSL));
+                } else {
+                    schemeRegistry.register(new Scheme("https", new k(), com.baidu.android.imsdk.internal.Constants.SOCKET_PORT_SSL));
                 }
-            } else {
+            } catch (Exception unused) {
                 schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), com.baidu.android.imsdk.internal.Constants.SOCKET_PORT_SSL));
             }
             BasicHttpParams basicHttpParams = new BasicHttpParams();
-            f a2 = context != null ? f.a(context, str) : null;
+            g a2 = context != null ? g.a(context, str) : null;
             int i3 = 0;
             if (a2 != null) {
                 i3 = a2.a("Common_HttpConnectionTimeout");
@@ -597,16 +444,16 @@ public class HttpUtils {
             HttpProtocolParams.setContentCharset(basicHttpParams, "UTF-8");
             HttpProtocolParams.setUserAgent(basicHttpParams, "AndroidSDK_" + Build.VERSION.SDK + "_" + Build.DEVICE + "_" + Build.VERSION.RELEASE);
             DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
-            c proxy = getProxy(context);
+            a proxy = getProxy(context);
             if (proxy != null) {
-                defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f38991a, proxy.f38992b));
+                defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f39205a, proxy.f39206b));
             }
             return defaultHttpClient;
         }
         return (HttpClient) invokeLLL.objValue;
     }
 
-    public static c getProxy(Context context) {
+    public static a getProxy(Context context) {
         InterceptResult invokeL;
         ConnectivityManager connectivityManager;
         NetworkInfo activeNetworkInfo;
@@ -616,17 +463,18 @@ public class HttpUtils {
                 String b2 = b(context);
                 int a2 = a(context);
                 if (!TextUtils.isEmpty(b2) && a2 >= 0) {
-                    return new c(b2, a2);
+                    return new a(b2, a2);
                 }
             }
             return null;
         }
-        return (c) invokeL.objValue;
+        return (a) invokeL.objValue;
     }
 
-    public static j.a openUrl2(Context context, String str, String str2, Bundle bundle) throws MalformedURLException, IOException, NetworkUnavailableException, HttpStatusException {
+    public static l.a openUrl2(Context context, String str, String str2, Bundle bundle) throws MalformedURLException, IOException, NetworkUnavailableException, HttpStatusException {
         InterceptResult invokeLLLL;
         Bundle bundle2;
+        Bundle b2;
         ConnectivityManager connectivityManager;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
@@ -648,13 +496,14 @@ public class HttpUtils {
             if (str2.equals("GET")) {
                 String encodeUrl = encodeUrl(bundle2);
                 i2 = 0 + encodeUrl.length();
-                com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "-->openUrl2 before url =" + str);
+                SLog.v("openSDK_LOG.HttpUtils", "-->openUrl2 before url =" + str);
                 String str3 = str.indexOf("?") == -1 ? str + "?" : str + "&";
-                com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "-->openUrl2 encodedParam =" + encodeUrl + " -- url = " + str3);
-                StringBuilder sb = new StringBuilder();
-                sb.append(str3);
-                sb.append(encodeUrl);
-                HttpGet httpGet2 = new HttpGet(sb.toString());
+                if (com.tencent.open.log.d.b(bundle2) != bundle2) {
+                    SLog.i("openSDK_LOG.HttpUtils", "-->openUrl2 encodedParam =" + encodeUrl(b2) + " -- url = " + str3);
+                } else {
+                    SLog.i("openSDK_LOG.HttpUtils", "-->openUrl2 encodedParam =" + encodeUrl + " -- url = " + str3);
+                }
+                HttpGet httpGet2 = new HttpGet(str3 + encodeUrl);
                 httpGet2.addHeader("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
                 httpGet = httpGet2;
             } else if (str2.equals("POST")) {
@@ -673,25 +522,25 @@ public class HttpUtils {
                 httpPost.setHeader("Content-Type", "multipart/form-data; boundary=3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f");
                 httpPost.setHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                byteArrayOutputStream.write(j.i("--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
-                byteArrayOutputStream.write(j.i(encodePostBody(bundle2, "3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f")));
+                byteArrayOutputStream.write(l.i("--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
+                byteArrayOutputStream.write(l.i(encodePostBody(bundle2, "3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f")));
                 if (!bundle3.isEmpty()) {
                     int size = bundle3.size();
-                    byteArrayOutputStream.write(j.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
+                    byteArrayOutputStream.write(l.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
                     for (String str5 : bundle3.keySet()) {
                         i3++;
-                        byteArrayOutputStream.write(j.i("Content-Disposition: form-data; name=\"" + str5 + "\"; filename=\"" + str5 + "\"" + Part.CRLF));
-                        byteArrayOutputStream.write(j.i("Content-Type: content/unknown\r\n\r\n"));
+                        byteArrayOutputStream.write(l.i("Content-Disposition: form-data; name=\"" + str5 + "\"; filename=\"" + str5 + "\"" + Part.CRLF));
+                        byteArrayOutputStream.write(l.i("Content-Type: content/unknown\r\n\r\n"));
                         byte[] byteArray = bundle3.getByteArray(str5);
                         if (byteArray != null) {
                             byteArrayOutputStream.write(byteArray);
                         }
                         if (i3 < size - 1) {
-                            byteArrayOutputStream.write(j.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
+                            byteArrayOutputStream.write(l.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
                         }
                     }
                 }
-                byteArrayOutputStream.write(j.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f--\r\n"));
+                byteArrayOutputStream.write(l.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f--\r\n"));
                 byte[] byteArray2 = byteArrayOutputStream.toByteArray();
                 i2 = 0 + byteArray2.length;
                 byteArrayOutputStream.close();
@@ -700,12 +549,13 @@ public class HttpUtils {
             }
             HttpResponse execute = httpClient.execute(httpGet);
             int statusCode = execute.getStatusLine().getStatusCode();
+            SLog.i("openSDK_LOG.HttpUtils", "-->openUrl2 response cdoe =" + statusCode);
             if (statusCode == 200) {
-                return new j.a(a(execute), i2);
+                return new l.a(a(execute), i2);
             }
             throw new HttpStatusException(HttpStatusException.ERROR_INFO + statusCode);
         }
-        return (j.a) invokeLLLL.objValue;
+        return (l.a) invokeLLLL.objValue;
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -760,14 +610,14 @@ public class HttpUtils {
             r0 = r20
             java.lang.String r2 = "openSDK_LOG.HttpUtils"
             java.lang.String r3 = "OpenApi request"
-            com.tencent.open.a.f.a(r2, r3)
+            com.tencent.open.log.SLog.i(r2, r3)
             java.lang.String r2 = r20.toLowerCase()
             java.lang.String r3 = "http"
             boolean r2 = r2.startsWith(r3)
             if (r2 != 0) goto L4f
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             r2.<init>()
-            com.tencent.open.utils.g r3 = com.tencent.open.utils.g.a()
+            com.tencent.open.utils.h r3 = com.tencent.open.utils.h.a()
             java.lang.String r4 = "https://openmobile.qq.com/"
             java.lang.String r3 = r3.a(r1, r4)
             r2.append(r3)
@@ -775,7 +625,7 @@ public class HttpUtils {
             java.lang.String r2 = r2.toString()
             java.lang.StringBuilder r3 = new java.lang.StringBuilder
             r3.<init>()
-            com.tencent.open.utils.g r5 = com.tencent.open.utils.g.a()
+            com.tencent.open.utils.h r5 = com.tencent.open.utils.h.a()
             java.lang.String r4 = r5.a(r1, r4)
             r3.append(r4)
             r3.append(r0)
@@ -793,7 +643,7 @@ public class HttpUtils {
             long r5 = android.os.SystemClock.elapsedRealtime()
             r7 = 0
             java.lang.String r8 = r18.getAppId()
-            com.tencent.open.utils.f r8 = com.tencent.open.utils.f.a(r1, r8)
+            com.tencent.open.utils.g r8 = com.tencent.open.utils.g.a(r1, r8)
             java.lang.String r9 = "Common_HttpRetryCount"
             int r8 = r8.a(r9)
             java.lang.StringBuilder r9 = new java.lang.StringBuilder
@@ -810,7 +660,7 @@ public class HttpUtils {
             r9.append(r4)
             java.lang.String r9 = r9.toString()
             java.lang.String r12 = "OpenConfig_test"
-            com.tencent.open.a.f.a(r12, r9)
+            com.tencent.open.log.SLog.v(r12, r9)
             if (r8 != 0) goto L97
             r8 = 3
         L97:
@@ -825,24 +675,24 @@ public class HttpUtils {
             r9.append(r11)
             r9.append(r4)
             java.lang.String r3 = r9.toString()
-            com.tencent.open.a.f.a(r12, r3)
+            com.tencent.open.log.SLog.v(r12, r3)
             r3 = r0
         Lbc:
             int r7 = r7 + 1
             r9 = 0
             r11 = r21
             r12 = r22
-            com.tencent.open.utils.j$a r0 = openUrl2(r1, r2, r12, r11)     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
-            java.lang.String r13 = r0.f39034a     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
-            org.json.JSONObject r3 = com.tencent.open.utils.j.d(r13)     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            com.tencent.open.utils.l$a r0 = openUrl2(r1, r2, r12, r11)     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            java.lang.String r13 = r0.f39254a     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            org.json.JSONObject r3 = com.tencent.open.utils.l.d(r13)     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
             java.lang.String r13 = "ret"
             int r13 = r3.getInt(r13)     // Catch: org.json.JSONException -> Ld5 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
             goto Ld6
         Ld5:
             r13 = -4
         Ld6:
-            long r14 = r0.f39035b     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
-            long r0 = r0.f39036c     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            long r14 = r0.f39255b     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            long r0 = r0.f39256c     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
             r9 = r0
             r0 = r3
             r11 = r13
@@ -854,7 +704,7 @@ public class HttpUtils {
             r11 = -4
             r7 = 0
             r9 = 0
-            com.tencent.open.b.g r3 = com.tencent.open.b.g.a()
+            com.tencent.open.a.g r3 = com.tencent.open.a.g.a()
             r3.a(r4, r5, r7, r9, r11)
             throw r0
         Lf1:
@@ -863,7 +713,7 @@ public class HttpUtils {
             int r11 = getErrorCodeFromException(r0)
             r7 = 0
             r9 = 0
-            com.tencent.open.b.g r3 = com.tencent.open.b.g.a()
+            com.tencent.open.a.g r3 = com.tencent.open.a.g.a()
             r3.a(r4, r5, r7, r9, r11)
             throw r0
         L105:
@@ -872,7 +722,7 @@ public class HttpUtils {
             r11 = -3
             r7 = 0
             r9 = 0
-            com.tencent.open.b.g r3 = com.tencent.open.b.g.a()
+            com.tencent.open.a.g r3 = com.tencent.open.a.g.a()
             r3.a(r4, r5, r7, r9, r11)
             throw r0
         L116:
@@ -898,7 +748,7 @@ public class HttpUtils {
         L13a:
             r7 = 0
             r9 = 0
-            com.tencent.open.b.g r3 = com.tencent.open.b.g.a()
+            com.tencent.open.a.g r3 = com.tencent.open.a.g.a()
             r3.a(r4, r5, r7, r9, r11)
             throw r1
         L146:
@@ -911,7 +761,7 @@ public class HttpUtils {
             long r5 = android.os.SystemClock.elapsedRealtime()
             goto L171
         L156:
-            com.tencent.open.b.g r3 = com.tencent.open.b.g.a()
+            com.tencent.open.a.g r3 = com.tencent.open.a.g.a()
             r7 = r14
             r9 = r16
             r11 = r13
@@ -931,11 +781,11 @@ public class HttpUtils {
             r7 = r9
             r11 = r13
         L176:
-            com.tencent.open.b.g r3 = com.tencent.open.b.g.a()
+            com.tencent.open.a.g r3 = com.tencent.open.a.g.a()
             r3.a(r4, r5, r7, r9, r11)
             return r0
         L17e:
-            com.tencent.open.b.g r3 = com.tencent.open.b.g.a()
+            com.tencent.open.a.g r3 = com.tencent.open.a.g.a()
             r7 = r14
             r9 = r16
             r11 = r13
@@ -957,28 +807,28 @@ public class HttpUtils {
     public static void requestAsync(QQToken qQToken, Context context, String str, Bundle bundle, String str2, IRequestListener iRequestListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{qQToken, context, str, bundle, str2, iRequestListener}) == null) {
-            com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "OpenApi requestAsync");
+            SLog.i("openSDK_LOG.HttpUtils", "OpenApi requestAsync");
             new Thread(qQToken, context, str, bundle, str2, iRequestListener) { // from class: com.tencent.open.utils.HttpUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ QQToken f38983a;
+                public final /* synthetic */ QQToken f39199a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f38984b;
+                public final /* synthetic */ Context f39200b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f38985c;
+                public final /* synthetic */ String f39201c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Bundle f38986d;
+                public final /* synthetic */ Bundle f39202d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f38987e;
+                public final /* synthetic */ String f39203e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ IRequestListener f38988f;
+                public final /* synthetic */ IRequestListener f39204f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -995,12 +845,12 @@ public class HttpUtils {
                             return;
                         }
                     }
-                    this.f38983a = qQToken;
-                    this.f38984b = context;
-                    this.f38985c = str;
-                    this.f38986d = bundle;
-                    this.f38987e = str2;
-                    this.f38988f = iRequestListener;
+                    this.f39199a = qQToken;
+                    this.f39200b = context;
+                    this.f39201c = str;
+                    this.f39202d = bundle;
+                    this.f39203e = str2;
+                    this.f39204f = iRequestListener;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -1008,58 +858,58 @@ public class HttpUtils {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            JSONObject request = HttpUtils.request(this.f38983a, this.f38984b, this.f38985c, this.f38986d, this.f38987e);
-                            if (this.f38988f != null) {
-                                this.f38988f.onComplete(request);
-                                com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi onComplete");
+                            JSONObject request = HttpUtils.request(this.f39199a, this.f39200b, this.f39201c, this.f39202d, this.f39203e);
+                            if (this.f39204f != null) {
+                                this.f39204f.onComplete(request);
+                                SLog.i("openSDK_LOG.HttpUtils", "OpenApi onComplete");
                             }
                         } catch (HttpStatusException e2) {
-                            IRequestListener iRequestListener2 = this.f38988f;
+                            IRequestListener iRequestListener2 = this.f39204f;
                             if (iRequestListener2 != null) {
                                 iRequestListener2.onHttpStatusException(e2);
-                                com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onHttpStatusException", e2);
+                                SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onHttpStatusException" + e2.toString());
                             }
                         } catch (NetworkUnavailableException e3) {
-                            IRequestListener iRequestListener3 = this.f38988f;
+                            IRequestListener iRequestListener3 = this.f39204f;
                             if (iRequestListener3 != null) {
                                 iRequestListener3.onNetworkUnavailableException(e3);
-                                com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onNetworkUnavailableException", e3);
+                                SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onNetworkUnavailableException" + e3.toString());
                             }
                         } catch (MalformedURLException e4) {
-                            IRequestListener iRequestListener4 = this.f38988f;
+                            IRequestListener iRequestListener4 = this.f39204f;
                             if (iRequestListener4 != null) {
                                 iRequestListener4.onMalformedURLException(e4);
-                                com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync MalformedURLException", e4);
+                                SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync MalformedURLException" + e4.toString());
                             }
                         } catch (SocketTimeoutException e5) {
-                            IRequestListener iRequestListener5 = this.f38988f;
+                            IRequestListener iRequestListener5 = this.f39204f;
                             if (iRequestListener5 != null) {
                                 iRequestListener5.onSocketTimeoutException(e5);
-                                com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onSocketTimeoutException", e5);
+                                SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onSocketTimeoutException" + e5.toString());
                             }
                         } catch (ConnectTimeoutException e6) {
-                            IRequestListener iRequestListener6 = this.f38988f;
+                            IRequestListener iRequestListener6 = this.f39204f;
                             if (iRequestListener6 != null) {
                                 iRequestListener6.onConnectTimeoutException(e6);
-                                com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onConnectTimeoutException", e6);
+                                SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onConnectTimeoutException" + e6.toString());
                             }
                         } catch (IOException e7) {
-                            IRequestListener iRequestListener7 = this.f38988f;
+                            IRequestListener iRequestListener7 = this.f39204f;
                             if (iRequestListener7 != null) {
                                 iRequestListener7.onIOException(e7);
-                                com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync IOException", e7);
+                                SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync IOException" + e7.toString());
                             }
                         } catch (JSONException e8) {
-                            IRequestListener iRequestListener8 = this.f38988f;
+                            IRequestListener iRequestListener8 = this.f39204f;
                             if (iRequestListener8 != null) {
                                 iRequestListener8.onJSONException(e8);
-                                com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync JSONException", e8);
+                                SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync JSONException" + e8.toString());
                             }
                         } catch (Exception e9) {
-                            IRequestListener iRequestListener9 = this.f38988f;
+                            IRequestListener iRequestListener9 = this.f39204f;
                             if (iRequestListener9 != null) {
                                 iRequestListener9.onUnknowException(e9);
-                                com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onUnknowException", e9);
+                                SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onUnknowException" + e9.toString());
                             }
                         }
                     }

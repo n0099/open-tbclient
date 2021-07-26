@@ -22,7 +22,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f38238a;
+    public static b f38413a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -77,10 +77,10 @@ public class a {
                     break;
                 case 302003:
                     jSONObject = new JSONObject();
-                    jSONObject.put("clientTimeOut", f38238a.b());
+                    jSONObject.put("clientTimeOut", f38413a.b());
                     jSONObject.put("type", 2);
                     jSONArray = new JSONArray();
-                    jSONArray.put(f38238a.c().a());
+                    jSONArray.put(f38413a.c().a());
                     break;
                 default:
                     jSONObject = null;
@@ -89,14 +89,14 @@ public class a {
             return jSONObject == null ? jSONObject.toString() : "";
         }
         jSONObject = new JSONObject();
-        jSONObject.put("clientTimeOut", f38238a.b());
+        jSONObject.put("clientTimeOut", f38413a.b());
         jSONObject.put("type", 1);
         JSONObject jSONObject2 = new JSONObject();
         jSONObject2.put("url", 2);
         jSONObject2.put("time", 3);
         jSONObject.put("fieldType", jSONObject2);
         jSONArray = new JSONArray();
-        for (d dVar : f38238a.c().b()) {
+        for (d dVar : f38413a.c().b()) {
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("url", dVar.a());
             jSONObject3.put("time", dVar.b());
@@ -110,7 +110,7 @@ public class a {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f38238a = new b();
+            f38413a = new b();
         }
     }
 
@@ -118,9 +118,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             try {
-                List<String> c2 = f38238a.c().c();
+                List<String> c2 = f38413a.c().c();
                 c2.add(str);
-                f38238a.c().b(c2);
+                f38413a.c().b(c2);
             } catch (Throwable unused) {
             }
         }
@@ -130,21 +130,21 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, str, j) == null) {
             try {
-                if (c.b(str).booleanValue() && c.a(f38238a.a()).booleanValue()) {
+                if (c.b(str).booleanValue() && c.a(f38413a.a()).booleanValue()) {
                     Uri parse = Uri.parse(str);
                     String queryParameter = parse.getQueryParameter("sequenceNumber");
                     String queryParameter2 = parse.getQueryParameter("ret_url");
                     if (c.b(queryParameter2).booleanValue()) {
                         queryParameter = Uri.parse(com.sdk.base.framework.f.i.d.a(queryParameter2)).getQueryParameter(IAdRequestParam.SEQ);
                     }
-                    f38238a.a(queryParameter);
+                    f38413a.a(queryParameter);
                 }
-                List<d> b2 = f38238a.c().b();
+                List<d> b2 = f38413a.c().b();
                 d dVar = new d();
                 dVar.a(str);
                 dVar.a(j);
                 b2.add(dVar);
-                f38238a.c().a(b2);
+                f38413a.c().a(b2);
             } catch (Throwable unused) {
             }
         }
@@ -154,10 +154,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f38238a == null) {
+            if (f38413a == null) {
                 a();
             }
-            return f38238a;
+            return f38413a;
         }
         return (b) invokeV.objValue;
     }
@@ -166,9 +166,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
             try {
-                List<String> d2 = f38238a.c().d();
+                List<String> d2 = f38413a.c().d();
                 d2.add(str);
-                f38238a.c().c(d2);
+                f38413a.c().c(d2);
             } catch (Throwable unused) {
             }
         }
@@ -179,10 +179,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("clientTimeOut", f38238a.b());
+            jSONObject.put("clientTimeOut", f38413a.b());
             jSONObject.put("type", 2);
             JSONArray jSONArray = new JSONArray();
-            for (String str : f38238a.c().d()) {
+            for (String str : f38413a.c().d()) {
                 jSONArray.put(str);
             }
             jSONObject.put("content", jSONArray);
@@ -195,7 +195,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
             try {
-                f38238a.c().a(str);
+                f38413a.c().a(str);
             } catch (Throwable unused) {
             }
         }
@@ -206,10 +206,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("clientTimeOut", f38238a.b());
+            jSONObject.put("clientTimeOut", f38413a.b());
             jSONObject.put("type", 2);
             JSONArray jSONArray = new JSONArray();
-            for (String str : f38238a.c().c()) {
+            for (String str : f38413a.c().c()) {
                 jSONArray.put(str);
             }
             jSONObject.put("content", jSONArray);

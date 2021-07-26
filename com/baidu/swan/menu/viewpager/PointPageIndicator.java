@@ -20,19 +20,19 @@ public class PointPageIndicator extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f12057e;
+    public Drawable f12083e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f12058f;
+    public Drawable f12084f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f12059g;
+    public Rect f12085g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Rect f12060h;
+    public Rect f12086h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12061i;
+    public int f12087i;
     public int j;
     public int k;
 
@@ -54,11 +54,11 @@ public class PointPageIndicator extends View {
                 return;
             }
         }
-        this.f12057e = null;
-        this.f12058f = null;
-        this.f12059g = new Rect();
-        this.f12060h = new Rect();
-        this.f12061i = 0;
+        this.f12083e = null;
+        this.f12084f = null;
+        this.f12085g = new Rect();
+        this.f12086h = new Rect();
+        this.f12087i = 0;
         this.j = 0;
         this.k = 0;
         a(context);
@@ -98,13 +98,13 @@ public class PointPageIndicator extends View {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, drawable, drawable2)) == null) {
-            this.f12057e = drawable;
-            this.f12058f = drawable2;
+            this.f12083e = drawable;
+            this.f12084f = drawable2;
             if (drawable instanceof BitmapDrawable) {
-                this.f12059g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                this.f12085g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
             if (drawable2 instanceof BitmapDrawable) {
-                this.f12060h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+                this.f12086h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
             }
             return this;
         }
@@ -125,7 +125,7 @@ public class PointPageIndicator extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f12061i = i2;
+            this.f12087i = i2;
             return this;
         }
         return (PointPageIndicator) invokeI.objValue;
@@ -141,14 +141,14 @@ public class PointPageIndicator extends View {
             if (i2 <= 0) {
                 return;
             }
-            int i3 = this.f12061i;
+            int i3 = this.f12087i;
             int height = getHeight();
             int width2 = getWidth();
             int i4 = this.j;
-            Rect rect = this.f12059g;
-            Rect rect2 = this.f12060h;
-            Drawable drawable = this.f12057e;
-            Drawable drawable2 = this.f12058f;
+            Rect rect = this.f12085g;
+            Rect rect2 = this.f12086h;
+            Drawable drawable = this.f12083e;
+            Drawable drawable2 = this.f12084f;
             int i5 = i2 - 1;
             int width3 = (width2 - (((i3 * i5) + (rect.width() * i5)) + rect2.width())) / 2;
             for (int i6 = 0; i6 < i2; i6++) {
@@ -191,11 +191,11 @@ public class PointPageIndicator extends View {
                 return;
             }
         }
-        this.f12057e = null;
-        this.f12058f = null;
-        this.f12059g = new Rect();
-        this.f12060h = new Rect();
-        this.f12061i = 0;
+        this.f12083e = null;
+        this.f12084f = null;
+        this.f12085g = new Rect();
+        this.f12086h = new Rect();
+        this.f12087i = 0;
         this.j = 0;
         this.k = 0;
         a(context);
@@ -220,11 +220,11 @@ public class PointPageIndicator extends View {
                 return;
             }
         }
-        this.f12057e = null;
-        this.f12058f = null;
-        this.f12059g = new Rect();
-        this.f12060h = new Rect();
-        this.f12061i = 0;
+        this.f12083e = null;
+        this.f12084f = null;
+        this.f12085g = new Rect();
+        this.f12086h = new Rect();
+        this.f12087i = 0;
         this.j = 0;
         this.k = 0;
         a(context);

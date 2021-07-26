@@ -1,139 +1,107 @@
 package d.a.o0.a.e0;
 
-import android.app.Activity;
 import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.o0.f0.h;
-import d.a.o0.r.s.i;
+import d.a.o0.a.k2.g.g;
 /* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public a f51315a;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public i f51316b;
+    /* renamed from: d.a.o0.a.e0.b$b  reason: collision with other inner class name */
+    /* loaded from: classes7.dex */
+    public static class C0674b extends g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        /* renamed from: d.a.o0.a.e0.b$b$a */
+        /* loaded from: classes7.dex */
+        public static final class a {
+            public static /* synthetic */ Interceptable $ic;
+
+            /* renamed from: a  reason: collision with root package name */
+            public static final C0674b f44485a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1286316043, "Ld/a/o0/a/e0/b$b$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(1286316043, "Ld/a/o0/a/e0/b$b$a;");
+                        return;
+                    }
+                }
+                f44485a = new C0674b(null);
             }
         }
-    }
 
-    public void a() {
-        i iVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVar = this.f51316b) == null) {
-            return;
+        public /* synthetic */ C0674b(a aVar) {
+            this();
         }
-        iVar.f();
-        this.f51316b = null;
-    }
 
-    public final void b(String str) {
-        Activity currentActivity;
-        TbPageContext c2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || k.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (c2 = c(currentActivity)) == null || StringUtils.isNull(str)) {
-            return;
+        public static C0674b e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f44485a : (C0674b) invokeV.objValue;
         }
-        c2.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", str, true)));
-    }
 
-    public final TbPageContext c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            if (activity instanceof BaseActivity) {
-                return ((BaseActivity) activity).getPageContext();
-            }
-            if (activity instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) activity).getPageContext();
-            }
-            return null;
-        }
-        return (TbPageContext) invokeL.objValue;
-    }
-
-    public void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f51315a = aVar;
-        }
-    }
-
-    public void e() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f51315a) == null) {
-            return;
-        }
-        int i2 = aVar.f51308c;
-        if (i2 == a.y) {
-            i h2 = i.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.f51315a);
-            h2.j();
-            this.f51316b = h2;
-        } else if (i2 == a.z) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            d.a.o0.r.o.b bVar = new d.a.o0.r.o.b(currentActivity);
-            bVar.d(currentActivity, this.f51315a);
-            bVar.i();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            d.a.o0.r.o.a b2 = d.a.o0.r.o.a.b();
-            d.a.o0.r.o.a b3 = d.a.o0.r.o.a.b();
-            b3.i("business_count_hint" + currentAccount + this.f51315a.f51306a, b2.c("business_count_hint" + currentAccount + this.f51315a.f51306a) - 1);
-        } else if (i2 == a.A) {
-            int i3 = aVar.f51309d;
-            if (i3 == a.D) {
-                if (UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.f51315a.l) || k.isEmpty(this.f51315a.k)) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C0674b() {
+            super("searchbox_sconsole_sp");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                b(this.f51315a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-            } else if (i3 != a.E || k.isEmpty(aVar.k)) {
-            } else {
-                b(this.f51315a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
             }
-        } else if (i2 != a.B || TextUtils.isEmpty(aVar.f51310e)) {
-        } else {
-            CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
-            a aVar2 = this.f51315a;
-            completeTaskToastData.activityId = aVar2.f51306a;
-            completeTaskToastData.missionId = aVar2.f51307b;
-            completeTaskToastData.duration = aVar2.f51314i;
-            completeTaskToastData.message = aVar2.f51310e;
-            completeTaskToastData.url = aVar2.k;
-            completeTaskToastData.pageId = d.a.o0.a.d.y().x();
-            CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
-            competeTaskEvent.taskToastData = completeTaskToastData;
-            h.i(competeTaskEvent);
-            a aVar3 = this.f51315a;
-            c.c(aVar3.f51306a, aVar3.f51307b);
         }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return "consoleSwitch" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && C0674b.e().getBoolean(a(str), false) : invokeL.booleanValue;
+    }
+
+    public static void c(boolean z) {
+        d.a.o0.a.a2.e i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(65538, null, z) == null) || (i2 = d.a.o0.a.a2.e.i()) == null) {
+            return;
+        }
+        C0674b.e().putBoolean(a(i2.D()), z);
     }
 }

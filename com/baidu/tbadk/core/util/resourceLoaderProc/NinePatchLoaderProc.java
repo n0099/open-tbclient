@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.a.f.b;
-import d.a.c.e.a.f.c;
-import d.a.c.k.d.a;
+import d.a.d.e.a.f.b;
+import d.a.d.e.a.f.c;
+import d.a.d.k.d.a;
 /* loaded from: classes3.dex */
 public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -132,7 +132,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(bArr, (Rect) objArr[0]);
-            d.a.c.e.l.a.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
+            d.a.d.e.l.a.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
             return new a(Bytes2NineBitmap);
         }
         return (a) invokeLL.objValue;

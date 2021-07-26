@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener x;
+    public View.OnClickListener y;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoFullscreenLikeBtn(Context context) {
@@ -35,13 +35,13 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, d.a.o0.r.f0.t.b
+    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, d.a.p0.s.f0.t.b
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             setText(this.s);
             setClickable(false);
-            View.OnClickListener onClickListener = this.x;
+            View.OnClickListener onClickListener = this.y;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
@@ -51,7 +51,7 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
     public void setOnclickEvent(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.x = onClickListener;
+            this.y = onClickListener;
         }
     }
 

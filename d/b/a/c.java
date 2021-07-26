@@ -17,7 +17,7 @@ public class c extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f68756e;
+    public final Context f69210e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
@@ -38,7 +38,7 @@ public class c extends s1 {
                 return;
             }
         }
-        this.f68756e = context;
+        this.f69210e = context;
     }
 
     @Override // d.b.a.s1
@@ -46,7 +46,7 @@ public class c extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            z1.g(jSONObject, "language", this.f68756e.getResources().getConfiguration().locale.getLanguage());
+            z1.g(jSONObject, "language", this.f69210e.getResources().getConfiguration().locale.getLanguage());
             int rawOffset = TimeZone.getDefault().getRawOffset() / 3600000;
             if (rawOffset < -12) {
                 rawOffset = -12;

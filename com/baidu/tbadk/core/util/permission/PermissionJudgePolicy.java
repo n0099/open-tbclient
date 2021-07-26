@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.c.a.f;
-import d.a.c.a.j;
-import d.a.o0.r.s.a;
+import d.a.d.a.f;
+import d.a.d.a.j;
+import d.a.p0.s.s.a;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -435,7 +435,7 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // d.a.o0.r.s.a.e
+                @Override // d.a.p0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -475,7 +475,7 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // d.a.o0.r.s.a.e
+                @Override // d.a.p0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {

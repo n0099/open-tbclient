@@ -1,34 +1,55 @@
 package com.bytedance.sdk.openadsdk.l;
 
 import android.content.Context;
-import android.location.Address;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.ITTAdNetDepend;
-import com.bytedance.sdk.openadsdk.core.j;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d implements ITTAdNetDepend {
+public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31460a;
+    public Context f31665a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f31461b;
+    public WeakReference<f> f31666b;
 
-    public d(Context context) {
+    /* renamed from: c  reason: collision with root package name */
+    public Map<String, a> f31667c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public SensorEventListener f31668d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public SensorEventListener f31669e;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        JSONObject a(JSONObject jSONObject) throws Throwable;
+    }
+
+    public d(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,108 +59,898 @@ public class d implements ITTAdNetDepend {
                 return;
             }
         }
-        this.f31460a = "sp_multi_ttadnet_config";
-        this.f31461b = context;
-    }
+        this.f31667c = new HashMap();
+        this.f31668d = new SensorEventListener(this) { // from class: com.bytedance.sdk.openadsdk.l.d.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public int getAid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Integer.parseInt("1371") : invokeV.intValue;
-    }
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ d f31670a;
 
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public String getChannel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "openadsdk" : (String) invokeV.objValue;
-    }
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f31670a = this;
+            }
 
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public String[] getConfigServers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new String[]{"tnc3-bjlgy.snssdk.com", "tnc3-alisc1.snssdk.com", "tnc3-aliec2.snssdk.com"} : (String[]) invokeV.objValue;
-    }
-
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31461b : (Context) invokeV.objValue;
-    }
-
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public String getDid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j.a(this.f31461b) : (String) invokeV.objValue;
-    }
-
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public Address getLocationAdress(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return null;
-        }
-        return (Address) invokeL.objValue;
-    }
-
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public String getPlatform() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "android" : (String) invokeV.objValue;
-    }
-
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public int getProviderInt(Context context, String str, int i2) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, context, str, i2)) == null) ? com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31460a, str, i2) : invokeLLI.intValue;
-    }
-
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public String getProviderString(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2)) == null) ? com.bytedance.sdk.openadsdk.multipro.d.a.b(this.f31460a, str, str2) : (String) invokeLLL.objValue;
-    }
-
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public int getVersionCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 3613;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
-    public void saveMapToProvider(Context context, Map<String, ?> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, context, map) == null) || map == null) {
-            return;
-        }
-        try {
-            for (Map.Entry<String, ?> entry : map.entrySet()) {
-                Object value = entry.getValue();
-                if (value instanceof Integer) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31460a, entry.getKey(), (Integer) value);
-                } else if (value instanceof Long) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31460a, entry.getKey(), (Long) value);
-                } else if (value instanceof Float) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31460a, entry.getKey(), (Float) value);
-                } else if (value instanceof Boolean) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31460a, entry.getKey(), (Boolean) value);
-                } else if (value instanceof String) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f31460a, entry.getKey(), (String) value);
+            @Override // android.hardware.SensorEventListener
+            public void onAccuracyChanged(Sensor sensor, int i4) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, sensor, i4) == null) {
                 }
             }
-        } catch (Throwable unused) {
+
+            @Override // android.hardware.SensorEventListener
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                f d2;
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && (d2 = this.f31670a.d()) != null) {
+                    float[] fArr = sensorEvent.values;
+                    float f2 = fArr[0];
+                    float f3 = fArr[1];
+                    float f4 = fArr[2];
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("x", f2);
+                        jSONObject.put("y", f3);
+                        jSONObject.put("z", f4);
+                        d2.a("accelerometer_callback", jSONObject);
+                    } catch (Throwable unused) {
+                    }
+                }
+            }
+        };
+        this.f31669e = new SensorEventListener(this) { // from class: com.bytedance.sdk.openadsdk.l.d.12
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ d f31673a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.f31673a = this;
+            }
+
+            @Override // android.hardware.SensorEventListener
+            public void onAccuracyChanged(Sensor sensor, int i4) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, sensor, i4) == null) {
+                }
+            }
+
+            @Override // android.hardware.SensorEventListener
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                f d2;
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 4 && (d2 = this.f31673a.d()) != null) {
+                    float degrees = (float) Math.toDegrees(sensorEvent.values[0]);
+                    float degrees2 = (float) Math.toDegrees(sensorEvent.values[1]);
+                    float degrees3 = (float) Math.toDegrees(sensorEvent.values[2]);
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("x", degrees);
+                        jSONObject.put("y", degrees2);
+                        jSONObject.put("z", degrees3);
+                        d2.a("gyro_callback", jSONObject);
+                    } catch (Throwable unused) {
+                    }
+                }
+            }
+        };
+        this.f31665a = fVar.a();
+        this.f31666b = new WeakReference<>(fVar);
+        c();
+    }
+
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            this.f31667c.put("adInfo", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.13
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31674a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31674a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        f d2 = this.f31674a.d();
+                        if (d2 != null) {
+                            return d2.n();
+                        }
+                        return null;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put(DI.APP_INFO_NAME, new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.14
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31675a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31675a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("appName", "playable_sdk");
+                        jSONObject2.put("playableSdkEdition", "1.0.0.0");
+                        JSONArray jSONArray = new JSONArray();
+                        for (String str : this.f31675a.a()) {
+                            jSONArray.put(str);
+                        }
+                        jSONObject2.put("supportList", jSONArray);
+                        f d2 = this.f31675a.d();
+                        if (d2 != null) {
+                            jSONObject2.put("deviceId", d2.g());
+                            jSONObject2.put("netType", d2.k());
+                            jSONObject2.put("innerAppName", d2.d());
+                            jSONObject2.put("appName", d2.e());
+                            jSONObject2.put("appVersion", d2.f());
+                            Map<String, String> b2 = d2.b();
+                            for (String str2 : b2.keySet()) {
+                                jSONObject2.put(str2, b2.get(str2));
+                            }
+                        }
+                        return jSONObject2;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("playableSDKInfo", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31676a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31676a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("appName", "playable_sdk");
+                        jSONObject2.put("playableSdkEdition", "1.0.0.0");
+                        return jSONObject2;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("subscribe_app_ad", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.16
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31677a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31677a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        com.bytedance.sdk.openadsdk.l.a e2 = this.f31677a.e();
+                        if (e2 == null) {
+                            return null;
+                        }
+                        e2.a(jSONObject);
+                        return null;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("download_app_ad", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.17
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31678a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31678a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        com.bytedance.sdk.openadsdk.l.a e2 = this.f31678a.e();
+                        if (e2 == null) {
+                            return null;
+                        }
+                        e2.b(jSONObject);
+                        return null;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("isViewable", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.18
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31679a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31679a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        f d2 = this.f31679a.d();
+                        if (d2 == null) {
+                            return new JSONObject();
+                        }
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("viewStatus", d2.i());
+                        return jSONObject2;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("getVolume", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.19
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31680a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31680a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        f d2 = this.f31680a.d();
+                        if (d2 == null) {
+                            return new JSONObject();
+                        }
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("endcard_mute", d2.h());
+                        return jSONObject2;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("getScreenSize", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31681a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31681a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        f d2 = this.f31681a.d();
+                        if (d2 == null) {
+                            return new JSONObject();
+                        }
+                        return d2.m();
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("start_accelerometer_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31682a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31682a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        int i2 = 2;
+                        if (jSONObject != null) {
+                            try {
+                                i2 = jSONObject.optInt("interval_android", 2);
+                            } catch (Throwable th) {
+                                e.a("PlayableJsBridge", "invoke start_accelerometer_observer error", th);
+                                jSONObject2.put("code", -2);
+                                jSONObject2.put("codeMsg", th.toString());
+                                return jSONObject2;
+                            }
+                        }
+                        h.a(this.f31682a.f31665a, this.f31682a.f31668d, i2);
+                        jSONObject2.put("code", 0);
+                        return jSONObject2;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("close_accelerometer_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31683a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31683a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        try {
+                            h.a(this.f31683a.f31665a, this.f31683a.f31668d);
+                            jSONObject2.put("code", 0);
+                            return jSONObject2;
+                        } catch (Throwable th) {
+                            e.a("PlayableJsBridge", "invoke close_accelerometer_observer error", th);
+                            jSONObject2.put("code", -2);
+                            jSONObject2.put("codeMsg", th.toString());
+                            return jSONObject2;
+                        }
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("start_gyro_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31684a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31684a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        int i2 = 2;
+                        if (jSONObject != null) {
+                            try {
+                                i2 = jSONObject.optInt("interval_android", 2);
+                            } catch (Throwable th) {
+                                e.a("PlayableJsBridge", "invoke start_gyro_observer error", th);
+                                jSONObject2.put("code", -2);
+                                jSONObject2.put("codeMsg", th.toString());
+                                return jSONObject2;
+                            }
+                        }
+                        h.b(this.f31684a.f31665a, this.f31684a.f31669e, i2);
+                        jSONObject2.put("code", 0);
+                        return jSONObject2;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("close_gyro_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31685a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31685a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        try {
+                            h.a(this.f31685a.f31665a, this.f31685a.f31669e);
+                            jSONObject2.put("code", 0);
+                            return jSONObject2;
+                        } catch (Throwable th) {
+                            e.a("PlayableJsBridge", "invoke close_gyro_observer error", th);
+                            jSONObject2.put("code", -2);
+                            jSONObject2.put("codeMsg", th.toString());
+                            return jSONObject2;
+                        }
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("device_shake", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31686a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31686a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        try {
+                            h.a(this.f31686a.f31665a);
+                            jSONObject2.put("code", 0);
+                            return jSONObject2;
+                        } catch (Throwable th) {
+                            e.a("PlayableJsBridge", "invoke device_shake error", th);
+                            jSONObject2.put("code", -2);
+                            jSONObject2.put("codeMsg", th.toString());
+                            return jSONObject2;
+                        }
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("playable_style", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31687a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31687a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        f d2 = this.f31687a.d();
+                        if (d2 != null) {
+                            return d2.c();
+                        }
+                        return null;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("sendReward", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31688a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31688a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        f d2 = this.f31688a.d();
+                        if (d2 != null) {
+                            d2.o();
+                            return null;
+                        }
+                        return null;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("webview_time_track", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.10
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31671a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31671a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        return null;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
+            this.f31667c.put("playable_event", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.11
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ d f31672a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f31672a = this;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.l.d.a
+                public JSONObject a(JSONObject jSONObject) throws Throwable {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
+                        f d2 = this.f31672a.d();
+                        if (d2 == null || jSONObject == null) {
+                            return null;
+                        }
+                        d2.b(jSONObject.optString("event", null), jSONObject.optJSONObject("params"));
+                        return null;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            });
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public f d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            WeakReference<f> weakReference = this.f31666b;
+            if (weakReference == null) {
+                return null;
+            }
+            return weakReference.get();
+        }
+        return (f) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public com.bytedance.sdk.openadsdk.l.a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            f d2 = d();
+            if (d2 == null) {
+                return null;
+            }
+            return d2.l();
+        }
+        return (com.bytedance.sdk.openadsdk.l.a) invokeV.objValue;
+    }
+
+    public Set<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31667c.keySet() : (Set) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h.a(this.f31665a, this.f31668d);
+            h.a(this.f31665a, this.f31669e);
+        }
+    }
+
+    public JSONObject a(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) {
+            try {
+                a aVar = this.f31667c.get(str);
+                if (aVar == null) {
+                    return null;
+                }
+                return aVar.a(jSONObject);
+            } catch (Throwable th) {
+                e.a("PlayableJsBridge", "invoke error", th);
+                return null;
+            }
+        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

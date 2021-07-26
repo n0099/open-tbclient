@@ -22,13 +22,13 @@ public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5341a = "LogSender";
+    public static final String f5367a = "LogSender";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5342b = 10000;
+    public static final int f5368b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5343c = 10001;
+    public static final int f5369c = 10001;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -36,7 +36,7 @@ public class l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static l f5344a;
+        public static l f5370a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +52,7 @@ public class l {
                     return;
                 }
             }
-            f5344a = new l(null);
+            f5370a = new l(null);
         }
 
         public a() {
@@ -77,7 +77,7 @@ public class l {
     public static l a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f5344a : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f5370a : (l) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -93,7 +93,7 @@ public class l {
             StringBuilder sb = new StringBuilder();
             sb.append("=====sendLogData=====");
             sb.append(str);
-            LogUtil.d(f5341a, sb.toString() == "normal_log" ? "normal" : "crash");
+            LogUtil.d(f5367a, sb.toString() == "normal_log" ? "normal" : "crash");
             if ((str.equals(b.o) && f.a().c()) || (appContext = RimStatisticsUtil.getAppContext()) == null || !com.baidu.fsg.base.statistics.a.a(appContext)) {
                 return;
             }
@@ -155,7 +155,7 @@ public class l {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, hVarArr)) == null) {
             JSONArray jSONArray = new JSONArray();
             for (h hVar : hVarArr) {
-                LogUtil.d(f5341a, hVar.a().toString());
+                LogUtil.d(f5367a, hVar.a().toString());
                 jSONArray.put(hVar.a());
             }
             return jSONArray;

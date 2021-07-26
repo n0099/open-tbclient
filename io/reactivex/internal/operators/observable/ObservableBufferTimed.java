@@ -413,7 +413,7 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final U f73034b;
+            public final U f73488b;
             public final /* synthetic */ BufferSkipBoundedObserver this$0;
 
             public RemoveFromBuffer(BufferSkipBoundedObserver bufferSkipBoundedObserver, U u) {
@@ -432,7 +432,7 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
                     }
                 }
                 this.this$0 = bufferSkipBoundedObserver;
-                this.f73034b = u;
+                this.f73488b = u;
             }
 
             @Override // java.lang.Runnable
@@ -440,10 +440,10 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     synchronized (this.this$0) {
-                        this.this$0.buffers.remove(this.f73034b);
+                        this.this$0.buffers.remove(this.f73488b);
                     }
                     BufferSkipBoundedObserver bufferSkipBoundedObserver = this.this$0;
-                    bufferSkipBoundedObserver.fastPathOrderedEmit(this.f73034b, false, bufferSkipBoundedObserver.w);
+                    bufferSkipBoundedObserver.fastPathOrderedEmit(this.f73488b, false, bufferSkipBoundedObserver.w);
                 }
             }
         }

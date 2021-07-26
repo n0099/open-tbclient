@@ -24,11 +24,11 @@ public final class c extends v<Date> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f31828a;
+    public static final w f32029a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<DateFormat> f31829b;
+    public final List<DateFormat> f32030b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public final class c extends v<Date> {
                 return;
             }
         }
-        f31828a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.c.1
+        f32029a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,13 +90,13 @@ public final class c extends v<Date> {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f31829b = arrayList;
+        this.f32030b = arrayList;
         arrayList.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.f31829b.add(DateFormat.getDateTimeInstance(2, 2));
+            this.f32030b.add(DateFormat.getDateTimeInstance(2, 2));
         }
         if (com.bytedance.sdk.openadsdk.preload.a.b.e.b()) {
-            this.f31829b.add(com.bytedance.sdk.openadsdk.preload.a.b.j.a(2, 2));
+            this.f32030b.add(com.bytedance.sdk.openadsdk.preload.a.b.j.a(2, 2));
         }
     }
 
@@ -107,7 +107,7 @@ public final class c extends v<Date> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f32028i) {
+            if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f32229i) {
                 aVar.j();
                 return null;
             }
@@ -121,7 +121,7 @@ public final class c extends v<Date> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             synchronized (this) {
-                for (DateFormat dateFormat : this.f31829b) {
+                for (DateFormat dateFormat : this.f32030b) {
                     try {
                         return dateFormat.parse(str);
                     } catch (ParseException unused) {
@@ -146,7 +146,7 @@ public final class c extends v<Date> {
                 if (date == null) {
                     cVar.f();
                 } else {
-                    cVar.b(this.f31829b.get(0).format(date));
+                    cVar.b(this.f32030b.get(0).format(date));
                 }
             }
         }

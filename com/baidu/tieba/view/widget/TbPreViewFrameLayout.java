@@ -14,26 +14,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes4.dex */
 public class TbPreViewFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f22388e;
+    public float f22546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f22389f;
+    public float f22547f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f22390g;
+    public float f22548g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f22391h;
+    public float f22549h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f22392i;
+    public float f22550i;
     public c j;
     public a k;
     public boolean l;
@@ -138,13 +138,13 @@ public class TbPreViewFrameLayout extends FrameLayout {
     public float getScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22388e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22546e : invokeV.floatValue;
     }
 
     public float getTranslate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22389f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22547f : invokeV.floatValue;
     }
 
     @Override // android.view.View
@@ -159,22 +159,22 @@ public class TbPreViewFrameLayout extends FrameLayout {
             }
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f22390g = motionEvent.getX();
-                this.f22391h = motionEvent.getY();
+                this.f22548g = motionEvent.getX();
+                this.f22549h = motionEvent.getY();
                 c cVar3 = this.j;
                 if (cVar3 != null) {
                     cVar3.d(motionEvent);
                 }
             } else if (action == 1 || action == 3) {
-                if (Math.abs(this.f22390g - motionEvent.getX()) > this.f22392i && (this.f22390g - motionEvent.getX()) - 50.0f > Math.abs(this.f22391h - motionEvent.getY()) && this.m) {
+                if (Math.abs(this.f22548g - motionEvent.getX()) > this.f22550i && (this.f22548g - motionEvent.getX()) - 50.0f > Math.abs(this.f22549h - motionEvent.getY()) && this.m) {
                     c cVar4 = this.j;
                     if (cVar4 != null) {
                         cVar4.b(motionEvent);
                     }
-                } else if (Math.abs(this.f22390g - motionEvent.getX()) > this.f22392i && (motionEvent.getX() - this.f22390g) - 50.0f > Math.abs(this.f22391h - motionEvent.getY()) && this.m && (cVar = this.j) != null) {
+                } else if (Math.abs(this.f22548g - motionEvent.getX()) > this.f22550i && (motionEvent.getX() - this.f22548g) - 50.0f > Math.abs(this.f22549h - motionEvent.getY()) && this.m && (cVar = this.j) != null) {
                     cVar.a(motionEvent);
                 }
-                if (Math.abs(this.f22390g - motionEvent.getX()) < 30.0f && Math.abs(this.f22391h - motionEvent.getY()) < 30.0f && motionEvent.getY() <= l.i(getContext()) * 0.6d && (cVar2 = this.j) != null) {
+                if (Math.abs(this.f22548g - motionEvent.getX()) < 30.0f && Math.abs(this.f22549h - motionEvent.getY()) < 30.0f && motionEvent.getY() <= l.i(getContext()) * 0.6d && (cVar2 = this.j) != null) {
                     cVar2.c(motionEvent);
                 }
             }
@@ -220,14 +220,14 @@ public class TbPreViewFrameLayout extends FrameLayout {
     public void setScale(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            this.f22388e = f2;
+            this.f22546e = f2;
         }
     }
 
     public void setTranslate(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f22389f = f2;
+            this.f22547f = f2;
         }
     }
 
@@ -271,12 +271,12 @@ public class TbPreViewFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f22388e = 0.7f;
-        this.f22389f = 300.0f;
-        this.f22390g = 0.0f;
-        this.f22391h = 0.0f;
+        this.f22546e = 0.7f;
+        this.f22547f = 300.0f;
+        this.f22548g = 0.0f;
+        this.f22549h = 0.0f;
         this.l = true;
         this.m = true;
-        this.f22392i = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.f22550i = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 }

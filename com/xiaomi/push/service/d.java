@@ -9,7 +9,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f40669a;
+    public static a f40941a;
 
     /* renamed from: a  reason: collision with other field name */
     public static b f949a;
@@ -36,10 +36,10 @@ public class d {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ieVar)) == null) {
-            if (f40669a == null || ieVar == null) {
+            if (f40941a == null || ieVar == null) {
                 str = "rc params is null, not cpra";
             } else if (com.xiaomi.push.l.m536a(com.xiaomi.push.t.m636a())) {
-                return f40669a.a(ieVar);
+                return f40941a.a(ieVar);
             } else {
                 str = "rc app not permission to cpra";
             }

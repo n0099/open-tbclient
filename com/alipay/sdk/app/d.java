@@ -11,7 +11,7 @@ public class d implements DialogInterface.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f1796a;
+    public final /* synthetic */ c f1829a;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -28,16 +28,16 @@ public class d implements DialogInterface.OnClickListener {
                 return;
             }
         }
-        this.f1796a = cVar;
+        this.f1829a = cVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-            this.f1796a.f1795c.f1788b = true;
+            this.f1829a.f1828c.f1821b = true;
             com.alipay.sdk.app.statistic.a.a("net", com.alipay.sdk.app.statistic.c.s, "1");
-            this.f1796a.f1794b.proceed();
+            this.f1829a.f1827b.proceed();
             dialogInterface.dismiss();
         }
     }

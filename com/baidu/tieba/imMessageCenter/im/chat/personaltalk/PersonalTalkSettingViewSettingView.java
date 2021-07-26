@@ -18,7 +18,7 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SettingTextSwitchView f17796e;
+    public SettingTextSwitchView f17852e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
@@ -46,9 +46,9 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                this.f17796e.f(false);
+                this.f17852e.f(false);
             } else {
-                this.f17796e.e(false);
+                this.f17852e.e(false);
             }
         }
     }
@@ -59,7 +59,7 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
             setOrientation(1);
             LinearLayout.inflate(getContext(), R.layout.p2ptalk_setting_detail_view, this);
             SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.sv_person_msg_notify);
-            this.f17796e = settingTextSwitchView;
+            this.f17852e = settingTextSwitchView;
             SkinManager.setBackgroundColor(settingTextSwitchView.getView(), R.color.common_color_10163);
         }
     }
@@ -67,7 +67,7 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
     public void setSwitchStateChangeListener(BdSwitchView.b bVar) {
         SettingTextSwitchView settingTextSwitchView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (settingTextSwitchView = this.f17796e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (settingTextSwitchView = this.f17852e) == null) {
             return;
         }
         settingTextSwitchView.setSwitchStateChangeListener(bVar);

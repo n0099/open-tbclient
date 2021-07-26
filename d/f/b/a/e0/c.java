@@ -70,8 +70,8 @@ public abstract class c extends d.f.b.a.y.g<h, i, SubtitleDecoderException> impl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048583, this, hVar, iVar, z)) == null) {
             try {
-                ByteBuffer byteBuffer = hVar.f70755g;
-                iVar.n(hVar.f70756h, w(byteBuffer.array(), byteBuffer.limit(), z), hVar.j);
+                ByteBuffer byteBuffer = hVar.f71209g;
+                iVar.n(hVar.f71210h, w(byteBuffer.array(), byteBuffer.limit(), z), hVar.j);
                 iVar.g(Integer.MIN_VALUE);
                 return null;
             } catch (SubtitleDecoderException e2) {

@@ -35,7 +35,7 @@ public abstract class CyberPlayerCoreProvider {
         public static final LibsVersionType SUCCESS_LOADED_VERSION;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ LibsVersionType[] f4773a;
+        public static final /* synthetic */ LibsVersionType[] f4799a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public abstract class CyberPlayerCoreProvider {
             ALL_VERSION = new LibsVersionType("ALL_VERSION", 0);
             LibsVersionType libsVersionType = new LibsVersionType("SUCCESS_LOADED_VERSION", 1);
             SUCCESS_LOADED_VERSION = libsVersionType;
-            f4773a = new LibsVersionType[]{ALL_VERSION, libsVersionType};
+            f4799a = new LibsVersionType[]{ALL_VERSION, libsVersionType};
         }
 
         public LibsVersionType(String str, int i2) {
@@ -85,7 +85,7 @@ public abstract class CyberPlayerCoreProvider {
         public static LibsVersionType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LibsVersionType[]) f4773a.clone() : (LibsVersionType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LibsVersionType[]) f4799a.clone() : (LibsVersionType[]) invokeV.objValue;
         }
     }
 

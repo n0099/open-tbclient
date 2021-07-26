@@ -14,10 +14,10 @@ public final class l0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f68799a;
+    public static final AtomicBoolean f69253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f68800b;
+    public static String f69254b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,23 +33,23 @@ public final class l0 {
                 return;
             }
         }
-        f68799a = new AtomicBoolean(false);
-        f68800b = "";
+        f69253a = new AtomicBoolean(false);
+        f69254b = "";
     }
 
     public static String a(SharedPreferences sharedPreferences) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sharedPreferences)) == null) {
-            if (f68799a.compareAndSet(false, true)) {
+            if (f69253a.compareAndSet(false, true)) {
                 String string = sharedPreferences.getString("cdid", "");
-                f68800b = string;
+                f69254b = string;
                 if (TextUtils.isEmpty(string)) {
-                    f68800b = UUID.randomUUID().toString();
-                    sharedPreferences.edit().putString("cdid", f68800b).apply();
+                    f69254b = UUID.randomUUID().toString();
+                    sharedPreferences.edit().putString("cdid", f69254b).apply();
                 }
             }
-            return f68800b;
+            return f69254b;
         }
         return (String) invokeL.objValue;
     }

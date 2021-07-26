@@ -14,13 +14,13 @@ public abstract class v implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39291a;
+    public Context f39512a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39292b;
+    public int f39513b;
 
     /* renamed from: c  reason: collision with root package name */
-    public y f39293c;
+    public y f39514c;
 
     public v(y yVar) {
         Interceptable interceptable = $ic;
@@ -37,12 +37,12 @@ public abstract class v implements Runnable {
                 return;
             }
         }
-        this.f39292b = -1;
-        this.f39293c = yVar;
+        this.f39513b = -1;
+        this.f39514c = yVar;
         int b2 = yVar.b();
-        this.f39292b = b2;
+        this.f39513b = b2;
         if (b2 >= 0) {
-            this.f39291a = p.a().h();
+            this.f39512a = p.a().h();
             return;
         }
         throw new IllegalArgumentException("PushTask need a > 0 task id.");
@@ -51,7 +51,7 @@ public abstract class v implements Runnable {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39292b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39513b : invokeV.intValue;
     }
 
     public abstract void a(y yVar);
@@ -60,11 +60,11 @@ public abstract class v implements Runnable {
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Context context = this.f39291a;
-            if (context != null && !(this.f39293c instanceof com.vivo.push.b.p)) {
-                com.vivo.push.util.p.a(context, "[执行指令]" + this.f39293c);
+            Context context = this.f39512a;
+            if (context != null && !(this.f39514c instanceof com.vivo.push.b.p)) {
+                com.vivo.push.util.p.a(context, "[执行指令]" + this.f39514c);
             }
-            a(this.f39293c);
+            a(this.f39514c);
         }
     }
 
@@ -75,7 +75,7 @@ public abstract class v implements Runnable {
             StringBuilder sb = new StringBuilder();
             sb.append(getClass().getSimpleName());
             sb.append(StringUtil.ARRAY_START);
-            y yVar = this.f39293c;
+            y yVar = this.f39514c;
             sb.append(yVar == null ? "[null]" : yVar.toString());
             sb.append("}");
             return sb.toString();

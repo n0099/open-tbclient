@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.z.b.a.e;
+import d.a.a0.b.a.e;
 /* loaded from: classes5.dex */
 public class ResolutionRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;

@@ -11,19 +11,19 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f69703a;
+    public static final int f70157a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final UUID f69704b;
+    public static final UUID f70158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final UUID f69705c;
+    public static final UUID f70159c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final UUID f69706d;
+    public static final UUID f70160d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final UUID f69707e;
+    public static final UUID f70161e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,12 +39,12 @@ public final class b {
                 return;
             }
         }
-        f69703a = d.f.b.a.i0.v.f70515a < 23 ? 1020 : 6396;
-        f69704b = new UUID(0L, 0L);
-        f69705c = new UUID(1186680826959645954L, -5988876978535335093L);
+        f70157a = d.f.b.a.i0.v.f70969a < 23 ? 1020 : 6396;
+        f70158b = new UUID(0L, 0L);
+        f70159c = new UUID(1186680826959645954L, -5988876978535335093L);
         new UUID(-2129748144642739255L, 8654423357094679310L);
-        f69706d = new UUID(-1301668207276963122L, -6645017420763422227L);
-        f69707e = new UUID(-7348484286925749626L, -6083546864340672619L);
+        f70160d = new UUID(-1301668207276963122L, -6645017420763422227L);
+        f70161e = new UUID(-7348484286925749626L, -6083546864340672619L);
     }
 
     public static long a(long j) {

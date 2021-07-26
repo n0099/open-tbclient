@@ -17,7 +17,7 @@ public final class aa extends bk.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f40573a;
+    public final /* synthetic */ XMPushService f40845a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ l f871a;
@@ -41,7 +41,7 @@ public final class aa extends bk.a {
                 return;
             }
         }
-        this.f40573a = xMPushService;
+        this.f40845a = xMPushService;
         this.f871a = lVar;
     }
 
@@ -49,7 +49,7 @@ public final class aa extends bk.a {
     public void a(bk bkVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bkVar) == null) {
-            com.xiaomi.push.ax a2 = com.xiaomi.push.ax.a(this.f40573a);
+            com.xiaomi.push.ax a2 = com.xiaomi.push.ax.a(this.f40845a);
             String a3 = bkVar.a("MSAID", "msaid");
             String str = a2.a() + a2.mo149b() + a2.c() + a2.d();
             if (TextUtils.isEmpty(str) || TextUtils.equals(a3, str)) {
@@ -57,13 +57,13 @@ public final class aa extends bk.a {
             }
             bkVar.a("MSAID", "msaid", str);
             ie ieVar = new ie();
-            ieVar.b(this.f871a.f40690d);
-            ieVar.c(hp.f40307g.f509a);
+            ieVar.b(this.f871a.f40962d);
+            ieVar.c(hp.f40579g.f509a);
             ieVar.a(at.a());
             ieVar.a(new HashMap());
             a2.a(ieVar.m466a());
-            byte[] a4 = ip.a(y.a(this.f40573a.getPackageName(), this.f871a.f40690d, ieVar, hf.f40258i));
-            XMPushService xMPushService = this.f40573a;
+            byte[] a4 = ip.a(y.a(this.f40845a.getPackageName(), this.f871a.f40962d, ieVar, hf.f40530i));
+            XMPushService xMPushService = this.f40845a;
             xMPushService.a(xMPushService.getPackageName(), a4, true);
         }
     }

@@ -14,7 +14,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f28894a;
+    public static final char[] f28990a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class e {
                 return;
             }
         }
-        f28894a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f28990a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static String a(byte[] bArr) {
@@ -57,7 +57,7 @@ public class e {
                     for (int i6 = 0; i6 < i3; i6++) {
                         int i7 = bArr[i6 + i2] & 255;
                         int i8 = i5 + 1;
-                        char[] cArr2 = f28894a;
+                        char[] cArr2 = f28990a;
                         cArr[i5] = cArr2[i7 >> 4];
                         i5 = i8 + 1;
                         cArr[i8] = cArr2[i7 & 15];
@@ -78,7 +78,6 @@ public class e {
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
             return (String) invokeL.objValue;
         }
-        FileInputStream fileInputStream2 = null;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             if (messageDigest == null) {
@@ -100,7 +99,7 @@ public class e {
                 } catch (Exception unused) {
                 }
                 return a2;
-            } catch (Exception unused2) {
+            } catch (Throwable unused2) {
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
@@ -108,21 +107,9 @@ public class e {
                     }
                 }
                 return null;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception unused4) {
-                    }
-                }
-                throw th;
             }
-        } catch (Exception unused5) {
+        } catch (Throwable unused4) {
             fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 
@@ -137,7 +124,7 @@ public class e {
                         messageDigest.update(str.getBytes("UTF-8"));
                         return a(messageDigest.digest());
                     }
-                } catch (Exception unused) {
+                } catch (Throwable unused) {
                 }
             }
             return null;

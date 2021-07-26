@@ -35,8 +35,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.l0.d;
-import d.a.p0.v1.f.f;
+import d.a.p0.n0.d;
+import d.a.q0.v1.f.f;
 /* loaded from: classes4.dex */
 public class CardBoxMemberPayActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,7 +49,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     public String mPackedId;
     public String mReferPage;
     public HttpMessageListener mRequestMemberPayInfoListener;
-    public d.a.p0.v1.f.a mView;
+    public d.a.q0.v1.f.a mView;
 
     /* loaded from: classes4.dex */
     public class a implements Animation.AnimationListener {
@@ -57,7 +57,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardBoxMemberPayActivity f18598a;
+        public final /* synthetic */ CardBoxMemberPayActivity f18683a;
 
         public a(CardBoxMemberPayActivity cardBoxMemberPayActivity) {
             Interceptable interceptable = $ic;
@@ -74,15 +74,15 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                     return;
                 }
             }
-            this.f18598a = cardBoxMemberPayActivity;
+            this.f18683a = cardBoxMemberPayActivity;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f18598a.mAnimateRunning = false;
-                this.f18598a.finish();
+                this.f18683a.mAnimateRunning = false;
+                this.f18683a.finish();
             }
         }
 
@@ -107,7 +107,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardBoxMemberPayActivity f18599a;
+        public final /* synthetic */ CardBoxMemberPayActivity f18684a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i2) {
@@ -127,7 +127,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                     return;
                 }
             }
-            this.f18599a = cardBoxMemberPayActivity;
+            this.f18684a = cardBoxMemberPayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,22 +135,22 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f18599a.closeLoadingDialog();
+                this.f18684a.closeLoadingDialog();
                 if (httpResponsedMessage instanceof ResponseCardBoxMemberPayMessage) {
                     ResponseCardBoxMemberPayMessage responseCardBoxMemberPayMessage = (ResponseCardBoxMemberPayMessage) httpResponsedMessage;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         if (responseCardBoxMemberPayMessage.getMemberPayResult() != null) {
-                            this.f18599a.mView.m(responseCardBoxMemberPayMessage.getMemberPayResult());
+                            this.f18684a.mView.m(responseCardBoxMemberPayMessage.getMemberPayResult());
                             return;
                         }
-                        this.f18599a.showToast(R.string.neterror);
+                        this.f18684a.showToast(R.string.neterror);
                         return;
                     }
                     String errorString = responseCardBoxMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.f18599a.getResources().getString(R.string.neterror);
+                        errorString = this.f18684a.getResources().getString(R.string.neterror);
                     }
-                    this.f18599a.showToast(errorString);
+                    this.f18684a.showToast(errorString);
                 }
             }
         }
@@ -162,7 +162,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardBoxMemberPayActivity f18600a;
+        public final /* synthetic */ CardBoxMemberPayActivity f18685a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i2) {
@@ -182,7 +182,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                     return;
                 }
             }
-            this.f18600a = cardBoxMemberPayActivity;
+            this.f18685a = cardBoxMemberPayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -192,7 +192,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.hasError()) {
                 return;
             }
-            this.f18600a.finish();
+            this.f18685a.finish();
         }
     }
 
@@ -269,7 +269,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            this.mView = new d.a.p0.v1.f.a(this);
+            this.mView = new d.a.q0.v1.f.a(this);
         }
     }
 
@@ -313,7 +313,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
             PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, false, PageDialogHelper.PayForm.NOT_SET, this.mReferPage, this.mClickZone);
             payConfig.setFrom(4);
-            d.a.p0.v1.f.a aVar = this.mView;
+            d.a.q0.v1.f.a aVar = this.mView;
             if (aVar == null || aVar.i() == null) {
                 str = "";
             } else {
@@ -372,14 +372,14 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        d.a.p0.v1.f.a aVar;
+        d.a.q0.v1.f.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (aVar = this.mView) == null) {
             return;
         }
         if (view == aVar.h() && this.mView.d() != null) {
             f.d d2 = this.mView.d();
-            startDealIntentService(d2.f65168i, d2.j / 100, d2.l, d2.n);
+            startDealIntentService(d2.f65816i, d2.j / 100, d2.l, d2.n);
         } else if (view == this.mView.f()) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{MEMBER_AGREEMENT_JUMP_URL});
         } else if (view == this.mView.e()) {

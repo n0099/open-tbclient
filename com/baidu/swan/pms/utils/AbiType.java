@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.n.c;
+import d.a.o0.n.c;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,7 +66,7 @@ public final class AbiType {
         AbiType abiType4 = new AbiType("X86_64", 4, "x86_64", abiType3, ARMEABI_V7A, ARMEABI);
         X86_64 = abiType4;
         $VALUES = new AbiType[]{ARMEABI, ARMEABI_V7A, ARM64_V8A, X86, abiType4};
-        DEBUG = c.f50608a;
+        DEBUG = c.f51112a;
         sIndex = new HashMap();
     }
 

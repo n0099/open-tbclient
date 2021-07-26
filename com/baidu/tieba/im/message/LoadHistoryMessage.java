@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i1.f.c;
+import d.a.q0.i1.f.c;
 /* loaded from: classes4.dex */
 public class LoadHistoryMessage extends CustomMessage<a> {
     public static /* synthetic */ Interceptable $ic;
@@ -20,16 +20,16 @@ public class LoadHistoryMessage extends CustomMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17599a;
+        public String f17655a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17600b;
+        public String f17656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f17601c;
+        public int f17657c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f17602d;
+        public String f17658d;
 
         public a() {
             Interceptable interceptable = $ic;

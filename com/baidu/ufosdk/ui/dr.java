@@ -10,7 +10,7 @@ public final class dr implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f23575a;
+    public final /* synthetic */ FeedbackListActivity f23733a;
 
     public dr(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public final class dr implements Runnable {
                 return;
             }
         }
-        this.f23575a = feedbackListActivity;
+        this.f23733a = feedbackListActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.e.a.a(this.f23575a.getApplicationContext());
+            com.baidu.ufosdk.e.a.a(this.f23733a.getApplicationContext());
         }
     }
 }

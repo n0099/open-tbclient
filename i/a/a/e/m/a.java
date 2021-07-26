@@ -7,7 +7,7 @@ import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.ISDKReporter;
 import tv.athena.revenue.RevenueManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

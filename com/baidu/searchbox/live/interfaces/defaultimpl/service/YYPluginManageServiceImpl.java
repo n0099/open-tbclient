@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.a0.d.a.a;
+import d.a.b0.d.a.a;
 import java.io.File;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -117,7 +117,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     this.$pluginPackageName = str;
                 }
 
-                @Override // d.a.a0.d.a.a
+                @Override // d.a.b0.d.a.a
                 public void onProgress(long j, long j2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -127,7 +127,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     yYPluginDownloadCallback2.onProgress(this.$pluginPackageName, j, j2);
                 }
 
-                @Override // d.a.a0.d.a.a
+                @Override // d.a.b0.d.a.a
                 public void onResult(int i2, String str2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;

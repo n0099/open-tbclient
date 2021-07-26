@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.b;
-import d.a.c.a.h;
-import d.a.c.a.i;
-import d.a.c.e.l.d;
-import d.a.c.e.p.l;
-import d.a.c.k.e.q;
+import d.a.d.a.b;
+import d.a.d.a.h;
+import d.a.d.a.i;
+import d.a.d.e.l.d;
+import d.a.d.e.p.l;
+import d.a.d.k.e.q;
 /* loaded from: classes.dex */
 public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentActivity implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i {
     public static /* synthetic */ Interceptable $ic = null;
@@ -43,7 +43,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseFragmentActivity f2256e;
+        public final /* synthetic */ PluginAdpBaseFragmentActivity f2282e;
 
         public a(PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
                     return;
                 }
             }
-            this.f2256e = pluginAdpBaseFragmentActivity;
+            this.f2282e = pluginAdpBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f2256e;
+                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f2282e;
                 pluginAdpBaseFragmentActivity.onPreLoad(pluginAdpBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -97,8 +97,8 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         if (!(interceptable == null || interceptable.invokeL(65537, this, view) == null) || view == null) {
             return;
         }
-        if (view instanceof d.a.c.f.a.i) {
-            ((d.a.c.f.a.i) view).refresh();
+        if (view instanceof d.a.d.f.a.i) {
+            ((d.a.d.f.a.i) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -120,14 +120,14 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         return (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mId : (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
     public boolean isScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -217,7 +217,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
     public void onPreLoad(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, qVar) == null) {
@@ -310,7 +310,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
     public void setIsScroll(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
@@ -346,7 +346,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    public void registerListener(d.a.c.c.g.a aVar) {
+    public void registerListener(d.a.d.c.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) {
             if (aVar != null && aVar.getTag() == null) {
@@ -356,7 +356,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         }
     }
 
-    public void registerListener(int i2, d.a.c.c.g.a aVar) {
+    public void registerListener(int i2, d.a.d.c.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048593, this, i2, aVar) == null) {
             if (aVar != null && aVar.getTag() == null) {

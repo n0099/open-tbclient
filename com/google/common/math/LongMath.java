@@ -270,7 +270,7 @@ public final class LongMath {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f33528a;
+        public static final /* synthetic */ int[] f33717a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -287,37 +287,37 @@ public final class LongMath {
                 }
             }
             int[] iArr = new int[RoundingMode.values().length];
-            f33528a = iArr;
+            f33717a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f33528a[RoundingMode.DOWN.ordinal()] = 2;
+                f33717a[RoundingMode.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f33528a[RoundingMode.FLOOR.ordinal()] = 3;
+                f33717a[RoundingMode.FLOOR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f33528a[RoundingMode.UP.ordinal()] = 4;
+                f33717a[RoundingMode.UP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f33528a[RoundingMode.CEILING.ordinal()] = 5;
+                f33717a[RoundingMode.CEILING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f33528a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+                f33717a[RoundingMode.HALF_DOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f33528a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f33717a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f33528a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+                f33717a[RoundingMode.HALF_EVEN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -364,7 +364,7 @@ public final class LongMath {
             }
             int i3 = (int) ((j ^ j2) >> 63);
             int i4 = i3 | 1;
-            switch (a.f33528a[roundingMode.ordinal()]) {
+            switch (a.f33717a[roundingMode.ordinal()]) {
                 case 1:
                     e.d(i2 == 0);
                     r9 = false;

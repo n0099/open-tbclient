@@ -15,7 +15,7 @@ public class m implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f35138a;
+    public a f35327a;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -47,20 +47,20 @@ public class m implements com.kwad.sdk.core.webview.a.a {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f35138a = aVar;
+            this.f35327a = aVar;
         }
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) || this.f35138a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) || this.f35327a == null) {
             return;
         }
         com.kwad.sdk.core.webview.b.a.b bVar = new com.kwad.sdk.core.webview.b.a.b();
         try {
             bVar.parseJson(new JSONObject(str));
-            this.f35138a.a(bVar);
+            this.f35327a.a(bVar);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class m implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f35138a = null;
+            this.f35327a = null;
         }
     }
 }

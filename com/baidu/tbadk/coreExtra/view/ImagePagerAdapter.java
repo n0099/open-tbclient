@@ -31,31 +31,31 @@ public class ImagePagerAdapter extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f12885a;
+    public Context f12934a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, ImageUrlData> f12886b;
+    public Map<String, ImageUrlData> f12935b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f12887c;
+    public ArrayList<String> f12936c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f12888d;
+    public View.OnClickListener f12937d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnLongClickListener f12889e;
+    public View.OnLongClickListener f12938e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnTouchListener f12890f;
+    public View.OnTouchListener f12939f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DragImageView.k f12891g;
+    public DragImageView.k f12940g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DragImageView.i f12892h;
+    public DragImageView.i f12941h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f12893i;
+    public b f12942i;
     public UrlDragImageView.p j;
     public DragImageView.h k;
     public List<a> l;
@@ -98,11 +98,11 @@ public class ImagePagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f12887c = null;
-        this.f12888d = null;
-        this.f12889e = null;
-        this.f12890f = null;
-        this.f12891g = null;
+        this.f12936c = null;
+        this.f12937d = null;
+        this.f12938e = null;
+        this.f12939f = null;
+        this.f12940g = null;
         this.m = 0;
         this.n = false;
         this.o = null;
@@ -111,8 +111,8 @@ public class ImagePagerAdapter extends PagerAdapter {
         this.r = false;
         this.s = false;
         this.t = -1;
-        this.f12885a = context;
-        this.f12892h = iVar;
+        this.f12934a = context;
+        this.f12941h = iVar;
         this.l = new ArrayList();
     }
 
@@ -128,7 +128,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         Map<String, ImageUrlData> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (map = this.f12886b) == null) {
+            if (TextUtils.isEmpty(str) || (map = this.f12935b) == null) {
                 return null;
             }
             return map.get(str);
@@ -141,7 +141,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         Map<String, ImageUrlData> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (map = this.f12886b) != null) {
+            if (!TextUtils.isEmpty(str) && (map = this.f12935b) != null) {
                 for (ImageUrlData imageUrlData : map.values()) {
                     String str2 = imageUrlData.imageUrl;
                     if (str2 != null && str2.equals(str)) {
@@ -185,25 +185,25 @@ public class ImagePagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
-            String str = i2 < this.f12887c.size() ? this.f12887c.get(i2) : null;
-            if (StringUtils.isNull(str) || d.a.p0.w2.a.l(str)) {
+            String str = i2 < this.f12936c.size() ? this.f12936c.get(i2) : null;
+            if (StringUtils.isNull(str) || d.a.q0.w2.a.l(str)) {
                 return null;
             }
-            UrlDragImageView urlDragImageView = new UrlDragImageView(this.f12885a);
+            UrlDragImageView urlDragImageView = new UrlDragImageView(this.f12934a);
             urlDragImageView.setOriImgSelectedCallback(this.j);
             urlDragImageView.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-            urlDragImageView.setImageOnClickListener(this.f12888d);
-            urlDragImageView.setImageOnLongClickListener(this.f12889e);
-            urlDragImageView.setOuterOnTouchListener(this.f12890f);
+            urlDragImageView.setImageOnClickListener(this.f12937d);
+            urlDragImageView.setImageOnLongClickListener(this.f12938e);
+            urlDragImageView.setOuterOnTouchListener(this.f12939f);
             urlDragImageView.setIsCanDrag(this.u);
             urlDragImageView.setIsCdn(this.r);
-            urlDragImageView.setOnSizeChangedListener(this.f12891g);
+            urlDragImageView.setOnSizeChangedListener(this.f12940g);
             viewGroup.addView(urlDragImageView, 0);
             urlDragImageView.setAssistUrl(c(str));
             urlDragImageView.setUrl(str, this.s);
             urlDragImageView.setGifMaxUseableMem(this.m);
             urlDragImageView.setTag(String.valueOf(i2));
-            urlDragImageView.setGifSetListener(this.f12892h);
+            urlDragImageView.setGifSetListener(this.f12941h);
             urlDragImageView.setHeadImage(this.v);
             urlDragImageView.setDragToExitListener(this.k);
             return urlDragImageView;
@@ -216,11 +216,11 @@ public class ImagePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) {
             if (this.n && i2 == getCount() - 1 && i2 != 0) {
-                View inflate = LayoutInflater.from(this.f12885a).inflate(R.layout.big_image_next, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.f12934a).inflate(R.layout.big_image_next, (ViewGroup) null);
                 ((ImageView) inflate.findViewById(R.id.image)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
                 ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.o);
                 viewGroup.addView(inflate);
-                inflate.setOnClickListener(this.f12888d);
+                inflate.setOnClickListener(this.f12937d);
                 return inflate;
             }
             return null;
@@ -234,7 +234,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList<String> arrayList = this.f12887c;
+            ArrayList<String> arrayList = this.f12936c;
             if (arrayList != null) {
                 i2 = arrayList.size();
                 if (this.n) {
@@ -308,7 +308,7 @@ public class ImagePagerAdapter extends PagerAdapter {
     public void j(Map<String, ImageUrlData> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, map) == null) {
-            this.f12886b = map;
+            this.f12935b = map;
             notifyDataSetChanged();
         }
     }
@@ -317,9 +317,9 @@ public class ImagePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, arrayList) == null) {
             if (arrayList == null) {
-                this.f12887c = new ArrayList<>();
+                this.f12936c = new ArrayList<>();
             } else {
-                this.f12887c = new ArrayList<>(arrayList);
+                this.f12936c = new ArrayList<>(arrayList);
             }
             notifyDataSetChanged();
         }
@@ -378,7 +378,7 @@ public class ImagePagerAdapter extends PagerAdapter {
     public void s(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, onClickListener) == null) {
-            this.f12888d = onClickListener;
+            this.f12937d = onClickListener;
         }
     }
 
@@ -390,7 +390,7 @@ public class ImagePagerAdapter extends PagerAdapter {
             if (this.t == i2 || obj == null) {
                 return;
             }
-            b bVar = this.f12893i;
+            b bVar = this.f12942i;
             if (bVar != null) {
                 bVar.a(i2, obj);
             }
@@ -402,21 +402,21 @@ public class ImagePagerAdapter extends PagerAdapter {
     public void t(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, onLongClickListener) == null) {
-            this.f12889e = onLongClickListener;
+            this.f12938e = onLongClickListener;
         }
     }
 
     public void u(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, bVar) == null) {
-            this.f12893i = bVar;
+            this.f12942i = bVar;
         }
     }
 
     public void v(DragImageView.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, kVar) == null) {
-            this.f12891g = kVar;
+            this.f12940g = kVar;
         }
     }
 
@@ -430,7 +430,7 @@ public class ImagePagerAdapter extends PagerAdapter {
     public void x(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, onTouchListener) == null) {
-            this.f12890f = onTouchListener;
+            this.f12939f = onTouchListener;
         }
     }
 

@@ -15,42 +15,42 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f72044e = "d";
+    public static final String f72498e = "d";
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f72045f = false;
+    public static volatile boolean f72499f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f72046g = -1;
+    public static long f72500g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile d f72047h;
+    public static volatile d f72501h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f72048a;
+    public final m f72502a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f72049b;
+    public final AtomicInteger f72503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f72050c;
+    public final a f72504c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f72051d;
+    public long f72505d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f72052a;
+        public final /* synthetic */ d f72506a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, Looper looper) {
@@ -70,7 +70,7 @@ public class d {
                     return;
                 }
             }
-            this.f72052a = dVar;
+            this.f72506a = dVar;
         }
 
         public void a() {
@@ -91,7 +91,7 @@ public class d {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) && message.what == 1) {
-                this.f72052a.f();
+                this.f72506a.f();
                 sendEmptyMessageDelayed(1, 1000L);
             }
         }
@@ -125,23 +125,23 @@ public class d {
                 return;
             }
         }
-        this.f72048a = m.a();
-        this.f72049b = new AtomicInteger();
-        this.f72050c = new a(this, d.l.a.e.b.k.e.a());
+        this.f72502a = m.a();
+        this.f72503b = new AtomicInteger();
+        this.f72504c = new a(this, d.l.a.e.b.k.e.a());
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f72047h == null) {
+            if (f72501h == null) {
                 synchronized (d.class) {
-                    if (f72047h == null) {
-                        f72047h = new d();
+                    if (f72501h == null) {
+                        f72501h = new d();
                     }
                 }
             }
-            return f72047h;
+            return f72501h;
         }
         return (d) invokeV.objValue;
     }
@@ -155,7 +155,7 @@ public class d {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f72045f = d.l.a.e.b.l.f.g0(d.l.a.e.b.g.e.n());
+            f72499f = d.l.a.e.b.l.f.g0(d.l.a.e.b.g.e.n());
         }
     }
 
@@ -163,11 +163,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                String str = f72044e;
-                d.l.a.e.b.c.a.i(str, "startSampling: mSamplingCounter = " + this.f72049b);
-                if (this.f72049b.getAndIncrement() == 0) {
-                    this.f72050c.a();
-                    this.f72051d = SystemClock.uptimeMillis();
+                String str = f72498e;
+                d.l.a.e.b.c.a.i(str, "startSampling: mSamplingCounter = " + this.f72503b);
+                if (this.f72503b.getAndIncrement() == 0) {
+                    this.f72504c.a();
+                    this.f72505d = SystemClock.uptimeMillis();
                 }
             } catch (Throwable unused) {
             }
@@ -178,10 +178,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                String str = f72044e;
-                d.l.a.e.b.c.a.i(str, "stopSampling: mSamplingCounter = " + this.f72049b);
-                if (this.f72049b.decrementAndGet() == 0) {
-                    this.f72050c.b();
+                String str = f72498e;
+                d.l.a.e.b.c.a.i(str, "stopSampling: mSamplingCounter = " + this.f72503b);
+                if (this.f72503b.decrementAndGet() == 0) {
+                    this.f72504c.b();
                     g();
                 }
             } catch (Throwable unused) {
@@ -195,20 +195,20 @@ public class d {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 e();
-                if (f72045f) {
+                if (f72499f) {
                     mobileRxBytes = d();
                 } else {
                     mobileRxBytes = TrafficStats.getMobileRxBytes();
                 }
-                long j = mobileRxBytes - f72046g;
-                if (f72046g >= 0) {
+                long j = mobileRxBytes - f72500g;
+                if (f72500g >= 0) {
                     synchronized (this) {
                         long uptimeMillis = SystemClock.uptimeMillis();
-                        this.f72048a.c(j, uptimeMillis - this.f72051d);
-                        this.f72051d = uptimeMillis;
+                        this.f72502a.c(j, uptimeMillis - this.f72505d);
+                        this.f72505d = uptimeMillis;
                     }
                 }
-                f72046g = mobileRxBytes;
+                f72500g = mobileRxBytes;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -219,7 +219,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             f();
-            f72046g = -1L;
+            f72500g = -1L;
         }
     }
 }

@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.u.c.b;
-import d.a.n0.a.u.c.d;
-import d.a.n0.a.u.e.j.g;
+import d.a.o0.a.u.c.b;
+import d.a.o0.a.u.c.d;
+import d.a.o0.a.u.e.j.g;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanApiNetworkV8Module {
@@ -44,10 +44,10 @@ public class SwanApiNetworkV8Module {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            if (d.f47438c) {
+            if (d.f47942c) {
                 Log.d("Api-Request", "request: jsObject");
             }
-            d.a.n0.a.u.h.b L = this.requestApi.L(jsObject);
+            d.a.o0.a.u.h.b L = this.requestApi.L(jsObject);
             return L == null ? "" : L.a();
         }
         return (String) invokeL.objValue;

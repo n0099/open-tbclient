@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import io.flutter.util.Predicate;
 import io.flutter.view.AccessibilityBridge;
 /* compiled from: lambda */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final /* synthetic */ class b implements Predicate {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ b f72297a = new b();
+    public static final /* synthetic */ b f72751a = new b();
     public transient /* synthetic */ FieldHolder $fh;
 
     private /* synthetic */ b() {

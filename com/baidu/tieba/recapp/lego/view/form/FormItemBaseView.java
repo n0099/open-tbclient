@@ -24,19 +24,19 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20580e;
+    public Context f20698e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Resources f20581f;
+    public Resources f20699f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20582g;
+    public int f20700g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20583h;
+    public int f20701h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20584i;
+    public int f20702i;
     public int j;
     public int k;
     public int l;
@@ -117,7 +117,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f20585a;
+        public static final /* synthetic */ int[] f20703a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -134,13 +134,13 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
                 }
             }
             int[] iArr = new int[DrawableType.values().length];
-            f20585a = iArr;
+            f20703a = iArr;
             try {
                 iArr[DrawableType.ERROR_FRAME.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f20585a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
+                f20703a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -164,11 +164,11 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
                 return;
             }
         }
-        this.f20580e = null;
-        this.f20581f = null;
-        this.f20582g = 0;
-        this.f20583h = 0;
-        this.f20584i = 0;
+        this.f20698e = null;
+        this.f20699f = null;
+        this.f20700g = 0;
+        this.f20701h = 0;
+        this.f20702i = 0;
         this.j = 0;
         this.k = 0;
         this.l = 0;
@@ -198,7 +198,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, drawableType) == null) {
             this.t = view;
-            int i2 = a.f20585a[drawableType.ordinal()];
+            int i2 = a.f20703a[drawableType.ordinal()];
             if (i2 == 1) {
                 this.t.setBackgroundResource(R.drawable.form_frame_red);
             } else if (i2 != 2) {
@@ -212,17 +212,17 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f20580e = context;
+            this.f20698e = context;
             this.v = (Activity) context;
             Resources resources = context.getApplicationContext().getResources();
-            this.f20581f = resources;
+            this.f20699f = resources;
             this.m = resources.getColor(R.color.form_font_color);
-            this.q = this.f20581f.getColor(R.color.form_button_font_color);
-            this.r = this.f20581f.getColor(R.color.form_button_grey_bg_color);
+            this.q = this.f20699f.getColor(R.color.form_button_font_color);
+            this.r = this.f20699f.getColor(R.color.form_button_grey_bg_color);
             this.s = -1;
             this.l = -1;
-            this.f20581f.getDrawable(R.drawable.form_frame_white);
-            this.f20581f.getDrawable(R.drawable.form_frame_red);
+            this.f20699f.getDrawable(R.drawable.form_frame_white);
+            this.f20699f.getDrawable(R.drawable.form_frame_red);
         }
     }
 
@@ -236,16 +236,16 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
             this.w = f2;
-            this.f20581f.getDimension(R.dimen.form_size90);
-            float dimension = this.f20581f.getDimension(R.dimen.form_font_size28);
-            float dimension2 = this.f20581f.getDimension(R.dimen.form_font_size20);
-            float dimension3 = this.f20581f.getDimension(R.dimen.form_font_size36);
+            this.f20699f.getDimension(R.dimen.form_size90);
+            float dimension = this.f20699f.getDimension(R.dimen.form_font_size28);
+            float dimension2 = this.f20699f.getDimension(R.dimen.form_font_size20);
+            float dimension3 = this.f20699f.getDimension(R.dimen.form_font_size36);
             float f3 = this.w;
-            this.f20582g = (int) (((int) this.f20581f.getDimension(R.dimen.form_size20)) * f3);
-            this.f20583h = (int) (((int) this.f20581f.getDimension(R.dimen.form_size40)) * f3);
-            this.f20584i = (int) (((int) this.f20581f.getDimension(R.dimen.form_size50)) * f3);
-            this.j = (int) (((int) this.f20581f.getDimension(R.dimen.form_size80)) * f3);
-            this.k = (int) (((int) this.f20581f.getDimension(R.dimen.form_size240)) * f3);
+            this.f20700g = (int) (((int) this.f20699f.getDimension(R.dimen.form_size20)) * f3);
+            this.f20701h = (int) (((int) this.f20699f.getDimension(R.dimen.form_size40)) * f3);
+            this.f20702i = (int) (((int) this.f20699f.getDimension(R.dimen.form_size50)) * f3);
+            this.j = (int) (((int) this.f20699f.getDimension(R.dimen.form_size80)) * f3);
+            this.k = (int) (((int) this.f20699f.getDimension(R.dimen.form_size240)) * f3);
             this.n = (int) (dimension * f3);
             this.o = (int) (dimension2 * f3);
             this.p = (int) (dimension3 * f3);
@@ -256,10 +256,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            if (bVar != null && bVar.f20501a != -1 && !TextUtils.isEmpty(bVar.f20502b)) {
+            if (bVar != null && bVar.f20619a != -1 && !TextUtils.isEmpty(bVar.f20620b)) {
                 setVisibility(0);
                 e();
-                this.u = bVar.f20503c;
+                this.u = bVar.f20621c;
                 return true;
             }
             setVisibility(8);
@@ -310,11 +310,11 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
                 return;
             }
         }
-        this.f20580e = null;
-        this.f20581f = null;
-        this.f20582g = 0;
-        this.f20583h = 0;
-        this.f20584i = 0;
+        this.f20698e = null;
+        this.f20699f = null;
+        this.f20700g = 0;
+        this.f20701h = 0;
+        this.f20702i = 0;
         this.j = 0;
         this.k = 0;
         this.l = 0;
@@ -350,11 +350,11 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
                 return;
             }
         }
-        this.f20580e = null;
-        this.f20581f = null;
-        this.f20582g = 0;
-        this.f20583h = 0;
-        this.f20584i = 0;
+        this.f20698e = null;
+        this.f20699f = null;
+        this.f20700g = 0;
+        this.f20701h = 0;
+        this.f20702i = 0;
         this.j = 0;
         this.k = 0;
         this.l = 0;

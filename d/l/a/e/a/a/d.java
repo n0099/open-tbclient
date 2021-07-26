@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.l.a.e.b.f.v;
+import d.l.a.e.b.f.w;
 import io.reactivex.annotations.SchedulerSupport;
 import java.io.File;
 import org.json.JSONObject;
@@ -54,7 +54,7 @@ public class d {
                 return new c(context, f2, file.getAbsolutePath(), jSONObject);
             } else {
                 if (str.equals("vbi")) {
-                    v e2 = d.l.a.e.b.g.a.H(context).e(downloadInfo.getId());
+                    w e2 = d.l.a.e.b.g.a.H(context).e(downloadInfo.getId());
                     String A = d.l.a.e.a.e.G().A();
                     return new m(context, f2, d.l.a.e.a.d.j(downloadInfo.getId(), e2, context, A, new File(downloadInfo.getSavePath() + File.separator + downloadInfo.getName())).toString());
                 }

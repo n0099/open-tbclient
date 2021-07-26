@@ -28,7 +28,7 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyHorizontalScrollView f13342e;
+        public final /* synthetic */ MyHorizontalScrollView f13391e;
 
         public b(MyHorizontalScrollView myHorizontalScrollView) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f13342e = myHorizontalScrollView;
+            this.f13391e = myHorizontalScrollView;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener

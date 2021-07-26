@@ -16,23 +16,23 @@ public final class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final x f28659a;
+    public static final x f28753a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final x f28660b;
+    public static final x f28754b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final x f28661c;
+    public static final x f28755c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final x f28662d;
+    public static final x f28756d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ x[] f28663f;
+    public static final /* synthetic */ x[] f28757f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f28664e;
+    public final String f28758e;
 
     static {
         InterceptResult invokeClinit;
@@ -47,12 +47,12 @@ public final class x {
                 return;
             }
         }
-        f28659a = new x("HTTP_1_0", 0, "http/1.0");
-        f28660b = new x("HTTP_1_1", 1, "http/1.1");
-        f28661c = new x("SPDY_3", 2, "spdy/3.1");
+        f28753a = new x("HTTP_1_0", 0, "http/1.0");
+        f28754b = new x("HTTP_1_1", 1, "http/1.1");
+        f28755c = new x("SPDY_3", 2, "spdy/3.1");
         x xVar = new x("HTTP_2", 3, Config.EVENT_NATIVE_VIEW_HIERARCHY);
-        f28662d = xVar;
-        f28663f = new x[]{f28659a, f28660b, f28661c, xVar};
+        f28756d = xVar;
+        f28757f = new x[]{f28753a, f28754b, f28755c, xVar};
     }
 
     public x(String str, int i2, String str2) {
@@ -73,24 +73,24 @@ public final class x {
                 return;
             }
         }
-        this.f28664e = str2;
+        this.f28758e = str2;
     }
 
     public static x a(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str.equals(f28659a.f28664e)) {
-                return f28659a;
+            if (str.equals(f28753a.f28758e)) {
+                return f28753a;
             }
-            if (str.equals(f28660b.f28664e)) {
-                return f28660b;
+            if (str.equals(f28754b.f28758e)) {
+                return f28754b;
             }
-            if (str.equals(f28662d.f28664e)) {
-                return f28662d;
+            if (str.equals(f28756d.f28758e)) {
+                return f28756d;
             }
-            if (str.equals(f28661c.f28664e)) {
-                return f28661c;
+            if (str.equals(f28755c.f28758e)) {
+                return f28755c;
             }
             throw new IOException("Unexpected protocol: " + str);
         }
@@ -106,13 +106,13 @@ public final class x {
     public static x[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (x[]) f28663f.clone() : (x[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (x[]) f28757f.clone() : (x[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28664e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28758e : (String) invokeV.objValue;
     }
 }

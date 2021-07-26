@@ -1,27 +1,42 @@
 package com.win.opensdk;
 
-import android.view.ViewTreeObserver;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class k0 implements ViewTreeObserver.OnScrollChangedListener {
+public final class k0 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ l0 f39615a;
+    public l0 f39852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ m0 f39616b;
+    public final /* synthetic */ File f39853b;
 
-    public k0(m0 m0Var, l0 l0Var) {
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ Bitmap f39854c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ Bitmap.CompressFormat f39855d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ w f39856e;
+
+    public k0(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, w wVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m0Var, l0Var};
+            Object[] objArr = {file, bitmap, compressFormat, wVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,27 +46,88 @@ public class k0 implements ViewTreeObserver.OnScrollChangedListener {
                 return;
             }
         }
-        this.f39616b = m0Var;
-        this.f39615a = l0Var;
+        this.f39853b = file;
+        this.f39854c = bitmap;
+        this.f39855d = compressFormat;
+        this.f39856e = wVar;
     }
 
-    @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-    public void onScrollChanged() {
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // android.os.AsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Object doInBackground(Object[] objArr) {
+        InterceptResult invokeL;
+        IOException e2;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+            Void[] voidArr = (Void[]) objArr;
+            FileOutputStream fileOutputStream2 = null;
             try {
-                if (this.f39616b.f39620b || !this.f39616b.a(this.f39616b.f39619a)) {
-                    return;
+                try {
+                    fileOutputStream = new FileOutputStream(this.f39853b);
+                    try {
+                        try {
+                            this.f39854c.compress(this.f39855d, 100, fileOutputStream);
+                            fileOutputStream.flush();
+                            fileOutputStream.close();
+                        } catch (IOException e3) {
+                            e2 = e3;
+                            this.f39852a = new l0(e2);
+                            cancel(true);
+                            if (fileOutputStream != null) {
+                                fileOutputStream.flush();
+                                fileOutputStream.close();
+                            }
+                            return null;
+                        }
+                    } catch (Throwable th) {
+                        FileOutputStream fileOutputStream3 = fileOutputStream;
+                        th = th;
+                        fileOutputStream2 = fileOutputStream3;
+                        if (fileOutputStream2 != null) {
+                            try {
+                                fileOutputStream2.flush();
+                                fileOutputStream2.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (IOException e5) {
+                    e5.printStackTrace();
                 }
-                this.f39616b.f39623e.removeMessages(1101);
-                this.f39616b.f39619a.getViewTreeObserver().removeOnScrollChangedListener(this);
-                if (this.f39615a != null) {
-                    this.f39615a.a();
+            } catch (IOException e6) {
+                e2 = e6;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (fileOutputStream2 != null) {
                 }
-                this.f39616b.f39620b = true;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                throw th;
             }
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // android.os.AsyncTask
+    public void onCancelled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f39856e.a();
+        }
+    }
+
+    @Override // android.os.AsyncTask
+    public void onPostExecute(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            Void r5 = (Void) obj;
+            this.f39856e.b();
         }
     }
 }

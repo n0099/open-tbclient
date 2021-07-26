@@ -19,16 +19,16 @@ public class o<T extends a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f7181a;
+    public final h f7207a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f7182b;
+    public final int f7208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<T> f7183c;
+    public List<T> f7209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<o<T>> f7184d;
+    public List<o<T>> f7210d;
 
     /* loaded from: classes2.dex */
     public static abstract class a {
@@ -109,29 +109,29 @@ public class o<T extends a> {
                 return;
             }
         }
-        this.f7184d = null;
-        this.f7181a = hVar;
-        this.f7182b = i2;
+        this.f7210d = null;
+        this.f7207a = hVar;
+        this.f7208b = i2;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             ArrayList arrayList = new ArrayList(4);
-            this.f7184d = arrayList;
-            h hVar = this.f7181a;
-            arrayList.add(new o(hVar.f7168a, hVar.f7172e, hVar.f7169b, hVar.f7173f, this.f7182b + 1));
-            List<o<T>> list = this.f7184d;
-            h hVar2 = this.f7181a;
-            list.add(new o<>(hVar2.f7172e, hVar2.f7170c, hVar2.f7169b, hVar2.f7173f, this.f7182b + 1));
-            List<o<T>> list2 = this.f7184d;
-            h hVar3 = this.f7181a;
-            list2.add(new o<>(hVar3.f7168a, hVar3.f7172e, hVar3.f7173f, hVar3.f7171d, this.f7182b + 1));
-            List<o<T>> list3 = this.f7184d;
-            h hVar4 = this.f7181a;
-            list3.add(new o<>(hVar4.f7172e, hVar4.f7170c, hVar4.f7173f, hVar4.f7171d, this.f7182b + 1));
-            List<T> list4 = this.f7183c;
-            this.f7183c = null;
+            this.f7210d = arrayList;
+            h hVar = this.f7207a;
+            arrayList.add(new o(hVar.f7194a, hVar.f7198e, hVar.f7195b, hVar.f7199f, this.f7208b + 1));
+            List<o<T>> list = this.f7210d;
+            h hVar2 = this.f7207a;
+            list.add(new o<>(hVar2.f7198e, hVar2.f7196c, hVar2.f7195b, hVar2.f7199f, this.f7208b + 1));
+            List<o<T>> list2 = this.f7210d;
+            h hVar3 = this.f7207a;
+            list2.add(new o<>(hVar3.f7194a, hVar3.f7198e, hVar3.f7199f, hVar3.f7197d, this.f7208b + 1));
+            List<o<T>> list3 = this.f7210d;
+            h hVar4 = this.f7207a;
+            list3.add(new o<>(hVar4.f7198e, hVar4.f7196c, hVar4.f7199f, hVar4.f7197d, this.f7208b + 1));
+            List<T> list4 = this.f7209c;
+            this.f7209c = null;
             for (T t : list4) {
                 a(t.a().x, t.a().y, t);
             }
@@ -141,19 +141,19 @@ public class o<T extends a> {
     private void a(double d2, double d3, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), t}) == null) {
-            List<o<T>> list = this.f7184d;
+            List<o<T>> list = this.f7210d;
             if (list != null) {
-                h hVar = this.f7181a;
-                int i2 = (d3 > hVar.f7173f ? 1 : (d3 == hVar.f7173f ? 0 : -1));
-                int i3 = (d2 > hVar.f7172e ? 1 : (d2 == hVar.f7172e ? 0 : -1));
+                h hVar = this.f7207a;
+                int i2 = (d3 > hVar.f7199f ? 1 : (d3 == hVar.f7199f ? 0 : -1));
+                int i3 = (d2 > hVar.f7198e ? 1 : (d2 == hVar.f7198e ? 0 : -1));
                 list.get(i2 < 0 ? i3 < 0 ? 0 : 1 : i3 < 0 ? 2 : 3).a(d2, d3, t);
                 return;
             }
-            if (this.f7183c == null) {
-                this.f7183c = new ArrayList();
+            if (this.f7209c == null) {
+                this.f7209c = new ArrayList();
             }
-            this.f7183c.add(t);
-            if (this.f7183c.size() <= 40 || this.f7182b >= 40) {
+            this.f7209c.add(t);
+            if (this.f7209c.size() <= 40 || this.f7208b >= 40) {
                 return;
             }
             a();
@@ -162,18 +162,18 @@ public class o<T extends a> {
 
     private void a(h hVar, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, hVar, collection) == null) && this.f7181a.a(hVar)) {
-            List<o<T>> list = this.f7184d;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, hVar, collection) == null) && this.f7207a.a(hVar)) {
+            List<o<T>> list = this.f7210d;
             if (list != null) {
                 for (o<T> oVar : list) {
                     oVar.a(hVar, collection);
                 }
-            } else if (this.f7183c != null) {
-                if (hVar.b(this.f7181a)) {
-                    collection.addAll(this.f7183c);
+            } else if (this.f7209c != null) {
+                if (hVar.b(this.f7207a)) {
+                    collection.addAll(this.f7209c);
                     return;
                 }
-                for (T t : this.f7183c) {
+                for (T t : this.f7209c) {
                     if (hVar.a(t.a())) {
                         collection.add(t);
                     }
@@ -197,7 +197,7 @@ public class o<T extends a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             Point a2 = t.a();
-            if (this.f7181a.a(a2.x, a2.y)) {
+            if (this.f7207a.a(a2.x, a2.y)) {
                 a(a2.x, a2.y, t);
             }
         }

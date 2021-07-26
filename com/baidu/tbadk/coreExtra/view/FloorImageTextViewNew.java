@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.z3.c;
+import d.a.d.e.p.l;
+import d.a.q0.z3.c;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
@@ -101,7 +101,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     public void f(ImageUrlData imageUrlData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUrlData) == null) {
-            this.f12849e = imageUrlData;
+            this.f12898e = imageUrlData;
             JSONArray jSONArray = null;
             if (imageUrlData != null) {
                 try {
@@ -115,9 +115,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
                 this.q = true;
                 c.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                TbRichText S = TbRichTextView.S(getContext(), jSONArray, false);
-                g(d(S.toString()));
-                this.n.setText(S);
+                TbRichText T = TbRichTextView.T(getContext(), jSONArray, false);
+                g(d(T.toString()));
+                this.n.setText(T);
             } else {
                 this.q = false;
             }
@@ -132,9 +132,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
         if (((Integer) pair.second).intValue() > 2) {
             if (i()) {
-                this.p = s + AbsFloorImageTextView.f12847h + AbsFloorImageTextView.f12848i;
+                this.p = s + AbsFloorImageTextView.f12896h + AbsFloorImageTextView.f12897i;
             } else {
-                this.p = r + AbsFloorImageTextView.f12847h + AbsFloorImageTextView.f12848i;
+                this.p = r + AbsFloorImageTextView.f12896h + AbsFloorImageTextView.f12897i;
             }
         } else {
             this.p = -2;
@@ -151,11 +151,11 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             tbRichTextView.setVerticalScrollBarEnabled(true);
             this.n.setTextSize(AbsFloorImageTextView.m);
             this.n.setTextColor(SkinManager.getColor(R.color.white_alpha83));
-            this.n.T = true;
+            this.n.U = true;
             EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
             this.o = editorScrollView;
-            editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.f12848i);
-            this.o.setOnTouchListener(this.f12851g);
+            editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.f12897i);
+            this.o.setOnTouchListener(this.f12900g);
             ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
             setVisibility(8);
         }

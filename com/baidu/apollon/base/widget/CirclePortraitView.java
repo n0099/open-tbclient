@@ -18,19 +18,19 @@ public class CirclePortraitView extends NetImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Paint f3620a;
+    public final Paint f3646a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Paint f3621b;
+    public final Paint f3647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RectF f3622c;
+    public final RectF f3648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f3623d;
+    public float f3649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f3624e;
+    public float f3650e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CirclePortraitView(Context context, AttributeSet attributeSet, int i2) {
@@ -51,19 +51,19 @@ public class CirclePortraitView extends NetImageView {
                 return;
             }
         }
-        this.f3620a = new Paint();
-        this.f3621b = new Paint();
-        this.f3622c = new RectF();
+        this.f3646a = new Paint();
+        this.f3647b = new Paint();
+        this.f3648c = new RectF();
         c();
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f3620a.setAntiAlias(true);
-            this.f3620a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            this.f3621b.setAntiAlias(true);
-            this.f3621b.setColor(-1);
+            this.f3646a.setAntiAlias(true);
+            this.f3646a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            this.f3647b.setAntiAlias(true);
+            this.f3647b.setColor(-1);
         }
     }
 
@@ -71,10 +71,10 @@ public class CirclePortraitView extends NetImageView {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.saveLayer(this.f3622c, this.f3621b, 31);
-            float f2 = this.f3623d;
-            canvas.drawCircle(f2 / 2.0f, this.f3624e / 2.0f, f2 / 2.0f, this.f3621b);
-            canvas.saveLayer(this.f3622c, this.f3620a, 31);
+            canvas.saveLayer(this.f3648c, this.f3647b, 31);
+            float f2 = this.f3649d;
+            canvas.drawCircle(f2 / 2.0f, this.f3650e / 2.0f, f2 / 2.0f, this.f3647b);
+            canvas.saveLayer(this.f3648c, this.f3646a, 31);
             super.draw(canvas);
             canvas.restore();
         }
@@ -85,10 +85,10 @@ public class CirclePortraitView extends NetImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f3623d = getWidth();
+            this.f3649d = getWidth();
             float height = getHeight();
-            this.f3624e = height;
-            this.f3622c.set(0.0f, 0.0f, this.f3623d, height);
+            this.f3650e = height;
+            this.f3648c.set(0.0f, 0.0f, this.f3649d, height);
         }
     }
 
@@ -111,9 +111,9 @@ public class CirclePortraitView extends NetImageView {
                 return;
             }
         }
-        this.f3620a = new Paint();
-        this.f3621b = new Paint();
-        this.f3622c = new RectF();
+        this.f3646a = new Paint();
+        this.f3647b = new Paint();
+        this.f3648c = new RectF();
         c();
     }
 
@@ -135,9 +135,9 @@ public class CirclePortraitView extends NetImageView {
                 return;
             }
         }
-        this.f3620a = new Paint();
-        this.f3621b = new Paint();
-        this.f3622c = new RectF();
+        this.f3646a = new Paint();
+        this.f3647b = new Paint();
+        this.f3648c = new RectF();
         c();
     }
 }

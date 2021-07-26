@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.h.j.g.d;
+import d.a.d.h.j.g.d;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class Static {
@@ -85,7 +85,7 @@ public class Static {
                 if (Util.c(string, M) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                     PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
                     PluginNetConfigInfos.PluginConfig R = PluginPackageManager.O().R(pluginConfig.package_name);
-                    d.a.c.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
+                    d.a.d.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
                     if (R == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
                         return;

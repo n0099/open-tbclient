@@ -138,7 +138,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new d.a.v0.j.b().c(str, new b().getType());
+                return (List) new d.a.w0.j.b().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }

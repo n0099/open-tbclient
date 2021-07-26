@@ -15,19 +15,19 @@ public class e extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f32596a;
+    public a f32783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f32597b;
+    public byte[] f32784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32598c;
+    public String f32785c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32599d;
+    public String f32786d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32600e;
+    public boolean f32787e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class e extends g {
                 return;
             }
         }
-        this.f32600e = false;
+        this.f32787e = false;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
@@ -58,28 +58,28 @@ public class e extends g {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f32600e = z;
+            this.f32787e = z;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f32599d = str;
+            this.f32786d = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f32598c = str;
+            this.f32785c = str;
         }
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            this.f32597b = bArr;
+            this.f32784b = bArr;
         }
     }
 
@@ -89,11 +89,11 @@ public class e extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (this.f32600e) {
+            if (this.f32787e) {
                 try {
-                    jSONObject.put("encrypted", this.f32598c);
-                    jSONObject.put("reqdata", com.cmic.sso.sdk.d.a.a(this.f32597b, this.f32596a.toString()));
-                    jSONObject.put("securityreinforce", this.f32599d);
+                    jSONObject.put("encrypted", this.f32785c);
+                    jSONObject.put("reqdata", com.cmic.sso.sdk.d.a.a(this.f32784b, this.f32783a.toString()));
+                    jSONObject.put("securityreinforce", this.f32786d);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -106,13 +106,13 @@ public class e extends g {
     public a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32596a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32783a : (a) invokeV.objValue;
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f32596a = aVar;
+            this.f32783a = aVar;
         }
     }
 
@@ -120,6 +120,6 @@ public class e extends g {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32596a.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32783a.a() : (String) invokeV.objValue;
     }
 }

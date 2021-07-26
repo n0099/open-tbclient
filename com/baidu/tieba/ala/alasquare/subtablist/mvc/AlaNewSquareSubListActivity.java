@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v.d.g.c.a;
+import d.a.q0.v.d.g.c.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {

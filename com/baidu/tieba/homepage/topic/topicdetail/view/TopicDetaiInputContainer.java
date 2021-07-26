@@ -29,11 +29,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.s.c.v;
-import d.a.o0.w.n;
-import d.a.p0.a4.i;
-import d.a.p0.o0.b;
+import d.a.d.e.p.l;
+import d.a.p0.t.c.v;
+import d.a.p0.x.n;
+import d.a.q0.a4.i;
+import d.a.q0.o0.b;
 import java.util.regex.Matcher;
 /* loaded from: classes4.dex */
 public class TopicDetaiInputContainer extends LinearLayout implements n, View.OnClickListener {
@@ -43,19 +43,19 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f16908e;
+    public EditorTools f16964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f16909f;
+    public EditText f16965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16910g;
+    public TextView f16966g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f16911h;
+    public LinearLayout f16967h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f16912i;
+    public View f16968i;
     public int j;
     public boolean k;
     public boolean l;
@@ -71,7 +71,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicDetaiInputContainer f16913e;
+        public final /* synthetic */ TopicDetaiInputContainer f16969e;
 
         public a(TopicDetaiInputContainer topicDetaiInputContainer) {
             Interceptable interceptable = $ic;
@@ -88,14 +88,14 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
                     return;
                 }
             }
-            this.f16913e = topicDetaiInputContainer;
+            this.f16969e = topicDetaiInputContainer;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16913e.d(new d.a.o0.w.a(8, -1, null));
+                this.f16969e.d(new d.a.p0.x.a(8, -1, null));
             }
         }
     }
@@ -106,7 +106,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicDetaiInputContainer f16914e;
+        public final /* synthetic */ TopicDetaiInputContainer f16970e;
 
         public b(TopicDetaiInputContainer topicDetaiInputContainer) {
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
                     return;
                 }
             }
-            this.f16914e = topicDetaiInputContainer;
+            this.f16970e = topicDetaiInputContainer;
         }
 
         @Override // android.text.TextWatcher
@@ -132,8 +132,8 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
             if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable == null || editable.toString().trim() == null) {
                 return;
             }
-            TopicDetaiInputContainer topicDetaiInputContainer = this.f16914e;
-            topicDetaiInputContainer.d(new d.a.o0.w.a(4, -1, topicDetaiInputContainer.f16909f.getText().toString()));
+            TopicDetaiInputContainer topicDetaiInputContainer = this.f16970e;
+            topicDetaiInputContainer.d(new d.a.p0.x.a(4, -1, topicDetaiInputContainer.f16965f.getText().toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -146,13 +146,13 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f16914e.m) {
+            if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f16970e.m) {
                 return;
             }
-            this.f16914e.m = true;
-            if (this.f16914e.n != -1) {
-                this.f16914e.f16909f.setSelection(this.f16914e.n);
-                this.f16914e.n = -1;
+            this.f16970e.m = true;
+            if (this.f16970e.n != -1) {
+                this.f16970e.f16965f.setSelection(this.f16970e.n);
+                this.f16970e.n = -1;
             }
         }
     }
@@ -163,7 +163,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicDetaiInputContainer f16915e;
+        public final /* synthetic */ TopicDetaiInputContainer f16971e;
 
         public c(TopicDetaiInputContainer topicDetaiInputContainer) {
             Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
                     return;
                 }
             }
-            this.f16915e = topicDetaiInputContainer;
+            this.f16971e = topicDetaiInputContainer;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -189,8 +189,8 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.f16915e.d(new d.a.o0.w.a(5, -1, null));
-                    this.f16915e.f16909f.requestFocus();
+                    this.f16971e.d(new d.a.p0.x.a(5, -1, null));
+                    this.f16971e.f16965f.requestFocus();
                 }
                 return false;
             }
@@ -204,7 +204,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicDetaiInputContainer f16916a;
+        public final /* synthetic */ TopicDetaiInputContainer f16972a;
 
         public d(TopicDetaiInputContainer topicDetaiInputContainer) {
             Interceptable interceptable = $ic;
@@ -221,17 +221,17 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
                     return;
                 }
             }
-            this.f16916a = topicDetaiInputContainer;
+            this.f16972a = topicDetaiInputContainer;
         }
 
-        @Override // d.a.p0.o0.b.f
+        @Override // d.a.q0.o0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f16916a.f16909f.setText(spannableStringBuilder);
-                this.f16916a.f16909f.setSelection(this.f16916a.f16909f.getText().length());
-                this.f16916a.d(new d.a.o0.w.a(5, -1, null));
-                this.f16916a.requestFocus();
+                this.f16972a.f16965f.setText(spannableStringBuilder);
+                this.f16972a.f16965f.setSelection(this.f16972a.f16965f.getText().length());
+                this.f16972a.d(new d.a.p0.x.a(5, -1, null));
+                this.f16972a.requestFocus();
             }
         }
     }
@@ -272,25 +272,25 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         }
     }
 
-    @Override // d.a.o0.w.n
+    @Override // d.a.p0.x.n
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f16909f != null && this.f16911h.getVisibility() == 0) {
-                this.f16909f.setFocusable(true);
-                this.f16909f.setFocusableInTouchMode(true);
-                this.f16909f.requestFocus();
-                l.K(getContext(), this.f16909f);
+            if (this.f16965f != null && this.f16967h.getVisibility() == 0) {
+                this.f16965f.setFocusable(true);
+                this.f16965f.setFocusableInTouchMode(true);
+                this.f16965f.requestFocus();
+                l.K(getContext(), this.f16965f);
             }
             setVisibility(0);
         }
     }
 
-    @Override // d.a.o0.w.n
-    public void d(d.a.o0.w.a aVar) {
+    @Override // d.a.p0.x.n
+    public void d(d.a.p0.x.a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (editorTools = this.f16908e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (editorTools = this.f16964e) == null) {
             return;
         }
         editorTools.A(aVar);
@@ -299,29 +299,29 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
     public LinearLayout getInputLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16911h : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16967h : (LinearLayout) invokeV.objValue;
     }
 
     public EditText getInputView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16909f : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16965f : (EditText) invokeV.objValue;
     }
 
     public TextView getSendView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16910g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16966g : (TextView) invokeV.objValue;
     }
 
-    @Override // d.a.o0.w.n
+    @Override // d.a.p0.x.n
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : invokeV.intValue;
     }
 
-    @Override // d.a.o0.w.n
+    @Override // d.a.p0.x.n
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -335,21 +335,21 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
             if (i2 == s) {
                 boolean[] zArr = this.o;
                 if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
-                    this.f16910g.setEnabled(false);
+                    this.f16966g.setEnabled(false);
                 } else {
-                    this.f16910g.setEnabled(true);
+                    this.f16966g.setEnabled(true);
                 }
             } else if (i2 == r) {
                 if (this.o[1]) {
-                    this.f16910g.setEnabled(true);
+                    this.f16966g.setEnabled(true);
                 } else {
-                    this.f16910g.setEnabled(false);
+                    this.f16966g.setEnabled(false);
                 }
             }
         }
     }
 
-    @Override // d.a.o0.w.n
+    @Override // d.a.p0.x.n
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -360,23 +360,23 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
             EditText editText = new EditText(context);
-            this.f16909f = editText;
+            this.f16965f = editText;
             editText.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.ds32));
-            this.f16909f.setMaxLines(4);
-            this.f16909f.setGravity(16);
-            this.f16909f.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.ds32));
-            this.f16909f.setTextColor(getResources().getColor(R.color.CAM_X0105));
-            this.f16909f.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
-            this.f16909f.setBackgroundResource(R.color.common_color_10022);
-            i.e(this.f16909f, R.drawable.edittext_cursor);
-            this.f16909f.setPadding(0, l.g(context, R.dimen.ds24), l.g(context, R.dimen.ds54), l.g(context, R.dimen.ds24));
-            this.f16909f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-            this.f16909f.addTextChangedListener(new b(this));
-            this.f16909f.setOnTouchListener(new c(this));
+            this.f16965f.setMaxLines(4);
+            this.f16965f.setGravity(16);
+            this.f16965f.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.ds32));
+            this.f16965f.setTextColor(getResources().getColor(R.color.CAM_X0105));
+            this.f16965f.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
+            this.f16965f.setBackgroundResource(R.color.common_color_10022);
+            i.e(this.f16965f, R.drawable.edittext_cursor);
+            this.f16965f.setPadding(0, l.g(context, R.dimen.ds24), l.g(context, R.dimen.ds54), l.g(context, R.dimen.ds24));
+            this.f16965f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+            this.f16965f.addTextChangedListener(new b(this));
+            this.f16965f.setOnTouchListener(new c(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             layoutParams.setMargins(l.g(context, R.dimen.ds14), 0, 0, 0);
-            this.f16911h.addView(this.f16909f, layoutParams);
+            this.f16967h.addView(this.f16965f, layoutParams);
         }
     }
 
@@ -384,23 +384,23 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
             TextView textView = new TextView(context);
-            this.f16910g = textView;
+            this.f16966g = textView;
             textView.setGravity(17);
-            this.f16910g.setIncludeFontPadding(false);
-            this.f16910g.setEnabled(false);
-            this.f16910g.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.tbds42));
-            this.f16910g.setText(R.string.pb_send_post);
-            this.f16910g.setOnClickListener(new a(this));
+            this.f16966g.setIncludeFontPadding(false);
+            this.f16966g.setEnabled(false);
+            this.f16966g.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.tbds42));
+            this.f16966g.setText(R.string.pb_send_post);
+            this.f16966g.setOnClickListener(new a(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, l.g(context, R.dimen.tbds14), 0);
-            this.f16911h.addView(this.f16910g, layoutParams);
+            this.f16967h.addView(this.f16966g, layoutParams);
         }
     }
 
-    public final void l(d.a.o0.w.a aVar) {
+    public final void l(d.a.p0.x.a aVar) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) || aVar == null || (obj = aVar.f53489c) == null || !(obj instanceof v)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) || aVar == null || (obj = aVar.f54160c) == null || !(obj instanceof v)) {
             return;
         }
         v vVar = (v) obj;
@@ -415,11 +415,11 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, vVar) == null) {
             if (!this.k || vVar.f() == EmotionGroupType.LOCAL) {
-                String obj = this.f16909f.getText().toString();
-                if (this.l && d.a.p0.o0.a.a(obj) >= 10 && getContext() != null) {
+                String obj = this.f16965f.getText().toString();
+                if (this.l && d.a.q0.o0.a.a(obj) >= 10 && getContext() != null) {
                     CustomToast.newInstance().showToast(R.string.too_many_face);
                 } else {
-                    d.a.p0.o0.b.b(getContext(), vVar, this.f16909f);
+                    d.a.q0.o0.b.b(getContext(), vVar, this.f16965f);
                 }
             }
         }
@@ -430,37 +430,37 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         if (!(interceptable == null || interceptable.invokeL(1048589, this, vVar) == null) || vVar == null || TextUtils.isEmpty(vVar.c()) || TextUtils.isEmpty(vVar.g())) {
             return;
         }
-        String obj = this.f16909f.getText().toString();
-        if (this.l && d.a.p0.o0.a.a(obj) >= 10 && getContext() != null) {
+        String obj = this.f16965f.getText().toString();
+        if (this.l && d.a.q0.o0.a.a(obj) >= 10 && getContext() != null) {
             CustomToast.newInstance().showToast(R.string.too_many_face);
         } else {
-            d.a.p0.o0.b.c(getContext(), vVar, this.f16909f);
+            d.a.q0.o0.b.c(getContext(), vVar, this.f16965f);
         }
     }
 
-    @Override // d.a.o0.w.b
-    public void onAction(d.a.o0.w.a aVar) {
+    @Override // d.a.p0.x.b
+    public void onAction(d.a.p0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) || aVar == null) {
             return;
         }
-        int i2 = aVar.f53487a;
+        int i2 = aVar.f54158a;
         if (i2 != 3) {
             if (i2 != 4) {
                 if (i2 == 6) {
-                    Object obj = aVar.f53489c;
+                    Object obj = aVar.f54160c;
                     if (obj == null) {
-                        this.f16909f.setText((CharSequence) null);
+                        this.f16965f.setText((CharSequence) null);
                     } else if (obj instanceof String) {
                         if (TextUtils.isEmpty((String) obj)) {
-                            this.f16909f.setText((CharSequence) null);
+                            this.f16965f.setText((CharSequence) null);
                         } else {
-                            d.a.p0.o0.b.d(getContext(), (String) aVar.f53489c, new d(this));
+                            d.a.q0.o0.b.d(getContext(), (String) aVar.f54160c, new d(this));
                         }
                     }
                 } else if (i2 == 9) {
-                    if (((Boolean) aVar.f53489c).booleanValue()) {
-                        this.f16909f.setText((CharSequence) null);
+                    if (((Boolean) aVar.f54160c).booleanValue()) {
+                        this.f16965f.setText((CharSequence) null);
                     }
                     boolean[] zArr = this.o;
                     zArr[0] = false;
@@ -474,15 +474,15 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
                 } else if (i2 == 24) {
                     l(aVar);
                 } else if (i2 == 12) {
-                    Object obj2 = aVar.f53489c;
-                    if (!(obj2 instanceof d.a.o0.w.r.a)) {
+                    Object obj2 = aVar.f54160c;
+                    if (!(obj2 instanceof d.a.p0.x.r.a)) {
                         return;
                     }
-                    d.a.o0.w.r.a aVar2 = (d.a.o0.w.r.a) obj2;
-                    WriteImagesInfo writeImagesInfo = aVar2.f53510a;
+                    d.a.p0.x.r.a aVar2 = (d.a.p0.x.r.a) obj2;
+                    WriteImagesInfo writeImagesInfo = aVar2.f54181a;
                     if (writeImagesInfo != null) {
                         if (writeImagesInfo.getChosedFiles() != null) {
-                            this.p[0] = aVar2.f53510a.getChosedFiles().size();
+                            this.p[0] = aVar2.f54181a.getChosedFiles().size();
                         } else {
                             this.p[0] = 0;
                         }
@@ -502,43 +502,43 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
                     }
                 }
             }
-            Object obj3 = aVar.f53489c;
+            Object obj3 = aVar.f54160c;
             if (obj3 != null && (!(obj3 instanceof String) || !StringUtils.isNull((String) obj3))) {
                 this.o[0] = true;
             } else {
                 this.o[0] = false;
             }
-        } else if (this.f16909f.getSelectionStart() > 0) {
-            String substring = this.f16909f.getText().toString().substring(0, this.f16909f.getSelectionStart());
-            Matcher matcher = d.a.p0.o0.a.f61066b.matcher(substring);
+        } else if (this.f16965f.getSelectionStart() > 0) {
+            String substring = this.f16965f.getText().toString().substring(0, this.f16965f.getSelectionStart());
+            Matcher matcher = d.a.q0.o0.a.f61680b.matcher(substring);
             if (matcher.find()) {
-                this.f16909f.getText().delete(this.f16909f.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.f16909f.getSelectionStart());
+                this.f16965f.getText().delete(this.f16965f.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.f16965f.getSelectionStart());
             } else {
-                this.f16909f.getText().delete(this.f16909f.getSelectionStart() - 1, this.f16909f.getSelectionStart());
+                this.f16965f.getText().delete(this.f16965f.getSelectionStart() - 1, this.f16965f.getSelectionStart());
             }
         }
         i(this.q);
     }
 
-    @Override // d.a.o0.w.n
+    @Override // d.a.p0.x.n
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f16909f, R.color.CAM_X0105, 2, i2);
-            SkinManager.setBackgroundColor(this.f16912i, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.f16965f, R.color.CAM_X0105, 2, i2);
+            SkinManager.setBackgroundColor(this.f16968i, R.color.CAM_X0207);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
             if (i2 == 0) {
-                i.e(this.f16909f, R.drawable.edittext_cursor);
-                this.f16909f.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
+                i.e(this.f16965f, R.drawable.edittext_cursor);
+                this.f16965f.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
             } else {
-                i.e(this.f16909f, R.drawable.edittext_cursor_1);
-                this.f16909f.setHintTextColor(SkinManager.getColor(i2, R.color.CAM_X0110));
+                i.e(this.f16965f, R.drawable.edittext_cursor_1);
+                this.f16965f.setHintTextColor(SkinManager.getColor(i2, R.color.CAM_X0110));
             }
-            SkinManager.setBackgroundResource(this.f16910g, R.drawable.topic_discuss_send_bg);
+            SkinManager.setBackgroundResource(this.f16966g, R.drawable.topic_discuss_send_bg);
             if (i2 != 1 && i2 != 4) {
-                SkinManager.setViewTextColor(this.f16910g, R.color.CAM_X0101, 1);
+                SkinManager.setViewTextColor(this.f16966g, R.color.CAM_X0101, 1);
             } else {
-                this.f16910g.setTextColor(getResources().getColor(R.color.CAM_X0101));
+                this.f16966g.setTextColor(getResources().getColor(R.color.CAM_X0101));
             }
         }
     }
@@ -550,11 +550,11 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         }
     }
 
-    @Override // d.a.o0.w.n
+    @Override // d.a.p0.x.n
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, editorTools) == null) {
-            this.f16908e = editorTools;
+            this.f16964e = editorTools;
         }
     }
 
@@ -567,7 +567,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
     public void setHint(int i2) {
         EditText editText;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (editText = this.f16909f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (editText = this.f16965f) == null) {
             return;
         }
         editText.setHint(getContext().getString(i2));
@@ -580,7 +580,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         }
     }
 
-    @Override // d.a.o0.w.n
+    @Override // d.a.p0.x.n
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
@@ -647,21 +647,21 @@ public class TopicDetaiInputContainer extends LinearLayout implements n, View.On
         setGravity(48);
         setMinimumHeight(context.getResources().getDimensionPixelSize(R.dimen.ds90));
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.f16911h = linearLayout;
+        this.f16967h = linearLayout;
         linearLayout.setOrientation(0);
-        this.f16911h.setMinimumHeight(l.g(context, R.dimen.ds90));
-        addView(this.f16911h, new LinearLayout.LayoutParams(-1, -2));
+        this.f16967h.setMinimumHeight(l.g(context, R.dimen.ds90));
+        addView(this.f16967h, new LinearLayout.LayoutParams(-1, -2));
         j(context);
         k(context);
-        this.f16912i = new View(getContext());
-        this.f16912i.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(getContext(), R.dimen.ds1)));
-        addView(this.f16912i);
+        this.f16968i = new View(getContext());
+        this.f16968i.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(getContext(), R.dimen.ds1)));
+        addView(this.f16968i);
     }
 
     public void setHint(CharSequence charSequence) {
         EditText editText;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, charSequence) == null) || (editText = this.f16909f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, charSequence) == null) || (editText = this.f16965f) == null) {
             return;
         }
         editText.setHint(charSequence);

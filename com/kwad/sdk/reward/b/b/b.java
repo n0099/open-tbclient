@@ -49,15 +49,15 @@ public class b extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            ((d) this).f36214a.o.add(new com.kwad.sdk.reward.a.e(this, a(R.id.ksad_play_detail_top_toolbar)) { // from class: com.kwad.sdk.reward.b.b.b.1
+            ((d) this).f36403a.o.add(new com.kwad.sdk.reward.a.e(this, a(R.id.ksad_play_detail_top_toolbar)) { // from class: com.kwad.sdk.reward.b.b.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f35980a;
+                public final /* synthetic */ View f36169a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f35981b;
+                public final /* synthetic */ b f36170b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -74,22 +74,22 @@ public class b extends d {
                             return;
                         }
                     }
-                    this.f35981b = this;
-                    this.f35980a = r7;
+                    this.f36170b = this;
+                    this.f36169a = r7;
                 }
 
                 @Override // com.kwad.sdk.reward.a.e
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f35980a.setVisibility(0);
-                        this.f35980a.setAlpha(1.0f);
-                        this.f35980a.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.sdk.reward.b.b.b.1.1
+                        this.f36169a.setVisibility(0);
+                        this.f36169a.setAlpha(1.0f);
+                        this.f36169a.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.sdk.reward.b.b.b.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f35982a;
+                            public final /* synthetic */ AnonymousClass1 f36171a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -106,7 +106,7 @@ public class b extends d {
                                         return;
                                     }
                                 }
-                                this.f35982a = this;
+                                this.f36171a = this;
                             }
 
                             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -114,7 +114,7 @@ public class b extends d {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, animator) == null) {
                                     super.onAnimationEnd(animator);
-                                    this.f35982a.f35980a.setVisibility(8);
+                                    this.f36171a.f36169a.setVisibility(8);
                                 }
                             }
                         }).setDuration(300L).start();
@@ -125,14 +125,14 @@ public class b extends d {
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f35980a.setVisibility(0);
-                        this.f35980a.setAlpha(0.0f);
-                        this.f35980a.animate().alpha(1.0f).setListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.sdk.reward.b.b.b.1.2
+                        this.f36169a.setVisibility(0);
+                        this.f36169a.setAlpha(0.0f);
+                        this.f36169a.animate().alpha(1.0f).setListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.sdk.reward.b.b.b.1.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f35983a;
+                            public final /* synthetic */ AnonymousClass1 f36172a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -149,7 +149,7 @@ public class b extends d {
                                         return;
                                     }
                                 }
-                                this.f35983a = this;
+                                this.f36172a = this;
                             }
 
                             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -157,7 +157,7 @@ public class b extends d {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, animator) == null) {
                                     super.onAnimationEnd(animator);
-                                    this.f35983a.f35980a.setVisibility(0);
+                                    this.f36172a.f36169a.setVisibility(0);
                                 }
                             }
                         }).setDuration(300L).start();

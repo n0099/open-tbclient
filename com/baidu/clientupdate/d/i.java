@@ -14,13 +14,13 @@ public class i implements ThreadFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadFactory f4671a;
+    public final ThreadFactory f4697a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f4672b;
+    public final String f4698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f4673c;
+    public final AtomicInteger f4699c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i(String str) {
@@ -58,15 +58,15 @@ public class i implements ThreadFactory {
                 return;
             }
         }
-        this.f4673c = new AtomicInteger(0);
-        this.f4672b = str;
-        this.f4671a = threadFactory;
+        this.f4699c = new AtomicInteger(0);
+        this.f4698b = str;
+        this.f4697a = threadFactory;
     }
 
     private String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? String.format("%s-%d", this.f4672b, Integer.valueOf(i2)) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? String.format("%s-%d", this.f4698b, Integer.valueOf(i2)) : (String) invokeI.objValue;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -74,8 +74,8 @@ public class i implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            Thread newThread = this.f4671a.newThread(runnable);
-            newThread.setName(a(this.f4673c.getAndIncrement()));
+            Thread newThread = this.f4697a.newThread(runnable);
+            newThread.setName(a(this.f4699c.getAndIncrement()));
             return newThread;
         }
         return (Thread) invokeL.objValue;

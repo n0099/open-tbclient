@@ -13,7 +13,7 @@ public class p implements FilenameFilter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f73126a;
+    public final /* synthetic */ String f73580a;
 
     public p(o oVar, String str) {
         Interceptable interceptable = $ic;
@@ -30,13 +30,13 @@ public class p implements FilenameFilter {
                 return;
             }
         }
-        this.f73126a = str;
+        this.f73580a = str;
     }
 
     @Override // java.io.FilenameFilter
     public boolean accept(File file, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? str.startsWith(this.f73126a) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? str.startsWith(this.f73580a) : invokeLL.booleanValue;
     }
 }

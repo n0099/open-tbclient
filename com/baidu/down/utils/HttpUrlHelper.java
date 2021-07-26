@@ -242,7 +242,7 @@ public final class HttpUrlHelper {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f1890h);
+                    sb.append(a.f1923h);
                     sb.append(str2);
                 }
             }
@@ -693,7 +693,7 @@ public final class HttpUrlHelper {
                         return;
                     }
                 }
-                SUCCESS = new ParseResult(c.f2103g, 0);
+                SUCCESS = new ParseResult(c.f2136g, 0);
                 MISSING_SCHEME = new ParseResult("MISSING_SCHEME", 1);
                 UNSUPPORTED_SCHEME = new ParseResult("UNSUPPORTED_SCHEME", 2);
                 INVALID_PORT = new ParseResult("INVALID_PORT", 3);

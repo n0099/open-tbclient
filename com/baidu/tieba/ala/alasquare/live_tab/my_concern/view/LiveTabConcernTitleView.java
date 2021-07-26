@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a0.b;
-import d.a.p0.v.d.f.c.g;
+import d.a.q0.a0.b;
+import d.a.q0.v.d.f.c.g;
 /* loaded from: classes4.dex */
 public class LiveTabConcernTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
@@ -29,13 +29,13 @@ public class LiveTabConcernTitleView extends b<g> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LiveTabConcernTitleView f14034a;
+        public LiveTabConcernTitleView f14082a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f14035b;
+        public View f14083b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f14036c;
+        public TextView f14084c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(LiveTabConcernTitleView liveTabConcernTitleView) {
@@ -55,10 +55,10 @@ public class LiveTabConcernTitleView extends b<g> {
                     return;
                 }
             }
-            this.f14034a = liveTabConcernTitleView;
+            this.f14082a = liveTabConcernTitleView;
             View k = liveTabConcernTitleView.k();
-            this.f14035b = k;
-            this.f14036c = (TextView) k.findViewById(R.id.tab_sub_rec_title_tv);
+            this.f14083b = k;
+            this.f14084c = (TextView) k.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 
@@ -85,19 +85,19 @@ public class LiveTabConcernTitleView extends b<g> {
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.tab_sub_title_view : invokeV.intValue;
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public void m(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            SkinManager.setBackgroundColor(this.m.f14035b, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.m.f14036c, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.m.f14083b, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.m.f14084c, R.color.CAM_X0105);
         }
     }
 
@@ -109,14 +109,14 @@ public class LiveTabConcernTitleView extends b<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     /* renamed from: q */
     public void l(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f64530f) || (viewHolder = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f65175f) || (viewHolder = this.m) == null) {
             return;
         }
-        viewHolder.f14036c.setText(gVar.f64530f);
+        viewHolder.f14084c.setText(gVar.f65175f);
     }
 }

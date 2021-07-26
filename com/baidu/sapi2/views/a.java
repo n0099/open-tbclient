@@ -21,23 +21,23 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f10083f = 1001;
+    public static final int f10109f = 1001;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SurfaceHolder f10084a;
+    public SurfaceHolder f10110a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Camera f10085b;
+    public Camera f10111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f10086c;
+    public b f10112c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f10087d;
+    public Handler f10113d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Camera.PreviewCallback f10088e;
+    public Camera.PreviewCallback f10114e;
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -46,7 +46,7 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f10089a;
+        public final /* synthetic */ a f10115a;
 
         public HandlerC0148a(a aVar) {
             Interceptable interceptable = $ic;
@@ -63,17 +63,17 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
                     return;
                 }
             }
-            this.f10089a = aVar;
+            this.f10115a = aVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.f10089a.f10085b == null || this.f10089a.f10086c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.f10115a.f10111b == null || this.f10115a.f10112c == null) {
                 return;
             }
-            this.f10089a.f10086c.a(this.f10089a.f10087d, 1001);
-            this.f10089a.f10085b.autoFocus(this.f10089a.f10086c);
+            this.f10115a.f10112c.a(this.f10115a.f10113d, 1001);
+            this.f10115a.f10111b.autoFocus(this.f10115a.f10112c);
         }
     }
 
@@ -82,17 +82,17 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f10090c;
+        public static final String f10116c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final long f10091d = 500;
+        public static final long f10117d = 500;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Handler f10092a;
+        public Handler f10118a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f10093b;
+        public int f10119b;
 
         static {
             InterceptResult invokeClinit;
@@ -107,7 +107,7 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
                     return;
                 }
             }
-            f10090c = b.class.getSimpleName();
+            f10116c = b.class.getSimpleName();
         }
 
         public b() {
@@ -127,8 +127,8 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
         public void a(Handler handler, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, handler, i2) == null) {
-                this.f10092a = handler;
-                this.f10093b = i2;
+                this.f10118a = handler;
+                this.f10119b = i2;
             }
         }
 
@@ -136,11 +136,11 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
         public void onAutoFocus(boolean z, Camera camera) {
             Handler handler;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, camera) == null) || (handler = this.f10092a) == null) {
+            if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, camera) == null) || (handler = this.f10118a) == null) {
                 return;
             }
-            this.f10092a.sendMessageDelayed(handler.obtainMessage(this.f10093b, Boolean.valueOf(z)), 500L);
-            this.f10092a = null;
+            this.f10118a.sendMessageDelayed(handler.obtainMessage(this.f10119b, Boolean.valueOf(z)), 500L);
+            this.f10118a = null;
         }
     }
 
@@ -162,18 +162,18 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
                 return;
             }
         }
-        this.f10087d = new HandlerC0148a(this);
-        this.f10085b = camera;
+        this.f10113d = new HandlerC0148a(this);
+        this.f10111b = camera;
         SurfaceHolder holder = getHolder();
-        this.f10084a = holder;
+        this.f10110a = holder;
         holder.addCallback(this);
-        this.f10084a.setType(3);
+        this.f10110a.setType(3);
     }
 
     public void setPreviewCallback(Camera.PreviewCallback previewCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, previewCallback) == null) {
-            this.f10088e = previewCallback;
+            this.f10114e = previewCallback;
         }
     }
 
@@ -186,18 +186,18 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
                 return;
             }
             try {
-                this.f10085b.stopPreview();
-                this.f10085b.setDisplayOrientation(90);
-                this.f10085b.setPreviewDisplay(this.f10084a);
-                if (this.f10088e != null) {
-                    this.f10085b.setPreviewCallback(this.f10088e);
+                this.f10111b.stopPreview();
+                this.f10111b.setDisplayOrientation(90);
+                this.f10111b.setPreviewDisplay(this.f10110a);
+                if (this.f10114e != null) {
+                    this.f10111b.setPreviewCallback(this.f10114e);
                 }
-                this.f10085b.startPreview();
-                if (this.f10086c == null) {
-                    this.f10086c = new b();
+                this.f10111b.startPreview();
+                if (this.f10112c == null) {
+                    this.f10112c = new b();
                 }
-                this.f10086c.a(this.f10087d, 1001);
-                this.f10085b.autoFocus(this.f10086c);
+                this.f10112c.a(this.f10113d, 1001);
+                this.f10111b.autoFocus(this.f10112c);
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
@@ -224,18 +224,18 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = this.f10086c;
+            b bVar = this.f10112c;
             if (bVar != null) {
                 bVar.a(null, 0);
-                this.f10086c = null;
+                this.f10112c = null;
             }
-            Handler handler = this.f10087d;
+            Handler handler = this.f10113d;
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
-                this.f10087d = null;
+                this.f10113d = null;
             }
-            this.f10084a.removeCallback(this);
-            this.f10084a = null;
+            this.f10110a.removeCallback(this);
+            this.f10110a = null;
         }
     }
 }

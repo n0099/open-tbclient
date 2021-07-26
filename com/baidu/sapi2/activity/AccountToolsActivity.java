@@ -27,10 +27,10 @@ public class AccountToolsActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountToolsResult f9690a;
+    public AccountToolsResult f9716a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f9691b;
+    public AccountToolsCallback f9717b;
 
     public AccountToolsActivity() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class AccountToolsActivity extends Activity {
                 return;
             }
         }
-        this.f9690a = new AccountToolsResult();
+        this.f9716a = new AccountToolsResult();
     }
 
     @Override // android.app.Activity
@@ -54,7 +54,7 @@ public class AccountToolsActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-            this.f9691b = CoreViewRouter.getInstance().getAccountToolsCallback();
+            this.f9717b = CoreViewRouter.getInstance().getAccountToolsCallback();
             AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
             accountCenterDTO.accountToolsUrl = a(intExtra);
             accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
@@ -63,7 +63,7 @@ public class AccountToolsActivity extends Activity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountToolsActivity f9692a;
+                public final /* synthetic */ AccountToolsActivity f9718a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -80,16 +80,16 @@ public class AccountToolsActivity extends Activity {
                             return;
                         }
                     }
-                    this.f9692a = this;
+                    this.f9718a = this;
                 }
 
                 @Override // com.baidu.sapi2.callback.AccountCenterCallback
                 public void onFinish(AccountCenterResult accountCenterResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, accountCenterResult) == null) {
-                        this.f9692a.f9690a.setResultCode(accountCenterResult.getResultCode());
-                        this.f9692a.f9690a.setResultMsg(accountCenterResult.getResultMsg());
-                        this.f9692a.a();
+                        this.f9718a.f9716a.setResultCode(accountCenterResult.getResultCode());
+                        this.f9718a.f9716a.setResultMsg(accountCenterResult.getResultMsg());
+                        this.f9718a.a();
                     }
                 }
 
@@ -107,9 +107,9 @@ public class AccountToolsActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            AccountToolsCallback accountToolsCallback = this.f9691b;
+            AccountToolsCallback accountToolsCallback = this.f9717b;
             if (accountToolsCallback != null) {
-                accountToolsCallback.onFinish(this.f9690a);
+                accountToolsCallback.onFinish(this.f9716a);
             }
             finish();
         }

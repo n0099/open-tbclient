@@ -38,15 +38,15 @@ public class co implements com.kwad.sdk.core.d<g.a> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f35193a = jSONObject.optInt("type");
-        aVar.f35194b = jSONObject.optString("appName");
-        aVar.f35195c = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
-        aVar.f35196d = jSONObject.optString("version");
-        aVar.f35197e = jSONObject.optInt(PushManager.APP_VERSION_CODE);
-        aVar.f35198f = jSONObject.optInt("appSize");
-        aVar.f35199g = jSONObject.optString(PackageTable.MD5);
-        aVar.f35200h = jSONObject.optString("url");
-        aVar.f35201i = jSONObject.optString("appLink");
+        aVar.f35382a = jSONObject.optInt("type");
+        aVar.f35383b = jSONObject.optString("appName");
+        aVar.f35384c = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+        aVar.f35385d = jSONObject.optString("version");
+        aVar.f35386e = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        aVar.f35387f = jSONObject.optInt("appSize");
+        aVar.f35388g = jSONObject.optString(PackageTable.MD5);
+        aVar.f35389h = jSONObject.optString("url");
+        aVar.f35390i = jSONObject.optString("appLink");
         aVar.j = jSONObject.optString("icon");
         aVar.k = jSONObject.optString("desc");
         aVar.l = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
@@ -65,15 +65,15 @@ public class co implements com.kwad.sdk.core.d<g.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "type", aVar.f35193a);
-            com.kwad.sdk.utils.q.a(jSONObject, "appName", aVar.f35194b);
-            com.kwad.sdk.utils.q.a(jSONObject, PushClientConstants.TAG_PKG_NAME, aVar.f35195c);
-            com.kwad.sdk.utils.q.a(jSONObject, "version", aVar.f35196d);
-            com.kwad.sdk.utils.q.a(jSONObject, PushManager.APP_VERSION_CODE, aVar.f35197e);
-            com.kwad.sdk.utils.q.a(jSONObject, "appSize", aVar.f35198f);
-            com.kwad.sdk.utils.q.a(jSONObject, PackageTable.MD5, aVar.f35199g);
-            com.kwad.sdk.utils.q.a(jSONObject, "url", aVar.f35200h);
-            com.kwad.sdk.utils.q.a(jSONObject, "appLink", aVar.f35201i);
+            com.kwad.sdk.utils.q.a(jSONObject, "type", aVar.f35382a);
+            com.kwad.sdk.utils.q.a(jSONObject, "appName", aVar.f35383b);
+            com.kwad.sdk.utils.q.a(jSONObject, PushClientConstants.TAG_PKG_NAME, aVar.f35384c);
+            com.kwad.sdk.utils.q.a(jSONObject, "version", aVar.f35385d);
+            com.kwad.sdk.utils.q.a(jSONObject, PushManager.APP_VERSION_CODE, aVar.f35386e);
+            com.kwad.sdk.utils.q.a(jSONObject, "appSize", aVar.f35387f);
+            com.kwad.sdk.utils.q.a(jSONObject, PackageTable.MD5, aVar.f35388g);
+            com.kwad.sdk.utils.q.a(jSONObject, "url", aVar.f35389h);
+            com.kwad.sdk.utils.q.a(jSONObject, "appLink", aVar.f35390i);
             com.kwad.sdk.utils.q.a(jSONObject, "icon", aVar.j);
             com.kwad.sdk.utils.q.a(jSONObject, "desc", aVar.k);
             com.kwad.sdk.utils.q.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.l);

@@ -14,7 +14,7 @@ public class dc extends db.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f39968a;
+    public final /* synthetic */ int f40240a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ db f224a;
@@ -32,7 +32,7 @@ public class dc extends db.b {
     public final /* synthetic */ boolean f228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f39969b;
+    public final /* synthetic */ String f40241b;
 
     /* renamed from: b  reason: collision with other field name */
     public final /* synthetic */ Date f229b;
@@ -56,11 +56,11 @@ public class dc extends db.b {
             }
         }
         this.f224a = dbVar;
-        this.f39968a = i2;
+        this.f40240a = i2;
         this.f227a = date;
         this.f229b = date2;
         this.f226a = str;
-        this.f39969b = str2;
+        this.f40241b = str2;
         this.f228a = z;
     }
 
@@ -73,7 +73,7 @@ public class dc extends db.b {
                 file.mkdirs();
                 if (file.isDirectory()) {
                     da daVar = new da();
-                    daVar.a(this.f39968a);
+                    daVar.a(this.f40240a);
                     this.f225a = daVar.a(this.f224a.f217a, this.f227a, this.f229b, file);
                 }
             } catch (NullPointerException unused) {
@@ -88,7 +88,7 @@ public class dc extends db.b {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             File file = this.f225a;
             if (file != null && file.exists()) {
-                this.f224a.f218a.add(new db.c(this.f224a, this.f226a, this.f39969b, this.f225a, this.f228a));
+                this.f224a.f218a.add(new db.c(this.f224a, this.f226a, this.f40241b, this.f225a, this.f228a));
             }
             this.f224a.a(0L);
         }

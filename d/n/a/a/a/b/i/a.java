@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.n.a.a.c.b.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f72149c;
+    public static volatile a f72603c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f72150a;
+    public Context f72604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f72151b;
+    public boolean f72605b;
 
     static {
         InterceptResult invokeClinit;
@@ -57,23 +57,23 @@ public class a {
                 return;
             }
         }
-        this.f72151b = false;
-        this.f72150a = context;
-        this.f72151b = "1".equals(d("persist.sys.identifierid.supported", "0"));
+        this.f72605b = false;
+        this.f72604a = context;
+        this.f72605b = "1".equals(d("persist.sys.identifierid.supported", "0"));
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f72149c == null) {
+            if (f72603c == null) {
                 synchronized (a.class) {
-                    if (f72149c == null) {
-                        f72149c = new a(context);
+                    if (f72603c == null) {
+                        f72603c = new a(context);
                     }
                 }
             }
-            return f72149c;
+            return f72603c;
         }
         return (a) invokeL.objValue;
     }
@@ -159,7 +159,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, str)) == null) {
             try {
-                return c(this.f72150a, 0, null);
+                return c(this.f72604a, 0, null);
             } catch (Throwable th) {
                 c.c(th);
                 return null;
@@ -171,14 +171,14 @@ public class a {
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72151b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72605b : invokeV.booleanValue;
     }
 
     public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f72151b) {
+            if (this.f72605b) {
                 return b(0, null);
             }
             return null;

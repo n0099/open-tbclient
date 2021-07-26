@@ -21,7 +21,7 @@ public class et implements er.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JobScheduler f40074a;
+    public JobScheduler f40346a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f337a;
@@ -46,7 +46,7 @@ public class et implements er.a {
         }
         this.f338a = false;
         this.f337a = context;
-        this.f40074a = (JobScheduler) context.getSystemService("jobscheduler");
+        this.f40346a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
     @Override // com.xiaomi.push.er.a
@@ -54,7 +54,7 @@ public class et implements er.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f338a = false;
-            this.f40074a.cancel(1);
+            this.f40346a.cancel(1);
         }
     }
 
@@ -68,7 +68,7 @@ public class et implements er.a {
             builder.setPersisted(false);
             JobInfo build = builder.build();
             com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + build.getId() + " in " + j);
-            this.f40074a.schedule(builder.build());
+            this.f40346a.schedule(builder.build());
         }
     }
 

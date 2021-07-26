@@ -17,7 +17,7 @@ public class b extends Binder implements IInterface {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.f.a.a.b f32806a;
+    public static d.f.a.a.b f32995a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

@@ -24,31 +24,31 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f35074a;
+    public long f35263a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f35075b;
+    public float f35264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35076c;
+    public boolean f35265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35077d;
+    public boolean f35266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35078e;
+    public int f35267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f35079f;
+    public ViewTreeObserver.OnScrollChangedListener f35268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewTreeObserver f35080g;
+    public ViewTreeObserver f35269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public au f35081h;
+    public au f35270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f35082i;
+    public d f35271i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdBasePvFrameLayout(@NonNull Context context) {
@@ -68,9 +68,9 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 return;
             }
         }
-        this.f35074a = 500L;
-        this.f35075b = 0.1f;
-        this.f35077d = true;
+        this.f35263a = 500L;
+        this.f35264b = 0.1f;
+        this.f35266d = true;
         a();
     }
 
@@ -93,9 +93,9 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 return;
             }
         }
-        this.f35074a = 500L;
-        this.f35075b = 0.1f;
-        this.f35077d = true;
+        this.f35263a = 500L;
+        this.f35264b = 0.1f;
+        this.f35266d = true;
         a();
     }
 
@@ -118,18 +118,18 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 return;
             }
         }
-        this.f35074a = 500L;
-        this.f35075b = 0.1f;
-        this.f35077d = true;
+        this.f35263a = 500L;
+        this.f35264b = 0.1f;
+        this.f35266d = true;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f35081h = new au(this);
-            this.f35078e = ap.l(getContext());
-            this.f35077d = m();
+            this.f35270h = new au(this);
+            this.f35267e = ap.l(getContext());
+            this.f35266d = m();
         }
     }
 
@@ -149,24 +149,24 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (!this.f35081h.a() || Math.abs(this.f35081h.f36531a.height() - getHeight()) > getHeight() * (1.0f - this.f35075b) || getHeight() <= 0 || getWidth() <= 0) {
+            if (!this.f35270h.a() || Math.abs(this.f35270h.f36720a.height() - getHeight()) > getHeight() * (1.0f - this.f35264b) || getHeight() <= 0 || getWidth() <= 0) {
                 return false;
             }
-            Rect rect = this.f35081h.f36531a;
-            return rect.bottom > 0 && rect.top < this.f35078e;
+            Rect rect = this.f35270h.f36720a;
+            return rect.bottom > 0 && rect.top < this.f35267e;
         }
         return invokeV.booleanValue;
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f35079f == null) {
-            this.f35079f = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f35268f == null) {
+            this.f35268f = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdBasePvFrameLayout f35083a;
+                public final /* synthetic */ AdBasePvFrameLayout f35272a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,21 +183,21 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                             return;
                         }
                     }
-                    this.f35083a = this;
+                    this.f35272a = this;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public void onScrollChanged() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f35083a.c()) {
-                        this.f35083a.o();
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f35272a.c()) {
+                        this.f35272a.o();
                     }
                 }
             };
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-            this.f35080g = viewTreeObserver;
+            this.f35269g = viewTreeObserver;
             if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.f35079f);
+                viewTreeObserver.addOnScrollChangedListener(this.f35268f);
             }
         }
     }
@@ -213,7 +213,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
 
     public void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f35077d) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f35266d) {
             b();
         }
     }
@@ -222,7 +222,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             p();
-            d dVar = this.f35082i;
+            d dVar = this.f35271i;
             if (dVar != null) {
                 dVar.a();
             }
@@ -244,7 +244,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
             p();
-            this.f35076c = false;
+            this.f35265c = false;
         }
     }
 
@@ -253,10 +253,10 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
             boolean z = true;
-            if (this.f35076c || (i4 | i5) != 0 || (i2 | i3) == 0) {
+            if (this.f35265c || (i4 | i5) != 0 || (i2 | i3) == 0) {
                 z = false;
             } else {
-                this.f35076c = true;
+                this.f35265c = true;
             }
             super.onSizeChanged(i2, i3, i4, i5);
             if (z) {
@@ -269,10 +269,10 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
-                if (this.f35079f != null && this.f35080g != null && this.f35080g.isAlive()) {
-                    this.f35080g.removeOnScrollChangedListener(this.f35079f);
+                if (this.f35268f != null && this.f35269g != null && this.f35269g.isAlive()) {
+                    this.f35269g.removeOnScrollChangedListener(this.f35268f);
                 }
-                this.f35079f = null;
+                this.f35268f = null;
             } catch (Exception e2) {
                 a.a(e2);
             }
@@ -282,14 +282,14 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public void setCheckDefaultImpressionLogThreshold(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f35075b = f2;
+            this.f35264b = f2;
         }
     }
 
     public void setVisibleListener(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            this.f35082i = dVar;
+            this.f35271i = dVar;
         }
     }
 }

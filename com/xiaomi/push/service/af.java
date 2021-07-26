@@ -15,7 +15,7 @@ public class af {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f40582a;
+    public static Object f40854a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, Queue<String>> f884a;
@@ -34,7 +34,7 @@ public class af {
                 return;
             }
         }
-        f40582a = new Object();
+        f40854a = new Object();
         f884a = new HashMap();
     }
 
@@ -42,7 +42,7 @@ public class af {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, xMPushService, str, str2)) == null) {
-            synchronized (f40582a) {
+            synchronized (f40854a) {
                 SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
                 Queue<String> queue = f884a.get(str);
                 if (queue == null) {

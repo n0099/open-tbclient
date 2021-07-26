@@ -19,10 +19,10 @@ public class u extends BaseBean<WalletChargeResultBannerResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26009a;
+    public String f26167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26010b;
+    public boolean f26168b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(Context context) {
@@ -47,7 +47,7 @@ public class u extends BaseBean<WalletChargeResultBannerResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f26009a = str;
+            this.f26167a = str;
         }
     }
 
@@ -65,9 +65,9 @@ public class u extends BaseBean<WalletChargeResultBannerResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("subBizType", this.f26010b ? "1003003" : "1003002"));
+            arrayList.add(new RestNameValuePair("subBizType", this.f26168b ? "1003003" : "1003002"));
             arrayList.add(new RestNameValuePair("returnType", "2"));
-            arrayList.add(new RestNameValuePair("orderNo", this.f26009a));
+            arrayList.add(new RestNameValuePair("orderNo", this.f26167a));
             arrayList.add(new RestNameValuePair("ua", "WAP"));
             return arrayList;
         }
@@ -97,7 +97,7 @@ public class u extends BaseBean<WalletChargeResultBannerResponse> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f26010b = z;
+            this.f26168b = z;
         }
     }
 }

@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.j.a.d;
-import d.a.c.e.p.j;
-import d.a.p0.h0.e;
-import d.a.p0.h0.f;
+import d.a.d.e.j.a.d;
+import d.a.d.e.p.j;
+import d.a.q0.h0.e;
+import d.a.q0.h0.f;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -30,14 +30,14 @@ public class DnsProxyStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f14578a;
+    public static int f14626a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f14579b;
+    public static int f14627b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends d.a.c.e.j.a.a {
+    public static class a extends d.a.d.e.j.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +55,7 @@ public class DnsProxyStatic {
             }
         }
 
-        @Override // d.a.c.e.j.a.a
+        @Override // d.a.d.e.j.a.a
         public String a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -73,8 +73,8 @@ public class DnsProxyStatic {
             return (String) invokeL.objValue;
         }
 
-        @Override // d.a.c.e.j.a.a
-        public void c(d.a.c.e.j.a.e eVar) {
+        @Override // d.a.d.e.j.a.a
+        public void c(d.a.d.e.j.a.e eVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) && eVar != null && j.z()) {
                 d dVar = null;
@@ -157,7 +157,7 @@ public class DnsProxyStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                d.a.c.e.m.e.a().postDelayed(new a(this), 1000L);
+                d.a.d.e.m.e.a().postDelayed(new a(this), 1000L);
             }
         }
     }
@@ -195,21 +195,21 @@ public class DnsProxyStatic {
     public static final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            d.a.c.e.j.a.a.d(null);
+            d.a.d.e.j.a.a.d(null);
             e.i().f();
         }
     }
 
-    public static final void d(d.a.c.e.j.a.e eVar, d dVar) {
+    public static final void d(d.a.d.e.j.a.e eVar, d dVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, eVar, dVar) == null) || eVar == null || dVar == null) {
             return;
         }
-        boolean z = eVar.c().f41223b >= 400;
-        if (eVar.c().f41223b < 200) {
+        boolean z = eVar.c().f41727b >= 400;
+        if (eVar.c().f41727b < 200) {
             z = true;
         }
-        byte[] bArr = eVar.c().f41229h;
+        byte[] bArr = eVar.c().f41733h;
         if (bArr == null) {
             z = true;
         }
@@ -219,64 +219,64 @@ public class DnsProxyStatic {
         if (z) {
             try {
                 URL url = new URL(eVar.b().i());
-                d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                d.a.d.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("workflow", "dnsproxy_unuse");
-                statsItem.c("sucnum", Integer.valueOf(f14579b));
+                statsItem.c("sucnum", Integer.valueOf(f14627b));
                 statsItem.c("failnum", 1);
                 statsItem.b("host", url.getHost());
-                statsItem.b("reason", dVar.f41209h);
+                statsItem.b("reason", dVar.f41713h);
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                f14579b = 0;
+                f14627b = 0;
                 return;
             } catch (Throwable th) {
                 BdLog.detailException(th);
                 return;
             }
         }
-        int i2 = f14579b + 1;
-        f14579b = i2;
+        int i2 = f14627b + 1;
+        f14627b = i2;
         if (i2 >= 100) {
             g();
         }
     }
 
-    public static final void e(d.a.c.e.j.a.e eVar, d dVar) {
+    public static final void e(d.a.d.e.j.a.e eVar, d dVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, eVar, dVar) == null) || eVar == null || dVar == null) {
             return;
         }
-        boolean z = eVar.c().f41223b >= 400;
-        if (eVar.c().f41223b < 200) {
+        boolean z = eVar.c().f41727b >= 400;
+        if (eVar.c().f41727b < 200) {
             z = true;
         }
-        byte[] bArr = eVar.c().f41229h;
+        byte[] bArr = eVar.c().f41733h;
         if (bArr == null) {
             z = true;
         }
         if (bArr != null && bArr.length == 0) {
             z = true;
         }
-        d.a.p0.h0.i.d.m().p(dVar.l, !z);
+        d.a.q0.h0.i.d.m().p(dVar.l, !z);
         if (z) {
             try {
                 URL url = new URL(eVar.b().i());
-                d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                d.a.d.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("workflow", "dnsproxy_use");
-                statsItem.c("sucnum", Integer.valueOf(f14578a));
+                statsItem.c("sucnum", Integer.valueOf(f14626a));
                 statsItem.c("failnum", 1);
                 statsItem.b("host", url.getHost());
                 statsItem.b("ip", dVar.l);
-                statsItem.b("reason", dVar.f41209h);
+                statsItem.b("reason", dVar.f41713h);
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                f14578a = 0;
+                f14626a = 0;
                 return;
             } catch (Throwable th) {
                 BdLog.detailException(th);
                 return;
             }
         }
-        int i2 = f14578a + 1;
-        f14578a = i2;
+        int i2 = f14626a + 1;
+        f14626a = i2;
         if (i2 >= 100) {
             h();
         }
@@ -285,22 +285,22 @@ public class DnsProxyStatic {
     public static final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            d.a.c.e.j.a.a.d(new a());
+            d.a.d.e.j.a.a.d(new a());
             e.i().n();
         }
     }
 
     public static final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || f14579b <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || f14627b <= 0) {
             return;
         }
         try {
-            d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            d.a.d.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "dnsproxy_unuse");
-            statsItem.c("sucnum", Integer.valueOf(f14579b));
+            statsItem.c("sucnum", Integer.valueOf(f14627b));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-            f14579b = 0;
+            f14627b = 0;
         } catch (Throwable th) {
             BdLog.detailException(th);
         }
@@ -308,15 +308,15 @@ public class DnsProxyStatic {
 
     public static final void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || f14578a <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || f14626a <= 0) {
             return;
         }
         try {
-            d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            d.a.d.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "dnsproxy_use");
-            statsItem.c("sucnum", Integer.valueOf(f14578a));
+            statsItem.c("sucnum", Integer.valueOf(f14626a));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-            f14578a = 0;
+            f14626a = 0;
         } catch (Throwable th) {
             BdLog.detailException(th);
         }

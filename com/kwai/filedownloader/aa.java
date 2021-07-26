@@ -15,7 +15,7 @@ public class aa implements v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<Handler> f36679a;
+    public final SparseArray<Handler> f36868a;
 
     public aa() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class aa implements v {
                 return;
             }
         }
-        this.f36679a = new SparseArray<>();
+        this.f36868a = new SparseArray<>();
     }
 
     private void a(Handler handler) {
@@ -51,8 +51,8 @@ public class aa implements v {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (int i2 = 0; i2 < this.f36679a.size(); i2++) {
-                a(this.f36679a.get(this.f36679a.keyAt(i2)));
+            for (int i2 = 0; i2 < this.f36868a.size(); i2++) {
+                a(this.f36868a.get(this.f36868a.keyAt(i2)));
             }
         }
     }
@@ -62,7 +62,7 @@ public class aa implements v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             for (Integer num : list) {
-                b(this.f36679a.get(num.intValue()));
+                b(this.f36868a.get(num.intValue()));
             }
         }
     }
@@ -71,13 +71,13 @@ public class aa implements v {
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f36679a.get(i2) != null : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f36868a.get(i2) != null : invokeI.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.v
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36679a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36868a.size() : invokeV.intValue;
     }
 }

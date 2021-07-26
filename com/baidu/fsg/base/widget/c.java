@@ -12,7 +12,7 @@ public class c implements View.OnLongClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardEditText f5538a;
+    public final /* synthetic */ SafeKeyBoardEditText f5564a;
 
     public c(SafeKeyBoardEditText safeKeyBoardEditText) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class c implements View.OnLongClickListener {
                 return;
             }
         }
-        this.f5538a = safeKeyBoardEditText;
+        this.f5564a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -38,9 +38,9 @@ public class c implements View.OnLongClickListener {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-            z = this.f5538a.p;
+            z = this.f5564a.p;
             if (z) {
-                this.f5538a.requestFocusFromTouch();
+                this.f5564a.requestFocusFromTouch();
                 return true;
             }
             return false;

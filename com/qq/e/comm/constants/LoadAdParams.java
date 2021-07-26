@@ -14,31 +14,31 @@ public class LoadAdParams {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37943a;
+    public int f38137a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoginType f37944b;
+    public LoginType f38138b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37945c;
+    public String f38139c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37946d;
+    public String f38140d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37947e;
+    public String f38141e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37948f;
+    public int f38142f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37949g;
+    public String f38143g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map f37950h;
+    public Map f38144h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f37951i;
+    public boolean f38145i;
     public JSONObject j;
 
     public LoadAdParams() {
@@ -58,7 +58,7 @@ public class LoadAdParams {
     public int getBlockEffectValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37948f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38142f : invokeV.intValue;
     }
 
     public JSONObject getExtraInfo() {
@@ -70,31 +70,31 @@ public class LoadAdParams {
     public int getFlowSourceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37943a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38137a : invokeV.intValue;
     }
 
     public String getLoginAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37945c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38139c : (String) invokeV.objValue;
     }
 
     public String getLoginOpenid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37946d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38140d : (String) invokeV.objValue;
     }
 
     public LoginType getLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37944b : (LoginType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38138b : (LoginType) invokeV.objValue;
     }
 
     public Map getPassThroughInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37950h : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38144h : (Map) invokeV.objValue;
     }
 
     public String getPassThroughInfoJsonString() {
@@ -102,10 +102,10 @@ public class LoadAdParams {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
-                if (this.f37950h == null || this.f37950h.size() <= 0) {
+                if (this.f38144h == null || this.f38144h.size() <= 0) {
                     return null;
                 }
-                return new JSONObject(this.f37950h).toString();
+                return new JSONObject(this.f38144h).toString();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -117,25 +117,25 @@ public class LoadAdParams {
     public String getUin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37947e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f38141e : (String) invokeV.objValue;
     }
 
     public String getWXAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37949g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f38143g : (String) invokeV.objValue;
     }
 
     public boolean isHotStart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37951i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f38145i : invokeV.booleanValue;
     }
 
     public void setBlockEffectValue(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f37948f = i2;
+            this.f38142f = i2;
         }
     }
 
@@ -149,56 +149,56 @@ public class LoadAdParams {
     public void setFlowSourceId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f37943a = i2;
+            this.f38137a = i2;
         }
     }
 
     public void setHotStart(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f37951i = z;
+            this.f38145i = z;
         }
     }
 
     public void setLoginAppId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f37945c = str;
+            this.f38139c = str;
         }
     }
 
     public void setLoginOpenid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f37946d = str;
+            this.f38140d = str;
         }
     }
 
     public void setLoginType(LoginType loginType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, loginType) == null) {
-            this.f37944b = loginType;
+            this.f38138b = loginType;
         }
     }
 
     public void setPassThroughInfo(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, map) == null) {
-            this.f37950h = map;
+            this.f38144h = map;
         }
     }
 
     public void setUin(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f37947e = str;
+            this.f38141e = str;
         }
     }
 
     public void setWXAppId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f37949g = str;
+            this.f38143g = str;
         }
     }
 
@@ -206,7 +206,7 @@ public class LoadAdParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return "LoadAdParams{flowSourceId=" + this.f37943a + ", loginType=" + this.f37944b + ", loginAppId=" + this.f37945c + ", loginOpenid=" + this.f37946d + ", uin=" + this.f37947e + ", blockEffect=" + this.f37948f + ", passThroughInfo=" + this.f37950h + ", extraInfo=" + this.j + '}';
+            return "LoadAdParams{flowSourceId=" + this.f38137a + ", loginType=" + this.f38138b + ", loginAppId=" + this.f38139c + ", loginOpenid=" + this.f38140d + ", uin=" + this.f38141e + ", blockEffect=" + this.f38142f + ", passThroughInfo=" + this.f38144h + ", extraInfo=" + this.j + '}';
         }
         return (String) invokeV.objValue;
     }

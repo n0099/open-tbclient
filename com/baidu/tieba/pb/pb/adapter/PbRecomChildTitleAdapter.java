@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.u.c;
-import d.a.p0.a0.f0.e;
-import d.a.p0.h2.k.e.o;
-import d.a.p0.h2.o.b;
+import d.a.p0.s.u.c;
+import d.a.q0.a0.f0.e;
+import d.a.q0.h2.k.e.o;
+import d.a.q0.h2.o.b;
 /* loaded from: classes4.dex */
 public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -31,10 +31,10 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19159a;
+        public int f19244a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f19160b;
+        public TextView f19245b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -54,14 +54,14 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
                     return;
                 }
             }
-            this.f19159a = 3;
+            this.f19244a = 3;
             c(view);
         }
 
         public void b(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                this.f19160b.setText(eVar.f53835e);
+                this.f19245b.setText(eVar.f54378e);
             }
         }
 
@@ -69,7 +69,7 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 TextView textView = (TextView) view.findViewById(R.id.tv_title);
-                this.f19160b = textView;
+                this.f19245b = textView;
                 c.d(textView).y(R.string.F_X02);
             }
         }
@@ -77,12 +77,12 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
         public void d() {
             int skinType;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f19159a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f19244a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 return;
             }
             SkinManager.setBackgroundColor(a(), R.color.CAM_X0202);
-            SkinManager.setViewTextColor(this.f19160b, R.color.CAM_X0105);
-            this.f19159a = skinType;
+            SkinManager.setViewTextColor(this.f19245b, R.color.CAM_X0105);
+            this.f19244a = skinType;
         }
     }
 
@@ -107,26 +107,26 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
         }
     }
 
-    @Override // d.a.p0.h2.k.e.o, d.a.c.k.e.a
+    @Override // d.a.q0.h2.k.e.o, d.a.d.k.e.a
     public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         j0(i2, view, viewGroup, (e) obj, (ViewHolder) viewHolder);
         return view;
     }
 
-    public ViewHolder h0() {
+    public ViewHolder g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.s : (ViewHolder) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
+    @Override // d.a.d.k.e.a
     /* renamed from: i0 */
     public ViewHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f41837e).inflate(R.layout.pb_reclist_title, viewGroup, false));
+            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f42341e).inflate(R.layout.pb_reclist_title, viewGroup, false));
             this.s = viewHolder;
             return viewHolder;
         }

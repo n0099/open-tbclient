@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.AgreeBanner;
@@ -31,19 +31,19 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15590e;
+    public View f15638e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f15591f;
+    public View f15639f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15592g;
+    public TextView f15640g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f15593h;
+    public FrameLayout f15641h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f15594i;
+    public ImageView f15642i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -51,10 +51,10 @@ public class FrsHeaderPraiseView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AgreeBanner f15595e;
+        public final /* synthetic */ AgreeBanner f15643e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsHeaderPraiseView f15596f;
+        public final /* synthetic */ FrsHeaderPraiseView f15644f;
 
         public a(FrsHeaderPraiseView frsHeaderPraiseView, AgreeBanner agreeBanner) {
             Interceptable interceptable = $ic;
@@ -71,17 +71,17 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     return;
                 }
             }
-            this.f15596f = frsHeaderPraiseView;
-            this.f15595e = agreeBanner;
+            this.f15644f = frsHeaderPraiseView;
+            this.f15643e = agreeBanner;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f15595e.url)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f15643e.url)) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f15596f.getContext(), null, this.f15595e.url, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f15644f.getContext(), null, this.f15643e.url, true)));
         }
     }
 
@@ -109,12 +109,12 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f15590e = findViewById(R.id.divider_top);
-            this.f15591f = findViewById(R.id.divider_bottom);
-            this.f15592g = (TextView) findViewById(R.id.frs_praise_title);
-            this.f15593h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
+            this.f15638e = findViewById(R.id.divider_top);
+            this.f15639f = findViewById(R.id.divider_bottom);
+            this.f15640g = (TextView) findViewById(R.id.frs_praise_title);
+            this.f15641h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
             ImageView imageView = (ImageView) findViewById(R.id.frs_praise_more);
-            this.f15594i = imageView;
+            this.f15642i = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }
     }
@@ -127,9 +127,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
             setVisibility(0);
-            this.f15592g.setText(agreeBanner.text);
+            this.f15640g.setText(agreeBanner.text);
             List<SimpleUser> list = agreeBanner.top_agree_user;
-            this.f15593h.removeAllViews();
+            this.f15641h.removeAllViews();
             if (list != null) {
                 ArrayList arrayList = new ArrayList();
                 if (list.size() > 5) {
@@ -139,7 +139,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 } else {
                     arrayList.addAll(list);
                 }
-                for (int size = arrayList.size() - 1; size >= 0 && this.f15593h.getChildCount() != 5; size--) {
+                for (int size = arrayList.size() - 1; size >= 0 && this.f15641h.getChildCount() != 5; size--) {
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds40), getResources().getDimensionPixelSize(R.dimen.ds40));
                     HeadImageView headImageView = new HeadImageView(getContext());
                     headImageView.setDefaultResource(17170445);
@@ -152,7 +152,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                         layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds8));
                     }
                     layoutParams.gravity = 5;
-                    this.f15593h.addView(headImageView, layoutParams);
+                    this.f15641h.addView(headImageView, layoutParams);
                 }
             }
             setOnClickListener(new a(this, agreeBanner));

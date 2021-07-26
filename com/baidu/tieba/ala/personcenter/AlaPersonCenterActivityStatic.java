@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.u0.i0;
+import d.a.q0.u0.i0;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public class AlaPersonCenterActivityStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                d.a.p0.v.j.a aVar = new d.a.p0.v.j.a();
+                d.a.q0.v.j.a aVar = new d.a.q0.v.j.a();
                 aVar.c(i0Var.d());
                 aVar.d(i0Var.e());
                 aVar.b(i0Var.c());

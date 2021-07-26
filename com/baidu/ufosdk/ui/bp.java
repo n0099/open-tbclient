@@ -10,7 +10,7 @@ public final class bp implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bm f23482a;
+    public final /* synthetic */ bm f23640a;
 
     public bp(bm bmVar) {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public final class bp implements Runnable {
                 return;
             }
         }
-        this.f23482a = bmVar;
+        this.f23640a = bmVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FeedbackInputActivity.j(this.f23482a.f23478b);
+            FeedbackInputActivity.j(this.f23640a.f23636b);
         }
     }
 }

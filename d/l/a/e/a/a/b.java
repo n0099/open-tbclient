@@ -42,7 +42,7 @@ public class b extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = new Intent("android.settings.MANAGE_UNKNOWN_APP_SOURCES", Uri.parse("package:" + this.f71568a.getPackageName()));
+            Intent intent = new Intent("android.settings.MANAGE_UNKNOWN_APP_SOURCES", Uri.parse("package:" + this.f72022a.getPackageName()));
             intent.addFlags(1073741824);
             intent.addFlags(8388608);
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);

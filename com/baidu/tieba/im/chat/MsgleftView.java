@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.i1.f.e;
+import d.a.d.e.p.l;
+import d.a.q0.i1.f.e;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class MsgleftView extends e {
@@ -43,10 +43,10 @@ public class MsgleftView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f17307e;
+        public long f17363e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MsgleftView f17308f;
+        public final /* synthetic */ MsgleftView f17364f;
 
         public a(MsgleftView msgleftView) {
             Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public class MsgleftView extends e {
                     return;
                 }
             }
-            this.f17308f = msgleftView;
-            this.f17307e = 0L;
+            this.f17364f = msgleftView;
+            this.f17363e = 0L;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -73,17 +73,17 @@ public class MsgleftView extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f17307e = System.currentTimeMillis();
+                    this.f17363e = System.currentTimeMillis();
                 } else if (motionEvent.getAction() == 1) {
-                    if (System.currentTimeMillis() - this.f17307e > 200) {
-                        if (this.f17308f.y.get()) {
-                            MsgleftView msgleftView = this.f17308f;
-                            msgleftView.f58261c.onItemViewLongClick(view, 2, msgleftView.f58264f, 0L);
-                            this.f17308f.y.set(false);
+                    if (System.currentTimeMillis() - this.f17363e > 200) {
+                        if (this.f17364f.y.get()) {
+                            MsgleftView msgleftView = this.f17364f;
+                            msgleftView.f58875c.onItemViewLongClick(view, 2, msgleftView.f58878f, 0L);
+                            this.f17364f.y.set(false);
                         }
                     } else {
-                        MsgleftView msgleftView2 = this.f17308f;
-                        msgleftView2.f58260b.onItemViewClick(view, 2, msgleftView2.f58264f, 0L);
+                        MsgleftView msgleftView2 = this.f17364f;
+                        msgleftView2.f58874b.onItemViewClick(view, 2, msgleftView2.f58878f, 0L);
                     }
                 }
                 return false;
@@ -98,7 +98,7 @@ public class MsgleftView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgleftView f17309e;
+        public final /* synthetic */ MsgleftView f17365e;
 
         public b(MsgleftView msgleftView) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class MsgleftView extends e {
                     return;
                 }
             }
-            this.f17309e = msgleftView;
+            this.f17365e = msgleftView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -123,7 +123,7 @@ public class MsgleftView extends e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f17309e.y.set(true);
+                this.f17365e.y.set(true);
                 return true;
             }
             return invokeL.booleanValue;
@@ -188,7 +188,7 @@ public class MsgleftView extends e {
     public final void F(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) {
-            String p = d.a.o0.r.d0.b.j().p("live_room_chat_page_author_id", "");
+            String p = d.a.p0.s.d0.b.j().p("live_room_chat_page_author_id", "");
             if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(p)) {
                 this.x.setVisibility(0);
             } else {
@@ -242,7 +242,7 @@ public class MsgleftView extends e {
 
     /* JADX WARN: Removed duplicated region for block: B:29:0x0128  */
     /* JADX WARN: Removed duplicated region for block: B:44:0x0154 A[Catch: Exception -> 0x015a, TRY_LEAVE, TryCatch #0 {Exception -> 0x015a, blocks: (B:17:0x00a1, B:19:0x00a7, B:20:0x00c9, B:22:0x00d5, B:25:0x00e0, B:27:0x00ef, B:39:0x0138, B:40:0x013e, B:41:0x0144, B:42:0x0148, B:43:0x014e, B:44:0x0154, B:26:0x00e8), top: B:52:0x00a1 }] */
-    @Override // d.a.p0.i1.f.e
+    @Override // d.a.q0.i1.f.e
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -265,8 +265,8 @@ public class MsgleftView extends e {
         }
         if (chatMessage == null) {
             this.u.setText((CharSequence) null);
-            this.f58267i.setVisibility(0);
-            this.f58267i.setText(null);
+            this.f58881i.setVisibility(0);
+            this.f58881i.setText(null);
             l(8);
             this.p.getImage().setTag(null);
             this.j.setVisibility(8);
@@ -292,7 +292,7 @@ public class MsgleftView extends e {
             if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
                 this.t.M(str, 12, false);
                 this.t.setContentDescription(chatMessage.getUserInfo().getName_show());
-                this.f58267i.setVisibility(8);
+                this.f58881i.setVisibility(8);
                 l(8);
                 this.j.setVisibility(8);
                 this.k.setVisibility(8);
@@ -325,7 +325,7 @@ public class MsgleftView extends e {
             }
             this.t.M(str, 10, false);
             this.t.setContentDescription(chatMessage.getUserInfo().getName_show());
-            this.f58267i.setVisibility(8);
+            this.f58881i.setVisibility(8);
             l(8);
             this.j.setVisibility(8);
             this.k.setVisibility(8);

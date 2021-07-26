@@ -16,14 +16,14 @@ public class BasicStoreTools {
     public static final String STAT_LAST_SENDDATA = "stat__lastdata";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3921b = "stat_strategy";
+    public static final String f3947b = "stat_strategy";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3922c = "last_evt_id";
+    public static final String f3948c = "last_evt_id";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f3923a;
+    public final String f3949a;
 
     /* renamed from: com.baidu.apollon.statistics.BasicStoreTools$1  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class BasicStoreTools {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BasicStoreTools f3924a;
+        public static final BasicStoreTools f3950a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public class BasicStoreTools {
                     return;
                 }
             }
-            f3924a = new BasicStoreTools(null);
+            f3950a = new BasicStoreTools(null);
         }
 
         public a() {
@@ -78,7 +78,7 @@ public class BasicStoreTools {
     public static BasicStoreTools getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f3924a : (BasicStoreTools) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f3950a : (BasicStoreTools) invokeV.objValue;
     }
 
     public String getLastData(Context context) {
@@ -93,9 +93,9 @@ public class BasicStoreTools {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("Stat_SDK_SendRem", 0);
             try {
-                return sharedPreferences.getLong(f3922c, 0L);
+                return sharedPreferences.getLong(f3948c, 0L);
             } catch (ClassCastException unused) {
-                return sharedPreferences.getInt(f3922c, 0);
+                return sharedPreferences.getInt(f3948c, 0);
             }
         }
         return invokeL.longValue;
@@ -104,7 +104,7 @@ public class BasicStoreTools {
     public String getStrategy(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? context.getSharedPreferences("Stat_SDK_SendRem", 0).getString(f3921b, "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? context.getSharedPreferences("Stat_SDK_SendRem", 0).getString(f3947b, "") : (String) invokeL.objValue;
     }
 
     public void setLastData(Context context, String str) {
@@ -120,7 +120,7 @@ public class BasicStoreTools {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048580, this, context, j) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
-            edit.putLong(f3922c, j);
+            edit.putLong(f3948c, j);
             edit.commit();
         }
     }
@@ -129,7 +129,7 @@ public class BasicStoreTools {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("Stat_SDK_SendRem", 0).edit();
-            edit.putString(f3921b, str);
+            edit.putString(f3947b, str);
             edit.commit();
         }
     }
@@ -147,6 +147,6 @@ public class BasicStoreTools {
                 return;
             }
         }
-        this.f3923a = "Stat_SDK_SendRem";
+        this.f3949a = "Stat_SDK_SendRem";
     }
 }

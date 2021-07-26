@@ -68,11 +68,11 @@ public interface ICommonPermissionListener extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static ICommonPermissionListener f29008a;
+            public static ICommonPermissionListener f29107a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f29009b;
+            public IBinder f29108b;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -89,14 +89,14 @@ public interface ICommonPermissionListener extends IInterface {
                         return;
                     }
                 }
-                this.f29009b = iBinder;
+                this.f29108b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29009b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29108b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -108,7 +108,7 @@ public interface ICommonPermissionListener extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
                         obtain.writeString(str);
-                        if (!this.f29009b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29108b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDenied(str);
                         } else {
                             obtain2.readException();
@@ -128,7 +128,7 @@ public interface ICommonPermissionListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                        if (!this.f29009b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29108b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onGranted();
                         } else {
                             obtain2.readException();
@@ -176,17 +176,17 @@ public interface ICommonPermissionListener extends IInterface {
         public static ICommonPermissionListener getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29008a : (ICommonPermissionListener) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29107a : (ICommonPermissionListener) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(ICommonPermissionListener iCommonPermissionListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iCommonPermissionListener)) == null) {
-                if (a.f29008a != null || iCommonPermissionListener == null) {
+                if (a.f29107a != null || iCommonPermissionListener == null) {
                     return false;
                 }
-                a.f29008a = iCommonPermissionListener;
+                a.f29107a = iCommonPermissionListener;
                 return true;
             }
             return invokeL.booleanValue;

@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.d.c;
-import d.a.o0.d.d;
-import d.a.o0.d.e;
+import d.a.d.e.p.l;
+import d.a.p0.e.c;
+import d.a.p0.e.d;
+import d.a.p0.e.e;
 /* loaded from: classes4.dex */
 public class PersonListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +45,7 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // d.a.o0.d.e
+        @Override // d.a.p0.e.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

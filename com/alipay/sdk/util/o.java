@@ -11,7 +11,7 @@ public final class o implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Activity f2004a;
+    public final /* synthetic */ Activity f2037a;
 
     public o(Activity activity) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public final class o implements Runnable {
                 return;
             }
         }
-        this.f2004a = activity;
+        this.f2037a = activity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f2004a.finish();
+            this.f2037a.finish();
         }
     }
 }

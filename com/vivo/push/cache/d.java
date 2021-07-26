@@ -21,20 +21,20 @@ public abstract class d<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f39158a;
+    public static final byte[] f39379a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f39159b;
+    public static final byte[] f39380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f39160c;
+    public static final Object f39381c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<T> f39161d;
+    public List<T> f39382d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f39162e;
+    public Context f39383e;
 
     static {
         InterceptResult invokeClinit;
@@ -49,9 +49,9 @@ public abstract class d<T> {
                 return;
             }
         }
-        f39158a = new byte[]{34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 37, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 41, Base64.INTERNAL_PADDING, 32, 32, 32};
-        f39159b = new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, Base64.INTERNAL_PADDING, 34, PublicSuffixDatabase.EXCEPTION_MARKER};
-        f39160c = new Object();
+        f39379a = new byte[]{34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 37, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 41, Base64.INTERNAL_PADDING, 32, 32, 32};
+        f39380b = new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, Base64.INTERNAL_PADDING, 34, PublicSuffixDatabase.EXCEPTION_MARKER};
+        f39381c = new Object();
     }
 
     public d(Context context) {
@@ -69,8 +69,8 @@ public abstract class d<T> {
                 return;
             }
         }
-        this.f39161d = new ArrayList();
-        this.f39162e = context.getApplicationContext();
+        this.f39382d = new ArrayList();
+        this.f39383e = context.getApplicationContext();
         c();
     }
 
@@ -83,10 +83,10 @@ public abstract class d<T> {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (f39160c) {
+            synchronized (f39381c) {
                 h.a(a());
-                this.f39161d.clear();
-                String a2 = y.b(this.f39162e).a(a(), null);
+                this.f39382d.clear();
+                String a2 = y.b(this.f39383e).a(a(), null);
                 if (TextUtils.isEmpty(a2)) {
                     p.d("CacheSettings", "ClientManager init " + a() + " strApps empty.");
                 } else if (a2.length() > 10000) {
@@ -97,7 +97,7 @@ public abstract class d<T> {
                         p.d("CacheSettings", "ClientManager init " + a() + " strApps : " + a2);
                         List<T> a3 = a(b(a2));
                         if (a3 != null) {
-                            this.f39161d.addAll(a3);
+                            this.f39382d.addAll(a3);
                         }
                     } catch (Exception e2) {
                         d();
@@ -111,9 +111,9 @@ public abstract class d<T> {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (f39160c) {
-                this.f39161d.clear();
-                y.b(this.f39162e).b(a(), "");
+            synchronized (f39381c) {
+                this.f39382d.clear();
+                y.b(this.f39383e).b(a(), "");
                 p.d("CacheSettings", "clear " + a() + " strApps");
             }
         }

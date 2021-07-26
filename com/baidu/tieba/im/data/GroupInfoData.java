@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.n;
+import d.a.d.k.e.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
@@ -194,7 +194,7 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.portrait : (String) invokeV.objValue;
     }
 
-    @Override // d.a.c.k.e.n
+    @Override // d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

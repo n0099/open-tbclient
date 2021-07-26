@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yxcorp.kuaishou.addfp.a.b.j.g;
 import d.n.a.a.c.b.f;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ Context f72103e;
+    public /* synthetic */ Context f72557e;
 
     /* renamed from: f  reason: collision with root package name */
-    public /* synthetic */ a f72104f;
+    public /* synthetic */ a f72558f;
 
     /* renamed from: g  reason: collision with root package name */
-    public /* synthetic */ b f72105g;
+    public /* synthetic */ b f72559g;
 
     public c(b bVar, Context context, a aVar) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f72105g = bVar;
-        this.f72103e = context;
-        this.f72104f = aVar;
+        this.f72559g = bVar;
+        this.f72557e = context;
+        this.f72558f = aVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:164:0x028c, code lost:
@@ -107,14 +107,14 @@ public final class c implements Runnable {
             return;
         }
         try {
-            if (!this.f72103e.getPackageName().equals(f.a(Process.myPid()))) {
+            if (!this.f72557e.getPackageName().equals(f.a(Process.myPid()))) {
                 d.n.a.a.c.b.c.b("call initOAID in diff proc");
                 return;
             }
             if (Build.VERSION.SDK_INT >= 29) {
-                this.f72105g.f72099b = new CountDownLatch(1);
+                this.f72559g.f72553b = new CountDownLatch(1);
             }
-            this.f72105g.f72098a = this.f72104f;
+            this.f72559g.f72552a = this.f72558f;
             if (!Build.MANUFACTURER.equalsIgnoreCase("LENOVO") && !Build.BRAND.equalsIgnoreCase("LENOVO") && !Build.BRAND.equalsIgnoreCase("ZUK")) {
                 z = false;
                 if (!z) {
@@ -164,79 +164,79 @@ public final class c implements Runnable {
                                                                                                                     if (!z14) {
                                                                                                                     }
                                                                                                                 }
-                                                                                                                bVar = this.f72105g;
-                                                                                                                dVar = new g(this.f72103e, b.c());
+                                                                                                                bVar = this.f72559g;
+                                                                                                                dVar = new g(this.f72557e, b.c());
                                                                                                             }
                                                                                                             z13 = true;
                                                                                                             if (!z13) {
                                                                                                             }
-                                                                                                            bVar = this.f72105g;
-                                                                                                            dVar = new g(this.f72103e, b.c());
+                                                                                                            bVar = this.f72559g;
+                                                                                                            dVar = new g(this.f72557e, b.c());
                                                                                                         }
                                                                                                     }
                                                                                                     z12 = true;
                                                                                                     if (z12) {
                                                                                                     }
                                                                                                 }
-                                                                                                bVar = this.f72105g;
-                                                                                                dVar = new com.yxcorp.kuaishou.addfp.a.b.f.g(this.f72103e, b.c());
+                                                                                                bVar = this.f72559g;
+                                                                                                dVar = new com.yxcorp.kuaishou.addfp.a.b.f.g(this.f72557e, b.c());
                                                                                             }
                                                                                             z11 = true;
                                                                                             if (!z11) {
                                                                                             }
-                                                                                            bVar = this.f72105g;
-                                                                                            dVar = new com.yxcorp.kuaishou.addfp.a.b.f.g(this.f72103e, b.c());
+                                                                                            bVar = this.f72559g;
+                                                                                            dVar = new com.yxcorp.kuaishou.addfp.a.b.f.g(this.f72557e, b.c());
                                                                                         } else {
-                                                                                            bVar = this.f72105g;
-                                                                                            dVar = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f72103e, b.c());
+                                                                                            bVar = this.f72559g;
+                                                                                            dVar = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f72557e, b.c());
                                                                                         }
                                                                                     }
                                                                                     z10 = true;
                                                                                     if (z10) {
                                                                                     }
                                                                                 } else {
-                                                                                    bVar = this.f72105g;
-                                                                                    dVar = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f72103e, b.c());
+                                                                                    bVar = this.f72559g;
+                                                                                    dVar = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f72557e, b.c());
                                                                                 }
                                                                             }
                                                                             z9 = true;
                                                                             if (z9) {
                                                                             }
                                                                         } else {
-                                                                            this.f72105g.f72100c = new d.n.a.a.a.b.i.b(this.f72103e);
-                                                                            bVar7 = this.f72105g.f72100c;
+                                                                            this.f72559g.f72554c = new d.n.a.a.a.b.i.b(this.f72557e);
+                                                                            bVar7 = this.f72559g.f72554c;
                                                                             ((d.n.a.a.a.b.i.b) bVar7).b("100215079");
                                                                         }
-                                                                        bVar2 = this.f72105g.f72100c;
+                                                                        bVar2 = this.f72559g.f72554c;
                                                                         if (bVar2 != null) {
-                                                                            this.f72105g.a(false, null);
+                                                                            this.f72559g.a(false, null);
                                                                             return;
                                                                         }
-                                                                        bVar3 = this.f72105g.f72100c;
+                                                                        bVar3 = this.f72559g.f72554c;
                                                                         if (!bVar3.a()) {
-                                                                            bVar6 = this.f72105g.f72100c;
+                                                                            bVar6 = this.f72559g.f72554c;
                                                                             bVar6.a(b.c());
                                                                             return;
                                                                         }
-                                                                        bVar4 = this.f72105g.f72100c;
+                                                                        bVar4 = this.f72559g.f72554c;
                                                                         if (!bVar4.c()) {
-                                                                            this.f72105g.a(false, null);
+                                                                            this.f72559g.a(false, null);
                                                                             return;
                                                                         }
-                                                                        b bVar8 = this.f72105g;
-                                                                        bVar5 = this.f72105g.f72100c;
+                                                                        b bVar8 = this.f72559g;
+                                                                        bVar5 = this.f72559g.f72554c;
                                                                         bVar8.a(true, bVar5);
                                                                         return;
                                                                     }
                                                                     z8 = true;
                                                                     if (z8) {
                                                                     }
-                                                                    bVar2 = this.f72105g.f72100c;
+                                                                    bVar2 = this.f72559g.f72554c;
                                                                     if (bVar2 != null) {
                                                                     }
                                                                 } else {
-                                                                    bVar = this.f72105g;
-                                                                    dVar = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f72103e, b.c());
+                                                                    bVar = this.f72559g;
+                                                                    dVar = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f72557e, b.c());
                                                                 }
                                                             }
                                                             z7 = true;
@@ -248,36 +248,36 @@ public final class c implements Runnable {
                                                     if (z6) {
                                                     }
                                                 }
-                                                bVar = this.f72105g;
-                                                dVar = new d.n.a.a.a.b.j.b(this.f72103e);
+                                                bVar = this.f72559g;
+                                                dVar = new d.n.a.a.a.b.j.b(this.f72557e);
                                             }
                                             z5 = true;
                                             if (!z5) {
                                             }
-                                            bVar = this.f72105g;
-                                            dVar = new d.n.a.a.a.b.j.b(this.f72103e);
+                                            bVar = this.f72559g;
+                                            dVar = new d.n.a.a.a.b.j.b(this.f72557e);
                                         } else {
-                                            bVar = this.f72105g;
-                                            dVar = new d.n.a.a.a.b.f.b(this.f72103e);
+                                            bVar = this.f72559g;
+                                            dVar = new d.n.a.a.a.b.f.b(this.f72557e);
                                         }
                                     }
                                     z4 = true;
                                     if (z4) {
                                     }
                                 } else {
-                                    bVar = this.f72105g;
-                                    dVar = new f(this.f72103e);
+                                    bVar = this.f72559g;
+                                    dVar = new f(this.f72557e);
                                 }
-                                bVar.f72100c = dVar;
-                                bVar2 = this.f72105g.f72100c;
+                                bVar.f72554c = dVar;
+                                bVar2 = this.f72559g.f72554c;
                                 if (bVar2 != null) {
                                 }
                             }
                             z3 = true;
                             if (z3) {
                             }
-                            bVar.f72100c = dVar;
-                            bVar2 = this.f72105g.f72100c;
+                            bVar.f72554c = dVar;
+                            bVar2 = this.f72559g.f72554c;
                             if (bVar2 != null) {
                             }
                         }
@@ -286,20 +286,20 @@ public final class c implements Runnable {
                     if (z2) {
                     }
                 }
-                bVar = this.f72105g;
-                dVar = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f72103e, b.c());
-                bVar.f72100c = dVar;
-                bVar2 = this.f72105g.f72100c;
+                bVar = this.f72559g;
+                dVar = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f72557e, b.c());
+                bVar.f72554c = dVar;
+                bVar2 = this.f72559g.f72554c;
                 if (bVar2 != null) {
                 }
             }
             z = true;
             if (!z) {
             }
-            bVar = this.f72105g;
-            dVar = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f72103e, b.c());
-            bVar.f72100c = dVar;
-            bVar2 = this.f72105g.f72100c;
+            bVar = this.f72559g;
+            dVar = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f72557e, b.c());
+            bVar.f72554c = dVar;
+            bVar2 = this.f72559g.f72554c;
             if (bVar2 != null) {
             }
         } catch (Throwable th) {

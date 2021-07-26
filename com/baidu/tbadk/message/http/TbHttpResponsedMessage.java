@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.j.a.d;
-import d.a.c.e.j.a.e;
-import d.a.c.e.p.j;
+import d.a.d.e.j.a.d;
+import d.a.d.e.j.a.e;
+import d.a.d.e.p.j;
 /* loaded from: classes3.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -91,9 +91,9 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         NetWorkState.mErrorNums.addAndGet(eVar.d().size() - 1);
         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
         statisticsData.mMode = getMode(j.I());
-        statisticsData.mSize = dVar.f41203b;
-        statisticsData.mTime = dVar.f41207f;
-        statisticsData.mTimesNum = dVar.f41206e;
+        statisticsData.mSize = dVar.f41707b;
+        statisticsData.mTime = dVar.f41711f;
+        statisticsData.mTimesNum = dVar.f41710e;
         statisticsData.mMethod = eVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }

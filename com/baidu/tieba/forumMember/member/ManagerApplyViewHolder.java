@@ -16,19 +16,19 @@ public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f15257a;
+    public TextView f15305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15258b;
+    public TextView f15306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f15259c;
+    public RelativeLayout f15307c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f15260d;
+    public LinearLayout f15308d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15261e;
+    public int f15309e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ManagerApplyViewHolder(View view) {
@@ -48,10 +48,10 @@ public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15261e = 3;
-        this.f15260d = (LinearLayout) view.findViewById(R.id.root_member_manager_apply);
-        this.f15257a = (TextView) view.findViewById(R.id.assist_apply_tip);
-        this.f15258b = (TextView) view.findViewById(R.id.assist_left_tv);
-        this.f15259c = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
+        this.f15309e = 3;
+        this.f15308d = (LinearLayout) view.findViewById(R.id.root_member_manager_apply);
+        this.f15305a = (TextView) view.findViewById(R.id.assist_apply_tip);
+        this.f15306b = (TextView) view.findViewById(R.id.assist_left_tv);
+        this.f15307c = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
     }
 }

@@ -13,7 +13,7 @@ public class by extends ContentObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f40662a;
+    public final /* synthetic */ XMPushService f40934a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public by(XMPushService xMPushService, Handler handler) {
@@ -33,7 +33,7 @@ public class by extends ContentObserver {
                 return;
             }
         }
-        this.f40662a = xMPushService;
+        this.f40934a = xMPushService;
     }
 
     @Override // android.database.ContentObserver
@@ -42,13 +42,13 @@ public class by extends ContentObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.onChange(z);
-            m556f = this.f40662a.m556f();
+            m556f = this.f40934a.m556f();
             com.xiaomi.channel.commonutils.logger.b.m70a("ExtremePowerMode:" + m556f);
             if (!m556f) {
-                this.f40662a.a(true);
+                this.f40934a.a(true);
                 return;
             }
-            XMPushService xMPushService = this.f40662a;
+            XMPushService xMPushService = this.f40934a;
             xMPushService.a(new XMPushService.f(xMPushService, 23, null));
         }
     }

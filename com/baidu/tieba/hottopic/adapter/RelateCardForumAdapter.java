@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
-import d.a.c.k.e.a;
-import d.a.p0.g1.c.n;
+import d.a.d.k.e.a;
+import d.a.q0.g1.c.n;
 /* loaded from: classes4.dex */
 public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -30,13 +30,13 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17062a;
+        public int f17118a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.p0.g1.f.a f17063b;
+        public d.a.q0.g1.f.a f17119b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, d.a.p0.g1.f.a aVar) {
+        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, d.a.q0.g1.f.a aVar) {
             super(aVar.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -53,20 +53,20 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
                     return;
                 }
             }
-            this.f17062a = 3;
-            this.f17063b = aVar;
+            this.f17118a = 3;
+            this.f17119b = aVar;
         }
 
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f17062a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f17118a == i2) {
                 return;
             }
-            d.a.p0.g1.f.a aVar = this.f17063b;
+            d.a.q0.g1.f.a aVar = this.f17119b;
             if (aVar != null) {
                 aVar.m(aVar.j(), i2);
             }
-            this.f17062a = i2;
+            this.f17118a = i2;
         }
     }
 
@@ -95,21 +95,21 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         hotTopicActivity.getPageContext();
     }
 
-    public BdUniqueId f0() {
+    public BdUniqueId e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.o : (BdUniqueId) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: g0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: f0 */
     public CardGroupRelateForumHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            d.a.p0.g1.f.a aVar = new d.a.p0.g1.f.a(this.m.getPageContext());
-            aVar.o(f0());
+            d.a.q0.g1.f.a aVar = new d.a.q0.g1.f.a(this.m.getPageContext());
+            aVar.o(e0());
             aVar.setFrom(BaiduWalletServiceProviderMap.PLUGIN_WALLETHOME);
             this.n = true;
             return new CardGroupRelateForumHolder(this, aVar);
@@ -118,14 +118,14 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: h0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: g0 */
     public View X(int i2, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
         InterceptResult invokeCommon;
-        d.a.p0.g1.f.a aVar;
+        d.a.q0.g1.f.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, cardGroupRelateForumHolder})) == null) {
-            if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f17063b) == null) {
+            if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f17119b) == null) {
                 return null;
             }
             if (this.n) {

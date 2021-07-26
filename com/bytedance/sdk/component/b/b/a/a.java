@@ -17,7 +17,7 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f28146a;
+    public static a f28240a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

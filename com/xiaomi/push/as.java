@@ -22,7 +22,7 @@ public class as implements ar, InvocationHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[][] f39848a;
+    public static final String[][] f40120a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -47,25 +47,25 @@ public class as implements ar, InvocationHandler {
     public Method f130a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class f39849b;
+    public Class f40121b;
 
     /* renamed from: b  reason: collision with other field name */
     public Method f131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f39850c;
+    public Method f40122c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f39851d;
+    public Method f40123d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f39852e;
+    public Method f40124e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Method f39853f;
+    public Method f40125f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Method f39854g;
+    public Method f40126g;
 
     /* loaded from: classes6.dex */
     public class a {
@@ -73,7 +73,7 @@ public class as implements ar, InvocationHandler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ as f39855a;
+        public final /* synthetic */ as f40127a;
 
         /* renamed from: a  reason: collision with other field name */
         public Boolean f132a;
@@ -82,13 +82,13 @@ public class as implements ar, InvocationHandler {
         public String f133a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39856b;
+        public String f40128b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f39857c;
+        public String f40129c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f39858d;
+        public String f40130d;
 
         public a(as asVar) {
             Interceptable interceptable = $ic;
@@ -105,12 +105,12 @@ public class as implements ar, InvocationHandler {
                     return;
                 }
             }
-            this.f39855a = asVar;
+            this.f40127a = asVar;
             this.f132a = null;
             this.f133a = null;
-            this.f39856b = null;
-            this.f39857c = null;
-            this.f39858d = null;
+            this.f40128b = null;
+            this.f40129c = null;
+            this.f40130d = null;
         }
 
         public /* synthetic */ a(as asVar, at atVar) {
@@ -121,7 +121,7 @@ public class as implements ar, InvocationHandler {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!TextUtils.isEmpty(this.f133a) || !TextUtils.isEmpty(this.f39856b) || !TextUtils.isEmpty(this.f39857c) || !TextUtils.isEmpty(this.f39858d)) {
+                if (!TextUtils.isEmpty(this.f133a) || !TextUtils.isEmpty(this.f40128b) || !TextUtils.isEmpty(this.f40129c) || !TextUtils.isEmpty(this.f40130d)) {
                     this.f132a = Boolean.TRUE;
                 }
                 return this.f132a != null;
@@ -143,7 +143,7 @@ public class as implements ar, InvocationHandler {
                 return;
             }
         }
-        f39848a = new String[][]{new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
+        f40120a = new String[][]{new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
     }
 
     public as(Context context) {
@@ -162,14 +162,14 @@ public class as implements ar, InvocationHandler {
             }
         }
         this.f128a = null;
-        this.f39849b = null;
+        this.f40121b = null;
         this.f130a = null;
         this.f131b = null;
-        this.f39850c = null;
-        this.f39851d = null;
-        this.f39852e = null;
-        this.f39853f = null;
-        this.f39854g = null;
+        this.f40122c = null;
+        this.f40123d = null;
+        this.f40124e = null;
+        this.f40125f = null;
+        this.f40126g = null;
         this.f129a = new Object();
         this.f124a = 0;
         this.f125a = 0L;
@@ -248,7 +248,7 @@ public class as implements ar, InvocationHandler {
             Class<?> cls2 = null;
             int i2 = 0;
             while (true) {
-                String[][] strArr = f39848a;
+                String[][] strArr = f40120a;
                 if (i2 >= strArr.length) {
                     break;
                 }
@@ -267,13 +267,13 @@ public class as implements ar, InvocationHandler {
             }
             this.f128a = a2;
             this.f130a = a(a2, "InitSdk", Context.class, cls);
-            this.f39849b = cls;
+            this.f40121b = cls;
             this.f131b = a(cls2, "getUDID", new Class[0]);
-            this.f39850c = a(cls2, "getOAID", new Class[0]);
-            this.f39851d = a(cls2, "getVAID", new Class[0]);
-            this.f39852e = a(cls2, "getAAID", new Class[0]);
-            this.f39853f = a(cls2, "isSupported", new Class[0]);
-            this.f39854g = a(cls2, "shutDown", new Class[0]);
+            this.f40122c = a(cls2, "getOAID", new Class[0]);
+            this.f40123d = a(cls2, "getVAID", new Class[0]);
+            this.f40124e = a(cls2, "getAAID", new Class[0]);
+            this.f40125f = a(cls2, "isSupported", new Class[0]);
+            this.f40126g = a(cls2, "shutDown", new Class[0]);
         }
     }
 
@@ -320,14 +320,14 @@ public class as implements ar, InvocationHandler {
         if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             long j = -elapsedRealtime;
-            Class cls = this.f39849b;
+            Class cls = this.f40121b;
             if (cls != null) {
                 try {
                     ClassLoader classLoader = cls.getClassLoader();
                     if (classLoader == null) {
                         classLoader = context.getClassLoader();
                     }
-                    a(this.f130a, this.f128a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f39849b}, this));
+                    a(this.f130a, this.f128a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f40121b}, this));
                 } catch (Throwable th) {
                     b("call init sdk error:" + th);
                 }
@@ -380,7 +380,7 @@ public class as implements ar, InvocationHandler {
             if (this.f127a == null) {
                 return null;
             }
-            return this.f127a.f39856b;
+            return this.f127a.f40128b;
         }
         return (String) invokeV.objValue;
     }
@@ -394,7 +394,7 @@ public class as implements ar, InvocationHandler {
             if (this.f127a == null) {
                 return null;
             }
-            return this.f127a.f39857c;
+            return this.f127a.f40129c;
         }
         return (String) invokeV.objValue;
     }
@@ -408,7 +408,7 @@ public class as implements ar, InvocationHandler {
             if (this.f127a == null) {
                 return null;
             }
-            return this.f127a.f39858d;
+            return this.f127a.f40130d;
         }
         return (String) invokeV.objValue;
     }
@@ -430,11 +430,11 @@ public class as implements ar, InvocationHandler {
                     Object obj2 = objArr[i2];
                     if (obj2 != null && !a(obj2)) {
                         aVar.f133a = (String) a(this.f131b, obj2, new Object[0]);
-                        aVar.f39856b = (String) a(this.f39850c, obj2, new Object[0]);
-                        aVar.f39857c = (String) a(this.f39851d, obj2, new Object[0]);
-                        aVar.f39858d = (String) a(this.f39852e, obj2, new Object[0]);
-                        aVar.f132a = (Boolean) a(this.f39853f, obj2, new Object[0]);
-                        a(this.f39854g, obj2, new Object[0]);
+                        aVar.f40128b = (String) a(this.f40122c, obj2, new Object[0]);
+                        aVar.f40129c = (String) a(this.f40123d, obj2, new Object[0]);
+                        aVar.f40130d = (String) a(this.f40124e, obj2, new Object[0]);
+                        aVar.f132a = (Boolean) a(this.f40125f, obj2, new Object[0]);
+                        a(this.f40126g, obj2, new Object[0]);
                         if (aVar.a()) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("has get succ, check duplicate:");

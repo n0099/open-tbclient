@@ -82,7 +82,7 @@ public interface HttpDataSource extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f32932a;
+        public final b f33121a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public interface HttpDataSource extends e {
                     return;
                 }
             }
-            this.f32932a = new b();
+            this.f33121a = new b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,7 +106,7 @@ public interface HttpDataSource extends e {
         public final HttpDataSource a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f32932a) : (HttpDataSource) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f33121a) : (HttpDataSource) invokeV.objValue;
         }
 
         public abstract HttpDataSource c(b bVar);
@@ -118,10 +118,10 @@ public interface HttpDataSource extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, String> f32933a;
+        public final Map<String, String> f33122a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f32934b;
+        public Map<String, String> f33123b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public interface HttpDataSource extends e {
                     return;
                 }
             }
-            this.f32933a = new HashMap();
+            this.f33122a = new HashMap();
         }
 
         public synchronized Map<String, String> a() {
@@ -145,10 +145,10 @@ public interface HttpDataSource extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    if (this.f32934b == null) {
-                        this.f32934b = Collections.unmodifiableMap(new HashMap(this.f32933a));
+                    if (this.f33123b == null) {
+                        this.f33123b = Collections.unmodifiableMap(new HashMap(this.f33122a));
                     }
-                    map = this.f32934b;
+                    map = this.f33123b;
                 }
                 return map;
             }

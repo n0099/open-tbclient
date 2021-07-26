@@ -29,12 +29,12 @@ public class SDKStatus {
     public static final String getIntegrationSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "4.362.1232" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "4.371.1241" : (String) invokeV.objValue;
     }
 
     public static final String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "4.362" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "4.371" : (String) invokeV.objValue;
     }
 }

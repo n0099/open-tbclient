@@ -43,16 +43,16 @@ public class HCEPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f26148c;
-            if (payResultContent == null || this.f26147b == null) {
+            PayResultContent payResultContent = this.f26306c;
+            if (payResultContent == null || this.f26305b == null) {
                 return null;
             }
             if (!payResultContent.isPaySuccess) {
                 this.contents.put("statusDrawableName", "wallet_hce_icon_nfc_fail");
                 this.contents.put("mainTip", "wallet_hce_pay_failed");
-                this.contents.put("errorMsg", this.f26148c.mErrorMsg);
+                this.contents.put("errorMsg", this.f26306c.mErrorMsg);
             }
-            PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_RET_SHOW, this.f26148c.isPaySuccess ? "1" : "0");
+            PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_RET_SHOW, this.f26306c.isPaySuccess ? "1" : "0");
             return this.contents;
         }
         return (HashMap) invokeV.objValue;
@@ -62,7 +62,7 @@ public class HCEPayResultAdapter extends BasePayResultAdapter {
     public void handleOKBtnOnclick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_DONE_CLICK, this.f26148c.isPaySuccess ? "1" : "0");
+            PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_DONE_CLICK, this.f26306c.isPaySuccess ? "1" : "0");
         }
     }
 
@@ -72,7 +72,7 @@ public class HCEPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
             boolean onCreateCheckInvalide = super.onCreateCheckInvalide(bundle);
-            PayResultContent payResultContent = this.f26148c;
+            PayResultContent payResultContent = this.f26306c;
             if (payResultContent != null) {
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_CLICK_OPEN, payResultContent.isPaySuccess ? "1" : "0");
             }

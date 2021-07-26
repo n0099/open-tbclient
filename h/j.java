@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class j<T> implements e<T>, k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long NOT_SET = Long.MIN_VALUE;

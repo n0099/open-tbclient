@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.v.a;
+import d.a.o0.v.a;
 import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -34,22 +34,22 @@ public class SwanVideoView extends FrameLayout {
     public MediaPlayer.OnErrorListener C;
     public MediaPlayer.OnBufferingUpdateListener D;
     public MediaPlayer.OnSeekCompleteListener E;
-    public a.InterfaceC1155a F;
+    public a.InterfaceC1164a F;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12086e;
+    public int f12112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12087f;
+    public boolean f12113f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Uri f12088g;
+    public Uri f12114g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, String> f12089h;
+    public Map<String, String> f12115h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MediaController f12090i;
+    public MediaController f12116i;
     public MediaPlayer j;
     public int k;
     public Context l;
@@ -61,11 +61,11 @@ public class SwanVideoView extends FrameLayout {
     public ProgressBar r;
     public TextView s;
     public int t;
-    public d.a.n0.v.a u;
+    public d.a.o0.v.a u;
     public int v;
     public int w;
     public FrameLayout x;
-    public d.a.n0.v.h.a y;
+    public d.a.o0.v.h.a y;
     public MediaPlayer.OnPreparedListener z;
 
     /* loaded from: classes3.dex */
@@ -74,7 +74,7 @@ public class SwanVideoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanVideoView f12091e;
+        public final /* synthetic */ SwanVideoView f12117e;
 
         public a(SwanVideoView swanVideoView) {
             Interceptable interceptable = $ic;
@@ -91,25 +91,25 @@ public class SwanVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f12091e = swanVideoView;
+            this.f12117e = swanVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f12091e.setCurrentState(2);
-                this.f12091e.setCacheViewVisibility(false);
-                if (this.f12091e.y != null) {
-                    this.f12091e.y.onPrepared();
+                this.f12117e.setCurrentState(2);
+                this.f12117e.setCacheViewVisibility(false);
+                if (this.f12117e.y != null) {
+                    this.f12117e.y.onPrepared();
                 }
-                this.f12091e.v = mediaPlayer.getVideoWidth();
-                this.f12091e.w = mediaPlayer.getVideoHeight();
-                if (this.f12091e.v != 0 && this.f12091e.w != 0 && this.f12091e.u != null) {
-                    this.f12091e.u.setVideoSize(this.f12091e.v, this.f12091e.w);
+                this.f12117e.v = mediaPlayer.getVideoWidth();
+                this.f12117e.w = mediaPlayer.getVideoHeight();
+                if (this.f12117e.v != 0 && this.f12117e.w != 0 && this.f12117e.u != null) {
+                    this.f12117e.u.setVideoSize(this.f12117e.v, this.f12117e.w);
                 }
-                if (this.f12091e.f12087f) {
-                    this.f12091e.C();
+                if (this.f12117e.f12113f) {
+                    this.f12117e.C();
                 }
             }
         }
@@ -121,7 +121,7 @@ public class SwanVideoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanVideoView f12092e;
+        public final /* synthetic */ SwanVideoView f12118e;
 
         public b(SwanVideoView swanVideoView) {
             Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class SwanVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f12092e = swanVideoView;
+            this.f12118e = swanVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
@@ -146,11 +146,11 @@ public class SwanVideoView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
                 Log.d("SwanVideoView", "onCompletion");
-                this.f12092e.setCacheViewVisibility(false);
-                this.f12092e.setCurrentState(5);
-                this.f12092e.f12087f = false;
-                if (this.f12092e.y != null) {
-                    this.f12092e.y.onEnd();
+                this.f12118e.setCacheViewVisibility(false);
+                this.f12118e.setCurrentState(5);
+                this.f12118e.f12113f = false;
+                if (this.f12118e.y != null) {
+                    this.f12118e.y.onEnd();
                 }
             }
         }
@@ -162,7 +162,7 @@ public class SwanVideoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanVideoView f12093e;
+        public final /* synthetic */ SwanVideoView f12119e;
 
         public c(SwanVideoView swanVideoView) {
             Interceptable interceptable = $ic;
@@ -179,25 +179,25 @@ public class SwanVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f12093e = swanVideoView;
+            this.f12119e = swanVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
         public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3) == null) {
-                this.f12093e.v = mediaPlayer.getVideoWidth();
-                this.f12093e.w = mediaPlayer.getVideoHeight();
-                if (this.f12093e.v == 0 || this.f12093e.w == 0) {
+                this.f12119e.v = mediaPlayer.getVideoWidth();
+                this.f12119e.w = mediaPlayer.getVideoHeight();
+                if (this.f12119e.v == 0 || this.f12119e.w == 0) {
                     return;
                 }
-                if (this.f12093e.u != null) {
-                    this.f12093e.u.setVideoSize(this.f12093e.v, this.f12093e.w);
+                if (this.f12119e.u != null) {
+                    this.f12119e.u.setVideoSize(this.f12119e.v, this.f12119e.w);
                 }
-                if (this.f12093e.y != null) {
-                    this.f12093e.y.onVideoSizeChanged(i2, i3);
+                if (this.f12119e.y != null) {
+                    this.f12119e.y.onVideoSizeChanged(i2, i3);
                 }
-                this.f12093e.requestLayout();
+                this.f12119e.requestLayout();
             }
         }
     }
@@ -208,7 +208,7 @@ public class SwanVideoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanVideoView f12094e;
+        public final /* synthetic */ SwanVideoView f12120e;
 
         public d(SwanVideoView swanVideoView) {
             Interceptable interceptable = $ic;
@@ -225,7 +225,7 @@ public class SwanVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f12094e = swanVideoView;
+            this.f12120e = swanVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
@@ -234,13 +234,13 @@ public class SwanVideoView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
                 Log.d("SwanVideoView", "onError: " + i2 + "," + i3);
-                this.f12094e.setCurrentState(-1);
-                this.f12094e.f12087f = false;
-                this.f12094e.setCacheViewVisibility(false);
-                if (this.f12094e.y != null) {
-                    this.f12094e.y.onError(i2, i3, null);
+                this.f12120e.setCurrentState(-1);
+                this.f12120e.f12113f = false;
+                this.f12120e.setCacheViewVisibility(false);
+                if (this.f12120e.y != null) {
+                    this.f12120e.y.onError(i2, i3, null);
                 }
-                return this.f12094e.y != null;
+                return this.f12120e.y != null;
             }
             return invokeLII.booleanValue;
         }
@@ -252,7 +252,7 @@ public class SwanVideoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanVideoView f12095e;
+        public final /* synthetic */ SwanVideoView f12121e;
 
         public e(SwanVideoView swanVideoView) {
             Interceptable interceptable = $ic;
@@ -269,7 +269,7 @@ public class SwanVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f12095e = swanVideoView;
+            this.f12121e = swanVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
@@ -277,12 +277,12 @@ public class SwanVideoView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, mediaPlayer, i2) == null) {
                 Log.d("SwanVideoView", "onBufferingUpdate: percent=" + i2);
-                this.f12095e.k = i2;
-                if (this.f12095e.y != null) {
-                    this.f12095e.y.onBufferingUpdate(i2);
+                this.f12121e.k = i2;
+                if (this.f12121e.y != null) {
+                    this.f12121e.y.onBufferingUpdate(i2);
                 }
-                if (this.f12095e.f12090i != null) {
-                    this.f12095e.f12090i.l((i2 * this.f12095e.getDuration()) / 100);
+                if (this.f12121e.f12116i != null) {
+                    this.f12121e.f12116i.l((i2 * this.f12121e.getDuration()) / 100);
                 }
             }
         }
@@ -294,7 +294,7 @@ public class SwanVideoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanVideoView f12096e;
+        public final /* synthetic */ SwanVideoView f12122e;
 
         public f(SwanVideoView swanVideoView) {
             Interceptable interceptable = $ic;
@@ -311,7 +311,7 @@ public class SwanVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f12096e = swanVideoView;
+            this.f12122e = swanVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnSeekCompleteListener
@@ -319,21 +319,21 @@ public class SwanVideoView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
                 Log.d("SwanVideoView", "onSeekComplete");
-                this.f12096e.setCacheViewVisibility(false);
-                if (this.f12096e.y != null) {
-                    this.f12096e.y.onSeekEnd();
+                this.f12122e.setCacheViewVisibility(false);
+                if (this.f12122e.y != null) {
+                    this.f12122e.y.onSeekEnd();
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class g implements a.InterfaceC1155a {
+    public class g implements a.InterfaceC1164a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanVideoView f12097a;
+        public final /* synthetic */ SwanVideoView f12123a;
 
         public g(SwanVideoView swanVideoView) {
             Interceptable interceptable = $ic;
@@ -350,26 +350,26 @@ public class SwanVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f12097a = swanVideoView;
+            this.f12123a = swanVideoView;
         }
 
-        @Override // d.a.n0.v.a.InterfaceC1155a
+        @Override // d.a.o0.v.a.InterfaceC1164a
         public void a(a.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             }
         }
 
-        @Override // d.a.n0.v.a.InterfaceC1155a
+        @Override // d.a.o0.v.a.InterfaceC1164a
         public void b(a.b bVar, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, i2, i3) == null) && bVar.b() == this.f12097a.u && this.f12097a.j != null) {
-                SwanVideoView swanVideoView = this.f12097a;
+            if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, i2, i3) == null) && bVar.b() == this.f12123a.u && this.f12123a.j != null) {
+                SwanVideoView swanVideoView = this.f12123a;
                 swanVideoView.p(swanVideoView.j, bVar);
             }
         }
 
-        @Override // d.a.n0.v.a.InterfaceC1155a
+        @Override // d.a.o0.v.a.InterfaceC1164a
         public void c(a.b bVar, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, bVar, i2, i3, i4) == null) {
@@ -395,7 +395,7 @@ public class SwanVideoView extends FrameLayout {
                 return;
             }
         }
-        this.f12086e = 0;
+        this.f12112e = 0;
         this.m = -1;
         this.p = true;
         this.t = 0;
@@ -424,11 +424,11 @@ public class SwanVideoView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void setCurrentState(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65554, this, i2) == null) || this.f12086e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(65554, this, i2) == null) || this.f12112e == i2) {
             return;
         }
-        this.f12086e = i2;
-        MediaController mediaController = this.f12090i;
+        this.f12112e = i2;
+        MediaController mediaController = this.f12116i;
         if (mediaController != null) {
             mediaController.s();
         }
@@ -439,7 +439,7 @@ public class SwanVideoView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 this.j.reset();
-                this.j.setDataSource(this.l, this.f12088g, this.f12089h);
+                this.j.setDataSource(this.l, this.f12114g, this.f12115h);
                 this.j.prepareAsync();
             } catch (IOException e2) {
                 e2.printStackTrace();
@@ -463,12 +463,12 @@ public class SwanVideoView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.j == null) {
             return;
         }
-        int i2 = this.f12086e;
+        int i2 = this.f12112e;
         if (i2 != -1 && i2 != 5) {
             if (t()) {
-                d.a.n0.v.h.a aVar = this.y;
+                d.a.o0.v.h.a aVar = this.y;
                 if (aVar != null) {
-                    if (this.f12086e == 4) {
+                    if (this.f12112e == 4) {
                         aVar.onResume();
                     } else {
                         aVar.onStart();
@@ -478,14 +478,14 @@ public class SwanVideoView extends FrameLayout {
                 setCurrentState(3);
             }
         } else {
-            if (this.f12086e == 5) {
+            if (this.f12112e == 5) {
                 this.j.stop();
             }
             A();
             setCacheViewVisibility(true);
             setCurrentState(1);
         }
-        this.f12087f = true;
+        this.f12113f = true;
     }
 
     public void D() {
@@ -496,16 +496,16 @@ public class SwanVideoView extends FrameLayout {
         }
         mediaPlayer.stop();
         z();
-        this.f12087f = false;
+        this.f12113f = false;
     }
 
     public final void E() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.p) {
-            if (this.f12090i.getVisibility() != 0) {
-                this.f12090i.i();
+            if (this.f12116i.getVisibility() != 0) {
+                this.f12116i.i();
             } else {
-                this.f12090i.h();
+                this.f12116i.h();
             }
         }
     }
@@ -514,7 +514,7 @@ public class SwanVideoView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            d.a.n0.v.a aVar = this.u;
+            d.a.o0.v.a aVar = this.u;
             if (aVar != null) {
                 return aVar.getBitmap();
             }
@@ -538,14 +538,14 @@ public class SwanVideoView extends FrameLayout {
     public int getCurrentPlayerState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12086e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12112e : invokeV.intValue;
     }
 
     public String getCurrentPlayingUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Uri uri = this.f12088g;
+            Uri uri = this.f12114g;
             if (uri != null) {
                 return uri.toString();
             }
@@ -584,10 +584,10 @@ public class SwanVideoView extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j.getVideoHeight() : invokeV.intValue;
     }
 
-    public d.a.n0.v.h.a getVideoPlayerCallback() {
+    public d.a.o0.v.h.a getVideoPlayerCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.y : (d.a.n0.v.h.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.y : (d.a.o0.v.h.a) invokeV.objValue;
     }
 
     public int getVideoWidth() {
@@ -618,7 +618,7 @@ public class SwanVideoView extends FrameLayout {
             TextView textView = new TextView(getContext());
             this.s = textView;
             textView.setTextColor(-1);
-            this.s.setText(d.a.n0.v.f.laoding);
+            this.s.setText(d.a.o0.v.f.laoding);
             this.s.setGravity(1);
             this.q.addView(this.s, layoutParams3);
         }
@@ -676,12 +676,12 @@ public class SwanVideoView extends FrameLayout {
             ViewGroup.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             this.x.setBackgroundColor(-16777216);
             addView(this.x, layoutParams);
-            this.f12090i = new MediaController(context);
+            this.f12116i = new MediaController(context);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
             layoutParams2.gravity = 80;
-            this.f12090i.setVisibility(8);
-            addView(this.f12090i, layoutParams2);
-            this.f12090i.f(this);
+            this.f12116i.setVisibility(8);
+            addView(this.f12116i, layoutParams2);
+            this.f12116i.f(this);
             r();
             o();
             setFocusable(true);
@@ -694,7 +694,7 @@ public class SwanVideoView extends FrameLayout {
     public void setHeaders(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, map) == null) {
-            this.f12089h = map;
+            this.f12115h = map;
         }
     }
 
@@ -713,7 +713,7 @@ public class SwanVideoView extends FrameLayout {
     public void setIsLandscape(boolean z) {
         MediaController mediaController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (mediaController = this.f12090i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (mediaController = this.f12116i) == null) {
             return;
         }
         mediaController.m(z);
@@ -744,14 +744,14 @@ public class SwanVideoView extends FrameLayout {
         }
         setVolume(z ? 0.0f : 1.0f);
         this.o = z;
-        MediaController mediaController = this.f12090i;
+        MediaController mediaController = this.f12116i;
         if (mediaController == null || !this.p) {
             return;
         }
         mediaController.setMute(z);
     }
 
-    public void setRenderView(d.a.n0.v.a aVar) {
+    public void setRenderView(d.a.o0.v.a aVar) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, aVar) == null) {
@@ -793,20 +793,20 @@ public class SwanVideoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             Uri parse = Uri.parse(str);
-            this.f12088g = parse;
+            this.f12114g = parse;
             if (parse == null) {
                 return;
             }
             MediaPlayer mediaPlayer = this.j;
             if (mediaPlayer != null) {
                 try {
-                    mediaPlayer.setDataSource(this.l, parse, this.f12089h);
+                    mediaPlayer.setDataSource(this.l, parse, this.f12115h);
                     this.j.prepareAsync();
                     setCacheViewVisibility(true);
                     setCurrentState(1);
                 } catch (IOException unused) {
                     setCurrentState(-1);
-                    this.f12087f = false;
+                    this.f12113f = false;
                     this.C.onError(this.j, 1, 0);
                 }
             }
@@ -815,11 +815,11 @@ public class SwanVideoView extends FrameLayout {
         }
     }
 
-    public void setVideoPlayerCallback(d.a.n0.v.h.a aVar) {
+    public void setVideoPlayerCallback(d.a.o0.v.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, aVar) == null) {
             this.y = aVar;
-            MediaController mediaController = this.f12090i;
+            MediaController mediaController = this.f12116i;
             if (mediaController != null) {
                 mediaController.setToggleScreenListener(aVar);
             }
@@ -840,7 +840,7 @@ public class SwanVideoView extends FrameLayout {
             } else {
                 this.t = 3;
             }
-            d.a.n0.v.a aVar = this.u;
+            d.a.o0.v.a aVar = this.u;
             if (aVar != null) {
                 aVar.setAspectRatio(this.t);
             }
@@ -860,7 +860,7 @@ public class SwanVideoView extends FrameLayout {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? (this.j == null || (i2 = this.f12086e) == -1 || i2 == 0 || i2 == 1) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? (this.j == null || (i2 = this.f12112e) == -1 || i2 == 0 || i2 == 1) ? false : true : invokeV.booleanValue;
     }
 
     public boolean u() {
@@ -892,7 +892,7 @@ public class SwanVideoView extends FrameLayout {
                 this.j.setScreenOnWhilePlaying(true);
             } catch (IllegalArgumentException unused) {
                 setCurrentState(-1);
-                this.f12087f = false;
+                this.f12113f = false;
                 this.C.onError(this.j, 1, 0);
             }
         }
@@ -905,8 +905,8 @@ public class SwanVideoView extends FrameLayout {
                 this.j.pause();
                 setCurrentState(4);
             }
-            this.f12087f = false;
-            d.a.n0.v.h.a aVar = this.y;
+            this.f12113f = false;
+            d.a.o0.v.h.a aVar = this.y;
             if (aVar != null) {
                 aVar.onPause();
             }
@@ -917,16 +917,16 @@ public class SwanVideoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             z();
-            this.f12087f = false;
-            d.a.n0.v.a aVar = this.u;
+            this.f12113f = false;
+            d.a.o0.v.a aVar = this.u;
             if (aVar != null) {
                 aVar.release();
             }
-            MediaController mediaController = this.f12090i;
+            MediaController mediaController = this.f12116i;
             if (mediaController != null) {
                 mediaController.setToggleScreenListener(null);
-                this.f12090i.f(null);
-                this.f12090i = null;
+                this.f12116i.f(null);
+                this.f12116i = null;
             }
             if (this.y != null) {
                 this.y = null;
@@ -970,7 +970,7 @@ public class SwanVideoView extends FrameLayout {
                 return;
             }
         }
-        this.f12086e = 0;
+        this.f12112e = 0;
         this.m = -1;
         this.p = true;
         this.t = 0;
@@ -1003,7 +1003,7 @@ public class SwanVideoView extends FrameLayout {
                 return;
             }
         }
-        this.f12086e = 0;
+        this.f12112e = 0;
         this.m = -1;
         this.p = true;
         this.t = 0;

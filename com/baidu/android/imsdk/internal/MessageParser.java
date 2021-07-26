@@ -34,8 +34,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.t.a;
-import d.a.u.a.b.d.b;
+import d.a.u.a;
+import d.a.v.a.b.d.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -632,13 +632,13 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f67515e) {
+                if (a.f68193e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
-                    bLCPRequest.f6412a = 2L;
-                    bLCPRequest.f6413b = 95L;
-                    bLCPRequest.f6414c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f6415d = System.nanoTime();
-                    d.a.u.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                    bLCPRequest.f6438a = 2L;
+                    bLCPRequest.f6439b = 95L;
+                    bLCPRequest.f6440c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f6441d = System.nanoTime();
+                    d.a.v.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
@@ -663,7 +663,7 @@ public class MessageParser {
                             this.val$context = context;
                         }
 
-                        @Override // d.a.u.a.b.d.b
+                        @Override // d.a.v.a.b.d.b
                         public void onResponse(int i2, String str, long j2, long j3, long j4, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {

@@ -20,14 +20,14 @@ public abstract class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f30210a = "e";
+    public static final String f30310a = "e";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f30211b;
+    public final Set<String> f30311b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Looper f30212c;
+    public Looper f30312c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.g.e$5  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -35,7 +35,7 @@ public abstract class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30219a;
+        public static final /* synthetic */ int[] f30319a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,17 +52,17 @@ public abstract class e {
                 }
             }
             int[] iArr = new int[c.values().length];
-            f30219a = iArr;
+            f30319a = iArr;
             try {
-                iArr[c.f30200a.ordinal()] = 1;
+                iArr[c.f30300a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30219a[c.f30201b.ordinal()] = 2;
+                f30319a[c.f30301b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30219a[c.f30202c.ordinal()] = 3;
+                f30319a[c.f30302c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -96,8 +96,8 @@ public abstract class e {
                 return;
             }
         }
-        this.f30211b = new HashSet(1);
-        this.f30212c = Looper.getMainLooper();
+        this.f30311b = new HashSet(1);
+        this.f30312c = Looper.getMainLooper();
     }
 
     public abstract void a();
@@ -110,9 +110,9 @@ public abstract class e {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) {
             synchronized (this) {
                 if (i2 == 0) {
-                    return a(str, c.f30200a);
+                    return a(str, c.f30300a);
                 }
-                return a(str, c.f30201b);
+                return a(str, c.f30301b);
             }
         }
         return invokeLI.booleanValue;
@@ -123,7 +123,7 @@ public abstract class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             synchronized (this) {
-                String str2 = f30210a;
+                String str2 = f30310a;
                 Log.d(str2, "Permission not found: " + str);
             }
             return true;
@@ -136,19 +136,19 @@ public abstract class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, cVar)) == null) {
             synchronized (this) {
-                this.f30211b.remove(str);
-                int i2 = AnonymousClass5.f30219a[cVar.ordinal()];
+                this.f30311b.remove(str);
+                int i2 = AnonymousClass5.f30319a[cVar.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2) {
-                        new Handler(this.f30212c).post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.core.g.e.2
+                        new Handler(this.f30312c).post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.core.g.e.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ String f30214a;
+                            public final /* synthetic */ String f30314a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ e f30215b;
+                            public final /* synthetic */ e f30315b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -165,28 +165,28 @@ public abstract class e {
                                         return;
                                     }
                                 }
-                                this.f30215b = this;
-                                this.f30214a = str;
+                                this.f30315b = this;
+                                this.f30314a = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f30215b.a(this.f30214a);
+                                    this.f30315b.a(this.f30314a);
                                 }
                             }
                         });
                         return true;
                     } else if (i2 == 3) {
                         if (b(str)) {
-                            if (this.f30211b.isEmpty()) {
-                                new Handler(this.f30212c).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.g.e.3
+                            if (this.f30311b.isEmpty()) {
+                                new Handler(this.f30312c).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.g.e.3
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ e f30216a;
+                                    public final /* synthetic */ e f30316a;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -203,29 +203,29 @@ public abstract class e {
                                                 return;
                                             }
                                         }
-                                        this.f30216a = this;
+                                        this.f30316a = this;
                                     }
 
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                            this.f30216a.a();
+                                            this.f30316a.a();
                                         }
                                     }
                                 });
                                 return true;
                             }
                         } else {
-                            new Handler(this.f30212c).post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.core.g.e.4
+                            new Handler(this.f30312c).post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.core.g.e.4
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ String f30217a;
+                                public final /* synthetic */ String f30317a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ e f30218b;
+                                public final /* synthetic */ e f30318b;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -242,28 +242,28 @@ public abstract class e {
                                             return;
                                         }
                                     }
-                                    this.f30218b = this;
-                                    this.f30217a = str;
+                                    this.f30318b = this;
+                                    this.f30317a = str;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        this.f30218b.a(this.f30217a);
+                                        this.f30318b.a(this.f30317a);
                                     }
                                 }
                             });
                             return true;
                         }
                     }
-                } else if (this.f30211b.isEmpty()) {
-                    new Handler(this.f30212c).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.g.e.1
+                } else if (this.f30311b.isEmpty()) {
+                    new Handler(this.f30312c).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.g.e.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ e f30213a;
+                        public final /* synthetic */ e f30313a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -280,14 +280,14 @@ public abstract class e {
                                     return;
                                 }
                             }
-                            this.f30213a = this;
+                            this.f30313a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f30213a.a();
+                                this.f30313a.a();
                             }
                         }
                     });
@@ -303,7 +303,7 @@ public abstract class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr) == null) {
             synchronized (this) {
-                Collections.addAll(this.f30211b, strArr);
+                Collections.addAll(this.f30311b, strArr);
             }
         }
     }

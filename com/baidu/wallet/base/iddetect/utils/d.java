@@ -20,22 +20,22 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f24074a;
+    public static final String[] f24232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f24075b;
+    public static final int[] f24233b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f24076c;
+    public static final String[] f24234c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, String> f24077d;
+    public static Map<String, String> f24235d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, Integer> f24078e;
+    public static Map<String, Integer> f24236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, Integer> f24079f;
+    public static Map<String, Integer> f24237f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,83 +51,83 @@ public final class d {
                 return;
             }
         }
-        f24074a = new String[]{"11", "12", "13", "14", Constants.VIA_REPORT_TYPE_WPA_STATE, Constants.VIA_REPORT_TYPE_QQFAVORITES, Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "36", "37", "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
-        f24075b = new int[]{7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
-        f24076c = new String[]{"1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"};
-        f24077d = new HashMap();
-        f24078e = new HashMap();
-        f24079f = new HashMap();
-        f24077d.put("11", Address.Builder.BEI_JING);
-        f24077d.put("12", Address.Builder.TIAN_JIN);
-        f24077d.put("13", "河北");
-        f24077d.put("14", "山西");
-        f24077d.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "内蒙古");
-        f24077d.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "辽宁");
-        f24077d.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
-        f24077d.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "黑龙江");
-        f24077d.put(EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, Address.Builder.SHANG_HAI);
-        f24077d.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, "江苏");
-        f24077d.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, "浙江");
-        f24077d.put(EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, "安徽");
-        f24077d.put(EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "福建");
-        f24077d.put("36", "江西");
-        f24077d.put("37", "山东");
-        f24077d.put("41", "河南");
-        f24077d.put(RoomMasterTable.DEFAULT_ID, "湖北");
-        f24077d.put("43", "湖南");
-        f24077d.put("44", "广东");
-        f24077d.put("45", "广西");
-        f24077d.put("46", "海南");
-        f24077d.put("50", Address.Builder.CHONG_QIN);
-        f24077d.put("51", "四川");
-        f24077d.put("52", "贵州");
-        f24077d.put("53", "云南");
-        f24077d.put("54", "西藏");
-        f24077d.put("61", "陕西");
-        f24077d.put("62", "甘肃");
-        f24077d.put("63", "青海");
-        f24077d.put(WebKitFactory.OS_64, "宁夏");
-        f24077d.put("65", "新疆");
-        f24077d.put("71", "台湾");
-        f24077d.put("81", "香港");
-        f24077d.put("82", "澳门");
-        f24077d.put("91", "国外");
-        f24078e.put("A", 10);
-        f24078e.put("B", 11);
-        f24078e.put("C", 12);
-        f24078e.put("D", 13);
-        f24078e.put("E", 14);
-        f24078e.put("F", 15);
-        f24078e.put("G", 16);
-        f24078e.put("H", 17);
-        f24078e.put("J", 18);
-        f24078e.put("K", 19);
-        f24078e.put("L", 20);
-        f24078e.put("M", 21);
-        f24078e.put("N", 22);
-        f24078e.put("P", 23);
-        f24078e.put("Q", 24);
-        f24078e.put("R", 25);
-        f24078e.put("S", 26);
-        f24078e.put("T", 27);
-        f24078e.put("U", 28);
-        f24078e.put("V", 29);
-        f24078e.put("X", 30);
-        f24078e.put("Y", 31);
-        f24078e.put("W", 32);
-        f24078e.put("Z", 33);
-        f24078e.put("I", 34);
-        f24078e.put("O", 35);
-        f24079f.put("A", 1);
-        f24079f.put("B", 2);
-        f24079f.put("C", 3);
-        f24079f.put("R", 18);
-        f24079f.put("U", 21);
-        f24079f.put("Z", 26);
-        f24079f.put("X", 24);
-        f24079f.put("W", 23);
-        f24079f.put("O", 15);
-        f24079f.put("N", 14);
+        f24232a = new String[]{"11", "12", "13", "14", Constants.VIA_REPORT_TYPE_WPA_STATE, "21", Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "36", "37", "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
+        f24233b = new int[]{7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
+        f24234c = new String[]{"1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"};
+        f24235d = new HashMap();
+        f24236e = new HashMap();
+        f24237f = new HashMap();
+        f24235d.put("11", Address.Builder.BEI_JING);
+        f24235d.put("12", Address.Builder.TIAN_JIN);
+        f24235d.put("13", "河北");
+        f24235d.put("14", "山西");
+        f24235d.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "内蒙古");
+        f24235d.put("21", "辽宁");
+        f24235d.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
+        f24235d.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "黑龙江");
+        f24235d.put(EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, Address.Builder.SHANG_HAI);
+        f24235d.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, "江苏");
+        f24235d.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, "浙江");
+        f24235d.put(EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, "安徽");
+        f24235d.put(EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "福建");
+        f24235d.put("36", "江西");
+        f24235d.put("37", "山东");
+        f24235d.put("41", "河南");
+        f24235d.put(RoomMasterTable.DEFAULT_ID, "湖北");
+        f24235d.put("43", "湖南");
+        f24235d.put("44", "广东");
+        f24235d.put("45", "广西");
+        f24235d.put("46", "海南");
+        f24235d.put("50", Address.Builder.CHONG_QIN);
+        f24235d.put("51", "四川");
+        f24235d.put("52", "贵州");
+        f24235d.put("53", "云南");
+        f24235d.put("54", "西藏");
+        f24235d.put("61", "陕西");
+        f24235d.put("62", "甘肃");
+        f24235d.put("63", "青海");
+        f24235d.put(WebKitFactory.OS_64, "宁夏");
+        f24235d.put("65", "新疆");
+        f24235d.put("71", "台湾");
+        f24235d.put("81", "香港");
+        f24235d.put("82", "澳门");
+        f24235d.put("91", "国外");
+        f24236e.put("A", 10);
+        f24236e.put("B", 11);
+        f24236e.put("C", 12);
+        f24236e.put("D", 13);
+        f24236e.put("E", 14);
+        f24236e.put("F", 15);
+        f24236e.put("G", 16);
+        f24236e.put("H", 17);
+        f24236e.put("J", 18);
+        f24236e.put("K", 19);
+        f24236e.put("L", 20);
+        f24236e.put("M", 21);
+        f24236e.put("N", 22);
+        f24236e.put("P", 23);
+        f24236e.put("Q", 24);
+        f24236e.put("R", 25);
+        f24236e.put("S", 26);
+        f24236e.put("T", 27);
+        f24236e.put("U", 28);
+        f24236e.put("V", 29);
+        f24236e.put("X", 30);
+        f24236e.put("Y", 31);
+        f24236e.put("W", 32);
+        f24236e.put("Z", 33);
+        f24236e.put("I", 34);
+        f24236e.put("O", 35);
+        f24237f.put("A", 1);
+        f24237f.put("B", 2);
+        f24237f.put("C", 3);
+        f24237f.put("R", 18);
+        f24237f.put("U", 21);
+        f24237f.put("Z", 26);
+        f24237f.put("X", 24);
+        f24237f.put("W", 23);
+        f24237f.put("O", 15);
+        f24237f.put("N", 14);
     }
 
     public static boolean a(String str) {
@@ -189,12 +189,12 @@ public final class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iArr)) == null) {
-            if (f24075b.length == iArr.length) {
+            if (f24233b.length == iArr.length) {
                 int i2 = 0;
                 for (int i3 = 0; i3 < iArr.length; i3++) {
                     int i4 = 0;
                     while (true) {
-                        int[] iArr2 = f24075b;
+                        int[] iArr2 = f24233b;
                         if (i4 < iArr2.length) {
                             if (i3 == i4) {
                                 i2 += iArr[i3] * iArr2[i4];

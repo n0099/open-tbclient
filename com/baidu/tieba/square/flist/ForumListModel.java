@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.utils.ContactPermissionUtil;
-import d.a.c.a.f;
-import d.a.c.e.d.l;
-import d.a.o0.r.r.a;
+import d.a.d.a.f;
+import d.a.d.e.d.l;
+import d.a.p0.s.r.a;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {

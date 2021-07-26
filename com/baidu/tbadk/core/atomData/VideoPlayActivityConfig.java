@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +18,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class VideoPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String ACTIVITY_PAGE_UNIQUEID = "activity_page_uniqueid";
+    public static final String CURRENT_TYPE = "current_type";
     public static final String FROM = "from";
     public static final String FROM_DEFAULT = "from_default";
     public static final String FROM_FRS = "frs";
@@ -29,6 +32,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String FROM_VIDEO_ACCOUNT_TAB = "video_channel_tab";
     public static final String FROM_VIDEO_MIDDLE_VIDEO = "from_video_middle_video";
     public static final String IS_FROM_BJH_PB = "is_from_bjh_pb";
+    public static final String IS_SHOW_PB_COMMENT_FLOAT = "is_show_pb_comment_float";
     public static final String KEY_NID = "key_nid";
     public static final String OBJ_ID = "obj_id";
     public static final String PAGE_FIRST_IN = "page_first_in";
@@ -65,14 +69,14 @@ public class VideoPlayActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(VIDEO_LIST, (Serializable) list);
-        getIntent().putExtra(VIDEO_INDEX, i2);
+        getIntent().putExtra("video_list", (Serializable) list);
+        getIntent().putExtra("video_index", i2);
     }
 
     public void setIsFromBjhPb(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            getIntent().putExtra(IS_FROM_BJH_PB, z);
+            getIntent().putExtra("is_from_bjh_pb", z);
         }
     }
 
@@ -89,7 +93,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(PARAM_IS_VERTAIL, z);
+        getIntent().putExtra("is_vertail", z);
     }
 
     public void setUri(Uri uri) {
@@ -104,7 +108,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public void setVideoShowIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            getIntent().putExtra(VIDEO_SHOW_INDEX, i2);
+            getIntent().putExtra("video_show_index", i2);
         }
     }
 
@@ -126,8 +130,8 @@ public class VideoPlayActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(VIDEO_LIST, (Serializable) list);
-        getIntent().putExtra(VIDEO_INDEX, i2);
+        getIntent().putExtra("video_list", (Serializable) list);
+        getIntent().putExtra("video_index", i2);
         getIntent().putExtra("from", str);
         getIntent().setSourceBounds(rect);
     }
@@ -140,17 +144,17 @@ public class VideoPlayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, str, str2};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra(VIDEO_LIST, (Serializable) list);
+        getIntent().putExtra("video_list", (Serializable) list);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("from", str2);
     }
@@ -173,8 +177,8 @@ public class VideoPlayActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(VIDEO_LIST, (Serializable) list);
-        getIntent().putExtra(VIDEO_INDEX, i2);
+        getIntent().putExtra("video_list", (Serializable) list);
+        getIntent().putExtra("video_index", i2);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
@@ -200,13 +204,42 @@ public class VideoPlayActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(VIDEO_LIST, (Serializable) list);
-        getIntent().putExtra(VIDEO_INDEX, i2);
+        getIntent().putExtra("video_list", (Serializable) list);
+        getIntent().putExtra("video_index", i2);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra("source_from", str5);
         getIntent().setSourceBounds(rect);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, list, Integer.valueOf(i2), rect, str, str2, str3, str4, str5, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("video_list", (Serializable) list);
+        getIntent().putExtra("video_index", i2);
+        getIntent().putExtra("page_from", str);
+        getIntent().putExtra("st_type", str2);
+        getIntent().putExtra("yuelaou_locate", str3);
+        getIntent().putExtra("from", str4);
+        getIntent().putExtra("source_from", str5);
+        getIntent().setSourceBounds(rect);
+        getIntent().putExtra(IS_SHOW_PB_COMMENT_FLOAT, z);
     }
 }

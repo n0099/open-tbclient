@@ -11,7 +11,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f35392a;
+    public static SimpleDateFormat f35581a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class j {
                 return;
             }
         }
-        f35392a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        f35581a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     }
 
     public static String a(long j) {

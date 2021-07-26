@@ -20,13 +20,13 @@ public class NavigationBarShadowView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12462e;
+    public int f12511e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlphaAnimation f12463f;
+    public AlphaAnimation f12512f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlphaAnimation f12464g;
+    public AlphaAnimation f12513g;
 
     /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
@@ -34,7 +34,7 @@ public class NavigationBarShadowView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarShadowView f12465a;
+        public final /* synthetic */ NavigationBarShadowView f12514a;
 
         public a(NavigationBarShadowView navigationBarShadowView) {
             Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class NavigationBarShadowView extends View {
                     return;
                 }
             }
-            this.f12465a = navigationBarShadowView;
+            this.f12514a = navigationBarShadowView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f12465a.setVisibility(8);
+                this.f12514a.setVisibility(8);
             }
         }
 
@@ -101,24 +101,24 @@ public class NavigationBarShadowView extends View {
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getVisibility() == 0) {
-            if (this.f12464g == null) {
+            if (this.f12513g == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                this.f12464g = alphaAnimation;
+                this.f12513g = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f12464g.setDuration(300L);
-                this.f12464g.setAnimationListener(new a(this));
+                this.f12513g.setDuration(300L);
+                this.f12513g.setAnimationListener(new a(this));
             }
-            startAnimation(this.f12464g);
+            startAnimation(this.f12513g);
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f12462e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f12511e == i2) {
             return;
         }
         SkinManager.setBackgroundResource(this, R.drawable.personalize_tab_shadow);
-        this.f12462e = i2;
+        this.f12511e = i2;
     }
 
     public void c() {
@@ -129,13 +129,13 @@ public class NavigationBarShadowView extends View {
                 return;
             }
             setVisibility(0);
-            if (this.f12463f == null) {
+            if (this.f12512f == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-                this.f12463f = alphaAnimation;
+                this.f12512f = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f12463f.setDuration(300L);
+                this.f12512f.setDuration(300L);
             }
-            startAnimation(this.f12463f);
+            startAnimation(this.f12512f);
         }
     }
 
@@ -179,7 +179,7 @@ public class NavigationBarShadowView extends View {
                 return;
             }
         }
-        this.f12462e = 3;
+        this.f12511e = 3;
         setVisibility(8);
         b(TbadkCoreApplication.getInst().getSkinType());
     }

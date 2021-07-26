@@ -15,20 +15,20 @@ public class DownloadItemInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f3692a;
+    public final long f3718a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3693b;
+    public long f3719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f3694c;
+    public long f3720c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f3695d;
+    public long f3721d;
     @SuppressLint({"InlinedApi"})
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3696e;
+    public int f3722e;
 
     public DownloadItemInfo(long j) {
         Interceptable interceptable = $ic;
@@ -45,65 +45,65 @@ public class DownloadItemInfo {
                 return;
             }
         }
-        this.f3696e = 1;
-        this.f3692a = j;
+        this.f3722e = 1;
+        this.f3718a = j;
     }
 
     public long getCurrentBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3693b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3719b : invokeV.longValue;
     }
 
     public long getDownloadId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3692a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3718a : invokeV.longValue;
     }
 
     public int getDownloadState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3696e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3722e : invokeV.intValue;
     }
 
     public long getSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3695d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3721d : invokeV.longValue;
     }
 
     public long getTotalBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3694c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3720c : invokeV.longValue;
     }
 
     public void setCurrentBytes(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.f3693b = j;
+            this.f3719b = j;
         }
     }
 
     public void setDownloadState(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f3696e = i2;
+            this.f3722e = i2;
         }
     }
 
     public void setSpeed(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.f3695d = j;
+            this.f3721d = j;
         }
     }
 
     public void setTotalBytes(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.f3694c = j;
+            this.f3720c = j;
         }
     }
 
@@ -112,11 +112,11 @@ public class DownloadItemInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("DownloadItem=(id: " + this.f3692a);
-            sb.append(", current bytes: " + this.f3693b);
-            sb.append(", total bytes: " + this.f3694c);
-            sb.append(", speed: " + this.f3695d);
-            sb.append(", state: " + this.f3696e);
+            sb.append("DownloadItem=(id: " + this.f3718a);
+            sb.append(", current bytes: " + this.f3719b);
+            sb.append(", total bytes: " + this.f3720c);
+            sb.append(", speed: " + this.f3721d);
+            sb.append(", state: " + this.f3722e);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             return sb.toString();
         }

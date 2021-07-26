@@ -19,34 +19,34 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.download.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0413a {
+    public interface InterfaceC0415a {
         void a();
     }
 
-    public static int a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0413a interfaceC0413a, @Nullable b bVar, boolean z) {
+    public static int a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0415a interfaceC0415a, @Nullable b bVar, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, adTemplate, interfaceC0413a, bVar, Boolean.valueOf(z)})) == null) ? a(context, adTemplate, interfaceC0413a, bVar, z, false) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, adTemplate, interfaceC0415a, bVar, Boolean.valueOf(z)})) == null) ? a(context, adTemplate, interfaceC0415a, bVar, z, false) : invokeCommon.intValue;
     }
 
-    public static int a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0413a interfaceC0413a, @Nullable b bVar, boolean z, boolean z2) {
+    public static int a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0415a interfaceC0415a, @Nullable b bVar, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, adTemplate, interfaceC0413a, bVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, adTemplate, interfaceC0415a, bVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             AdInfo i2 = com.kwad.sdk.core.response.b.c.i(adTemplate);
             com.kwad.sdk.home.download.a.a().a(true);
             if (d.a(context, adTemplate, 1) == 1) {
-                interfaceC0413a.a();
+                interfaceC0415a.a();
                 return 0;
             } else if (!com.kwad.sdk.core.response.b.a.v(i2)) {
-                interfaceC0413a.a();
+                interfaceC0415a.a();
                 AdWebViewActivityProxy.launch(context, adTemplate);
                 return 0;
             } else if (bVar != null) {
                 int a2 = bVar.a(context, z, z2);
                 int i3 = i2.status;
                 if (i3 != 2 && i3 != 3) {
-                    interfaceC0413a.a();
+                    interfaceC0415a.a();
                 }
                 return a2;
             } else {
@@ -56,16 +56,16 @@ public class a {
         return invokeCommon.intValue;
     }
 
-    public static void b(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0413a interfaceC0413a, @Nullable b bVar, boolean z) {
+    public static void b(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0415a interfaceC0415a, @Nullable b bVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, adTemplate, interfaceC0413a, bVar, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, adTemplate, interfaceC0415a, bVar, Boolean.valueOf(z)}) == null) {
             AdInfo i2 = com.kwad.sdk.core.response.b.c.i(adTemplate);
             if (av.a()) {
                 return;
             }
             boolean z2 = true;
             if (d.a(context, adTemplate, 1) == 1) {
-                interfaceC0413a.a();
+                interfaceC0415a.a();
                 return;
             }
             z2 = (!com.kwad.sdk.core.response.b.a.b(context, adTemplate, i2) || adTemplate.interactLandingPageShowing) ? false : false;
@@ -77,7 +77,7 @@ public class a {
                 } else {
                     AdWebViewActivityProxy.launch(context, adTemplate, 0);
                 }
-                interfaceC0413a.a();
+                interfaceC0415a.a();
             } else if (bVar != null) {
                 if (!com.kwad.sdk.core.response.b.a.O(i2) || TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.y(i2))) {
                     bVar.a(context, z);
@@ -88,7 +88,7 @@ public class a {
                 if (i3 == 2 || i3 == 3) {
                     return;
                 }
-                interfaceC0413a.a();
+                interfaceC0415a.a();
             }
         }
     }

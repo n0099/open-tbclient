@@ -1,45 +1,64 @@
 package com.win.opensdk;
 
-import android.os.Handler;
-import android.os.Message;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.inner.util.cipher.Coder;
+import java.security.Key;
+import java.security.spec.AlgorithmParameterSpec;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.DESKeySpec;
+import javax.crypto.spec.IvParameterSpec;
 /* loaded from: classes6.dex */
-public class F1 extends Handler {
+public class F1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ I1 f39360a;
+    public AlgorithmParameterSpec f39576a;
 
-    public F1(I1 i1) {
+    /* renamed from: b  reason: collision with root package name */
+    public Key f39577b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1639740924, "Lcom/win/opensdk/F1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1639740924, "Lcom/win/opensdk/F1;");
+        }
+    }
+
+    public F1(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i1};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f39360a = i1;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
-            this.f39360a.f39378e = true;
-            this.f39360a.k.removeMessages(11);
-            x0.a(this.f39360a.f39375b).a(new y0(this.f39360a.f39379f), 2002, (this.f39360a.b() ? this.f39360a.f39379f.getWt() : 0) * 1000).a();
-            this.f39360a.f39381h.onFail(PBError.TIMEOUT);
+        try {
+            this.f39576a = new IvParameterSpec(str2.getBytes("utf-8"));
+            this.f39577b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
+        } catch (Exception e2) {
+            throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e2);
         }
     }
 }

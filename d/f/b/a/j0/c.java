@@ -54,7 +54,7 @@ public class c extends MediaCodecRenderer {
     public float H0;
     public boolean I0;
     public int J0;
-    public C1990c K0;
+    public C1989c K0;
     public long L0;
     public int M0;
     public final Context Z;
@@ -92,13 +92,13 @@ public class c extends MediaCodecRenderer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f70551a;
+        public final int f71005a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f70552b;
+        public final int f71006b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f70553c;
+        public final int f71007c;
 
         public b(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -115,23 +115,23 @@ public class c extends MediaCodecRenderer {
                     return;
                 }
             }
-            this.f70551a = i2;
-            this.f70552b = i3;
-            this.f70553c = i4;
+            this.f71005a = i2;
+            this.f71006b = i3;
+            this.f71007c = i4;
         }
     }
 
     @TargetApi(23)
     /* renamed from: d.f.b.a.j0.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public final class C1990c implements MediaCodec.OnFrameRenderedListener {
+    public final class C1989c implements MediaCodec.OnFrameRenderedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f70554a;
+        public final /* synthetic */ c f71008a;
 
-        public /* synthetic */ C1990c(c cVar, MediaCodec mediaCodec, a aVar) {
+        public /* synthetic */ C1989c(c cVar, MediaCodec mediaCodec, a aVar) {
             this(cVar, mediaCodec);
         }
 
@@ -139,7 +139,7 @@ public class c extends MediaCodecRenderer {
         public void onFrameRendered(@NonNull MediaCodec mediaCodec, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{mediaCodec, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                c cVar = this.f70554a;
+                c cVar = this.f71008a;
                 if (this != cVar.K0) {
                     return;
                 }
@@ -147,7 +147,7 @@ public class c extends MediaCodecRenderer {
             }
         }
 
-        public C1990c(c cVar, MediaCodec mediaCodec) {
+        public C1989c(c cVar, MediaCodec mediaCodec) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,7 +162,7 @@ public class c extends MediaCodecRenderer {
                     return;
                 }
             }
-            this.f70554a = cVar;
+            this.f71008a = cVar;
             mediaCodec.setOnFrameRenderedListener(this, new Handler());
         }
     }
@@ -268,7 +268,7 @@ public class c extends MediaCodecRenderer {
     public static boolean q0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? (("deb".equals(v.f70516b) || "flo".equals(v.f70516b)) && "OMX.qcom.video.decoder.avc".equals(str)) || (("tcl_eu".equals(v.f70516b) || "SVP-DTV15".equals(v.f70516b) || "BRAVIA_ATV2".equals(v.f70516b)) && "OMX.MTK.VIDEO.DECODER.AVC".equals(str)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? (("deb".equals(v.f70970b) || "flo".equals(v.f70970b)) && "OMX.qcom.video.decoder.avc".equals(str)) || (("tcl_eu".equals(v.f70970b) || "SVP-DTV15".equals(v.f70970b) || "BRAVIA_ATV2".equals(v.f70970b)) && "OMX.MTK.VIDEO.DECODER.AVC".equals(str)) : invokeL.booleanValue;
     }
 
     @TargetApi(21)
@@ -283,7 +283,7 @@ public class c extends MediaCodecRenderer {
     public static boolean s0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? v.f70515a <= 22 && "foster".equals(v.f70516b) && "NVIDIA".equals(v.f70517c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? v.f70969a <= 22 && "foster".equals(v.f70970b) && "NVIDIA".equals(v.f70971c) : invokeV.booleanValue;
     }
 
     public static Point u0(d.f.b.a.b0.a aVar, Format format) throws MediaCodecUtil.DecoderQueryException {
@@ -300,7 +300,7 @@ public class c extends MediaCodecRenderer {
                 if (i4 <= i2 || i5 <= i3) {
                     break;
                 }
-                if (v.f70515a >= 21) {
+                if (v.f70969a >= 21) {
                     int i6 = z ? i5 : i4;
                     if (!z) {
                         i4 = i5;
@@ -403,7 +403,7 @@ public class c extends MediaCodecRenderer {
             }
             if (c2 != 0 && c2 != 1) {
                 if (c2 == 2) {
-                    if ("BRAVIA 4K 2015".equals(v.f70518d)) {
+                    if ("BRAVIA 4K 2015".equals(v.f70972d)) {
                         return -1;
                     }
                     i4 = v.f(i2, 16) * v.f(i3, 16) * 16 * 16;
@@ -475,7 +475,7 @@ public class c extends MediaCodecRenderer {
             if (D == 0) {
                 return false;
             }
-            this.X.f70753i++;
+            this.X.f71207i++;
             T0(this.x0 + D);
             Q();
             return true;
@@ -502,7 +502,7 @@ public class c extends MediaCodecRenderer {
             if (n0(z, format, format2)) {
                 int i2 = format2.width;
                 b bVar = this.m0;
-                if (i2 <= bVar.f70551a && format2.height <= bVar.f70552b && w0(format2) <= this.m0.f70553c) {
+                if (i2 <= bVar.f71005a && format2.height <= bVar.f71006b && w0(format2) <= this.m0.f71007c) {
                     return true;
                 }
             }
@@ -561,7 +561,7 @@ public class c extends MediaCodecRenderer {
             t.a("releaseOutputBuffer");
             mediaCodec.releaseOutputBuffer(i2, true);
             t.c();
-            this.X.f70749e++;
+            this.X.f71203e++;
             this.w0 = 0;
             F0();
         }
@@ -575,7 +575,7 @@ public class c extends MediaCodecRenderer {
             t.a("releaseOutputBuffer");
             mediaCodec.releaseOutputBuffer(i2, j2);
             t.c();
-            this.X.f70749e++;
+            this.X.f71203e++;
             this.w0 = 0;
             F0();
         }
@@ -596,17 +596,17 @@ public class c extends MediaCodecRenderer {
             this.m0 = v0;
             MediaFormat y0 = y0(format, v0, this.j0, this.J0);
             if (this.o0 == null) {
-                d.f.b.a.i0.a.f(R0(aVar.f69711d));
+                d.f.b.a.i0.a.f(R0(aVar.f70165d));
                 if (this.p0 == null) {
-                    this.p0 = DummySurface.newInstanceV17(this.Z, aVar.f69711d);
+                    this.p0 = DummySurface.newInstanceV17(this.Z, aVar.f70165d);
                 }
                 this.o0 = this.p0;
             }
             mediaCodec.configure(y0, this.o0, mediaCrypto, 0);
-            if (v.f70515a < 23 || !this.I0) {
+            if (v.f70969a < 23 || !this.I0) {
                 return;
             }
-            this.K0 = new C1990c(this, mediaCodec, null);
+            this.K0 = new C1989c(this, mediaCodec, null);
         }
     }
 
@@ -619,8 +619,8 @@ public class c extends MediaCodecRenderer {
                     surface = surface2;
                 } else {
                     d.f.b.a.b0.a S = S();
-                    if (S != null && R0(S.f69711d)) {
-                        surface = DummySurface.newInstanceV17(this.Z, S.f69711d);
+                    if (S != null && R0(S.f70165d)) {
+                        surface = DummySurface.newInstanceV17(this.Z, S.f70165d);
                         this.p0 = surface;
                     }
                 }
@@ -630,7 +630,7 @@ public class c extends MediaCodecRenderer {
                 int state = getState();
                 if (state == 1 || state == 2) {
                     MediaCodec R = R();
-                    if (v.f70515a >= 23 && R != null && surface != null && !this.n0) {
+                    if (v.f70969a >= 23 && R != null && surface != null && !this.n0) {
                         M0(R, surface);
                     } else {
                         g0();
@@ -682,7 +682,7 @@ public class c extends MediaCodecRenderer {
     public final boolean R0(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) ? v.f70515a >= 23 && !this.I0 && (!z || DummySurface.isSecureSupported(this.Z)) : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) ? v.f70969a >= 23 && !this.I0 && (!z || DummySurface.isSecureSupported(this.Z)) : invokeZ.booleanValue;
     }
 
     public void S0(MediaCodec mediaCodec, int i2, long j) {
@@ -691,7 +691,7 @@ public class c extends MediaCodecRenderer {
             t.a("skipVideoBuffer");
             mediaCodec.releaseOutputBuffer(i2, false);
             t.c();
-            this.X.f70750f++;
+            this.X.f71204f++;
         }
     }
 
@@ -699,11 +699,11 @@ public class c extends MediaCodecRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
             d.f.b.a.y.d dVar = this.X;
-            dVar.f70751g += i2;
+            dVar.f71205g += i2;
             this.v0 += i2;
             int i3 = this.w0 + i2;
             this.w0 = i3;
-            dVar.f70752h = Math.max(i3, dVar.f70752h);
+            dVar.f71206h = Math.max(i3, dVar.f71206h);
             if (this.v0 >= this.i0) {
                 E0();
             }
@@ -750,7 +750,7 @@ public class c extends MediaCodecRenderer {
             }
             this.B0 = integer2;
             this.D0 = this.z0;
-            if (v.f70515a >= 21) {
+            if (v.f70969a >= 21) {
                 int i2 = this.y0;
                 if (i2 == 90 || i2 == 270) {
                     int i3 = this.A0;
@@ -780,7 +780,7 @@ public class c extends MediaCodecRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, eVar) == null) {
             this.x0++;
-            if (v.f70515a >= 23 || !this.I0) {
+            if (v.f70969a >= 23 || !this.I0) {
                 return;
             }
             F0();
@@ -840,7 +840,7 @@ public class c extends MediaCodecRenderer {
                     t0(mediaCodec, i2, j5);
                     return true;
                 }
-                if (v.f70515a >= 21) {
+                if (v.f70969a >= 21) {
                     if (j4 < 50000) {
                         K0(mediaCodec, i2, j5, b2);
                         return true;
@@ -859,7 +859,7 @@ public class c extends MediaCodecRenderer {
                 return false;
             } else {
                 this.s0 = false;
-                if (v.f70515a >= 21) {
+                if (v.f70969a >= 21) {
                     K0(mediaCodec, i2, j5, System.nanoTime());
                 } else {
                     J0(mediaCodec, i2, j5);
@@ -914,7 +914,7 @@ public class c extends MediaCodecRenderer {
     public boolean i0(d.f.b.a.b0.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, aVar)) == null) ? this.o0 != null || R0(aVar.f69711d) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, aVar)) == null) ? this.o0 != null || R0(aVar.f70165d) : invokeL.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, d.f.b.a.r
@@ -964,17 +964,17 @@ public class c extends MediaCodecRenderer {
                 } else if (d.f.b.a.a.E(aVar, drmInitData)) {
                     boolean i5 = a2.i(format.codecs);
                     if (i5 && (i2 = format.width) > 0 && (i3 = format.height) > 0) {
-                        if (v.f70515a >= 21) {
+                        if (v.f70969a >= 21) {
                             i5 = a2.n(i2, i3, format.frameRate);
                         } else {
                             boolean z2 = i2 * i3 <= MediaCodecUtil.l();
                             if (!z2) {
-                                Log.d("MediaCodecVideoRenderer", "FalseCheck [legacyFrameSize, " + format.width + "x" + format.height + "] [" + v.f70519e + PreferencesUtil.RIGHT_MOUNT);
+                                Log.d("MediaCodecVideoRenderer", "FalseCheck [legacyFrameSize, " + format.width + "x" + format.height + "] [" + v.f70973e + PreferencesUtil.RIGHT_MOUNT);
                             }
                             i5 = z2;
                         }
                     }
-                    return (i5 ? 4 : 3) | (a2.f69709b ? 16 : 8) | (a2.f69710c ? 32 : 0);
+                    return (i5 ? 4 : 3) | (a2.f70163b ? 16 : 8) | (a2.f70164c ? 32 : 0);
                 } else {
                     return 2;
                 }
@@ -989,10 +989,10 @@ public class c extends MediaCodecRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             this.r0 = false;
-            if (v.f70515a < 23 || !this.I0 || (R = R()) == null) {
+            if (v.f70969a < 23 || !this.I0 || (R = R()) == null) {
                 return;
             }
-            this.K0 = new C1990c(this, R, null);
+            this.K0 = new C1989c(this, R, null);
         }
     }
 
@@ -1028,7 +1028,7 @@ public class c extends MediaCodecRenderer {
             }
             boolean z = false;
             for (Format format2 : formatArr) {
-                if (n0(aVar.f69709b, format, format2)) {
+                if (n0(aVar.f70163b, format, format2)) {
                     z |= format2.width == -1 || format2.height == -1;
                     i2 = Math.max(i2, format2.width);
                     i3 = Math.max(i3, format2.height);
@@ -1079,7 +1079,7 @@ public class c extends MediaCodecRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
             super.x(z);
-            int i2 = t().f70620a;
+            int i2 = t().f71074a;
             this.J0 = i2;
             this.I0 = i2 != 0;
             this.b0.e(this.X);
@@ -1113,9 +1113,9 @@ public class c extends MediaCodecRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048614, this, new Object[]{format, bVar, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             MediaFormat frameworkMediaFormatV16 = format.getFrameworkMediaFormatV16();
-            frameworkMediaFormatV16.setInteger("max-width", bVar.f70551a);
-            frameworkMediaFormatV16.setInteger("max-height", bVar.f70552b);
-            int i3 = bVar.f70553c;
+            frameworkMediaFormatV16.setInteger("max-width", bVar.f71005a);
+            frameworkMediaFormatV16.setInteger("max-height", bVar.f71006b);
+            int i3 = bVar.f71007c;
             if (i3 != -1) {
                 frameworkMediaFormatV16.setInteger("max-input-size", i3);
             }

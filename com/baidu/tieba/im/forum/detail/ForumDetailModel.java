@@ -25,17 +25,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h3.w;
+import d.a.q0.h3.w;
 /* loaded from: classes4.dex */
 public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumDetailActivity f17504e;
+    public ForumDetailActivity f17560e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f17505f;
+    public f f17561f;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -43,7 +43,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f17506a;
+        public final /* synthetic */ ForumDetailModel f17562a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ForumDetailModel forumDetailModel, int i2) {
@@ -63,7 +63,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f17506a = forumDetailModel;
+            this.f17562a = forumDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,18 +71,18 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof w)) {
-                this.f17506a.f17504e.updateLikeAndMsgStatus(((w) customResponsedMessage.getData()).l() == 1);
+                this.f17562a.f17560e.updateLikeAndMsgStatus(((w) customResponsedMessage.getData()).l() == 1);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends d.a.c.c.g.a {
+    public class b extends d.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f17507a;
+        public final /* synthetic */ ForumDetailModel f17563a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ForumDetailModel forumDetailModel, int i2, int i3) {
@@ -103,27 +103,27 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f17507a = forumDetailModel;
+            this.f17563a = forumDetailModel;
         }
 
-        @Override // d.a.c.c.g.a
+        @Override // d.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage == null) {
-                    if (this.f17507a.f17505f != null) {
-                        this.f17507a.f17505f.onNetError(null);
+                    if (this.f17563a.f17561f != null) {
+                        this.f17563a.f17561f.onNetError(null);
                     }
                 } else if (responsedMessage.hasError()) {
-                    if (this.f17507a.f17505f != null) {
-                        this.f17507a.f17505f.onNetError(responsedMessage.getErrorString());
+                    if (this.f17563a.f17561f != null) {
+                        this.f17563a.f17561f.onNetError(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.f17507a.f17505f.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
+                        this.f17563a.f17561f.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        this.f17507a.f17505f.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
+                        this.f17563a.f17561f.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
@@ -131,12 +131,12 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends d.a.c.c.g.c {
+    public class c extends d.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f17508a;
+        public final /* synthetic */ ForumDetailModel f17564a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(ForumDetailModel forumDetailModel, int i2) {
@@ -156,7 +156,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f17508a = forumDetailModel;
+            this.f17564a = forumDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,20 +174,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            errorString = this.f17508a.f17504e.getResources().getString(R.string.neterror);
+                            errorString = this.f17564a.f17560e.getResources().getString(R.string.neterror);
                         } else {
                             errorString = responseUpdateMaskInfoMessage.getErrorString();
                         }
-                        this.f17508a.f17504e.showToast(errorString);
+                        this.f17564a.f17560e.showToast(errorString);
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            this.f17508a.f17505f.onSubscrib(false);
+                            this.f17564a.f17561f.onSubscrib(false);
                         } else {
-                            this.f17508a.f17505f.onUnSubscrib(false);
+                            this.f17564a.f17561f.onUnSubscrib(false);
                         }
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.f17508a.f17505f.onSubscrib(true);
+                        this.f17564a.f17561f.onSubscrib(true);
                     } else {
-                        this.f17508a.f17505f.onUnSubscrib(true);
+                        this.f17564a.f17561f.onUnSubscrib(true);
                     }
                 }
             }
@@ -200,7 +200,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f17509a;
+        public final /* synthetic */ ForumDetailModel f17565a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(ForumDetailModel forumDetailModel, int i2) {
@@ -220,7 +220,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f17509a = forumDetailModel;
+            this.f17565a = forumDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -228,7 +228,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001151) {
-                this.f17509a.f17504e.showToast(R.string.delete_success);
+                this.f17565a.f17560e.showToast(R.string.delete_success);
             }
         }
     }
@@ -239,7 +239,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f17510a;
+        public final /* synthetic */ ForumDetailModel f17566a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(ForumDetailModel forumDetailModel, int i2) {
@@ -259,7 +259,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f17510a = forumDetailModel;
+            this.f17566a = forumDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -269,11 +269,11 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && ((z = httpResponsedMessage instanceof BarEmotionResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    if (this.f17510a.f17505f != null) {
-                        this.f17510a.f17505f.onNetError(httpResponsedMessage.getErrorString());
+                    if (this.f17566a.f17561f != null) {
+                        this.f17566a.f17561f.onNetError(httpResponsedMessage.getErrorString());
                     }
                 } else if (z && httpResponsedMessage.getCmd() == 1002510) {
-                    this.f17510a.f17505f.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
+                    this.f17566a.f17561f.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
                 }
             }
         }
@@ -306,14 +306,14 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((d.a.c.a.f) newInitContext.callArgs[0]);
+                super((d.a.d.a.f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f17504e = forumDetailActivity;
-        this.f17505f = forumDetailActivity;
+        this.f17560e = forumDetailActivity;
+        this.f17561f = forumDetailActivity;
         B();
         C();
         y();
@@ -366,7 +366,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
-            forumDetailRequestMessage.setForumId(d.a.c.e.m.b.f(str, 0L));
+            forumDetailRequestMessage.setForumId(d.a.d.e.m.b.f(str, 0L));
             sendMessage(forumDetailRequestMessage);
         }
     }

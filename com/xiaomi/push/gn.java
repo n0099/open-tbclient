@@ -13,25 +13,25 @@ public class gn {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Random f40217a;
+    public static Random f40489a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final char[] f439a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f40218b;
+    public static final char[] f40490b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f40219c;
+    public static final char[] f40491c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f40220d;
+    public static final char[] f40492d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f40221e;
+    public static final char[] f40493e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f40222f;
+    public static char[] f40494f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,12 +48,12 @@ public class gn {
             }
         }
         f439a = "&quot;".toCharArray();
-        f40218b = "&apos;".toCharArray();
-        f40219c = "&amp;".toCharArray();
-        f40220d = "&lt;".toCharArray();
-        f40221e = "&gt;".toCharArray();
-        f40217a = new Random();
-        f40222f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f40490b = "&apos;".toCharArray();
+        f40491c = "&amp;".toCharArray();
+        f40492d = "&lt;".toCharArray();
+        f40493e = "&gt;".toCharArray();
+        f40489a = new Random();
+        f40494f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public static String a(int i2) {
@@ -65,7 +65,7 @@ public class gn {
             }
             char[] cArr = new char[i2];
             for (int i3 = 0; i3 < i2; i3++) {
-                cArr[i3] = f40222f[f40217a.nextInt(71)];
+                cArr[i3] = f40494f[f40489a.nextInt(71)];
             }
             return new String(cArr);
         }
@@ -92,13 +92,13 @@ public class gn {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f40220d);
+                        sb.append(f40492d);
                     } else if (c2 == '>') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f40221e);
+                        sb.append(f40493e);
                     } else if (c2 == '&') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
@@ -106,7 +106,7 @@ public class gn {
                         int i4 = i2 + 5;
                         if (length <= i4 || charArray[i2 + 1] != '#' || !Character.isDigit(charArray[i2 + 2]) || !Character.isDigit(charArray[i2 + 3]) || !Character.isDigit(charArray[i2 + 4]) || charArray[i4] != ';') {
                             i3 = i2 + 1;
-                            sb.append(f40219c);
+                            sb.append(f40491c);
                         }
                     } else if (c2 == '\"') {
                         if (i2 > i3) {
@@ -119,7 +119,7 @@ public class gn {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f40218b);
+                        sb.append(f40490b);
                     }
                 }
                 i2++;

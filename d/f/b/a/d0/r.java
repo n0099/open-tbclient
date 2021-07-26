@@ -16,28 +16,28 @@ public final class r extends w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f69843b;
+    public final long f70297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f69844c;
+    public final long f70298c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f69845d;
+    public final long f70299d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f69846e;
+    public final long f70300e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f69847f;
+    public final long f70301f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f69848g;
+    public final long f70302g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f69849h;
+    public final boolean f70303h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f69850i;
+    public final boolean f70304i;
 
     static {
         InterceptResult invokeClinit;
@@ -90,7 +90,7 @@ public final class r extends w {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), bVar, Boolean.valueOf(z)})) == null) {
             d.f.b.a.i0.a.c(i2, 0, 1);
             Object obj = z ? j : null;
-            bVar.n(obj, obj, 0, this.f69845d, -this.f69847f);
+            bVar.n(obj, obj, 0, this.f70299d, -this.f70301f);
             return bVar;
         }
         return (w.b) invokeCommon.objValue;
@@ -113,14 +113,14 @@ public final class r extends w {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), cVar, Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
             d.f.b.a.i0.a.c(i2, 0, 1);
             Object obj = z ? j : null;
-            long j3 = this.f69848g;
-            if (this.f69850i) {
+            long j3 = this.f70302g;
+            if (this.f70304i) {
                 j3 += j2;
-                if (j3 > this.f69846e) {
+                if (j3 > this.f70300e) {
                     j3 = -9223372036854775807L;
                 }
             }
-            cVar.d(obj, this.f69843b, this.f69844c, this.f69849h, this.f69850i, j3, this.f69846e, 0, 0, this.f69847f);
+            cVar.d(obj, this.f70297b, this.f70298c, this.f70303h, this.f70304i, j3, this.f70300e, 0, 0, this.f70301f);
             return cVar;
         }
         return (w.c) invokeCommon.objValue;
@@ -172,13 +172,13 @@ public final class r extends w {
                 return;
             }
         }
-        this.f69843b = j2;
-        this.f69844c = j3;
-        this.f69845d = j4;
-        this.f69846e = j5;
-        this.f69847f = j6;
-        this.f69848g = j7;
-        this.f69849h = z;
-        this.f69850i = z2;
+        this.f70297b = j2;
+        this.f70298c = j3;
+        this.f70299d = j4;
+        this.f70300e = j5;
+        this.f70301f = j6;
+        this.f70302g = j7;
+        this.f70303h = z;
+        this.f70304i = z2;
     }
 }

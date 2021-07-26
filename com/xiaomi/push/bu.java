@@ -18,7 +18,7 @@ public class bu {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bu f39905a;
+    public static volatile bu f40177a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -37,25 +37,25 @@ public class bu {
     public final String f164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ai.a f39906b;
+    public ai.a f40178b;
 
     /* renamed from: b  reason: collision with other field name */
     public final String f165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ai.a f39907c;
+    public ai.a f40179c;
 
     /* renamed from: c  reason: collision with other field name */
     public final String f166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f39908d;
+    public final String f40180d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39909e;
+    public String f40181e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f39910f;
+    public String f40182f;
 
     public bu(Context context) {
         Interceptable interceptable = $ic;
@@ -75,10 +75,10 @@ public class bu {
         this.f164a = "push_stat_sp";
         this.f165b = "upload_time";
         this.f166c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
-        this.f39908d = "check_time";
+        this.f40180d = "check_time";
         this.f161a = new bv(this);
-        this.f39906b = new bw(this);
-        this.f39907c = new bx(this);
+        this.f40178b = new bw(this);
+        this.f40179c = new bx(this);
         this.f160a = context;
     }
 
@@ -86,14 +86,14 @@ public class bu {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f39905a == null) {
+            if (f40177a == null) {
                 synchronized (bu.class) {
-                    if (f39905a == null) {
-                        f39905a = new bu(context);
+                    if (f40177a == null) {
+                        f40177a = new bu(context);
                     }
                 }
             }
-            return f39905a;
+            return f40177a;
         }
         return (bu) invokeL.objValue;
     }
@@ -125,7 +125,7 @@ public class bu {
     public String m192a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39909e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40181e : (String) invokeV.objValue;
     }
 
     public void a(cg.a aVar) {
@@ -164,6 +164,6 @@ public class bu {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f39910f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f40182f : (String) invokeV.objValue;
     }
 }

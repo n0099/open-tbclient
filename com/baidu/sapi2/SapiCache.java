@@ -503,7 +503,7 @@ public final class SapiCache {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
-            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f5587g + File.separator + str);
+            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f5613g + File.separator + str);
         }
         return (String) invokeLL.objValue;
     }

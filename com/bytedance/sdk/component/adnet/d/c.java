@@ -1,187 +1,181 @@
 package com.bytedance.sdk.component.adnet.d;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.component.adnet.core.Header;
-import com.bytedance.sdk.component.adnet.core.o;
-import com.bytedance.sdk.component.adnet.face.a;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TimeZone;
-import java.util.TreeMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static a.C0316a a(com.bytedance.sdk.component.adnet.core.i iVar) {
-        InterceptResult invokeL;
-        boolean z;
-        long j;
-        long j2;
-        long j3;
-        long j4;
-        long j5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iVar)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Map<String, String> map = iVar.f28016c;
-            String str = map.get("Date");
-            long a2 = str != null ? a(str) : 0L;
-            String str2 = map.get("Cache-Control");
-            int i2 = 0;
-            if (str2 != null) {
-                String[] split = str2.split(",", 0);
-                int i3 = 0;
-                j = 0;
-                j2 = 0;
-                while (i2 < split.length) {
-                    String trim = split[i2].trim();
-                    if (trim.equals("no-cache") || trim.equals("no-store")) {
-                        return null;
-                    }
-                    if (trim.startsWith("max-age=")) {
-                        try {
-                            j = Long.parseLong(trim.substring(8));
-                        } catch (Exception unused) {
-                        }
-                    } else if (trim.startsWith("stale-while-revalidate=")) {
-                        j2 = Long.parseLong(trim.substring(23));
-                    } else if (trim.equals("must-revalidate") || trim.equals("proxy-revalidate")) {
-                        i3 = 1;
-                    }
-                    i2++;
+    /* renamed from: a  reason: collision with root package name */
+    public a f28145a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f28146b;
+
+    /* renamed from: com.bytedance.sdk.component.adnet.d.c$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final a f28147a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final a f28148b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final a f28149c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final a f28150d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final /* synthetic */ a[] f28151e;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(662014464, "Lcom/bytedance/sdk/component/adnet/d/c$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                i2 = i3;
-                z = true;
-            } else {
-                z = false;
-                j = 0;
-                j2 = 0;
-            }
-            String str3 = map.get("Expires");
-            long a3 = str3 != null ? a(str3) : 0L;
-            String str4 = map.get("Last-Modified");
-            long a4 = str4 != null ? a(str4) : 0L;
-            String str5 = map.get("ETag");
-            if (z) {
-                j4 = currentTimeMillis + (j * 1000);
-                if (i2 != 0) {
-                    j5 = j4;
-                } else {
-                    Long.signum(j2);
-                    j5 = (j2 * 1000) + j4;
-                }
-                j3 = j5;
-            } else {
-                j3 = 0;
-                if (a2 <= 0 || a3 < a2) {
-                    j4 = 0;
-                } else {
-                    j4 = currentTimeMillis + (a3 - a2);
-                    j3 = j4;
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(662014464, "Lcom/bytedance/sdk/component/adnet/d/c$a;");
+                    return;
                 }
             }
-            a.C0316a c0316a = new a.C0316a();
-            c0316a.f28066a = iVar.f28014a;
-            c0316a.f28067b = iVar.f28015b;
-            c0316a.f28068c = str5;
-            c0316a.f28072g = j4;
-            c0316a.f28071f = j3;
-            c0316a.f28069d = a2;
-            c0316a.f28070e = a4;
-            c0316a.f28073h = map;
-            c0316a.f28074i = iVar.f28017d;
-            return c0316a;
+            f28147a = new a("DEBUG", 0);
+            f28148b = new a("INFO", 1);
+            f28149c = new a("ERROR", 2);
+            a aVar = new a("OFF", 3);
+            f28150d = aVar;
+            f28151e = new a[]{f28147a, f28148b, f28149c, aVar};
         }
-        return (a.C0316a) invokeL.objValue;
-    }
 
-    public static long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return a().parse(str).getTime();
-            } catch (Throwable th) {
-                o.a(th, "Unable to parse dateStr: %s, falling back to 0", str);
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public static String a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? a().format(new Date(j)) : (String) invokeJ.objValue;
-    }
-
-    public static SimpleDateFormat a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
-            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-            return simpleDateFormat;
-        }
-        return (SimpleDateFormat) invokeV.objValue;
-    }
-
-    public static String a(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, str)) == null) {
-            String str2 = map.get("Content-Type");
-            if (str2 != null) {
-                String[] split = str2.split(";", 0);
-                for (int i2 = 1; i2 < split.length; i2++) {
-                    String[] split2 = split[i2].trim().split("=", 0);
-                    if (split2.length == 2 && split2[0].equals("charset")) {
-                        return split2[1];
-                    }
+        public a(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            return str;
         }
-        return (String) invokeLL.objValue;
+
+        public static a valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (a) Enum.valueOf(a.class, str) : (a) invokeL.objValue;
+        }
+
+        public static a[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f28151e.clone() : (a[]) invokeV.objValue;
+        }
     }
 
-    public static Map<String, String> a(List<Header> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, list)) == null) {
-            TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-            if (list != null) {
-                for (Header header : list) {
-                    treeMap.put(header.getName(), header.getValue());
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(String str, String str2);
+
+        void b(String str, String str2);
+    }
+
+    /* renamed from: com.bytedance.sdk.component.adnet.d.c$c  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public static class C0317c {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final c f28152a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(662014526, "Lcom/bytedance/sdk/component/adnet/d/c$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(662014526, "Lcom/bytedance/sdk/component/adnet/d/c$c;");
+                    return;
                 }
             }
-            return treeMap;
+            f28152a = new c(null);
         }
-        return (Map) invokeL.objValue;
     }
 
-    public static List<Header> a(Map<String, String> map) {
-        InterceptResult invokeL;
+    public /* synthetic */ c(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    public static void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, map)) == null) {
-            if (map == null) {
-                return new ArrayList();
+        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
+            synchronized (c.class) {
+                C0317c.f28152a.f28145a = aVar;
             }
-            ArrayList arrayList = new ArrayList(map.size());
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                arrayList.add(new Header(entry.getKey(), entry.getValue()));
-            }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || C0317c.f28152a.f28145a.compareTo(a.f28147a) > 0) {
+            return;
+        }
+        C0317c.f28152a.f28146b.b(str, str2);
+    }
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f28145a = a.f28150d;
+        this.f28146b = new com.bytedance.sdk.component.adnet.d.a();
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || C0317c.f28152a.f28145a.compareTo(a.f28149c) > 0) {
+            return;
+        }
+        C0317c.f28152a.f28146b.a(str, str2);
     }
 }

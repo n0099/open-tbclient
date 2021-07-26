@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.n;
+import d.a.d.k.e.n;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class GroupPermData implements n, Serializable {
@@ -124,7 +124,7 @@ public class GroupPermData implements n, Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isManager : invokeV.intValue;
     }
 
-    @Override // d.a.c.k.e.n
+    @Override // d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -13,7 +13,7 @@ public class cn {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39935a;
+    public int f40207a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f189a;
@@ -22,10 +22,10 @@ public class cn {
     public String f190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f39936b;
+    public long f40208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f39937c;
+    public long f40209c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public cn() {
@@ -61,10 +61,10 @@ public class cn {
                 return;
             }
         }
-        this.f39935a = i2;
+        this.f40207a = i2;
         this.f189a = j;
-        this.f39937c = j2;
-        this.f39936b = System.currentTimeMillis();
+        this.f40209c = j2;
+        this.f40208b = System.currentTimeMillis();
         if (exc != null) {
             this.f190a = exc.getClass().getSimpleName();
         }
@@ -73,7 +73,7 @@ public class cn {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39935a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40207a : invokeV.intValue;
     }
 
     public cn a(JSONObject jSONObject) {
@@ -81,9 +81,9 @@ public class cn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             this.f189a = jSONObject.getLong("cost");
-            this.f39937c = jSONObject.getLong("size");
-            this.f39936b = jSONObject.getLong("ts");
-            this.f39935a = jSONObject.getInt("wt");
+            this.f40209c = jSONObject.getLong("size");
+            this.f40208b = jSONObject.getLong("ts");
+            this.f40207a = jSONObject.getInt("wt");
             this.f190a = jSONObject.optString("expt");
             return this;
         }
@@ -97,9 +97,9 @@ public class cn {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("cost", this.f189a);
-            jSONObject.put("size", this.f39937c);
-            jSONObject.put("ts", this.f39936b);
-            jSONObject.put("wt", this.f39935a);
+            jSONObject.put("size", this.f40209c);
+            jSONObject.put("ts", this.f40208b);
+            jSONObject.put("wt", this.f40207a);
             jSONObject.put("expt", this.f190a);
             return jSONObject;
         }

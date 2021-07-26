@@ -18,7 +18,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.o;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
+import com.bytedance.sdk.openadsdk.q.q;
+import com.bytedance.sdk.openadsdk.q.s;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes5.dex */
 public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnClickListener {
@@ -26,7 +28,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30648a;
+    public boolean f30828a;
     public int p;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +50,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                 return;
             }
         }
-        this.f30648a = false;
+        this.f30828a = false;
         setOnClickListener(this);
         this.p = getResources().getConfiguration().orientation;
     }
@@ -56,9 +58,9 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            q.a((View) this.f30656f, 0);
-            q.a((View) this.f30657g, 0);
-            q.a((View) this.f30659i, 8);
+            s.a((View) this.f30836f, 0);
+            s.a((View) this.f30837g, 0);
+            s.a((View) this.f30839i, 8);
         }
     }
 
@@ -66,12 +68,12 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             h();
-            RelativeLayout relativeLayout = this.f30656f;
+            RelativeLayout relativeLayout = this.f30836f;
             if (relativeLayout != null) {
                 if (relativeLayout.getVisibility() == 0) {
                     return;
                 }
-                com.bytedance.sdk.openadsdk.g.a.a(this.f30652b.V().h()).a(this.f30657g);
+                ImageLoaderWrapper.from(this.f30832b.V().h()).to(this.f30837g);
             }
             e();
         }
@@ -81,9 +83,9 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f30655e = false;
+            this.f30835e = false;
             this.k = "draw_ad";
-            o.h().r(String.valueOf(com.bytedance.sdk.openadsdk.r.o.d(this.f30652b.ao())));
+            o.h().r(String.valueOf(q.d(this.f30832b.ao())));
             super.b();
         }
     }
@@ -91,7 +93,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f30648a) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f30828a) {
             super.c();
         }
     }
@@ -103,12 +105,12 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
             int i2 = getResources().getConfiguration().orientation;
             if (this.p != i2) {
                 this.p = i2;
-                q.a(this, new q.a(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeDrawVideoTsView.2
+                s.a(this, new s.a(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeDrawVideoTsView.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NativeDrawVideoTsView f30650a;
+                    public final /* synthetic */ NativeDrawVideoTsView f30830a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -125,18 +127,18 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                                 return;
                             }
                         }
-                        this.f30650a = this;
+                        this.f30830a = this;
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.r.q.a
+                    @Override // com.bytedance.sdk.openadsdk.q.s.a
                     public void a(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            NativeDrawVideoTsView nativeDrawVideoTsView = this.f30650a;
-                            if (nativeDrawVideoTsView.f30653c == null) {
+                            NativeDrawVideoTsView nativeDrawVideoTsView = this.f30830a;
+                            if (nativeDrawVideoTsView.f30833c == null) {
                                 return;
                             }
-                            this.f30650a.a(nativeDrawVideoTsView.getWidth(), this.f30650a.getHeight());
+                            this.f30830a.a(nativeDrawVideoTsView.getWidth(), this.f30830a.getHeight());
                             NativeDrawVideoTsView.super.d();
                         }
                     }
@@ -151,9 +153,9 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            ImageView imageView = this.f30658h;
+            ImageView imageView = this.f30838h;
             if (imageView != null && imageView.getVisibility() == 0) {
-                q.e(this.f30656f);
+                s.e(this.f30836f);
             }
             c();
         }
@@ -169,12 +171,12 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                 return;
             }
             this.p = i3;
-            q.a(this, new q.a(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeDrawVideoTsView.1
+            s.a(this, new s.a(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeDrawVideoTsView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NativeDrawVideoTsView f30649a;
+                public final /* synthetic */ NativeDrawVideoTsView f30829a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -191,18 +193,18 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                             return;
                         }
                     }
-                    this.f30649a = this;
+                    this.f30829a = this;
                 }
 
-                @Override // com.bytedance.sdk.openadsdk.r.q.a
+                @Override // com.bytedance.sdk.openadsdk.q.s.a
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        NativeDrawVideoTsView nativeDrawVideoTsView = this.f30649a;
-                        if (nativeDrawVideoTsView.f30653c == null) {
+                        NativeDrawVideoTsView nativeDrawVideoTsView = this.f30829a;
+                        if (nativeDrawVideoTsView.f30833c == null) {
                             return;
                         }
-                        this.f30649a.a(nativeDrawVideoTsView.getWidth(), this.f30649a.getHeight());
+                        this.f30829a.a(nativeDrawVideoTsView.getWidth(), this.f30829a.getHeight());
                     }
                 }
             });
@@ -213,7 +215,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            ImageView imageView = this.f30658h;
+            ImageView imageView = this.f30838h;
             if (imageView != null && imageView.getVisibility() == 0) {
                 f();
             } else {
@@ -226,7 +228,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void onWindowVisibilityChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            ImageView imageView = this.f30658h;
+            ImageView imageView = this.f30838h;
             if (imageView != null && imageView.getVisibility() == 0) {
                 f();
             } else {
@@ -238,7 +240,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     public void setCanInterruptVideoPlay(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f30648a = z;
+            this.f30828a = z;
         }
     }
 
@@ -276,7 +278,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
                 return;
             }
         }
-        this.f30648a = false;
+        this.f30828a = false;
         setOnClickListener(this);
         this.p = getResources().getConfiguration().orientation;
     }

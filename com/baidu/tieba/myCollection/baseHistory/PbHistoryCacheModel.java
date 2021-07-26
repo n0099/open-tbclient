@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a2.h.a;
+import d.a.q0.a2.h.a;
 /* loaded from: classes4.dex */
 public class PbHistoryCacheModel extends CacheModel<a, TbPageContext> {
     public static /* synthetic */ Interceptable $ic;

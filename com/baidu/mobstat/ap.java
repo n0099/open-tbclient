@@ -13,19 +13,19 @@ public class ap {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8692a;
+    public String f8718a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8693b;
+    public long f8719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f8694c;
+    public long f8720c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8695d;
+    public boolean f8721d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f8696e;
+    public long f8722e;
 
     public ap(String str, long j, long j2, long j3, boolean z) {
         Interceptable interceptable = $ic;
@@ -42,54 +42,54 @@ public class ap {
                 return;
             }
         }
-        this.f8692a = str;
-        this.f8693b = j;
-        this.f8694c = j2;
-        this.f8696e = j3;
-        this.f8695d = z;
+        this.f8718a = str;
+        this.f8719b = j;
+        this.f8720c = j2;
+        this.f8722e = j3;
+        this.f8721d = z;
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f8694c = j;
+            this.f8720c = j;
         }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8693b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8719b : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8694c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8720c : invokeV.longValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f8695d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f8721d : invokeV.booleanValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f8696e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f8722e : invokeV.longValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8692a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8718a : (String) invokeV.objValue;
     }
 
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f8696e = j;
+            this.f8722e = j;
         }
     }
 
@@ -100,9 +100,9 @@ public class ap {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("name", str);
-                jSONObject.put("s", this.f8693b);
-                jSONObject.put("e", this.f8694c);
-                jSONObject.put("user", this.f8695d ? 1 : 0);
+                jSONObject.put("s", this.f8719b);
+                jSONObject.put("e", this.f8720c);
+                jSONObject.put("user", this.f8721d ? 1 : 0);
                 return jSONObject;
             } catch (Exception unused) {
                 return null;

@@ -4,9 +4,11 @@ import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
@@ -24,7 +26,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.z0.p0;
+import d.a.p0.b1.p0;
+import d.a.p0.n0.b;
+import d.a.p0.n0.g;
 /* loaded from: classes4.dex */
 public class BuyTBeanActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -34,6 +38,45 @@ public class BuyTBeanActivityStatic {
     public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.tbean.BuyTBeanActivityStatic$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0239a implements b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0239a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // d.a.p0.n0.b
+            public void a(g gVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
+                    TbWebViewActivity.YYPayResultCallback4CallJs.b();
+                }
+            }
+
+            @Override // d.a.p0.n0.b
+            public void onFail(int i2, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+                    TbWebViewActivity.YYPayResultCallback4CallJs.b();
+                }
+            }
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -60,7 +103,7 @@ public class BuyTBeanActivityStatic {
                         return 3;
                     }
                     if (str.contains("tdoudiscount:")) {
-                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, p0.d(str, MemberPayStatistic.REFER_PAGE), p0.d(str, MemberPayStatistic.CLICK_ZONE));
+                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, p0.d(str, MemberPayStatistic.REFER_PAGE), p0.d(str, MemberPayStatistic.CLICK_ZONE), new C0239a(this));
                         return 0;
                     }
                     Bundle i2 = p0.i(str);
@@ -89,7 +132,7 @@ public class BuyTBeanActivityStatic {
             }
         }
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
-        d.a.p0.h3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
+        d.a.q0.h3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
         c();
         a();
         b();
@@ -132,7 +175,7 @@ public class BuyTBeanActivityStatic {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.a.p0.h3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.a.q0.h3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

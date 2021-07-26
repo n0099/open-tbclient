@@ -15,28 +15,28 @@ public final class e implements m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.f.b.a.h0.h f70118a;
+    public final d.f.b.a.h0.h f70572a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f70119b;
+    public final long f70573b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f70120c;
+    public final long f70574c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f70121d;
+    public final long f70575d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f70122e;
+    public final long f70576e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PriorityTaskManager f70123f;
+    public final PriorityTaskManager f70577f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f70124g;
+    public int f70578g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f70125h;
+    public boolean f70579h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e() {
@@ -60,13 +60,13 @@ public final class e implements m {
     public void a(r[] rVarArr, d.f.b.a.d0.t tVar, d.f.b.a.f0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, rVarArr, tVar, gVar) == null) {
-            this.f70124g = 0;
+            this.f70578g = 0;
             for (int i2 = 0; i2 < rVarArr.length; i2++) {
                 if (gVar.a(i2) != null) {
-                    this.f70124g += d.f.b.a.i0.v.p(rVarArr[i2].e());
+                    this.f70578g += d.f.b.a.i0.v.p(rVarArr[i2].e());
                 }
             }
-            this.f70118a.h(this.f70124g);
+            this.f70572a.h(this.f70578g);
         }
     }
 
@@ -85,13 +85,13 @@ public final class e implements m {
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             int g2 = g(j);
             boolean z = true;
-            boolean z2 = this.f70118a.f() >= this.f70124g;
-            boolean z3 = this.f70125h;
+            boolean z2 = this.f70572a.f() >= this.f70578g;
+            boolean z3 = this.f70579h;
             if (g2 != 2 && (g2 != 1 || !z3 || z2)) {
                 z = false;
             }
-            this.f70125h = z;
-            PriorityTaskManager priorityTaskManager = this.f70123f;
+            this.f70579h = z;
+            PriorityTaskManager priorityTaskManager = this.f70577f;
             if (priorityTaskManager != null && z != z3) {
                 if (z) {
                     priorityTaskManager.a(0);
@@ -99,7 +99,7 @@ public final class e implements m {
                     priorityTaskManager.b(0);
                 }
             }
-            return this.f70125h;
+            return this.f70579h;
         }
         return invokeJ.booleanValue;
     }
@@ -109,7 +109,7 @@ public final class e implements m {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            long j2 = z ? this.f70122e : this.f70121d;
+            long j2 = z ? this.f70576e : this.f70575d;
             return j2 <= 0 || j >= j2;
         }
         return invokeCommon.booleanValue;
@@ -119,7 +119,7 @@ public final class e implements m {
     public d.f.b.a.h0.b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70118a : (d.f.b.a.h0.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70572a : (d.f.b.a.h0.b) invokeV.objValue;
     }
 
     @Override // d.f.b.a.m
@@ -134,10 +134,10 @@ public final class e implements m {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            if (j > this.f70120c) {
+            if (j > this.f70574c) {
                 return 0;
             }
-            return j < this.f70119b ? 2 : 1;
+            return j < this.f70573b ? 2 : 1;
         }
         return invokeJ.intValue;
     }
@@ -145,14 +145,14 @@ public final class e implements m {
     public final void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f70124g = 0;
-            PriorityTaskManager priorityTaskManager = this.f70123f;
-            if (priorityTaskManager != null && this.f70125h) {
+            this.f70578g = 0;
+            PriorityTaskManager priorityTaskManager = this.f70577f;
+            if (priorityTaskManager != null && this.f70579h) {
                 priorityTaskManager.b(0);
             }
-            this.f70125h = false;
+            this.f70579h = false;
             if (z) {
-                this.f70118a.g();
+                this.f70572a.g();
             }
         }
     }
@@ -222,11 +222,11 @@ public final class e implements m {
                 return;
             }
         }
-        this.f70118a = hVar;
-        this.f70119b = i2 * 1000;
-        this.f70120c = i3 * 1000;
-        this.f70121d = j * 1000;
-        this.f70122e = j2 * 1000;
-        this.f70123f = priorityTaskManager;
+        this.f70572a = hVar;
+        this.f70573b = i2 * 1000;
+        this.f70574c = i3 * 1000;
+        this.f70575d = j * 1000;
+        this.f70576e = j2 * 1000;
+        this.f70577f = priorityTaskManager;
     }
 }

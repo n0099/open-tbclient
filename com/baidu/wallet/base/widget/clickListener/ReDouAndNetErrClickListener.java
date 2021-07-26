@@ -36,10 +36,10 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f24453a;
+                public final /* synthetic */ View f24611a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ReDouAndNetErrClickListener f24454b;
+                public final /* synthetic */ ReDouAndNetErrClickListener f24612b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -56,8 +56,8 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                             return;
                         }
                     }
-                    this.f24454b = this;
-                    this.f24453a = view;
+                    this.f24612b = this;
+                    this.f24611a = view;
                 }
 
                 @Override // com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener
@@ -69,7 +69,7 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f24455a;
+                            public final /* synthetic */ AnonymousClass1 f24613a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -86,17 +86,17 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                                         return;
                                     }
                                 }
-                                this.f24455a = this;
+                                this.f24613a = this;
                             }
 
                             @Override // com.baidu.wallet.base.widget.clickListener.ReNetErrorClickListener
                             public void doClick(View view3) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, view3) == null) {
-                                    this.f24455a.f24454b.doClick(view3);
+                                    this.f24613a.f24612b.doClick(view3);
                                 }
                             }
-                        }.onClick(this.f24453a);
+                        }.onClick(this.f24611a);
                     }
                 }
             }.onClick(view);

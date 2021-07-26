@@ -18,10 +18,10 @@ public class ExpandGridView extends GridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f21553e;
+    public Scroller f21671e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f21554f;
+    public a f21672f;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -46,16 +46,16 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f21553e = new Scroller(context);
+        this.f21671e = new Scroller(context);
     }
 
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f21553e.computeScrollOffset()) {
-                int currY = this.f21553e.getCurrY();
-                a aVar = this.f21554f;
+            if (this.f21671e.computeScrollOffset()) {
+                int currY = this.f21671e.getCurrY();
+                a aVar = this.f21672f;
                 if (aVar != null) {
                     aVar.a(currY);
                 }
@@ -92,7 +92,7 @@ public class ExpandGridView extends GridView {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f21554f = aVar;
+            this.f21672f = aVar;
         }
     }
 
@@ -115,7 +115,7 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f21553e = new Scroller(context);
+        this.f21671e = new Scroller(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,6 +137,6 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f21553e = new Scroller(context);
+        this.f21671e = new Scroller(context);
     }
 }

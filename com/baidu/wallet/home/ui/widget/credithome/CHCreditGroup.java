@@ -24,13 +24,13 @@ public class CHCreditGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CHTitleView f25107a;
+    public CHTitleView f25265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f25108b;
+    public LinearLayout f25266b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f25109c;
+    public List<BaseItemView> f25267c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHCreditGroup(Context context) {
@@ -50,14 +50,14 @@ public class CHCreditGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25109c = new ArrayList();
+        this.f25267c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25109c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25267c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -65,8 +65,8 @@ public class CHCreditGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_group_layout"), this);
-            this.f25107a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_credit_group_title"));
-            this.f25108b = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_group"));
+            this.f25265a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_credit_group_title"));
+            this.f25266b = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_group"));
         }
     }
 
@@ -86,8 +86,8 @@ public class CHCreditGroup extends BaseItemLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f25107a.setData(this.mConfigData, getWalletInterface());
-            this.f25108b.removeAllViews();
+            this.f25265a.setData(this.mConfigData, getWalletInterface());
+            this.f25266b.removeAllViews();
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
             int length = 3 >= dataItemArr.length ? dataItemArr.length : 3;
             for (int i2 = 0; i2 < length; i2++) {
@@ -95,8 +95,8 @@ public class CHCreditGroup extends BaseItemLayout {
                     CHCreditItem cHCreditItem = new CHCreditItem(getContext());
                     new View(getContext());
                     cHCreditItem.setData(this.mConfigData.list[i2], getWalletInterface());
-                    this.f25108b.addView(cHCreditItem);
-                    this.f25109c.add(cHCreditItem);
+                    this.f25266b.addView(cHCreditItem);
+                    this.f25267c.add(cHCreditItem);
                 }
             }
         }
@@ -121,6 +121,6 @@ public class CHCreditGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25109c = new ArrayList();
+        this.f25267c = new ArrayList();
     }
 }

@@ -1,98 +1,73 @@
 package com.win.opensdk;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes6.dex */
-public final class D {
+public class D implements F {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final D f39332a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final D f39333b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final D f39334c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final D f39335d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final D f39336e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final D f39337f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final D f39338g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final D f39339h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final /* synthetic */ D[] f39340i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1471125731, "Lcom/win/opensdk/D;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1471125731, "Lcom/win/opensdk/D;");
-                return;
-            }
-        }
-        f39332a = new D("UnknownHost", 0);
-        f39333b = new D("Socket", 1);
-        f39334c = new D("SocketTimeout", 2);
-        f39335d = new D("ConnectTimeout", 3);
-        f39336e = new D("IO", 4);
-        f39337f = new D("HttpResponse", 5);
-        f39338g = new D("JSON", 6);
-        D d2 = new D("Interrupted", 7);
-        f39339h = d2;
-        f39340i = new D[]{f39332a, f39333b, f39334c, f39335d, f39336e, f39337f, f39338g, d2};
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ E f39554a;
 
-    public D(String str, int i2) {
+    public D(E e2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
+            Object[] objArr = {e2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f39554a = e2;
     }
 
-    public static D valueOf(String str) {
-        InterceptResult invokeL;
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        F f2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (D) Enum.valueOf(D.class, str) : (D) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (f2 = this.f39554a.f39564b) == null) {
+            return;
+        }
+        f2.onClicked();
     }
 
-    public static D[] values() {
-        InterceptResult invokeV;
+    @Override // com.win.opensdk.F
+    public void onDisplayed() {
+        F f2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (D[]) f39340i.clone() : (D[]) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (f2 = this.f39554a.f39564b) == null) {
+            return;
+        }
+        f2.onDisplayed();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        F f2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (f2 = this.f39554a.f39564b) == null) {
+            return;
+        }
+        f2.onFail(pBError);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        F f2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (f2 = this.f39554a.f39564b) == null) {
+            return;
+        }
+        f2.onLoaded();
     }
 }

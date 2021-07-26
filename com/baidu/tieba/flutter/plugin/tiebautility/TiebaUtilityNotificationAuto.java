@@ -48,7 +48,7 @@ public class TiebaUtilityNotificationAuto {
         public void onNotification(OnNotifyData onNotifyData, final Reply<NotifyResult> reply) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, onNotifyData, reply) == null) {
-                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterUtilityNotification.onNotification", new StandardMessageCodec()).send(onNotifyData.toMap(), new BasicMessageChannel.Reply() { // from class: d.a.p0.q0.a.j.v0
+                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterUtilityNotification.onNotification", new StandardMessageCodec()).send(onNotifyData.toMap(), new BasicMessageChannel.Reply() { // from class: d.a.q0.q0.a.j.v0
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

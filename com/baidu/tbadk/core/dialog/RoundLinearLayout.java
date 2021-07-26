@@ -23,16 +23,16 @@ public class RoundLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f12281e;
+    public float f12311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Shape f12282f;
+    public Shape f12312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f12283g;
+    public Paint f12313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12284h;
+    public int f12314h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundLinearLayout(Context context) {
@@ -62,9 +62,9 @@ public class RoundLinearLayout extends LinearLayout {
             int saveCount = canvas.getSaveCount();
             canvas.save();
             super.dispatchDraw(canvas);
-            Shape shape = this.f12282f;
+            Shape shape = this.f12312f;
             if (shape != null) {
-                shape.draw(canvas, this.f12283g);
+                shape.draw(canvas, this.f12313g);
             }
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
@@ -79,16 +79,16 @@ public class RoundLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                if (this.f12282f == null) {
+                if (this.f12312f == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                     float[] fArr2 = new float[8];
                     Arrays.fill(fArr, 0.0f);
-                    Arrays.fill(fArr2, 0, this.f12284h, this.f12281e);
-                    this.f12282f = new RoundRectShape(fArr, rectF, fArr2);
+                    Arrays.fill(fArr2, 0, this.f12314h, this.f12311e);
+                    this.f12312f = new RoundRectShape(fArr, rectF, fArr2);
                 }
-                this.f12282f.resize(getWidth(), getHeight());
+                this.f12312f.resize(getWidth(), getHeight());
             }
         }
     }
@@ -96,14 +96,14 @@ public class RoundLinearLayout extends LinearLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f12281e = f2;
+            this.f12311e = f2;
         }
     }
 
     public void setRoundCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f12284h = i2;
+            this.f12314h = i2;
         }
     }
 
@@ -147,15 +147,15 @@ public class RoundLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f12281e = 0.0f;
-        this.f12284h = 4;
+        this.f12311e = 0.0f;
+        this.f12314h = 4;
         setLayerType(1, null);
-        this.f12281e = getResources().getDimension(R.dimen.tbds32);
+        this.f12311e = getResources().getDimension(R.dimen.tbds32);
         Paint paint = new Paint();
-        this.f12283g = paint;
+        this.f12313g = paint;
         paint.setAntiAlias(true);
-        this.f12283g.setColor(-7829368);
-        this.f12283g.setStyle(Paint.Style.FILL);
-        this.f12283g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f12313g.setColor(-7829368);
+        this.f12313g.setStyle(Paint.Style.FILL);
+        this.f12313g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 }

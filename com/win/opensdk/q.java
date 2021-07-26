@@ -1,30 +1,26 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.view.View;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class q implements d {
+public class q implements m0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Y0 f39633a;
+    public final /* synthetic */ ImageView f39912a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public r f39634b;
-
-    public q(Context context, String str) {
+    public q(PBDrawVideo pBDrawVideo, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {pBDrawVideo, imageView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -34,53 +30,30 @@ public class q implements d {
                 return;
             }
         }
-        Y0 y0 = new Y0(context, str);
-        this.f39633a = y0;
-        y0.f39525f = new p(this);
+        this.f39912a = imageView;
     }
 
-    public void a() {
+    @Override // com.win.opensdk.m0
+    public void a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                if (this.f39633a != null) {
-                    this.f39633a.a();
-                    this.f39633a = null;
-                }
-                if (this.f39634b != null) {
-                    this.f39634b = null;
-                }
-            } catch (Exception unused) {
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
         }
     }
 
-    public void a(View view, PBMediaView pBMediaView) {
-        Y0 y0;
+    @Override // com.win.opensdk.m0
+    public void a(Bitmap bitmap) {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, pBMediaView) == null) || (y0 = this.f39633a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (imageView = this.f39912a) == null || bitmap == null) {
             return;
         }
-        y0.a(view, pBMediaView);
+        imageView.setImageBitmap(bitmap);
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.win.opensdk.m0
+    public void a(l0 l0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Y0 y0 = this.f39633a;
-            return (y0 == null || !y0.b()) ? "" : y0.f39522c.getLoad_type();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l0Var) == null) {
         }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Y0 y0 = this.f39633a;
-            return y0 != null && y0.b();
-        }
-        return invokeV.booleanValue;
     }
 }

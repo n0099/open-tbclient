@@ -10,18 +10,18 @@ public final class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PackageManager f23343a;
+    public static PackageManager f23501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f23344b;
+    public static Context f23502b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            f23344b = context;
+            f23502b = context;
             PackageManager packageManager = context.getPackageManager();
-            f23343a = packageManager;
+            f23501a = packageManager;
             if (packageManager == null) {
                 c.d("PermissionUtil#init fail to get PackageManager.");
             }
@@ -32,13 +32,13 @@ public final class p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            PackageManager packageManager = f23343a;
+            PackageManager packageManager = f23501a;
             if (packageManager == null) {
                 c.d("PermissionUtil fail to get PackageManager.");
                 return false;
             }
             try {
-                return packageManager.checkPermission(str, f23344b.getPackageName()) == 0;
+                return packageManager.checkPermission(str, f23502b.getPackageName()) == 0;
             } catch (RuntimeException e2) {
                 c.a("PermissionUtil#hasPermission failed.", e2);
                 return false;

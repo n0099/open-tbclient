@@ -4,11 +4,10 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -20,14 +19,14 @@ public class a {
     public static String a(String str, @NonNull String str2, @NonNull String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), "AES");
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(1, secretKeySpec, new IvParameterSpec(str2.getBytes()));
                 return Base64.encodeToString(cipher.doFinal(str.getBytes("utf-8")), 0);
             } catch (Throwable th) {
-                j.b(th.getMessage());
+                k.c(th.getMessage());
                 return null;
             }
         }
@@ -37,7 +36,7 @@ public class a {
     public static String b(String str, @NonNull String str2, @NonNull String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -47,8 +46,8 @@ public class a {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(2, secretKeySpec, new IvParameterSpec(str2.getBytes()));
                 return new String(cipher.doFinal(decode));
-            } catch (Exception e2) {
-                j.b(e2.getMessage());
+            } catch (Throwable th) {
+                k.c(th.getMessage());
                 return null;
             }
         }
@@ -58,7 +57,7 @@ public class a {
     public static String a(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/ECB/PKCS7Padding");
@@ -77,7 +76,7 @@ public class a {
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -93,17 +92,5 @@ public class a {
             }
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null || str.length() != 16) {
-                return null;
-            }
-            return str.concat(str).substring(8, 24);
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -19,7 +19,7 @@ public class d extends a<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f5190a;
+    public static final Charset f5216a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class d extends a<Object> {
                 return;
             }
         }
-        f5190a = Charset.forName("UTF-8");
+        f5216a = Charset.forName("UTF-8");
     }
 
     public d() {
@@ -59,7 +59,7 @@ public class d extends a<Object> {
             if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
                 return Charset.forName(aVar.j());
             }
-            return f5190a;
+            return f5216a;
         }
         return (Charset) invokeL.objValue;
     }

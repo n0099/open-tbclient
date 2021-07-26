@@ -51,31 +51,31 @@ public class X509Util {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CertificateFactory f23250a;
+    public static CertificateFactory f23408a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f23251b;
+    public static d f23409b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f23252c;
+    public static b f23410c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static d f23253d;
+    public static d f23411d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static KeyStore f23254e;
+    public static KeyStore f23412e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static KeyStore f23255f;
+    public static KeyStore f23413f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static File f23256g;
+    public static File f23414g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Set<Pair<X500Principal, PublicKey>> f23257h;
+    public static Set<Pair<X500Principal, PublicKey>> f23415h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f23258i;
+    public static boolean f23416i;
     public static final Object j;
     public static boolean k;
     public static final char[] l;
@@ -133,7 +133,7 @@ public class X509Util {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509TrustManager f23259a;
+        public final X509TrustManager f23417a;
 
         public c(X509TrustManager x509TrustManager) {
             Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class X509Util {
                     return;
                 }
             }
-            this.f23259a = x509TrustManager;
+            this.f23417a = x509TrustManager;
         }
 
         @Override // com.baidu.turbonet.net.X509Util.d
@@ -158,7 +158,7 @@ public class X509Util {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, x509CertificateArr, str, str2)) == null) {
-                this.f23259a.checkServerTrusted(x509CertificateArr, str);
+                this.f23417a.checkServerTrusted(x509CertificateArr, str);
                 return Collections.emptyList();
             }
             return (List) invokeLLL.objValue;
@@ -176,7 +176,7 @@ public class X509Util {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509TrustManagerExtensions f23260a;
+        public final X509TrustManagerExtensions f23418a;
 
         @SuppressLint({"NewApi"})
         public e(X509TrustManager x509TrustManager) {
@@ -194,14 +194,14 @@ public class X509Util {
                     return;
                 }
             }
-            this.f23260a = new X509TrustManagerExtensions(x509TrustManager);
+            this.f23418a = new X509TrustManagerExtensions(x509TrustManager);
         }
 
         @Override // com.baidu.turbonet.net.X509Util.d
         public List<X509Certificate> a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, x509CertificateArr, str, str2)) == null) ? this.f23260a.checkServerTrusted(x509CertificateArr, str, str2) : (List) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, x509CertificateArr, str, str2)) == null) ? this.f23418a.checkServerTrusted(x509CertificateArr, str, str2) : (List) invokeLLL.objValue;
         }
     }
 
@@ -242,8 +242,8 @@ public class X509Util {
             f();
             X509Certificate d2 = d(bArr);
             synchronized (j) {
-                KeyStore keyStore = f23254e;
-                keyStore.setCertificateEntry("root_cert_" + Integer.toString(f23254e.size()), d2);
+                KeyStore keyStore = f23412e;
+                keyStore.setCertificateEntry("root_cert_" + Integer.toString(f23412e.size()), d2);
                 l();
             }
         }
@@ -255,7 +255,7 @@ public class X509Util {
             f();
             synchronized (j) {
                 try {
-                    f23254e.load(null);
+                    f23412e.load(null);
                     l();
                 } catch (IOException unused) {
                 }
@@ -268,7 +268,7 @@ public class X509Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
             f();
-            return (X509Certificate) f23250a.generateCertificate(new ByteArrayInputStream(bArr));
+            return (X509Certificate) f23408a.generateCertificate(new ByteArrayInputStream(bArr));
         }
         return (X509Certificate) invokeL.objValue;
     }
@@ -310,47 +310,47 @@ public class X509Util {
     public static void g() throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            if (f23250a == null) {
-                f23250a = CertificateFactory.getInstance("X.509");
+            if (f23408a == null) {
+                f23408a = CertificateFactory.getInstance("X.509");
             }
-            if (f23251b == null) {
-                f23251b = e(null);
+            if (f23409b == null) {
+                f23409b = e(null);
             }
-            if (!f23258i) {
+            if (!f23416i) {
                 try {
                     KeyStore keyStore = KeyStore.getInstance("AndroidCAStore");
-                    f23255f = keyStore;
+                    f23413f = keyStore;
                     try {
                         keyStore.load(null);
                     } catch (IOException unused) {
                     }
-                    f23256g = new File(System.getenv("ANDROID_ROOT") + "/etc/security/cacerts");
+                    f23414g = new File(System.getenv("ANDROID_ROOT") + "/etc/security/cacerts");
                 } catch (KeyStoreException unused2) {
                 }
                 if (!k) {
-                    nativeRecordCertVerifyCapabilitiesHistogram(f23255f != null);
+                    nativeRecordCertVerifyCapabilitiesHistogram(f23413f != null);
                 }
-                f23258i = true;
+                f23416i = true;
             }
-            if (f23257h == null) {
-                f23257h = new HashSet();
+            if (f23415h == null) {
+                f23415h = new HashSet();
             }
-            if (f23254e == null) {
+            if (f23412e == null) {
                 KeyStore keyStore2 = KeyStore.getInstance(KeyStore.getDefaultType());
-                f23254e = keyStore2;
+                f23412e = keyStore2;
                 try {
                     keyStore2.load(null);
                 } catch (IOException unused3) {
                 }
             }
-            if (f23253d == null) {
-                f23253d = e(f23254e);
+            if (f23411d == null) {
+                f23411d = e(f23412e);
             }
-            if (k || f23252c != null) {
+            if (k || f23410c != null) {
                 return;
             }
-            f23252c = new b(null);
-            ContextUtils.a().registerReceiver(f23252c, new IntentFilter("android.security.STORAGE_CHANGED"));
+            f23410c = new b(null);
+            ContextUtils.a().registerReceiver(f23410c, new IntentFilter("android.security.STORAGE_CHANGED"));
         }
     }
 
@@ -378,28 +378,28 @@ public class X509Util {
         if (interceptable != null && (invokeL = interceptable.invokeL(65546, null, x509Certificate)) != null) {
             return invokeL.booleanValue;
         }
-        if (f23255f == null) {
+        if (f23413f == null) {
             return false;
         }
         Pair<X500Principal, PublicKey> pair = new Pair<>(x509Certificate.getSubjectX500Principal(), x509Certificate.getPublicKey());
-        if (f23257h.contains(pair)) {
+        if (f23415h.contains(pair)) {
             return true;
         }
         String h2 = h(x509Certificate.getSubjectX500Principal());
         int i2 = 0;
         while (true) {
             String str = h2 + IStringUtil.EXTENSION_SEPARATOR + i2;
-            if (!new File(f23256g, str).exists()) {
+            if (!new File(f23414g, str).exists()) {
                 return false;
             }
-            Certificate certificate = f23255f.getCertificate("system:" + str);
+            Certificate certificate = f23413f.getCertificate("system:" + str);
             if (certificate != null) {
                 if (!(certificate instanceof X509Certificate)) {
                     Log.e("X509Util", "Anchor " + str + " not an X509Certificate: " + certificate.getClass().getName());
                 } else {
                     X509Certificate x509Certificate2 = (X509Certificate) certificate;
                     if (x509Certificate.getSubjectX500Principal().equals(x509Certificate2.getSubjectX500Principal()) && x509Certificate.getPublicKey().equals(x509Certificate2.getPublicKey())) {
-                        f23257h.add(pair);
+                        f23415h.add(pair);
                         return true;
                     }
                 }
@@ -427,8 +427,8 @@ public class X509Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
             synchronized (j) {
-                f23251b = null;
-                f23257h = null;
+                f23409b = null;
+                f23415h = null;
                 g();
             }
             nativeNotifyKeyChainChanged();
@@ -438,7 +438,7 @@ public class X509Util {
     public static void l() throws KeyStoreException, NoSuchAlgorithmException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            f23253d = e(f23254e);
+            f23411d = e(f23412e);
         }
     }
 
@@ -492,14 +492,14 @@ public class X509Util {
                             return new AndroidCertVerifyResult(-6);
                         }
                         synchronized (j) {
-                            if (f23251b == null) {
+                            if (f23409b == null) {
                                 return new AndroidCertVerifyResult(-1);
                             }
                             try {
-                                emptyList = f23251b.a(x509CertificateArr, str, str2);
+                                emptyList = f23409b.a(x509CertificateArr, str, str2);
                             } catch (CertificateException e2) {
                                 try {
-                                    emptyList = f23253d.a(x509CertificateArr, str, str2);
+                                    emptyList = f23411d.a(x509CertificateArr, str, str2);
                                 } catch (CertificateException unused2) {
                                     Log.i("X509Util", "Failed to validate the certificate chain, error: " + e2.getMessage());
                                     if (j(e2)) {

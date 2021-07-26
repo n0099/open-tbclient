@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i1.w.c;
+import d.a.q0.i1.w.c;
 /* loaded from: classes4.dex */
 public abstract class CommonPersonalMsglistModel extends MsglistModel {
     public static /* synthetic */ Interceptable $ic;

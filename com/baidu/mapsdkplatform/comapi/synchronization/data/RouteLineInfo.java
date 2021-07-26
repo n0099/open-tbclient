@@ -20,13 +20,13 @@ public final class RouteLineInfo implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f7862a;
+    public boolean f7888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7863b;
+    public String f7889b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CopyOnWriteArrayList<RouteSectionInfo> f7864c;
+    public CopyOnWriteArrayList<RouteSectionInfo> f7890c;
 
     /* loaded from: classes2.dex */
     public static final class RouteSectionInfo implements Parcelable {
@@ -35,10 +35,10 @@ public final class RouteLineInfo implements Parcelable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LatLng f7865a;
+        public LatLng f7891a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LatLng f7866b;
+        public LatLng f7892b;
 
         static {
             InterceptResult invokeClinit;
@@ -69,10 +69,10 @@ public final class RouteLineInfo implements Parcelable {
                     return;
                 }
             }
-            this.f7865a = null;
-            this.f7866b = null;
-            this.f7865a = null;
-            this.f7866b = null;
+            this.f7891a = null;
+            this.f7892b = null;
+            this.f7891a = null;
+            this.f7892b = null;
         }
 
         public RouteSectionInfo(Parcel parcel) {
@@ -90,35 +90,35 @@ public final class RouteLineInfo implements Parcelable {
                     return;
                 }
             }
-            this.f7865a = null;
-            this.f7866b = null;
-            this.f7865a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.f7866b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f7891a = null;
+            this.f7892b = null;
+            this.f7891a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f7892b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
         }
 
         public LatLng a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7865a : (LatLng) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7891a : (LatLng) invokeV.objValue;
         }
 
         public void a(LatLng latLng) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
-                this.f7865a = latLng;
+                this.f7891a = latLng;
             }
         }
 
         public LatLng b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7866b : (LatLng) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7892b : (LatLng) invokeV.objValue;
         }
 
         public void b(LatLng latLng) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, latLng) == null) {
-                this.f7866b = latLng;
+                this.f7892b = latLng;
             }
         }
 
@@ -136,8 +136,8 @@ public final class RouteLineInfo implements Parcelable {
         public void writeToParcel(Parcel parcel, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-                parcel.writeParcelable(this.f7865a, i2);
-                parcel.writeParcelable(this.f7866b, i2);
+                parcel.writeParcelable(this.f7891a, i2);
+                parcel.writeParcelable(this.f7892b, i2);
             }
         }
     }
@@ -171,9 +171,9 @@ public final class RouteLineInfo implements Parcelable {
                 return;
             }
         }
-        this.f7862a = false;
-        this.f7863b = null;
-        this.f7864c = new CopyOnWriteArrayList<>();
+        this.f7888a = false;
+        this.f7889b = null;
+        this.f7890c = new CopyOnWriteArrayList<>();
     }
 
     public RouteLineInfo(Parcel parcel) {
@@ -191,20 +191,20 @@ public final class RouteLineInfo implements Parcelable {
                 return;
             }
         }
-        this.f7862a = parcel.readByte() != 0;
-        this.f7863b = parcel.readString();
+        this.f7888a = parcel.readByte() != 0;
+        this.f7889b = parcel.readString();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7863b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7889b : (String) invokeV.objValue;
     }
 
     public void a(RouteSectionInfo routeSectionInfo) {
         CopyOnWriteArrayList<RouteSectionInfo> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, routeSectionInfo) == null) || (copyOnWriteArrayList = this.f7864c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, routeSectionInfo) == null) || (copyOnWriteArrayList = this.f7890c) == null) {
             return;
         }
         copyOnWriteArrayList.add(routeSectionInfo);
@@ -213,21 +213,21 @@ public final class RouteLineInfo implements Parcelable {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f7863b = str;
+            this.f7889b = str;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f7862a = z;
+            this.f7888a = z;
         }
     }
 
     public List<RouteSectionInfo> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7864c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7890c : (List) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -244,9 +244,9 @@ public final class RouteLineInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
-            parcel.writeByte(this.f7862a ? (byte) 1 : (byte) 0);
-            parcel.writeString(this.f7863b);
-            parcel.writeTypedList(this.f7864c);
+            parcel.writeByte(this.f7888a ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.f7889b);
+            parcel.writeTypedList(this.f7890c);
         }
     }
 }

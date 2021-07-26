@@ -18,18 +18,18 @@ public final class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1940a = "msp.db";
+    public static final String f1973a = "msp.db";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1941b = 1;
+    public static final int f1974b = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Context> f1942c;
+    public WeakReference<Context> f1975c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
-        super(context, f1940a, (SQLiteDatabase.CursorFactory) null, 1);
+        super(context, f1973a, (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public final class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f1942c = new WeakReference<>(context);
+        this.f1975c = new WeakReference<>(context);
     }
 
     private String c(String str, String str2) {
@@ -238,7 +238,7 @@ public final class a extends SQLiteOpenHelper {
                 th = th3;
                 sQLiteDatabase = null;
             }
-            return TextUtils.isEmpty(str3) ? com.alipay.sdk.encrypt.b.b(str3, com.alipay.sdk.util.a.c(this.f1942c.get())) : str3;
+            return TextUtils.isEmpty(str3) ? com.alipay.sdk.encrypt.b.b(str3, com.alipay.sdk.util.a.c(this.f1975c.get())) : str3;
         }
         return (String) invokeLL.objValue;
     }

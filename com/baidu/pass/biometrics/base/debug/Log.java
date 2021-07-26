@@ -14,10 +14,10 @@ public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9088a = "SAPI_BIOMETRIC";
+    public static final String f9114a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f9089b;
+    public static boolean f9115b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -89,7 +89,7 @@ public final class Log {
 
     public static void d(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f9089b) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f9115b) {
             android.util.Log.d(str, a(str, objArr));
         }
     }
@@ -104,20 +104,20 @@ public final class Log {
     public static void enable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            f9089b = z;
+            f9115b = z;
         }
     }
 
     public static void i(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) && f9089b) {
+        if ((interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) && f9115b) {
             android.util.Log.i(str, a(str, objArr));
         }
     }
 
     public static void w(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) && f9089b) {
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) && f9115b) {
             android.util.Log.w(str, a(str, objArr));
         }
     }
@@ -138,7 +138,7 @@ public final class Log {
 
     public static void e(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) && f9089b) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) && f9115b) {
             android.util.Log.e(str, a(str, objArr));
         }
     }

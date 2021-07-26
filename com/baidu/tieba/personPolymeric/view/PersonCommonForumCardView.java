@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.k.b;
-import d.a.c.e.p.l;
-import d.a.p0.m2.e.f;
+import d.a.d.e.k.b;
+import d.a.d.e.p.l;
+import d.a.q0.m2.e.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -21,7 +21,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f20251i;
+    public Context f20369i;
     public List<f> j;
     public List<PersonCommonForumItemView> k;
     public b<PersonCommonForumItemView> l;
@@ -45,7 +45,7 @@ public class PersonCommonForumCardView extends FlowLayout {
             }
         }
         this.k = new ArrayList();
-        this.f20251i = context;
+        this.f20369i = context;
     }
 
     public final void i() {
@@ -57,7 +57,7 @@ public class PersonCommonForumCardView extends FlowLayout {
             if (fVar != null) {
                 PersonCommonForumItemView b2 = this.l.b();
                 b2.setData(fVar);
-                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f20251i) - l.g(this.f20251i, R.dimen.tbds88)) - l.g(this.f20251i, R.dimen.tbds96)) / 2, -2));
+                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f20369i) - l.g(this.f20369i, R.dimen.tbds88)) - l.g(this.f20369i, R.dimen.tbds96)) / 2, -2));
                 this.k.add(b2);
             }
         }

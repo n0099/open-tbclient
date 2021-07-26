@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.n;
-import d.a.o0.r.q.b0;
-import d.a.o0.r.q.d0;
-import d.a.o0.r.q.d2;
-import d.a.o0.r.q.e2;
-import d.a.o0.r.q.g0;
-import d.a.o0.r.q.g2;
-import d.a.o0.r.q.l;
-import d.a.o0.r.q.m0;
-import d.a.o0.r.q.n2;
+import d.a.d.k.e.n;
+import d.a.p0.s.q.b0;
+import d.a.p0.s.q.d0;
+import d.a.p0.s.q.d2;
+import d.a.p0.s.q.e2;
+import d.a.p0.s.q.g0;
+import d.a.p0.s.q.g2;
+import d.a.p0.s.q.l;
+import d.a.p0.s.q.m0;
+import d.a.p0.s.q.n2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -511,7 +511,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.topic_special_icon_right : (String) invokeV.objValue;
     }
 
-    @Override // d.a.c.k.e.n
+    @Override // d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

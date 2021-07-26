@@ -10,16 +10,16 @@ public class lbvzx {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1436a;
+    public String f1469a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1437b;
+    public long f1470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1438c;
+    public long f1471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1439d;
+    public long f1472d;
 
     public lbvzx() {
         Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class lbvzx {
                 return;
             }
         }
-        this.f1436a = str2;
-        this.f1437b = j;
-        this.f1438c = j2;
-        this.f1439d = j3;
+        this.f1469a = str2;
+        this.f1470b = j;
+        this.f1471c = j2;
+        this.f1472d = j3;
     }
 }

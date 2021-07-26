@@ -16,7 +16,7 @@ import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.faceunity.gles.GeneratedTexture;
-import d.a.z.b.a.g;
+import d.a.a0.b.a.g;
 /* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
@@ -28,31 +28,31 @@ public class a {
     public float E;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f23717a;
+    public int[] f23875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f23718b;
+    public int[] f23876b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MultiMediaData f23719c;
+    public MultiMediaData f23877c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23720d;
+    public int f23878d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23721e;
+    public int f23879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f23722f;
+    public float[] f23880f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f23723g;
+    public float f23881g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f23724h;
+    public float f23882h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GLViewPortLocation f23725i;
+    public GLViewPortLocation f23883i;
     public float j;
     public float k;
     public float l;
@@ -86,14 +86,14 @@ public class a {
                 return;
             }
         }
-        this.f23722f = new float[16];
+        this.f23880f = new float[16];
         this.y = "left_top";
         this.z = "right_bottom";
         this.A = "left_bottom";
-        this.f23717a = new int[1];
-        this.f23718b = new int[1];
+        this.f23875a = new int[1];
+        this.f23876b = new int[1];
         this.E = 1.0f;
-        this.f23719c = multiMediaData;
+        this.f23877c = multiMediaData;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -159,15 +159,15 @@ public class a {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             float f2 = this.m;
             float f3 = this.E;
-            this.f23723g = f2 * f3;
-            this.f23724h = this.n * f3;
+            this.f23881g = f2 * f3;
+            this.f23882h = this.n * f3;
             float sin = (float) Math.sin(Math.toRadians(this.j));
             float cos = (float) Math.cos(Math.toRadians(this.j));
             float f4 = this.k;
-            float f5 = this.f23723g;
+            float f5 = this.f23881g;
             float f6 = f4 - f5;
             float f7 = this.l;
-            float f8 = this.f23724h;
+            float f8 = this.f23882h;
             float f9 = f7 + f8;
             float f10 = f7 - f8;
             float f11 = f5 + f4;
@@ -206,8 +206,8 @@ public class a {
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.f23720d = i2;
-            this.f23721e = i3;
+            this.f23878d = i2;
+            this.f23879e = i3;
         }
     }
 
@@ -223,12 +223,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fullFrameRect) == null) {
             float[] fArr = new float[16];
-            float[] fArr2 = this.f23722f;
+            float[] fArr2 = this.f23880f;
             float f2 = this.j;
             PointF pointF = this.x;
             Matrix.multiplyMM(fArr, 0, fArr2, 0, a(f2, pointF.x, pointF.y, -this.C, this.D), 0);
             fullFrameRect.setVertexPoint(fArr);
-            fullFrameRect.drawFrame(this.u.textureId, g.f68731b);
+            fullFrameRect.drawFrame(this.u.textureId, g.f41263b);
             Matrix.setIdentityM(fArr, 0);
             fullFrameRect.setVertexPoint(fArr);
         }
@@ -237,23 +237,23 @@ public class a {
     public void a(FullFrameRect fullFrameRect, MultiMediaData multiMediaData) {
         GLViewPortLocation gLViewPortLocation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, fullFrameRect, multiMediaData) == null) || multiMediaData == null || multiMediaData.textureId == 0 || (gLViewPortLocation = this.f23725i) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, fullFrameRect, multiMediaData) == null) || multiMediaData == null || multiMediaData.textureId == 0 || (gLViewPortLocation = this.f23883i) == null) {
             return;
         }
         float[] fArr = new float[16];
-        float[] fArr2 = this.f23722f;
+        float[] fArr2 = this.f23880f;
         int i2 = gLViewPortLocation.width;
         int i3 = gLViewPortLocation.height;
         Matrix.multiplyMM(fArr, 0, fArr2, 0, a(0.0f, i2 / 2.0f, i3 / 2.0f, Math.min(i2, i3), 5.0f), 0);
         fullFrameRect.setVertexPoint(fArr);
-        fullFrameRect.drawFrame(multiMediaData.textureId, g.f68731b);
-        float[] fArr3 = this.f23722f;
-        GLViewPortLocation gLViewPortLocation2 = this.f23725i;
+        fullFrameRect.drawFrame(multiMediaData.textureId, g.f41263b);
+        float[] fArr3 = this.f23880f;
+        GLViewPortLocation gLViewPortLocation2 = this.f23883i;
         int i4 = gLViewPortLocation2.width;
         int i5 = gLViewPortLocation2.height;
         Matrix.multiplyMM(fArr, 0, fArr3, 0, a(90.0f, i4 / 2.0f, i5 / 2.0f, Math.min(i4, i5), 5.0f), 0);
         fullFrameRect.setVertexPoint(fArr);
-        fullFrameRect.drawFrame(multiMediaData.textureId, g.f68731b);
+        fullFrameRect.drawFrame(multiMediaData.textureId, g.f41263b);
         Matrix.setIdentityM(fArr, 0);
         fullFrameRect.setVertexPoint(fArr);
     }
@@ -261,33 +261,33 @@ public class a {
     public void a(FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, fullFrameRect, fullFrameRect2) == null) {
-            SurfaceTexture surfaceTexture = this.f23719c.surfaceTexture;
+            SurfaceTexture surfaceTexture = this.f23877c.surfaceTexture;
             if (surfaceTexture != null) {
                 surfaceTexture.updateTexImage();
-                surfaceTexture.getTransformMatrix(this.f23719c.mtx);
+                surfaceTexture.getTransformMatrix(this.f23877c.mtx);
             }
             float[] fArr = new float[16];
             Matrix.setIdentityM(fArr, 0);
-            MultiMediaData multiMediaData = this.f23719c;
+            MultiMediaData multiMediaData = this.f23877c;
             this.j = multiMediaData.rotation + multiMediaData.angle;
-            int i2 = this.f23720d;
-            float f2 = i2 != 0 ? (this.f23725i.width * 1.0f) / i2 : 1.0f;
-            int round = Math.round(this.f23719c.width * f2) / 2;
-            int round2 = Math.round(this.f23719c.height * f2) / 2;
-            MultiMediaData multiMediaData2 = this.f23719c;
+            int i2 = this.f23878d;
+            float f2 = i2 != 0 ? (this.f23883i.width * 1.0f) / i2 : 1.0f;
+            int round = Math.round(this.f23877c.width * f2) / 2;
+            int round2 = Math.round(this.f23877c.height * f2) / 2;
+            MultiMediaData multiMediaData2 = this.f23877c;
             float f3 = multiMediaData2.x;
             float f4 = multiMediaData2.y;
-            int i3 = this.f23720d;
+            int i3 = this.f23878d;
             if (i3 != 0) {
-                f3 = (f3 / i3) * this.f23725i.width;
+                f3 = (f3 / i3) * this.f23883i.width;
             }
-            int i4 = this.f23721e;
+            int i4 = this.f23879e;
             if (i4 != 0) {
-                f4 = (this.f23719c.y / i4) * this.f23725i.height;
+                f4 = (this.f23877c.y / i4) * this.f23883i.height;
             }
-            MultiMediaData multiMediaData3 = this.f23719c;
+            MultiMediaData multiMediaData3 = this.f23877c;
             this.k = ((multiMediaData3.width / 2.0f) * f2) + f3;
-            this.l = (this.f23725i.height - ((multiMediaData3.height / 2.0f) * f2)) - f4;
+            this.l = (this.f23883i.height - ((multiMediaData3.height / 2.0f) * f2)) - f4;
             if (multiMediaData3.type == 0) {
                 if (multiMediaData3.rotation == 0.0f) {
                     this.j += 180.0f;
@@ -302,17 +302,17 @@ public class a {
                     round = round2;
                 }
             }
-            MultiMediaData multiMediaData4 = this.f23719c;
+            MultiMediaData multiMediaData4 = this.f23877c;
             this.m = round * multiMediaData4.scaleX;
             this.n = round2 * multiMediaData4.scaleY;
-            Matrix.multiplyMM(fArr, 0, this.f23722f, 0, a(this.j, this.k, this.l, this.m, this.n), 0);
-            FullFrameRect fullFrameRect3 = this.f23719c.type == 0 ? fullFrameRect : fullFrameRect2;
+            Matrix.multiplyMM(fArr, 0, this.f23880f, 0, a(this.j, this.k, this.l, this.m, this.n), 0);
+            FullFrameRect fullFrameRect3 = this.f23877c.type == 0 ? fullFrameRect : fullFrameRect2;
             fullFrameRect3.setVertexPoint(fArr);
-            MultiMediaData multiMediaData5 = this.f23719c;
+            MultiMediaData multiMediaData5 = this.f23877c;
             fullFrameRect3.drawFrame(multiMediaData5.textureId, multiMediaData5.mtx);
             Matrix.setIdentityM(fArr, 0);
             fullFrameRect3.setVertexPoint(fArr);
-            if (this.f23723g == 0.0f || this.f23724h == 0.0f || this.v == null || this.w == null) {
+            if (this.f23881g == 0.0f || this.f23882h == 0.0f || this.v == null || this.w == null) {
                 e();
             }
         }
@@ -321,7 +321,7 @@ public class a {
     public void a(GLViewPortLocation gLViewPortLocation) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, gLViewPortLocation) == null) {
-            this.f23725i = gLViewPortLocation;
+            this.f23883i = gLViewPortLocation;
         }
     }
 
@@ -335,7 +335,7 @@ public class a {
     public void a(float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fArr) == null) {
-            this.f23722f = fArr;
+            this.f23880f = fArr;
         }
     }
 
@@ -349,14 +349,14 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (this.f23725i == null) {
+            if (this.f23883i == null) {
                 return false;
             }
             float f4 = this.k;
-            float f5 = this.f23723g;
-            int i2 = this.f23725i.height;
+            float f5 = this.f23881g;
+            int i2 = this.f23883i.height;
             float f6 = this.l;
-            float f7 = this.f23724h;
+            float f7 = this.f23882h;
             RectF rectF = new RectF(f4 - f5, (i2 - f6) - f7, f4 + f5, (i2 - f6) + f7);
             new android.graphics.Matrix().mapRect(rectF);
             float f8 = this.j;
@@ -377,7 +377,7 @@ public class a {
     public MultiMediaData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f23719c : (MultiMediaData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f23877c : (MultiMediaData) invokeV.objValue;
     }
 
     public void b(MultiMediaData multiMediaData, String str) {
@@ -390,13 +390,13 @@ public class a {
 
     public void b(FullFrameRect fullFrameRect) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, fullFrameRect) == null) && this.f23717a[0] == 0) {
-            this.f23718b[0] = fullFrameRect.createTexture2DObject();
-            GLViewPortLocation gLViewPortLocation = this.f23725i;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, fullFrameRect) == null) && this.f23875a[0] == 0) {
+            this.f23876b[0] = fullFrameRect.createTexture2DObject();
+            GLViewPortLocation gLViewPortLocation = this.f23883i;
             GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, gLViewPortLocation.width, gLViewPortLocation.height, 0, GeneratedTexture.FORMAT, 5121, null);
-            GLES20.glGenFramebuffers(1, this.f23717a, 0);
-            GLES20.glBindFramebuffer(36160, this.f23717a[0]);
-            GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.f23718b[0], 0);
+            GLES20.glGenFramebuffers(1, this.f23875a, 0);
+            GLES20.glBindFramebuffer(36160, this.f23875a[0]);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.f23876b[0], 0);
             GLES20.glBindTexture(3553, 0);
             GLES20.glBindFramebuffer(36160, 0);
         }
@@ -407,21 +407,21 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(1048591, this, fullFrameRect, fullFrameRect2) == null) {
             e();
             float[] fArr = new float[16];
-            Matrix.multiplyMM(fArr, 0, this.f23722f, 0, a(this.j, this.k, this.l, this.f23723g, this.f23724h), 0);
+            Matrix.multiplyMM(fArr, 0, this.f23880f, 0, a(this.j, this.k, this.l, this.f23881g, this.f23882h), 0);
             fullFrameRect2.setVertexPoint(fArr);
             fullFrameRect2.drawFrame(fArr);
-            float[] fArr2 = this.f23722f;
+            float[] fArr2 = this.f23880f;
             float f2 = this.j;
             PointF pointF = this.v;
             Matrix.multiplyMM(fArr, 0, fArr2, 0, a(f2, pointF.x, pointF.y, -this.C, this.D), 0);
             fullFrameRect.setVertexPoint(fArr);
-            fullFrameRect.drawFrame(this.s.textureId, g.f68731b);
-            float[] fArr3 = this.f23722f;
+            fullFrameRect.drawFrame(this.s.textureId, g.f41263b);
+            float[] fArr3 = this.f23880f;
             float f3 = this.j;
             PointF pointF2 = this.w;
             Matrix.multiplyMM(fArr, 0, fArr3, 0, a(f3, pointF2.x, pointF2.y, -this.C, this.D), 0);
             fullFrameRect.setVertexPoint(fArr);
-            fullFrameRect.drawFrame(this.t.textureId, g.f68731b);
+            fullFrameRect.drawFrame(this.t.textureId, g.f41263b);
             Matrix.setIdentityM(fArr, 0);
             fullFrameRect.setVertexPoint(fArr);
         }
@@ -431,13 +431,13 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (this.f23725i == null || this.w == null || this.t == null) {
+            if (this.f23883i == null || this.w == null || this.t == null) {
                 return false;
             }
             PointF pointF = this.w;
             float f4 = pointF.x;
             float f5 = this.C;
-            int i2 = this.f23725i.height;
+            int i2 = this.f23883i.height;
             float f6 = pointF.y;
             float f7 = this.D;
             RectF rectF = new RectF(f4 - (f5 * 1.5f), (i2 - f6) + (f7 * 1.5f), f4 + (f5 * 1.5f), (i2 - f6) - (f7 * 1.5f));
@@ -451,10 +451,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.f23725i == null) {
+            if (this.f23883i == null) {
                 return null;
             }
-            return new PointF(this.k, this.f23725i.height - this.l);
+            return new PointF(this.k, this.f23883i.height - this.l);
         }
         return (PointF) invokeV.objValue;
     }
@@ -471,13 +471,13 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (this.f23725i == null || this.v == null || this.s == null) {
+            if (this.f23883i == null || this.v == null || this.s == null) {
                 return false;
             }
             PointF pointF = this.v;
             float f4 = pointF.x;
             float f5 = this.C;
-            int i2 = this.f23725i.height;
+            int i2 = this.f23883i.height;
             float f6 = pointF.y;
             float f7 = this.D;
             RectF rectF = new RectF(f4 - (f5 * 1.5f), (i2 - f6) + (f7 * 1.5f), f4 + (f5 * 1.5f), (i2 - f6) - (f7 * 1.5f));
@@ -490,9 +490,9 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            int[] iArr = this.f23718b;
+            int[] iArr = this.f23876b;
             GLES20.glDeleteTextures(iArr.length, iArr, 0);
-            int[] iArr2 = this.f23717a;
+            int[] iArr2 = this.f23875a;
             GLES20.glDeleteFramebuffers(iArr2.length, iArr2, 0);
         }
     }
@@ -501,13 +501,13 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (this.f23725i == null || this.x == null || this.u == null) {
+            if (this.f23883i == null || this.x == null || this.u == null) {
                 return false;
             }
             PointF pointF = this.x;
             float f4 = pointF.x;
             float f5 = this.C;
-            int i2 = this.f23725i.height;
+            int i2 = this.f23883i.height;
             float f6 = pointF.y;
             float f7 = this.D;
             RectF rectF = new RectF(f4 - (f5 * 1.5f), (i2 - f6) + (f7 * 1.5f), f4 + (f5 * 1.5f), (i2 - f6) - (f7 * 1.5f));

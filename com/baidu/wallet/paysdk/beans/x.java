@@ -28,13 +28,13 @@ public class x extends PayBaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f26014a;
+    public PwdRequest f26172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26015b;
+    public String f26173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26016c;
+    public boolean f26174c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> x(Context context) {
@@ -54,14 +54,14 @@ public class x extends PayBaseBean<Object> {
                 return;
             }
         }
-        this.f26014a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f26172a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     private void a(List<RestNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f26016c && !TextUtils.isEmpty(this.f26015b)) {
+        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f26174c && !TextUtils.isEmpty(this.f26173b)) {
             try {
-                JSONObject jSONObject = new JSONObject(this.f26015b);
+                JSONObject jSONObject = new JSONObject(this.f26173b);
                 jSONObject.remove(Constants.HALF_SCREEN_PWD_VERIFY);
                 Iterator<String> keys = jSONObject.keys();
                 if (keys != null) {
@@ -93,19 +93,19 @@ public class x extends PayBaseBean<Object> {
             ArrayList arrayList = new ArrayList();
             String seed = PasswordController.getSeed();
             String encryptProxy = SafePay.getInstance().encryptProxy(seed);
-            int i2 = this.f26014a.mRequestType;
+            int i2 = this.f26172a.mRequestType;
             if (i2 != 2 && i2 != 1) {
-                String encryptProxy2 = SafePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f26014a.mConfirmPayPass));
-                String handlePwd = PasswordController.handlePwd(this.f26014a.mConfirmPayPass, seed);
+                String encryptProxy2 = SafePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f26172a.mConfirmPayPass));
+                String handlePwd = PasswordController.handlePwd(this.f26172a.mConfirmPayPass, seed);
                 String str = SafePay.getInstance().getpwProxy();
                 arrayList.add(new RestNameValuePair("new_mobile_pwd", encryptProxy2));
                 arrayList.add(new RestNameValuePair("confirm_new_mobile_pwd", handlePwd));
-                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f26014a.mConfirmPayPass)));
+                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f26172a.mConfirmPayPass)));
                 arrayList.add(new RestNameValuePair("key_no", str));
-                arrayList.add(new RestNameValuePair("sess_key", this.f26014a.mSessionKey));
+                arrayList.add(new RestNameValuePair("sess_key", this.f26172a.mSessionKey));
             } else {
-                if (!TextUtils.isEmpty(this.f26014a.mPayPass)) {
-                    String handlePwd2 = PasswordController.handlePwd(this.f26014a.mPayPass, seed);
+                if (!TextUtils.isEmpty(this.f26172a.mPayPass)) {
+                    String handlePwd2 = PasswordController.handlePwd(this.f26172a.mPayPass, seed);
                     String str2 = SafePay.getInstance().getpwProxy();
                     arrayList.add(new RestNameValuePair("mobile_pwd", handlePwd2));
                     arrayList.add(new RestNameValuePair("key", str2));
@@ -113,7 +113,7 @@ public class x extends PayBaseBean<Object> {
                 a(arrayList);
             }
             arrayList.add(new RestNameValuePair("seed", encryptProxy));
-            PwdRequest pwdRequest = this.f26014a;
+            PwdRequest pwdRequest = this.f26172a;
             if (pwdRequest.mRequestType == 2 && TextUtils.equals(pwdRequest.fromType, BeanConstants.FROM_BIND)) {
                 BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
                 arrayList.add(new RestNameValuePair("scenario", "bindcard"));
@@ -123,7 +123,7 @@ public class x extends PayBaseBean<Object> {
                 } else {
                     arrayList.add(new RestNameValuePair("request_type", BindFastRequest.getCardRequestType(1)));
                 }
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f26014a.serviceType));
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f26172a.serviceType));
             }
             return arrayList;
         }
@@ -135,7 +135,7 @@ public class x extends PayBaseBean<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f26014a.mRequestType;
+            int i2 = this.f26172a.mRequestType;
             if (i2 == 2) {
                 return 257;
             }
@@ -149,7 +149,7 @@ public class x extends PayBaseBean<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.f26014a.mRequestType;
+            int i2 = this.f26172a.mRequestType;
             if (i2 == 2) {
                 String str = PayRequestCache.getInstance().isPaying() ? BeanConstants.API_VERIFY_PAY_PWD : BeanConstants.API_VERIFY_MOBILE_PWD_NEW;
                 return DomainConfig.getInstance().getAppPayHost() + str;
@@ -167,14 +167,14 @@ public class x extends PayBaseBean<Object> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f26015b = str;
+            this.f26173b = str;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f26016c = z;
+            this.f26174c = z;
         }
     }
 }

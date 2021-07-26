@@ -10,7 +10,7 @@ public class je {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40517a = Integer.MAX_VALUE;
+    public static int f40789a = Integer.MAX_VALUE;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class je {
     public static void a(jb jbVar, byte b2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{jbVar, Byte.valueOf(b2)}) == null) {
-            a(jbVar, b2, f40517a);
+            a(jbVar, b2, f40789a);
         }
     }
 
@@ -74,7 +74,7 @@ public class je {
             case 12:
                 jbVar.m524a();
                 while (true) {
-                    byte b3 = jbVar.m520a().f40508a;
+                    byte b3 = jbVar.m520a().f40780a;
                     if (b3 == 0) {
                         jbVar.f();
                         return;
@@ -87,8 +87,8 @@ public class je {
                 ja m522a = jbVar.m522a();
                 while (i3 < m522a.f814a) {
                     int i4 = i2 - 1;
-                    a(jbVar, m522a.f40513a, i4);
-                    a(jbVar, m522a.f40514b, i4);
+                    a(jbVar, m522a.f40785a, i4);
+                    a(jbVar, m522a.f40786b, i4);
                     i3++;
                 }
                 jbVar.h();
@@ -96,7 +96,7 @@ public class je {
             case 14:
                 jf m523a = jbVar.m523a();
                 while (i3 < m523a.f815a) {
-                    a(jbVar, m523a.f40518a, i2 - 1);
+                    a(jbVar, m523a.f40790a, i2 - 1);
                     i3++;
                 }
                 jbVar.j();
@@ -104,7 +104,7 @@ public class je {
             case 15:
                 iz m521a = jbVar.m521a();
                 while (i3 < m521a.f811a) {
-                    a(jbVar, m521a.f40509a, i2 - 1);
+                    a(jbVar, m521a.f40781a, i2 - 1);
                     i3++;
                 }
                 jbVar.i();

@@ -66,7 +66,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f2074a;
+    public static b f2107a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -82,7 +82,7 @@ public class b {
                 return;
             }
         }
-        f2074a = new b();
+        f2107a = new b();
     }
 
     public b() {
@@ -250,7 +250,7 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f2074a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f2107a : (b) invokeV.objValue;
     }
 
     public static String a(BluetoothAdapter bluetoothAdapter) {
@@ -334,7 +334,7 @@ public class b {
                         if (subtype != 3 && subtype != 5 && subtype != 6 && subtype != 8 && subtype != 9 && subtype != 10 && subtype != 12 && subtype != 14 && subtype != 15) {
                             return subtype == 13 ? "4G" : "UNKNOW";
                         }
-                        return g.f3986b;
+                        return g.f4012b;
                     }
                     return "2G";
                 }

@@ -18,13 +18,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f34215a = true;
+    public static boolean f34404a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f34216b = "[KSAdSDK_3.3.11]";
+    public static String f34405b = "[KSAdSDK_3.3.11]";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f34217c;
+    public static boolean f34406c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class a {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f34216b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f34405b : (String) invokeV.objValue;
     }
 
     public static void a(String str) {
@@ -57,14 +57,14 @@ public class a {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f34215a && b.f33870b.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f34404a && b.f34059b.booleanValue()) {
             b(a(), f(str, str2));
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f34215a) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f34404a) {
             Log.e(str, str2, th);
         }
     }
@@ -72,24 +72,24 @@ public class a {
     public static void a(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, str, z) == null) {
-            f34216b = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
-            f34215a = z;
+            f34405b = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
+            f34404a = z;
         }
     }
 
     public static void a(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) {
-            if (f34215a && th != null) {
+            if (f34404a && th != null) {
                 th.printStackTrace();
             }
-            if (b.f33870b.booleanValue()) {
+            if (b.f34059b.booleanValue()) {
                 ar.a(new Runnable(th) { // from class: com.kwad.sdk.core.d.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f34218a;
+                    public final /* synthetic */ Throwable f34407a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -106,14 +106,14 @@ public class a {
                                 return;
                             }
                         }
-                        this.f34218a = th;
+                        this.f34407a = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            throw new RuntimeException(this.f34218a);
+                            throw new RuntimeException(this.f34407a);
                         }
                     }
                 });
@@ -127,7 +127,7 @@ public class a {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f34217c) {
+            if (f34406c) {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 if (stackTrace.length > 3) {
                     str = stackTrace[3].getFileName();
@@ -157,28 +157,28 @@ public class a {
 
     public static void b(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, th) == null) && b.f33870b.booleanValue() && th != null) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, th) == null) && b.f34059b.booleanValue() && th != null) {
             th.printStackTrace();
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f34215a) {
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f34404a) {
             Log.i(a(), f(str, str2));
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f34215a) {
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f34404a) {
             Log.w(a(), f(str, str2));
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f34215a) {
+        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f34404a) {
             Log.e(a(), f(str, str2));
         }
     }

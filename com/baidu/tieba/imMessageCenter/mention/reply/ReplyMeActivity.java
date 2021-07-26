@@ -37,7 +37,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.o0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

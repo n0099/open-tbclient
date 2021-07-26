@@ -27,16 +27,16 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f20950a;
+    public Context f21068a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f20951b;
+    public b f21069b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f20952c;
+    public List<String> f21070c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20953d;
+    public int f21071d;
 
     /* loaded from: classes4.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -44,10 +44,10 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f20954a;
+        public TextView f21072a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f20955b;
+        public View f21073b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(@NonNull LeftAdapter leftAdapter, View view) {
@@ -67,8 +67,8 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.f20954a = (TextView) view.findViewById(R.id.tv_class_name);
-            this.f20955b = view.findViewById(R.id.tv_line);
+            this.f21072a = (TextView) view.findViewById(R.id.tv_class_name);
+            this.f21073b = view.findViewById(R.id.tv_line);
         }
     }
 
@@ -78,16 +78,16 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f20956e;
+        public final /* synthetic */ int f21074e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewHolder f20957f;
+        public final /* synthetic */ ViewHolder f21075f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f20958g;
+        public final /* synthetic */ String f21076g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ LeftAdapter f20959h;
+        public final /* synthetic */ LeftAdapter f21077h;
 
         public a(LeftAdapter leftAdapter, int i2, ViewHolder viewHolder, String str) {
             Interceptable interceptable = $ic;
@@ -104,22 +104,22 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.f20959h = leftAdapter;
-            this.f20956e = i2;
-            this.f20957f = viewHolder;
-            this.f20958g = str;
+            this.f21077h = leftAdapter;
+            this.f21074e = i2;
+            this.f21075f = viewHolder;
+            this.f21076g = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20959h.l(this.f20956e);
-                if (this.f20959h.f20951b != null) {
-                    this.f20959h.f20951b.a(this.f20957f.itemView, this.f20956e, this.f20958g);
+                this.f21077h.l(this.f21074e);
+                if (this.f21077h.f21069b != null) {
+                    this.f21077h.f21069b.a(this.f21075f.itemView, this.f21074e, this.f21076g);
                 }
                 StatisticItem statisticItem = new StatisticItem("c13649");
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f20958g);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f21076g);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -145,27 +145,27 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                 return;
             }
         }
-        this.f20951b = null;
-        this.f20953d = 0;
-        this.f20950a = context;
+        this.f21069b = null;
+        this.f21071d = 0;
+        this.f21068a = context;
     }
 
     public String e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (String) ListUtils.getItem(this.f20952c, i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (String) ListUtils.getItem(this.f21070c, i2) : (String) invokeI.objValue;
     }
 
     public int f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ListUtils.getPosition(this.f20952c, str) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ListUtils.getPosition(this.f21070c, str) : invokeL.intValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e(this.f20953d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e(this.f21071d) : (String) invokeV.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -173,7 +173,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.f20952c;
+            List<String> list = this.f21070c;
             if (list == null) {
                 return 0;
             }
@@ -188,18 +188,18 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i2) == null) {
-            String str = this.f20952c.get(i2);
+            String str = this.f21070c.get(i2);
             viewHolder.itemView.setTag(Integer.valueOf(i2));
-            viewHolder.f20954a.setText(str);
-            if (this.f20953d == i2) {
-                viewHolder.f20955b.setVisibility(0);
-                SkinManager.setBackgroundColor(viewHolder.f20955b, R.color.CAM_X0302);
+            viewHolder.f21072a.setText(str);
+            if (this.f21071d == i2) {
+                viewHolder.f21073b.setVisibility(0);
+                SkinManager.setBackgroundColor(viewHolder.f21073b, R.color.CAM_X0302);
                 SkinManager.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(viewHolder.f20954a, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(viewHolder.f21072a, R.color.CAM_X0105);
             } else {
-                viewHolder.f20955b.setVisibility(8);
+                viewHolder.f21073b.setVisibility(8);
                 SkinManager.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0204);
-                SkinManager.setViewTextColor(viewHolder.f20954a, R.color.CAM_X0107);
+                SkinManager.setViewTextColor(viewHolder.f21072a, R.color.CAM_X0107);
             }
             if ("推荐".equals(g())) {
                 StatisticItem statisticItem = new StatisticItem("c13641");
@@ -218,14 +218,14 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) ? new ViewHolder(this, LayoutInflater.from(this.f20950a).inflate(R.layout.left_item_layout, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) ? new ViewHolder(this, LayoutInflater.from(this.f21068a).inflate(R.layout.left_item_layout, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
     }
 
     public void j(int i2, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, list) == null) {
-            this.f20953d = i2;
-            this.f20952c = list;
+            this.f21071d = i2;
+            this.f21070c = list;
             notifyDataSetChanged();
         }
     }
@@ -233,14 +233,14 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void k(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f20951b = bVar;
+            this.f21069b = bVar;
         }
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f20953d = i2;
+            this.f21071d = i2;
             notifyDataSetChanged();
         }
     }

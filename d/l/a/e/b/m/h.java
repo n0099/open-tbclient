@@ -55,7 +55,7 @@ public class h extends d.l.a.e.b.g.c {
                 d.l.a.e.b.c.a.g(m, "onStartCommand");
             }
             if (!d.l.a.e.b.l.a.a(262144)) {
-                this.f71757g = true;
+                this.f72211g = true;
             }
             g();
         }
@@ -65,8 +65,8 @@ public class h extends d.l.a.e.b.g.c {
     public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && d.l.a.e.b.l.a.a(262144)) {
-            this.f71757g = true;
-            this.f71759i = false;
+            this.f72211g = true;
+            this.f72213i = false;
             if (d.l.a.e.b.c.a.e()) {
                 d.l.a.e.b.c.a.g(m, "onStartCommandOnMainThread");
             }

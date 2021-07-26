@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.IBinderPool;
 import com.bytedance.sdk.openadsdk.multipro.aidl.a.b;
 import com.bytedance.sdk.openadsdk.multipro.aidl.a.c;
@@ -25,7 +25,7 @@ public class BinderPoolService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Binder f31522a;
+    public Binder f31709a;
 
     /* loaded from: classes5.dex */
     public static class a extends IBinderPool.Stub {
@@ -51,7 +51,7 @@ public class BinderPoolService extends Service {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                j.c("MultiProcess", "queryBinder...........binderCode=" + i2);
+                k.c("MultiProcess", "queryBinder...........binderCode=" + i2);
                 if (i2 != 0) {
                     if (i2 != 1) {
                         if (i2 != 2) {
@@ -86,7 +86,7 @@ public class BinderPoolService extends Service {
                 return;
             }
         }
-        this.f31522a = new a();
+        this.f31709a = new a();
     }
 
     @Override // android.app.Service
@@ -95,8 +95,8 @@ public class BinderPoolService extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            j.b("MultiProcess", "BinderPoolService onBind ! ");
-            return this.f31522a;
+            k.b("MultiProcess", "BinderPoolService onBind ! ");
+            return this.f31709a;
         }
         return (IBinder) invokeL.objValue;
     }
@@ -106,7 +106,7 @@ public class BinderPoolService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            j.b("MultiProcess", "BinderPoolService has been created ! ");
+            k.b("MultiProcess", "BinderPoolService has been created ! ");
         }
     }
 
@@ -115,7 +115,7 @@ public class BinderPoolService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            j.b("MultiProcess", "BinderPoolService is destroy ! ");
+            k.b("MultiProcess", "BinderPoolService is destroy ! ");
         }
     }
 }

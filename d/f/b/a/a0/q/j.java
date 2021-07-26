@@ -13,33 +13,33 @@ public final class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f69398a;
+    public final int f69852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f69399b;
+    public final int f69853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f69400c;
+    public final long f69854c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f69401d;
+    public final long f69855d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f69402e;
+    public final long f69856e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Format f69403f;
+    public final Format f69857f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f69404g;
+    public final int f69858g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final long[] f69405h;
+    public final long[] f69859h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final long[] f69406i;
+    public final long[] f69860i;
     public final int j;
     @Nullable
     public final k[] k;
@@ -59,17 +59,17 @@ public final class j {
                 return;
             }
         }
-        this.f69398a = i2;
-        this.f69399b = i3;
-        this.f69400c = j;
-        this.f69401d = j2;
-        this.f69402e = j3;
-        this.f69403f = format;
-        this.f69404g = i4;
+        this.f69852a = i2;
+        this.f69853b = i3;
+        this.f69854c = j;
+        this.f69855d = j2;
+        this.f69856e = j3;
+        this.f69857f = format;
+        this.f69858g = i4;
         this.k = kVarArr;
         this.j = i5;
-        this.f69405h = jArr;
-        this.f69406i = jArr2;
+        this.f69859h = jArr;
+        this.f69860i = jArr2;
     }
 
     public k a(int i2) {

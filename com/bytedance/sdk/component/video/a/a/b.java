@@ -27,31 +27,31 @@ public class b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile long f28922a;
+    public volatile long f29021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f28923b;
+    public final Object f29022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f28924c;
+    public File f29023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f28925d;
+    public File f29024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f28926e;
+    public long f29025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile long f28927f;
+    public volatile long f29026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f28928g;
+    public volatile boolean f29027g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f28929h;
+    public volatile boolean f29028h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RandomAccessFile f28930i;
+    public RandomAccessFile f29029i;
     public final com.bytedance.sdk.component.video.b.a j;
 
     public b(Context context, com.bytedance.sdk.component.video.b.a aVar) {
@@ -69,26 +69,26 @@ public class b implements a {
                 return;
             }
         }
-        this.f28922a = -2147483648L;
-        this.f28923b = new Object();
-        this.f28926e = 0L;
-        this.f28927f = -1L;
-        this.f28928g = false;
-        this.f28929h = false;
-        this.f28930i = null;
+        this.f29021a = -2147483648L;
+        this.f29022b = new Object();
+        this.f29025e = 0L;
+        this.f29026f = -1L;
+        this.f29027g = false;
+        this.f29028h = false;
+        this.f29029i = null;
         this.j = aVar;
         try {
-            this.f28924c = com.bytedance.sdk.component.video.d.b.a(aVar.d(), aVar.c());
-            this.f28925d = com.bytedance.sdk.component.video.d.b.b(aVar.d(), aVar.c());
+            this.f29023c = com.bytedance.sdk.component.video.d.b.b(aVar.d(), aVar.c());
+            this.f29024d = com.bytedance.sdk.component.video.d.b.c(aVar.d(), aVar.c());
             if (d()) {
-                this.f28930i = new RandomAccessFile(this.f28925d, r.f7762a);
+                this.f29029i = new RandomAccessFile(this.f29024d, r.f7788a);
             } else {
-                this.f28930i = new RandomAccessFile(this.f28924c, "rw");
+                this.f29029i = new RandomAccessFile(this.f29023c, "rw");
             }
             if (d()) {
                 return;
             }
-            this.f28926e = this.f28924c.length();
+            this.f29025e = this.f29023c.length();
             c();
         } catch (Throwable unused) {
             c.b("VideoCacheImpl", "Error using file ", aVar.b(), " as disc cache");
@@ -98,7 +98,7 @@ public class b implements a {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.f28925d.exists() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.f29024d.exists() : invokeV.booleanValue;
     }
 
     private long e() {
@@ -106,9 +106,9 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             if (d()) {
-                return this.f28925d.length();
+                return this.f29024d.length();
             }
-            return this.f28924c.length();
+            return this.f29023c.length();
         }
         return invokeV.longValue;
     }
@@ -117,17 +117,17 @@ public class b implements a {
     public void f() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            synchronized (this.f28923b) {
+            synchronized (this.f29022b) {
                 if (d()) {
                     c.b("VideoCacheImpl", "complete: isCompleted ", this.j.b(), this.j.c());
-                } else if (this.f28924c.renameTo(this.f28925d)) {
-                    if (this.f28930i != null) {
-                        this.f28930i.close();
+                } else if (this.f29023c.renameTo(this.f29024d)) {
+                    if (this.f29029i != null) {
+                        this.f29029i.close();
                     }
-                    this.f28930i = new RandomAccessFile(this.f28925d, "rw");
+                    this.f29029i = new RandomAccessFile(this.f29024d, "rw");
                     c.b("VideoCacheImpl", "complete: rename ", this.j.c(), this.j.b());
                 } else {
-                    throw new IOException("Error renaming file " + this.f28924c + " to " + this.f28925d + " for completion!");
+                    throw new IOException("Error renaming file " + this.f29023c + " to " + this.f29024d + " for completion!");
                 }
             }
         }
@@ -139,16 +139,16 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (d()) {
-                this.f28922a = this.f28925d.length();
+                this.f29021a = this.f29024d.length();
             } else {
-                synchronized (this.f28923b) {
+                synchronized (this.f29022b) {
                     int i2 = 0;
                     do {
-                        if (this.f28922a == -2147483648L) {
+                        if (this.f29021a == -2147483648L) {
                             try {
                                 c.a("VideoCacheImpl", "totalLength: wait");
                                 i2 += 15;
-                                this.f28923b.wait(5L);
+                                this.f29022b.wait(5L);
                             } catch (InterruptedException e2) {
                                 e2.printStackTrace();
                                 throw new IOException("total length InterruptException");
@@ -158,8 +158,8 @@ public class b implements a {
                     return -1L;
                 }
             }
-            c.b("VideoCacheImpl", "totalLength= ", Long.valueOf(this.f28922a));
-            return this.f28922a;
+            c.b("VideoCacheImpl", "totalLength= ", Long.valueOf(this.f29021a));
+            return this.f29021a;
         }
         return invokeV.longValue;
     }
@@ -168,22 +168,22 @@ public class b implements a {
         w.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            w wVar = com.bytedance.sdk.component.video.a.b.a.f28933b;
+            w wVar = com.bytedance.sdk.component.video.a.b.a.f29032b;
             if (wVar != null) {
                 aVar = wVar.y();
             } else {
                 aVar = new w.a();
             }
-            aVar.a(this.j.f(), TimeUnit.MILLISECONDS).b(this.j.g(), TimeUnit.MILLISECONDS).c(this.j.h(), TimeUnit.MILLISECONDS);
+            aVar.a(this.j.g(), TimeUnit.MILLISECONDS).b(this.j.h(), TimeUnit.MILLISECONDS).c(this.j.i(), TimeUnit.MILLISECONDS);
             w a2 = aVar.a();
-            c.b("VideoCacheImpl", "RANGE, bytes=", Long.valueOf(this.f28926e), " file hash=", this.j.c());
+            c.b("VideoCacheImpl", "RANGE, bytes=", Long.valueOf(this.f29025e), " file hash=", this.j.c());
             z.a aVar2 = new z.a();
-            a2.a(aVar2.a("RANGE", "bytes=" + this.f28926e + "-").a(this.j.b()).a().d()).a(new f(this) { // from class: com.bytedance.sdk.component.video.a.a.b.1
+            a2.a(aVar2.a("RANGE", "bytes=" + this.f29025e + "-").a(this.j.b()).a().d()).a(new f(this) { // from class: com.bytedance.sdk.component.video.a.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f28931a;
+                public final /* synthetic */ b f29030a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -200,15 +200,15 @@ public class b implements a {
                             return;
                         }
                     }
-                    this.f28931a = this;
+                    this.f29030a = this;
                 }
 
                 @Override // com.bytedance.sdk.component.b.b.f
                 public void onFailure(e eVar, IOException iOException) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, eVar, iOException) == null) {
-                        this.f28931a.f28929h = false;
-                        this.f28931a.f28922a = -1L;
+                        this.f29030a.f29028h = false;
+                        this.f29030a.f29021a = -1L;
                     }
                 }
 
@@ -230,17 +230,17 @@ public class b implements a {
                         InputStream inputStream = null;
                         try {
                             try {
-                                this.f28931a.f28929h = abVar.d();
-                                if (this.f28931a.f28929h) {
+                                this.f29030a.f29028h = abVar.d();
+                                if (this.f29030a.f29028h) {
                                     acVar = abVar.h();
                                     try {
-                                        if (this.f28931a.f28929h && acVar != null) {
-                                            this.f28931a.f28922a = acVar.b() + this.f28931a.f28926e;
+                                        if (this.f29030a.f29028h && acVar != null) {
+                                            this.f29030a.f29021a = acVar.b() + this.f29030a.f29025e;
                                             inputStream = acVar.c();
                                         }
                                         if (inputStream != null) {
                                             byte[] bArr = new byte[8192];
-                                            long j = this.f28931a.f28926e;
+                                            long j = this.f29030a.f29025e;
                                             long j2 = 0;
                                             long j3 = 0;
                                             int i2 = 0;
@@ -252,12 +252,12 @@ public class b implements a {
                                                 }
                                                 i2 += read;
                                                 j3 += read;
-                                                if (j3 % 8192 != j2 && j3 != this.f28931a.f28922a - this.f28931a.f28926e) {
+                                                if (j3 % 8192 != j2 && j3 != this.f29030a.f29021a - this.f29030a.f29025e) {
                                                     z2 = false;
-                                                    c.b("VideoCacheImpl", "Write segment,execAppend =", Boolean.valueOf(z2), " offset=", Integer.valueOf(i2), " totalLength = ", Long.valueOf(this.f28931a.f28922a), " saveSize =", Long.valueOf(j3), " startSaved=", Long.valueOf(this.f28931a.f28926e), " fileHash=", this.f28931a.j.c(), " url=", this.f28931a.j.b());
+                                                    c.b("VideoCacheImpl", "Write segment,execAppend =", Boolean.valueOf(z2), " offset=", Integer.valueOf(i2), " totalLength = ", Long.valueOf(this.f29030a.f29021a), " saveSize =", Long.valueOf(j3), " startSaved=", Long.valueOf(this.f29030a.f29025e), " fileHash=", this.f29030a.j.c(), " url=", this.f29030a.j.b());
                                                     if (!z2) {
-                                                        synchronized (this.f28931a.f28923b) {
-                                                            com.bytedance.sdk.component.video.d.b.a(this.f28931a.f28930i, bArr, Long.valueOf(j).intValue(), i2, this.f28931a.j.c());
+                                                        synchronized (this.f29030a.f29022b) {
+                                                            com.bytedance.sdk.component.video.d.b.a(this.f29030a.f29029i, bArr, Long.valueOf(j).intValue(), i2, this.f29030a.j.c());
                                                         }
                                                         j += i2;
                                                         i2 = 0;
@@ -265,25 +265,25 @@ public class b implements a {
                                                     j2 = 0;
                                                 }
                                                 z2 = true;
-                                                c.b("VideoCacheImpl", "Write segment,execAppend =", Boolean.valueOf(z2), " offset=", Integer.valueOf(i2), " totalLength = ", Long.valueOf(this.f28931a.f28922a), " saveSize =", Long.valueOf(j3), " startSaved=", Long.valueOf(this.f28931a.f28926e), " fileHash=", this.f28931a.j.c(), " url=", this.f28931a.j.b());
+                                                c.b("VideoCacheImpl", "Write segment,execAppend =", Boolean.valueOf(z2), " offset=", Integer.valueOf(i2), " totalLength = ", Long.valueOf(this.f29030a.f29021a), " saveSize =", Long.valueOf(j3), " startSaved=", Long.valueOf(this.f29030a.f29025e), " fileHash=", this.f29030a.j.c(), " url=", this.f29030a.j.b());
                                                 if (!z2) {
                                                 }
                                                 j2 = 0;
                                             }
                                             Object[] objArr = new Object[10];
                                             objArr[0] = "Write segment,Write over, startIndex =";
-                                            objArr[1] = Long.valueOf(this.f28931a.f28926e);
+                                            objArr[1] = Long.valueOf(this.f29030a.f29025e);
                                             objArr[2] = " totalLength = ";
-                                            objArr[3] = Long.valueOf(this.f28931a.f28922a);
+                                            objArr[3] = Long.valueOf(this.f29030a.f29021a);
                                             objArr[4] = " saveSize = ";
                                             objArr[5] = Long.valueOf(j3);
                                             objArr[6] = " writeEndSegment =";
-                                            if (j3 != this.f28931a.f28922a - this.f28931a.f28926e) {
+                                            if (j3 != this.f29030a.f29021a - this.f29030a.f29025e) {
                                                 z = false;
                                             }
                                             objArr[7] = Boolean.valueOf(z);
                                             objArr[8] = " url=";
-                                            objArr[9] = this.f28931a.j.b();
+                                            objArr[9] = this.f29030a.j.b();
                                             c.b("VideoCacheImpl", objArr);
                                         } else {
                                             if (inputStream != null) {
@@ -300,8 +300,8 @@ public class b implements a {
                                             if (abVar != null) {
                                                 abVar.close();
                                             }
-                                            if (this.f28931a.f28929h && this.f28931a.f28924c.length() == this.f28931a.f28922a) {
-                                                this.f28931a.f();
+                                            if (this.f29030a.f29028h && this.f29030a.f29023c.length() == this.f29030a.f29021a) {
+                                                this.f29030a.f();
                                                 return;
                                             }
                                             return;
@@ -309,8 +309,8 @@ public class b implements a {
                                     } catch (Throwable th2) {
                                         th = th2;
                                         try {
-                                            this.f28931a.f28929h = false;
-                                            this.f28931a.f28922a = this.f28931a.f28927f;
+                                            this.f29030a.f29028h = false;
+                                            this.f29030a.f29021a = this.f29030a.f29026f;
                                             th.printStackTrace();
                                             if (inputStream != null) {
                                                 inputStream.close();
@@ -321,8 +321,8 @@ public class b implements a {
                                             if (abVar != null) {
                                                 abVar.close();
                                             }
-                                            if (this.f28931a.f28929h && this.f28931a.f28924c.length() == this.f28931a.f28922a) {
-                                                this.f28931a.f();
+                                            if (this.f29030a.f29028h && this.f29030a.f29023c.length() == this.f29030a.f29021a) {
+                                                this.f29030a.f();
                                                 return;
                                             }
                                             return;
@@ -341,15 +341,15 @@ public class b implements a {
                                             if (abVar != null) {
                                                 abVar.close();
                                             }
-                                            if (this.f28931a.f28929h && this.f28931a.f28924c.length() == this.f28931a.f28922a) {
-                                                this.f28931a.f();
+                                            if (this.f29030a.f29028h && this.f29030a.f29023c.length() == this.f29030a.f29021a) {
+                                                this.f29030a.f();
                                             }
                                             throw th3;
                                         }
                                     }
                                 } else {
-                                    this.f28931a.f28929h = false;
-                                    this.f28931a.f28922a = this.f28931a.f28927f;
+                                    this.f29030a.f29028h = false;
+                                    this.f29030a.f29021a = this.f29030a.f29026f;
                                     acVar = null;
                                 }
                                 if (inputStream != null) {
@@ -361,8 +361,8 @@ public class b implements a {
                                 if (abVar != null) {
                                     abVar.close();
                                 }
-                                if (this.f28931a.f28929h && this.f28931a.f28924c.length() == this.f28931a.f28922a) {
-                                    this.f28931a.f();
+                                if (this.f29030a.f29028h && this.f29030a.f29023c.length() == this.f29030a.f29021a) {
+                                    this.f29030a.f();
                                 }
                             } catch (Throwable th5) {
                                 th = th5;
@@ -372,9 +372,9 @@ public class b implements a {
                             th6.printStackTrace();
                         }
                     } else {
-                        this.f28931a.f28929h = false;
-                        b bVar = this.f28931a;
-                        bVar.f28922a = bVar.f28927f;
+                        this.f29030a.f29028h = false;
+                        b bVar = this.f29030a;
+                        bVar.f29021a = bVar.f29026f;
                     }
                 }
             });
@@ -388,22 +388,22 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             try {
-                if (j == this.f28922a) {
+                if (j == this.f29021a) {
                     return -1;
                 }
                 int i4 = 0;
                 int i5 = 0;
-                while (!this.f28928g) {
-                    synchronized (this.f28923b) {
+                while (!this.f29027g) {
+                    synchronized (this.f29022b) {
                         long e2 = e();
                         if (j < e2) {
                             c.a("VideoCacheImpl", "read:  read " + j + " success");
-                            this.f28930i.seek(j);
-                            i5 = this.f28930i.read(bArr, i2, i3);
+                            this.f29029i.seek(j);
+                            i5 = this.f29029i.read(bArr, i2, i3);
                         } else {
                             c.b("VideoCacheImpl", "read: wait at ", Long.valueOf(j), "  file size = ", Long.valueOf(e2));
                             i4 += 33;
-                            this.f28923b.wait(33L);
+                            this.f29022b.wait(33L);
                         }
                     }
                     if (i5 > 0) {
@@ -430,13 +430,13 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                if (!this.f28928g) {
-                    this.f28930i.close();
+                if (!this.f29027g) {
+                    this.f29029i.close();
                 }
             } finally {
-                this.f28928g = true;
+                this.f29027g = true;
             }
-            this.f28928g = true;
+            this.f29027g = true;
         }
     }
 }

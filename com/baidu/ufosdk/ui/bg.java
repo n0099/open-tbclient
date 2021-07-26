@@ -12,7 +12,7 @@ public final class bg implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bf f23471a;
+    public final /* synthetic */ bf f23629a;
 
     public bg(bf bfVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class bg implements Runnable {
                 return;
             }
         }
-        this.f23471a = bfVar;
+        this.f23629a = bfVar;
     }
 
     @Override // java.lang.Runnable
@@ -42,21 +42,21 @@ public final class bg implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                str = this.f23471a.f23470a.ar;
+                str = this.f23629a.f23628a.ar;
                 if (str != null) {
-                    str3 = this.f23471a.f23470a.ar;
+                    str3 = this.f23629a.f23628a.ar;
                     if (str3.length() > 0) {
-                        str2 = this.f23471a.f23470a.ar;
-                        d2 = com.baidu.ufosdk.e.a.d(this.f23471a.f23470a.getApplicationContext(), this.f23471a.f23470a.f23404e, str2);
+                        str2 = this.f23629a.f23628a.ar;
+                        d2 = com.baidu.ufosdk.e.a.d(this.f23629a.f23628a.getApplicationContext(), this.f23629a.f23628a.f23562e, str2);
                         if (d2 != null || d2.length() == 0) {
                         }
-                        handler = this.f23471a.f23470a.aK;
+                        handler = this.f23629a.f23628a.aK;
                         handler.obtainMessage(5, d2).sendToTarget();
                         return;
                     }
                 }
                 str2 = UfoSDK.appid;
-                d2 = com.baidu.ufosdk.e.a.d(this.f23471a.f23470a.getApplicationContext(), this.f23471a.f23470a.f23404e, str2);
+                d2 = com.baidu.ufosdk.e.a.d(this.f23629a.f23628a.getApplicationContext(), this.f23629a.f23628a.f23562e, str2);
                 if (d2 != null) {
                 }
             } catch (Exception unused) {

@@ -17,47 +17,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.adnet.core.e;
+import com.bytedance.sdk.component.adnet.b.b;
+import com.bytedance.sdk.component.adnet.c.f;
 import com.bytedance.sdk.component.adnet.core.m;
-import com.bytedance.sdk.component.adnet.d.d;
-import com.bytedance.sdk.component.adnet.d.f;
+import com.bytedance.sdk.component.adnet.d.c;
+import com.bytedance.sdk.component.adnet.d.e;
 import com.bytedance.sdk.component.adnet.d.g;
 import com.bytedance.sdk.component.adnet.d.h;
-import com.bytedance.sdk.component.adnet.d.i;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
+public class a implements com.bytedance.sdk.component.adnet.c.a, h.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f27831b;
+    public static a f27990b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f27832a;
+    public final h f27991a;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f27833c;
+    public final boolean f27992c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f27834d;
+    public volatile boolean f27993d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27835e;
+    public boolean f27994e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27836f;
+    public boolean f27995f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f27837g;
+    public long f27996g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f27838h;
+    public long f27997h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtomicBoolean f27839i;
+    public AtomicBoolean f27998i;
     public final Context j;
     public volatile boolean k;
 
@@ -76,34 +76,34 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                 return;
             }
         }
-        this.f27834d = false;
-        this.f27835e = true;
-        this.f27836f = false;
-        this.f27837g = 0L;
-        this.f27838h = 0L;
-        this.f27839i = new AtomicBoolean(false);
+        this.f27993d = false;
+        this.f27994e = true;
+        this.f27995f = false;
+        this.f27996g = 0L;
+        this.f27997h = 0L;
+        this.f27998i = new AtomicBoolean(false);
         this.k = false;
-        this.f27832a = new i(Looper.getMainLooper(), this);
+        this.f27991a = new h(Looper.getMainLooper(), this);
         this.j = context;
-        this.f27833c = z;
+        this.f27992c = z;
     }
 
     private void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65546, this, z) == null) || this.f27836f) {
+        if (!(interceptable == null || interceptable.invokeZ(65546, this, z) == null) || this.f27995f) {
             return;
         }
-        if (this.f27835e) {
-            this.f27835e = false;
-            this.f27837g = 0L;
-            this.f27838h = 0L;
+        if (this.f27994e) {
+            this.f27994e = false;
+            this.f27996g = 0L;
+            this.f27997h = 0L;
         }
         long j = z ? Constants.SYNC_MSG_DELAY_TIME : 43200000L;
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f27837g <= j || currentTimeMillis - this.f27838h <= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+        if (currentTimeMillis - this.f27996g <= j || currentTimeMillis - this.f27997h <= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
             return;
         }
-        boolean a2 = f.a(this.j);
+        boolean a2 = e.a(this.j);
         if (!this.k || a2) {
             b(a2);
         }
@@ -135,9 +135,9 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                 if (j > currentTimeMillis) {
                     j = currentTimeMillis;
                 }
-                this.f27837g = j;
-                if (com.bytedance.sdk.component.adnet.c.f.a().e() != null) {
-                    com.bytedance.sdk.component.adnet.c.f.a().e().a();
+                this.f27996g = j;
+                if (f.a().e() != null) {
+                    f.a().e().a();
                 }
             }
         }
@@ -146,10 +146,10 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
     public static void b(Context context) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (aVar = f27831b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (aVar = f27990b) == null) {
             return;
         }
-        if (g.a(context)) {
+        if (com.bytedance.sdk.component.adnet.d.f.a(context)) {
             aVar.a(true);
         } else {
             aVar.a();
@@ -162,12 +162,12 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (a.class) {
-                if (f27831b == null) {
-                    a aVar2 = new a(context.getApplicationContext(), g.a(context));
-                    f27831b = aVar2;
+                if (f27990b == null) {
+                    a aVar2 = new a(context.getApplicationContext(), com.bytedance.sdk.component.adnet.d.f.a(context));
+                    f27990b = aVar2;
                     com.bytedance.sdk.component.adnet.a.a(aVar2);
                 }
-                aVar = f27831b;
+                aVar = f27990b;
             }
             return aVar;
         }
@@ -178,11 +178,11 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                if (System.currentTimeMillis() - this.f27837g > 3600000) {
-                    this.f27837g = System.currentTimeMillis();
+                if (System.currentTimeMillis() - this.f27996g > 3600000) {
+                    this.f27996g = System.currentTimeMillis();
                     try {
-                        if (com.bytedance.sdk.component.adnet.c.f.a().e() != null) {
-                            com.bytedance.sdk.component.adnet.c.f.a().e().b();
+                        if (f.a().e() != null) {
+                            f.a().e().b();
                         }
                     } catch (Exception unused) {
                     }
@@ -202,16 +202,16 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             synchronized (this) {
-                if (this.f27833c) {
+                if (this.f27992c) {
                     d(z);
-                } else if (this.f27837g <= 0) {
+                } else if (this.f27996g <= 0) {
                     try {
                         com.bytedance.sdk.component.net.tnc.AppConfig.getInstance(this.j).getThreadPoolExecutor().execute(new Runnable(this) { // from class: com.bytedance.sdk.component.adnet.a.a.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ a f27840a;
+                            public final /* synthetic */ a f27999a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -228,14 +228,14 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                                         return;
                                     }
                                 }
-                                this.f27840a = this;
+                                this.f27999a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f27840a.b();
+                                    this.f27999a.b();
                                 }
                             }
                         });
@@ -249,17 +249,17 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            d.b(TNCManager.TAG, "doRefresh, actual request");
+            c.b(TNCManager.TAG, "doRefresh, actual request");
             c();
-            this.f27836f = true;
+            this.f27995f = true;
             if (!z) {
-                this.f27832a.sendEmptyMessage(102);
+                this.f27991a.sendEmptyMessage(102);
                 return;
             }
             try {
                 e();
             } catch (Exception unused) {
-                this.f27839i.set(false);
+                this.f27998i.set(false);
             }
         }
     }
@@ -268,23 +268,23 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            d.b(TNCManager.TAG, "doRefresh: updating state " + this.f27839i.get());
-            if (!this.f27839i.compareAndSet(false, true)) {
-                d.b(TNCManager.TAG, "doRefresh, already running");
+            c.b(TNCManager.TAG, "doRefresh: updating state " + this.f27998i.get());
+            if (!this.f27998i.compareAndSet(false, true)) {
+                c.b(TNCManager.TAG, "doRefresh, already running");
                 return false;
             }
             if (z) {
-                this.f27838h = System.currentTimeMillis();
+                this.f27997h = System.currentTimeMillis();
             }
             com.bytedance.sdk.component.net.tnc.AppConfig.getInstance(this.j).getThreadPoolExecutor().execute(new Runnable(this, z) { // from class: com.bytedance.sdk.component.adnet.a.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f27841a;
+                public final /* synthetic */ boolean f28000a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f27842b;
+                public final /* synthetic */ a f28001b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -301,15 +301,15 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                             return;
                         }
                     }
-                    this.f27842b = this;
-                    this.f27841a = z;
+                    this.f28001b = this;
+                    this.f28000a = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f27842b.c(this.f27841a);
+                        this.f28001b.c(this.f28000a);
                     }
                 }
             });
@@ -328,39 +328,39 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.bytedance.sdk.component.adnet.d.i.a
+    @Override // com.bytedance.sdk.component.adnet.d.h.a
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
             int i2 = message.what;
             if (i2 == 101) {
-                this.f27836f = false;
-                this.f27837g = System.currentTimeMillis();
-                d.b(TNCManager.TAG, "doRefresh, succ");
-                if (this.f27835e) {
+                this.f27995f = false;
+                this.f27996g = System.currentTimeMillis();
+                c.b(TNCManager.TAG, "doRefresh, succ");
+                if (this.f27994e) {
                     a();
                 }
-                this.f27839i.set(false);
+                this.f27998i.set(false);
             } else if (i2 != 102) {
             } else {
-                this.f27836f = false;
-                if (this.f27835e) {
+                this.f27995f = false;
+                if (this.f27994e) {
                     a();
                 }
-                d.b(TNCManager.TAG, "doRefresh, error");
-                this.f27839i.set(false);
+                c.b(TNCManager.TAG, "doRefresh, error");
+                this.f27998i.set(false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i2) {
-        i iVar;
+        h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65543, this, i2) == null) || (iVar = this.f27832a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65543, this, i2) == null) || (hVar = this.f27991a) == null) {
             return;
         }
-        iVar.sendEmptyMessage(i2);
+        hVar.sendEmptyMessage(i2);
     }
 
     private String b(String str) {
@@ -372,17 +372,17 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                 return null;
             }
             Address a2 = com.bytedance.sdk.component.adnet.a.a().a(this.j);
-            h hVar = new h("https://" + str + "/get_domains/v4/");
+            g gVar = new g("https://" + str + "/get_domains/v4/");
             if (a2 != null && a2.hasLatitude() && a2.hasLongitude()) {
-                hVar.a("latitude", a2.getLatitude());
-                hVar.a("longitude", a2.getLongitude());
+                gVar.a("latitude", a2.getLatitude());
+                gVar.a("longitude", a2.getLongitude());
                 String locality = a2.getLocality();
                 if (!TextUtils.isEmpty(locality)) {
-                    hVar.a("city", Uri.encode(locality));
+                    gVar.a("city", Uri.encode(locality));
                 }
             }
-            if (this.f27834d) {
-                hVar.a("force", 1);
+            if (this.f27993d) {
+                gVar.a("force", 1);
             }
             try {
                 if (Build.VERSION.SDK_INT < 21) {
@@ -390,16 +390,16 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                 } else {
                     str2 = Build.SUPPORTED_ABIS[0];
                 }
-                hVar.a("abi", str2);
+                gVar.a("abi", str2);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            hVar.a("aid", com.bytedance.sdk.component.adnet.a.a().a());
-            hVar.a("device_platform", com.bytedance.sdk.component.adnet.a.a().c());
-            hVar.a("channel", com.bytedance.sdk.component.adnet.a.a().b());
-            hVar.a("version_code", com.bytedance.sdk.component.adnet.a.a().d());
-            hVar.a("custom_info_1", com.bytedance.sdk.component.adnet.a.a().e());
-            return hVar.toString();
+            gVar.a("aid", com.bytedance.sdk.component.adnet.a.a().a());
+            gVar.a("device_platform", com.bytedance.sdk.component.adnet.a.a().c());
+            gVar.a("channel", com.bytedance.sdk.component.adnet.a.a().b());
+            gVar.a("version_code", com.bytedance.sdk.component.adnet.a.a().d());
+            gVar.a("custom_info_1", com.bytedance.sdk.component.adnet.a.a().e());
+            return gVar.toString();
         }
         return (String) invokeL.objValue;
     }
@@ -414,18 +414,18 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
             }
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 try {
-                    return com.bytedance.sdk.component.adnet.c.f.a().a(str);
+                    return f.a().a(str);
                 } catch (Throwable unused) {
                     return str;
                 }
             }
             try {
-                if (this.f27833c) {
+                if (this.f27992c) {
                     c();
                 } else {
                     b();
                 }
-                return com.bytedance.sdk.component.adnet.c.f.a().a(str);
+                return f.a().a(str);
             } catch (Throwable unused2) {
                 return str;
             }
@@ -460,8 +460,8 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                 edit.putLong(com.bytedance.sdk.component.net.tnc.AppConfig.KEY_LAST_REFRESH_TIME, System.currentTimeMillis());
                 edit.apply();
             }
-            if (com.bytedance.sdk.component.adnet.c.f.a().e() != null) {
-                com.bytedance.sdk.component.adnet.c.f.a().e().a(jSONObject2);
+            if (f.a().e() != null) {
+                f.a().e().a(jSONObject2);
                 return true;
             }
             return true;
@@ -486,15 +486,15 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                         b(102);
                         return;
                     } else {
-                        new com.bytedance.sdk.component.adnet.b.f(0, b2, new JSONObject(), new m.a<JSONObject>(this, i2) { // from class: com.bytedance.sdk.component.adnet.a.a.3
+                        new b(0, b2, new JSONObject(), new m.a<JSONObject>(this, i2) { // from class: com.bytedance.sdk.component.adnet.a.a.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ int f27843a;
+                            public final /* synthetic */ int f28002a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ a f27844b;
+                            public final /* synthetic */ a f28003b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -511,17 +511,17 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                                         return;
                                     }
                                 }
-                                this.f27844b = this;
-                                this.f27843a = i2;
+                                this.f28003b = this;
+                                this.f28002a = i2;
                             }
 
                             @Override // com.bytedance.sdk.component.adnet.core.m.a
                             public void a(m<JSONObject> mVar) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, mVar) == null) {
-                                    JSONObject jSONObject = mVar.f28031a;
+                                    JSONObject jSONObject = mVar.f28129a;
                                     if (jSONObject == null) {
-                                        this.f27844b.a(this.f27843a + 1);
+                                        this.f28003b.a(this.f28002a + 1);
                                         return;
                                     }
                                     String str2 = null;
@@ -530,14 +530,14 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                                     } catch (Exception unused) {
                                     }
                                     if (!"success".equals(str2)) {
-                                        this.f27844b.a(this.f27843a + 1);
+                                        this.f28003b.a(this.f28002a + 1);
                                         return;
                                     }
                                     try {
-                                        if (this.f27844b.a(jSONObject)) {
-                                            this.f27844b.b(101);
+                                        if (this.f28003b.a(jSONObject)) {
+                                            this.f28003b.b(101);
                                         } else {
-                                            this.f27844b.a(this.f27843a + 1);
+                                            this.f28003b.a(this.f28002a + 1);
                                         }
                                     } catch (Exception unused2) {
                                     }
@@ -548,14 +548,14 @@ public class a implements com.bytedance.sdk.component.adnet.c.a, i.a {
                             public void b(m<JSONObject> mVar) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
-                                    this.f27844b.a(this.f27843a + 1);
+                                    this.f28003b.a(this.f28002a + 1);
                                 }
                             }
-                        }).setRetryPolicy(new e().a(10000).b(0)).build(com.bytedance.sdk.component.adnet.a.a(this.j));
+                        }).setRetryPolicy(new com.bytedance.sdk.component.adnet.core.e().a(10000).b(0)).build(com.bytedance.sdk.component.adnet.a.a(this.j));
                         return;
                     }
                 } catch (Throwable th) {
-                    d.b(com.bytedance.sdk.component.net.tnc.AppConfig.TAG, "try app config exception: " + th);
+                    c.b(com.bytedance.sdk.component.net.tnc.AppConfig.TAG, "try app config exception: " + th);
                     return;
                 }
             }

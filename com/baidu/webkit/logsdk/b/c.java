@@ -15,13 +15,13 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27512a;
+    public String f27670a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f27513b;
+    public HashSet<String> f27671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f27514c;
+    public HashSet<String> f27672c;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public final class c {
                 return;
             }
         }
-        this.f27512a = "full";
-        this.f27512a = str;
-        this.f27513b = new HashSet<>();
-        this.f27514c = new HashSet<>();
+        this.f27670a = "full";
+        this.f27670a = str;
+        this.f27671b = new HashSet<>();
+        this.f27672c = new HashSet<>();
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {
@@ -52,7 +52,7 @@ public final class c {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f27513b.add(string);
+                this.f27671b.add(string);
             }
         }
     }
@@ -65,7 +65,7 @@ public final class c {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f27514c.add(string);
+                this.f27672c.add(string);
             }
         }
     }

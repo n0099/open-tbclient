@@ -15,14 +15,14 @@ public final class x implements c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39275a = "SpCache";
+    public static String f39496a = "SpCache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39276b = "com.vivo.push.cache";
+    public static String f39497b = "com.vivo.push.cache";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f39277c;
+    public SharedPreferences f39498c;
 
     static {
         InterceptResult invokeClinit;
@@ -58,8 +58,8 @@ public final class x implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.f39277c == null) {
-                this.f39277c = context.getSharedPreferences(f39276b, 0);
+            if (this.f39498c == null) {
+                this.f39498c = context.getSharedPreferences(f39497b, 0);
                 return true;
             }
             return true;
@@ -71,15 +71,15 @@ public final class x implements c {
     public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            SharedPreferences.Editor edit = this.f39277c.edit();
+            SharedPreferences.Editor edit = this.f39498c.edit();
             if (edit != null) {
                 edit.putString(str, str2);
                 a.a(edit);
-                String str3 = f39275a;
+                String str3 = f39496a;
                 p.d(str3, "putString by " + str);
                 return;
             }
-            String str4 = f39275a;
+            String str4 = f39496a;
             p.b(str4, "putString error by " + str);
         }
     }
@@ -89,8 +89,8 @@ public final class x implements c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String string = this.f39277c.getString(str, str2);
-            String str3 = f39275a;
+            String string = this.f39498c.getString(str, str2);
+            String str3 = f39496a;
             p.d(str3, "getString " + str + " is " + string);
             return string;
         }
@@ -100,12 +100,12 @@ public final class x implements c {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SharedPreferences.Editor edit = this.f39277c.edit();
+            SharedPreferences.Editor edit = this.f39498c.edit();
             if (edit != null) {
                 edit.clear();
                 a.a(edit);
             }
-            p.d(f39275a, "system cache is cleared");
+            p.d(f39496a, "system cache is cleared");
         }
     }
 }

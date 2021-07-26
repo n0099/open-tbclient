@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.u0.n1.a;
-import d.a.p0.u0.n1.b;
-import d.a.p0.u0.n1.d;
+import d.a.q0.u0.n1.a;
+import d.a.q0.u0.n1.b;
+import d.a.q0.u0.n1.d;
 /* loaded from: classes4.dex */
 public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;

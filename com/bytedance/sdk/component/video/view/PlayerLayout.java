@@ -24,36 +24,36 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.webrtc.MediaStreamTrack;
 /* loaded from: classes5.dex */
-public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
+public class PlayerLayout extends FrameLayout implements a.InterfaceC0328a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AudioManager.OnAudioFocusChangeListener f28964b;
+    public static AudioManager.OnAudioFocusChangeListener f29063b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f28965d;
+    public static int f29064d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28966a;
+    public int f29065a;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28967c;
+    public int f29066c;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.component.video.c.a f28968e;
+    public com.bytedance.sdk.component.video.c.a f29067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Class f28969f;
+    public Class f29068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextureView f28970g;
+    public TextureView f29069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SurfaceView f28971h;
+    public SurfaceView f29070h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f28972i;
+    public boolean f29071i;
     public Timer j;
     public AudioManager k;
     public a l;
@@ -67,7 +67,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PlayerLayout f28975a;
+        public final /* synthetic */ PlayerLayout f29074a;
 
         public a(PlayerLayout playerLayout) {
             Interceptable interceptable = $ic;
@@ -84,21 +84,21 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
                     return;
                 }
             }
-            this.f28975a = playerLayout;
+            this.f29074a = playerLayout;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f28975a.f28967c;
+                int i2 = this.f29074a.f29066c;
                 if (i2 == 5 || i2 == 6 || i2 == 3) {
-                    this.f28975a.post(new Runnable(this) { // from class: com.bytedance.sdk.component.video.view.PlayerLayout.a.1
+                    this.f29074a.post(new Runnable(this) { // from class: com.bytedance.sdk.component.video.view.PlayerLayout.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ a f28976a;
+                        public final /* synthetic */ a f29075a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -115,16 +115,16 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
                                     return;
                                 }
                             }
-                            this.f28976a = this;
+                            this.f29075a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                long currentPositionWhenPlaying = this.f28976a.f28975a.getCurrentPositionWhenPlaying();
-                                long duration = this.f28976a.f28975a.getDuration();
-                                this.f28976a.f28975a.a((int) ((100 * currentPositionWhenPlaying) / (duration == 0 ? 1L : duration)), currentPositionWhenPlaying, duration);
+                                long currentPositionWhenPlaying = this.f29075a.f29074a.getCurrentPositionWhenPlaying();
+                                long duration = this.f29075a.f29074a.getDuration();
+                                this.f29075a.f29074a.a((int) ((100 * currentPositionWhenPlaying) / (duration == 0 ? 1L : duration)), currentPositionWhenPlaying, duration);
                             }
                         }
                     });
@@ -146,7 +146,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
                 return;
             }
         }
-        f28964b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.bytedance.sdk.component.video.view.PlayerLayout.1
+        f29063b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.bytedance.sdk.component.video.view.PlayerLayout.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -171,20 +171,20 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
                 }
             }
         };
-        f28965d = -1;
+        f29064d = -1;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                com.bytedance.sdk.component.video.c.a aVar = (com.bytedance.sdk.component.video.c.a) this.f28969f.getConstructor(new Class[0]).newInstance(new Object[0]);
-                this.f28968e = aVar;
+                com.bytedance.sdk.component.video.c.a aVar = (com.bytedance.sdk.component.video.c.a) this.f29068f.getConstructor(new Class[0]).newInstance(new Object[0]);
+                this.f29067e = aVar;
                 aVar.a(getContext());
-                this.f28968e.b(this.f28972i);
-                this.f28968e.a(this.o);
-                this.f28968e.a(this);
-                this.f28968e.a(this.n);
+                this.f29067e.b(this.f29071i);
+                this.f29067e.a(this.o);
+                this.f29067e.a(this);
+                this.f29067e.a(this.n);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (InstantiationException e3) {
@@ -201,7 +201,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
             }
             AudioManager audioManager = (AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             this.k = audioManager;
-            audioManager.requestAudioFocus(f28964b, 3, 2);
+            audioManager.requestAudioFocus(f29063b, 3, 2);
             d.a(getContext()).getWindow().addFlags(128);
             c();
         }
@@ -211,9 +211,9 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             c.b("PlayerLayout", "video_new onStateNormal ", Integer.valueOf(hashCode()));
-            this.f28967c = 0;
+            this.f29066c = 0;
             m();
-            com.bytedance.sdk.component.video.c.a aVar = this.f28968e;
+            com.bytedance.sdk.component.video.c.a aVar = this.f29067e;
             if (aVar != null) {
                 aVar.b();
             }
@@ -224,7 +224,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             c.b("PlayerLayout", "video_new onStatePreparing ", Integer.valueOf(hashCode()));
-            this.f28967c = 1;
+            this.f29066c = 1;
             n();
         }
     }
@@ -233,7 +233,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c.b("PlayerLayout", "video_new onStatePreparingPlaying ", Integer.valueOf(hashCode()));
-            this.f28967c = 3;
+            this.f29066c = 3;
         }
     }
 
@@ -241,7 +241,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c.b("PlayerLayout", "video_new onStatePreparingChangeUrl ", Integer.valueOf(hashCode()));
-            this.f28967c = 2;
+            this.f29066c = 2;
             a();
         }
     }
@@ -249,18 +249,18 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.b("PlayerLayout", "video_new onStatePlaying seekToInAdvance=", Integer.valueOf(this.f28966a), Integer.valueOf(hashCode()));
-            if (this.f28967c == 4) {
-                int i2 = this.f28966a;
+            c.b("PlayerLayout", "video_new onStatePlaying seekToInAdvance=", Integer.valueOf(this.f29065a), Integer.valueOf(hashCode()));
+            if (this.f29066c == 4) {
+                int i2 = this.f29065a;
                 if (i2 != 0) {
-                    this.f28968e.a(i2);
+                    this.f29067e.a(i2);
                     c.a("PlayerLayout", "video_new onStatePlaying seekTo");
-                    this.f28966a = 0;
+                    this.f29065a = 0;
                 } else {
-                    this.f28968e.a(0);
+                    this.f29067e.a(0);
                 }
             }
-            this.f28967c = 5;
+            this.f29066c = 5;
             l();
         }
     }
@@ -269,7 +269,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             c.b("PlayerLayout", "video_new onStatePause ", Integer.valueOf(hashCode()));
-            this.f28967c = 6;
+            this.f29066c = 6;
             m();
         }
     }
@@ -278,10 +278,10 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i2 = this.f28967c;
+            int i2 = this.f29066c;
             if (i2 == 5 || i2 == 6 || i2 == 3) {
                 try {
-                    return this.f28968e.c();
+                    return this.f29067e.c();
                 } catch (IllegalStateException e2) {
                     e2.printStackTrace();
                     return 0L;
@@ -297,7 +297,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             try {
-                return this.f28968e.d();
+                return this.f29067e.d();
             } catch (IllegalStateException e2) {
                 e2.printStackTrace();
                 return 0L;
@@ -310,7 +310,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             c.b("PlayerLayout", "video_new onStateError ", Integer.valueOf(hashCode()));
-            this.f28967c = 8;
+            this.f29066c = 8;
             m();
         }
     }
@@ -319,7 +319,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             c.b("PlayerLayout", "video_new onStateAutoComplete ", Integer.valueOf(hashCode()));
-            this.f28967c = 7;
+            this.f29066c = 7;
             m();
         }
     }
@@ -330,13 +330,13 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
             c.a("PlayerLayout", "video_new addTextureView ", Integer.valueOf(hashCode()));
             removeAllViews();
             TextureView textureView = new TextureView(getContext().getApplicationContext());
-            this.f28970g = textureView;
+            this.f29069g = textureView;
             textureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener(this) { // from class: com.bytedance.sdk.component.video.view.PlayerLayout.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PlayerLayout f28973a;
+                public final /* synthetic */ PlayerLayout f29072a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -353,18 +353,18 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
                             return;
                         }
                     }
-                    this.f28973a = this;
+                    this.f29072a = this;
                 }
 
                 @Override // android.view.TextureView.SurfaceTextureListener
                 public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
                     com.bytedance.sdk.component.video.c.a aVar;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLII(1048576, this, surfaceTexture, i2, i3) == null) || (aVar = this.f28973a.f28968e) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLII(1048576, this, surfaceTexture, i2, i3) == null) || (aVar = this.f29072a.f29067e) == null) {
                         return;
                     }
                     aVar.a(new Surface(surfaceTexture));
-                    this.f28973a.f28968e.a();
+                    this.f29072a.f29067e.a();
                 }
 
                 @Override // android.view.TextureView.SurfaceTextureListener
@@ -392,7 +392,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
                     }
                 }
             });
-            addView(this.f28970g, new FrameLayout.LayoutParams(-1, -1, 17));
+            addView(this.f29069g, new FrameLayout.LayoutParams(-1, -1, 17));
         }
     }
 
@@ -402,13 +402,13 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
             c.a("PlayerLayout", "video_new addSurfaceView ", Integer.valueOf(hashCode()));
             removeAllViews();
             SurfaceView surfaceView = new SurfaceView(getContext().getApplicationContext());
-            this.f28971h = surfaceView;
+            this.f29070h = surfaceView;
             surfaceView.getHolder().addCallback(new SurfaceHolder.Callback(this) { // from class: com.bytedance.sdk.component.video.view.PlayerLayout.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PlayerLayout f28974a;
+                public final /* synthetic */ PlayerLayout f29073a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -425,7 +425,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
                             return;
                         }
                     }
-                    this.f28974a = this;
+                    this.f29073a = this;
                 }
 
                 @Override // android.view.SurfaceHolder.Callback
@@ -438,12 +438,12 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
                 @Override // android.view.SurfaceHolder.Callback
                 public void surfaceCreated(SurfaceHolder surfaceHolder) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) == null) || this.f28974a.f28968e == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) == null) || this.f29073a.f29067e == null) {
                         return;
                     }
                     surfaceHolder.setType(3);
-                    this.f28974a.f28968e.a(surfaceHolder);
-                    this.f28974a.f28968e.a();
+                    this.f29073a.f29067e.a(surfaceHolder);
+                    this.f29073a.f29067e.a();
                 }
 
                 @Override // android.view.SurfaceHolder.Callback
@@ -451,19 +451,19 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceHolder) == null) {
                         c.a("PlayerLayout", "video_new surfaceDestroyed ", Integer.valueOf(hashCode()));
-                        PlayerLayout playerLayout = this.f28974a;
-                        com.bytedance.sdk.component.video.c.a aVar = playerLayout.f28968e;
+                        PlayerLayout playerLayout = this.f29073a;
+                        com.bytedance.sdk.component.video.c.a aVar = playerLayout.f29067e;
                         if (aVar != null) {
-                            playerLayout.f28966a = aVar.c();
-                            this.f28974a.f28968e.b();
-                            c.a("PlayerLayout", "video_new  ", Integer.valueOf(this.f28974a.f28966a));
+                            playerLayout.f29065a = aVar.c();
+                            this.f29073a.f29067e.b();
+                            c.a("PlayerLayout", "video_new  ", Integer.valueOf(this.f29073a.f29065a));
                         }
                     }
                 }
             });
-            this.f28971h.setZOrderOnTop(true);
-            this.f28971h.setZOrderMediaOverlay(true);
-            addView(this.f28971h, new FrameLayout.LayoutParams(-1, -1, 17));
+            this.f29070h.setZOrderOnTop(true);
+            this.f29070h.setZOrderMediaOverlay(true);
+            addView(this.f29070h, new FrameLayout.LayoutParams(-1, -1, 17));
         }
     }
 
@@ -507,9 +507,9 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
             m();
             b();
             removeAllViews();
-            ((AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).abandonAudioFocus(f28964b);
+            ((AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).abandonAudioFocus(f29063b);
             d.a(getContext()).getWindow().clearFlags(128);
-            com.bytedance.sdk.component.video.c.a aVar = this.f28968e;
+            com.bytedance.sdk.component.video.c.a aVar = this.f29067e;
             if (aVar != null) {
                 aVar.b();
             }
@@ -520,7 +520,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0326a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, cls) == null) {
             o();
-            this.f28969f = cls;
+            this.f29068f = cls;
         }
     }
 

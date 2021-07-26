@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.v2.v;
-import d.a.n0.e.l.b;
+import d.a.o0.a.v2.v;
+import d.a.o0.e.l.b;
 /* loaded from: classes4.dex */
 public class SwanEntryActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,7 +25,7 @@ public class SwanEntryActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f13920e;
+        public final /* synthetic */ SwanEntryActivity f13968e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f13920e = swanEntryActivity;
+            this.f13968e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13920e.finish();
+                this.f13968e.finish();
             }
         }
     }
@@ -91,7 +91,7 @@ public class SwanEntryActivity extends Activity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            d.a.c.a.a.b(this);
+            d.a.d.a.a.b(this);
             super.onCreate(bundle);
             if (v.a(this)) {
                 return;
@@ -122,7 +122,7 @@ public class SwanEntryActivity extends Activity {
     public void setRequestedOrientation(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (d.a.c.a.a.d(this) && d.a.c.a.a.a(i2)) {
+            if (d.a.d.a.a.d(this) && d.a.d.a.a.a(i2)) {
                 return;
             }
             super.setRequestedOrientation(i2);

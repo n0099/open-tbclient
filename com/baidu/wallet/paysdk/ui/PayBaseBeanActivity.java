@@ -73,10 +73,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f26572a;
+    public f f26730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f26573b;
+    public long f26731b;
 
     public PayBaseBeanActivity() {
         Interceptable interceptable = $ic;
@@ -153,10 +153,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f26572a == null) {
-                this.f26572a = new f(this);
+            if (this.f26730a == null) {
+                this.f26730a = new f(this);
             }
-            return this.f26572a;
+            return this.f26730a;
         }
         return (f) invokeV.objValue;
     }
@@ -197,7 +197,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.f26573b = System.currentTimeMillis();
+            this.f26731b = System.currentTimeMillis();
             d.d.a.a.a.g(this, StatConfig.getInstance(this));
             d.d.a.a.a.x(new SensorsSyncHttpImpl());
             super.onCreate(bundle);
@@ -276,7 +276,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseBeanActivity f26576a;
+                    public final /* synthetic */ PayBaseBeanActivity f26734a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -293,14 +293,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                                 return;
                             }
                         }
-                        this.f26576a = this;
+                        this.f26734a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f26576a, 12);
+                            WalletGlobalUtils.safeDismissDialog(this.f26734a, 12);
                         }
                     }
                 });
@@ -320,7 +320,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseBeanActivity f26574a;
+                public final /* synthetic */ PayBaseBeanActivity f26732a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -337,14 +337,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f26574a = this;
+                    this.f26732a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f26574a, 4);
+                        WalletGlobalUtils.safeDismissDialog(this.f26732a, 4);
                     }
                 }
             });
@@ -353,7 +353,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseBeanActivity f26575a;
+                public final /* synthetic */ PayBaseBeanActivity f26733a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -370,14 +370,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f26575a = this;
+                    this.f26733a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f26575a, 4);
+                        WalletGlobalUtils.safeDismissDialog(this.f26733a, 4);
                         BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.BindCategory.Other);
                         if (bindFastRequest != null && bindFastRequest.mBindFrom == 0) {
                             StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_BIND_CARD_FAILED, StatHelper.collectData(StatHelper.getOrderNo(), "-2", "payBindCardCancel"));
@@ -389,7 +389,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                             hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
                             StatisticManager.onEventWithValues(PayStatServiceEvent.STD_PAY_CANCEL, collectData, hashMap);
                         }
-                        PayCallBackManager.callBackClientCancel(this.f26575a, "PayBaseBeanActivity.onPrepareDialog().1");
+                        PayCallBackManager.callBackClientCancel(this.f26733a, "PayBaseBeanActivity.onPrepareDialog().1");
                     }
                 }
             });

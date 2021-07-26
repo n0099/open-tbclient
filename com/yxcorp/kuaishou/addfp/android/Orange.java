@@ -15,10 +15,10 @@ public class Orange {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40756a = true;
+    public static boolean f41028a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Orange f40757b;
+    public static volatile Orange f41029b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,14 +56,14 @@ public class Orange {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f40757b == null) {
+            if (f41029b == null) {
                 synchronized (Orange.class) {
-                    if (f40757b == null) {
-                        f40757b = new Orange();
+                    if (f41029b == null) {
+                        f41029b = new Orange();
                     }
                 }
             }
-            return f40757b;
+            return f41029b;
         }
         return (Orange) invokeV.objValue;
     }
@@ -160,11 +160,11 @@ public class Orange {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
                 System.loadLibrary("sgcore");
-                f40756a = false;
+                f41028a = false;
                 c.f("so loaded");
             } catch (Throwable th) {
                 c.f("so load failed");
-                f40756a = true;
+                f41028a = true;
                 c.c(th);
             }
         }
@@ -173,6 +173,6 @@ public class Orange {
     public final boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f40756a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f41028a : invokeV.booleanValue;
     }
 }

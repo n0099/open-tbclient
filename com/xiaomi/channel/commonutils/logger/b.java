@@ -22,7 +22,7 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f39733a = 2;
+    public static int f40005a = 2;
 
     /* renamed from: a  reason: collision with other field name */
     public static Context f23a;
@@ -46,7 +46,7 @@ public abstract class b {
     public static boolean f29a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<Integer, String> f39734b;
+    public static final HashMap<Integer, String> f40006b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -55,7 +55,7 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39735a;
+        public String f40007a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public abstract class b {
                     return;
                 }
             }
-            this.f39735a = b.f26a;
+            this.f40007a = b.f26a;
         }
 
         @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
         public void log(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                Log.v(this.f39735a, str);
+                Log.v(this.f40007a, str);
             }
         }
 
@@ -85,7 +85,7 @@ public abstract class b {
         public void log(String str, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
-                Log.v(this.f39735a, str, th);
+                Log.v(this.f40007a, str, th);
             }
         }
 
@@ -93,7 +93,7 @@ public abstract class b {
         public void setTag(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f39735a = str;
+                this.f40007a = str;
             }
         }
     }
@@ -114,7 +114,7 @@ public abstract class b {
         f26a = "XMPush-" + Process.myPid();
         f24a = new a();
         f27a = new HashMap<>();
-        f39734b = new HashMap<>();
+        f40006b = new HashMap<>();
         f25a = -1;
         f28a = new AtomicInteger(1);
     }
@@ -122,17 +122,17 @@ public abstract class b {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f39733a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f40005a : invokeV.intValue;
     }
 
     public static Integer a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (f39733a <= 1) {
+            if (f40005a <= 1) {
                 Integer valueOf = Integer.valueOf(f28a.incrementAndGet());
                 f27a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
-                f39734b.put(valueOf, str);
+                f40006b.put(valueOf, str);
                 LoggerInterface loggerInterface = f24a;
                 loggerInterface.log(str + " starts");
                 return valueOf;
@@ -167,13 +167,13 @@ public abstract class b {
             if (i2 < 0 || i2 > 5) {
                 a(2, "set log level as " + i2);
             }
-            f39733a = i2;
+            f40005a = i2;
         }
     }
 
     public static void a(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65543, null, i2, str) == null) || i2 < f39733a) {
+        if (!(interceptable == null || interceptable.invokeIL(65543, null, i2, str) == null) || i2 < f40005a) {
             return;
         }
         f24a.log(str);
@@ -181,7 +181,7 @@ public abstract class b {
 
     public static void a(int i2, String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65544, null, i2, str, th) == null) || i2 < f39733a) {
+        if (!(interceptable == null || interceptable.invokeILL(65544, null, i2, str, th) == null) || i2 < f40005a) {
             return;
         }
         f24a.log(str, th);
@@ -189,7 +189,7 @@ public abstract class b {
 
     public static void a(int i2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65545, null, i2, th) == null) || i2 < f39733a) {
+        if (!(interceptable == null || interceptable.invokeIL(65545, null, i2, th) == null) || i2 < f40005a) {
             return;
         }
         f24a.log("", th);
@@ -214,10 +214,10 @@ public abstract class b {
 
     public static void a(Integer num) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, null, num) == null) && f39733a <= 1 && f27a.containsKey(num)) {
+        if ((interceptable == null || interceptable.invokeL(65548, null, num) == null) && f40005a <= 1 && f27a.containsKey(num)) {
             long currentTimeMillis = System.currentTimeMillis() - f27a.remove(num).longValue();
             LoggerInterface loggerInterface = f24a;
-            loggerInterface.log(f39734b.remove(num) + " ends in " + currentTimeMillis + " ms");
+            loggerInterface.log(f40006b.remove(num) + " ends in " + currentTimeMillis + " ms");
         }
     }
 

@@ -29,31 +29,31 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String[] f24769a;
+    public String[] f24927a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<ContractInfo> f24770b;
+    public ArrayList<ContractInfo> f24928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<ContractInfo> f24771c;
+    public ArrayList<ContractInfo> f24929c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final LayoutInflater f24772d;
+    public final LayoutInflater f24930d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Filter f24773e;
+    public Filter f24931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f24774f;
+    public ArrayList<String> f24932f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<String> f24775g;
+    public ArrayList<String> f24933g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f24776h;
+    public Context f24934h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f24777i;
+    public boolean f24935i;
 
     /* loaded from: classes5.dex */
     public class AssociationViewHolder {
@@ -61,7 +61,7 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ContactAssociationAdapter f24782a;
+        public final /* synthetic */ ContactAssociationAdapter f24940a;
         public TextView mName;
         public TextView mPhone;
 
@@ -80,7 +80,7 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
                     return;
                 }
             }
-            this.f24782a = contactAssociationAdapter;
+            this.f24940a = contactAssociationAdapter;
         }
     }
 
@@ -99,20 +99,20 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
                 return;
             }
         }
-        this.f24777i = false;
-        this.f24769a = new String[]{"@qq.com", "@163.com", "@126.com", "@sina.com", "@gmail.com", "@hotmail.com"};
-        this.f24776h = context;
-        this.f24772d = LayoutInflater.from(context);
-        this.f24774f = new ArrayList<>();
-        this.f24775g = new ArrayList<>();
-        this.f24777i = z;
+        this.f24935i = false;
+        this.f24927a = new String[]{"@qq.com", "@163.com", "@126.com", "@sina.com", "@gmail.com", "@hotmail.com"};
+        this.f24934h = context;
+        this.f24930d = LayoutInflater.from(context);
+        this.f24932f = new ArrayList<>();
+        this.f24933g = new ArrayList<>();
+        this.f24935i = z;
         loadPhoneContact();
     }
 
     public void clearMailInput() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f24771c = new ArrayList<>();
+            this.f24929c = new ArrayList<>();
         }
     }
 
@@ -121,12 +121,12 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            int size = this.f24774f.size();
+            int size = this.f24932f.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (i2 < this.f24775g.size()) {
-                    arrayList.add(new ContractInfo(this.f24774f.get(i2), this.f24775g.get(i2)));
+                if (i2 < this.f24933g.size()) {
+                    arrayList.add(new ContractInfo(this.f24932f.get(i2), this.f24933g.get(i2)));
                 } else {
-                    arrayList.add(new ContractInfo(this.f24774f.get(i2), ""));
+                    arrayList.add(new ContractInfo(this.f24932f.get(i2), ""));
                 }
             }
             return arrayList;
@@ -138,7 +138,7 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24774f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24932f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Filterable
@@ -146,22 +146,22 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f24773e == null) {
-                this.f24773e = new Filter(this) { // from class: com.baidu.wallet.core.utils.contacts.ContactAssociationAdapter.1
+            if (this.f24931e == null) {
+                this.f24931e = new Filter(this) { // from class: com.baidu.wallet.core.utils.contacts.ContactAssociationAdapter.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ ContactAssociationAdapter f24778a;
+                    public final /* synthetic */ ContactAssociationAdapter f24936a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final ConcurrentHashMap<String, ArrayList<String>> f24779b;
+                    public final ConcurrentHashMap<String, ArrayList<String>> f24937b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final ArrayList<String> f24780c;
+                    public final ArrayList<String> f24938c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final ArrayList<String> f24781d;
+                    public final ArrayList<String> f24939d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -178,10 +178,10 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
                                 return;
                             }
                         }
-                        this.f24778a = this;
-                        this.f24779b = new ConcurrentHashMap<>();
-                        this.f24780c = new ArrayList<>();
-                        this.f24781d = new ArrayList<>();
+                        this.f24936a = this;
+                        this.f24937b = new ConcurrentHashMap<>();
+                        this.f24938c = new ArrayList<>();
+                        this.f24939d = new ArrayList<>();
                     }
 
                     @Override // android.widget.Filter
@@ -189,41 +189,41 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, charSequence)) == null) {
-                            this.f24780c.clear();
-                            this.f24781d.clear();
-                            this.f24779b.clear();
+                            this.f24938c.clear();
+                            this.f24939d.clear();
+                            this.f24937b.clear();
                             Filter.FilterResults filterResults = new Filter.FilterResults();
                             if (!TextUtils.isEmpty(charSequence)) {
                                 if (charSequence.toString().contains(TNCManager.TNC_PROBE_HEADER_SECEPTOR)) {
-                                    if (this.f24778a.f24771c != null && this.f24778a.f24771c.size() > 0) {
-                                        Iterator it = this.f24778a.f24771c.iterator();
+                                    if (this.f24936a.f24929c != null && this.f24936a.f24929c.size() > 0) {
+                                        Iterator it = this.f24936a.f24929c.iterator();
                                         while (it.hasNext()) {
                                             ContractInfo contractInfo = (ContractInfo) it.next();
                                             if (contractInfo != null) {
                                                 String mobile = contractInfo.getMobile();
                                                 if (!TextUtils.isEmpty(mobile) && mobile.startsWith(charSequence.toString())) {
-                                                    this.f24780c.add(contractInfo.getMobile());
-                                                    this.f24781d.add("");
+                                                    this.f24938c.add(contractInfo.getMobile());
+                                                    this.f24939d.add("");
                                                 }
                                             }
                                         }
                                     }
-                                } else if (this.f24778a.f24777i && (charSequence.length() <= 4 || charSequence.length() >= 13)) {
+                                } else if (this.f24936a.f24935i && (charSequence.length() <= 4 || charSequence.length() >= 13)) {
                                     return filterResults;
                                 } else {
-                                    if (!this.f24778a.f24777i && (charSequence.length() <= 3 || charSequence.length() >= 11)) {
+                                    if (!this.f24936a.f24935i && (charSequence.length() <= 3 || charSequence.length() >= 11)) {
                                         return filterResults;
                                     }
-                                    if (this.f24778a.f24770b == null) {
-                                        this.f24778a.f24770b = new ArrayList();
+                                    if (this.f24936a.f24928b == null) {
+                                        this.f24936a.f24928b = new ArrayList();
                                     }
-                                    if (!this.f24778a.f24770b.isEmpty()) {
-                                        if (this.f24778a.f24777i) {
-                                            String a2 = this.f24778a.a(charSequence);
+                                    if (!this.f24936a.f24928b.isEmpty()) {
+                                        if (this.f24936a.f24935i) {
+                                            String a2 = this.f24936a.a(charSequence);
                                             if (TextUtils.isEmpty(a2) || a2.length() < 4) {
                                                 return filterResults;
                                             }
-                                            Iterator it2 = this.f24778a.f24770b.iterator();
+                                            Iterator it2 = this.f24936a.f24928b.iterator();
                                             while (it2.hasNext()) {
                                                 ContractInfo contractInfo2 = (ContractInfo) it2.next();
                                                 if (contractInfo2 != null) {
@@ -231,11 +231,11 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
                                                     String name = contractInfo2.getName();
                                                     if (charSequence.length() < 13 && !TextUtils.isEmpty(mobile2) && mobile2.startsWith(a2)) {
                                                         if (mobile2.length() > 13) {
-                                                            this.f24780c.add(mobile2.substring(0, 13));
+                                                            this.f24938c.add(mobile2.substring(0, 13));
                                                         } else {
-                                                            this.f24780c.add(mobile2);
+                                                            this.f24938c.add(mobile2);
                                                         }
-                                                        ArrayList<String> arrayList = this.f24781d;
+                                                        ArrayList<String> arrayList = this.f24939d;
                                                         if (TextUtils.isEmpty(name)) {
                                                             name = "";
                                                         }
@@ -244,7 +244,7 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
                                                 }
                                             }
                                         } else {
-                                            Iterator it3 = this.f24778a.f24770b.iterator();
+                                            Iterator it3 = this.f24936a.f24928b.iterator();
                                             while (it3.hasNext()) {
                                                 ContractInfo contractInfo3 = (ContractInfo) it3.next();
                                                 if (contractInfo3 != null) {
@@ -254,11 +254,11 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
                                                         String replace = mobile3.replace(" ", "");
                                                         if (!TextUtils.isEmpty(replace) && replace.startsWith(charSequence.toString())) {
                                                             if (replace.length() > 11) {
-                                                                this.f24780c.add(replace.substring(0, 11));
+                                                                this.f24938c.add(replace.substring(0, 11));
                                                             } else {
-                                                                this.f24780c.add(replace);
+                                                                this.f24938c.add(replace);
                                                             }
-                                                            ArrayList<String> arrayList2 = this.f24781d;
+                                                            ArrayList<String> arrayList2 = this.f24939d;
                                                             if (TextUtils.isEmpty(name2)) {
                                                                 name2 = "";
                                                             }
@@ -271,11 +271,11 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
                                     }
                                 }
                             }
-                            int size = this.f24780c.size();
+                            int size = this.f24938c.size();
                             filterResults.count = size;
                             if (size > 0) {
-                                this.f24779b.put("mD1", this.f24780c);
-                                this.f24779b.put("mD2", this.f24781d);
+                                this.f24937b.put("mD1", this.f24938c);
+                                this.f24937b.put("mD2", this.f24939d);
                             }
                             return filterResults;
                         }
@@ -287,20 +287,20 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
                         ConcurrentHashMap<String, ArrayList<String>> concurrentHashMap;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, filterResults) == null) {
-                            this.f24778a.f24774f.clear();
-                            this.f24778a.f24775g.clear();
-                            if (filterResults.count > 0 && (concurrentHashMap = this.f24779b) != null && concurrentHashMap.get("mD1") != null && this.f24779b.get("mD2") != null) {
-                                this.f24778a.f24774f.addAll(this.f24779b.get("mD1"));
-                                this.f24778a.f24775g.addAll(this.f24779b.get("mD2"));
-                                this.f24778a.notifyDataSetChanged();
+                            this.f24936a.f24932f.clear();
+                            this.f24936a.f24933g.clear();
+                            if (filterResults.count > 0 && (concurrentHashMap = this.f24937b) != null && concurrentHashMap.get("mD1") != null && this.f24937b.get("mD2") != null) {
+                                this.f24936a.f24932f.addAll(this.f24937b.get("mD1"));
+                                this.f24936a.f24933g.addAll(this.f24937b.get("mD2"));
+                                this.f24936a.notifyDataSetChanged();
                                 return;
                             }
-                            this.f24778a.notifyDataSetInvalidated();
+                            this.f24936a.notifyDataSetInvalidated();
                         }
                     }
                 };
             }
-            return this.f24773e;
+            return this.f24931e;
         }
         return (Filter) invokeV.objValue;
     }
@@ -321,17 +321,17 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 associationViewHolder = new AssociationViewHolder(this);
-                view2 = this.f24772d.inflate(ResUtils.layout(this.f24776h, "wallet_base_history_item"), (ViewGroup) null);
-                associationViewHolder.mPhone = (TextView) view2.findViewById(ResUtils.id(this.f24776h, "wallet_phone"));
-                associationViewHolder.mName = (TextView) view2.findViewById(ResUtils.id(this.f24776h, "wallet_name"));
+                view2 = this.f24930d.inflate(ResUtils.layout(this.f24934h, "wallet_base_history_item"), (ViewGroup) null);
+                associationViewHolder.mPhone = (TextView) view2.findViewById(ResUtils.id(this.f24934h, "wallet_phone"));
+                associationViewHolder.mName = (TextView) view2.findViewById(ResUtils.id(this.f24934h, "wallet_name"));
                 view2.setTag(associationViewHolder);
             } else {
                 view2 = view;
                 associationViewHolder = (AssociationViewHolder) view.getTag();
             }
             associationViewHolder.mPhone.setText(getItem(i2));
-            if (i2 < this.f24775g.size()) {
-                associationViewHolder.mName.setText(this.f24775g.get(i2));
+            if (i2 < this.f24933g.size()) {
+                associationViewHolder.mName.setText(this.f24933g.get(i2));
             }
             return view2;
         }
@@ -341,7 +341,7 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
     public void loadPhoneContact() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            PhoneContactsMananger.getInstance(this.f24776h.getApplicationContext()).loadPhoneContacts(this);
+            PhoneContactsMananger.getInstance(this.f24934h.getApplicationContext()).loadPhoneContacts(this);
         }
     }
 
@@ -349,7 +349,7 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
     public void onLoadContractsComplited(ArrayList<ContractInfo> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, arrayList) == null) {
-            this.f24770b = arrayList;
+            this.f24928b = arrayList;
         }
     }
 
@@ -359,11 +359,11 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
             return;
         }
         clearMailInput();
-        if (this.f24771c != null) {
-            for (int i2 = 0; i2 < this.f24769a.length; i2++) {
-                String str2 = str + this.f24769a[i2];
+        if (this.f24929c != null) {
+            for (int i2 = 0; i2 < this.f24927a.length; i2++) {
+                String str2 = str + this.f24927a[i2];
                 if (!TextUtils.isEmpty(str2) && str2.length() <= 32) {
-                    this.f24771c.add(new ContractInfo(str2, ""));
+                    this.f24929c.add(new ContractInfo(str2, ""));
                 }
             }
         }
@@ -375,8 +375,8 @@ public class ContactAssociationAdapter extends BaseAdapter implements Filterable
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (i2 < this.f24774f.size()) {
-                return this.f24774f.get(i2);
+            if (i2 < this.f24932f.size()) {
+                return this.f24932f.get(i2);
             }
             return null;
         }

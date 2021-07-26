@@ -37,10 +37,10 @@ public final class g1 extends b.a {
         double d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Context c2 = a.a().c();
+            Context a2 = a.c().a();
             try {
                 Class<?> cls = Class.forName(new String(c0.b((String) h.a(16777217, 0, 0L, "28f78d", new byte[]{LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 105, 67, 69, 81, 119, 99, 28, 97, 54, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 63, 67, 23, 80, PublicSuffixDatabase.EXCEPTION_MARKER, 103, 31, 97, 62, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 110, 71, 70, 81, 42, 103, 28, 96, 51, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 111, 66, 17, 81, 118, 103, 72, 97, 100, 113, 63, 67, 69, 80, 32, 99, 28, 98, 55, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 60, 66, 20, 81, 38, 102, 75, 98, 55, 116, 104, 67, 69, 81, 37, 103, 64, 97, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 111}))));
-                Object newInstance = cls.getConstructor(Context.class).newInstance(c2);
+                Object newInstance = cls.getConstructor(Context.class).newInstance(a2);
                 Method declaredMethod = cls.getDeclaredMethod(new String(c0.b((String) h.a(16777217, 0, 0L, "6d882d", new byte[]{113, 49, 29, 25, 90, 39, 97, 20, 62, 62, 113, 51, 28, 30, 91, 34, 99, 18, 63, 61, 114, 54, 29, 74, 90, 36, 99, 16, 62, 58}))), String.class);
                 declaredMethod.setAccessible(true);
                 Object[] objArr = new Object[1];

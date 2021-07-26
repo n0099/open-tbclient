@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a0.b;
-import d.a.p0.n2.e;
-import d.a.p0.u0.m1.g.a;
+import d.a.q0.a0.b;
+import d.a.q0.n2.e;
+import d.a.q0.u0.m1.g.a;
 /* loaded from: classes4.dex */
 public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> implements e {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         }
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,15 +53,15 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
     public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (T) this.f14550e : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (T) this.f14598e : (T) invokeV.objValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            T t = this.f14550e;
+            T t = this.f14598e;
             if (t == 0) {
                 return 0;
             }
@@ -70,12 +70,12 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return invokeV.intValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            T t = this.f14550e;
+            T t = this.f14598e;
             if (t == 0) {
                 return null;
             }
@@ -84,12 +84,12 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.f14550e;
+            T t = this.f14598e;
             if (t == 0) {
                 return null;
             }
@@ -98,12 +98,12 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return (View) invokeV.objValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            T t = this.f14550e;
+            T t = this.f14598e;
             if (t == 0) {
                 return false;
             }
@@ -112,12 +112,12 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            T t = this.f14550e;
+            T t = this.f14598e;
             if (t == 0) {
                 return false;
             }
@@ -126,21 +126,21 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public void startPlay() {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (t = this.f14550e) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (t = this.f14598e) == 0) {
             return;
         }
         ((a) t).startPlay();
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public void stopPlay() {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (t = this.f14550e) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (t = this.f14598e) == 0) {
             return;
         }
         ((a) t).stopPlay();

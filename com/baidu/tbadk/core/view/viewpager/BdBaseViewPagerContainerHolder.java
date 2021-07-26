@@ -17,22 +17,22 @@ public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f12783a;
+    public RelativeLayout f12832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f12784b;
+    public TextView f12833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f12785c;
+    public TextView f12834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IndicatorView f12786d;
+    public IndicatorView f12835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f12787e;
+    public View f12836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdBaseViewPager f12788f;
+    public BdBaseViewPager f12837f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseViewPagerContainerHolder(View view, Context context) {
@@ -52,16 +52,16 @@ public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f12784b = null;
-        this.f12785c = null;
-        this.f12786d = null;
-        this.f12787e = null;
-        this.f12788f = null;
-        this.f12783a = (RelativeLayout) view.findViewById(R.id.top_area);
-        this.f12784b = (TextView) view.findViewById(R.id.theme_title);
-        this.f12785c = (TextView) view.findViewById(R.id.more_textview);
-        this.f12786d = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.f12787e = view.findViewById(R.id.bottom_divider_line);
-        this.f12788f = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.f12833b = null;
+        this.f12834c = null;
+        this.f12835d = null;
+        this.f12836e = null;
+        this.f12837f = null;
+        this.f12832a = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.f12833b = (TextView) view.findViewById(R.id.theme_title);
+        this.f12834c = (TextView) view.findViewById(R.id.more_textview);
+        this.f12835d = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.f12836e = view.findViewById(R.id.bottom_divider_line);
+        this.f12837f = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

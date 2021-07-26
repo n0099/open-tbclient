@@ -14,13 +14,13 @@ public final class s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f69851a;
+    public final int f70305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Format[] f69852b;
+    public final Format[] f70306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f69853c;
+    public int f70307c;
 
     public s(Format... formatArr) {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public final class s {
             }
         }
         d.f.b.a.i0.a.f(formatArr.length > 0);
-        this.f69852b = formatArr;
-        this.f69851a = formatArr.length;
+        this.f70306b = formatArr;
+        this.f70305a = formatArr.length;
     }
 
     public Format a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f69852b[i2] : (Format) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f70306b[i2] : (Format) invokeI.objValue;
     }
 
     public int b(Format format) {
@@ -56,7 +56,7 @@ public final class s {
         }
         int i2 = 0;
         while (true) {
-            Format[] formatArr = this.f69852b;
+            Format[] formatArr = this.f70306b;
             if (i2 >= formatArr.length) {
                 return -1;
             }
@@ -78,7 +78,7 @@ public final class s {
                 return false;
             }
             s sVar = (s) obj;
-            return this.f69851a == sVar.f69851a && Arrays.equals(this.f69852b, sVar.f69852b);
+            return this.f70305a == sVar.f70305a && Arrays.equals(this.f70306b, sVar.f70306b);
         }
         return invokeL.booleanValue;
     }
@@ -87,10 +87,10 @@ public final class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f69853c == 0) {
-                this.f69853c = 527 + Arrays.hashCode(this.f69852b);
+            if (this.f70307c == 0) {
+                this.f70307c = 527 + Arrays.hashCode(this.f70306b);
             }
-            return this.f69853c;
+            return this.f70307c;
         }
         return invokeV.intValue;
     }

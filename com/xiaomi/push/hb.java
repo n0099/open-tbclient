@@ -23,7 +23,7 @@ public class hb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40247a;
+    public static boolean f40519a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -32,7 +32,7 @@ public class hb {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f40248a;
+        public Context f40520a;
 
         /* renamed from: a  reason: collision with other field name */
         public he f468a;
@@ -53,14 +53,14 @@ public class hb {
                 }
             }
             this.f468a = heVar;
-            this.f40248a = context;
+            this.f40520a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hb.c(this.f40248a, this.f468a);
+                hb.c(this.f40520a, this.f468a);
             }
         }
     }
@@ -200,11 +200,11 @@ public class hb {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, heVar) == null) {
-            if (f40247a) {
+            if (f40519a) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("TinyData extractTinyData is running");
                 return;
             }
-            f40247a = true;
+            f40519a = true;
             File file2 = new File(context.getFilesDir(), "tiny_data.data");
             if (!file2.exists()) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("TinyData no ready file to get data.");
@@ -286,7 +286,7 @@ public class hb {
             a(context, heVar, file, a2);
             ha.a(false);
             b(context);
-            f40247a = false;
+            f40519a = false;
         }
     }
 }

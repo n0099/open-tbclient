@@ -50,8 +50,8 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f26148c;
-            if (payResultContent == null || this.f26147b == null) {
+            PayResultContent payResultContent = this.f26306c;
+            if (payResultContent == null || this.f26305b == null) {
                 return null;
             }
             if (payResultContent.isPaySuccess) {
@@ -62,7 +62,7 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
                 }
                 this.contents.put("statusDrawableName", "wallet_base_result_main_success");
                 this.contents.put("okBtnText", "ebpay_result_btn_success");
-                this.contents.put("payDetailInfo", this.f26148c.pay_detail_info);
+                this.contents.put("payDetailInfo", this.f26306c.pay_detail_info);
             }
             return this.contents;
         }
@@ -75,14 +75,14 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f26148c;
-            if (payResultContent == null || this.f26147b == null) {
+            PayResultContent payResultContent = this.f26306c;
+            if (payResultContent == null || this.f26305b == null) {
                 return null;
             }
             if (!payResultContent.isPaySuccess) {
                 this.contents.put("statusDrawableName", "wallet_base_result_paying");
                 this.contents.put("mainTip", b.a() ? "ebpay_sign_paying" : "ebpay_pay_paying");
-                this.contents.put("errorMsg", this.f26148c.mErrorMsg);
+                this.contents.put("errorMsg", this.f26306c.mErrorMsg);
             }
             return this.contents;
         }
@@ -93,7 +93,7 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
     public void handleOKBtnOnclick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            PayCallBackManager.callBackClientSuccess(this.f26146a.get().getActivity(), "");
+            PayCallBackManager.callBackClientSuccess(this.f26304a.get().getActivity(), "");
         }
     }
 
@@ -103,7 +103,7 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            return this.f26148c != null;
+            return this.f26306c != null;
         }
         return invokeL.booleanValue;
     }

@@ -15,15 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.e.e;
-import com.bytedance.sdk.component.e.g;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.d.e;
+import com.bytedance.sdk.component.d.g;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
 import com.bytedance.sdk.openadsdk.component.reward.c.a;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.o;
-import com.bytedance.sdk.openadsdk.core.t;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.c;
 import com.bytedance.sdk.openadsdk.downloadnew.a.d;
 import com.bytedance.sdk.openadsdk.multipro.b;
@@ -74,10 +73,10 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f29153a;
+                public final /* synthetic */ String f29253a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ TTFullScreenVideoActivity f29154b;
+                public final /* synthetic */ TTFullScreenVideoActivity f29254b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -97,8 +96,8 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                             return;
                         }
                     }
-                    this.f29154b = this;
-                    this.f29153a = str;
+                    this.f29254b = this;
+                    this.f29253a = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -106,9 +105,9 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f29154b.c(1).executeFullVideoCallback(this.f29154b.f29086e, this.f29153a);
+                            this.f29254b.c(1).executeFullVideoCallback(this.f29254b.f29185e, this.f29253a);
                         } catch (Throwable th) {
-                            j.c("TTFullScreenVideoActivity", "executeFullVideoCallback execute throw Exception : ", th);
+                            k.c("TTFullScreenVideoActivity", "executeFullVideoCallback execute throw Exception : ", th);
                         }
                     }
                 }
@@ -138,7 +137,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m mVar = this.f29084c;
+            m mVar = this.f29183c;
             if (mVar != null && mVar.aJ() != 100.0f) {
                 F = true;
             }
@@ -164,10 +163,10 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f29155a;
+                public final /* synthetic */ String f29255a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ TTFullScreenVideoActivity f29156b;
+                public final /* synthetic */ TTFullScreenVideoActivity f29256b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -184,8 +183,8 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                             return;
                         }
                     }
-                    this.f29156b = this;
-                    this.f29155a = str;
+                    this.f29256b = this;
+                    this.f29255a = str;
                 }
 
                 /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -194,7 +193,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                     char c2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String str2 = this.f29155a;
+                        String str2 = this.f29255a;
                         switch (str2.hashCode()) {
                             case -1489027186:
                                 if (str2.equals("onAdVideoBarClick")) {
@@ -244,54 +243,54 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                         }
                         if (c2 == 0) {
                             if (!b.b()) {
-                                if (this.f29156b.D != null) {
-                                    this.f29156b.D.onAdVideoBarClick();
+                                if (this.f29256b.D != null) {
+                                    this.f29256b.D.onAdVideoBarClick();
                                     return;
                                 }
                                 return;
                             }
-                            this.f29156b.c("onAdVideoBarClick");
+                            this.f29256b.c("onAdVideoBarClick");
                         } else if (c2 == 1) {
                             if (!b.b()) {
-                                if (this.f29156b.D != null) {
-                                    this.f29156b.D.onAdShow();
+                                if (this.f29256b.D != null) {
+                                    this.f29256b.D.onAdShow();
                                     return;
                                 }
                                 return;
                             }
-                            this.f29156b.c("onAdShow");
+                            this.f29256b.c("onAdShow");
                         } else if (c2 == 2) {
                             if (!b.b()) {
-                                if (this.f29156b.D != null) {
-                                    this.f29156b.D.onSkippedVideo();
+                                if (this.f29256b.D != null) {
+                                    this.f29256b.D.onSkippedVideo();
                                     return;
                                 }
                                 return;
                             }
-                            this.f29156b.c("onSkippedVideo");
+                            this.f29256b.c("onSkippedVideo");
                         } else if (c2 == 3) {
                             if (!b.b()) {
-                                if (this.f29156b.D != null) {
-                                    this.f29156b.D.onAdClose();
+                                if (this.f29256b.D != null) {
+                                    this.f29256b.D.onAdClose();
                                     return;
                                 }
                                 return;
                             }
-                            this.f29156b.c("onAdClose");
+                            this.f29256b.c("onAdClose");
                         } else if (c2 != 4) {
                             if (c2 != 5) {
                                 return;
                             }
                             if (b.b()) {
-                                this.f29156b.c("recycleRes");
+                                this.f29256b.c("recycleRes");
                             }
-                            this.f29156b.D = null;
+                            this.f29256b.D = null;
                         } else if (!b.b()) {
-                            if (this.f29156b.D != null) {
-                                this.f29156b.D.onVideoComplete();
+                            if (this.f29256b.D != null) {
+                                this.f29256b.D.onVideoComplete();
                             }
                         } else {
-                            this.f29156b.c("onVideoComplete");
+                            this.f29256b.c("onVideoComplete");
                         }
                     }
                 }
@@ -302,16 +301,16 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            int h2 = o.h().h(this.f29085d);
+            int h2 = o.h().h(this.f29184d);
             if (h2 < 0) {
                 h2 = 5;
             }
-            if (!o.h().b(String.valueOf(this.f29085d))) {
+            if (!o.h().b(String.valueOf(this.f29184d))) {
                 if (i2 >= h2) {
                     if (!this.r.getAndSet(true)) {
                         this.k.d(true);
                     }
-                    this.k.a(null, getString(r.b(this.f29083b, "tt_reward_screen_skip_tx")));
+                    this.k.a(null, getString(t.b(this.f29182b, "tt_reward_screen_skip_tx")));
                     this.k.f(true);
                     return;
                 }
@@ -326,7 +325,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 this.k.f(false);
                 return;
             }
-            this.k.a(null, getString(r.b(this.f29083b, "tt_reward_screen_skip_tx")));
+            this.k.a(null, getString(t.b(this.f29182b, "tt_reward_screen_skip_tx")));
             this.k.f(true);
         }
     }
@@ -384,19 +383,16 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onStop();
-            if (a(this.f29084c)) {
-                if (d.l && d.k && b(this.f29084c)) {
+            if (a(this.f29183c)) {
+                if (d.l && d.k && b(this.f29183c)) {
                     d.k = false;
                     d.l = false;
                     finish();
                 } else if (F && !d.l) {
                     F = false;
                     finish();
+                } else if (!this.l.H() || d.l) {
                 } else {
-                    com.bytedance.sdk.openadsdk.component.reward.b.e eVar = this.l;
-                    if (eVar == null || !eVar.I() || d.l) {
-                        return;
-                    }
                     finish();
                 }
             }
@@ -432,7 +428,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTFullScreenVideoActivity f29151a;
+                public final /* synthetic */ TTFullScreenVideoActivity f29251a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -449,19 +445,19 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                             return;
                         }
                     }
-                    this.f29151a = this;
+                    this.f29251a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.component.reward.top.b
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f29151a.f29084c)) {
-                            this.f29151a.b("onSkippedVideo");
-                            this.f29151a.c();
+                        if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f29251a.f29183c)) {
+                            this.f29251a.b("onSkippedVideo");
+                            this.f29251a.c();
                             return;
                         }
-                        this.f29151a.d();
+                        this.f29251a.d();
                     }
                 }
 
@@ -469,7 +465,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 public void b(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        this.f29151a.a();
+                        this.f29251a.a();
                     }
                 }
 
@@ -477,17 +473,17 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 public void c(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-                        this.f29151a.b();
+                        this.f29251a.b();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.component.reward.top.b
                 public void d(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, view) == null) || this.f29151a.w()) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, view) == null) || this.f29251a.w()) {
                         return;
                     }
-                    this.f29151a.c();
+                    this.f29251a.c();
                 }
             });
         }
@@ -523,7 +519,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bundle)) == null) {
             if (!b.b()) {
-                this.D = t.a().e();
+                this.D = com.bytedance.sdk.openadsdk.core.t.a().e();
             }
             if (bundle != null && this.D == null) {
                 this.D = E;
@@ -538,17 +534,17 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            j.b("TTFullScreenVideoActivity", "bindVideoAd execute");
+            k.b("TTFullScreenVideoActivity", "bindVideoAd execute");
             a aVar = this.z;
             if (aVar != null && (aVar instanceof com.bytedance.sdk.openadsdk.component.reward.c.d)) {
-                this.n.a(((com.bytedance.sdk.openadsdk.component.reward.c.d) aVar).e(), this.f29084c, this.f29082a, x());
+                this.n.a(((com.bytedance.sdk.openadsdk.component.reward.c.d) aVar).e(), this.f29183c, this.f29181a, x());
             } else {
-                this.n.a(this.f29090i.e(), this.f29084c, this.f29082a, x());
+                this.n.a(this.f29189i.e(), this.f29183c, this.f29181a, x());
             }
             HashMap hashMap = null;
-            if (!TextUtils.isEmpty(this.f29087f)) {
+            if (!TextUtils.isEmpty(this.f29186f)) {
                 hashMap = new HashMap();
-                hashMap.put("rit_scene", this.f29087f);
+                hashMap.put("rit_scene", this.f29186f);
             }
             this.n.a(hashMap);
             this.n.a(new c.a(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity.2
@@ -556,7 +552,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTFullScreenVideoActivity f29152a;
+                public final /* synthetic */ TTFullScreenVideoActivity f29252a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -573,17 +569,17 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                             return;
                         }
                     }
-                    this.f29152a = this;
+                    this.f29252a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
                 public void a(long j2, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-                        this.f29152a.w.removeMessages(300);
-                        this.f29152a.s();
-                        this.f29152a.n();
-                        this.f29152a.c(false);
+                        this.f29252a.w.removeMessages(300);
+                        this.f29252a.s();
+                        this.f29252a.n();
+                        this.f29252a.c(false);
                     }
                 }
 
@@ -591,18 +587,18 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 public void b(long j2, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-                        this.f29152a.w.removeMessages(300);
-                        this.f29152a.r();
-                        if (this.f29152a.n.a()) {
+                        this.f29252a.w.removeMessages(300);
+                        this.f29252a.r();
+                        if (this.f29252a.n.a()) {
                             return;
                         }
-                        this.f29152a.s();
-                        this.f29152a.n.j();
-                        j.f("TTFullScreenVideoActivity", "onError、、、、、、、、");
-                        if (this.f29152a.t()) {
-                            this.f29152a.n.a(1);
+                        this.f29252a.s();
+                        this.f29252a.n.j();
+                        k.f("TTFullScreenVideoActivity", "onError、、、、、、、、");
+                        if (this.f29252a.t()) {
+                            this.f29252a.n.a(1, 2);
                         }
-                        this.f29152a.c(false);
+                        this.f29252a.c(false);
                     }
                 }
 
@@ -610,41 +606,41 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29152a.w.removeMessages(300);
-                        this.f29152a.s();
-                        j.b("TTFullScreenVideoActivity", "onTimeOut、、、、、、、、");
-                        this.f29152a.c(false);
-                        this.f29152a.n.a(0);
-                        this.f29152a.n.j();
+                        this.f29252a.w.removeMessages(300);
+                        this.f29252a.s();
+                        k.b("TTFullScreenVideoActivity", "onTimeOut、、、、、、、、");
+                        this.f29252a.c(false);
+                        this.f29252a.n.a(0, 1);
+                        this.f29252a.n.j();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
                 public void a(long j2, long j3) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.f29152a.q.get()) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.f29252a.q.get()) {
                         return;
                     }
-                    this.f29152a.w.removeMessages(300);
-                    if (j2 != this.f29152a.n.A()) {
-                        this.f29152a.s();
+                    this.f29252a.w.removeMessages(300);
+                    if (j2 != this.f29252a.n.C()) {
+                        this.f29252a.s();
                     }
-                    if (this.f29152a.n.a()) {
-                        this.f29152a.n.b(j2);
-                        TTFullScreenVideoActivity tTFullScreenVideoActivity = this.f29152a;
+                    if (this.f29252a.n.a()) {
+                        this.f29252a.n.b(j2);
+                        TTFullScreenVideoActivity tTFullScreenVideoActivity = this.f29252a;
                         long j4 = j2 / 1000;
-                        tTFullScreenVideoActivity.v = (int) (tTFullScreenVideoActivity.n.z() - j4);
+                        tTFullScreenVideoActivity.v = (int) (tTFullScreenVideoActivity.n.B() - j4);
                         int i2 = (int) j4;
-                        if ((this.f29152a.s.get() || this.f29152a.u()) && this.f29152a.n.a()) {
-                            this.f29152a.n.l();
+                        if ((this.f29252a.s.get() || this.f29252a.u()) && this.f29252a.n.a()) {
+                            this.f29252a.n.l();
                         }
-                        this.f29152a.e(i2);
-                        TTFullScreenVideoActivity tTFullScreenVideoActivity2 = this.f29152a;
+                        this.f29252a.e(i2);
+                        TTFullScreenVideoActivity tTFullScreenVideoActivity2 = this.f29252a;
                         int i3 = tTFullScreenVideoActivity2.v;
                         if (i3 >= 0) {
                             tTFullScreenVideoActivity2.k.a(String.valueOf(i3), null);
                         }
-                        TTFullScreenVideoActivity tTFullScreenVideoActivity3 = this.f29152a;
+                        TTFullScreenVideoActivity tTFullScreenVideoActivity3 = this.f29252a;
                         if (tTFullScreenVideoActivity3.v <= 0) {
                             tTFullScreenVideoActivity3.c(false);
                         }
@@ -660,7 +656,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
     public void a(View view, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            m mVar = this.f29084c;
+            m mVar = this.f29183c;
             if (mVar != null && mVar.aJ() != 100.0f) {
                 F = true;
             }
@@ -675,7 +671,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
             if (mVar == null) {
                 return false;
             }
-            return o.h().i(this.f29085d);
+            return o.h().i(this.f29184d);
         }
         return invokeL.booleanValue;
     }

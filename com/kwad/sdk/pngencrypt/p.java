@@ -11,31 +11,31 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f35872a;
+    public final k f36061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f35873b;
+    public final e f36062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f35874c;
+    public final boolean f36063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35875d;
+    public int f36064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35876e;
+    public int f36065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35877f;
+    public int f36066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35878g;
+    public int f36067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35879h;
+    public int f36068h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35880i;
+    public int f36069i;
     public int j;
     public int k;
     public int l;
@@ -59,41 +59,41 @@ public class p {
                 return;
             }
         }
-        this.f35872a = kVar;
-        this.f35873b = eVar;
-        this.f35874c = eVar != null;
+        this.f36061a = kVar;
+        this.f36062b = eVar;
+        this.f36063c = eVar != null;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f35879h = i2;
-            if (!this.f35874c) {
+            this.f36068h = i2;
+            if (!this.f36063c) {
                 this.n = 1;
-                this.f35875d = 1;
-                this.f35876e = 1;
-                this.f35877f = 0;
-                this.f35878g = 0;
+                this.f36064d = 1;
+                this.f36065e = 1;
+                this.f36066f = 0;
+                this.f36067g = 0;
                 this.j = i2;
-                this.f35880i = i2;
-                k kVar = this.f35872a;
-                this.k = kVar.f35850b;
-                this.l = kVar.f35849a;
+                this.f36069i = i2;
+                k kVar = this.f36061a;
+                this.k = kVar.f36039b;
+                this.l = kVar.f36038a;
                 this.m = kVar.k;
                 return;
             }
-            this.n = this.f35873b.d();
-            e eVar = this.f35873b;
-            this.f35876e = eVar.f35838c;
-            this.f35875d = eVar.f35837b;
-            this.f35878g = eVar.f35840e;
-            this.f35877f = eVar.f35839d;
-            this.f35880i = eVar.c();
-            this.j = this.f35873b.b();
-            this.k = this.f35873b.e();
-            int f2 = this.f35873b.f();
+            this.n = this.f36062b.d();
+            e eVar = this.f36062b;
+            this.f36065e = eVar.f36027c;
+            this.f36064d = eVar.f36026b;
+            this.f36067g = eVar.f36029e;
+            this.f36066f = eVar.f36028d;
+            this.f36069i = eVar.c();
+            this.j = this.f36062b.b();
+            this.k = this.f36062b.e();
+            int f2 = this.f36062b.f();
             this.l = f2;
-            this.m = ((this.f35872a.f35857i * f2) + 7) / 8;
+            this.m = ((this.f36061a.f36046i * f2) + 7) / 8;
         }
     }
 

@@ -9,18 +9,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.activitys.H5Activity;
 /* loaded from: classes6.dex */
-public class PBVideo implements d {
+public class PBVideo implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39451a;
+    public String f39644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public I1 f39452b;
+    public k2 f39645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBVideoListener f39453c;
+    public PBVideoListener f39646c;
 
     public PBVideo(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -38,22 +38,22 @@ public class PBVideo implements d {
             }
         }
         Context applicationContext = context.getApplicationContext();
-        this.f39451a = str;
-        I1 i1 = new I1(applicationContext, str);
-        this.f39452b = i1;
-        i1.f39381h = new o(this);
+        this.f39644a = str;
+        k2 k2Var = new k2(applicationContext, str);
+        this.f39645b = k2Var;
+        k2Var.f39866h = new C(this);
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            I1 i1 = this.f39452b;
-            i1.f39378e = false;
-            i1.f39376c = false;
-            i1.f39377d = false;
-            K0 k0 = i1.f39382i;
-            if (k0 != null) {
-                k0.a();
+            k2 k2Var = this.f39645b;
+            k2Var.f39863e = false;
+            k2Var.f39861c = false;
+            k2Var.f39862d = false;
+            m1 m1Var = k2Var.f39867i;
+            if (m1Var != null) {
+                m1Var.a();
             }
         }
     }
@@ -61,16 +61,16 @@ public class PBVideo implements d {
     public String getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39451a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39644a : (String) invokeV.objValue;
     }
 
     public boolean isReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            I1 i1 = this.f39452b;
-            if (!i1.a()) {
-                if (!(i1.f39377d && !i1.f39378e && i1.b() && !i1.f39379f.isShown() && i1.f39379f.isEffective())) {
+            k2 k2Var = this.f39645b;
+            if (!k2Var.a()) {
+                if (!(k2Var.f39862d && !k2Var.f39863e && k2Var.b() && !k2Var.f39864f.isShown() && k2Var.f39864f.isEffective())) {
                     return false;
                 }
             }
@@ -82,42 +82,42 @@ public class PBVideo implements d {
     public void load() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            I1 i1 = this.f39452b;
-            if (i1.b() && i1.f39379f.isEffective() && !i1.f39379f.isShown()) {
-                i1.a(i1.f39379f);
+            k2 k2Var = this.f39645b;
+            if (k2Var.b() && k2Var.f39864f.isEffective() && !k2Var.f39864f.isShown()) {
+                k2Var.a(k2Var.f39864f);
                 return;
             }
-            if (i1.f39382i == null) {
-                i1.f39382i = new K0(i1.f39375b, i1.f39374a, y.f39719d);
+            if (k2Var.f39867i == null) {
+                k2Var.f39867i = new m1(k2Var.f39860b, k2Var.f39859a, M.f39599d);
             }
-            i1.f39382i.f39399g = new G1(i1);
-            i1.f39382i.b();
+            k2Var.f39867i.f39878g = new i2(k2Var);
+            k2Var.f39867i.b();
         }
     }
 
     public void setVideoListener(PBVideoListener pBVideoListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pBVideoListener) == null) {
-            this.f39453c = pBVideoListener;
+            this.f39646c = pBVideoListener;
         }
     }
 
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            I1 i1 = this.f39452b;
-            if (!z.e(i1.f39375b)) {
-                PBVideoListener pBVideoListener = i1.f39381h;
+            k2 k2Var = this.f39645b;
+            if (!N.e(k2Var.f39860b)) {
+                PBVideoListener pBVideoListener = k2Var.f39866h;
                 if (pBVideoListener != null) {
                     pBVideoListener.onRewardedShowFail(PBError.NO_NETWORK.getMsg());
                 }
-            } else if (i1.c() && i1.a() && i1.b()) {
-                i1.f39376c = false;
-                W1.a().a(W1.a(i1.f39379f.getTraceid(), i1.f39379f.getId(), i1.f39379f.getPid()), i1.f39380g);
-                i1.f39379f.setShown(true);
-                x.a().a(W1.a(i1.f39379f.getTraceid(), i1.f39379f.getId(), i1.f39374a), i1.f39379f);
-                H5Activity.a(i1.f39375b, i1.f39379f, i1.f39374a);
-                f1.a(i1.f39379f.getId() + i1.f39374a, i1);
+            } else if (k2Var.c() && k2Var.a() && k2Var.b()) {
+                k2Var.f39861c = false;
+                y2.a().a(y2.a(k2Var.f39864f.getTraceid(), k2Var.f39864f.getId(), k2Var.f39864f.getPid()), k2Var.f39865g);
+                k2Var.f39864f.setShown(true);
+                L.a().a(y2.a(k2Var.f39864f.getTraceid(), k2Var.f39864f.getId(), k2Var.f39859a), k2Var.f39864f);
+                H5Activity.a(k2Var.f39860b, k2Var.f39864f, k2Var.f39859a);
+                H1.a(k2Var.f39864f.getId() + k2Var.f39859a, k2Var);
             }
         }
     }

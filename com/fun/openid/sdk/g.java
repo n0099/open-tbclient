@@ -15,7 +15,7 @@ public class g implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f32774a;
+    public boolean f32963a;
 
     /* loaded from: classes5.dex */
     public class a implements u.a<String> {
@@ -23,10 +23,10 @@ public class g implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f.a f32775a;
+        public final /* synthetic */ f.a f32964a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f32776b;
+        public final /* synthetic */ g f32965b;
 
         public a(g gVar, f.a aVar) {
             Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class g implements f {
                     return;
                 }
             }
-            this.f32776b = gVar;
-            this.f32775a = aVar;
+            this.f32965b = gVar;
+            this.f32964a = aVar;
         }
     }
 
@@ -61,24 +61,24 @@ public class g implements f {
                 return;
             }
         }
-        this.f32774a = false;
+        this.f32963a = false;
     }
 
     @Override // com.fun.openid.sdk.f
     public void a(Context context, f.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) || this.f32774a) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) || this.f32963a) {
             return;
         }
         u uVar = new u();
         a aVar2 = new a(this, aVar);
-        uVar.f32799a = context;
-        uVar.f32802d = aVar2;
-        uVar.f32801c = new t(uVar);
+        uVar.f32988a = context;
+        uVar.f32991d = aVar2;
+        uVar.f32990c = new t(uVar);
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        char c2 = uVar.f32799a.bindService(intent, uVar.f32801c, 1) ? (char) 1 : (char) 65535;
-        this.f32774a = true;
+        char c2 = uVar.f32988a.bindService(intent, uVar.f32990c, 1) ? (char) 1 : (char) 65535;
+        this.f32963a = true;
         if (c2 != 1) {
             ((e.a) aVar).a(true, null);
         }

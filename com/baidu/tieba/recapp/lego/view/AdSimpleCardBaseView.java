@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import d.a.c.e.p.j;
-import d.a.c.e.p.l;
-import d.a.p0.w2.x;
+import d.a.d.e.p.j;
+import d.a.d.e.p.l;
+import d.a.q0.w2.x;
 import tbclient.AdCloseInfo;
 /* loaded from: classes4.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
@@ -47,7 +47,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdSimpleCardBaseView f20535e;
+        public final /* synthetic */ AdSimpleCardBaseView f20653e;
 
         public a(AdSimpleCardBaseView adSimpleCardBaseView) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                     return;
                 }
             }
-            this.f20535e = adSimpleCardBaseView;
+            this.f20653e = adSimpleCardBaseView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20535e.y.performClick();
+                this.f20653e.y.performClick();
             }
         }
     }
@@ -82,10 +82,10 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public AdCard f20536e;
+        public AdCard f20654e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdSimpleCardBaseView f20537f;
+        public final /* synthetic */ AdSimpleCardBaseView f20655f;
 
         public b(AdSimpleCardBaseView adSimpleCardBaseView, AdCard adCard) {
             Interceptable interceptable = $ic;
@@ -102,16 +102,16 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                     return;
                 }
             }
-            this.f20537f = adSimpleCardBaseView;
-            this.f20536e = adCard;
+            this.f20655f = adSimpleCardBaseView;
+            this.f20654e = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, advertAppInfo) == null) {
-                int d2 = x.d(this.f20537f.m.getPageActivity(), this.f20536e.getScheme(), this.f20536e.getDownloadId(), this.f20536e.getExtInfo());
-                if (this.f20537f.o != null) {
-                    this.f20537f.o.a(d2, null);
+                int d2 = x.d(this.f20655f.m.getPageActivity(), this.f20654e.getScheme(), this.f20654e.getDownloadId(), this.f20654e.getExtInfo());
+                if (this.f20655f.o != null) {
+                    this.f20655f.o.a(d2, null);
                 }
             }
         }
@@ -121,10 +121,10 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 if (!j.A()) {
-                    this.f20537f.m.showToast(R.string.neterror);
+                    this.f20655f.m.showToast(R.string.neterror);
                     return;
                 }
-                AdCard adCard = this.f20536e;
+                AdCard adCard = this.f20654e;
                 if (adCard == null) {
                     return;
                 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.r.o;
+import com.bytedance.sdk.openadsdk.q.q;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes5.dex */
@@ -40,6 +40,7 @@ public class TTAdConstant {
     public static final int NETWORK_STATE_2G = 2;
     public static final int NETWORK_STATE_3G = 3;
     public static final int NETWORK_STATE_4G = 5;
+    public static final int NETWORK_STATE_5G = 6;
     public static final int NETWORK_STATE_MOBILE = 1;
     public static final int NETWORK_STATE_WIFI = 4;
     public static final int ORIENTATION_LANDSCAPE = 2;
@@ -90,11 +91,11 @@ public class TTAdConstant {
         public static final RitScenes HOME_TRY_PROPS;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ RitScenes[] f29038b;
+        public static final /* synthetic */ RitScenes[] f29137b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f29039a;
+        public final String f29138a;
 
         static {
             InterceptResult invokeClinit;
@@ -118,11 +119,11 @@ public class TTAdConstant {
             HOME_GIFT_BONUS = new RitScenes("HOME_GIFT_BONUS", 6, "home_gift_bonus");
             GAME_START_BONUS = new RitScenes("GAME_START_BONUS", 7, "game_start_bonus");
             GAME_REDUCE_WAITING = new RitScenes("GAME_REDUCE_WAITING", 8, "geme_reduce_waiting");
-            GAME_MORE_KLLKRTUNITIES = new RitScenes("GAME_MORE_KLLKRTUNITIES", 9, o.n("game_more_kllkrtunities"));
+            GAME_MORE_KLLKRTUNITIES = new RitScenes("GAME_MORE_KLLKRTUNITIES", 9, q.m("game_more_kllkrtunities"));
             GAME_FINISH_REWARDS = new RitScenes("GAME_FINISH_REWARDS", 10, "game_finish_rewards");
             RitScenes ritScenes = new RitScenes("GAME_GIFT_BONUS", 11, "game_gift_bonus");
             GAME_GIFT_BONUS = ritScenes;
-            f29038b = new RitScenes[]{CUSTOMIZE_SCENES, HOME_OPEN_BONUS, HOME_SVIP_BONUS, HOME_GET_PROPS, HOME_TRY_PROPS, HOME_GET_BONUS, HOME_GIFT_BONUS, GAME_START_BONUS, GAME_REDUCE_WAITING, GAME_MORE_KLLKRTUNITIES, GAME_FINISH_REWARDS, ritScenes};
+            f29137b = new RitScenes[]{CUSTOMIZE_SCENES, HOME_OPEN_BONUS, HOME_SVIP_BONUS, HOME_GET_PROPS, HOME_TRY_PROPS, HOME_GET_BONUS, HOME_GIFT_BONUS, GAME_START_BONUS, GAME_REDUCE_WAITING, GAME_MORE_KLLKRTUNITIES, GAME_FINISH_REWARDS, ritScenes};
         }
 
         public RitScenes(String str, int i2, String str2) {
@@ -143,7 +144,7 @@ public class TTAdConstant {
                     return;
                 }
             }
-            this.f29039a = str2;
+            this.f29138a = str2;
         }
 
         public static RitScenes valueOf(String str) {
@@ -155,13 +156,13 @@ public class TTAdConstant {
         public static RitScenes[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RitScenes[]) f29038b.clone() : (RitScenes[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RitScenes[]) f29137b.clone() : (RitScenes[]) invokeV.objValue;
         }
 
         public String getScenesName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29039a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29138a : (String) invokeV.objValue;
         }
     }
 

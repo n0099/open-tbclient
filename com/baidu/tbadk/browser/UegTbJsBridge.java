@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e.a.a;
-import d.a.o0.s.c.l;
-import d.a.p0.h3.l0.b;
-import d.a.p0.h3.l0.d.c;
-import d.a.p0.p3.d;
+import d.a.f.a.a;
+import d.a.p0.t.c.l;
+import d.a.q0.h3.l0.b;
+import d.a.q0.h3.l0.d.c;
+import d.a.q0.p3.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
@@ -55,7 +55,7 @@ public class UegTbJsBridge implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             try {
-                d.a.c.e.p.a.a(new JSONObject(str).optString("content"));
+                d.a.d.e.p.a.a(new JSONObject(str).optString("content"));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -88,7 +88,7 @@ public class UegTbJsBridge implements b {
         return (c) invokeLL.objValue;
     }
 
-    @Override // d.a.p0.h3.l0.b
+    @Override // d.a.q0.h3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

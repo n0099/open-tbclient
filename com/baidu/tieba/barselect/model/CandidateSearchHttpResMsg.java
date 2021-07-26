@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.x.b.a;
+import d.a.q0.x.b.a;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
 /* loaded from: classes4.dex */
@@ -57,7 +57,7 @@ public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
                 if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                     return;
                 }
-                this.candidateData.f66108a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+                this.candidateData.f66784a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
             }
         }
     }

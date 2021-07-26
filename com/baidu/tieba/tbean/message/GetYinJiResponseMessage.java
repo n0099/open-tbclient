@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.j3.f.a;
+import d.a.q0.j3.f.a;
 import java.util.List;
 import tbclient.GetIconList.Custom;
 import tbclient.GetIconList.DataRes;
@@ -43,28 +43,28 @@ public class GetYinJiResponseMessage extends SocketResponsedMessage implements a
         }
     }
 
-    @Override // d.a.p0.j3.f.a
+    @Override // d.a.q0.j3.f.a
     public List<Custom> getCustomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.customList : (List) invokeV.objValue;
     }
 
-    @Override // d.a.p0.j3.f.a
+    @Override // d.a.q0.j3.f.a
     public List<IconInfo> getIconInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.iconInfoList : (List) invokeV.objValue;
     }
 
-    @Override // d.a.p0.j3.f.a
+    @Override // d.a.q0.j3.f.a
     public Setting getSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.setting : (Setting) invokeV.objValue;
     }
 
-    @Override // d.a.p0.j3.f.a
+    @Override // d.a.q0.j3.f.a
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -14,10 +14,10 @@ public final class DisplayUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f4060a = 0.5f;
+    public static final float f4086a = 0.5f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f4061b;
+    public static DisplayMetrics f4087b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public DisplayUtils() {
@@ -36,8 +36,8 @@ public final class DisplayUtils {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f4061b == null) {
-            f4061b = context.getResources().getDisplayMetrics();
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f4087b == null) {
+            f4087b = context.getResources().getDisplayMetrics();
         }
     }
 
@@ -52,7 +52,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             a(context);
-            return f4061b.heightPixels;
+            return f4087b.heightPixels;
         }
         return invokeL.intValue;
     }
@@ -62,7 +62,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             a(context);
-            return f4061b.widthPixels;
+            return f4087b.widthPixels;
         }
         return invokeL.intValue;
     }

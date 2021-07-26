@@ -14,13 +14,13 @@ public final class h extends ac {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f28248a;
+    public final String f28342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f28249b;
+    public final long f28343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.a.e f28250c;
+    public final com.bytedance.sdk.component.b.a.e f28344c;
 
     public h(String str, long j, com.bytedance.sdk.component.b.a.e eVar) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class h extends ac {
                 return;
             }
         }
-        this.f28248a = str;
-        this.f28249b = j;
-        this.f28250c = eVar;
+        this.f28342a = str;
+        this.f28343b = j;
+        this.f28344c = eVar;
     }
 
     @Override // com.bytedance.sdk.component.b.b.ac
@@ -47,7 +47,7 @@ public final class h extends ac {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f28248a;
+            String str = this.f28342a;
             if (str != null) {
                 return v.a(str);
             }
@@ -60,13 +60,13 @@ public final class h extends ac {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28249b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28343b : invokeV.longValue;
     }
 
     @Override // com.bytedance.sdk.component.b.b.ac
     public com.bytedance.sdk.component.b.a.e d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28250c : (com.bytedance.sdk.component.b.a.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28344c : (com.bytedance.sdk.component.b.a.e) invokeV.objValue;
     }
 }

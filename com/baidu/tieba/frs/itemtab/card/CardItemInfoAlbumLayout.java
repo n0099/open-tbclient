@@ -34,9 +34,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.j;
-import d.a.c.e.p.l;
-import d.a.j.q;
+import d.a.d.a.j;
+import d.a.d.e.p.l;
+import d.a.k.q;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlbumElement;
@@ -46,19 +46,19 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdRecyclerView f15913e;
+    public BdRecyclerView f15967e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f15914f;
+    public c f15968f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<AlbumElement> f15915g;
+    public final List<AlbumElement> f15969g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ArrayList<String> f15916h;
+    public final ArrayList<String> f15970h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Point f15917i;
+    public final Point f15971i;
 
     /* loaded from: classes4.dex */
     public class a extends RecyclerView.ItemDecoration {
@@ -66,7 +66,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardItemInfoAlbumLayout f15918a;
+        public final /* synthetic */ CardItemInfoAlbumLayout f15972a;
 
         public a(CardItemInfoAlbumLayout cardItemInfoAlbumLayout) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f15918a = cardItemInfoAlbumLayout;
+            this.f15972a = cardItemInfoAlbumLayout;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -101,7 +101,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemInfoAlbumLayout f15919e;
+        public final /* synthetic */ CardItemInfoAlbumLayout f15973e;
 
         public b(CardItemInfoAlbumLayout cardItemInfoAlbumLayout) {
             Interceptable interceptable = $ic;
@@ -118,35 +118,35 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f15919e = cardItemInfoAlbumLayout;
+            this.f15973e = cardItemInfoAlbumLayout;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
         public void b(ViewGroup viewGroup, View view, Object obj, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j)}) == null) || ListUtils.getItem(this.f15919e.f15915g, i2) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j)}) == null) || ListUtils.getItem(this.f15973e.f15969g, i2) == null) {
                 return;
             }
-            AlbumElement albumElement = (AlbumElement) ListUtils.getItem(this.f15919e.f15915g, i2);
+            AlbumElement albumElement = (AlbumElement) ListUtils.getItem(this.f15973e.f15969g, i2);
             if (albumElement.album_type.intValue() == 1) {
                 SimpleVideoPlayActivityConfig.b bVar = new SimpleVideoPlayActivityConfig.b();
                 bVar.d(albumElement.album_thumb_url);
                 bVar.e(albumElement.album_url);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, bVar.c(this.f15919e.getContext())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, bVar.c(this.f15973e.getContext())));
             } else {
                 ImageViewerConfig.b bVar2 = new ImageViewerConfig.b();
-                bVar2.x(this.f15919e.f15916h);
-                bVar2.B(i2 - (ListUtils.getCount(this.f15919e.f15915g) - ListUtils.getCount(this.f15919e.f15916h)));
+                bVar2.x(this.f15973e.f15970h);
+                bVar2.B(i2 - (ListUtils.getCount(this.f15973e.f15969g) - ListUtils.getCount(this.f15973e.f15970h)));
                 bVar2.C(true);
-                bVar2.J((String) ListUtils.getItem(this.f15919e.f15916h, ListUtils.getCount(this.f15919e.f15916h) - 1));
+                bVar2.J((String) ListUtils.getItem(this.f15973e.f15970h, ListUtils.getCount(this.f15973e.f15970h) - 1));
                 bVar2.F(true);
                 bVar2.H(true);
-                ImageViewerConfig v = bVar2.v(this.f15919e.getContext());
+                ImageViewerConfig v = bVar2.v(this.f15973e.getContext());
                 v.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
                 v.getIntent().putExtra("from", "index");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2010000, v));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new d.a.p0.u0.a2.h.a(1, i2 + 1, albumElement.album_type.intValue())));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new d.a.p0.s.f0.p.b(1, i2 + 1, albumElement.album_type.intValue())));
         }
     }
 
@@ -156,7 +156,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardItemInfoAlbumLayout f15920a;
+        public final /* synthetic */ CardItemInfoAlbumLayout f15974a;
 
         /* loaded from: classes4.dex */
         public class a extends RecyclerView.ViewHolder {
@@ -164,13 +164,13 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final TbImageView f15921a;
+            public final TbImageView f15975a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final View f15922b;
+            public final View f15976b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final ImageView f15923c;
+            public final ImageView f15977c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(@NonNull c cVar, View view) {
@@ -191,17 +191,17 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
                     }
                 }
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.frs_item_album_image);
-                this.f15921a = tbImageView;
+                this.f15975a = tbImageView;
                 tbImageView.setConrers(15);
-                this.f15921a.setRadiusById(R.string.J_X05);
-                this.f15921a.setDrawCorner(true);
-                this.f15921a.setPlaceHolder(3);
-                this.f15921a.setPageId(j.a(view.getContext()).getUniqueId());
+                this.f15975a.setRadiusById(R.string.J_X05);
+                this.f15975a.setDrawCorner(true);
+                this.f15975a.setPlaceHolder(3);
+                this.f15975a.setPageId(j.a(view.getContext()).getUniqueId());
                 View findViewById = view.findViewById(R.id.frs_item_album_video_mask);
-                this.f15922b = findViewById;
-                d.a.o0.r.u.c.d(findViewById).r(R.array.Mask_X001);
-                d.a.o0.r.u.c.d(this.f15922b).n(R.string.J_X05);
-                this.f15923c = (ImageView) view.findViewById(R.id.frs_item_album_video_play);
+                this.f15976b = findViewById;
+                d.a.p0.s.u.c.d(findViewById).r(R.array.Mask_X001);
+                d.a.p0.s.u.c.d(this.f15976b).n(R.string.J_X05);
+                this.f15977c = (ImageView) view.findViewById(R.id.frs_item_album_video_play);
             }
 
             public void a(AlbumElement albumElement) {
@@ -210,19 +210,19 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
                     return;
                 }
                 if (albumElement.album_type.intValue() != 1 && albumElement.album_height.intValue() > 0 && albumElement.album_width.intValue() > 0) {
-                    this.f15921a.getLayoutParams().width = (albumElement.album_width.intValue() * this.f15921a.getLayoutParams().height) / albumElement.album_height.intValue();
+                    this.f15975a.getLayoutParams().width = (albumElement.album_width.intValue() * this.f15975a.getLayoutParams().height) / albumElement.album_height.intValue();
                 } else {
-                    this.f15921a.getLayoutParams().width = l.g(this.itemView.getContext(), R.dimen.tbds580);
+                    this.f15975a.getLayoutParams().width = l.g(this.itemView.getContext(), R.dimen.tbds580);
                 }
-                this.f15921a.M(albumElement.album_thumb_url, 10, false);
+                this.f15975a.M(albumElement.album_thumb_url, 10, false);
                 b(albumElement.album_type.intValue() == 1);
             }
 
             public final void b(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                    this.f15922b.setVisibility(z ? 0 : 8);
-                    this.f15923c.setVisibility(z ? 0 : 8);
+                    this.f15976b.setVisibility(z ? 0 : 8);
+                    this.f15977c.setVisibility(z ? 0 : 8);
                 }
             }
 
@@ -248,7 +248,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f15920a = cardItemInfoAlbumLayout;
+            this.f15974a = cardItemInfoAlbumLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -256,10 +256,10 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
         /* renamed from: d */
         public void onBindViewHolder(@NonNull a aVar, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || ListUtils.getItem(this.f15920a.f15915g, i2) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || ListUtils.getItem(this.f15974a.f15969g, i2) == null) {
                 return;
             }
-            aVar.a((AlbumElement) ListUtils.getItem(this.f15920a.f15915g, i2));
+            aVar.a((AlbumElement) ListUtils.getItem(this.f15974a.f15969g, i2));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -282,10 +282,10 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f15920a.f15915g == null) {
+                if (this.f15974a.f15969g == null) {
                     return 0;
                 }
-                return this.f15920a.f15915g.size();
+                return this.f15974a.f15969g.size();
             }
             return invokeV.intValue;
         }
@@ -309,9 +309,9 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f15915g = new ArrayList();
-        this.f15916h = new ArrayList<>();
-        this.f15917i = new Point();
+        this.f15969g = new ArrayList();
+        this.f15970h = new ArrayList<>();
+        this.f15971i = new Point();
         c();
     }
 
@@ -321,24 +321,24 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setOrientation(0);
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
-            this.f15913e = bdRecyclerView;
+            this.f15967e = bdRecyclerView;
             bdRecyclerView.setPadding(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
-            this.f15913e.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            this.f15913e.addItemDecoration(new a(this));
-            this.f15913e.setNestedScrollingEnabled(false);
-            this.f15913e.setOnItemClickListener(new b(this));
-            addView(this.f15913e, new LinearLayout.LayoutParams(-1, -2));
+            this.f15967e.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+            this.f15967e.addItemDecoration(new a(this));
+            this.f15967e.setNestedScrollingEnabled(false);
+            this.f15967e.setOnItemClickListener(new b(this));
+            addView(this.f15967e, new LinearLayout.LayoutParams(-1, -2));
             c cVar = new c(this);
-            this.f15914f = cVar;
-            this.f15913e.setAdapter(cVar);
+            this.f15968f = cVar;
+            this.f15967e.setAdapter(cVar);
         }
     }
 
-    @Override // d.a.j.q
+    @Override // d.a.k.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            this.f15914f.notifyDataSetChanged();
+            this.f15968f.notifyDataSetChanged();
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
         }
     }
@@ -350,8 +350,8 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             if (motionEvent != null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f15917i.set((int) motionEvent.getX(), (int) motionEvent.getY());
-                    if (this.f15913e.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+                    this.f15971i.set((int) motionEvent.getX(), (int) motionEvent.getY());
+                    if (this.f15967e.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
                         ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
                     }
                 } else {
@@ -359,7 +359,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
                     if (motionEvent.getAction() == 2) {
                         boolean z2 = (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled();
                         ViewParent parent = getParent();
-                        if (!z2 && Math.abs(this.f15917i.x - motionEvent.getX()) > Math.abs(this.f15917i.y - motionEvent.getY())) {
+                        if (!z2 && Math.abs(this.f15971i.x - motionEvent.getX()) > Math.abs(this.f15971i.y - motionEvent.getY())) {
                             z = true;
                         }
                         parent.requestDisallowInterceptTouchEvent(z);
@@ -376,18 +376,18 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
     public void setData(List<AlbumElement> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f15915g.clear();
-            this.f15916h.clear();
+            this.f15969g.clear();
+            this.f15970h.clear();
             for (AlbumElement albumElement : list) {
                 if (!StringUtils.isNull(albumElement.album_thumb_url)) {
-                    this.f15915g.add(albumElement);
+                    this.f15969g.add(albumElement);
                     if (albumElement != null && albumElement.album_type.intValue() != 1) {
-                        this.f15916h.add(albumElement.album_url);
+                        this.f15970h.add(albumElement.album_url);
                     }
                 }
             }
-            this.f15913e.setVisibility(ListUtils.isEmpty(this.f15915g) ? 8 : 0);
-            this.f15914f.notifyDataSetChanged();
+            this.f15967e.setVisibility(ListUtils.isEmpty(this.f15969g) ? 8 : 0);
+            this.f15968f.notifyDataSetChanged();
         }
     }
 
@@ -410,9 +410,9 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f15915g = new ArrayList();
-        this.f15916h = new ArrayList<>();
-        this.f15917i = new Point();
+        this.f15969g = new ArrayList();
+        this.f15970h = new ArrayList<>();
+        this.f15971i = new Point();
         c();
     }
 
@@ -435,9 +435,9 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f15915g = new ArrayList();
-        this.f15916h = new ArrayList<>();
-        this.f15917i = new Point();
+        this.f15969g = new ArrayList();
+        this.f15970h = new ArrayList<>();
+        this.f15971i = new Point();
         c();
     }
 }

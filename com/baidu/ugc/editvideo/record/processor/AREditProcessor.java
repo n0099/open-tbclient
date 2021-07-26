@@ -34,14 +34,14 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.utils.FileUtils;
 import com.baidu.ugc.utils.SafeConcurrentHashMap;
 import com.faceunity.gles.GeneratedTexture;
-import d.a.v0.b;
-import d.a.v0.d;
-import d.a.v0.t.c;
-import d.a.v0.t.h;
-import d.a.v0.t.u;
-import d.a.z.a.a;
-import d.a.z.a.f.a;
-import d.a.z.b.a.e;
+import d.a.a0.a.a;
+import d.a.a0.a.f.a;
+import d.a.a0.b.a.e;
+import d.a.w0.b;
+import d.a.w0.d;
+import d.a.w0.t.c;
+import d.a.w0.t.h;
+import d.a.w0.t.u;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
@@ -56,12 +56,12 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     public a beautyEnableStatus;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f23716i;
+    public int f23874i;
     public Map<BeautyType, Object> mBeautyMap;
     public long mCurrPosition;
     public DuMixCallback mDuMixCallback;
     public DuArEditProcessorCallback mEditProcessCallback;
-    public d.a.z.a.a mEffect;
+    public d.a.a0.a.a mEffect;
     public a.l mEffectHolder;
     public int mFboTexId;
     public FullFrameRect mFullScreen2D;
@@ -83,7 +83,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
 
     /* loaded from: classes5.dex */
     public interface DuArEditProcessorCallback {
-        void onBeautyEnableChanged(d.a.z.a.f.a aVar);
+        void onBeautyEnableChanged(d.a.a0.a.f.a aVar);
 
         void onChangeGender(boolean z);
     }
@@ -108,8 +108,8 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         this.mIsArLoadSuccess = false;
         this.mSkipARAfterSetup = true;
         this.savePic = false;
-        this.beautyEnableStatus = new d.a.z.a.f.a();
-        this.f23716i = 0;
+        this.beautyEnableStatus = new d.a.a0.a.f.a();
+        this.f23874i = 0;
         this.mEffectHolder = new a.l(this) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                 this.this$0 = this;
             }
 
-            @Override // d.a.z.a.a.l
+            @Override // d.a.a0.a.a.l
             public void onHolderChanged(a.l lVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, lVar) == null) {
@@ -149,20 +149,20 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     private boolean checkSticker(Sticker sticker) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, sticker)) == null) ? sticker != null && sticker.isSupport(d.a.z.a.a.a0()) && !TextUtils.isEmpty(sticker.getPath()) && new File(sticker.getPath()).exists() && d.a.z.a.a.k1(sticker.getPath()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, sticker)) == null) ? sticker != null && sticker.isSupport(d.a.a0.a.a.a0()) && !TextUtils.isEmpty(sticker.getPath()) && new File(sticker.getPath()).exists() && d.a.a0.a.a.k1(sticker.getPath()) : invokeL.booleanValue;
     }
 
     private void createArInstance() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || d.a.z.a.a.M(this.mEffect, this.mEffectHolder)) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || d.a.a0.a.a.M(this.mEffect, this.mEffectHolder)) {
             return;
         }
-        if (!d.a.z.a.a.i0()) {
-            d.a.z.a.a.k0();
+        if (!d.a.a0.a.a.i0()) {
+            d.a.a0.a.a.k0();
         }
-        if (d.a.z.a.a.i0()) {
-            this.mEffect = d.a.z.a.a.U(b.d().b(), this.mEffectHolder, EGL14.eglGetCurrentContext(), d.a.z.a.b.b());
-            d.a.z.a.a.h1(this.mSyncInputContent || this.mPreviewSyncInputContent);
+        if (d.a.a0.a.a.i0()) {
+            this.mEffect = d.a.a0.a.a.U(b.d().b(), this.mEffectHolder, EGL14.eglGetCurrentContext(), d.a.a0.a.b.b());
+            d.a.a0.a.a.h1(this.mSyncInputContent || this.mPreviewSyncInputContent);
             this.mEffect.g1();
             this.mEffect.X0(new FaceListener(this) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.7
                 public static /* synthetic */ Interceptable $ic;
@@ -237,7 +237,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     private void initDefParams() {
-        d.a.z.a.a aVar;
+        d.a.a0.a.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (aVar = this.mEffect) == null) {
             return;
@@ -285,7 +285,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     private void innerSetBeautyValues(Map<BeautyType, Object> map) {
-        d.a.z.a.a aVar;
+        d.a.a0.a.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65545, this, map) == null) || (aVar = this.mEffect) == null) {
             return;
@@ -334,7 +334,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     private void resetInputAndOutputTexture() {
-        d.a.z.a.a aVar;
+        d.a.a0.a.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (aVar = this.mEffect) == null) {
             return;
@@ -355,7 +355,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         if (!(interceptable == null || interceptable.invokeL(65551, this, texture) == null) || texture == null) {
             return;
         }
-        d.a.z.a.a aVar = this.mEffect;
+        d.a.a0.a.a aVar = this.mEffect;
         if (aVar == null) {
             c.c(TAG, "setInput Effect == null");
             return;
@@ -370,8 +370,8 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65552, this, i2, i3) == null) {
-            this.f23716i++;
-            if (this.mSyncInputContent && this.savePic && (i4 = this.f23716i) <= 2) {
+            this.f23874i++;
+            if (this.mSyncInputContent && this.savePic && (i4 = this.f23874i) <= 2) {
                 if (i4 == 1) {
                     u.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.3
                         public static /* synthetic */ Interceptable $ic;
@@ -409,7 +409,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                 GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 fullFrameRect.drawFrame(i2, GlUtil.IDENTITY_MATRIX);
-                ThreadPool.b().e(new Runnable(this, "input-" + this.f23716i + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.4
+                ThreadPool.b().e(new Runnable(this, "input-" + this.f23874i + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AREditProcessor this$0;
@@ -447,7 +447,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                 GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 fullFrameRect.drawFrame(i3, GlUtil.IDENTITY_MATRIX);
-                ThreadPool.b().e(new Runnable(this, "ar-" + this.f23716i + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.5
+                ThreadPool.b().e(new Runnable(this, "ar-" + this.f23874i + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AREditProcessor this$0;
@@ -485,7 +485,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                 GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 fullFrameRect.drawFrame(this.mFboTexId, GlUtil.IDENTITY_MATRIX);
-                ThreadPool.b().e(new Runnable(this, "fbo-" + this.f23716i + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.6
+                ThreadPool.b().e(new Runnable(this, "fbo-" + this.f23874i + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AREditProcessor this$0;
@@ -539,7 +539,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     public boolean isSetup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIsSetup && d.a.z.a.a.M(this.mEffect, this.mEffectHolder) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIsSetup && d.a.a0.a.a.M(this.mEffect, this.mEffectHolder) : invokeV.booleanValue;
     }
 
     public void onARDrawerChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
@@ -647,7 +647,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     public void onCameraDrawerCreated(SurfaceTexture surfaceTexture, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, surfaceTexture, i2, i3) == null) {
-            d.a.z.a.a aVar = this.mEffect;
+            d.a.a0.a.a aVar = this.mEffect;
             if (aVar != null) {
                 aVar.v0(surfaceTexture, i2, i3);
             } else {
@@ -737,7 +737,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                 c.c(TAG, "ship AR --- AR not setup or fail to setup, curPos = " + this.mCurrPosition);
                 return i2;
             }
-            d.a.z.a.a aVar = this.mEffect;
+            d.a.a0.a.a aVar = this.mEffect;
             int X = aVar != null ? aVar.X() : 0;
             if (X == 0) {
                 c.c(TAG, "ship AR --- AR output texture id is zero, curPos = " + this.mCurrPosition);
@@ -787,7 +787,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor, com.baidu.ugc.editvideo.record.IMediaLifeCycle
     public void onResume() {
-        d.a.z.a.a aVar;
+        d.a.a0.a.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aVar = this.mEffect) == null) {
             return;
@@ -865,7 +865,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048591, this, beautyType, f2) == null) {
             this.mBeautyMap.put(beautyType, Float.valueOf(f2));
-            d.a.z.a.a aVar = this.mEffect;
+            d.a.a0.a.a aVar = this.mEffect;
             if (aVar != null) {
                 aVar.L0(beautyType, f2);
             }
@@ -876,7 +876,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, beautyType, i2) == null) {
             this.mBeautyMap.put(beautyType, Integer.valueOf(i2));
-            d.a.z.a.a aVar = this.mEffect;
+            d.a.a0.a.a aVar = this.mEffect;
             if (aVar != null) {
                 aVar.M0(beautyType, i2);
             }
@@ -887,7 +887,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, beautyType, str) == null) {
             this.mBeautyMap.put(beautyType, str);
-            d.a.z.a.a aVar = this.mEffect;
+            d.a.a0.a.a aVar = this.mEffect;
             if (aVar != null) {
                 aVar.P0(beautyType, str);
             }
@@ -898,7 +898,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, beautyType, fArr) == null) {
             this.mBeautyMap.put(beautyType, fArr);
-            d.a.z.a.a aVar = this.mEffect;
+            d.a.a0.a.a aVar = this.mEffect;
             if (aVar != null) {
                 aVar.Q0(beautyType, fArr);
             }

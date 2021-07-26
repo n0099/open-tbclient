@@ -16,31 +16,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72778a;
+    public final int f73232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f72779b;
+    public final int f73233b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f72780c;
+    public final boolean f73234c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f72781d;
+    public final int f73235d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f72782e;
+    public final int f73236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f72783f;
+    public final boolean f73237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final float f72784g;
+    public final float f73238g;
 
     public a(Activity activity) {
         Interceptable interceptable = $ic;
@@ -58,13 +58,13 @@ public class a {
             }
         }
         Resources resources = activity.getResources();
-        this.f72783f = resources.getConfiguration().orientation == 1;
-        this.f72784g = h(activity);
-        this.f72778a = c(resources, "status_bar_height");
-        this.f72779b = b(activity);
-        this.f72781d = e(activity);
-        this.f72782e = g(activity);
-        this.f72780c = this.f72781d > 0;
+        this.f73237f = resources.getConfiguration().orientation == 1;
+        this.f73238g = h(activity);
+        this.f73232a = c(resources, "status_bar_height");
+        this.f73233b = b(activity);
+        this.f73235d = e(activity);
+        this.f73236e = g(activity);
+        this.f73234c = this.f73235d > 0;
     }
 
     @TargetApi(14)
@@ -89,7 +89,7 @@ public class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72779b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73233b : invokeV.intValue;
     }
 
     @TargetApi(14)
@@ -129,7 +129,7 @@ public class a {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72781d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73235d : invokeV.intValue;
     }
 
     @TargetApi(14)
@@ -141,7 +141,7 @@ public class a {
             if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
                 return 0;
             }
-            return c(resources, this.f72783f ? "navigation_bar_height" : "navigation_bar_height_landscape");
+            return c(resources, this.f73237f ? "navigation_bar_height" : "navigation_bar_height_landscape");
         }
         return invokeL.intValue;
     }
@@ -149,7 +149,7 @@ public class a {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f72782e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f73236e : invokeV.intValue;
     }
 
     @TargetApi(14)
@@ -186,18 +186,18 @@ public class a {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f72778a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f73232a : invokeV.intValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f72780c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f73234c : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f72784g >= 600.0f || this.f72783f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f73238g >= 600.0f || this.f73237f : invokeV.booleanValue;
     }
 }

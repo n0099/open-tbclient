@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
-import d.a.p0.v.i.b.a;
-import d.a.p0.v.i.d.c;
+import d.a.p0.s.q.b2;
+import d.a.q0.v.i.b.a;
+import d.a.q0.v.i.d.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -23,19 +23,19 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f14259a;
+    public TbPageContext<?> f14307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f14260b;
+    public ArrayList<a> f14308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b2> f14261c;
+    public List<b2> f14309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14262d;
+    public String f14310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f14263e;
+    public BdUniqueId f14311e;
 
     public FrsAlaStageLiveViewItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -52,16 +52,16 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f14260b = new ArrayList<>();
-        this.f14261c = new ArrayList();
-        this.f14259a = tbPageContext;
-        this.f14263e = bdUniqueId;
+        this.f14308b = new ArrayList<>();
+        this.f14309c = new ArrayList();
+        this.f14307a = tbPageContext;
+        this.f14311e = bdUniqueId;
     }
 
     public final a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f14259a, this.f14263e) : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f14307a, this.f14311e) : (a) invokeV.objValue;
     }
 
     public void c(List<b2> list, c cVar) {
@@ -70,35 +70,35 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, cVar) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f14261c.clear();
-        this.f14261c.addAll(list);
-        int size = this.f14260b.size();
-        int size2 = this.f14261c.size();
+        this.f14309c.clear();
+        this.f14309c.addAll(list);
+        int size = this.f14308b.size();
+        int size2 = this.f14309c.size();
         if (size > size2) {
             ArrayList arrayList = new ArrayList();
             for (int i2 = size2; i2 < size; i2++) {
-                arrayList.add(this.f14260b.get(i2));
+                arrayList.add(this.f14308b.get(i2));
             }
             for (int i3 = 0; i3 < arrayList.size(); i3++) {
                 a aVar2 = (a) arrayList.get(i3);
                 if (aVar2.c() != null && aVar2.c().getParent() != null) {
                     ((ViewGroup) aVar2.c().getParent()).removeView(aVar2.c());
                 }
-                this.f14260b.remove(aVar2);
+                this.f14308b.remove(aVar2);
             }
             arrayList.clear();
         }
         for (int i4 = 0; i4 < size2; i4++) {
             if (i4 >= size) {
                 aVar = b();
-                aVar.g(this.f14259a.getUniqueId());
+                aVar.g(this.f14307a.getUniqueId());
                 aVar.h(cVar);
-                this.f14260b.add(aVar);
+                this.f14308b.add(aVar);
             } else {
-                aVar = this.f14260b.get(i4);
+                aVar = this.f14308b.get(i4);
             }
-            if (this.f14261c.get(i4) != null && aVar != null) {
-                aVar.f(this.f14261c.get(i4), this.f14262d);
+            if (this.f14309c.get(i4) != null && aVar != null) {
+                aVar.f(this.f14309c.get(i4), this.f14310d);
             }
         }
         notifyDataSetChanged();
@@ -107,7 +107,7 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f14262d = str;
+            this.f14310d = str;
         }
     }
 
@@ -115,7 +115,7 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048579, this, viewGroup, i2, obj) == null) {
-            viewGroup.removeView(this.f14260b.get(i2).c());
+            viewGroup.removeView(this.f14308b.get(i2).c());
         }
     }
 
@@ -123,7 +123,7 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f14260b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f14308b) : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -131,7 +131,7 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
-            ArrayList<a> arrayList = this.f14260b;
+            ArrayList<a> arrayList = this.f14308b;
             if (arrayList == null) {
                 return super.instantiateItem(viewGroup, i2);
             }

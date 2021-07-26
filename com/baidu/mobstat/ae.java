@@ -17,10 +17,10 @@ public class ae extends bn {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8626a = "baidu_mtj_sdk_record";
+    public static final String f8652a = "baidu_mtj_sdk_record";
 
     /* renamed from: b  reason: collision with root package name */
-    public static ae f8627b;
+    public static ae f8653b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class ae extends bn {
                 return;
             }
         }
-        f8627b = new ae();
+        f8653b = new ae();
     }
 
     public ae() {
@@ -56,7 +56,7 @@ public class ae extends bn {
     public static ae a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8627b : (ae) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8653b : (ae) invokeV.objValue;
     }
 
     public Long b(Context context) {
@@ -95,9 +95,9 @@ public class ae extends bn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             if (Build.VERSION.SDK_INT >= 11) {
-                return context.getSharedPreferences(f8626a, 4);
+                return context.getSharedPreferences(f8652a, 4);
             }
-            return context.getSharedPreferences(f8626a, 0);
+            return context.getSharedPreferences(f8652a, 0);
         }
         return (SharedPreferences) invokeL.objValue;
     }

@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.a.l.c.b;
+import d.a.m.c.b;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
@@ -753,7 +753,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                 this.this$0 = this;
             }
 
-            @Override // d.a.l.c.b
+            @Override // d.a.m.c.b
             public void onFilteredFrameUpdate(byte[] bArr, MediaCodec.BufferInfo bufferInfo) {
                 BaiduRtcRoomImp baiduRtcRoomImp;
                 RTCAudioSamples.RTCMixedSamplesReadyCallback rTCMixedSamplesReadyCallback;

@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import d.n.a.a.c.b.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f72153a;
+    public static Object f72607a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f72154b;
+    public static Class f72608b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public final class a {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f72154b = cls;
-            f72153a = cls.newInstance();
+            f72608b = cls;
+            f72607a = cls.newInstance();
         } catch (Throwable th) {
             c.c(th);
         }
@@ -51,11 +51,11 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (f72153a == null || TextUtils.isEmpty(str)) {
+            if (f72607a == null || TextUtils.isEmpty(str)) {
                 return null;
             }
             try {
-                Object invoke = f72154b.getMethod(str, Context.class).invoke(f72153a, context);
+                Object invoke = f72608b.getMethod(str, Context.class).invoke(f72607a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -71,6 +71,6 @@ public final class a {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f72154b == null || f72153a == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f72608b == null || f72607a == null) ? false : true : invokeV.booleanValue;
     }
 }

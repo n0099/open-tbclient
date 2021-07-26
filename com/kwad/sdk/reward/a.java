@@ -26,37 +26,37 @@ public class a extends com.kwad.sdk.core.e.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<com.kwad.sdk.reward.a.a> f35883a;
+    public List<com.kwad.sdk.reward.a.a> f36072a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f35884b;
+    public com.kwad.sdk.reward.a.b f36073b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsVideoPlayConfig f35885c;
+    public KsVideoPlayConfig f36074c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f35886d;
+    public JSONObject f36075d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35887e;
+    public int f36076e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f35888f;
+    public AdTemplate f36077f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Activity f35889g;
+    public Activity f36078g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public AdBaseFrameLayout f35890h;
+    public AdBaseFrameLayout f36079h;
     @NonNull
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f35891i;
+    public com.kwad.sdk.reward.c.a f36080i;
     @Nullable
     public com.kwad.sdk.core.download.b.b j;
     @NonNull
@@ -90,7 +90,7 @@ public class a extends com.kwad.sdk.core.e.b {
                 return;
             }
         }
-        this.f35883a = new ArrayList();
+        this.f36072a = new ArrayList();
         this.v = new HashSet();
         this.o = new HashSet();
         this.p = new HashSet();
@@ -119,9 +119,9 @@ public class a extends com.kwad.sdk.core.e.b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35883a.clear();
+            this.f36072a.clear();
             this.v.clear();
-            this.f35891i.i();
+            this.f36080i.i();
             com.kwad.sdk.core.download.b.b bVar = this.j;
             if (bVar != null) {
                 bVar.f();
@@ -165,14 +165,14 @@ public class a extends com.kwad.sdk.core.e.b {
                 d();
                 return;
             }
-            Activity activity = this.f35889g;
+            Activity activity = this.f36078g;
             if (activity != null) {
                 activity.runOnUiThread(new Runnable(this) { // from class: com.kwad.sdk.reward.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f35892a;
+                    public final /* synthetic */ a f36081a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -189,14 +189,14 @@ public class a extends com.kwad.sdk.core.e.b {
                                 return;
                             }
                         }
-                        this.f35892a = this;
+                        this.f36081a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f35892a.b();
+                            this.f36081a.b();
                         }
                     }
                 });
@@ -206,7 +206,7 @@ public class a extends com.kwad.sdk.core.e.b {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f35893a;
+                    public final /* synthetic */ a f36082a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -223,14 +223,14 @@ public class a extends com.kwad.sdk.core.e.b {
                                 return;
                             }
                         }
-                        this.f35893a = this;
+                        this.f36082a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f35893a.b();
+                            this.f36082a.b();
                         }
                     }
                 });

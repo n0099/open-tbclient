@@ -25,29 +25,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.r.q.b2;
-import d.a.o0.r.u.c;
-import d.a.p0.u0.k2.e;
+import d.a.d.e.p.l;
+import d.a.p0.s.q.b2;
+import d.a.p0.s.u.c;
+import d.a.q0.u0.k2.e;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b2 f12574e;
+    public b2 f12623e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f12575f;
+    public Context f12624f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f12576g;
+    public View f12625g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12577h;
+    public int f12626h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f12578i;
+    public TextView f12627i;
     public Drawable j;
     public View.OnClickListener k;
     public int l;
@@ -70,7 +70,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
                 return;
             }
         }
-        this.f12577h = 0;
+        this.f12626h = 0;
         this.l = 3;
         d(context);
     }
@@ -78,7 +78,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public void a(b2 b2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, b2Var) == null) {
-            this.f12574e = b2Var;
+            this.f12623e = b2Var;
             if (b2Var != null) {
                 String string = getResources().getString(R.string.frs_goods_tip_content);
                 if (StringUtils.isNull(string)) {
@@ -87,8 +87,8 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
                 }
                 setVisibility(0);
                 f();
-                this.f12578i.setText(string);
-                this.f12578i.setVisibility(0);
+                this.f12627i.setText(string);
+                this.f12627i.setVisibility(0);
                 e();
                 b();
                 return;
@@ -100,7 +100,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.f12577h;
+            int i2 = this.f12626h;
             if (i2 == 2) {
                 c("c13966", 1);
             } else if (i2 == 1) {
@@ -112,19 +112,19 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public final void c(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            TiebaStatic.log(new StatisticItem(str).param("obj_locate", i2).param("fid", this.f12574e.Q()).param("fname", this.f12574e.W()).param("tid", this.f12574e.n1()));
+            TiebaStatic.log(new StatisticItem(str).param("obj_locate", i2).param("fid", this.f12623e.R()).param("fname", this.f12623e.X()).param("tid", this.f12623e.o1()));
         }
     }
 
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f12575f = context;
+            this.f12624f = context;
             setOnClickListener(this);
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-            this.f12576g = inflate;
+            this.f12625g = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
-            this.f12578i = textView;
+            this.f12627i = textView;
             c d2 = c.d(textView);
             d2.y(R.string.F_X01);
             d2.x(R.dimen.T_X09);
@@ -133,23 +133,23 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             d2.n(R.string.J_X01);
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0305);
-            this.f12578i.setCompoundDrawablePadding(l.g(this.f12575f, R.dimen.M_W_X002));
+            this.f12627i.setCompoundDrawablePadding(l.g(this.f12624f, R.dimen.M_W_X002));
         }
     }
 
     public void e() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f12574e == null || this.l == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f12623e == null || this.l == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             return;
         }
         this.l = skinType;
         int color = SkinManager.getColor(R.color.CAM_X0305);
-        SkinManager.setViewTextColorWithClickState(this.f12578i, color);
+        SkinManager.setViewTextColorWithClickState(this.f12627i, color);
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_good12, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.j = pureDrawable;
         if (pureDrawable != null) {
-            this.j.setBounds(0, 0, l.g(this.f12575f, R.dimen.T_X09), l.g(this.f12575f, R.dimen.T_X09));
+            this.j.setBounds(0, 0, l.g(this.f12624f, R.dimen.T_X09), l.g(this.f12624f, R.dimen.T_X09));
         }
         f();
     }
@@ -157,31 +157,31 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f12578i.setCompoundDrawables(this.j, null, null, null);
+            this.f12627i.setCompoundDrawables(this.j, null, null, null);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view) == null) || StringUtils.isNull(this.f12574e.W())) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, view) == null) || StringUtils.isNull(this.f12623e.X())) {
             return;
         }
-        view.setTag(this.f12574e);
-        int i2 = this.f12577h;
+        view.setTag(this.f12623e);
+        int i2 = this.f12626h;
         if (i2 == 0) {
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f12575f).createNormalCfg(this.f12574e.W(), FrsActivityConfig.FROM_PB_OR_PERSON);
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f12624f).createNormalCfg(this.f12623e.X(), FrsActivityConfig.FROM_PB_OR_PERSON);
             createNormalCfg.setCallFrom(14);
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
         } else if (i2 == 1) {
             c("c13967", 2);
-            FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.f12575f).createNormalCfg(this.f12574e.W(), FrsActivityConfig.FROM_PB_OR_PERSON);
+            FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.f12624f).createNormalCfg(this.f12623e.X(), FrsActivityConfig.FROM_PB_OR_PERSON);
             createNormalCfg2.setCallFrom(14);
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i2 == 2) {
             c("c13967", 1);
             e eVar = new e();
-            eVar.f63016e = 3;
+            eVar.f63659e = 3;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, eVar));
         }
         View.OnClickListener onClickListener = this.k;
@@ -200,7 +200,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     public void setFrom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f12577h = i2;
+            this.f12626h = i2;
         }
     }
 
@@ -223,7 +223,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
                 return;
             }
         }
-        this.f12577h = 0;
+        this.f12626h = 0;
         this.l = 3;
         d(context);
     }

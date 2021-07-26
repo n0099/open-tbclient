@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.t0.b.b;
+import d.a.q0.t0.b.b;
 /* loaded from: classes4.dex */
 public class ForumSearchActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public class ForumSearchActivity extends BaseActivity {
             super.onCreate(bundle);
             b bVar = new b(getPageContext());
             this.mController = bVar;
-            setContentView(bVar.o().f62310b);
+            setContentView(bVar.o().f62954b);
             Intent intent = getIntent();
             if (intent != null) {
                 this.mController.w(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));

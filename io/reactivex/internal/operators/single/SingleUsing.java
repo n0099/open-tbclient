@@ -37,7 +37,7 @@ public final class SingleUsing<T, U> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73066d;
+        public Disposable f73520d;
         public final Consumer<? super U> disposer;
         public final boolean eager;
 
@@ -68,8 +68,8 @@ public final class SingleUsing<T, U> extends Single<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73066d.dispose();
-                this.f73066d = DisposableHelper.DISPOSED;
+                this.f73520d.dispose();
+                this.f73520d = DisposableHelper.DISPOSED;
                 disposeAfter();
             }
         }
@@ -92,14 +92,14 @@ public final class SingleUsing<T, U> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73066d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73520d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f73066d = DisposableHelper.DISPOSED;
+                this.f73520d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -123,8 +123,8 @@ public final class SingleUsing<T, U> extends Single<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f73066d, disposable)) {
-                this.f73066d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f73520d, disposable)) {
+                this.f73520d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -133,7 +133,7 @@ public final class SingleUsing<T, U> extends Single<T> {
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.f73066d = DisposableHelper.DISPOSED;
+                this.f73520d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {

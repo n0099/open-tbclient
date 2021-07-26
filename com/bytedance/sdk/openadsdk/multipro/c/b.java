@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.multipro.e;
 /* loaded from: classes5.dex */
@@ -24,7 +24,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f31615a;
+    public Context f31802a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            return e.f31620b + "/t_frequent/";
+            return e.f31807b + "/t_frequent/";
         }
         return (String) invokeV.objValue;
     }
@@ -181,7 +181,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.f31615a = context;
+            this.f31802a = context;
         }
     }
 
@@ -190,7 +190,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
-            j.b("FrequentCallProviderImpl", "get type uri: " + String.valueOf(uri));
+            k.b("FrequentCallProviderImpl", "get type uri: " + String.valueOf(uri));
             String str = uri.getPath().split("/")[2];
             if ("checkFrequency".equals(str)) {
                 return com.bytedance.sdk.openadsdk.core.c.a.a().a(uri.getQueryParameter("rit")) ? "true" : "false";

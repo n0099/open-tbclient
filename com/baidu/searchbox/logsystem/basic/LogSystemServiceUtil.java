@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.g0.b.a.a;
+import d.a.h0.b.a.a;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class LogSystemServiceUtil {

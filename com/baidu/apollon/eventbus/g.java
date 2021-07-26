@@ -14,22 +14,22 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f3724a;
+    public final Object f3750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Method f3725b;
+    public final Method f3751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f3726c;
+    public final int f3752c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f3727d;
+    public final String f3753d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final EventBus.ThreadMode f3728e;
+    public final EventBus.ThreadMode f3754e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f3729f;
+    public volatile boolean f3755f;
 
     public g(Object obj, Method method, String str, int i2, EventBus.ThreadMode threadMode) {
         Interceptable interceptable = $ic;
@@ -46,12 +46,12 @@ public final class g {
                 return;
             }
         }
-        this.f3724a = obj;
-        this.f3725b = method;
-        this.f3727d = str;
-        this.f3726c = i2;
-        this.f3728e = threadMode;
-        this.f3729f = true;
+        this.f3750a = obj;
+        this.f3751b = method;
+        this.f3753d = str;
+        this.f3752c = i2;
+        this.f3754e = threadMode;
+        this.f3755f = true;
     }
 
     public boolean equals(Object obj) {
@@ -60,7 +60,7 @@ public final class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                return this.f3724a == gVar.f3724a && this.f3725b.equals(gVar.f3725b);
+                return this.f3750a == gVar.f3750a && this.f3751b.equals(gVar.f3751b);
             }
             return false;
         }
@@ -70,6 +70,6 @@ public final class g {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3724a.hashCode() + this.f3725b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3750a.hashCode() + this.f3751b.hashCode() : invokeV.intValue;
     }
 }

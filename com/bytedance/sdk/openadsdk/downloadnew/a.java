@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.downloadnew.a.b;
 import com.bytedance.sdk.openadsdk.downloadnew.a.c;
@@ -17,7 +17,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.a.d;
 import com.bytedance.sdk.openadsdk.downloadnew.a.e;
 import com.bytedance.sdk.openadsdk.downloadnew.a.g;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
-import com.bytedance.sdk.openadsdk.r.o;
+import com.bytedance.sdk.openadsdk.q.q;
 import d.l.a.d.b.a.a;
 /* loaded from: classes5.dex */
 public class a {
@@ -28,7 +28,7 @@ public class a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, mVar, str)) == null) {
-            if (o.k(context)) {
+            if (q.k(context)) {
                 return new d(context, mVar, str);
             }
             return new b(context, mVar, str);
@@ -40,7 +40,7 @@ public class a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, mVar, str)) == null) {
-            if (o.k(context)) {
+            if (q.k(context)) {
                 return new c(context, mVar, str);
             }
             return new com.bytedance.sdk.openadsdk.downloadnew.a.a(context, mVar, str);
@@ -62,7 +62,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ExitInstallListener f31094a;
+            public final /* synthetic */ ExitInstallListener f31276a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -79,14 +79,14 @@ public class a {
                         return;
                     }
                 }
-                this.f31094a = exitInstallListener;
+                this.f31276a = exitInstallListener;
             }
 
             @Override // d.l.a.d.b.a.a.b
             public void a() {
                 ExitInstallListener exitInstallListener2;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (exitInstallListener2 = this.f31094a) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (exitInstallListener2 = this.f31276a) == null) {
                     return;
                 }
                 exitInstallListener2.onExitInstall();
@@ -102,7 +102,7 @@ public class a {
             try {
                 return g.d().q();
             } catch (Exception e2) {
-                j.a("TTDownloadFactory", "get download sdk version error", e2);
+                k.a("TTDownloadFactory", "get download sdk version error", e2);
                 return "0.0.0";
             }
         }

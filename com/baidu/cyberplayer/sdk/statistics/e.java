@@ -12,13 +12,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f5056a;
+    public int f5082a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5057b;
+    public String f5083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5058c;
+    public String f5084c;
 
     public e(int i2, String str, long j) {
         Interceptable interceptable = $ic;
@@ -35,9 +35,9 @@ public class e {
                 return;
             }
         }
-        this.f5056a = i2;
-        this.f5057b = str;
-        this.f5058c = Long.toString(j);
+        this.f5082a = i2;
+        this.f5083b = str;
+        this.f5084c = Long.toString(j);
     }
 
     public e(int i2, String str, String str2) {
@@ -55,20 +55,20 @@ public class e {
                 return;
             }
         }
-        this.f5056a = i2;
-        this.f5057b = str;
-        this.f5058c = str2;
+        this.f5082a = i2;
+        this.f5083b = str;
+        this.f5084c = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5057b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5083b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5058c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5084c : (String) invokeV.objValue;
     }
 }

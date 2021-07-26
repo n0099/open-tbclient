@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.z0.d;
+import d.a.p0.b1.d;
 /* loaded from: classes3.dex */
 public class PackageChangedReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -43,5 +43,6 @@ public class PackageChangedReceiver extends BroadcastReceiver {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002502, intent));
         }
         d.s(intent);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002504, intent));
     }
 }

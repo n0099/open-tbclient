@@ -14,15 +14,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f71728a = 4;
+    public static int f72182a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC2041a f71729b;
+    public static AbstractC2040a f72183b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.l.a.e.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static abstract class AbstractC2041a {
+    public static abstract class AbstractC2040a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +57,7 @@ public class a {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            f71728a = i2;
+            f72182a = i2;
         }
     }
 
@@ -73,12 +73,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f71728a <= 2) {
+        if (f72182a <= 2) {
             Log.v(str, str2);
         }
-        AbstractC2041a abstractC2041a = f71729b;
-        if (abstractC2041a != null) {
-            abstractC2041a.a(f(str), str2);
+        AbstractC2040a abstractC2040a = f72183b;
+        if (abstractC2040a != null) {
+            abstractC2040a.a(f(str), str2);
         }
     }
 
@@ -88,12 +88,12 @@ public class a {
             if (str2 == null && th == null) {
                 return;
             }
-            if (f71728a <= 6) {
+            if (f72182a <= 6) {
                 Log.e(f(str), str2, th);
             }
-            AbstractC2041a abstractC2041a = f71729b;
-            if (abstractC2041a != null) {
-                abstractC2041a.b(f(str), str2, th);
+            AbstractC2040a abstractC2040a = f72183b;
+            if (abstractC2040a != null) {
+                abstractC2040a.b(f(str), str2, th);
             }
         }
     }
@@ -101,7 +101,7 @@ public class a {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f71728a <= 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f72182a <= 3 : invokeV.booleanValue;
     }
 
     public static String f(String str) {
@@ -121,12 +121,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f71728a <= 3) {
+        if (f72182a <= 3) {
             Log.d(f(str), str2);
         }
-        AbstractC2041a abstractC2041a = f71729b;
-        if (abstractC2041a != null) {
-            abstractC2041a.c(f(str), str2);
+        AbstractC2040a abstractC2040a = f72183b;
+        if (abstractC2040a != null) {
+            abstractC2040a.c(f(str), str2);
         }
     }
 
@@ -142,12 +142,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f71728a <= 4) {
+        if (f72182a <= 4) {
             Log.i(f(str), str2);
         }
-        AbstractC2041a abstractC2041a = f71729b;
-        if (abstractC2041a != null) {
-            abstractC2041a.d(f(str), str2);
+        AbstractC2040a abstractC2040a = f72183b;
+        if (abstractC2040a != null) {
+            abstractC2040a.d(f(str), str2);
         }
     }
 
@@ -156,12 +156,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f71728a <= 5) {
+        if (f72182a <= 5) {
             Log.w(f(str), str2);
         }
-        AbstractC2041a abstractC2041a = f71729b;
-        if (abstractC2041a != null) {
-            abstractC2041a.f(f(str), str2);
+        AbstractC2040a abstractC2040a = f72183b;
+        if (abstractC2040a != null) {
+            abstractC2040a.f(f(str), str2);
         }
     }
 
@@ -170,12 +170,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f71728a <= 6) {
+        if (f72182a <= 6) {
             Log.e(f(str), str2);
         }
-        AbstractC2041a abstractC2041a = f71729b;
-        if (abstractC2041a != null) {
-            abstractC2041a.e(f(str), str2);
+        AbstractC2040a abstractC2040a = f72183b;
+        if (abstractC2040a != null) {
+            abstractC2040a.e(f(str), str2);
         }
     }
 }

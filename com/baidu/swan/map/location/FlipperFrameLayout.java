@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.j.o.d;
+import d.a.o0.j.o.d;
 /* loaded from: classes3.dex */
 public class FlipperFrameLayout extends FrameLayout implements d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f11993e;
+    public float f12019e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f11994f;
+    public d f12020f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11995g;
+    public boolean f12021g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlipperFrameLayout(@NonNull Context context) {
@@ -50,19 +50,19 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         }
     }
 
-    @Override // d.a.n0.j.o.d.b
+    @Override // d.a.o0.j.o.d.b
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f11995g = false;
+            this.f12021g = false;
         }
     }
 
-    @Override // d.a.n0.j.o.d.b
+    @Override // d.a.o0.j.o.d.b
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f11995g = true;
+            this.f12021g = true;
         }
     }
 
@@ -99,29 +99,29 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (!this.f11995g && this.f11994f != null) {
+            if (!this.f12021g && this.f12020f != null) {
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
-                            float rawY = motionEvent.getRawY() - this.f11993e;
+                            float rawY = motionEvent.getRawY() - this.f12019e;
                             boolean z = rawY <= 0.0f;
-                            if (z && !this.f11994f.d() && d(rawY)) {
-                                this.f11994f.e(true);
+                            if (z && !this.f12020f.d() && d(rawY)) {
+                                this.f12020f.e(true);
                                 return true;
-                            } else if (!z && c() && this.f11994f.d() && d(rawY)) {
-                                this.f11994f.e(false);
+                            } else if (!z && c() && this.f12020f.d() && d(rawY)) {
+                                this.f12020f.e(false);
                                 return true;
                             }
                         }
                     }
-                    this.f11993e = motionEvent.getRawY();
+                    this.f12019e = motionEvent.getRawY();
                 } else {
-                    this.f11993e = motionEvent.getRawY();
+                    this.f12019e = motionEvent.getRawY();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            this.f11993e = motionEvent.getRawY();
+            this.f12019e = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -130,7 +130,7 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
     public void setViewFlipper(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.f11994f = dVar;
+            this.f12020f = dVar;
         }
     }
 

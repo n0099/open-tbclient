@@ -12,13 +12,13 @@ public final class l<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38186a;
+    public int f38361a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f38187b;
+    public T f38362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f38188c;
+    public final boolean f38363c;
 
     public l(int i2, T t, boolean z) {
         Interceptable interceptable = $ic;
@@ -35,28 +35,28 @@ public final class l<T> {
                 return;
             }
         }
-        this.f38186a = i2;
-        this.f38187b = t;
-        this.f38188c = z;
+        this.f38361a = i2;
+        this.f38362b = t;
+        this.f38363c = z;
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38186a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38361a : invokeV.intValue;
     }
 
     public final T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38187b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38362b : (T) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{code:" + this.f38186a + ", response:" + this.f38187b + ", resultFormCache:" + this.f38188c + "}";
+            return "{code:" + this.f38361a + ", response:" + this.f38362b + ", resultFormCache:" + this.f38363c + "}";
         }
         return (String) invokeV.objValue;
     }

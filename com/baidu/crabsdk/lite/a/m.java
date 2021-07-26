@@ -13,19 +13,19 @@ public final class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static TelephonyManager f4728a;
+    public static TelephonyManager f4754a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConnectivityManager f4729b;
+    public static ConnectivityManager f4755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f4730c;
+    public static Context f4756c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            f4730c = context;
+            f4756c = context;
         }
     }
 
@@ -34,10 +34,10 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                if (f4729b == null) {
-                    f4729b = (ConnectivityManager) f4730c.getSystemService("connectivity");
+                if (f4755b == null) {
+                    f4755b = (ConnectivityManager) f4756c.getSystemService("connectivity");
                 }
-                NetworkInfo activeNetworkInfo = f4729b.getActiveNetworkInfo();
+                NetworkInfo activeNetworkInfo = f4755b.getActiveNetworkInfo();
                 return activeNetworkInfo == null ? RomUtils.UNKNOWN : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
             } catch (RuntimeException unused) {
                 return RomUtils.UNKNOWN;
@@ -54,10 +54,10 @@ public final class m {
             String str2 = "\n";
             StringBuilder sb = new StringBuilder();
             try {
-                if (f4729b == null) {
-                    f4729b = (ConnectivityManager) f4730c.getSystemService("connectivity");
+                if (f4755b == null) {
+                    f4755b = (ConnectivityManager) f4756c.getSystemService("connectivity");
                 }
-                activeNetworkInfo = f4729b.getActiveNetworkInfo();
+                activeNetworkInfo = f4755b.getActiveNetworkInfo();
             } catch (RuntimeException e2) {
                 com.baidu.crabsdk.lite.b.a.e(str, "getNetworkInfo", e2);
             }
@@ -72,11 +72,11 @@ public final class m {
                     sb.append("subType: ");
                     sb.append(activeNetworkInfo.getSubtypeName());
                     sb.append("\n");
-                    if (f4728a == null) {
-                        f4728a = (TelephonyManager) f4730c.getSystemService("phone");
+                    if (f4754a == null) {
+                        f4754a = (TelephonyManager) f4756c.getSystemService("phone");
                     }
                     sb.append("isRoaming: ");
-                    sb.append(f4728a.isNetworkRoaming() ? "yes" : "no");
+                    sb.append(f4754a.isNetworkRoaming() ? "yes" : "no");
                 }
                 return sb.toString();
             }

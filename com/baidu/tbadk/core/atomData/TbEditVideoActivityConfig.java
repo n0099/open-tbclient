@@ -66,6 +66,7 @@ public class TbEditVideoActivityConfig extends IntentConfig {
             tbMultiMediaData.coverSource = videoInfo.getMultiMediaData().coverSource;
             tbMultiMediaData.orignalCoverPath = videoInfo.getMultiMediaData().orignalCoverPath;
             tbMultiMediaData.lastCoverPercent = videoInfo.getMultiMediaData().lastCoverPercent;
+            tbMultiMediaData.videoInfoType = videoInfo.getVideoType();
             return tbMultiMediaData;
         }
         return (TbMultiMediaData) invokeL.objValue;

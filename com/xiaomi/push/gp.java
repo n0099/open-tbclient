@@ -11,7 +11,7 @@ public final class gp extends al.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Runnable f40224a;
+    public final /* synthetic */ Runnable f40496a;
 
     public gp(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public final class gp extends al.b {
                 return;
             }
         }
-        this.f40224a = runnable;
+        this.f40496a = runnable;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40224a.run();
+            this.f40496a.run();
         }
     }
 }

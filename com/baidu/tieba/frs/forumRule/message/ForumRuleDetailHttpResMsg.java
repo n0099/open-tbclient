@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.u0.p1.c.b;
+import d.a.q0.u0.p1.c.b;
 import tbclient.Error;
 import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 /* loaded from: classes4.dex */

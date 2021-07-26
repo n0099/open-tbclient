@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.o0.r.q.y0;
+import d.a.p0.s.q.y0;
 import java.util.LinkedList;
 import protobuf.PushMessage.DataRes;
 import protobuf.PushMessage.PushMessageResIdl;

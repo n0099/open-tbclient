@@ -20,10 +20,10 @@ public class a implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31181a;
+    public final String f31363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f31182b;
+    public final JSONObject f31364b;
 
     public a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class a implements i {
                 return;
             }
         }
-        this.f31181a = str;
-        this.f31182b = jSONObject;
+        this.f31363a = str;
+        this.f31364b = jSONObject;
     }
 
     public static a a(Context context, String str, String str2, String str3, JSONObject jSONObject) {
@@ -66,7 +66,7 @@ public class a implements i {
                     jSONObject2.putOpt("value", 0L);
                 }
                 jSONObject2.putOpt("is_ad_event", "1");
-                jSONObject2.putOpt("nt", Integer.valueOf(com.bytedance.sdk.component.utils.m.c(context)));
+                jSONObject2.putOpt("nt", Integer.valueOf(com.bytedance.sdk.component.utils.n.c(context)));
                 jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.h.d().w());
                 if (jSONObject != null) {
                     Iterator<String> keys = jSONObject.keys();
@@ -113,13 +113,13 @@ public class a implements i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f31181a) || this.f31182b == null) {
+            if (TextUtils.isEmpty(this.f31363a) || this.f31364b == null) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("localId", this.f31181a);
-                jSONObject.put("event", this.f31182b);
+                jSONObject.put("localId", this.f31363a);
+                jSONObject.put("event", this.f31364b);
             } catch (Throwable unused) {
             }
             return jSONObject.toString();
@@ -159,6 +159,6 @@ public class a implements i {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31181a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31363a : (String) invokeV.objValue;
     }
 }

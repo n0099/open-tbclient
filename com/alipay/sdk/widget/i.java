@@ -14,7 +14,7 @@ public class i implements DownloadListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ h f2031a;
+    public final /* synthetic */ h f2064a;
 
     public i(h hVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class i implements DownloadListener {
                 return;
             }
         }
-        this.f2031a = hVar;
+        this.f2064a = hVar;
     }
 
     @Override // android.webkit.DownloadListener
@@ -41,7 +41,7 @@ public class i implements DownloadListener {
             try {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                this.f2031a.f2028a.startActivity(intent);
+                this.f2064a.f2061a.startActivity(intent);
             } catch (Throwable unused) {
             }
         }

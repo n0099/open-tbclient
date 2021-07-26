@@ -36,7 +36,7 @@ public class j {
             }
             iVar.L(i2);
             if (i2 == 0) {
-                iVar.E(new d.C2028d());
+                iVar.E(new d.C2027d());
             }
             if (!iVar.N()) {
                 iVar.E(new d.e());
@@ -48,15 +48,15 @@ public class j {
             c2.K0(System.currentTimeMillis());
             c2.O0(0L);
             a g2 = a.g(iVar.R());
-            if (!g(iVar, g2, a2) && fVar.f71277b.k()) {
-                String H = fVar.f71277b.H();
+            if (!g(iVar, g2, a2) && fVar.f71731b.k()) {
+                String H = fVar.f71731b.H();
                 if (TextUtils.isEmpty(H)) {
                     H = g2.t("download_start_toast_text");
                 }
                 if (TextUtils.isEmpty(H)) {
                     H = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
                 }
-                l.p().a(2, iVar.S(), fVar.f71277b, H, null, 0);
+                l.p().a(2, iVar.S(), fVar.f71731b, H, null, 0);
             }
             return a2;
         }
@@ -115,11 +115,11 @@ public class j {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, fVar, i2)) == null) {
-            d.l.a.b.a.c.b bVar = new d.l.a.b.a.c.b(fVar.f71277b, fVar.f71278c, fVar.f71279d, i2);
+            d.l.a.b.a.c.b bVar = new d.l.a.b.a.c.b(fVar.f71731b, fVar.f71732c, fVar.f71733d, i2);
             boolean z = true;
             if (a.d(i2).b("download_event_opt", 1) > 1) {
                 try {
-                    String v = fVar.f71277b.v();
+                    String v = fVar.f71731b.v();
                     if (!TextUtils.isEmpty(v)) {
                         if (l.a().getPackageManager().getPackageInfo(v, 0) == null) {
                             z = false;
@@ -236,13 +236,13 @@ public class j {
                                 case 1:
                                 case 2:
                                 case 3:
-                                    if (d.l.a.e.a.c.b(optJSONObject, aVar).f71575b == 0) {
+                                    if (d.l.a.e.a.c.b(optJSONObject, aVar).f72029b == 0) {
                                         break;
                                     } else {
                                         continue;
                                     }
                                 case 6:
-                                    if (d.l.a.e.a.c.v(optJSONObject, aVar).f71575b == 0) {
+                                    if (d.l.a.e.a.c.v(optJSONObject, aVar).f72029b == 0) {
                                         break;
                                     } else {
                                         continue;

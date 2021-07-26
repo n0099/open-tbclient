@@ -73,7 +73,7 @@ public class f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Boolean.valueOf(z), str, str2})) == null) {
             String a2 = a(context);
             if (z) {
-                str = "/" + p.a(context) + "-" + str;
+                str = "/" + r.a(context) + "-" + str;
             }
             String str3 = a2 + str;
             File file = new File(str3);
@@ -91,7 +91,7 @@ public class f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, Boolean.valueOf(z), str, str2})) == null) {
             String b2 = b(context);
             if (z) {
-                str = "/" + p.a(context) + "-" + str;
+                str = "/" + r.a(context) + "-" + str;
             }
             String str3 = b2 + str;
             File file = new File(str3);
@@ -216,7 +216,7 @@ public class f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Boolean.valueOf(z), str})) == null) {
             String a2 = a(context);
             if (z) {
-                str = "/" + p.a(context) + "-" + str;
+                str = "/" + r.a(context) + "-" + str;
             }
             File file = new File(a2 + str);
             if (!file.exists()) {
@@ -233,7 +233,7 @@ public class f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, Boolean.valueOf(z), str})) == null) {
             String absolutePath = context.getCacheDir().getAbsolutePath();
             if (z) {
-                str = "/" + p.a(context) + "-" + str;
+                str = "/" + r.a(context) + "-" + str;
             }
             File file = new File(absolutePath + str);
             if (!file.exists()) {
@@ -244,6 +244,12 @@ public class f {
         return (File) invokeCommon.objValue;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0019, code lost:
+        if (android.os.Environment.isExternalStorageRemovable() == false) goto L23;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -251,7 +257,15 @@ public class f {
             if (context == null) {
                 return null;
             }
-            File externalCacheDir = "mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable() ? context.getExternalCacheDir() : null;
+            boolean z = false;
+            try {
+                if (!"mounted".equals(Environment.getExternalStorageState())) {
+                }
+                z = true;
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            File externalCacheDir = z ? context.getExternalCacheDir() : null;
             if (externalCacheDir == null) {
                 externalCacheDir = context.getCacheDir();
             }
@@ -279,14 +293,14 @@ public class f {
     public static void b(File file) throws IOException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, null, file) == null) && file.exists()) {
-            j.f("splashLoadAd", "当文件存在更新文件的修改时间");
+            k.f("splashLoadAd", "当文件存在更新文件的修改时间");
             long currentTimeMillis = System.currentTimeMillis();
             if (file.setLastModified(currentTimeMillis)) {
                 return;
             }
             e(file);
             if (file.lastModified() < currentTimeMillis) {
-                j.d("Files", "Last modified date " + new Date(file.lastModified()) + " is not set for file " + file.getAbsolutePath());
+                k.d("Files", "Last modified date " + new Date(file.lastModified()) + " is not set for file " + file.getAbsolutePath());
             }
         }
     }

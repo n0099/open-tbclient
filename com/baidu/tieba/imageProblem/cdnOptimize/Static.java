@@ -25,7 +25,7 @@ public class Static {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageTask f17970a;
+    public static CustomMessageTask f18026a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class Static {
                 return;
             }
         }
-        f17970a = new CustomMessageTask(2017000, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
+        f18026a = new CustomMessageTask(2017000, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,26 +68,26 @@ public class Static {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
                             TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                            if (data != null && data.f17974a != null && data.f17974a.f17987e != null) {
+                            if (data != null && data.f18030a != null && data.f18030a.f18043e != null) {
                                 String str = "";
                                 boolean z = false;
-                                if (data.f17981h == null) {
-                                    if (data.f17975b < data.f17974a.f17987e.size()) {
-                                        ArrayList<String> arrayList = data.f17974a.f17987e.get(data.f17975b);
+                                if (data.f18037h == null) {
+                                    if (data.f18031b < data.f18030a.f18043e.size()) {
+                                        ArrayList<String> arrayList = data.f18030a.f18043e.get(data.f18031b);
                                         if (arrayList.size() > 0) {
                                             str = arrayList.get(0);
                                         }
                                     }
-                                } else if (data.f17981h.length() > 0) {
-                                    str = data.f17981h;
+                                } else if (data.f18037h.length() > 0) {
+                                    str = data.f18037h;
                                     z = true;
                                 }
                                 if (PermissionUtil.isAgreePrivacyPolicy() && str.length() > 0) {
-                                    data.f17976c = data.f17979f.getTestImageData(data.f17974a.f17985c, str, data.f17974a.f17989g, data.f17974a.f17986d, data.f17980g);
-                                    data.f17977d = System.currentTimeMillis() - currentTimeMillis;
-                                    data.f17978e = str;
+                                    data.f18032c = data.f18035f.getTestImageData(data.f18030a.f18041c, str, data.f18030a.f18045g, data.f18030a.f18042d, data.f18036g);
+                                    data.f18033d = System.currentTimeMillis() - currentTimeMillis;
+                                    data.f18034e = str;
                                     if (z) {
-                                        data.f17981h = str;
+                                        data.f18037h = str;
                                     }
                                     return new CustomResponsedMessage<>(2017000, data);
                                 }
@@ -152,8 +152,8 @@ public class Static {
                 return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016102, CDNIPDirectConnect.getInstance()) : (CustomResponsedMessage) invokeL.objValue;
             }
         }).setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        f17970a.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        f17970a.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        f18026a.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        f18026a.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
     }
 
     public Static() {

@@ -13,13 +13,13 @@ public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1991a = "resultStatus";
+    public static final String f2024a = "resultStatus";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1992b = "memo";
+    public static final String f2025b = "memo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1993c = "result";
+    public static final String f2026c = "result";
     public transient /* synthetic */ FieldHolder $fh;
 
     public l() {
@@ -44,7 +44,7 @@ public class l {
             try {
                 return b(str);
             } catch (Throwable th) {
-                com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.f1829g, th);
+                com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.f1862g, th);
                 return a2;
             }
         }
@@ -70,10 +70,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            com.alipay.sdk.app.k b2 = com.alipay.sdk.app.k.b(com.alipay.sdk.app.k.f1812c.a());
+            com.alipay.sdk.app.k b2 = com.alipay.sdk.app.k.b(com.alipay.sdk.app.k.f1845c.a());
             HashMap hashMap = new HashMap();
-            hashMap.put(f1991a, Integer.toString(b2.a()));
-            hashMap.put(f1992b, b2.b());
+            hashMap.put(f2024a, Integer.toString(b2.a()));
+            hashMap.put(f2025b, b2.b());
             hashMap.put("result", "");
             return hashMap;
         }

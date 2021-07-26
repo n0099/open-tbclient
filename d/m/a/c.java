@@ -15,25 +15,25 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f72091e;
+    public Context f72545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f72092f;
+    public String f72546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f72093g;
+    public String f72547g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f72094h;
+    public String f72548h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f72095i;
+    public String f72549i;
     public String j;
     public String k;
     public HashMap<String, String> l;
@@ -51,10 +51,10 @@ public class c implements Cloneable {
                 return;
             }
         }
-        this.f72092f = "";
-        this.f72093g = "";
-        this.f72094h = "";
-        this.f72095i = "";
+        this.f72546f = "";
+        this.f72547g = "";
+        this.f72548h = "";
+        this.f72549i = "";
         this.j = "";
         this.k = "";
         this.l = new HashMap<>();
@@ -65,9 +65,9 @@ public class c implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             if (z) {
-                return o(this.f72092f);
+                return o(this.f72546f);
             }
-            return this.f72092f;
+            return this.f72546f;
         }
         return (String) invokeZ.objValue;
     }
@@ -94,7 +94,7 @@ public class c implements Cloneable {
     public Context d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72091e : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72545e : (Context) invokeV.objValue;
     }
 
     public String e(boolean z) {
@@ -125,9 +125,9 @@ public class c implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             if (z) {
-                return o(this.f72094h);
+                return o(this.f72548h);
             }
-            return this.f72094h;
+            return this.f72548h;
         }
         return (String) invokeZ.objValue;
     }
@@ -149,9 +149,9 @@ public class c implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
             if (z) {
-                return o(this.f72093g);
+                return o(this.f72547g);
             }
-            return this.f72093g;
+            return this.f72547g;
         }
         return (String) invokeZ.objValue;
     }
@@ -173,9 +173,9 @@ public class c implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
             if (z) {
-                return o(this.f72095i);
+                return o(this.f72549i);
             }
-            return this.f72095i;
+            return this.f72549i;
         }
         return (String) invokeZ.objValue;
     }
@@ -183,28 +183,28 @@ public class c implements Cloneable {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f72092f = str;
+            this.f72546f = str;
         }
     }
 
     public void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            this.f72091e = context.getApplicationContext();
+            this.f72545e = context.getApplicationContext();
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f72094h = str;
+            this.f72548h = str;
         }
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f72095i = str;
+            this.f72549i = str;
         }
     }
 
@@ -224,6 +224,6 @@ public class c implements Cloneable {
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.f72091e == null || TextUtils.isEmpty(this.f72092f) || TextUtils.isEmpty(this.f72094h) || TextUtils.isEmpty(this.f72095i)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.f72545e == null || TextUtils.isEmpty(this.f72546f) || TextUtils.isEmpty(this.f72548h) || TextUtils.isEmpty(this.f72549i)) ? false : true : invokeV.booleanValue;
     }
 }

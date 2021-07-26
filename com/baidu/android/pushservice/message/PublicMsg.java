@@ -228,19 +228,19 @@ public class PublicMsg implements Parcelable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f3517a;
+                public final /* synthetic */ Context f3543a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f3518b;
+                public final /* synthetic */ String f3544b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f3519c;
+                public final /* synthetic */ String f3545c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f3520d;
+                public final /* synthetic */ String f3546d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PublicMsg f3521e;
+                public final /* synthetic */ PublicMsg f3547e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -261,11 +261,11 @@ public class PublicMsg implements Parcelable {
                             return;
                         }
                     }
-                    this.f3521e = this;
-                    this.f3517a = context;
-                    this.f3518b = b2;
-                    this.f3519c = r13;
-                    this.f3520d = a2;
+                    this.f3547e = this;
+                    this.f3543a = context;
+                    this.f3544b = b2;
+                    this.f3545c = r13;
+                    this.f3546d = a2;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
@@ -274,16 +274,16 @@ public class PublicMsg implements Parcelable {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             HashMap hashMap = new HashMap();
-                            com.baidu.android.pushservice.d.b.a(this.f3517a, hashMap);
+                            com.baidu.android.pushservice.d.b.a(this.f3543a, hashMap);
                             hashMap.put("method", "linkhit");
-                            hashMap.put("channel_token", this.f3518b);
-                            hashMap.put("data", this.f3519c);
-                            if (com.baidu.android.pushservice.e.c.a(this.f3517a, com.baidu.android.pushservice.h.e() + this.f3520d, "POST", hashMap).b() == 200) {
-                                com.baidu.android.pushservice.g.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.f3517a.getApplicationContext());
+                            hashMap.put("channel_token", this.f3544b);
+                            hashMap.put("data", this.f3545c);
+                            if (com.baidu.android.pushservice.e.c.a(this.f3543a, com.baidu.android.pushservice.h.e() + this.f3546d, "POST", hashMap).b() == 200) {
+                                com.baidu.android.pushservice.g.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.f3543a.getApplicationContext());
                             }
                         } catch (Exception e3) {
-                            com.baidu.android.pushservice.g.a.b(PublicMsg.TAG, "error : " + e3.getMessage(), this.f3517a.getApplicationContext());
-                            new b.c(this.f3517a).a(Log.getStackTraceString(e3)).a();
+                            com.baidu.android.pushservice.g.a.b(PublicMsg.TAG, "error : " + e3.getMessage(), this.f3543a.getApplicationContext());
+                            new b.c(this.f3543a).a(Log.getStackTraceString(e3)).a();
                         }
                     }
                 }

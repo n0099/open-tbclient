@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h2.k.e.o;
-import d.a.p0.h2.o.b;
+import d.a.q0.h2.k.e.o;
+import d.a.q0.h2.o.b;
 /* loaded from: classes4.dex */
 public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +30,7 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f19161a;
+        public TextView f19246a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ReplyLoadMoreViewHolder(View view) {
@@ -50,13 +50,13 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
                     return;
                 }
             }
-            this.f19161a = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.f19246a = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setViewTextColor(this.f19161a, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.f19246a, R.color.CAM_X0109);
             }
         }
 
@@ -68,12 +68,12 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
             if (postData.D) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                this.f19161a.setCompoundDrawables(null, null, drawable, null);
+                this.f19246a.setCompoundDrawables(null, null, drawable, null);
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_down);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            this.f19161a.setCompoundDrawables(null, null, drawable2, null);
+            this.f19246a.setCompoundDrawables(null, null, drawable2, null);
         }
     }
 
@@ -99,13 +99,13 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: h0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: g0 */
     public ReplyLoadMoreViewHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f41837e).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f42341e).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
             inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.s);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.b();
@@ -115,7 +115,7 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.p0.h2.k.e.o, d.a.c.k.e.a
+    @Override // d.a.q0.h2.k.e.o, d.a.d.k.e.a
     /* renamed from: i0 */
     public View X(int i2, View view, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;

@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.g0.b.g;
-import d.a.o0.z0.w;
+import d.a.d.e.p.l;
+import d.a.p0.b1.w;
+import d.a.p0.i0.b.g;
 import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
@@ -50,7 +50,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         this.sortType = 0;
     }
 
-    @Override // d.a.o0.g0.b.i
+    @Override // d.a.p0.i0.b.i
     public Object b(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // d.a.o0.g0.b.f
+    @Override // d.a.p0.i0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g0.b.f
+    @Override // d.a.p0.i0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

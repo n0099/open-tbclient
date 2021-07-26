@@ -1,11 +1,70 @@
 package com.bytedance.sdk.component.d;
+
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public interface h {
-    void a(String str);
+public class h implements ThreadFactory {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, String str2);
+    /* renamed from: a  reason: collision with root package name */
+    public final ThreadGroup f28824a;
 
-    void b(String str);
+    /* renamed from: b  reason: collision with root package name */
+    public final AtomicInteger f28825b;
 
-    void b(String str, String str2);
+    /* renamed from: c  reason: collision with root package name */
+    public final String f28826c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final int f28827d;
+
+    public h(int i2, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f28825b = new AtomicInteger(1);
+        this.f28827d = i2;
+        this.f28824a = new ThreadGroup("tt_pangle_group_" + str);
+        this.f28826c = "tt_pangle_thread_" + str;
+    }
+
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            ThreadGroup threadGroup = this.f28824a;
+            Thread thread = new Thread(threadGroup, runnable, this.f28826c + "_" + this.f28825b.getAndIncrement());
+            if (thread.isDaemon()) {
+                thread.setDaemon(false);
+            }
+            if (this.f28827d == 1) {
+                thread.setPriority(1);
+            } else if (thread.getPriority() != 5) {
+                thread.setPriority(3);
+            } else {
+                thread.setPriority(5);
+            }
+            return thread;
+        }
+        return (Thread) invokeL.objValue;
+    }
 }

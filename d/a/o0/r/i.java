@@ -1,107 +1,194 @@
 package d.a.o0.r;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final CustomMessageListener f52481a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: a  reason: collision with root package name */
+    public String f51526a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public String f51527b;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
-            }
-            switch (customResponsedMessage.getCmd()) {
-                case 2005009:
-                    TbadkCoreApplication.getInst().startSyncService();
-                    return;
-                case 2005010:
-                    TbadkCoreApplication.getInst().stopSyncService();
-                    return;
-                case 2005011:
-                    TbadkCoreApplication.getInst().startActiveService();
-                    return;
-                case 2005012:
-                    TbadkCoreApplication.getInst().stopActiveServide();
-                    return;
-                case 2005013:
-                    TbadkCoreApplication.getInst().startClearTempService();
-                    return;
-                case 2005014:
-                default:
-                    return;
-                case 2005015:
-                    TbadkCoreApplication.getInst().startSyncLoginService();
-                    return;
-            }
-        }
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public int f51528c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-799331336, "Ld/a/o0/r/i;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-799331336, "Ld/a/o0/r/i;");
-                return;
-            }
-        }
-        f52481a = new a(0);
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public String f51529d;
 
-    public static void a() {
+    /* renamed from: e  reason: collision with root package name */
+    public JSONObject f51530e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f51531f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f51532g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f51533h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f51534i;
+    public boolean j;
+    public String k;
+
+    public i(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            MessageManager.getInstance().registerListener(2005009, f52481a);
-            MessageManager.getInstance().registerListener(2005010, f52481a);
-            MessageManager.getInstance().registerListener(2005011, f52481a);
-            MessageManager.getInstance().registerListener(2005012, f52481a);
-            MessageManager.getInstance().registerListener(2005013, f52481a);
-            MessageManager.getInstance().registerListener(2005015, f52481a);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f51529d = "";
+        this.j = false;
+        this.k = "";
+        this.f51526a = str;
+        this.f51527b = str;
+        this.f51528c = -1;
+        this.f51529d = str2;
+        this.f51532g = i2;
+        if ((i2 & 2) == 0) {
+            this.f51531f = System.currentTimeMillis();
+        }
+        try {
+            this.f51530e = new JSONObject(this.f51529d);
+        } catch (JSONException unused) {
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = this.f51530e;
+            return jSONObject != null ? jSONObject.optString("bizId") : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.f51526a) != null && str.equals(this.f51527b) && d.g().a(this.f51526a)) {
+            this.f51533h = e.h().h();
+        }
+    }
+
+    public i(String str, JSONObject jSONObject, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f51529d = "";
+        this.j = false;
+        this.k = "";
+        this.f51526a = str;
+        this.f51527b = str;
+        this.f51528c = -1;
+        this.f51530e = jSONObject;
+        this.f51532g = i2;
+        if ((i2 & 2) == 0) {
+            this.f51531f = System.currentTimeMillis();
+        }
+    }
+
+    public i(String str, String str2, int i2, String str3, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i2), str3, Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f51529d = "";
+        this.j = false;
+        this.k = "";
+        this.f51526a = str2;
+        this.f51527b = str;
+        this.f51528c = i2;
+        this.f51529d = str3;
+        this.f51532g = i3;
+        if ((i3 & 2) == 0) {
+            this.f51531f = System.currentTimeMillis();
+        }
+        try {
+            this.f51530e = new JSONObject(this.f51529d);
+        } catch (JSONException unused) {
+        }
+    }
+
+    public i(String str, String str2, int i2, String str3, long j, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i2), str3, Long.valueOf(j), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f51529d = "";
+        this.j = false;
+        this.k = "";
+        this.f51526a = str2;
+        this.f51527b = str;
+        this.f51528c = i2;
+        this.f51529d = str3;
+        this.f51532g = i3;
+        if ((i3 & 2) == 0) {
+            if (j > 0) {
+                this.f51531f = j;
+            } else {
+                this.f51531f = System.currentTimeMillis();
+            }
+        }
+        if (TextUtils.isEmpty(this.f51529d)) {
+            return;
+        }
+        try {
+            this.f51530e = new JSONObject(this.f51529d);
+        } catch (JSONException unused) {
         }
     }
 }

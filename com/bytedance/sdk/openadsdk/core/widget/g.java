@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.o;
 /* loaded from: classes5.dex */
 public class g extends Drawable {
@@ -28,35 +28,35 @@ public class g extends Drawable {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30866a;
+    public int f31049a;
     @ColorInt
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30867b;
+    public int f31050b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f30868c;
+    public int[] f31051c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f30869d;
+    public float[] f31052d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearGradient f30870e;
+    public LinearGradient f31053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30871f;
+    public int f31054f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30872g;
+    public int f31055g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30873h;
+    public int f31056h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30874i;
+    public int f31057i;
     @Nullable
     public RectF j;
     @Nullable
@@ -69,33 +69,33 @@ public class g extends Drawable {
         @ColorInt
 
         /* renamed from: a  reason: collision with root package name */
-        public int f30875a;
+        public int f31058a;
         @ColorInt
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30876b;
+        public int f31059b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int[] f30877c;
+        public int[] f31060c;
         @Nullable
 
         /* renamed from: d  reason: collision with root package name */
-        public float[] f30878d;
+        public float[] f31061d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearGradient f30879e;
+        public LinearGradient f31062e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f30880f;
+        public int f31063f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f30881g;
+        public int f31064g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f30882h;
+        public int f31065h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f30883i;
+        public int f31066i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -110,21 +110,21 @@ public class g extends Drawable {
                     return;
                 }
             }
-            this.f30882h = 0;
-            this.f30883i = 0;
-            this.f30875a = r.j(o.a(), "tt_ssxinmian8");
-            this.f30876b = r.j(o.a(), "tt_ssxinxian3");
-            this.f30880f = 10;
-            this.f30881g = 16;
-            this.f30882h = 0;
-            this.f30883i = 0;
+            this.f31065h = 0;
+            this.f31066i = 0;
+            this.f31058a = t.j(o.a(), "tt_ssxinmian8");
+            this.f31059b = t.j(o.a(), "tt_ssxinxian3");
+            this.f31063f = 10;
+            this.f31064g = 16;
+            this.f31065h = 0;
+            this.f31066i = 0;
         }
 
         public a a(@ColorInt int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f30875a = i2;
+                this.f31058a = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -134,7 +134,7 @@ public class g extends Drawable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.f30876b = i2;
+                this.f31059b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -144,7 +144,7 @@ public class g extends Drawable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f30880f = i2;
+                this.f31063f = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -154,7 +154,7 @@ public class g extends Drawable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f30882h = i2;
+                this.f31065h = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -164,7 +164,7 @@ public class g extends Drawable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f30883i = i2;
+                this.f31066i = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -174,7 +174,7 @@ public class g extends Drawable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr)) == null) {
-                this.f30877c = iArr;
+                this.f31060c = iArr;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -183,7 +183,7 @@ public class g extends Drawable {
         public g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new g(this.f30875a, this.f30877c, this.f30878d, this.f30876b, this.f30879e, this.f30880f, this.f30881g, this.f30882h, this.f30883i) : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new g(this.f31058a, this.f31060c, this.f31061d, this.f31059b, this.f31062e, this.f31063f, this.f31064g, this.f31065h, this.f31066i) : (g) invokeV.objValue;
         }
     }
 
@@ -202,15 +202,15 @@ public class g extends Drawable {
                 return;
             }
         }
-        this.f30866a = i2;
-        this.f30868c = iArr;
-        this.f30869d = fArr;
-        this.f30867b = i3;
-        this.f30870e = linearGradient;
-        this.f30871f = i4;
-        this.f30872g = i5;
-        this.f30873h = i6;
-        this.f30874i = i7;
+        this.f31049a = i2;
+        this.f31051c = iArr;
+        this.f31052d = fArr;
+        this.f31050b = i3;
+        this.f31053e = linearGradient;
+        this.f31054f = i4;
+        this.f31055g = i5;
+        this.f31056h = i6;
+        this.f31057i = i7;
     }
 
     private void a() {
@@ -221,20 +221,20 @@ public class g extends Drawable {
             this.k = paint;
             boolean z = true;
             paint.setAntiAlias(true);
-            this.k.setShadowLayer(this.f30872g, this.f30873h, this.f30874i, this.f30867b);
-            if (this.j != null && (iArr = this.f30868c) != null && iArr.length > 1) {
-                float[] fArr = this.f30869d;
+            this.k.setShadowLayer(this.f31055g, this.f31056h, this.f31057i, this.f31050b);
+            if (this.j != null && (iArr = this.f31051c) != null && iArr.length > 1) {
+                float[] fArr = this.f31052d;
                 z = (fArr == null || fArr.length <= 0 || fArr.length != iArr.length) ? false : false;
                 Paint paint2 = this.k;
-                LinearGradient linearGradient = this.f30870e;
+                LinearGradient linearGradient = this.f31053e;
                 if (linearGradient == null) {
                     RectF rectF = this.j;
-                    linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f30868c, z ? this.f30869d : null, Shader.TileMode.CLAMP);
+                    linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f31051c, z ? this.f31052d : null, Shader.TileMode.CLAMP);
                 }
                 paint2.setShader(linearGradient);
                 return;
             }
-            this.k.setColor(this.f30866a);
+            this.k.setColor(this.f31049a);
         }
     }
 
@@ -245,16 +245,16 @@ public class g extends Drawable {
             if (this.j == null) {
                 Rect bounds = getBounds();
                 int i2 = bounds.left;
-                int i3 = this.f30872g;
-                int i4 = this.f30873h;
-                int i5 = this.f30874i;
+                int i3 = this.f31055g;
+                int i4 = this.f31056h;
+                int i5 = this.f31057i;
                 this.j = new RectF((i2 + i3) - i4, (bounds.top + i3) - i5, (bounds.right - i3) - i4, (bounds.bottom - i3) - i5);
             }
             if (this.k == null) {
                 a();
             }
             RectF rectF = this.j;
-            int i6 = this.f30871f;
+            int i6 = this.f31054f;
             canvas.drawRoundRect(rectF, i6, i6, this.k);
         }
     }

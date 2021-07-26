@@ -37,7 +37,7 @@ public class PolystarShapeParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", r.f7762a, "or", IAdRequestParam.OS, "ir", "is", "hd");
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", r.f7788a, "or", IAdRequestParam.OS, "ir", "is", "hd");
     }
 
     public PolystarShapeParser() {

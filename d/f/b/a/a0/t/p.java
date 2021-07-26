@@ -15,31 +15,31 @@ public final class p implements w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f69626a;
+    public final h f70080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.f.b.a.i0.k f69627b;
+    public final d.f.b.a.i0.k f70081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f69628c;
+    public int f70082c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f69629d;
+    public int f70083d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.f.b.a.i0.s f69630e;
+    public d.f.b.a.i0.s f70084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f69631f;
+    public boolean f70085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f69632g;
+    public boolean f70086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f69633h;
+    public boolean f70087h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f69634i;
+    public int f70088i;
     public int j;
     public boolean k;
     public long l;
@@ -59,17 +59,17 @@ public final class p implements w {
                 return;
             }
         }
-        this.f69626a = hVar;
-        this.f69627b = new d.f.b.a.i0.k(new byte[10]);
-        this.f69628c = 0;
+        this.f70080a = hVar;
+        this.f70081b = new d.f.b.a.i0.k(new byte[10]);
+        this.f70082c = 0;
     }
 
     @Override // d.f.b.a.a0.t.w
     public void a(d.f.b.a.i0.s sVar, d.f.b.a.a0.g gVar, w.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, sVar, gVar, dVar) == null) {
-            this.f69630e = sVar;
-            this.f69626a.f(gVar, dVar);
+            this.f70084e = sVar;
+            this.f70080a.f(gVar, dVar);
         }
     }
 
@@ -77,10 +77,10 @@ public final class p implements w {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f69628c = 0;
-            this.f69629d = 0;
-            this.f69633h = false;
-            this.f69626a.b();
+            this.f70082c = 0;
+            this.f70083d = 0;
+            this.f70087h = false;
+            this.f70080a.b();
         }
     }
 
@@ -89,25 +89,25 @@ public final class p implements w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, lVar, z) == null) {
             if (z) {
-                int i2 = this.f69628c;
+                int i2 = this.f70082c;
                 if (i2 == 2) {
                     Log.w("PesReader", "Unexpected start indicator reading extended header");
                 } else if (i2 == 3) {
                     if (this.j != -1) {
                         Log.w("PesReader", "Unexpected start indicator: expected " + this.j + " more bytes");
                     }
-                    this.f69626a.d();
+                    this.f70080a.d();
                 }
                 g(1);
             }
             while (lVar.a() > 0) {
-                int i3 = this.f69628c;
+                int i3 = this.f70082c;
                 if (i3 != 0) {
                     if (i3 != 1) {
                         if (i3 == 2) {
-                            if (d(lVar, this.f69627b.f70485a, Math.min(10, this.f69634i)) && d(lVar, null, this.f69634i)) {
+                            if (d(lVar, this.f70081b.f70939a, Math.min(10, this.f70088i)) && d(lVar, null, this.f70088i)) {
                                 f();
-                                this.f69626a.e(this.l, this.k);
+                                this.f70080a.e(this.l, this.k);
                                 g(3);
                             }
                         } else if (i3 == 3) {
@@ -118,18 +118,18 @@ public final class p implements w {
                                 a2 -= i5;
                                 lVar.I(lVar.c() + a2);
                             }
-                            this.f69626a.c(lVar);
+                            this.f70080a.c(lVar);
                             int i6 = this.j;
                             if (i6 != -1) {
                                 int i7 = i6 - a2;
                                 this.j = i7;
                                 if (i7 == 0) {
-                                    this.f69626a.d();
+                                    this.f70080a.d();
                                     g(1);
                                 }
                             }
                         }
-                    } else if (d(lVar, this.f69627b.f70485a, 9)) {
+                    } else if (d(lVar, this.f70081b.f70939a, 9)) {
                         g(e() ? 2 : 0);
                     }
                 } else {
@@ -143,17 +143,17 @@ public final class p implements w {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, lVar, bArr, i2)) == null) {
-            int min = Math.min(lVar.a(), i2 - this.f69629d);
+            int min = Math.min(lVar.a(), i2 - this.f70083d);
             if (min <= 0) {
                 return true;
             }
             if (bArr == null) {
                 lVar.K(min);
             } else {
-                lVar.g(bArr, this.f69629d, min);
+                lVar.g(bArr, this.f70083d, min);
             }
-            int i3 = this.f69629d + min;
-            this.f69629d = i3;
+            int i3 = this.f70083d + min;
+            this.f70083d = i3;
             return i3 == i2;
         }
         return invokeLLI.booleanValue;
@@ -163,23 +163,23 @@ public final class p implements w {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.f69627b.l(0);
-            int g2 = this.f69627b.g(24);
+            this.f70081b.l(0);
+            int g2 = this.f70081b.g(24);
             if (g2 != 1) {
                 Log.w("PesReader", "Unexpected start code prefix: " + g2);
                 this.j = -1;
                 return false;
             }
-            this.f69627b.n(8);
-            int g3 = this.f69627b.g(16);
-            this.f69627b.n(5);
-            this.k = this.f69627b.f();
-            this.f69627b.n(2);
-            this.f69631f = this.f69627b.f();
-            this.f69632g = this.f69627b.f();
-            this.f69627b.n(6);
-            int g4 = this.f69627b.g(8);
-            this.f69634i = g4;
+            this.f70081b.n(8);
+            int g3 = this.f70081b.g(16);
+            this.f70081b.n(5);
+            this.k = this.f70081b.f();
+            this.f70081b.n(2);
+            this.f70085f = this.f70081b.f();
+            this.f70086g = this.f70081b.f();
+            this.f70081b.n(6);
+            int g4 = this.f70081b.g(8);
+            this.f70088i = g4;
             if (g3 == 0) {
                 this.j = -1;
             } else {
@@ -193,23 +193,23 @@ public final class p implements w {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f69627b.l(0);
+            this.f70081b.l(0);
             this.l = -9223372036854775807L;
-            if (this.f69631f) {
-                this.f69627b.n(4);
-                this.f69627b.n(1);
-                this.f69627b.n(1);
-                long g2 = (this.f69627b.g(3) << 30) | (this.f69627b.g(15) << 15) | this.f69627b.g(15);
-                this.f69627b.n(1);
-                if (!this.f69633h && this.f69632g) {
-                    this.f69627b.n(4);
-                    this.f69627b.n(1);
-                    this.f69627b.n(1);
-                    this.f69627b.n(1);
-                    this.f69630e.b((this.f69627b.g(3) << 30) | (this.f69627b.g(15) << 15) | this.f69627b.g(15));
-                    this.f69633h = true;
+            if (this.f70085f) {
+                this.f70081b.n(4);
+                this.f70081b.n(1);
+                this.f70081b.n(1);
+                long g2 = (this.f70081b.g(3) << 30) | (this.f70081b.g(15) << 15) | this.f70081b.g(15);
+                this.f70081b.n(1);
+                if (!this.f70087h && this.f70086g) {
+                    this.f70081b.n(4);
+                    this.f70081b.n(1);
+                    this.f70081b.n(1);
+                    this.f70081b.n(1);
+                    this.f70084e.b((this.f70081b.g(3) << 30) | (this.f70081b.g(15) << 15) | this.f70081b.g(15));
+                    this.f70087h = true;
                 }
-                this.l = this.f69630e.b(g2);
+                this.l = this.f70084e.b(g2);
             }
         }
     }
@@ -217,8 +217,8 @@ public final class p implements w {
     public final void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f69628c = i2;
-            this.f69629d = 0;
+            this.f70082c = i2;
+            this.f70083d = 0;
         }
     }
 }

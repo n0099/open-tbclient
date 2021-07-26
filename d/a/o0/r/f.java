@@ -1,12 +1,36 @@
 package d.a.o0.r;
 
-import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface f {
-    boolean a(GroupNewsPojo groupNewsPojo);
+public class f {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(int i2);
+    /* renamed from: a  reason: collision with root package name */
+    public String f51510a;
 
-    UpdateClientInfoMessage c(UpdateClientInfoMessage updateClientInfoMessage);
+    /* renamed from: b  reason: collision with root package name */
+    public String f51511b;
+
+    public f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f51510a = str;
+        this.f51511b = str2;
+    }
 }

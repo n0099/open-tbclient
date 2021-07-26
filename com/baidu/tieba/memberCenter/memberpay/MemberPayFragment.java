@@ -12,27 +12,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v1.f.b;
-import d.a.p0.v1.f.f;
+import d.a.q0.v1.f.b;
+import d.a.q0.v1.f.f;
 /* loaded from: classes4.dex */
 public class MemberPayFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18606e;
+    public int f18691e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18607f;
+    public String f18692f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18608g;
+    public String f18693g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18609h;
+    public boolean f18694h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18610i;
+    public int f18695i;
     public b j;
     public f k;
     public View l;
@@ -53,13 +53,13 @@ public class MemberPayFragment extends BaseFragment {
         this.k = null;
     }
 
-    public int H0() {
+    public int M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18606e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18691e : invokeV.intValue;
     }
 
-    public void I0(Boolean bool) {
+    public void N0(Boolean bool) {
         b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) || (bVar = this.j) == null) {
@@ -68,7 +68,7 @@ public class MemberPayFragment extends BaseFragment {
         bVar.q(bool.booleanValue());
     }
 
-    public void J0(f fVar) {
+    public void O0(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
             this.k = fVar;
@@ -105,11 +105,11 @@ public class MemberPayFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             Bundle arguments = getArguments();
-            this.f18606e = arguments.getInt("member_type");
-            this.f18607f = arguments.getString("member_refer_page");
-            this.f18608g = arguments.getString("member_click_zone");
-            this.f18609h = arguments.getBoolean("member_is_pay_dialog");
-            this.f18610i = arguments.getInt("member_from_type");
+            this.f18691e = arguments.getInt("member_type");
+            this.f18692f = arguments.getString("member_refer_page");
+            this.f18693g = arguments.getString("member_click_zone");
+            this.f18694h = arguments.getBoolean("member_is_pay_dialog");
+            this.f18695i = arguments.getInt("member_from_type");
         }
     }
 
@@ -119,7 +119,7 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
             this.l = layoutInflater.inflate(R.layout.member_pay_fragment_view, viewGroup, false);
-            b bVar = new b(getPageContext(), this.l, this.f18606e, this.f18607f, this.f18608g, this.f18609h, this.f18610i);
+            b bVar = new b(getPageContext(), this.l, this.f18691e, this.f18692f, this.f18693g, this.f18694h, this.f18695i);
             this.j = bVar;
             bVar.s(this.k);
             return this.l;

@@ -32,7 +32,7 @@ public final class r0 extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
             Boolean bool = Boolean.FALSE;
-            TelephonyManager telephonyManager = (TelephonyManager) a.a().c().getApplicationContext().getSystemService((String) h.a(16777217, 0, 0L, "24aa49", new byte[]{51, 62, 29, 27, 14}));
+            TelephonyManager telephonyManager = (TelephonyManager) a.c().a().getApplicationContext().getSystemService((String) h.a(16777217, 0, 0L, "24aa49", new byte[]{51, 62, 29, 27, 14}));
             return (telephonyManager == null || telephonyManager.getSimState() != 5) ? bool : Boolean.TRUE;
         }
         return invokeCommon.objValue;

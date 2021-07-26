@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.c.k.e.n;
-import d.a.o0.r.q.b2;
-import d.a.o0.r.q.o0;
-import d.a.p0.w2.g0.a;
-import d.a.p0.w2.i0.b;
+import d.a.d.k.e.n;
+import d.a.p0.s.q.b2;
+import d.a.p0.s.q.o0;
+import d.a.q0.w2.g0.a;
+import d.a.q0.w2.i0.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -108,13 +108,13 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     ThreadInfo threadInfo = list2.get(i4);
                     b2 b2Var = new b2();
                     SpecHotTopicHelper.setSpecTopicIcon(j, b2Var);
-                    b2Var.i4(this.userMap);
-                    b2Var.I2(threadInfo);
-                    b2Var.M2();
+                    b2Var.l4(this.userMap);
+                    b2Var.K2(threadInfo);
+                    b2Var.O2();
                     b2Var.G1 = z;
-                    if (!TextUtils.isEmpty(b2Var.t0())) {
+                    if (!TextUtils.isEmpty(b2Var.u0())) {
                         o0 o0Var = new o0();
-                        o0Var.e(b2Var.t0());
+                        o0Var.e(b2Var.u0());
                         this.threadList.add(o0Var);
                     } else {
                         this.threadList.add(b2Var);

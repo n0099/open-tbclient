@@ -12,7 +12,7 @@ public final class cc implements AbsListView.RecyclerListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23499a;
+    public final /* synthetic */ FeedbackInputActivity f23657a;
 
     public cc(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class cc implements AbsListView.RecyclerListener {
                 return;
             }
         }
-        this.f23499a = feedbackInputActivity;
+        this.f23657a = feedbackInputActivity;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

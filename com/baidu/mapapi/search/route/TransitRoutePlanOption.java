@@ -27,11 +27,11 @@ public class TransitRoutePlanOption {
         public static final TransitPolicy EBUS_WALK_FIRST;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TransitPolicy[] f7423b;
+        public static final /* synthetic */ TransitPolicy[] f7449b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7424a;
+        public int f7450a;
 
         static {
             InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class TransitRoutePlanOption {
             EBUS_WALK_FIRST = new TransitPolicy("EBUS_WALK_FIRST", 2, 3);
             TransitPolicy transitPolicy = new TransitPolicy("EBUS_NO_SUBWAY", 3, 4);
             EBUS_NO_SUBWAY = transitPolicy;
-            f7423b = new TransitPolicy[]{EBUS_TIME_FIRST, EBUS_TRANSFER_FIRST, EBUS_WALK_FIRST, transitPolicy};
+            f7449b = new TransitPolicy[]{EBUS_TIME_FIRST, EBUS_TRANSFER_FIRST, EBUS_WALK_FIRST, transitPolicy};
         }
 
         public TransitPolicy(String str, int i2, int i3) {
@@ -72,8 +72,8 @@ public class TransitRoutePlanOption {
                     return;
                 }
             }
-            this.f7424a = 0;
-            this.f7424a = i3;
+            this.f7450a = 0;
+            this.f7450a = i3;
         }
 
         public static TransitPolicy valueOf(String str) {
@@ -85,13 +85,13 @@ public class TransitRoutePlanOption {
         public static TransitPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransitPolicy[]) f7423b.clone() : (TransitPolicy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransitPolicy[]) f7449b.clone() : (TransitPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7424a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7450a : invokeV.intValue;
         }
     }
 

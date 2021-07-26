@@ -16,7 +16,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68977a;
+    public int f69431a;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -30,7 +30,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f68978a;
+        public final /* synthetic */ d f69432a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class d {
                     return;
                 }
             }
-            this.f68978a = dVar;
+            this.f69432a = dVar;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
-                this.f68978a.f68977a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
+                this.f69432a.f69431a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
             }
         }
 
@@ -87,7 +87,7 @@ public class d {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68977a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69431a : invokeV.intValue;
     }
 
     public final void c(Context context) {

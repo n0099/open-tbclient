@@ -12,7 +12,7 @@ public final class e implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f23365a;
+    public final /* synthetic */ ScreenCapEditActivity f23523a;
 
     public e(ScreenCapEditActivity screenCapEditActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class e implements View.OnClickListener {
                 return;
             }
         }
-        this.f23365a = screenCapEditActivity;
+        this.f23523a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,14 +38,14 @@ public final class e implements View.OnClickListener {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f23365a.I;
+            z = this.f23523a.I;
             if (z) {
-                z2 = this.f23365a.K;
+                z2 = this.f23523a.K;
                 if (z2) {
-                    this.f23365a.setResult(-77, new Intent());
+                    this.f23523a.setResult(-77, new Intent());
                 }
             }
-            this.f23365a.finish();
+            this.f23523a.finish();
         }
     }
 }

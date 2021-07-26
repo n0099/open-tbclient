@@ -16,16 +16,16 @@ public class d extends FileObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10378a;
+    public String f10404a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10379b;
+    public String f10405b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10380c;
+    public int f10406c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f10381d;
+    public Context f10407d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context, int i2, String str, String str2) {
@@ -47,10 +47,10 @@ public class d extends FileObserver {
             }
         }
         try {
-            this.f10378a = str;
-            this.f10379b = str2;
-            this.f10380c = i2;
-            this.f10381d = context;
+            this.f10404a = str;
+            this.f10405b = str2;
+            this.f10406c = i2;
+            this.f10407d = context;
         } catch (Throwable unused) {
             com.baidu.sofire.utility.c.a();
         }
@@ -62,12 +62,12 @@ public class d extends FileObserver {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
             if (i2 == 2 || i2 == 4 || i2 == 64 || i2 == 128 || i2 == 512 || i2 == 1024 || i2 == 2048) {
                 try {
-                    x.a(this.f10381d).a(new Runnable(this) { // from class: com.baidu.sofire.d.1
+                    x.a(this.f10407d).a(new Runnable(this) { // from class: com.baidu.sofire.d.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ d f10382a;
+                        public final /* synthetic */ d f10408a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -84,7 +84,7 @@ public class d extends FileObserver {
                                     return;
                                 }
                             }
-                            this.f10382a = this;
+                            this.f10408a = this;
                         }
 
                         @Override // java.lang.Runnable
@@ -93,12 +93,12 @@ public class d extends FileObserver {
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
                                     synchronized (d.class) {
-                                        if (!com.baidu.sofire.utility.c.c(this.f10382a.f10378a)) {
-                                            com.baidu.sofire.utility.c.a(this.f10382a.f10379b, this.f10382a.f10378a);
-                                            com.baidu.sofire.utility.c.a(this.f10382a.f10378a, true);
-                                            c.a(new File(this.f10382a.f10378a));
-                                            c.a(this.f10382a.f10381d, this.f10382a.f10380c, new File(this.f10382a.f10378a), new File(this.f10382a.f10379b));
-                                            com.baidu.sofire.a.a.a(this.f10382a.f10381d).b(this.f10382a.f10380c, -1);
+                                        if (!com.baidu.sofire.utility.c.c(this.f10408a.f10404a)) {
+                                            com.baidu.sofire.utility.c.a(this.f10408a.f10405b, this.f10408a.f10404a);
+                                            com.baidu.sofire.utility.c.a(this.f10408a.f10404a, true);
+                                            c.a(new File(this.f10408a.f10404a));
+                                            c.a(this.f10408a.f10407d, this.f10408a.f10406c, new File(this.f10408a.f10404a), new File(this.f10408a.f10405b));
+                                            com.baidu.sofire.a.a.a(this.f10408a.f10407d).b(this.f10408a.f10406c, -1);
                                         }
                                     }
                                 } catch (Throwable unused) {
@@ -119,7 +119,7 @@ public class d extends FileObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                File file = new File(this.f10379b);
+                File file = new File(this.f10405b);
                 if (file.exists()) {
                     return file.delete();
                 }

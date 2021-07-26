@@ -12,10 +12,10 @@ public class l extends j.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WebViewWindow f2042a;
+    public final /* synthetic */ WebViewWindow f2075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ j f2043b;
+    public final /* synthetic */ j f2076b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(j jVar, WebViewWindow webViewWindow) {
@@ -36,16 +36,16 @@ public class l extends j.a {
                 return;
             }
         }
-        this.f2043b = jVar;
-        this.f2042a = webViewWindow;
+        this.f2076b = jVar;
+        this.f2075a = webViewWindow;
     }
 
     @Override // com.alipay.sdk.widget.j.a, android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-            this.f2042a.a();
-            this.f2043b.v = false;
+            this.f2075a.a();
+            this.f2076b.v = false;
         }
     }
 }

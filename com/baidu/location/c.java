@@ -11,7 +11,7 @@ public class c extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocationClient f6688a;
+    public final /* synthetic */ LocationClient f6714a;
 
     public c(LocationClient locationClient) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class c extends Thread {
                 return;
             }
         }
-        this.f6688a = locationClient;
+        this.f6714a = locationClient;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -40,16 +40,16 @@ public class c extends Thread {
         LocationClientOption locationClientOption;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cVar = this.f6688a.C;
+            cVar = this.f6714a.C;
             if (cVar == null) {
-                LocationClient locationClient = this.f6688a;
-                context = this.f6688a.f6507f;
-                locationClientOption = this.f6688a.f6505d;
-                locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.f6688a);
+                LocationClient locationClient = this.f6714a;
+                context = this.f6714a.f6533f;
+                locationClientOption = this.f6714a.f6531d;
+                locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.f6714a);
             }
-            cVar2 = this.f6688a.C;
+            cVar2 = this.f6714a.C;
             if (cVar2 != null) {
-                cVar3 = this.f6688a.C;
+                cVar3 = this.f6714a.C;
                 cVar3.c();
             }
         }

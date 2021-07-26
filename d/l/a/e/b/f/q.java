@@ -1,10 +1,7 @@
 package d.l.a.e.b.f;
-
-import com.ss.android.socialbase.downloader.exception.BaseException;
-import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
 public interface q {
-    void a(DownloadInfo downloadInfo) throws BaseException;
+    void a();
 
-    boolean b(DownloadInfo downloadInfo);
+    void b();
 }

@@ -29,12 +29,12 @@ import java.util.Map;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleReportConfig;
 import tv.athena.revenue.api.MiddleRevenueConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements i.a.a.b.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, MiddleRevenueConfig> f72985a;
+    public static Map<String, MiddleRevenueConfig> f73439a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,7 +50,7 @@ public class b implements i.a.a.b.a {
                 return;
             }
         }
-        f72985a = new HashMap();
+        f73439a = new HashMap();
     }
 
     public b() {
@@ -98,12 +98,12 @@ public class b implements i.a.a.b.a {
                 }
                 RLog.info("RevenueService", "addRevenueConfig -> versionName:4.2.20-bdpay config:" + middleRevenueConfig.toString());
                 String a2 = a(middleRevenueConfig.getAppId(), middleRevenueConfig.getUseChannel());
-                if (f72985a.get(a2) != null) {
+                if (f73439a.get(a2) != null) {
                     RLog.error("RevenueService", "addRevenueConfig fail! duplicate init revenue  appId:" + middleRevenueConfig.getAppId() + " usechanel:" + middleRevenueConfig.getUseChannel(), new Object[0]);
                     return;
                 }
-                f72985a.put(a2, middleRevenueConfig);
-                RLog.info("RevenueService", "addRevenueConfig mapKey=" + a2 + " mapSize=" + f72985a.size());
+                f73439a.put(a2, middleRevenueConfig);
+                RLog.info("RevenueService", "addRevenueConfig mapKey=" + a2 + " mapSize=" + f73439a.size());
                 Env.instance().init(middleRevenueConfig.isTestEnv());
                 c(middleRevenueConfig.getAppId(), middleRevenueConfig.getAppContext(), middleRevenueConfig.getUid(), middleRevenueConfig.getUseChannel(), middleRevenueConfig.getCurrencyType(), middleRevenueConfig.getCountry(), middleRevenueConfig.getLanguage(), middleRevenueConfig.getPackageName(), middleRevenueConfig.getVersion(), middleRevenueConfig.isOpenRisk(), middleRevenueConfig.getAuthType(), middleRevenueConfig.getProtoType(), b(middleRevenueConfig), middleRevenueConfig.getReportConfig());
             }
@@ -139,7 +139,7 @@ public class b implements i.a.a.b.a {
             RLog.info("RevenueService", "initRevenue: appId = %d, uid = %d, usedChannel = %d, currencyType = %d, authType = %s", Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5));
             IRevenue addRevenueConfig = RevenueSdk.addRevenueConfig(i2, i3, RevenueConfig.RevenueConfigBuilder.aRevenueConfig().setUid(j).setAppId(i2).setUsedChannel(i3).setCurrencyType(i4).setCountryCode(str).setLanguage(str2).setDataSender(iRevenueDataSender).setContext(context).setIsOpenRisk(z).setProtoType(protocolType).setPakageName(str3).setClientVersion(str4).setReportConfig(middleReportConfig).setAuthType(i5).build());
             if (addRevenueConfig != null && (appPayService = addRevenueConfig.getAppPayService()) != null) {
-                appPayService.addPayListener(a.f72984a);
+                appPayService.addPayListener(a.f73438a);
             }
             return addRevenueConfig;
         }
@@ -159,7 +159,7 @@ public class b implements i.a.a.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
             synchronized (this) {
-                MiddleRevenueConfig middleRevenueConfig = f72985a.get(a(i2, i3));
+                MiddleRevenueConfig middleRevenueConfig = f73439a.get(a(i2, i3));
                 if (middleRevenueConfig == null) {
                     RLog.info("RevenueService", "getMiddleRevenue fail,not yet config appId:" + i2 + " usechanel:" + i3);
                     return null;
@@ -183,8 +183,8 @@ public class b implements i.a.a.b.a {
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
             synchronized (this) {
                 String a2 = a(i2, i3);
-                f72985a.remove(a2);
-                RLog.info("RevenueService", "removeRevenueConfig mapKey=" + a2 + " mapSize:" + f72985a.size());
+                f73439a.remove(a2);
+                RLog.info("RevenueService", "removeRevenueConfig mapKey=" + a2 + " mapSize:" + f73439a.size());
                 RevenueSdk.removeRevenueConfig(i2, i3);
             }
         }

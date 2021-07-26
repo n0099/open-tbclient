@@ -29,7 +29,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<a.c> f3163a;
+    public static final List<a.c> f3189a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public final class a {
                 return;
             }
         }
-        f3163a = new CopyOnWriteArrayList();
+        f3189a = new CopyOnWriteArrayList();
     }
 
     public a() {
@@ -65,37 +65,37 @@ public final class a {
     private a.c a(long j, long j2, String str, long j3, long j4, String str2, long j5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)})) == null) ? a.c.s().a(a.e.f3251d).a(a.j.q().a(j).b(j2).a(str).c(j3).d(j4).b(str2).e(j5).build()).build() : (a.c) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)})) == null) ? a.c.s().a(a.e.f3277d).a(a.j.q().a(j).b(j2).a(str).c(j3).d(j4).b(str2).e(j5).build()).build() : (a.c) invokeCommon.objValue;
     }
 
     private a.c a(long j, String str, String str2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2)})) == null) ? a.c.s().a(a.e.f3249b).a(a.l.k().a(j).a(str).b(str2).b(j2).build()).build() : (a.c) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2)})) == null) ? a.c.s().a(a.e.f3275b).a(a.l.k().a(j).a(str).b(str2).b(j2).build()).build() : (a.c) invokeCommon.objValue;
     }
 
     private a.c a(String str, String str2, long j, long j2, long j3, String str3, long j4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) ? a.c.s().a(a.e.f3252e).a(a.aa.q().a(str).b(str2).a(j).b(j2).c(j3).c(str3).d(j4).build()).build() : (a.c) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) ? a.c.s().a(a.e.f3278e).a(a.aa.q().a(str).b(str2).a(j).b(j2).c(j3).c(str3).d(j4).build()).build() : (a.c) invokeCommon.objValue;
     }
 
     private a.c a(String str, String str2, long j, String str3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{str, str2, Long.valueOf(j), str3, Long.valueOf(j2)})) == null) ? a.c.s().a(a.e.f3253f).a(a.C0037a.m().a(str).b(str2).a(j).c(str3).b(j2).build()).build() : (a.c) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{str, str2, Long.valueOf(j), str3, Long.valueOf(j2)})) == null) ? a.c.s().a(a.e.f3279f).a(a.C0037a.m().a(str).b(str2).a(j).c(str3).b(j2).build()).build() : (a.c) invokeCommon.objValue;
     }
 
     private a.c a(String str, String str2, String str3, String str4, long j, long j2, long j3, String str5, long j4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, str2, str3, str4, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str5, Long.valueOf(j4)})) == null) ? a.c.s().a(a.e.f3250c).a(a.n.u().a(str).b(str2).c(str3).d(str4).a(j).b(j2).c(j3).e(str5).d(j4).build()).build() : (a.c) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, str2, str3, str4, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str5, Long.valueOf(j4)})) == null) ? a.c.s().a(a.e.f3276c).a(a.n.u().a(str).b(str2).c(str3).d(str4).a(j).b(j2).c(j3).e(str5).d(j4).build()).build() : (a.c) invokeCommon.objValue;
     }
 
     private void a(a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, cVar) == null) {
-            f3163a.add(cVar);
+            f3189a.add(cVar);
         }
     }
 
@@ -132,7 +132,7 @@ public final class a {
                 i2 = 0;
                 i3 = 0;
             }
-            return a.ac.q().a(a.x.f3385c).a(Build.VERSION.RELEASE).b(Build.MANUFACTURER.toUpperCase()).c(Build.MODEL).a(i4).b(i2).c(i3).build();
+            return a.ac.q().a(a.x.f3411c).a(Build.VERSION.RELEASE).b(Build.MANUFACTURER.toUpperCase()).c(Build.MODEL).a(i4).b(i2).c(i3).build();
         }
         return (a.ac) invokeL.objValue;
     }
@@ -161,7 +161,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, context) == null) {
             for (com.baidu.android.pushservice.c.a.c cVar : e.a(context).a()) {
-                a(a(cVar.f2831b, cVar.f2830a, cVar.f2832c, cVar.f2833d));
+                a(a(cVar.f2857b, cVar.f2856a, cVar.f2858c, cVar.f2859d));
             }
         }
     }
@@ -170,7 +170,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, context) == null) {
             for (d dVar : e.a(context).b()) {
-                a(a(dVar.f2843a, dVar.f2844b, dVar.f2845c, dVar.f2846d, dVar.f2847e, dVar.f2848f, dVar.f2849g, dVar.f2850h, dVar.f2851i));
+                a(a(dVar.f2869a, dVar.f2870b, dVar.f2871c, dVar.f2872d, dVar.f2873e, dVar.f2874f, dVar.f2875g, dVar.f2876h, dVar.f2877i));
             }
         }
     }
@@ -179,7 +179,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, context) == null) {
             for (com.baidu.android.pushservice.c.a.b bVar : e.a(context).c()) {
-                a(a(bVar.f2814a, bVar.f2815b, bVar.f2816c, bVar.f2817d, bVar.f2818e, bVar.f2819f, bVar.f2820g));
+                a(a(bVar.f2840a, bVar.f2841b, bVar.f2842c, bVar.f2843d, bVar.f2844e, bVar.f2845f, bVar.f2846g));
             }
         }
     }
@@ -188,7 +188,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, context) == null) {
             for (com.baidu.android.pushservice.c.a.e eVar : e.a(context).d()) {
-                a(a(eVar.f2852a, eVar.f2853b, eVar.f2854c, eVar.f2855d, eVar.f2856e, eVar.f2857f, eVar.f2858g));
+                a(a(eVar.f2878a, eVar.f2879b, eVar.f2880c, eVar.f2881d, eVar.f2882e, eVar.f2883f, eVar.f2884g));
             }
         }
     }
@@ -197,7 +197,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, context) == null) {
             for (com.baidu.android.pushservice.c.a.a aVar : e.a(context).e()) {
-                a(a(aVar.f2801a, aVar.f2802b, aVar.f2803c, aVar.f2804d, aVar.f2805e));
+                a(a(aVar.f2827a, aVar.f2828b, aVar.f2829c, aVar.f2830d, aVar.f2831e));
             }
         }
     }
@@ -205,7 +205,7 @@ public final class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f3163a.clear();
+            f3189a.clear();
         }
     }
 
@@ -220,10 +220,10 @@ public final class a {
                 h(context);
                 i(context);
                 j(context);
-                if (f3163a.size() <= 0) {
+                if (f3189a.size() <= 0) {
                     return null;
                 }
-                return a.y.k().a(c(context)).a("push").a(com.baidu.android.pushservice.a.a()).a(f3163a).build().toByteArray();
+                return a.y.k().a(c(context)).a("push").a(com.baidu.android.pushservice.a.a()).a(f3189a).build().toByteArray();
             } catch (Exception unused) {
                 return null;
             }

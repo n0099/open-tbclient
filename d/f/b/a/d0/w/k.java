@@ -14,10 +14,10 @@ public final class k implements o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f70032e;
+    public final int f70486e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final l f70033f;
+    public final l f70487f;
 
     public k(l lVar, int i2) {
         Interceptable interceptable = $ic;
@@ -34,15 +34,15 @@ public final class k implements o {
                 return;
             }
         }
-        this.f70033f = lVar;
-        this.f70032e = i2;
+        this.f70487f = lVar;
+        this.f70486e = i2;
     }
 
     @Override // d.f.b.a.d0.o
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f70033f.G();
+            this.f70487f.G();
         }
     }
 
@@ -50,20 +50,20 @@ public final class k implements o {
     public int f(d.f.b.a.l lVar, d.f.b.a.y.e eVar, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, eVar, z)) == null) ? this.f70033f.M(this.f70032e, lVar, eVar, z) : invokeLLZ.intValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, eVar, z)) == null) ? this.f70487f.M(this.f70486e, lVar, eVar, z) : invokeLLZ.intValue;
     }
 
     @Override // d.f.b.a.d0.o
     public boolean isReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70033f.E(this.f70032e) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70487f.E(this.f70486e) : invokeV.booleanValue;
     }
 
     @Override // d.f.b.a.d0.o
     public int j(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.f70033f.V(this.f70032e, j) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.f70487f.V(this.f70486e, j) : invokeJ.intValue;
     }
 }

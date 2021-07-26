@@ -34,7 +34,7 @@ public class l implements f {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             p.a(context).getClass();
             String str = null;
-            if (!p.f32785b) {
+            if (!p.f32974b) {
                 if (FunOpenIDSdk.isLogEnabled()) {
                     Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
                 }
@@ -43,18 +43,18 @@ public class l implements f {
             }
             p a2 = p.a(context);
             a2.getClass();
-            if (p.f32785b) {
-                String str2 = p.f32791h;
+            if (p.f32974b) {
+                String str2 = p.f32980h;
                 if (str2 != null) {
                     str = str2;
                 } else {
                     a2.a(0, null);
-                    if (p.f32786c == null) {
-                        Context context2 = p.f32784a;
-                        p.f32786c = new q(p.f32792i, 0, null);
-                        context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, p.f32786c);
+                    if (p.f32975c == null) {
+                        Context context2 = p.f32973a;
+                        p.f32975c = new q(p.f32981i, 0, null);
+                        context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, p.f32975c);
                     }
-                    str = p.f32791h;
+                    str = p.f32980h;
                 }
             }
             ((e.a) aVar).a(true, str);

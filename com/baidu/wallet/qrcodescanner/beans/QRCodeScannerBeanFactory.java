@@ -19,7 +19,7 @@ public final class QRCodeScannerBeanFactory implements IBeanFactory {
     public static final int QRCODE_WHITE_LIST = 2560;
 
     /* renamed from: a  reason: collision with root package name */
-    public static QRCodeScannerBeanFactory f27269a;
+    public static QRCodeScannerBeanFactory f27427a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.beans.QRCodeScannerBeanFactory$1  reason: invalid class name */
@@ -34,7 +34,7 @@ public final class QRCodeScannerBeanFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static QRCodeScannerBeanFactory f27270a;
+        public static QRCodeScannerBeanFactory f27428a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public final class QRCodeScannerBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f27270a = new QRCodeScannerBeanFactory(null);
+            f27428a = new QRCodeScannerBeanFactory(null);
         }
     }
 
@@ -76,7 +76,7 @@ public final class QRCodeScannerBeanFactory implements IBeanFactory {
     public static QRCodeScannerBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f27270a : (QRCodeScannerBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f27428a : (QRCodeScannerBeanFactory) invokeV.objValue;
     }
 
     public QRCodeScannerBeanFactory() {

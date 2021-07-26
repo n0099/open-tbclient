@@ -36,7 +36,7 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public k(j jVar, Looper looper) {
-        this(jVar, looper, g.f70138a);
+        this(jVar, looper, g.f70592a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,7 +222,7 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
                         this.r = true;
                     }
                 }
-            } else if (this.x.f70758f <= j) {
+            } else if (this.x.f71212f <= j) {
                 i iVar2 = this.w;
                 if (iVar2 != null) {
                     iVar2.m();
@@ -261,7 +261,7 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
                     if (this.v.j()) {
                         this.q = true;
                     } else {
-                        this.v.j = this.p.f70595a.subsampleOffsetUs;
+                        this.v.j = this.p.f71049a.subsampleOffsetUs;
                         this.v.o();
                     }
                     this.u.d(this.v);

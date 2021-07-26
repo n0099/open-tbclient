@@ -18,7 +18,7 @@ public class FTOSPushHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f39751a;
+    public static long f40023a;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile boolean f45a;
@@ -56,7 +56,7 @@ public class FTOSPushHelper {
     public static void a(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f39804d)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f40076d)) == null) {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH :  register fun touch os when network change!");
@@ -68,9 +68,9 @@ public class FTOSPushHelper {
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (getNeedRegister()) {
-                long j = f39751a;
+                long j = f40023a;
                 if (j <= 0 || j + 300000 <= elapsedRealtime) {
-                    f39751a = elapsedRealtime;
+                    f40023a = elapsedRealtime;
                     a(context);
                 }
             }
@@ -115,7 +115,7 @@ public class FTOSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
-            i.a(context, e.f39804d, str);
+            i.a(context, e.f40076d, str);
         }
     }
 }

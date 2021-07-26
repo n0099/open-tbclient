@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.j.a f72156a;
+    public com.yxcorp.kuaishou.addfp.a.b.j.a f72610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f72157b;
+    public com.yxcorp.kuaishou.addfp.a.b.b f72611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f72158c;
+    public Context f72612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f72159d;
+    public CountDownLatch f72613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f72160e;
+    public ServiceConnection f72614e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public final class a {
                 return;
             }
         }
-        this.f72156a = null;
-        this.f72159d = new CountDownLatch(1);
-        this.f72160e = new b(this);
+        this.f72610a = null;
+        this.f72613d = new CountDownLatch(1);
+        this.f72614e = new b(this);
     }
 
     public static boolean f(Context context) {
@@ -69,10 +69,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             try {
-                if (this.f72160e == null || context == null) {
+                if (this.f72614e == null || context == null) {
                     return;
                 }
-                context.unbindService(this.f72160e);
+                context.unbindService(this.f72614e);
             } catch (Throwable th) {
                 d.n.a.a.c.b.c.c(th);
             }
@@ -83,8 +83,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f72157b = bVar;
-                this.f72158c = context;
+                this.f72611b = bVar;
+                this.f72612c = context;
                 if (f(context)) {
                     String packageName = context.getPackageName();
                     Intent intent = new Intent();
@@ -98,12 +98,12 @@ public final class a {
                 intent2.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
                 intent2.setAction("com.bun.msa.action.bindto.service");
                 intent2.putExtra("com.bun.msa.param.pkgname", context.getPackageName());
-                if (!context.bindService(intent2, this.f72160e, 1)) {
+                if (!context.bindService(intent2, this.f72614e, 1)) {
                     d(false);
                     return;
                 }
-                this.f72159d.await(10L, TimeUnit.SECONDS);
-                if (this.f72156a != null) {
+                this.f72613d.await(10L, TimeUnit.SECONDS);
+                if (this.f72610a != null) {
                     d(true);
                 } else {
                     d(false);
@@ -120,9 +120,9 @@ public final class a {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
                 try {
-                    String a2 = this.f72156a.a();
+                    String a2 = this.f72610a.a();
                     if (!TextUtils.isEmpty(a2)) {
-                        this.f72157b.a(a2);
+                        this.f72611b.a(a2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -130,7 +130,7 @@ public final class a {
                     return;
                 }
             }
-            this.f72157b.e();
+            this.f72611b.e();
         }
     }
 
@@ -139,7 +139,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return this.f72158c.getPackageManager().getPackageInfo("com.mdid.msa", 0) != null;
+                return this.f72612c.getPackageManager().getPackageInfo("com.mdid.msa", 0) != null;
             } catch (Throwable unused) {
                 return false;
             }

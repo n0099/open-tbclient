@@ -15,22 +15,22 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList f23427a;
+    public ArrayList f23585a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList f23428b;
+    public ArrayList f23586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f23429c;
+    public Context f23587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList f23430d;
+    public ArrayList f23588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f23431e;
+    public d f23589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23432f;
+    public int f23590f;
 
     public a(ArrayList arrayList, Context context, d dVar) {
         Interceptable interceptable = $ic;
@@ -47,12 +47,12 @@ public final class a {
                 return;
             }
         }
-        this.f23432f = 0;
-        this.f23429c = context;
-        this.f23431e = dVar;
-        this.f23427a = new ArrayList();
-        this.f23428b = new ArrayList();
-        this.f23430d = new ArrayList();
+        this.f23590f = 0;
+        this.f23587c = context;
+        this.f23589e = dVar;
+        this.f23585a = new ArrayList();
+        this.f23586b = new ArrayList();
+        this.f23588d = new ArrayList();
         a(arrayList);
     }
 
@@ -62,7 +62,7 @@ public final class a {
             int i2 = 0;
             while (i2 < arrayList.size()) {
                 int i3 = i2 + 1;
-                (i3 % 2 == 1 ? this.f23427a : this.f23428b).add(arrayList.get(i2));
+                (i3 % 2 == 1 ? this.f23585a : this.f23586b).add(arrayList.get(i2));
                 i2 = i3;
             }
         }
@@ -72,15 +72,15 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f23429c);
+            LinearLayout linearLayout = new LinearLayout(this.f23587c);
             linearLayout.setOrientation(1);
             linearLayout.setBackgroundColor(-1);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23429c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23429c, 2.0f), com.baidu.ufosdk.f.i.a(this.f23429c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23429c, 14.0f));
-            for (int i2 = 0; i2 < this.f23427a.size(); i2++) {
-                e eVar = new e(this.f23429c);
+            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23587c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23587c, 2.0f), com.baidu.ufosdk.f.i.a(this.f23587c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23587c, 14.0f));
+            for (int i2 = 0; i2 < this.f23585a.size(); i2++) {
+                e eVar = new e(this.f23587c);
                 eVar.a();
-                eVar.a((String) this.f23427a.get(i2));
+                eVar.a((String) this.f23585a.get(i2));
                 eVar.a(com.baidu.ufosdk.b.U);
                 linearLayout.addView(eVar, layoutParams);
                 eVar.setOnClickListener(new b(this, eVar));
@@ -94,15 +94,15 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f23429c);
+            LinearLayout linearLayout = new LinearLayout(this.f23587c);
             linearLayout.setOrientation(1);
             linearLayout.setBackgroundColor(-1);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23429c, 5.0f), com.baidu.ufosdk.f.i.a(this.f23429c, 2.0f), com.baidu.ufosdk.f.i.a(this.f23429c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23429c, 14.0f));
-            for (int i2 = 0; i2 < this.f23428b.size(); i2++) {
-                e eVar = new e(this.f23429c);
+            layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23587c, 5.0f), com.baidu.ufosdk.f.i.a(this.f23587c, 2.0f), com.baidu.ufosdk.f.i.a(this.f23587c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23587c, 14.0f));
+            for (int i2 = 0; i2 < this.f23586b.size(); i2++) {
+                e eVar = new e(this.f23587c);
                 eVar.a();
-                eVar.a((String) this.f23428b.get(i2));
+                eVar.a((String) this.f23586b.get(i2));
                 eVar.a(com.baidu.ufosdk.b.U);
                 linearLayout.addView(eVar, layoutParams);
                 eVar.setOnClickListener(new c(this, eVar));
@@ -115,6 +115,6 @@ public final class a {
     public final ArrayList c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23430d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23588d : (ArrayList) invokeV.objValue;
     }
 }

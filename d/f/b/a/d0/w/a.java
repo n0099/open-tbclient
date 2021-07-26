@@ -22,16 +22,16 @@ public final class a implements d.f.b.a.h0.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.f.b.a.h0.e f70003a;
+    public final d.f.b.a.h0.e f70457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f70004b;
+    public final byte[] f70458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f70005c;
+    public final byte[] f70459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CipherInputStream f70006d;
+    public CipherInputStream f70460d;
 
     public a(d.f.b.a.h0.e eVar, byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public final class a implements d.f.b.a.h0.e {
                 return;
             }
         }
-        this.f70003a = eVar;
-        this.f70004b = bArr;
-        this.f70005c = bArr2;
+        this.f70457a = eVar;
+        this.f70458b = bArr;
+        this.f70459c = bArr2;
     }
 
     @Override // d.f.b.a.h0.e
@@ -61,8 +61,8 @@ public final class a implements d.f.b.a.h0.e {
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
                 try {
-                    cipher.init(2, new SecretKeySpec(this.f70004b, "AES"), new IvParameterSpec(this.f70005c));
-                    this.f70006d = new CipherInputStream(new d.f.b.a.h0.f(this.f70003a, gVar), cipher);
+                    cipher.init(2, new SecretKeySpec(this.f70458b, "AES"), new IvParameterSpec(this.f70459c));
+                    this.f70460d = new CipherInputStream(new d.f.b.a.h0.f(this.f70457a, gVar), cipher);
                     return -1L;
                 } catch (InvalidAlgorithmParameterException | InvalidKeyException e2) {
                     throw new RuntimeException(e2);
@@ -78,8 +78,8 @@ public final class a implements d.f.b.a.h0.e {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f70006d = null;
-            this.f70003a.close();
+            this.f70460d = null;
+            this.f70457a.close();
         }
     }
 
@@ -87,7 +87,7 @@ public final class a implements d.f.b.a.h0.e {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70003a.getUri() : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70457a.getUri() : (Uri) invokeV.objValue;
     }
 
     @Override // d.f.b.a.h0.e
@@ -95,8 +95,8 @@ public final class a implements d.f.b.a.h0.e {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-            d.f.b.a.i0.a.f(this.f70006d != null);
-            int read = this.f70006d.read(bArr, i2, i3);
+            d.f.b.a.i0.a.f(this.f70460d != null);
+            int read = this.f70460d.read(bArr, i2, i3);
             if (read < 0) {
                 return -1;
             }

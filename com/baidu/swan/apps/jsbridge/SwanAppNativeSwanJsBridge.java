@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.d1.b.b;
-import d.a.n0.a.h0.f.a;
-import d.a.n0.a.k;
-import d.a.n0.a.l0.d;
-import d.a.n0.a.v2.j;
+import d.a.o0.a.d1.b.b;
+import d.a.o0.a.h0.f.a;
+import d.a.o0.a.k;
+import d.a.o0.a.l0.d;
+import d.a.o0.a.v2.j;
 import org.json.JSONObject;
 @Keep
 /* loaded from: classes3.dex */
@@ -40,7 +40,7 @@ public class SwanAppNativeSwanJsBridge {
                 return;
             }
         }
-        DEBUG = k.f45831a;
+        DEBUG = k.f46335a;
     }
 
     public SwanAppNativeSwanJsBridge(a aVar) {
@@ -67,18 +67,18 @@ public class SwanAppNativeSwanJsBridge {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (DEBUG) {
-                return d.a.n0.a.u1.a.a.p() ? j.d(i2, false) : "";
+                return d.a.o0.a.u1.a.a.p() ? j.d(i2, false) : "";
             }
             String d2 = j.d(i2, false);
             if (TextUtils.isEmpty(d2)) {
                 if (!DEBUG) {
-                    d.a.n0.a.v2.a.c(j.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i2), d2, Boolean.TRUE)));
+                    d.a.o0.a.v2.a.c(j.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i2), d2, Boolean.TRUE)));
                 } else {
                     j.g();
                     throw new RuntimeException(String.format("getAPIs cannot find index: %d, desc: %s", Integer.valueOf(i2), d2));
                 }
             } else {
-                d.a.n0.a.v2.a.d();
+                d.a.o0.a.v2.a.d();
             }
             return d2;
         }
@@ -99,7 +99,7 @@ public class SwanAppNativeSwanJsBridge {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             d.K0(jSONObject);
-            d.a.n0.a.e0.d.h(TAG, "getNACanIUseMap - " + jSONObject.toString());
+            d.a.o0.a.e0.d.h(TAG, "getNACanIUseMap - " + jSONObject.toString());
             return jSONObject.toString();
         }
         return (String) invokeV.objValue;

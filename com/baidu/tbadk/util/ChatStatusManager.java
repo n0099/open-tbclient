@@ -27,10 +27,10 @@ public class ChatStatusManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13198a;
+        public boolean f13247a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13199b;
+        public String f13248b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class ChatStatusManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             a aVar = this.mStatus.get(i2);
-            return aVar != null ? aVar.f13199b : "";
+            return aVar != null ? aVar.f13248b : "";
         }
         return (String) invokeI.objValue;
     }
@@ -95,7 +95,7 @@ public class ChatStatusManager {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             a aVar = this.mStatus.get(i2);
             if (aVar != null) {
-                return aVar.f13198a;
+                return aVar.f13247a;
             }
             return false;
         }
@@ -114,11 +114,11 @@ public class ChatStatusManager {
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
             a aVar = this.mStatus.get(i2);
             if (aVar != null) {
-                aVar.f13199b = str;
+                aVar.f13248b = str;
                 return;
             }
             a aVar2 = new a();
-            aVar2.f13199b = str;
+            aVar2.f13248b = str;
             this.mStatus.put(i2, aVar2);
         }
     }
@@ -128,11 +128,11 @@ public class ChatStatusManager {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             a aVar = this.mStatus.get(i2);
             if (aVar != null) {
-                aVar.f13198a = z;
+                aVar.f13247a = z;
                 return;
             }
             a aVar2 = new a();
-            aVar2.f13198a = z;
+            aVar2.f13247a = z;
             this.mStatus.put(i2, aVar2);
         }
     }

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.h;
+import d.a.d.e.p.h;
 /* loaded from: classes3.dex */
 public class StringU {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13671a;
+    public static boolean f13719a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class StringU {
         }
         try {
             boolean j = h.f().j("stringu", 2);
-            f13671a = j;
+            f13719a = j;
             if (j) {
                 a("stringu_so_load_success", null);
             } else {
@@ -80,7 +80,7 @@ public class StringU {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!f13671a || TextUtils.isEmpty(str)) {
+            if (!f13719a || TextUtils.isEmpty(str)) {
                 str2 = "";
             } else {
                 try {

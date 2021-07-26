@@ -18,7 +18,7 @@ public class BinderHolder implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f10461a;
+    public IBinder f10487a;
 
     static {
         InterceptResult invokeClinit;
@@ -80,7 +80,7 @@ public class BinderHolder implements Parcelable {
                 return;
             }
         }
-        this.f10461a = iBinder;
+        this.f10487a = iBinder;
     }
 
     @Override // android.os.Parcelable
@@ -97,7 +97,7 @@ public class BinderHolder implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-            parcel.writeStrongBinder(this.f10461a);
+            parcel.writeStrongBinder(this.f10487a);
         }
     }
 
@@ -116,6 +116,6 @@ public class BinderHolder implements Parcelable {
                 return;
             }
         }
-        this.f10461a = parcel.readStrongBinder();
+        this.f10487a = parcel.readStrongBinder();
     }
 }

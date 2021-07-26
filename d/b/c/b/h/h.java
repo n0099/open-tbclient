@@ -11,7 +11,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<Long> f69002a;
+    public static final AtomicReference<Long> f69456a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class h {
                 return;
             }
         }
-        f69002a = new AtomicReference<>(0L);
+        f69456a = new AtomicReference<>(0L);
     }
 
     public static void a(long j) {
@@ -41,8 +41,8 @@ public class h {
             if (i2 >= 5) {
                 return;
             }
-            long longValue = f69002a.get().longValue();
-            if (f69002a.compareAndSet(Long.valueOf(longValue), Long.valueOf(longValue | j))) {
+            long longValue = f69456a.get().longValue();
+            if (f69456a.compareAndSet(Long.valueOf(longValue), Long.valueOf(longValue | j))) {
                 return;
             }
             i2 = i3;

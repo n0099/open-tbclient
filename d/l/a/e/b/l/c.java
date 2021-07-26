@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.l.a.e.b.f.u;
+import d.l.a.e.b.f.v;
 /* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i2, SparseArray<d.l.a.e.b.f.b> sparseArray, boolean z, DownloadInfo downloadInfo, BaseException baseException) {
-        SparseArray<d.l.a.e.b.f.b> clone;
+    public static void a(int i2, SparseArray<d.l.a.e.b.f.c> sparseArray, boolean z, DownloadInfo downloadInfo, BaseException baseException) {
+        SparseArray<d.l.a.e.b.f.c> clone;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), sparseArray, Boolean.valueOf(z), downloadInfo, baseException}) == null) && z && sparseArray != null) {
             try {
@@ -23,50 +23,50 @@ public class c {
                     clone = sparseArray.clone();
                 }
                 for (int i3 = 0; i3 < clone.size(); i3++) {
-                    d.l.a.e.b.f.b bVar = clone.get(clone.keyAt(i3));
-                    if (bVar != null) {
+                    d.l.a.e.b.f.c cVar = clone.get(clone.keyAt(i3));
+                    if (cVar != null) {
                         if (i2 == 1) {
-                            bVar.l(downloadInfo);
+                            cVar.l(downloadInfo);
                         } else if (i2 == 2) {
-                            bVar.c(downloadInfo);
+                            cVar.c(downloadInfo);
                         } else if (i2 == 4) {
-                            bVar.g(downloadInfo);
+                            cVar.g(downloadInfo);
                         } else if (i2 == 5) {
-                            bVar.i(downloadInfo, baseException);
+                            cVar.i(downloadInfo, baseException);
                         } else if (i2 == 6) {
-                            bVar.d(downloadInfo);
+                            cVar.d(downloadInfo);
                         } else if (i2 == 7) {
-                            bVar.j(downloadInfo, baseException);
+                            cVar.j(downloadInfo, baseException);
                         } else if (i2 != 11) {
                             switch (i2) {
                                 case -7:
-                                    if (bVar instanceof d.l.a.e.b.f.a) {
-                                        ((d.l.a.e.b.f.a) bVar).m(downloadInfo);
+                                    if (cVar instanceof d.l.a.e.b.f.a) {
+                                        ((d.l.a.e.b.f.a) cVar).m(downloadInfo);
                                         break;
                                     } else {
                                         continue;
                                     }
                                 case -6:
-                                    bVar.k(downloadInfo);
+                                    cVar.k(downloadInfo);
                                     continue;
                                 case -5:
                                 case -2:
-                                    bVar.b(downloadInfo);
+                                    cVar.b(downloadInfo);
                                     continue;
                                 case -4:
-                                    bVar.e(downloadInfo);
+                                    cVar.e(downloadInfo);
                                     continue;
                                 case -3:
-                                    bVar.f(downloadInfo);
+                                    cVar.f(downloadInfo);
                                     continue;
                                 case -1:
-                                    bVar.h(downloadInfo, baseException);
+                                    cVar.h(downloadInfo, baseException);
                                     continue;
                                 default:
                                     continue;
                             }
-                        } else if (bVar instanceof u) {
-                            ((u) bVar).a(downloadInfo);
+                        } else if (cVar instanceof v) {
+                            ((v) cVar).a(downloadInfo);
                         }
                     }
                 }

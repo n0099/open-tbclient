@@ -14,19 +14,19 @@ public class RequestBodyOutputStream extends OutputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final PipedOutputStreamAndroid25 f23194e;
+    public final PipedOutputStreamAndroid25 f23352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PipedInputStreamAndroid25 f23195f;
+    public final PipedInputStreamAndroid25 f23353f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f23196g;
+    public String f23354g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23197h;
+    public int f23355h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f23198i;
+    public int f23356i;
     public byte[] j;
 
     public int b(ByteBuffer byteBuffer) throws IOException {
@@ -34,14 +34,14 @@ public class RequestBodyOutputStream extends OutputStream {
         int read;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) {
-            int min = Math.min(byteBuffer.remaining(), this.f23197h);
+            int min = Math.min(byteBuffer.remaining(), this.f23355h);
             int i2 = 0;
             do {
-                read = this.f23195f.read(this.j, i2, min - i2);
+                read = this.f23353f.read(this.j, i2, min - i2);
                 if (read > 0) {
                     i2 += read;
                 }
-                if (i2 >= this.f23198i) {
+                if (i2 >= this.f23356i) {
                     break;
                 }
             } while (read >= 0);
@@ -57,25 +57,25 @@ public class RequestBodyOutputStream extends OutputStream {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!"".equals(this.f23196g)) {
-                String str = "\r\n--" + this.f23196g + "--" + Part.CRLF;
+            if (!"".equals(this.f23354g)) {
+                String str = "\r\n--" + this.f23354g + "--" + Part.CRLF;
                 write(str.getBytes(), 0, str.getBytes().length);
             }
-            this.f23194e.close();
+            this.f23352e.close();
         }
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23197h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23355h : invokeV.intValue;
     }
 
     public void n() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f23195f.close();
-            this.f23194e.close();
+            this.f23353f.close();
+            this.f23352e.close();
         }
     }
 
@@ -83,8 +83,8 @@ public class RequestBodyOutputStream extends OutputStream {
     public void write(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f23194e.write(i2);
-            this.f23194e.flush();
+            this.f23352e.write(i2);
+            this.f23352e.flush();
         }
     }
 
@@ -92,8 +92,8 @@ public class RequestBodyOutputStream extends OutputStream {
     public void write(byte[] bArr, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i2, i3) == null) {
-            this.f23194e.write(bArr, i2, i3);
-            this.f23194e.flush();
+            this.f23352e.write(bArr, i2, i3);
+            this.f23352e.flush();
         }
     }
 }

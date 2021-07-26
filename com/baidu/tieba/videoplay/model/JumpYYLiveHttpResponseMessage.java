@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
+import d.a.d.e.p.k;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {

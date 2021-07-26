@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.Q1;
-import com.win.opensdk.R1;
-import com.win.opensdk.S1;
-import com.win.opensdk.T1;
+import com.win.opensdk.s2;
+import com.win.opensdk.t2;
+import com.win.opensdk.u2;
+import com.win.opensdk.v2;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -43,31 +43,31 @@ public class AdvancedWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference f39700a;
+    public WeakReference f39977a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference f39701b;
+    public WeakReference f39978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T1 f39702c;
+    public v2 f39979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List f39703d;
+    public final List f39980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ValueCallback f39704e;
+    public ValueCallback f39981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ValueCallback f39705f;
+    public ValueCallback f39982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f39706g;
+    public long f39983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f39707h;
+    public String f39984h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39708i;
+    public int f39985i;
     public WebViewClient j;
     public WebChromeClient k;
     public boolean l;
@@ -107,8 +107,8 @@ public class AdvancedWebView extends WebView {
                 return;
             }
         }
-        this.f39703d = new LinkedList();
-        this.f39708i = 51426;
+        this.f39980d = new LinkedList();
+        this.f39985i = 51426;
         this.m = "*/*";
         this.n = new HashMap();
         a(context);
@@ -133,8 +133,8 @@ public class AdvancedWebView extends WebView {
                 return;
             }
         }
-        this.f39703d = new LinkedList();
-        this.f39708i = 51426;
+        this.f39980d = new LinkedList();
+        this.f39985i = 51426;
         this.m = "*/*";
         this.n = new HashMap();
         a(context);
@@ -159,8 +159,8 @@ public class AdvancedWebView extends WebView {
                 return;
             }
         }
-        this.f39703d = new LinkedList();
-        this.f39708i = 51426;
+        this.f39980d = new LinkedList();
+        this.f39985i = 51426;
         this.m = "*/*";
         this.n = new HashMap();
         a(context);
@@ -190,24 +190,24 @@ public class AdvancedWebView extends WebView {
         Uri[] uriArr;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) && i2 == this.f39708i) {
+        if ((interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) && i2 == this.f39985i) {
             if (i3 != -1) {
-                ValueCallback valueCallback = this.f39704e;
+                ValueCallback valueCallback = this.f39981e;
                 if (valueCallback != null) {
                     valueCallback.onReceiveValue(null);
-                    this.f39704e = null;
+                    this.f39981e = null;
                 }
-                ValueCallback valueCallback2 = this.f39705f;
+                ValueCallback valueCallback2 = this.f39982f;
                 if (valueCallback2 != null) {
                     valueCallback2.onReceiveValue(null);
-                    this.f39705f = null;
+                    this.f39982f = null;
                 }
             } else if (intent != null) {
-                ValueCallback valueCallback3 = this.f39704e;
+                ValueCallback valueCallback3 = this.f39981e;
                 if (valueCallback3 != null) {
                     valueCallback3.onReceiveValue(intent.getData());
-                    this.f39704e = null;
-                } else if (this.f39705f != null) {
+                    this.f39981e = null;
+                } else if (this.f39982f != null) {
                     try {
                     } catch (Exception unused) {
                     }
@@ -227,29 +227,29 @@ public class AdvancedWebView extends WebView {
                         }
                         uriArr = null;
                     }
-                    this.f39705f.onReceiveValue(uriArr);
-                    this.f39705f = null;
+                    this.f39982f.onReceiveValue(uriArr);
+                    this.f39982f = null;
                 }
             }
         }
     }
 
-    public void a(Activity activity, T1 t1) {
+    public void a(Activity activity, v2 v2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, t1) == null) {
-            a(activity, t1, 51426);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, v2Var) == null) {
+            a(activity, v2Var, 51426);
         }
     }
 
-    public void a(Activity activity, T1 t1, int i2) {
+    public void a(Activity activity, v2 v2Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, activity, t1, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, activity, v2Var, i2) == null) {
             if (activity != null) {
-                this.f39700a = new WeakReference(activity);
+                this.f39977a = new WeakReference(activity);
             } else {
-                this.f39700a = null;
+                this.f39977a = null;
             }
-            a(t1, i2);
+            a(v2Var, i2);
         }
     }
 
@@ -259,9 +259,9 @@ public class AdvancedWebView extends WebView {
             return;
         }
         if (context instanceof Activity) {
-            this.f39700a = new WeakReference((Activity) context);
+            this.f39977a = new WeakReference((Activity) context);
         }
-        this.f39707h = getLanguageIso3();
+        this.f39984h = getLanguageIso3();
         setFocusable(true);
         setFocusableInTouchMode(true);
         setSaveEnabled(true);
@@ -287,40 +287,40 @@ public class AdvancedWebView extends WebView {
             settings.setMixedContentMode(2);
         }
         setThirdPartyCookiesEnabled(true);
-        super.setWebViewClient(new Q1(this, context));
-        super.setWebChromeClient(new R1(this));
-        setDownloadListener(new S1(this));
+        super.setWebViewClient(new s2(this, context));
+        super.setWebChromeClient(new t2(this));
+        setDownloadListener(new u2(this));
     }
 
     public void a(ValueCallback valueCallback, ValueCallback valueCallback2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048580, this, valueCallback, valueCallback2, z) == null) {
-            ValueCallback valueCallback3 = this.f39704e;
+            ValueCallback valueCallback3 = this.f39981e;
             if (valueCallback3 != null) {
                 valueCallback3.onReceiveValue(null);
             }
-            this.f39704e = valueCallback;
-            ValueCallback valueCallback4 = this.f39705f;
+            this.f39981e = valueCallback;
+            ValueCallback valueCallback4 = this.f39982f;
             if (valueCallback4 != null) {
                 valueCallback4.onReceiveValue(null);
             }
-            this.f39705f = valueCallback2;
+            this.f39982f = valueCallback2;
             Intent intent = new Intent("android.intent.action.GET_CONTENT");
             intent.addCategory("android.intent.category.OPENABLE");
             if (z && Build.VERSION.SDK_INT >= 18) {
                 intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
             }
             intent.setType(this.m);
-            WeakReference weakReference = this.f39701b;
+            WeakReference weakReference = this.f39978b;
             if (weakReference != null && weakReference.get() != null && Build.VERSION.SDK_INT >= 11) {
-                ((Fragment) this.f39701b.get()).startActivityForResult(Intent.createChooser(intent, getFileUploadPromptLabel()), this.f39708i);
+                ((Fragment) this.f39978b.get()).startActivityForResult(Intent.createChooser(intent, getFileUploadPromptLabel()), this.f39985i);
                 return;
             }
-            WeakReference weakReference2 = this.f39700a;
+            WeakReference weakReference2 = this.f39977a;
             if (weakReference2 == null || weakReference2.get() == null) {
                 return;
             }
-            ((Activity) this.f39700a.get()).startActivityForResult(Intent.createChooser(intent, getFileUploadPromptLabel()), this.f39708i);
+            ((Activity) this.f39977a.get()).startActivityForResult(Intent.createChooser(intent, getFileUploadPromptLabel()), this.f39985i);
         }
     }
 
@@ -332,25 +332,25 @@ public class AdvancedWebView extends WebView {
         webSettings.setMixedContentMode(!z ? 1 : 0);
     }
 
-    public void a(T1 t1, int i2) {
+    public void a(v2 v2Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, t1, i2) == null) {
-            this.f39702c = t1;
-            this.f39708i = i2;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, v2Var, i2) == null) {
+            this.f39979c = v2Var;
+            this.f39985i = i2;
         }
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f39706g + 500 >= System.currentTimeMillis() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f39983g + 500 >= System.currentTimeMillis() : invokeV.booleanValue;
     }
 
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (this.f39703d.size() == 0) {
+            if (this.f39980d.size() == 0) {
                 return true;
             }
             Uri parse = Uri.parse(str);
@@ -358,7 +358,7 @@ public class AdvancedWebView extends WebView {
             if (host != null && host.matches("^[a-zA-Z0-9._!~*')(;:&=+$,%\\[\\]-]*$")) {
                 String userInfo = parse.getUserInfo();
                 if (userInfo == null || userInfo.matches("^[a-zA-Z0-9._!~*')(;:&=+$,%-]*$")) {
-                    for (String str2 : this.f39703d) {
+                    for (String str2 : this.f39980d) {
                         if (!host.equals(str2)) {
                             if (host.endsWith("." + str2)) {
                             }
@@ -406,15 +406,15 @@ public class AdvancedWebView extends WebView {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            WeakReference weakReference = this.f39701b;
-            if (weakReference == null || weakReference.get() == null || Build.VERSION.SDK_INT < 11 || ((Fragment) this.f39701b.get()).getActivity() == null) {
-                WeakReference weakReference2 = this.f39700a;
+            WeakReference weakReference = this.f39978b;
+            if (weakReference == null || weakReference.get() == null || Build.VERSION.SDK_INT < 11 || ((Fragment) this.f39978b.get()).getActivity() == null) {
+                WeakReference weakReference2 = this.f39977a;
                 if (weakReference2 == null || weakReference2.get() == null) {
                     return;
                 }
-                activity = (Activity) this.f39700a.get();
+                activity = (Activity) this.f39977a.get();
             } else {
-                activity = ((Fragment) this.f39701b.get()).getActivity();
+                activity = ((Fragment) this.f39978b.get()).getActivity();
             }
             getSettings().setGeolocationDatabasePath(activity.getFilesDir().getPath());
         }
@@ -423,7 +423,7 @@ public class AdvancedWebView extends WebView {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f39706g = System.currentTimeMillis();
+            this.f39983g = System.currentTimeMillis();
         }
     }
 
@@ -432,7 +432,7 @@ public class AdvancedWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             try {
-                return this.f39707h.equals("zho") ? b("6YCJ5oup5LiA5Liq5paH5Lu2") : this.f39707h.equals("spa") ? b("RWxpamEgdW4gYXJjaGl2bw==") : this.f39707h.equals("hin") ? b("4KSP4KSVIOCkq+CkvOCkvuCkh+CksiDgpJrgpYHgpKjgpYfgpII=") : this.f39707h.equals("ben") ? b("4KaP4KaV4Kaf4Ka/IOCmq+CmvuCmh+CmsiDgpqjgpr/gprDgp43gpqzgpr7gpprgpqg=") : this.f39707h.equals("ara") ? b("2KfYrtiq2YrYp9ixINmF2YTZgSDZiNin2K3Yrw==") : this.f39707h.equals("por") ? b("RXNjb2xoYSB1bSBhcnF1aXZv") : this.f39707h.equals("rus") ? b("0JLRi9Cx0LXRgNC40YLQtSDQvtC00LjQvSDRhNCw0LnQuw==") : this.f39707h.equals("jpn") ? b("MeODleOCoeOCpOODq+OCkumBuOaKnuOBl+OBpuOBj+OBoOOBleOBhA==") : this.f39707h.equals("pan") ? b("4KiH4Kmx4KiVIOCoq+CovuCoh+CosiDgqJrgqYHgqKPgqYs=") : this.f39707h.equals("deu") ? b("V8OkaGxlIGVpbmUgRGF0ZWk=") : this.f39707h.equals("jav") ? b("UGlsaWggc2lqaSBiZXJrYXM=") : this.f39707h.equals(IAdRequestParam.MSA) ? b("UGlsaWggc2F0dSBmYWls") : this.f39707h.equals("tel") ? b("4LCS4LCVIOCwq+CxhuCxluCwsuCxjeCwqOCxgSDgsI7gsILgsJrgsYHgsJXgsYvgsILgsKHgsL8=") : this.f39707h.equals("vie") ? b("Q2jhu41uIG3hu5l0IHThuq1wIHRpbg==") : this.f39707h.equals("kor") ? b("7ZWY64KY7J2YIO2MjOydvOydhCDshKDtg50=") : this.f39707h.equals("fra") ? b("Q2hvaXNpc3NleiB1biBmaWNoaWVy") : this.f39707h.equals("mar") ? b("4KSr4KS+4KSH4KSyIOCkqOCkv+CkteCkoeCkvg==") : this.f39707h.equals("tam") ? b("4K6S4K6w4K+BIOCuleCvh+CuvuCuquCvjeCuquCviCDgrqTgr4fgrrDgr43grrXgr4E=") : this.f39707h.equals("urd") ? b("2KfbjNqpINmB2KfYptmEINmF24zauiDYs9uSINin2YbYqtiu2KfYqCDaqdix24zaug==") : this.f39707h.equals("fas") ? b("2LHYpyDYp9mG2KrYrtin2Kgg2qnZhtuM2K8g24zaqSDZgdin24zZhA==") : this.f39707h.equals("tur") ? b("QmlyIGRvc3lhIHNlw6dpbg==") : this.f39707h.equals("ita") ? b("U2NlZ2xpIHVuIGZpbGU=") : this.f39707h.equals("tha") ? b("4LmA4Lil4Li34Lit4LiB4LmE4Lif4Lil4LmM4Lir4LiZ4Li24LmI4LiH") : this.f39707h.equals("guj") ? b("4KqP4KqVIOCqq+CqvuCqh+CqsuCqqOCrhyDgqqrgqrjgqoLgqqY=") : "Choose a file";
+                return this.f39984h.equals("zho") ? b("6YCJ5oup5LiA5Liq5paH5Lu2") : this.f39984h.equals("spa") ? b("RWxpamEgdW4gYXJjaGl2bw==") : this.f39984h.equals("hin") ? b("4KSP4KSVIOCkq+CkvOCkvuCkh+CksiDgpJrgpYHgpKjgpYfgpII=") : this.f39984h.equals("ben") ? b("4KaP4KaV4Kaf4Ka/IOCmq+CmvuCmh+CmsiDgpqjgpr/gprDgp43gpqzgpr7gpprgpqg=") : this.f39984h.equals("ara") ? b("2KfYrtiq2YrYp9ixINmF2YTZgSDZiNin2K3Yrw==") : this.f39984h.equals("por") ? b("RXNjb2xoYSB1bSBhcnF1aXZv") : this.f39984h.equals("rus") ? b("0JLRi9Cx0LXRgNC40YLQtSDQvtC00LjQvSDRhNCw0LnQuw==") : this.f39984h.equals("jpn") ? b("MeODleOCoeOCpOODq+OCkumBuOaKnuOBl+OBpuOBj+OBoOOBleOBhA==") : this.f39984h.equals("pan") ? b("4KiH4Kmx4KiVIOCoq+CovuCoh+CosiDgqJrgqYHgqKPgqYs=") : this.f39984h.equals("deu") ? b("V8OkaGxlIGVpbmUgRGF0ZWk=") : this.f39984h.equals("jav") ? b("UGlsaWggc2lqaSBiZXJrYXM=") : this.f39984h.equals(IAdRequestParam.MSA) ? b("UGlsaWggc2F0dSBmYWls") : this.f39984h.equals("tel") ? b("4LCS4LCVIOCwq+CxhuCxluCwsuCxjeCwqOCxgSDgsI7gsILgsJrgsYHgsJXgsYvgsILgsKHgsL8=") : this.f39984h.equals("vie") ? b("Q2jhu41uIG3hu5l0IHThuq1wIHRpbg==") : this.f39984h.equals("kor") ? b("7ZWY64KY7J2YIO2MjOydvOydhCDshKDtg50=") : this.f39984h.equals("fra") ? b("Q2hvaXNpc3NleiB1biBmaWNoaWVy") : this.f39984h.equals("mar") ? b("4KSr4KS+4KSH4KSyIOCkqOCkv+CkteCkoeCkvg==") : this.f39984h.equals("tam") ? b("4K6S4K6w4K+BIOCuleCvh+CuvuCuquCvjeCuquCviCDgrqTgr4fgrrDgr43grrXgr4E=") : this.f39984h.equals("urd") ? b("2KfbjNqpINmB2KfYptmEINmF24zauiDYs9uSINin2YbYqtiu2KfYqCDaqdix24zaug==") : this.f39984h.equals("fas") ? b("2LHYpyDYp9mG2KrYrtin2Kgg2qnZhtuM2K8g24zaqSDZgdin24zZhA==") : this.f39984h.equals("tur") ? b("QmlyIGRvc3lhIHNlw6dpbg==") : this.f39984h.equals("ita") ? b("U2NlZ2xpIHVuIGZpbGU=") : this.f39984h.equals("tha") ? b("4LmA4Lil4Li34Lit4LiB4LmE4Lif4Lil4LmM4Lir4LiZ4Li24LmI4LiH") : this.f39984h.equals("guj") ? b("4KqP4KqVIOCqq+CqvuCqh+CqsuCqqOCrhyDgqqrgqrjgqoLgqqY=") : "Choose a file";
             } catch (Exception unused) {
                 return "Choose a file";
             }
@@ -443,7 +443,7 @@ public class AdvancedWebView extends WebView {
     public List getPermittedHostnames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f39703d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f39980d : (List) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView

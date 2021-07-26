@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import d.a.p0.h3.h0.n;
-import d.a.p0.v0.a;
+import d.a.q0.h3.h0.n;
+import d.a.q0.v0.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
@@ -22,7 +22,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16263e;
+    public String f16319e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunAbsAdView(Context context) {
@@ -65,7 +65,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract int getLayoutId();
 
-    public abstract a.e getLogItem();
+    public abstract a.f getLogItem();
 
     public abstract String getPageType();
 

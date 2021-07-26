@@ -36,7 +36,7 @@ public class a {
                     jSONObject2.put("cypher", 0);
                 }
             } catch (Throwable th) {
-                j.a(th.getMessage());
+                k.a(th.getMessage());
             }
             return jSONObject2;
         }

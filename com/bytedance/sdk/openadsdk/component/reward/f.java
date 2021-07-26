@@ -16,13 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.adnet.b.b;
-import com.bytedance.sdk.component.adnet.err.VAdError;
+import com.bytedance.sdk.component.net.NetResponse;
+import com.bytedance.sdk.component.net.callback.NetCallback;
+import com.bytedance.sdk.component.net.executor.DownloadExecutor;
+import com.bytedance.sdk.component.net.executor.NetExecutor;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.CacheDirConstants;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.e.x;
 import com.bytedance.sdk.openadsdk.core.o;
+import com.bytedance.sdk.openadsdk.q.q;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -36,17 +39,17 @@ public class f {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f29503a;
+    public static volatile f f29602a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f29504b;
+    public final Context f29603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final i f29505c;
+    public final i f29604c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<m, Long> f29506d;
+    public Map<m, Long> f29605d;
 
     /* loaded from: classes5.dex */
     public interface a<T> {
@@ -68,23 +71,23 @@ public class f {
                 return;
             }
         }
-        this.f29506d = Collections.synchronizedMap(new HashMap());
+        this.f29605d = Collections.synchronizedMap(new HashMap());
         Context a2 = context == null ? o.a() : context.getApplicationContext();
-        this.f29504b = a2;
-        this.f29505c = new i(a2, "sp_reward_video");
+        this.f29603b = a2;
+        this.f29604c = new i(a2, "sp_reward_video");
     }
 
     private File d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) ? new File(CacheDirConstants.getRewardFullCacheDir(), str) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) ? new File(CacheDirConstants.getRewardFullCacheDir(), str) : (File) invokeL.objValue;
     }
 
     @Nullable
     public AdSlot b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.f29505c.e(str) : (AdSlot) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.f29604c.e(str) : (AdSlot) invokeL.objValue;
     }
 
     public m c(String str) {
@@ -92,13 +95,13 @@ public class f {
         m a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            long b2 = this.f29505c.b(str);
-            boolean c2 = this.f29505c.c(str);
+            long b2 = this.f29604c.b(str);
+            boolean c2 = this.f29604c.c(str);
             if (!(System.currentTimeMillis() - b2 < 10500000) || c2) {
                 return null;
             }
             try {
-                String a3 = this.f29505c.a(str);
+                String a3 = this.f29604c.a(str);
                 if (TextUtils.isEmpty(a3) || (a2 = com.bytedance.sdk.openadsdk.core.b.a(new JSONObject(a3))) == null) {
                     return null;
                 }
@@ -122,25 +125,18 @@ public class f {
         return (m) invokeL.objValue;
     }
 
-    public void b(AdSlot adSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, adSlot) == null) {
-            this.f29505c.b(adSlot);
-        }
-    }
-
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f29505c.d(str);
+            this.f29604c.d(str);
         }
     }
 
-    @Nullable
-    public AdSlot b() {
-        InterceptResult invokeV;
+    public void b(AdSlot adSlot) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29505c.a() : (AdSlot) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048585, this, adSlot) == null) {
+            this.f29604c.b(adSlot);
+        }
     }
 
     public void a() {
@@ -152,16 +148,16 @@ public class f {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
-                    file = new File(this.f29504b.getDataDir(), "shared_prefs");
+                    file = new File(this.f29603b.getDataDir(), "shared_prefs");
                 } else {
-                    file = new File(this.f29504b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
+                    file = new File(this.f29603b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
                 }
                 if (file.exists() && file.isDirectory() && (listFiles2 = file.listFiles(new FileFilter(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.f.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ f f29507a;
+                    public final /* synthetic */ f f29606a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -178,7 +174,7 @@ public class f {
                                 return;
                             }
                         }
-                        this.f29507a = this;
+                        this.f29606a = this;
                     }
 
                     @Override // java.io.FileFilter
@@ -198,9 +194,9 @@ public class f {
                         try {
                             String replace = file2.getName().replace(ActivityChooserModel.HISTORY_FILE_EXTENSION, "");
                             if (Build.VERSION.SDK_INT >= 24) {
-                                this.f29504b.deleteSharedPreferences(replace);
+                                this.f29603b.deleteSharedPreferences(replace);
                             } else {
-                                this.f29504b.getSharedPreferences(replace, 0).edit().clear().apply();
+                                this.f29603b.getSharedPreferences(replace, 0).edit().clear().apply();
                                 com.bytedance.sdk.component.utils.f.c(file2);
                             }
                         } catch (Throwable unused) {
@@ -210,17 +206,17 @@ public class f {
             } catch (Throwable unused2) {
             }
             try {
-                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f29504b.getExternalCacheDir() != null) {
-                    externalCacheDir = this.f29504b.getExternalCacheDir();
+                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f29603b.getExternalCacheDir() != null) {
+                    externalCacheDir = this.f29603b.getExternalCacheDir();
                 } else {
-                    externalCacheDir = this.f29504b.getCacheDir();
+                    externalCacheDir = this.f29603b.getCacheDir();
                 }
                 if (externalCacheDir == null || !externalCacheDir.exists() || !externalCacheDir.isDirectory() || (listFiles = externalCacheDir.listFiles(new FileFilter(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.f.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ f f29508a;
+                    public final /* synthetic */ f f29607a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -237,7 +233,7 @@ public class f {
                                 return;
                             }
                         }
-                        this.f29508a = this;
+                        this.f29607a = this;
                     }
 
                     @Override // java.io.FileFilter
@@ -266,13 +262,20 @@ public class f {
         }
     }
 
+    @Nullable
+    public AdSlot b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29604c.a() : (AdSlot) invokeV.objValue;
+    }
+
     public void a(AdSlot adSlot, m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, adSlot, mVar) == null) {
             a(adSlot);
             if (mVar != null) {
                 try {
-                    this.f29505c.a(adSlot.getCodeId(), mVar.aO().toString());
+                    this.f29604c.a(adSlot.getCodeId(), mVar.aP().toString());
                 } catch (Throwable unused) {
                 }
             }
@@ -282,7 +285,7 @@ public class f {
     public void a(AdSlot adSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, adSlot) == null) {
-            this.f29505c.a(adSlot);
+            this.f29604c.a(adSlot);
         }
     }
 
@@ -290,14 +293,14 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f29503a == null) {
+            if (f29602a == null) {
                 synchronized (f.class) {
-                    if (f29503a == null) {
-                        f29503a = new f(context);
+                    if (f29602a == null) {
+                        f29602a = new f(context);
                     }
                 }
             }
-            return f29503a;
+            return f29602a;
         }
         return (f) invokeL.objValue;
     }
@@ -309,7 +312,7 @@ public class f {
             if (mVar == null || mVar.V() == null || TextUtils.isEmpty(mVar.V().i())) {
                 return null;
             }
-            return a(mVar.V().i(), mVar.V().l(), String.valueOf(com.bytedance.sdk.openadsdk.r.o.d(mVar.ao())));
+            return a(mVar.V().i(), mVar.V().l(), String.valueOf(q.d(mVar.ao())));
         }
         return (String) invokeL.objValue;
     }
@@ -328,45 +331,43 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, m mVar, long j, @Nullable com.bytedance.sdk.component.adnet.core.m mVar2) {
-        VAdError vAdError;
+    public void a(boolean z, m mVar, long j, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Boolean.valueOf(z), mVar, Long.valueOf(j), mVar2}) == null) {
-            Long remove = this.f29506d.remove(mVar);
-            com.bytedance.sdk.openadsdk.e.d.f(this.f29504b, mVar, "rewarded_video", z ? "load_video_success" : "load_video_error", com.bytedance.sdk.openadsdk.r.o.a(z, mVar, remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue(), j, (z || mVar2 == null || (vAdError = mVar2.f28033c) == null) ? null : vAdError.getMessage()));
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), mVar, Long.valueOf(j), str}) == null) {
+            Long remove = this.f29605d.remove(mVar);
+            com.bytedance.sdk.openadsdk.e.d.e(this.f29603b, mVar, "rewarded_video", z ? "load_video_success" : "load_video_error", q.a(z, mVar, remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue(), j, (z || str == null) ? null : str));
         }
     }
 
     public void a(m mVar, a<Object> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, mVar, aVar) == null) {
-            this.f29506d.put(mVar, Long.valueOf(SystemClock.elapsedRealtime()));
+            this.f29605d.put(mVar, Long.valueOf(SystemClock.elapsedRealtime()));
             if (mVar != null && mVar.V() != null && !TextUtils.isEmpty(mVar.V().i())) {
                 String i2 = mVar.V().i();
                 File d2 = d(mVar.V().l());
-                com.bytedance.sdk.component.utils.j.b("splashLoadAd", "RewardVideoCache downloadVideo target.getPath() " + d2.getPath());
-                com.bytedance.sdk.openadsdk.l.e.b().a(i2, new b.a(this, d2, aVar, mVar) { // from class: com.bytedance.sdk.openadsdk.component.reward.f.3
+                DownloadExecutor downloadExecutor = com.bytedance.sdk.openadsdk.k.d.b().c().getDownloadExecutor();
+                downloadExecutor.setUrl(i2);
+                downloadExecutor.setFileInfo(d2.getParent(), d2.getName());
+                downloadExecutor.enqueue(new NetCallback(this, aVar, mVar) { // from class: com.bytedance.sdk.openadsdk.component.reward.f.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ File f29509a;
+                    public final /* synthetic */ a f29608a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f29510b;
+                    public final /* synthetic */ m f29609b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ m f29511c;
-
-                    /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ f f29512d;
+                    public final /* synthetic */ f f29610c;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, d2, aVar, mVar};
+                            Object[] objArr = {this, aVar, mVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i3 = newInitContext.flag;
                             if ((i3 & 1) != 0) {
@@ -376,77 +377,43 @@ public class f {
                                 return;
                             }
                         }
-                        this.f29512d = this;
-                        this.f29509a = d2;
-                        this.f29510b = aVar;
-                        this.f29511c = mVar;
+                        this.f29610c = this;
+                        this.f29608a = aVar;
+                        this.f29609b = mVar;
                     }
 
-                    @Override // com.bytedance.sdk.component.adnet.b.b.a
-                    public File a(String str) {
-                        InterceptResult invokeL;
+                    @Override // com.bytedance.sdk.component.net.callback.NetCallback
+                    public void onFailure(NetExecutor netExecutor, IOException iOException) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str)) == null) {
-                            if (!this.f29509a.exists() || this.f29509a.length() <= 0) {
-                                return null;
-                            }
-                            return this.f29509a;
-                        }
-                        return (File) invokeL.objValue;
-                    }
-
-                    @Override // com.bytedance.sdk.component.adnet.b.c.a
-                    public void a(long j, long j2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                        }
-                    }
-
-                    @Override // com.bytedance.sdk.component.adnet.b.b.a
-                    public File b(String str) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, str)) == null) ? this.f29509a : (File) invokeL.objValue;
-                    }
-
-                    @Override // com.bytedance.sdk.component.adnet.core.m.a
-                    public void b(com.bytedance.sdk.component.adnet.core.m<File> mVar2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048581, this, mVar2) == null) {
-                            a aVar2 = this.f29510b;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
+                            a aVar2 = this.f29608a;
                             if (aVar2 != null) {
                                 aVar2.a(false, null);
                             }
-                            this.f29512d.a(false, this.f29511c, mVar2 == null ? -2L : mVar2.f28038h, mVar2);
+                            com.bytedance.sdk.component.utils.k.c("RewardVideoCache", "onFailure: RewardVideo preload fail ");
+                            this.f29610c.a(false, this.f29609b, -2L, iOException.getMessage());
                         }
                     }
 
-                    @Override // com.bytedance.sdk.component.adnet.b.b.a
-                    public void a(String str, File file) {
+                    @Override // com.bytedance.sdk.component.net.callback.NetCallback
+                    public void onResponse(NetExecutor netExecutor, NetResponse netResponse) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLL(1048579, this, str, file) == null) || file == null) {
-                            return;
-                        }
-                        this.f29512d.a(file);
-                    }
-
-                    @Override // com.bytedance.sdk.component.adnet.core.m.a
-                    public void a(com.bytedance.sdk.component.adnet.core.m<File> mVar2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar2) == null) {
-                            if (mVar2 != null && mVar2.f28031a != null && this.f29509a.exists()) {
-                                a aVar2 = this.f29510b;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
+                            if (netResponse.isSuccess() && netResponse.getFile() != null && netResponse.getFile().exists()) {
+                                a aVar2 = this.f29608a;
                                 if (aVar2 != null) {
                                     aVar2.a(true, null);
                                 }
-                                this.f29512d.a(true, this.f29511c, 0L, mVar2);
+                                com.bytedance.sdk.component.utils.k.c("RewardVideoCache", "onFailure: RewardVideo preload success ");
+                                this.f29610c.a(true, this.f29609b, netResponse.getCode(), netResponse.getMessage());
                                 return;
                             }
-                            a aVar3 = this.f29510b;
+                            a aVar3 = this.f29608a;
                             if (aVar3 != null) {
                                 aVar3.a(false, null);
                             }
-                            this.f29512d.a(false, this.f29511c, mVar2 == null ? -3L : mVar2.f28038h, mVar2);
+                            com.bytedance.sdk.component.utils.k.c("RewardVideoCache", "onFailure: RewardVideo preload fail ");
+                            this.f29610c.a(false, this.f29609b, netResponse.getCode(), netResponse.getMessage());
                         }
                     }
                 });
@@ -455,26 +422,14 @@ public class f {
             if (aVar != null) {
                 aVar.a(false, null);
             }
-            a(false, mVar, -1L, null);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, file) == null) {
-            try {
-                com.bytedance.sdk.openadsdk.core.h.d().r().a(file);
-            } catch (IOException e2) {
-                com.bytedance.sdk.component.utils.j.f("RewardVideoCache", "trimFileCache IOException:" + e2.toString());
-            }
+            a(false, mVar, -1L, " meta == null or meta.getVideo() == null ");
         }
     }
 
     public static void a(Context context, boolean z, m mVar, long j, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Boolean.valueOf(z), mVar, Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            com.bytedance.sdk.openadsdk.e.d.f(context, mVar, "rewarded_video", z ? "load_video_success" : "load_video_error", com.bytedance.sdk.openadsdk.r.o.a(z, mVar, j2, j, str));
+            com.bytedance.sdk.openadsdk.e.d.e(context, mVar, "rewarded_video", z ? "load_video_success" : "load_video_error", q.a(z, mVar, j2, j, str));
         }
     }
 }

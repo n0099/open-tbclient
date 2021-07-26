@@ -20,7 +20,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AsyncHttpClient f9417a;
+    public AsyncHttpClient f9443a;
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -43,7 +43,7 @@ public class a {
                 return;
             }
         }
-        this.f9417a = new AsyncHttpClient();
+        this.f9443a = new AsyncHttpClient();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,34 +52,34 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (str == null || str.equals("")) {
-                return new c(PanoStateError.f9414c);
+                return new c(PanoStateError.f9440c);
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject == null) {
-                    return new c(PanoStateError.f9414c);
+                    return new c(PanoStateError.f9440c);
                 }
                 if (optJSONObject.optInt("error") == 0) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("content");
                     if (optJSONArray == null) {
-                        return new c(PanoStateError.f9414c);
+                        return new c(PanoStateError.f9440c);
                     }
                     c cVar = null;
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("poiinfo");
                         if (optJSONObject2 != null) {
-                            cVar = new c(PanoStateError.f9412a);
+                            cVar = new c(PanoStateError.f9438a);
                             cVar.a(optJSONObject2.optString("PID"));
                             cVar.a(optJSONObject2.optInt("hasstreet"));
                         }
                     }
                     return cVar;
                 }
-                return new c(PanoStateError.f9413b);
+                return new c(PanoStateError.f9439b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                return new c(PanoStateError.f9414c);
+                return new c(PanoStateError.f9440c);
             }
         }
         return (c) invokeL.objValue;
@@ -117,11 +117,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC0136a.a((InterfaceC0136a<c>) new c(PanoStateError.f9415d));
+                interfaceC0136a.a((InterfaceC0136a<c>) new c(PanoStateError.f9441d));
                 return;
             }
             a(builder, "token", authToken);
-            this.f9417a.get(a(builder), new b(this, interfaceC0136a));
+            this.f9443a.get(a(builder), new b(this, interfaceC0136a));
         }
     }
 }

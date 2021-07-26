@@ -20,13 +20,13 @@ public class TTDislikeListView extends ListView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f31008a;
+    public b f31190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f31009b;
+    public AdapterView.OnItemClickListener f31191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f31010c;
+    public AdapterView.OnItemClickListener f31192c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeListView(Context context) {
@@ -46,12 +46,12 @@ public class TTDislikeListView extends ListView {
                 return;
             }
         }
-        this.f31010c = new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
+        this.f31192c = new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTDislikeListView f31011a;
+            public final /* synthetic */ TTDislikeListView f31193a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -68,23 +68,23 @@ public class TTDislikeListView extends ListView {
                         return;
                     }
                 }
-                this.f31011a = this;
+                this.f31193a = this;
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
-                    if (this.f31011a.getAdapter() != null && this.f31011a.getAdapter().getItem(i4) != null && (this.f31011a.getAdapter().getItem(i4) instanceof FilterWord)) {
-                        FilterWord filterWord = (FilterWord) this.f31011a.getAdapter().getItem(i4);
+                    if (this.f31193a.getAdapter() != null && this.f31193a.getAdapter().getItem(i4) != null && (this.f31193a.getAdapter().getItem(i4) instanceof FilterWord)) {
+                        FilterWord filterWord = (FilterWord) this.f31193a.getAdapter().getItem(i4);
                         if (filterWord.hasSecondOptions()) {
                             return;
                         }
-                        if (this.f31011a.f31008a != null) {
-                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31011a.f31008a, filterWord);
+                        if (this.f31193a.f31190a != null) {
+                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31193a.f31190a, filterWord);
                         }
-                        if (this.f31011a.f31009b != null) {
-                            this.f31011a.f31009b.onItemClick(adapterView, view, i4, j);
+                        if (this.f31193a.f31191b != null) {
+                            this.f31193a.f31191b.onItemClick(adapterView, view, i4, j);
                             return;
                         }
                         return;
@@ -99,7 +99,7 @@ public class TTDislikeListView extends ListView {
     public void setDislikeInfo(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f31008a = bVar;
+            this.f31190a = bVar;
         }
     }
 
@@ -107,14 +107,14 @@ public class TTDislikeListView extends ListView {
     public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onItemClickListener) == null) {
-            this.f31009b = onItemClickListener;
+            this.f31191b = onItemClickListener;
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            super.setOnItemClickListener(this.f31010c);
+            super.setOnItemClickListener(this.f31192c);
         }
     }
 
@@ -137,12 +137,12 @@ public class TTDislikeListView extends ListView {
                 return;
             }
         }
-        this.f31010c = new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
+        this.f31192c = new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTDislikeListView f31011a;
+            public final /* synthetic */ TTDislikeListView f31193a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -159,23 +159,23 @@ public class TTDislikeListView extends ListView {
                         return;
                     }
                 }
-                this.f31011a = this;
+                this.f31193a = this;
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
-                    if (this.f31011a.getAdapter() != null && this.f31011a.getAdapter().getItem(i4) != null && (this.f31011a.getAdapter().getItem(i4) instanceof FilterWord)) {
-                        FilterWord filterWord = (FilterWord) this.f31011a.getAdapter().getItem(i4);
+                    if (this.f31193a.getAdapter() != null && this.f31193a.getAdapter().getItem(i4) != null && (this.f31193a.getAdapter().getItem(i4) instanceof FilterWord)) {
+                        FilterWord filterWord = (FilterWord) this.f31193a.getAdapter().getItem(i4);
                         if (filterWord.hasSecondOptions()) {
                             return;
                         }
-                        if (this.f31011a.f31008a != null) {
-                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31011a.f31008a, filterWord);
+                        if (this.f31193a.f31190a != null) {
+                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31193a.f31190a, filterWord);
                         }
-                        if (this.f31011a.f31009b != null) {
-                            this.f31011a.f31009b.onItemClick(adapterView, view, i4, j);
+                        if (this.f31193a.f31191b != null) {
+                            this.f31193a.f31191b.onItemClick(adapterView, view, i4, j);
                             return;
                         }
                         return;
@@ -206,12 +206,12 @@ public class TTDislikeListView extends ListView {
                 return;
             }
         }
-        this.f31010c = new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
+        this.f31192c = new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTDislikeListView f31011a;
+            public final /* synthetic */ TTDislikeListView f31193a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -228,23 +228,23 @@ public class TTDislikeListView extends ListView {
                         return;
                     }
                 }
-                this.f31011a = this;
+                this.f31193a = this;
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i42, long j) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i42), Long.valueOf(j)}) == null) {
-                    if (this.f31011a.getAdapter() != null && this.f31011a.getAdapter().getItem(i42) != null && (this.f31011a.getAdapter().getItem(i42) instanceof FilterWord)) {
-                        FilterWord filterWord = (FilterWord) this.f31011a.getAdapter().getItem(i42);
+                    if (this.f31193a.getAdapter() != null && this.f31193a.getAdapter().getItem(i42) != null && (this.f31193a.getAdapter().getItem(i42) instanceof FilterWord)) {
+                        FilterWord filterWord = (FilterWord) this.f31193a.getAdapter().getItem(i42);
                         if (filterWord.hasSecondOptions()) {
                             return;
                         }
-                        if (this.f31011a.f31008a != null) {
-                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31011a.f31008a, filterWord);
+                        if (this.f31193a.f31190a != null) {
+                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31193a.f31190a, filterWord);
                         }
-                        if (this.f31011a.f31009b != null) {
-                            this.f31011a.f31009b.onItemClick(adapterView, view, i42, j);
+                        if (this.f31193a.f31191b != null) {
+                            this.f31193a.f31191b.onItemClick(adapterView, view, i42, j);
                             return;
                         }
                         return;

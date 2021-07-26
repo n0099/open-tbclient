@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.c.d;
+import d.a.d.c.d;
 /* loaded from: classes.dex */
 public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
     public static /* synthetic */ Interceptable $ic;

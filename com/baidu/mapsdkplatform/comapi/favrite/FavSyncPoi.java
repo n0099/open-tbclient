@@ -11,31 +11,31 @@ public class FavSyncPoi {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7624a;
+    public String f7650a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7625b;
+    public String f7651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f7626c;
+    public Point f7652c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7627d;
+    public String f7653d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7628e;
+    public String f7654e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7629f;
+    public String f7655f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7630g;
+    public int f7656g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f7631h;
+    public String f7657h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f7632i;
+    public boolean f7658i;
     public String j;
 
     public FavSyncPoi() {

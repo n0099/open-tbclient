@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.exception.g;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.l.a.e.b.f.n;
-import d.l.a.e.b.f.r;
+import d.l.a.e.b.f.o;
+import d.l.a.e.b.f.s;
 import d.l.a.e.b.f.z;
 import d.l.a.e.b.g.e;
 import d.l.a.e.b.g.q;
@@ -263,11 +263,11 @@ public class a {
             }
             z R = aVar.R();
             boolean d2 = d.l.a.e.b.d.a.d(i2);
-            if (!d2 && !(d2 = l(J.getExtraMonitorStatus(), i2)) && R != null && (R instanceof n)) {
-                d2 = l(((n) R).a(), i2);
+            if (!d2 && !(d2 = l(J.getExtraMonitorStatus(), i2)) && R != null && (R instanceof o)) {
+                d2 = l(((o) R).a(), i2);
             }
             if (d2) {
-                r E = aVar.E();
+                s E = aVar.E();
                 if (E != null) {
                     E.a(J, baseException, i2);
                 }

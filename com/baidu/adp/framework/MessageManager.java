@@ -34,17 +34,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.c.e.c.h;
-import d.a.c.c.f.e;
-import d.a.c.c.f.f;
-import d.a.c.c.f.g;
-import d.a.c.c.f.i;
-import d.a.c.c.h.a;
-import d.a.c.c.h.b;
-import d.a.c.c.h.c;
-import d.a.c.c.h.d;
-import d.a.c.e.p.j;
-import d.a.c.e.p.l;
+import d.a.d.c.e.c.h;
+import d.a.d.c.f.e;
+import d.a.d.c.f.f;
+import d.a.d.c.f.g;
+import d.a.d.c.f.i;
+import d.a.d.c.h.a;
+import d.a.d.c.h.b;
+import d.a.d.c.h.c;
+import d.a.d.c.h.d;
+import d.a.d.e.p.j;
+import d.a.d.e.p.l;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -149,12 +149,12 @@ public class MessageManager {
         FrameHelper.TYPE e2 = FrameHelper.e(messageListener.getCmd());
         if (e2 == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
             this.mHttpManager.m(0, (HttpMessageListener) messageListener);
-        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof d.a.c.c.g.c)) {
-            this.mSocketManager.m(0, (d.a.c.c.g.c) messageListener);
+        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof d.a.d.c.g.c)) {
+            this.mSocketManager.m(0, (d.a.d.c.g.c) messageListener);
         } else if (e2 == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
             this.mCustomManager.m(0, (CustomMessageListener) messageListener);
         } else {
-            BdLog.e("listener invalid" + d.a.c.c.a.a().b(messageListener.getCmd()));
+            BdLog.e("listener invalid" + d.a.d.c.a.a().b(messageListener.getCmd()));
         }
     }
 
@@ -364,11 +364,11 @@ public class MessageManager {
                 int cmd = responsedMessage.getCmd();
                 FrameHelper.TYPE e2 = FrameHelper.e(cmd);
                 if (e2 == FrameHelper.TYPE.HTTP && (responsedMessage instanceof HttpResponsedMessage)) {
-                    d.a.c.b.a.a.h("Response_Http", responsedMessage);
+                    d.a.d.b.a.a.h("Response_Http", responsedMessage);
                     if (responsedMessage.getError() != 0) {
                         if (j.z()) {
                             this.mHttpMsgCWSendFailedCnt++;
-                            if (this.mHttpMsgCWSendFailedCnt >= d.a.c.e.n.k.a.o().q("alert_http", 3)) {
+                            if (this.mHttpMsgCWSendFailedCnt >= d.a.d.e.n.m.a.o().q("alert_http", 3)) {
                                 BdStatisticsManager.getInstance().alert("alert_http", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                             }
                         }
@@ -377,11 +377,11 @@ public class MessageManager {
                     }
                     this.mHttpManager.d(this.mController.j((HttpResponsedMessage) responsedMessage));
                 } else if (e2 == FrameHelper.TYPE.SOCKET && (responsedMessage instanceof SocketResponsedMessage)) {
-                    d.a.c.b.a.a.h("Response_Socket", responsedMessage);
+                    d.a.d.b.a.a.h("Response_Socket", responsedMessage);
                     if (responsedMessage.getError() != 0) {
                         if (j.z()) {
                             this.mSocketMsgCWSendFailedCnt++;
-                            if (this.mSocketMsgCWSendFailedCnt >= d.a.c.e.n.k.a.o().q("alert_im", 3)) {
+                            if (this.mSocketMsgCWSendFailedCnt >= d.a.d.e.n.m.a.o().q("alert_im", 3)) {
                                 BdStatisticsManager.getInstance().alert("alert_im", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                             }
                         }
@@ -492,7 +492,7 @@ public class MessageManager {
                         this.mCustomManager.d(h2);
                     }
                 } else {
-                    BdLog.e("responsedMessage invalid:CMD=" + d.a.c.c.a.a().b(cmd) + " Class=" + responsedMessage.getClass().getName());
+                    BdLog.e("responsedMessage invalid:CMD=" + d.a.d.c.a.a().b(cmd) + " Class=" + responsedMessage.getClass().getName());
                 }
             }
         }
@@ -595,13 +595,13 @@ public class MessageManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mController : (i) invokeV.objValue;
     }
 
-    public d.a.c.c.e.c.g getSocketClient() {
+    public d.a.d.c.e.c.g getSocketClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mSocketManager.w() : (d.a.c.c.e.c.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mSocketManager.w() : (d.a.d.c.e.c.g) invokeV.objValue;
     }
 
-    public void registerListener(d.a.c.c.g.a aVar) {
+    public void registerListener(d.a.d.c.g.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) || aVar == null) {
             return;
@@ -615,7 +615,7 @@ public class MessageManager {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MessageManager this$0;
-            public final /* synthetic */ d.a.c.c.g.a val$listener;
+            public final /* synthetic */ d.a.d.c.g.a val$listener;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -897,13 +897,13 @@ public class MessageManager {
             }
             message.setStartTime(System.currentTimeMillis());
             if (message instanceof HttpMessage) {
-                d.a.c.b.a.a.h("Request_Http", message);
+                d.a.d.b.a.a.h("Request_Http", message);
                 return this.mHttpManager.c((HttpMessage) message, null);
             } else if (message instanceof SocketMessage) {
-                d.a.c.b.a.a.h("Request_Socket", message);
+                d.a.d.b.a.a.h("Request_Socket", message);
                 return this.mSocketManager.c((SocketMessage) message, null);
             } else if (!(message instanceof CustomMessage)) {
-                BdLog.e("message invalid" + d.a.c.c.a.a().b(message.getCmd()));
+                BdLog.e("message invalid" + d.a.d.c.a.a().b(message.getCmd()));
                 return false;
             } else {
                 CustomMessage customMessage = (CustomMessage) message;
@@ -982,14 +982,14 @@ public class MessageManager {
         });
     }
 
-    public void setNotFindTaskListener(d.a.c.c.g.b<Message<?>> bVar) {
+    public void setNotFindTaskListener(d.a.d.c.g.b<Message<?>> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, bVar) == null) {
             c.p(bVar);
         }
     }
 
-    public void unRegisterListener(d.a.c.c.g.a aVar) {
+    public void unRegisterListener(d.a.d.c.g.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048619, this, aVar) == null) || aVar == null) {
             return;
@@ -1003,7 +1003,7 @@ public class MessageManager {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MessageManager this$0;
-            public final /* synthetic */ d.a.c.c.g.a val$listener;
+            public final /* synthetic */ d.a.d.c.g.a val$listener;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1099,7 +1099,7 @@ public class MessageManager {
         return (CustomResponsedMessage) invokeILL.objValue;
     }
 
-    public void registerListener(int i2, d.a.c.c.g.a aVar) {
+    public void registerListener(int i2, d.a.d.c.g.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(1048593, this, i2, aVar) == null) || aVar == null) {
             return;
@@ -1114,7 +1114,7 @@ public class MessageManager {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MessageManager this$0;
             public final /* synthetic */ int val$cmd;
-            public final /* synthetic */ d.a.c.c.g.a val$listener;
+            public final /* synthetic */ d.a.d.c.g.a val$listener;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1262,12 +1262,12 @@ public class MessageManager {
         FrameHelper.TYPE e2 = FrameHelper.e(i2);
         if (e2 == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
             this.mHttpManager.m(i2, (HttpMessageListener) messageListener);
-        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof d.a.c.c.g.c)) {
-            this.mSocketManager.m(i2, (d.a.c.c.g.c) messageListener);
+        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof d.a.d.c.g.c)) {
+            this.mSocketManager.m(i2, (d.a.d.c.g.c) messageListener);
         } else if (e2 == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
             this.mCustomManager.m(i2, (CustomMessageListener) messageListener);
         } else {
-            BdLog.e("listener invalid" + d.a.c.c.a.a().b(i2) + "|" + d.a.c.c.a.a().b(messageListener.getCmd()));
+            BdLog.e("listener invalid" + d.a.d.c.a.a().b(i2) + "|" + d.a.d.c.a.a().b(messageListener.getCmd()));
         }
     }
 
@@ -1398,10 +1398,10 @@ public class MessageManager {
                 netMessage.setSocketErrNo(1);
             }
             if (v && sendMessage(netMessage.getSocketMessage())) {
-                d.a.c.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
+                d.a.d.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
                 return true;
             }
-            d.a.c.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
+            d.a.d.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
             return sendMessage(netMessage.getHttpMessage());
         }
         return invokeL.booleanValue;
@@ -1425,10 +1425,10 @@ public class MessageManager {
                 netMessage.setSocketErrNo(1);
             }
             if (v && sendMessage(netMessage.getSocketMessage(), socketMessageTask)) {
-                d.a.c.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
+                d.a.d.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
                 return true;
             }
-            d.a.c.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
+            d.a.d.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
             return sendMessage(netMessage.getHttpMessage(), httpMessageTask);
         }
         return invokeLLL.booleanValue;
@@ -1442,15 +1442,15 @@ public class MessageManager {
                 return false;
             }
             if ((message instanceof HttpMessage) && (messageTask instanceof HttpMessageTask)) {
-                d.a.c.b.a.a.h("Request_Http", message);
+                d.a.d.b.a.a.h("Request_Http", message);
                 return this.mHttpManager.c((HttpMessage) message, (HttpMessageTask) messageTask);
             } else if ((message instanceof SocketMessage) && (messageTask instanceof SocketMessageTask)) {
-                d.a.c.b.a.a.h("Request_Socket", message);
+                d.a.d.b.a.a.h("Request_Socket", message);
                 return this.mSocketManager.c((SocketMessage) message, (SocketMessageTask) messageTask);
             } else if ((message instanceof CustomMessage) && (messageTask instanceof CustomMessageTask)) {
                 return this.mCustomManager.c((CustomMessage) message, (CustomMessageTask) messageTask);
             } else {
-                BdLog.e("message and task invalid:" + d.a.c.c.a.a().b(message.getCmd()));
+                BdLog.e("message and task invalid:" + d.a.d.c.a.a().b(message.getCmd()));
                 return false;
             }
         }

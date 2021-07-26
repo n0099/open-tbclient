@@ -7,33 +7,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.g;
 import h.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class z<T> implements h.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.c<T> f72561e;
+    public final h.c<T> f73015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.g f72562f;
+    public final h.g f73016f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a<T> extends h.i<T> implements h.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.i<? super T> f72563f;
+        public final h.i<? super T> f73017f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final g.a f72564g;
+        public final g.a f73018g;
 
         /* renamed from: h  reason: collision with root package name */
-        public T f72565h;
+        public T f73019h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Throwable f72566i;
+        public Throwable f73020i;
 
         public a(h.i<? super T> iVar, g.a aVar) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public final class z<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f72563f = iVar;
-            this.f72564g = aVar;
+            this.f73017f = iVar;
+            this.f73018g = aVar;
         }
 
         @Override // h.i
         public void b(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.f72566i = th;
-                this.f72564g.b(this);
+                this.f73020i = th;
+                this.f73018g.b(this);
             }
         }
 
@@ -67,8 +67,8 @@ public final class z<T> implements h.c<T> {
         public void c(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.f72565h = t;
-                this.f72564g.b(this);
+                this.f73019h = t;
+                this.f73018g.b(this);
             }
         }
 
@@ -77,17 +77,17 @@ public final class z<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 try {
-                    Throwable th = this.f72566i;
+                    Throwable th = this.f73020i;
                     if (th != null) {
-                        this.f72566i = null;
-                        this.f72563f.b(th);
+                        this.f73020i = null;
+                        this.f73017f.b(th);
                     } else {
-                        T t = this.f72565h;
-                        this.f72565h = null;
-                        this.f72563f.c(t);
+                        T t = this.f73019h;
+                        this.f73019h = null;
+                        this.f73017f.c(t);
                     }
                 } finally {
-                    this.f72564g.unsubscribe();
+                    this.f73018g.unsubscribe();
                 }
             }
         }
@@ -108,8 +108,8 @@ public final class z<T> implements h.c<T> {
                 return;
             }
         }
-        this.f72561e = cVar;
-        this.f72562f = gVar;
+        this.f73015e = cVar;
+        this.f73016f = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -118,11 +118,11 @@ public final class z<T> implements h.c<T> {
     public void call(h.i<? super T> iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            g.a createWorker = this.f72562f.createWorker();
+            g.a createWorker = this.f73016f.createWorker();
             a aVar = new a(iVar, createWorker);
             iVar.a(createWorker);
             iVar.a(aVar);
-            this.f72561e.call(aVar);
+            this.f73015e.call(aVar);
         }
     }
 }

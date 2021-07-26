@@ -14,7 +14,7 @@ public class l extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f68798e;
+    public final Context f69252e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(Context context) {
@@ -35,7 +35,7 @@ public class l extends s1 {
                 return;
             }
         }
-        this.f68798e = context;
+        this.f69252e = context;
     }
 
     @Override // d.b.a.s1
@@ -43,7 +43,7 @@ public class l extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            z1.g(jSONObject, "sim_region", ((TelephonyManager) this.f68798e.getSystemService("phone")).getSimCountryIso());
+            z1.g(jSONObject, "sim_region", ((TelephonyManager) this.f69252e.getSystemService("phone")).getSimCountryIso());
             return true;
         }
         return invokeL.booleanValue;

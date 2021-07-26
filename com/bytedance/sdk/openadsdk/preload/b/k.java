@@ -13,7 +13,7 @@ public abstract class k<IN, OUT> extends d<IN, OUT> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public IN f32096d;
+    public IN f32297d;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public abstract class k<IN, OUT> extends d<IN, OUT> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, in)) == null) {
-            this.f32096d = in;
+            this.f32297d = in;
             try {
                 return bVar.a((b<OUT>) b());
             } catch (i.a e2) {
@@ -70,12 +70,12 @@ public abstract class k<IN, OUT> extends d<IN, OUT> {
     public OUT b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32096d : (OUT) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32297d : (OUT) invokeV.objValue;
     }
 
     public final IN g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32096d : (IN) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32297d : (IN) invokeV.objValue;
     }
 }

@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.g.c;
-import d.a.o0.g0.f.a;
-import d.a.o0.g0.f.b;
+import d.a.d.g.c;
+import d.a.p0.i0.f.a;
+import d.a.p0.i0.f.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
@@ -25,7 +25,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, d.a.o0.g0.d.b, a<Object, d.a.o0.g0.d.b>> mPluginCenterAdapter;
+    public b<Object, d.a.p0.i0.d.b, a<Object, d.a.p0.i0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
 

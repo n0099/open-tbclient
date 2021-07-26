@@ -14,32 +14,32 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f6775c;
+    public static c f6801c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6776a;
+    public String f6802a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6777b;
+    public int f6803b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6778d;
+    public int f6804d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6779e;
+    public int f6805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6780f;
+    public int f6806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6781g;
+    public int f6807g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6782h;
+    public int f6808h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f6783i;
+    public int f6809i;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -54,14 +54,14 @@ public class c {
                 return;
             }
         }
-        this.f6776a = "firll.dat";
-        this.f6777b = 3164;
-        this.f6778d = 0;
-        this.f6779e = 20;
-        this.f6780f = 40;
-        this.f6781g = 60;
-        this.f6782h = 80;
-        this.f6783i = 100;
+        this.f6802a = "firll.dat";
+        this.f6803b = 3164;
+        this.f6804d = 0;
+        this.f6805e = 20;
+        this.f6806f = 40;
+        this.f6807g = 60;
+        this.f6808h = 80;
+        this.f6809i = 100;
     }
 
     private long a(int i2) {
@@ -78,7 +78,7 @@ public class c {
             RandomAccessFile randomAccessFile2 = null;
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(j + File.separator + this.f6776a, "rw");
+                    randomAccessFile = new RandomAccessFile(j + File.separator + this.f6802a, "rw");
                 } catch (IOException unused) {
                 }
                 try {
@@ -123,10 +123,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f6775c == null) {
-                f6775c = new c();
+            if (f6801c == null) {
+                f6801c = new c();
             }
-            return f6775c;
+            return f6801c;
         }
         return (c) invokeV.objValue;
     }
@@ -138,11 +138,11 @@ public class c {
             return;
         }
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(j2 + File.separator + this.f6776a, "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(j2 + File.separator + this.f6802a, "rw");
             randomAccessFile.seek(i2);
-            randomAccessFile.writeInt(this.f6777b);
+            randomAccessFile.writeInt(this.f6803b);
             randomAccessFile.writeLong(j);
-            randomAccessFile.writeInt(this.f6777b);
+            randomAccessFile.writeInt(this.f6803b);
             randomAccessFile.close();
         } catch (Exception unused) {
         }
@@ -151,13 +151,13 @@ public class c {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            a(this.f6778d, j);
+            a(this.f6804d, j);
         }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f6778d) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f6804d) : invokeV.longValue;
     }
 }

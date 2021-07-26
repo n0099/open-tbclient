@@ -16,7 +16,7 @@ import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.api.ILocationCallback;
 import com.baidu.wallet.lightapp.base.LightappConstants;
 import com.baidu.wallet.lightapp.base.datamodel.LightAppLocationModel;
-import d.a.c.e.i.a;
+import d.a.d.e.i.a;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -98,7 +98,7 @@ public class LightAppListenerImpl implements ILightAppListener {
                     this.val$callback = iLocationCallback;
                 }
 
-                @Override // d.a.c.e.i.a.c
+                @Override // d.a.d.e.i.a.c
                 public void onLocationGeted(int i2, String str, Address address) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, address) == null) {

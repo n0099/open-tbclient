@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ b f72106a;
+    public /* synthetic */ b f72560a;
 
     public d(b bVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class d implements a {
                 return;
             }
         }
-        this.f72106a = bVar;
+        this.f72560a = bVar;
     }
 
     public static String b(String str, String str2) {
@@ -60,7 +60,7 @@ public class d implements a {
                 if (z || bVar != null) {
                     b2 = bVar.b();
                     if (!TextUtils.isEmpty(b2)) {
-                        b.f72096f = b2;
+                        b.f72550f = b2;
                     }
                 } else {
                     d.n.a.a.c.b.c.b("not support OAID");
@@ -72,9 +72,9 @@ public class d implements a {
                 try {
                     d.n.a.a.c.b.c.c(th);
                     try {
-                        if (!TextUtils.isEmpty(b.f72096f) && !b.f72096f.startsWith("KWE")) {
-                            eVar2 = this.f72106a.f72102e;
-                            eVar2.d(b.f72096f);
+                        if (!TextUtils.isEmpty(b.f72550f) && !b.f72550f.startsWith("KWE")) {
+                            eVar2 = this.f72560a.f72556e;
+                            eVar2.d(b.f72550f);
                         }
                         if (bVar != null) {
                             bVar.d();
@@ -83,9 +83,9 @@ public class d implements a {
                     }
                 } finally {
                     try {
-                        if (!TextUtils.isEmpty(b.f72096f) && !b.f72096f.startsWith("KWE")) {
-                            eVar = this.f72106a.f72102e;
-                            eVar.d(b.f72096f);
+                        if (!TextUtils.isEmpty(b.f72550f) && !b.f72550f.startsWith("KWE")) {
+                            eVar = this.f72560a.f72556e;
+                            eVar.d(b.f72550f);
                         }
                         if (bVar != null) {
                             bVar.d();

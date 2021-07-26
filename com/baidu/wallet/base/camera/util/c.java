@@ -13,10 +13,10 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread[] f24006a;
+    public Thread[] f24164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<Runnable> f24007b;
+    public LinkedBlockingQueue<Runnable> f24165b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public final class c {
                 return;
             }
         }
-        this.f24006a = null;
-        this.f24007b = null;
-        this.f24007b = new LinkedBlockingQueue<>();
+        this.f24164a = null;
+        this.f24165b = null;
+        this.f24165b = new LinkedBlockingQueue<>();
     }
 
     public static int a(int i2) {
@@ -57,12 +57,12 @@ public final class c {
             }
             int a2 = a(i2);
             c cVar = new c();
-            cVar.f24006a = new Thread[a2];
+            cVar.f24164a = new Thread[a2];
             for (int i3 = a2 - 1; i3 >= 0; i3 += -1) {
-                cVar.f24006a[i3] = new Thread(new d(cVar.f24007b));
-                cVar.f24006a[i3].setPriority(5);
-                cVar.f24006a[i3].setName(str + " " + a2 + "." + (i3 + 1));
-                cVar.f24006a[i3].start();
+                cVar.f24164a[i3] = new Thread(new d(cVar.f24165b));
+                cVar.f24164a[i3].setPriority(5);
+                cVar.f24164a[i3].setName(str + " " + a2 + "." + (i3 + 1));
+                cVar.f24164a[i3].start();
             }
             return cVar;
         }
@@ -75,7 +75,7 @@ public final class c {
             return;
         }
         try {
-            this.f24007b.put(runnable);
+            this.f24165b.put(runnable);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
@@ -85,17 +85,17 @@ public final class c {
         Thread[] threadArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f24007b.clear();
-            for (Thread thread : this.f24006a) {
+            this.f24165b.clear();
+            for (Thread thread : this.f24164a) {
                 if (thread.isAlive()) {
-                    this.f24007b.offer(new b());
+                    this.f24165b.offer(new b());
                 }
             }
-            for (Thread thread2 : this.f24006a) {
+            for (Thread thread2 : this.f24164a) {
                 if (thread2.isAlive()) {
                     try {
                         synchronized (this) {
-                            wait(2000 / this.f24006a.length);
+                            wait(2000 / this.f24164a.length);
                         }
                     } catch (InterruptedException unused) {
                     }

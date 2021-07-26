@@ -33,7 +33,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MaterialButtonHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_LOLLIPOP;

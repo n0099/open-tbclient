@@ -1,17 +1,380 @@
 package d.a.p0.h0;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Process;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.d.e.p.l;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static h f52655h;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(String str) {
-        InterceptResult invokeL;
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f52656a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Map<Class<? extends d.a.p0.h0.a>, d.a.p0.h0.b> f52657b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Map<Class<? extends d.a.p0.h0.a>, LinkedList<i>> f52658c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Handler f52659d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d f52660e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final d.a.p0.h0.c f52661f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final d.a.p0.n.g f52662g;
+
+    /* loaded from: classes7.dex */
+    public class a implements d.a.p0.h0.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ h f52663a;
+
+        public a(h hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52663a = hVar;
+        }
+
+        @Override // d.a.p0.h0.c
+        public void a(d.a.p0.h0.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                this.f52663a.d(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.a.p0.h0.a f52664e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ h f52665f;
+
+        public b(h hVar, d.a.p0.h0.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hVar, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52665f = hVar;
+            this.f52664e = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f52665f.c(this.f52664e);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends d.a.p0.n.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ h f52666e;
+
+        public c(h hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f52666e = hVar;
+        }
+
+        @Override // d.a.p0.n.g, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (activity instanceof TbPageContextSupport)) {
+                this.f52666e.n(((TbPageContextSupport) activity).getPageContext().getUniqueId());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1570884304, "Ld/a/p0/h0/h;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1570884304, "Ld/a/p0/h0/h;");
+        }
+    }
+
+    public h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f52656a = false;
+        this.f52659d = new Handler(Looper.getMainLooper());
+        this.f52661f = new a(this);
+        this.f52662g = new c(this);
+        this.f52657b = new HashMap();
+        this.f52658c = new HashMap();
+    }
+
+    public static h f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f52655h == null) {
+                synchronized (h.class) {
+                    if (f52655h == null) {
+                        f52655h = new h();
+                    }
+                }
+            }
+            return f52655h;
+        }
+        return (h) invokeV.objValue;
+    }
+
+    public static void i(@NonNull d.a.p0.h0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, aVar) == null) {
+            f().h(aVar);
+        }
+    }
+
+    public final void c(d.a.p0.h0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        Class<?> cls = aVar.getClass();
+        try {
+            d.a.p0.h0.b bVar = this.f52657b.get(cls);
+            if (bVar != null) {
+                bVar.onEvent(aVar);
+            }
+        } catch (Exception e2) {
+            BdLog.detailException(cls.getName(), e2);
+        }
+        try {
+            LinkedList<i> linkedList = this.f52658c.get(cls);
+            if (ListUtils.isEmpty(linkedList)) {
+                return;
+            }
+            int myPid = Process.myPid();
+            for (i iVar : linkedList) {
+                if (iVar != null && (!iVar.isSelfListener() || (aVar.getPid() == myPid && iVar.getTag() != null && iVar.getTag().getId() == aVar.getTag()))) {
+                    try {
+                        iVar.onEvent(aVar);
+                    } catch (Exception e3) {
+                        BdLog.detailException(cls.getName(), e3);
+                    }
+                }
+            }
+        } catch (Exception e4) {
+            BdLog.detailException(cls.getName(), e4);
+        }
+    }
+
+    public final void d(d.a.p0.h0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (l.C()) {
+                c(aVar);
+            } else {
+                this.f52659d.post(new b(this, aVar));
+            }
+        }
+    }
+
+    public final void e(@NonNull Class<? extends d.a.p0.h0.a> cls, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, bdUniqueId) == null) && StickyEvent.class.isAssignableFrom(cls)) {
+            OrmObject c2 = g.c(cls.getSimpleName(), cls);
+            if (c2 instanceof StickyEvent) {
+                StickyEvent stickyEvent = (StickyEvent) c2;
+                stickyEvent.resetPid();
+                stickyEvent.setTag(bdUniqueId);
+                stickyEvent.setType(2);
+                i(stickyEvent);
+            }
+        }
+    }
+
+    public void g(@NonNull Application application) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, application) == null) || this.f52656a) {
+            return;
+        }
+        k(application);
+        e eVar = new e(application);
+        this.f52660e = eVar;
+        eVar.c(this.f52661f);
+        this.f52660e.a();
+        this.f52656a = true;
+    }
+
+    public void h(@NonNull d.a.p0.h0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            int myPid = Process.myPid();
+            int pid = aVar.getPid();
+            if (aVar.getType() == 2 && myPid == pid) {
+                d(aVar);
+            } else {
+                j(aVar);
+            }
+        }
+    }
+
+    public final void j(d.a.p0.h0.a aVar) {
+        d dVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (dVar = this.f52660e) == null) {
+            return;
+        }
+        dVar.b(aVar);
+    }
+
+    public final void k(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, application) == null) {
+            try {
+                application.registerActivityLifecycleCallbacks(this.f52662g);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void l(@NonNull Class<? extends d.a.p0.h0.a> cls, @NonNull d.a.p0.h0.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, cls, bVar) == null) {
+            if (this.f52657b.containsKey(cls)) {
+                BdLog.e(cls + " has existed, Please unRegister old listener first！");
+                return;
+            }
+            this.f52657b.put(cls, bVar);
+        }
+    }
+
+    public void m(@NonNull Class<? extends d.a.p0.h0.a> cls, @NonNull i iVar, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, iVar, bdUniqueId) == null) {
+            LinkedList<i> linkedList = this.f52658c.get(cls);
+            if (linkedList == null) {
+                linkedList = new LinkedList<>();
+                this.f52658c.put(cls, linkedList);
+            }
+            if (linkedList.contains(iVar)) {
+                BdLog.e("listener has existed, Please unRegister old listener first！");
+                return;
+            }
+            iVar.setTag(bdUniqueId);
+            FrameHelper.f(linkedList, iVar);
+            e(cls, bdUniqueId);
+        }
+    }
+
+    public void n(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) || bdUniqueId == null) {
+            return;
+        }
+        for (Map.Entry<Class<? extends d.a.p0.h0.a>, LinkedList<i>> entry : this.f52658c.entrySet()) {
+            LinkedList<i> value = entry.getValue();
+            if (!ListUtils.isEmpty(value)) {
+                Iterator<i> it = value.iterator();
+                while (it.hasNext()) {
+                    i next = it.next();
+                    if (next != null && next.getTag() != null && next.getTag() == bdUniqueId) {
+                        it.remove();
+                    }
+                }
+            }
+        }
     }
 }

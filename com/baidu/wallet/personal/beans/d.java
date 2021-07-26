@@ -23,29 +23,29 @@ public class d extends BaseBean<CouponListResponse> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f27069a;
+    public static final /* synthetic */ boolean f27227a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27070b;
+    public String f27228b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27071c;
+    public String f27229c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27072d;
+    public String f27230d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27073e;
+    public String f27231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27074f;
+    public String f27232f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27075g;
+    public String f27233g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27076h;
+    public String f27234h;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +60,7 @@ public class d extends BaseBean<CouponListResponse> {
                 return;
             }
         }
-        f27069a = !d.class.desiredAssertionStatus();
+        f27227a = !d.class.desiredAssertionStatus();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,39 +81,39 @@ public class d extends BaseBean<CouponListResponse> {
                 return;
             }
         }
-        this.f27070b = "";
-        this.f27071c = "0";
-        this.f27076h = "1";
+        this.f27228b = "";
+        this.f27229c = "0";
+        this.f27234h = "1";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f27070b = str;
+            this.f27228b = str;
         }
     }
 
     public void a(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
-            this.f27072d = str;
-            this.f27073e = str2;
-            this.f27074f = str3;
-            this.f27075g = str4;
+            this.f27230d = str;
+            this.f27231e = str2;
+            this.f27232f = str3;
+            this.f27233g = str4;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f27071c = str;
+            this.f27229c = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f27076h = str;
+            this.f27234h = str;
         }
     }
 
@@ -131,25 +131,25 @@ public class d extends BaseBean<CouponListResponse> {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TextUtils.isEmpty(this.f27070b)) {
+            if (TextUtils.isEmpty(this.f27228b)) {
                 arrayList = null;
             } else {
                 arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("page_index", this.f27070b));
-                arrayList.add(new RestNameValuePair("filter_status", this.f27076h));
-                if (TextUtils.isEmpty(this.f27071c)) {
-                    this.f27071c = "0";
+                arrayList.add(new RestNameValuePair("page_index", this.f27228b));
+                arrayList.add(new RestNameValuePair("filter_status", this.f27234h));
+                if (TextUtils.isEmpty(this.f27229c)) {
+                    this.f27229c = "0";
                 }
-                arrayList.add(new RestNameValuePair("is_from_new_promot", this.f27071c));
+                arrayList.add(new RestNameValuePair("is_from_new_promot", this.f27229c));
             }
-            if (!TextUtils.isEmpty(this.f27072d) && !TextUtils.isEmpty(this.f27073e) && !TextUtils.isEmpty(this.f27074f) && !TextUtils.isEmpty(this.f27075g)) {
-                if (!f27069a && arrayList == null) {
+            if (!TextUtils.isEmpty(this.f27230d) && !TextUtils.isEmpty(this.f27231e) && !TextUtils.isEmpty(this.f27232f) && !TextUtils.isEmpty(this.f27233g)) {
+                if (!f27227a && arrayList == null) {
                     throw new AssertionError();
                 }
-                arrayList.add(new RestNameValuePair("activity_id", this.f27072d));
-                arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f27073e));
-                arrayList.add(new RestNameValuePair("coupon_num", this.f27074f));
-                arrayList.add(new RestNameValuePair("coupon_expire_time", this.f27075g));
+                arrayList.add(new RestNameValuePair("activity_id", this.f27230d));
+                arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f27231e));
+                arrayList.add(new RestNameValuePair("coupon_num", this.f27232f));
+                arrayList.add(new RestNameValuePair("coupon_expire_time", this.f27233g));
             }
             return arrayList;
         }

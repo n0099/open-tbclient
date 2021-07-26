@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f72892a;
+    public String f73346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72893b;
+    public String f73347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f72894c;
+    public String f73348c;
 
     public d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -34,16 +34,16 @@ public class d {
                 return;
             }
         }
-        this.f72892a = str;
-        this.f72893b = str2;
-        this.f72894c = str3;
+        this.f73346a = str;
+        this.f73347b = str2;
+        this.f73348c = str3;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TopUiParams{title='" + this.f72892a + "', rightTitle='" + this.f72893b + "', rightUrl='" + this.f72894c + "'}";
+            return "TopUiParams{title='" + this.f73346a + "', rightTitle='" + this.f73347b + "', rightUrl='" + this.f73348c + "'}";
         }
         return (String) invokeV.objValue;
     }

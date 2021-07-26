@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes4.dex */
 public class PbLandscapeListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class PbLandscapeListView extends BdTypeListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbLandscapeListView f19384e;
+        public final /* synthetic */ PbLandscapeListView f19474e;
 
         public a(PbLandscapeListView pbLandscapeListView) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f19384e = pbLandscapeListView;
+            this.f19474e = pbLandscapeListView;
         }
 
         @Override // android.os.Handler.Callback
@@ -69,8 +69,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     if (message.what != 0) {
                         return false;
                     }
-                    if (this.f19384e.S != null) {
-                        this.f19384e.S.a(dVar.f19385a, dVar.f19386b, dVar.f19387c, dVar.f19389e, dVar.f19388d, dVar.f19390f);
+                    if (this.f19474e.S != null) {
+                        this.f19474e.S.a(dVar.f19475a, dVar.f19476b, dVar.f19477c, dVar.f19479e, dVar.f19478d, dVar.f19480f);
                         return true;
                     }
                     return true;
@@ -97,22 +97,22 @@ public class PbLandscapeListView extends BdTypeListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19385a;
+        public int f19475a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19386b;
+        public int f19476b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f19387c;
+        public float f19477c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f19388d;
+        public float f19478d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f19389e;
+        public float f19479e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f19390f;
+        public float f19480f;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -172,12 +172,12 @@ public class PbLandscapeListView extends BdTypeListView {
             Message message = new Message();
             message.what = 0;
             d dVar = new d();
-            dVar.f19385a = i2;
-            dVar.f19386b = i3;
-            dVar.f19387c = f2;
-            dVar.f19388d = f3;
-            dVar.f19389e = f4;
-            dVar.f19390f = f5;
+            dVar.f19475a = i2;
+            dVar.f19476b = i3;
+            dVar.f19477c = f2;
+            dVar.f19478d = f3;
+            dVar.f19479e = f4;
+            dVar.f19480f = f5;
             message.obj = dVar;
             this.U.sendMessageDelayed(message, 60L);
         }

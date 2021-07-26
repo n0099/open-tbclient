@@ -14,11 +14,11 @@ public class ProxyConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ProxyConfig f23261b;
+    public static final ProxyConfig f23419b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LibType f23262a;
+    public LibType f23420a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -93,7 +93,7 @@ public class ProxyConfig {
                 return;
             }
         }
-        f23261b = new ProxyConfig();
+        f23419b = new ProxyConfig();
     }
 
     public ProxyConfig() {
@@ -109,25 +109,25 @@ public class ProxyConfig {
                 return;
             }
         }
-        this.f23262a = LibType.TURBONET;
+        this.f23420a = LibType.TURBONET;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23262a == LibType.NATIVE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23420a == LibType.NATIVE : invokeV.booleanValue;
     }
 
     public void b(LibType libType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, libType) == null) {
-            this.f23262a = libType;
+            this.f23420a = libType;
         }
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23262a == LibType.NATIVE ? Constant.TYPE_NATIVE : "TURBONET" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23420a == LibType.NATIVE ? Constant.TYPE_NATIVE : "TURBONET" : (String) invokeV.objValue;
     }
 }

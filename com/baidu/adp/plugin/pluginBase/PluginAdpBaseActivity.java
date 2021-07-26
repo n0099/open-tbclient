@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.b;
-import d.a.c.a.g;
-import d.a.c.a.i;
-import d.a.c.e.l.d;
-import d.a.c.e.p.l;
-import d.a.c.k.e.q;
+import d.a.d.a.b;
+import d.a.d.a.g;
+import d.a.d.a.i;
+import d.a.d.e.l.d;
+import d.a.d.e.p.l;
+import d.a.d.k.e.q;
 /* loaded from: classes.dex */
 public abstract class PluginAdpBaseActivity extends PluginBaseActivity implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i, Handler.Callback, g {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,7 +42,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseActivity f2255e;
+        public final /* synthetic */ PluginAdpBaseActivity f2281e;
 
         public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
                     return;
                 }
             }
-            this.f2255e = pluginAdpBaseActivity;
+            this.f2281e = pluginAdpBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseActivity pluginAdpBaseActivity = this.f2255e;
+                PluginAdpBaseActivity pluginAdpBaseActivity = this.f2281e;
                 pluginAdpBaseActivity.onPreLoad(pluginAdpBaseActivity.onGetPreLoadListView());
             }
         }
@@ -96,8 +96,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         if (!(interceptable == null || interceptable.invokeL(65537, this, view) == null) || view == null) {
             return;
         }
-        if (view instanceof d.a.c.f.a.i) {
-            ((d.a.c.f.a.i) view).refresh();
+        if (view instanceof d.a.d.f.a.i) {
+            ((d.a.d.f.a.i) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -108,7 +108,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
     public boolean isScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -215,7 +215,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
     public void onPreLoad(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, qVar) == null) {
@@ -256,7 +256,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    public void registerListener(d.a.c.c.g.a aVar) {
+    public void registerListener(d.a.d.c.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) {
             if (aVar != null && aVar.getTag() == null) {
@@ -308,7 +308,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
     public void setIsScroll(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
@@ -323,7 +323,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    public void registerListener(int i2, d.a.c.c.g.a aVar) {
+    public void registerListener(int i2, d.a.d.c.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048593, this, i2, aVar) == null) {
             if (aVar != null && aVar.getTag() == null) {

@@ -33,15 +33,15 @@ public class h implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             String str = null;
-            if (!((m.f32781b == null || m.f32780a == null) ? false : true)) {
+            if (!((m.f32970b == null || m.f32969a == null) ? false : true)) {
                 if (FunOpenIDSdk.isLogEnabled()) {
                     Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
                 }
                 ((e.a) aVar).a(false, null);
                 return;
             }
-            Method method = m.f32782c;
-            Object obj = m.f32780a;
+            Method method = m.f32971c;
+            Object obj = m.f32969a;
             if (obj != null && method != null) {
                 try {
                     Object invoke = method.invoke(obj, context);

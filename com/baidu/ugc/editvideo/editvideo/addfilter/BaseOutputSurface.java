@@ -23,7 +23,7 @@ import com.baidu.ugc.editvideo.faceunity.gles.OffscreenSurface;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.faceunity.gles.WindowSurface;
 import com.faceunity.gles.GeneratedTexture;
-import d.a.v0.t.c;
+import d.a.w0.t.c;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

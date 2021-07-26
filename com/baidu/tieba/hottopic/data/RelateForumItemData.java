@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.n;
+import d.a.d.k.e.n;
 import java.io.Serializable;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes4.dex */
@@ -66,7 +66,7 @@ public class RelateForumItemData implements Serializable, n {
         this.isLiked = false;
     }
 
-    @Override // d.a.c.k.e.n
+    @Override // d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

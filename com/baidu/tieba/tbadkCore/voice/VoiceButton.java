@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.j;
-import d.a.c.e.q.f;
-import d.a.p0.h3.p0.a;
+import d.a.d.a.j;
+import d.a.d.e.q.f;
+import d.a.q0.h3.p0.a;
 /* loaded from: classes4.dex */
 public class VoiceButton extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f21230e;
+    public f f21348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21231f;
+    public boolean f21349f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoiceButton(Context context, AttributeSet attributeSet) {
@@ -45,7 +45,7 @@ public class VoiceButton extends ImageView {
                 return;
             }
         }
-        this.f21231f = false;
+        this.f21349f = false;
     }
 
     public a getRecorderManager() {
@@ -70,7 +70,7 @@ public class VoiceButton extends ImageView {
             if (context instanceof VoiceManager.j) {
                 return ((VoiceManager.j) context).getVoiceManager();
             }
-            if ((j.a(getContext()) instanceof d.a.c.a.f) && (tbPageContext = (TbPageContext) j.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
+            if ((j.a(getContext()) instanceof d.a.d.a.f) && (tbPageContext = (TbPageContext) j.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
                 return ((VoiceManager.j) tbPageContext.getOrignalPage()).getVoiceManager();
             }
             return null;
@@ -88,14 +88,14 @@ public class VoiceButton extends ImageView {
                 if (recorderManager == null || !recorderManager.f()) {
                     return false;
                 }
-                this.f21231f = recorderManager.b(this.f21230e, -1);
+                this.f21349f = recorderManager.b(this.f21348e, -1);
                 setPressed(true);
             } else if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
                 if (!isPressed()) {
                     setPressed(true);
                 }
             } else {
-                if (this.f21231f && recorderManager != null) {
+                if (this.f21349f && recorderManager != null) {
                     recorderManager.stopRecord();
                 }
                 setPressed(false);
@@ -108,7 +108,7 @@ public class VoiceButton extends ImageView {
     public void setRecorderView(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f21230e = fVar;
+            this.f21348e = fVar;
             a recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.e(fVar);

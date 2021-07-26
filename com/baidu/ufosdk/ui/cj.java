@@ -16,7 +16,7 @@ public final class cj implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ci f23508a;
+    public final /* synthetic */ ci f23666a;
 
     public cj(ci ciVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class cj implements Runnable {
                 return;
             }
         }
-        this.f23508a = ciVar;
+        this.f23666a = ciVar;
     }
 
     @Override // java.lang.Runnable
@@ -42,26 +42,26 @@ public final class cj implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ci ciVar = this.f23508a;
-            if (((Map) ciVar.f23507b.f23503a.f23407h.get(ciVar.f23506a)).containsKey("chatId")) {
-                FeedbackInputActivity feedbackInputActivity = this.f23508a.f23507b.f23503a;
+            ci ciVar = this.f23666a;
+            if (((Map) ciVar.f23665b.f23661a.f23565h.get(ciVar.f23664a)).containsKey("chatId")) {
+                FeedbackInputActivity feedbackInputActivity = this.f23666a.f23665b.f23661a;
                 StringBuilder sb = new StringBuilder();
-                ci ciVar2 = this.f23508a;
-                sb.append(((Map) ciVar2.f23507b.f23503a.f23407h.get(ciVar2.f23506a)).get("chatId"));
-                feedbackInputActivity.f23405f = sb.toString();
+                ci ciVar2 = this.f23666a;
+                sb.append(((Map) ciVar2.f23665b.f23661a.f23565h.get(ciVar2.f23664a)).get("chatId"));
+                feedbackInputActivity.f23563f = sb.toString();
             }
-            com.baidu.ufosdk.e.a.a(this.f23508a.f23507b.f23503a.f23405f, 11);
+            com.baidu.ufosdk.e.a.a(this.f23666a.f23665b.f23661a.f23563f, 11);
             try {
                 HashMap hashMap = new HashMap();
                 hashMap.put("appid", UfoSDK.appid);
-                hashMap.put("id", this.f23508a.f23507b.f23503a.f23404e);
+                hashMap.put("id", this.f23666a.f23665b.f23661a.f23562e);
                 String a2 = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(hashMap));
                 String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getEvaluationToast", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
-                handler = this.f23508a.f23507b.f23503a.aK;
+                handler = this.f23666a.f23665b.f23661a.aK;
                 handler.obtainMessage(7, a3).sendToTarget();
-                context = this.f23508a.f23507b.f23504b;
+                context = this.f23666a.f23665b.f23662b;
                 String str = UfoSDK.clientid;
-                com.baidu.ufosdk.e.a.a(context, this.f23508a.f23507b.f23503a.f23404e, UfoSDK.appid);
+                com.baidu.ufosdk.e.a.a(context, this.f23666a.f23665b.f23661a.f23562e, UfoSDK.appid);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

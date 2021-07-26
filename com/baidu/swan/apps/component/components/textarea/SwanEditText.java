@@ -14,7 +14,7 @@ public class SwanEditText extends AppCompatEditText {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f10905e;
+    public a f10931e;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -47,7 +47,7 @@ public class SwanEditText extends AppCompatEditText {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             super.onSelectionChanged(i2, i3);
-            a aVar = this.f10905e;
+            a aVar = this.f10931e;
             if (aVar != null) {
                 aVar.a(i2, i3);
             }
@@ -57,7 +57,7 @@ public class SwanEditText extends AppCompatEditText {
     public void setSelectListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f10905e = aVar;
+            this.f10931e = aVar;
         }
     }
 

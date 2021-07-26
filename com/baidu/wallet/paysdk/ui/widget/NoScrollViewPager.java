@@ -17,7 +17,7 @@ public class NoScrollViewPager extends ViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f26898a;
+    public boolean f27056a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoScrollViewPager(Context context) {
@@ -37,14 +37,14 @@ public class NoScrollViewPager extends ViewPager {
                 return;
             }
         }
-        this.f26898a = true;
+        this.f27056a = true;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? this.f26898a && super.onInterceptTouchEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? this.f27056a && super.onInterceptTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
@@ -52,7 +52,7 @@ public class NoScrollViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f26898a && super.onTouchEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f27056a && super.onTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.View
@@ -66,7 +66,7 @@ public class NoScrollViewPager extends ViewPager {
     public void setScanScroll(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f26898a = z;
+            this.f27056a = z;
         }
     }
 
@@ -89,6 +89,6 @@ public class NoScrollViewPager extends ViewPager {
                 return;
             }
         }
-        this.f26898a = true;
+        this.f27056a = true;
     }
 }

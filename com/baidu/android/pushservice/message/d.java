@@ -17,10 +17,10 @@ public abstract class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3549a;
+    public Context f3575a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedList<e> f3550b;
+    public LinkedList<e> f3576b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public abstract class d {
                 return;
             }
         }
-        this.f3550b = new LinkedList<>();
-        this.f3549a = context;
+        this.f3576b = new LinkedList<>();
+        this.f3575a = context;
     }
 
     public abstract e a(byte[] bArr) throws IOException;
@@ -46,7 +46,7 @@ public abstract class d {
     public LinkedList<e> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3550b : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3576b : (LinkedList) invokeV.objValue;
     }
 
     public abstract void a(int i2, String str, byte[] bArr);
@@ -54,12 +54,12 @@ public abstract class d {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            synchronized (this.f3550b) {
+            synchronized (this.f3576b) {
                 try {
-                    this.f3550b.add(eVar);
-                    this.f3550b.notifyAll();
+                    this.f3576b.add(eVar);
+                    this.f3576b.notifyAll();
                 } catch (Exception e2) {
-                    new b.c(this.f3549a).a(Log.getStackTraceString(e2)).a();
+                    new b.c(this.f3575a).a(Log.getStackTraceString(e2)).a();
                 }
             }
         }

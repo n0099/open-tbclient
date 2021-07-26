@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.c.e.c.a;
+import d.a.d.c.e.c.a;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgReqIdl;
 import protobuf.CommitReceivedPmsg.DataReq;
 /* loaded from: classes4.dex */
@@ -47,7 +47,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.groupId = d.a.p0.i1.s.a.f58618i;
+                builder.groupId = d.a.q0.i1.s.a.f59232i;
                 builder.msgType = 22;
                 builder.msgId = Long.valueOf(this.hasSentMsgId);
                 builder.toUid = Long.valueOf(this.toUid);
@@ -62,7 +62,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
         return invokeV.objValue;
     }
 
-    @Override // d.a.c.c.e.c.a
+    @Override // d.a.d.c.e.c.a
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

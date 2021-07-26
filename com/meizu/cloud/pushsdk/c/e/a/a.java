@@ -26,9 +26,9 @@ public class a extends c {
     }
 
     public void c() {
-        if (o == null && this.f37448i) {
+        if (o == null && this.f37637i) {
             com.meizu.cloud.pushsdk.c.f.c.b(n, "Session checking has been resumed.", new Object[0]);
-            final com.meizu.cloud.pushsdk.c.e.a aVar = this.f37443d;
+            final com.meizu.cloud.pushsdk.c.e.a aVar = this.f37632d;
             ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
             o = newSingleThreadScheduledExecutor;
             Runnable runnable = new Runnable() { // from class: com.meizu.cloud.pushsdk.c.e.a.a.1

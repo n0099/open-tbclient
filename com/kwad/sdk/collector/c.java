@@ -32,10 +32,10 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f34019a;
+                public final /* synthetic */ Context f34208a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f34020b;
+                public final /* synthetic */ a f34209b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -52,15 +52,15 @@ public class c {
                             return;
                         }
                     }
-                    this.f34019a = context;
-                    this.f34020b = aVar;
+                    this.f34208a = context;
+                    this.f34209b = aVar;
                 }
 
                 @Override // com.kwad.sdk.collector.d.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        c.b(this.f34019a, this.f34020b);
+                        c.b(this.f34208a, this.f34209b);
                     }
                 }
 
@@ -85,7 +85,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f34021a;
+                public final /* synthetic */ Context f34210a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -102,7 +102,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f34021a = context;
+                    this.f34210a = context;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -122,14 +122,14 @@ public class c {
                 public com.kwad.sdk.collector.b.a b() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new com.kwad.sdk.collector.b.a(com.kwad.sdk.utils.f.b(this.f34021a)) : (com.kwad.sdk.collector.b.a) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new com.kwad.sdk.collector.b.a(com.kwad.sdk.utils.f.b(this.f34210a)) : (com.kwad.sdk.collector.b.a) invokeV.objValue;
                 }
             }.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.collector.b.a, AppStatusRules>(aVar) { // from class: com.kwad.sdk.collector.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f34022a;
+                public final /* synthetic */ a f34211a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -146,7 +146,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f34022a = aVar;
+                    this.f34211a = aVar;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -164,7 +164,7 @@ public class c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar2, i2, str) == null) {
                         super.a((AnonymousClass3) aVar2, i2, str);
-                        a aVar3 = this.f34022a;
+                        a aVar3 = this.f34211a;
                         if (aVar3 != null) {
                             aVar3.a(i2, str);
                         }
@@ -176,7 +176,7 @@ public class c {
                 public void a(@NonNull com.kwad.sdk.collector.b.a aVar2, @NonNull AppStatusRules appStatusRules) {
                     a aVar3;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar2, appStatusRules) == null) || (aVar3 = this.f34022a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar2, appStatusRules) == null) || (aVar3 = this.f34211a) == null) {
                         return;
                     }
                     aVar3.a(appStatusRules);

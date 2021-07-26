@@ -23,19 +23,19 @@ public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4040a = "CheckUtils";
+    public static final String f4066a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f4041b = 3;
+    public static final int f4067b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f4042c = 12;
+    public static final int f4068c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f4043d = 4;
+    public static final int f4069d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f4044e;
+    public static long f4070e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -274,13 +274,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - f4044e;
+            long j = currentTimeMillis - f4070e;
             LogUtil.logd("timeD=" + j);
             if (0 < j && j < 800) {
                 LogUtil.logd("点的太快了 timeD=" + j);
                 return true;
             }
-            f4044e = currentTimeMillis;
+            f4070e = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

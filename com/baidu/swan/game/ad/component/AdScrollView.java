@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.f.i.c;
+import d.a.o0.f.i.c;
 /* loaded from: classes3.dex */
 public class AdScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11755e;
+    public int f11781e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdScrollView(Context context) {
@@ -37,7 +37,7 @@ public class AdScrollView extends ScrollView {
                 return;
             }
         }
-        this.f11755e = -1;
+        this.f11781e = -1;
     }
 
     private int getLimitHeight() {
@@ -68,7 +68,7 @@ public class AdScrollView extends ScrollView {
             super.onMeasure(i2, i3);
             int size = View.MeasureSpec.getSize(i3);
             int size2 = View.MeasureSpec.getSize(i2);
-            int i4 = this.f11755e;
+            int i4 = this.f11781e;
             if (i4 > 0) {
                 size = Math.min(size, i4);
             }
@@ -91,7 +91,7 @@ public class AdScrollView extends ScrollView {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f11755e = i2;
+            this.f11781e = i2;
         }
     }
 
@@ -114,7 +114,7 @@ public class AdScrollView extends ScrollView {
                 return;
             }
         }
-        this.f11755e = -1;
+        this.f11781e = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,6 +136,6 @@ public class AdScrollView extends ScrollView {
                 return;
             }
         }
-        this.f11755e = -1;
+        this.f11781e = -1;
     }
 }

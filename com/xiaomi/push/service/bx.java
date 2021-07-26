@@ -12,7 +12,7 @@ public class bx implements av.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f40661a;
+    public final /* synthetic */ XMPushService f40933a;
 
     public bx(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -29,16 +29,16 @@ public class bx implements av.a {
                 return;
             }
         }
-        this.f40661a = xMPushService;
+        this.f40933a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.av.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40661a.e();
+            this.f40933a.e();
             if (av.a().m599a() <= 0) {
-                XMPushService xMPushService = this.f40661a;
+                XMPushService xMPushService = this.f40933a;
                 xMPushService.a(new XMPushService.f(xMPushService, 12, null));
             }
         }

@@ -11,7 +11,7 @@ public final class c extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f33558a;
+    public final int f33747a;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class c extends Exception {
                 return;
             }
         }
-        this.f33558a = 1;
+        this.f33747a = 1;
     }
 
     @Override // java.lang.Throwable
@@ -36,7 +36,7 @@ public final class c extends Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f33558a;
+            int i2 = this.f33747a;
             String str = i2 != 1 ? i2 != 2 ? "Unknown error" : "Package obsolete" : "Package not available";
             StringBuilder sb = new StringBuilder(str.length() + 17);
             sb.append("LoaderException{");

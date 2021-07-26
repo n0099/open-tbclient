@@ -13,10 +13,10 @@ public class x extends s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35827h;
+    public String f36016h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35828i;
+    public int f36017i;
     public int[] j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,7 +52,7 @@ public class x extends s {
             int i7 = 0;
             int i8 = 0;
             while (true) {
-                byte[] bArr = dVar.f35792d;
+                byte[] bArr = dVar.f35981d;
                 if (i8 >= bArr.length) {
                     i8 = -1;
                     break;
@@ -63,41 +63,41 @@ public class x extends s {
                 }
             }
             if (i8 > 0) {
-                byte[] bArr2 = dVar.f35792d;
+                byte[] bArr2 = dVar.f35981d;
                 if (i8 <= bArr2.length - 2) {
-                    this.f35827h = b.a(bArr2, 0, i8);
-                    int a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, i8 + 1);
-                    this.f35828i = a2;
+                    this.f36016h = b.a(bArr2, 0, i8);
+                    int a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f35981d, i8 + 1);
+                    this.f36017i = a2;
                     int i9 = i8 + 2;
-                    int length = (dVar.f35792d.length - i9) / (a2 == 8 ? 6 : 10);
+                    int length = (dVar.f35981d.length - i9) / (a2 == 8 ? 6 : 10);
                     this.j = new int[length * 5];
                     int i10 = i9;
                     int i11 = 0;
                     while (i7 < length) {
-                        if (this.f35828i == 8) {
+                        if (this.f36017i == 8) {
                             int i12 = i10 + 1;
-                            i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, i10);
+                            i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f35981d, i10);
                             int i13 = i12 + 1;
-                            i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, i12);
+                            i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f35981d, i12);
                             int i14 = i13 + 1;
-                            i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, i13);
+                            i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f35981d, i13);
                             i2 = i14 + 1;
-                            i6 = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, i14);
+                            i6 = com.kwad.sdk.pngencrypt.n.a(dVar.f35981d, i14);
                         } else {
-                            int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, i10);
+                            int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, i10);
                             int i15 = i10 + 2;
-                            int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, i15);
+                            int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, i15);
                             int i16 = i15 + 2;
-                            int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, i16);
+                            int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, i16);
                             int i17 = i16 + 2;
-                            int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, i17);
+                            int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, i17);
                             i2 = i17 + 2;
                             i3 = b2;
                             i4 = b3;
                             i5 = b4;
                             i6 = b5;
                         }
-                        int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, i2);
+                        int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, i2);
                         int[] iArr = this.j;
                         int i18 = i11 + 1;
                         iArr[i11] = i3;
@@ -122,6 +122,6 @@ public class x extends s {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35827h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36016h : (String) invokeV.objValue;
     }
 }

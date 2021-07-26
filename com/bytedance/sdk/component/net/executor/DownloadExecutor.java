@@ -149,9 +149,7 @@ public class DownloadExecutor extends NetExecutor {
             }
             try {
                 aVar.a(this.url);
-                for (Map.Entry<String, String> entry : this.requestHeadsMap.entrySet()) {
-                    aVar.b(entry.getKey(), entry.getValue());
-                }
+                traverseHeadMapToRequestBuilder(aVar);
                 this.okHttpClient.a(aVar.a().d()).a(new f(this, netCallback, j) { // from class: com.bytedance.sdk.component.net.executor.DownloadExecutor.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -486,31 +484,31 @@ public class DownloadExecutor extends NetExecutor {
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(13:34|(3:36|(2:39|37)|40)|41|(1:43)|44|(2:46|(4:48|(2:50|51)|52|(4:64|65|66|(12:68|69|70|71|72|(3:155|156|(1:158))|74|(12:75|76|(7:78|79|80|(1:85)|105|106|92)(1:110)|93|94|95|96|(1:98)|(1:100)|(1:102)|103|104)|111|(1:113)|114|(9:137|138|139|(1:141)(1:150)|142|(1:144)|(1:146)|147|148)(2:120|(5:122|(1:124)|(1:126)|127|128)(5:130|(1:132)|(1:134)|135|136)))(22:165|166|69|70|71|72|(0)|74|(13:75|76|(0)(0)|93|94|95|96|(0)|(0)|(0)|103|104|92)|111|(0)|114|(1:116)|137|138|139|(0)(0)|142|(0)|(0)|147|148))(2:58|(2:60|61)(2:62|63))))|170|52|(1:54)|64|65|66|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x01d8, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(13:29|(3:31|(2:34|32)|35)|36|(1:38)|39|(2:41|(4:43|(2:45|46)|47|(4:59|60|61|(12:63|64|65|66|67|(3:150|151|(1:153))|69|(12:70|71|(7:73|74|75|(1:80)|100|101|87)(1:105)|88|89|90|91|(1:93)|(1:95)|(1:97)|98|99)|106|(1:108)|109|(9:132|133|134|(1:136)(1:145)|137|(1:139)|(1:141)|142|143)(2:115|(5:117|(1:119)|(1:121)|122|123)(5:125|(1:127)|(1:129)|130|131)))(22:160|161|64|65|66|67|(0)|69|(13:70|71|(0)(0)|88|89|90|91|(0)|(0)|(0)|98|99|87)|106|(0)|109|(1:111)|132|133|134|(0)(0)|137|(0)|(0)|142|143))(2:53|(2:55|56)(2:57|58))))|165|47|(1:49)|59|60|61|(0)(0)) */
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x01b5, code lost:
         r2 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x0222, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x01ff, code lost:
         r2.seek(r3);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:89:0x0228, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x0205, code lost:
         r2.write(r0, 0, r7);
         r3 = r3 + r7;
         r7 = 0;
      */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x02d0  */
-    /* JADX WARN: Removed duplicated region for block: B:139:0x02d2  */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x02e1 A[Catch: all -> 0x02e5, TRY_ENTER, TRY_LEAVE, TryCatch #15 {IOException -> 0x0367, blocks: (B:28:0x00b7, B:30:0x00c3, B:32:0x00c9, B:35:0x00d5, B:37:0x00db, B:38:0x00ea, B:40:0x0116, B:41:0x011a, B:43:0x0128, B:45:0x0137, B:47:0x015d, B:52:0x0197, B:54:0x019f, B:56:0x01a9, B:58:0x01b3, B:60:0x01b9, B:142:0x02e1, B:127:0x02a3, B:146:0x02ea, B:166:0x032a, B:130:0x02ac, B:170:0x0333, B:149:0x02f3, B:110:0x0274, B:114:0x027d, B:173:0x033c, B:162:0x031b, B:164:0x0325, B:117:0x0288, B:123:0x029a), top: B:214:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:146:0x02ea A[Catch: all -> 0x02ee, TRY_ENTER, TRY_LEAVE, TryCatch #15 {IOException -> 0x0367, blocks: (B:28:0x00b7, B:30:0x00c3, B:32:0x00c9, B:35:0x00d5, B:37:0x00db, B:38:0x00ea, B:40:0x0116, B:41:0x011a, B:43:0x0128, B:45:0x0137, B:47:0x015d, B:52:0x0197, B:54:0x019f, B:56:0x01a9, B:58:0x01b3, B:60:0x01b9, B:142:0x02e1, B:127:0x02a3, B:146:0x02ea, B:166:0x032a, B:130:0x02ac, B:170:0x0333, B:149:0x02f3, B:110:0x0274, B:114:0x027d, B:173:0x033c, B:162:0x031b, B:164:0x0325, B:117:0x0288, B:123:0x029a), top: B:214:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:164:0x0325 A[Catch: all -> 0x0348, TRY_LEAVE, TryCatch #15 {IOException -> 0x0367, blocks: (B:28:0x00b7, B:30:0x00c3, B:32:0x00c9, B:35:0x00d5, B:37:0x00db, B:38:0x00ea, B:40:0x0116, B:41:0x011a, B:43:0x0128, B:45:0x0137, B:47:0x015d, B:52:0x0197, B:54:0x019f, B:56:0x01a9, B:58:0x01b3, B:60:0x01b9, B:142:0x02e1, B:127:0x02a3, B:146:0x02ea, B:166:0x032a, B:130:0x02ac, B:170:0x0333, B:149:0x02f3, B:110:0x0274, B:114:0x027d, B:173:0x033c, B:162:0x031b, B:164:0x0325, B:117:0x0288, B:123:0x029a), top: B:214:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:166:0x032a A[Catch: all -> 0x032e, TRY_ENTER, TRY_LEAVE, TryCatch #15 {IOException -> 0x0367, blocks: (B:28:0x00b7, B:30:0x00c3, B:32:0x00c9, B:35:0x00d5, B:37:0x00db, B:38:0x00ea, B:40:0x0116, B:41:0x011a, B:43:0x0128, B:45:0x0137, B:47:0x015d, B:52:0x0197, B:54:0x019f, B:56:0x01a9, B:58:0x01b3, B:60:0x01b9, B:142:0x02e1, B:127:0x02a3, B:146:0x02ea, B:166:0x032a, B:130:0x02ac, B:170:0x0333, B:149:0x02f3, B:110:0x0274, B:114:0x027d, B:173:0x033c, B:162:0x031b, B:164:0x0325, B:117:0x0288, B:123:0x029a), top: B:214:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:170:0x0333 A[Catch: all -> 0x0337, TRY_ENTER, TRY_LEAVE, TryCatch #15 {IOException -> 0x0367, blocks: (B:28:0x00b7, B:30:0x00c3, B:32:0x00c9, B:35:0x00d5, B:37:0x00db, B:38:0x00ea, B:40:0x0116, B:41:0x011a, B:43:0x0128, B:45:0x0137, B:47:0x015d, B:52:0x0197, B:54:0x019f, B:56:0x01a9, B:58:0x01b3, B:60:0x01b9, B:142:0x02e1, B:127:0x02a3, B:146:0x02ea, B:166:0x032a, B:130:0x02ac, B:170:0x0333, B:149:0x02f3, B:110:0x0274, B:114:0x027d, B:173:0x033c, B:162:0x031b, B:164:0x0325, B:117:0x0288, B:123:0x029a), top: B:214:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:206:0x01e8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:224:0x023f A[EDGE_INSN: B:224:0x023f->B:95:0x023f ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x01cb A[Catch: all -> 0x01d5, TRY_ENTER, TryCatch #13 {all -> 0x01d5, blocks: (B:65:0x01cb, B:66:0x01d0), top: B:217:0x01c9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x01d0 A[Catch: all -> 0x01d5, TRY_LEAVE, TryCatch #13 {all -> 0x01d5, blocks: (B:65:0x01cb, B:66:0x01d0), top: B:217:0x01c9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x0208  */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x0242 A[Catch: all -> 0x0249, TryCatch #17 {all -> 0x0249, blocks: (B:89:0x0228, B:97:0x0242, B:102:0x0251, B:104:0x0259, B:106:0x0263, B:108:0x026d), top: B:210:0x0228 }] */
+    /* JADX WARN: Removed duplicated region for block: B:134:0x02ad  */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x02af  */
+    /* JADX WARN: Removed duplicated region for block: B:138:0x02be A[Catch: all -> 0x02c2, TRY_ENTER, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
+    /* JADX WARN: Removed duplicated region for block: B:142:0x02c7 A[Catch: all -> 0x02cb, TRY_ENTER, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
+    /* JADX WARN: Removed duplicated region for block: B:160:0x0302 A[Catch: all -> 0x0325, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x0307 A[Catch: all -> 0x030b, TRY_ENTER, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
+    /* JADX WARN: Removed duplicated region for block: B:166:0x0310 A[Catch: all -> 0x0314, TRY_ENTER, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
+    /* JADX WARN: Removed duplicated region for block: B:210:0x01c5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:219:0x021c A[EDGE_INSN: B:219:0x021c->B:91:0x021c ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x01a8 A[Catch: all -> 0x01b2, TRY_ENTER, TryCatch #22 {all -> 0x01b2, blocks: (B:61:0x01a8, B:62:0x01ad), top: B:200:0x01a6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x01ad A[Catch: all -> 0x01b2, TRY_LEAVE, TryCatch #22 {all -> 0x01b2, blocks: (B:61:0x01a8, B:62:0x01ad), top: B:200:0x01a6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x01e5  */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x021f A[Catch: all -> 0x0226, TryCatch #13 {all -> 0x0226, blocks: (B:85:0x0205, B:93:0x021f, B:98:0x022e, B:100:0x0236, B:102:0x0240, B:104:0x024a), top: B:212:0x0205 }] */
     @Override // com.bytedance.sdk.component.net.executor.NetExecutor
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -555,9 +553,7 @@ public class DownloadExecutor extends NetExecutor {
         }
         try {
             aVar.a(this.url);
-            for (Map.Entry<String, String> entry : this.requestHeadsMap.entrySet()) {
-                aVar.b(entry.getKey(), entry.getValue());
-            }
+            traverseHeadMapToRequestBuilder(aVar);
             try {
                 ab b2 = this.okHttpClient.a(aVar.a().d()).b();
                 if (b2 == null || !b2.d()) {

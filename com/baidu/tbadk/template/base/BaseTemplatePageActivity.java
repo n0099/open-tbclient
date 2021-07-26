@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.x0.a;
+import d.a.p0.z0.a;
 /* loaded from: classes3.dex */
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;

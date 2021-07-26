@@ -21,10 +21,10 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27057a;
+    public String f27215a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27058b;
+    public String f27216b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QueryHceTransRecordsBean(Context context) {
@@ -44,8 +44,8 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
                 return;
             }
         }
-        this.f27057a = "";
-        this.f27058b = "";
+        this.f27215a = "";
+        this.f27216b = "";
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -62,11 +62,11 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f27057a)) {
-                arrayList.add(new RestNameValuePair(Config.PACKAGE_NAME, this.f27057a));
+            if (!TextUtils.isEmpty(this.f27215a)) {
+                arrayList.add(new RestNameValuePair(Config.PACKAGE_NAME, this.f27215a));
             }
-            if (!TextUtils.isEmpty(this.f27058b)) {
-                arrayList.add(new RestNameValuePair("type", this.f27058b));
+            if (!TextUtils.isEmpty(this.f27216b)) {
+                arrayList.add(new RestNameValuePair("type", this.f27216b));
             }
             return arrayList;
         }
@@ -106,14 +106,14 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public void setPageNum(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f27057a = str;
+            this.f27215a = str;
         }
     }
 
     public void setType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f27058b = str;
+            this.f27216b = str;
         }
     }
 }

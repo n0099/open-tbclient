@@ -14,16 +14,16 @@ public final class ChannelUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f4036a = false;
+    public static boolean f4062a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4037b = null;
+    public static String f4063b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4038c = "";
+    public static String f4064c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4039d;
+    public static String f4065d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,46 +58,46 @@ public final class ChannelUtils {
     public static String getHostPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4038c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4064c : (String) invokeV.objValue;
     }
 
     public static String getHostUA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f4039d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f4065d : (String) invokeV.objValue;
     }
 
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f4037b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f4063b : (String) invokeV.objValue;
     }
 
     public static void initBussinessParams(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, str, z) == null) {
-            f4037b = str;
-            f4036a = z;
+            f4063b = str;
+            f4062a = z;
         }
     }
 
     public static void initHostParams(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
-            f4039d = str;
+            f4065d = str;
         }
     }
 
     public static boolean isSpecailPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f4036a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f4062a : invokeV.booleanValue;
     }
 
     public static void setHostPackageName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f4038c = str;
+            f4064c = str;
         }
     }
 }

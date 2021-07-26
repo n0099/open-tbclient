@@ -5,8 +5,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i1.s.a;
-import d.a.p0.i1.s.c;
+import d.a.q0.i1.s.a;
+import d.a.q0.i1.s.c;
 /* loaded from: classes4.dex */
 public class PersonalMsgImageActivity extends AbsMsgImageActivity {
     public static /* synthetic */ Interceptable $ic;

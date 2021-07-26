@@ -24,24 +24,24 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import okhttp3.Dns;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements Dns {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpDnsService f72768a;
+    public HttpDnsService f73222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f72769b;
+    public volatile boolean f73223b;
 
     /* renamed from: i.a.a.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C2083a implements GslbEvent.GslbEventListener {
+    /* loaded from: classes9.dex */
+    public class C2082a implements GslbEvent.GslbEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2083a(a aVar) {
+        public C2082a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,12 +66,12 @@ public class a implements Dns {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f72770a;
+        public static final a f73224a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -87,30 +87,30 @@ public class a implements Dns {
                     return;
                 }
             }
-            f72770a = new a(null);
+            f73224a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C2083a c2083a) {
+    public /* synthetic */ a(C2082a c2082a) {
         this();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f72770a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f73224a : (a) invokeV.objValue;
     }
 
     public List<String> a(String str) throws UnknownHostException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f72768a == null) {
+            if (this.f73222a == null) {
                 RLog.error("YYPayHttpDns", "getIPListByHost error mHttpDnsService null", new Object[0]);
                 return null;
             }
             long uptimeMillis = SystemClock.uptimeMillis();
-            DnsResultInfo ipsByHost = this.f72768a.getIpsByHost(str);
+            DnsResultInfo ipsByHost = this.f73222a.getIpsByHost(str);
             if (ipsByHost != null) {
                 ArrayList arrayList = new ArrayList();
                 String[] strArr = ipsByHost.mIpsV6;
@@ -181,27 +181,27 @@ public class a implements Dns {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, context, str, str2) == null) {
             synchronized (this) {
-                if (!this.f72769b) {
+                if (!this.f73223b) {
                     RLog.warn("YYPayHttpDns", "tryInitHttpDns but not enable appId:" + str + " hdid:" + str2);
-                } else if (this.f72768a != null) {
+                } else if (this.f73222a != null) {
                     RLog.warn("YYPayHttpDns", "tryInitHttpDns but mHttpDnsService exit appId:" + str + " hdid:" + str2);
                 } else if (context == null) {
                     RLog.error("YYPayHttpDns", "tryInitHttpDns error context params null", new Object[0]);
                 } else {
                     long currentTimeMillis = System.currentTimeMillis();
                     HttpDnsService service = HttpDnsService.getService(context, str, (ThreadPoolMgr.ITaskExecutor) null, str2, "CN");
-                    this.f72768a = service;
+                    this.f73222a = service;
                     service.setLogEnabled(Env.instance().isTestEnv());
-                    this.f72768a.setGslbEventMessager(new C2083a(this));
-                    this.f72768a.setHttpsEnable(true);
-                    this.f72768a.setNetworkStatus(3);
+                    this.f73222a.setGslbEventMessager(new C2082a(this));
+                    this.f73222a.setHttpsEnable(true);
+                    this.f73222a.setNetworkStatus(3);
                     ArrayList<String> arrayList = new ArrayList<>();
                     arrayList.add(Env.instance().REVENUE_HTTP_URL);
                     if (!Env.instance().isTestEnv()) {
                         arrayList.addAll(Arrays.asList(Env.instance().BACKUP_DOMAIN_POOL));
                     }
                     RLog.info("YYPayHttpDns", "PreResolveHost hosts:" + arrayList.toString());
-                    this.f72768a.setPreResolveHosts(arrayList);
+                    this.f73222a.setPreResolveHosts(arrayList);
                     RLog.info("YYPayHttpDns", "dns init success cost time = " + (System.currentTimeMillis() - currentTimeMillis) + " appId:" + str + " hdid:" + str2);
                 }
             }
@@ -228,7 +228,7 @@ public class a implements Dns {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, str)) != null) {
             return (List) invokeL.objValue;
         }
-        if (this.f72769b && this.f72768a != null) {
+        if (this.f73223b && this.f73222a != null) {
             RLog.info("YYPayHttpDns", "httpdns lookup ");
             try {
                 list = d(a(str));
@@ -263,8 +263,8 @@ public class a implements Dns {
                 return;
             }
         }
-        this.f72768a = null;
-        this.f72769b = true;
+        this.f73222a = null;
+        this.f73223b = true;
         RLog.warn("YYPayHttpDns", "new OkHttpDns:" + toString());
     }
 }

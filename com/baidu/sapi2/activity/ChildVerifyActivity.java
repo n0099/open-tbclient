@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.b0.a.f;
+import d.a.c0.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -59,7 +59,7 @@ public class ChildVerifyActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ChildVerifyActivity f9758a;
+                public final /* synthetic */ ChildVerifyActivity f9784a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,7 +76,7 @@ public class ChildVerifyActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9758a = this;
+                    this.f9784a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
@@ -103,7 +103,7 @@ public class ChildVerifyActivity extends BaseActivity {
                             }
                             accountRealNameCallback.onFinish(accountRealNameResult);
                         }
-                        this.f9758a.finish();
+                        this.f9784a.finish();
                     }
                 }
             });

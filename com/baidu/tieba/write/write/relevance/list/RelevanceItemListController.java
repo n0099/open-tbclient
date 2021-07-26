@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.a4.u.m.a.a;
+import d.a.d.e.p.l;
+import d.a.q0.a4.u.m.a.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -36,19 +36,19 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final View f22897e;
+    public final View f23055e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final RelevanceItemListFragment f22898f;
+    public final RelevanceItemListFragment f23056f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.p0.a4.u.m.a.a f22899g;
+    public final d.a.q0.a4.u.m.a.a f23057g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdRecyclerView f22900h;
+    public BdRecyclerView f23058h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PbListView f22901i;
+    public PbListView f23059i;
     public List<ReleavanceItemListData.ItemListBean> j;
     public boolean k;
     public String l;
@@ -60,10 +60,10 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final View f22902a;
+        public final View f23060a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ItemCardView f22903b;
+        public ItemCardView f23061b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ListViewHolder(View view) {
@@ -84,11 +84,11 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
                 }
             }
             ItemCardView itemCardView = (ItemCardView) view.findViewById(R.id.item_rate_info);
-            this.f22903b = itemCardView;
+            this.f23061b = itemCardView;
             itemCardView.setBackGroundColor(R.color.transparent_1);
-            this.f22903b.setSizeStyle(1);
+            this.f23061b.setSizeStyle(1);
             View findViewById = view.findViewById(R.id.bottom_divider);
-            this.f22902a = findViewById;
+            this.f23060a = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0203);
         }
 
@@ -108,9 +108,9 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
                 e2.printStackTrace();
             }
             tbRichTextEvaluateItemInfo.setTags(itemListBean.getTags());
-            ItemCardView itemCardView = this.f22903b;
+            ItemCardView itemCardView = this.f23061b;
             itemCardView.setHighLightText(str + "");
-            this.f22903b.setData(tbRichTextEvaluateItemInfo, 10);
+            this.f23061b.setData(tbRichTextEvaluateItemInfo, 10, "");
         }
     }
 
@@ -120,7 +120,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelevanceItemListController f22904a;
+        public final /* synthetic */ RelevanceItemListController f23062a;
 
         public a(RelevanceItemListController relevanceItemListController) {
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
                     return;
                 }
             }
-            this.f22904a = relevanceItemListController;
+            this.f23062a = relevanceItemListController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -146,7 +146,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
         public void onBindViewHolder(ListViewHolder listViewHolder, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, listViewHolder, i2) == null) {
-                listViewHolder.a((ReleavanceItemListData.ItemListBean) this.f22904a.j.get(i2), this.f22904a.l);
+                listViewHolder.a((ReleavanceItemListData.ItemListBean) this.f23062a.j.get(i2), this.f23062a.l);
             }
         }
 
@@ -163,7 +163,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22904a.j.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23062a.j.size() : invokeV.intValue;
         }
     }
 
@@ -185,17 +185,17 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
         this.j = new ArrayList();
         this.k = true;
         this.m = new a(this);
-        this.f22897e = view;
-        this.f22898f = relevanceItemListFragment;
-        this.f22899g = new d.a.p0.a4.u.m.a.a(bdUniqueId, str);
+        this.f23055e = view;
+        this.f23056f = relevanceItemListFragment;
+        this.f23057g = new d.a.q0.a4.u.m.a.a(bdUniqueId, str);
         j();
     }
 
-    @Override // d.a.p0.a4.u.m.a.a.b
+    @Override // d.a.q0.a4.u.m.a.a.b
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f22898f.L0();
+            this.f23056f.Q0();
         }
     }
 
@@ -233,36 +233,36 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
             d4 = d2;
             i3 = 0;
             MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d3, d4, i3, itemListBean.getTags()));
-            this.f22898f.getActivity().finish();
+            this.f23056f.getActivity().finish();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d3, d4, i3, itemListBean.getTags()));
-        this.f22898f.getActivity().finish();
+        this.f23056f.getActivity().finish();
     }
 
-    @Override // d.a.p0.a4.u.m.a.a.b
+    @Override // d.a.q0.a4.u.m.a.a.b
     public void c(RelevanceItemSearchData relevanceItemSearchData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, relevanceItemSearchData) == null) {
-            this.f22898f.J0();
+            this.f23056f.O0();
             if (relevanceItemSearchData != null && !ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
                 this.j.addAll(relevanceItemSearchData.getData().getItem_list());
                 this.m.notifyDataSetChanged();
             }
-            if (this.f22900h.getVisibility() == 8) {
-                this.f22900h.setVisibility(0);
+            if (this.f23058h.getVisibility() == 8) {
+                this.f23058h.setVisibility(0);
             }
         }
     }
 
-    @Override // d.a.p0.a4.u.m.a.a.b
+    @Override // d.a.q0.a4.u.m.a.a.b
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.k = false;
-            this.f22900h.setNextPage(this.f22901i);
-            this.f22901i.A(this.f22898f.getResources().getString(R.string.list_no_more));
-            this.f22901i.f();
-            this.f22901i.J(l.g(this.f22900h.getContext(), R.dimen.tbds44));
+            this.f23058h.setNextPage(this.f23059i);
+            this.f23059i.A(this.f23056f.getResources().getString(R.string.list_no_more));
+            this.f23059i.f();
+            this.f23059i.J(l.g(this.f23058h.getContext(), R.dimen.tbds44));
         }
     }
 
@@ -273,70 +273,70 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
             this.k = true;
             this.l = str;
             this.m.notifyDataSetChanged();
-            this.f22899g.g(str);
+            this.f23057g.g(str);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f22899g.h();
+            this.f23057g.h();
         }
     }
 
     public BdRecyclerView i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22900h : (BdRecyclerView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23058h : (BdRecyclerView) invokeV.objValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) this.f22897e.findViewById(R.id.item_list);
-            this.f22900h = bdRecyclerView;
-            bdRecyclerView.setLayoutManager(new XLinearLayoutManager(this.f22897e.getContext()));
-            this.f22900h.setAdapter(this.m);
-            PbListView pbListView = new PbListView(this.f22897e.getContext());
-            this.f22901i = pbListView;
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) this.f23055e.findViewById(R.id.item_list);
+            this.f23058h = bdRecyclerView;
+            bdRecyclerView.setLayoutManager(new XLinearLayoutManager(this.f23055e.getContext()));
+            this.f23058h.setAdapter(this.m);
+            PbListView pbListView = new PbListView(this.f23055e.getContext());
+            this.f23059i = pbListView;
             pbListView.a();
-            this.f22901i.o(R.color.CAM_X0205);
-            this.f22901i.v();
-            this.f22901i.C(SkinManager.getColor(R.color.CAM_X0107));
-            this.f22901i.E(R.dimen.tbfontsize33);
-            this.f22901i.y(R.color.CAM_X0110);
-            this.f22900h.setNextPage(this.f22901i);
-            this.f22900h.setOnItemClickListener(this);
-            this.f22900h.setOnSrollToBottomListener(this);
-            this.f22899g.m(this);
+            this.f23059i.o(R.color.CAM_X0205);
+            this.f23059i.v();
+            this.f23059i.C(SkinManager.getColor(R.color.CAM_X0107));
+            this.f23059i.E(R.dimen.tbfontsize33);
+            this.f23059i.y(R.color.CAM_X0110);
+            this.f23058h.setNextPage(this.f23059i);
+            this.f23058h.setOnItemClickListener(this);
+            this.f23058h.setOnSrollToBottomListener(this);
+            this.f23057g.m(this);
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f22899g.j();
+            this.f23057g.j();
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f22901i.H();
-            this.f22901i.O();
-            this.f22901i.A(this.f22900h.getContext().getString(R.string.list_loading));
-            this.f22901i.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f23059i.H();
+            this.f23059i.O();
+            this.f23059i.A(this.f23058h.getContext().getString(R.string.list_loading));
+            this.f23059i.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
     }
 
-    @Override // d.a.p0.a4.u.m.a.a.b
+    @Override // d.a.q0.a4.u.m.a.a.b
     public void onError(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i2, str) == null) {
             this.j.clear();
             this.m.notifyDataSetChanged();
-            this.f22900h.setVisibility(8);
-            this.f22898f.K0(str);
+            this.f23058h.setVisibility(8);
+            this.f23056f.P0(str);
         }
     }
 
@@ -344,7 +344,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, a.b, BdLis
     public void onScrollToBottom() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.k) {
-            this.f22899g.h();
+            this.f23057g.h();
             l();
         }
     }

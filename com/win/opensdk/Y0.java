@@ -1,74 +1,38 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import com.win.opensdk.views.CircleProgressbar;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
 /* loaded from: classes6.dex */
 public class Y0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39520a;
+    public Context f39713a;
 
     /* renamed from: b  reason: collision with root package name */
-    public K0 f39521b;
+    public JSONStringer f39714b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f39522c;
+    public String f39715c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public View f39523d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List f39524e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public r f39525f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public E1 f39526g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f39527h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public L0 f39528i;
-    public boolean j;
-    public long k;
-    public float l;
-    public float m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public long v;
-    public int w;
-    public int x;
-    public long y;
-
-    public Y0(Context context, String str) {
+    public Y0(Z0 z0, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {z0, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -78,165 +42,244 @@ public class Y0 {
                 return;
             }
         }
-        this.f39524e = Collections.synchronizedList(new ArrayList());
-        this.f39527h = 0L;
-        this.f39528i = new S0(this);
-        this.j = false;
-        this.k = 0L;
-        this.f39520a = context;
-        K0 k0 = new K0(context, str, y.f39720e);
-        this.f39521b = k0;
-        k0.f39399g = this.f39528i;
-        this.f39526g = new E1(context);
+        this.f39714b = new JSONStringer();
+        this.f39715c = "";
+        this.f39713a = context;
     }
 
-    public static /* synthetic */ void a(Y0 y0, View view) {
-        if (y0.t <= 0 || y0.u <= 0) {
-            y0.u = view.getHeight();
-            y0.t = view.getWidth();
+    public Y0 a(int i2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            try {
+                this.f39714b = Z0.a();
+                a("e", "bce").a("timeis", Z0.b()).a("co", i2).a("dr", j);
+            } catch (JSONException unused) {
+            }
+            return this;
         }
+        return (Y0) invokeCommon.objValue;
     }
 
-    public final List a(View view) {
+    public Y0 a(a1 a1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (view instanceof ViewGroup) {
-                try {
-                    ViewGroup viewGroup = (ViewGroup) view;
-                    for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                        View childAt = viewGroup.getChildAt(i2);
-                        if (childAt != null) {
-                            arrayList.add(childAt);
-                            if (!(childAt instanceof PBMediaView)) {
-                                arrayList.addAll(a(childAt));
-                            }
-                        }
-                    }
-                } catch (Exception unused) {
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a1Var)) == null) {
+            try {
+                this.f39714b = Z0.a("ao", a1Var);
+            } catch (JSONException unused) {
             }
-            return arrayList;
+            return this;
         }
-        return (List) invokeL.objValue;
+        return (Y0) invokeL.objValue;
+    }
+
+    public Y0 a(a1 a1Var, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, a1Var, i2)) == null) {
+            try {
+                this.f39714b = Z0.a("wde", a1Var);
+                a("co", i2);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeLI.objValue;
+    }
+
+    public Y0 a(a1 a1Var, int i2, int i3) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, a1Var, i2, i3)) == null) {
+            try {
+                this.f39714b = Z0.a("asr", a1Var);
+                a("width", i2);
+                a("height", i3);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeLII.objValue;
+    }
+
+    public Y0 a(a1 a1Var, int i2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{a1Var, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            try {
+                this.f39714b = Z0.a("bpe", a1Var);
+                a("co", i2).a("dr", j);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeCommon.objValue;
+    }
+
+    public Y0 a(a1 a1Var, int i2, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, a1Var, i2, str)) == null) {
+            try {
+                this.f39714b = Z0.a("wbe", a1Var);
+                a("co", i2).a("msg", Z0.a(str));
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeLIL.objValue;
+    }
+
+    public Y0 a(a1 a1Var, long j, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{a1Var, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            try {
+                this.f39714b = Z0.a("be", a1Var);
+                a("dr", j).a("co", i2).a("num", i3);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeCommon.objValue;
+    }
+
+    public Y0 a(a1 a1Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, a1Var, str)) == null) {
+            try {
+                this.f39714b = Z0.a("ac", a1Var);
+                a("msg", Z0.a(str));
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeLL.objValue;
+    }
+
+    public Y0 a(a1 a1Var, String str, int i2) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, a1Var, str, i2)) == null) {
+            try {
+                this.f39714b = Z0.a("dplop", a1Var);
+                a("msg", Z0.a(str));
+                a("co", i2);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeLLI.objValue;
+    }
+
+    public Y0 a(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            try {
+                this.f39714b.key(str).value(j);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeLJ.objValue;
+    }
+
+    public Y0 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            try {
+                if (!TextUtils.isEmpty(str2)) {
+                    this.f39714b.key(str).value(str2);
+                }
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeLL.objValue;
+    }
+
+    public final boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (U1.m(this.f39713a) < 0) {
+                return false;
+            }
+            return N.a(Z0.f39719a, str) ? U1.m(this.f39713a) < 1 : N.a(Z0.f39720b, str) ? U1.m(this.f39713a) < 2 : N.a(Z0.f39721c, str) ? U1.m(this.f39713a) < 3 : N.a(Z0.f39722d, str) && U1.m(this.f39713a) < 4;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Y0 b(a1 a1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, a1Var)) == null) {
+            try {
+                this.f39714b = Z0.a("as", a1Var);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeL.objValue;
+    }
+
+    public Y0 b(a1 a1Var, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, a1Var, i2)) == null) {
+            try {
+                this.f39714b = Z0.a("wdin", a1Var);
+                a("co", i2);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (Y0) invokeLI.objValue;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            JSONArray jSONArray = new JSONArray();
             try {
-                c();
-                if (this.f39521b != null) {
-                    this.f39521b.a();
-                    this.f39521b = null;
+                if (!TextUtils.isEmpty(this.f39714b.toString())) {
+                    this.f39714b.endObject();
+                    this.f39715c = this.f39714b.toString();
                 }
-                if (this.f39525f != null) {
-                    this.f39525f = null;
+                JSONObject jSONObject = new JSONObject(this.f39715c);
+                String optString = jSONObject.optString("e");
+                if (a(optString)) {
+                    return;
                 }
-            } catch (Exception unused) {
+                boolean z = !N.a(Z0.f39719a, optString);
+                jSONArray.put(jSONObject);
+                W1.a(new X0(this, z, jSONArray.toString()));
+            } catch (JSONException unused) {
             }
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public Y0 a(a1 a1Var, String str, int i2, int i3) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Info info = this.f39522c;
-            return info != null && info.isEffective();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048585, this, a1Var, str, i2, i3)) == null) {
             try {
-                for (View view : this.f39524e) {
-                    if (view != null) {
-                        view.setOnClickListener(null);
-                    }
-                }
-                this.f39524e.clear();
-                if (this.f39523d != null) {
-                    this.f39523d = null;
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public HashMap d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.n));
-            hashMap.put("dy", Integer.valueOf(this.o));
-            hashMap.put("dts", Long.valueOf(this.v));
-            hashMap.put("ux", Integer.valueOf(this.w));
-            hashMap.put("uy", Integer.valueOf(this.x));
-            hashMap.put("uts", Long.valueOf(this.y));
-            z.a(hashMap, this.p, this.q, this.r, this.s, this.t, this.u);
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public void a(View view, PBMediaView pBMediaView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, pBMediaView) == null) {
-            List<View> arrayList = new ArrayList();
-            if (view != null) {
-                arrayList = a(view);
-            }
-            if (view == null || arrayList == null || arrayList.size() == 0 || !b()) {
-                return;
-            }
-            this.f39527h = 0L;
-            if (this.f39523d != null) {
-                c();
-            }
-            this.f39523d = view;
-            try {
-                X0 x0 = new X0(this);
-                for (View view2 : arrayList) {
-                    if (view2 != null && !(view2 instanceof PBMediaView)) {
-                        if (!this.f39524e.contains(view2)) {
-                            this.f39524e.add(view2);
-                        }
-                        if (!(view2 instanceof CircleProgressbar)) {
-                            view2.setOnClickListener(x0);
-                            view2.setOnTouchListener(x0);
-                        }
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            if (pBMediaView != null) {
+                this.f39714b = Z0.a("wdre", a1Var);
                 try {
-                    if (pBMediaView.getHtmlWebView() != null) {
-                        K htmlWebView = pBMediaView.getHtmlWebView();
-                        htmlWebView.a(b() ? this.f39522c.getLoad() : "", this.f39522c);
-                        if (this.f39522c.isNat()) {
-                            htmlWebView.f39390c.setOnTouchListener(new V0(this));
-                        }
-                        htmlWebView.f39389b = new W0(this);
-                    }
-                } catch (Exception unused2) {
+                    str = N.a(str);
+                } catch (Exception unused) {
                 }
+                a("pkg", str);
+                a("vsc", i2);
+                a("co", i3);
+            } catch (JSONException unused2) {
             }
-            x0.a(this.f39520a).a(new y0(this.f39522c)).a();
-            r rVar = this.f39525f;
-            if (rVar != null) {
-                rVar.onDisplayed();
-            }
-            if (this.f39522c != null) {
-                s1.b(this.f39520a, this.f39522c.getId() + ":" + System.currentTimeMillis(), false);
-            }
-            z.a(this.f39522c);
-            new m0().a(view, this.f39522c, new U0(this, view));
+            return this;
         }
+        return (Y0) invokeLLII.objValue;
     }
 }

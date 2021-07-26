@@ -26,7 +26,7 @@ public abstract class BaseRewardAd {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadAdParams f38086a;
+    public LoadAdParams f38261a;
 
     public BaseRewardAd(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public abstract class BaseRewardAd {
                 return;
             }
         }
-        this.f38086a = null;
+        this.f38261a = null;
     }
 
     public int getAdapterPriority() {
@@ -64,7 +64,7 @@ public abstract class BaseRewardAd {
     public LoadAdParams getLoadAdParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38086a : (LoadAdParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38261a : (LoadAdParams) invokeV.objValue;
     }
 
     public int getRewardAdType() {
@@ -87,7 +87,7 @@ public abstract class BaseRewardAd {
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, loadAdParams) == null) {
-            this.f38086a = loadAdParams;
+            this.f38261a = loadAdParams;
         }
     }
 

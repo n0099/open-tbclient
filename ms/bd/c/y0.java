@@ -32,17 +32,17 @@ public final class y0 extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Context c2 = a.a().c();
+            Context a2 = a.c().a();
             String[] strArr = (String[]) obj;
-            if (c2 == null || str == null || strArr == null || strArr.length % 2 != 0) {
+            if (a2 == null || str == null || strArr == null || strArr.length % 2 != 0) {
                 return null;
             }
             Intent intent = new Intent(str);
-            intent.setPackage(c2.getPackageName());
+            intent.setPackage(a2.getPackageName());
             for (int i3 = 0; i3 < strArr.length; i3 += 2) {
                 intent.putExtra(strArr[i3], strArr[i3 + 1]);
             }
-            c2.sendBroadcast(intent);
+            a2.sendBroadcast(intent);
             return null;
         }
         return invokeCommon.objValue;

@@ -33,9 +33,9 @@ public class ct implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.f> 
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        fVar.f35129a = jSONObject.optInt("currentTime");
-        fVar.f35130b = jSONObject.optBoolean(com.alipay.sdk.util.e.f1967a);
-        fVar.f35131c = jSONObject.optBoolean("finished");
+        fVar.f35318a = jSONObject.optInt("currentTime");
+        fVar.f35319b = jSONObject.optBoolean(com.alipay.sdk.util.e.f2000a);
+        fVar.f35320c = jSONObject.optBoolean("finished");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,9 +47,9 @@ public class ct implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.f> 
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "currentTime", fVar.f35129a);
-            com.kwad.sdk.utils.q.a(jSONObject, com.alipay.sdk.util.e.f1967a, fVar.f35130b);
-            com.kwad.sdk.utils.q.a(jSONObject, "finished", fVar.f35131c);
+            com.kwad.sdk.utils.q.a(jSONObject, "currentTime", fVar.f35318a);
+            com.kwad.sdk.utils.q.a(jSONObject, com.alipay.sdk.util.e.f2000a, fVar.f35319b);
+            com.kwad.sdk.utils.q.a(jSONObject, "finished", fVar.f35320c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

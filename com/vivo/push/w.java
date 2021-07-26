@@ -14,13 +14,13 @@ public final class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f39294a;
+    public static final Handler f39515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HandlerThread f39295b;
+    public static final HandlerThread f39516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Handler f39296c;
+    public static final Handler f39517c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,11 +36,11 @@ public final class w {
                 return;
             }
         }
-        f39294a = new Handler(Looper.getMainLooper());
+        f39515a = new Handler(Looper.getMainLooper());
         HandlerThread handlerThread = new HandlerThread("push_client_thread");
-        f39295b = handlerThread;
+        f39516b = handlerThread;
         handlerThread.start();
-        f39296c = new x(f39295b.getLooper());
+        f39517c = new x(f39516b.getLooper());
     }
 
     public static void a(v vVar) {
@@ -54,22 +54,22 @@ public final class w {
             Message message = new Message();
             message.what = a2;
             message.obj = vVar;
-            f39296c.sendMessageDelayed(message, 0L);
+            f39517c.sendMessageDelayed(message, 0L);
         }
     }
 
     public static void b(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            f39294a.post(runnable);
+            f39515a.post(runnable);
         }
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            f39296c.removeCallbacks(runnable);
-            f39296c.postDelayed(runnable, 15000L);
+            f39517c.removeCallbacks(runnable);
+            f39517c.postDelayed(runnable, 15000L);
         }
     }
 }

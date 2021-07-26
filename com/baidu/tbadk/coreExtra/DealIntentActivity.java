@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.a;
+import d.a.d.a.a;
 /* loaded from: classes3.dex */
 public class DealIntentActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;

@@ -18,7 +18,7 @@ public class el {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile el f40061a;
+    public static volatile el f40333a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -46,14 +46,14 @@ public class el {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f40061a == null) {
+            if (f40333a == null) {
                 synchronized (el.class) {
-                    if (f40061a == null) {
-                        f40061a = new el(context);
+                    if (f40333a == null) {
+                        f40333a = new el(context);
                     }
                 }
             }
-            return f40061a;
+            return f40333a;
         }
         return (el) invokeL.objValue;
     }

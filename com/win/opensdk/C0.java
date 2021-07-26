@@ -1,26 +1,25 @@
 package com.win.opensdk;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class C0 implements Runnable {
+public class C0 implements x2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ D0 f39330a;
+    public final /* synthetic */ E0 f39552a;
 
-    public C0(D0 d0) {
+    public C0(E0 e0) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d0};
+            Object[] objArr = {e0};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -30,21 +29,36 @@ public class C0 implements Runnable {
                 return;
             }
         }
-        this.f39330a = d0;
+        this.f39552a = e0;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
+    @Override // com.win.opensdk.x2
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap a2 = M0.a(this.f39330a.f39343a);
-            try {
-                str = this.f39330a.a() + M0.a(a2);
-            } catch (UnsupportedEncodingException unused) {
-                str = "";
-            }
-            z.a(str, (Map) null, new B0(this));
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
+    }
+
+    @Override // com.win.opensdk.x2
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            E0 e0 = this.f39552a;
+            if (Q1.a(e0.f39567c, e0.f39572h)) {
+                this.f39552a.f39572h = System.currentTimeMillis();
+                E0 e02 = this.f39552a;
+                Q1.a(e02.f39565a, str, e02.f39567c, e02.f39571g, str2);
+                Z0.a(this.f39552a.f39565a).a(new a1(this.f39552a.f39567c), str).a("desc", str2).a();
+                PBNativeListener pBNativeListener = this.f39552a.f39570f;
+                if (pBNativeListener != null) {
+                    pBNativeListener.onClicked();
+                }
+                N.a(this.f39552a.f39567c, str2);
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

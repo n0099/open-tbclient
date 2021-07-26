@@ -32,7 +32,7 @@ public class ba extends bi.a implements cs.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f40632a;
+    public long f40904a;
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f922a;
@@ -122,7 +122,7 @@ public class ba extends bi.a implements cs.a {
                     }
                     return super.a(arrayList, str, str2, z);
                 } catch (IOException e2) {
-                    gz.a(0, ew.u.a(), 1, null, com.xiaomi.push.bg.c(cs.f39949a) ? 1 : 0);
+                    gz.a(0, ew.u.a(), 1, null, com.xiaomi.push.bg.c(cs.f40221a) ? 1 : 0);
                     throw e2;
                 }
             }
@@ -178,9 +178,9 @@ public class ba extends bi.a implements cs.a {
     public void a(du.b bVar) {
         co b2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.b() && bVar.a() && System.currentTimeMillis() - this.f40632a > 3600000) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.b() && bVar.a() && System.currentTimeMillis() - this.f40904a > 3600000) {
             com.xiaomi.channel.commonutils.logger.b.m70a("fetch bucket :" + bVar.a());
-            this.f40632a = System.currentTimeMillis();
+            this.f40904a = System.currentTimeMillis();
             cs a2 = cs.a();
             a2.m231a();
             a2.m234b();

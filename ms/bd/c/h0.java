@@ -32,9 +32,9 @@ public final class h0 extends b.a {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Context c2 = a.a().c();
+            Context a2 = a.c().a();
             try {
-                i3 = c2.getPackageManager().getPackageInfo(c2.getPackageName(), 0).versionCode;
+                i3 = a2.getPackageManager().getPackageInfo(a2.getPackageName(), 0).versionCode;
             } catch (Throwable unused) {
                 i3 = -1;
             }

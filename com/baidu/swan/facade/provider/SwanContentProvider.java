@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.k;
-import d.a.n0.e.n.a.a;
-import d.a.n0.e.n.b.c;
+import d.a.o0.a.k;
+import d.a.o0.e.n.a.a;
+import d.a.o0.e.n.b.c;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
@@ -51,7 +51,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        DEBUG = k.f45831a;
+        DEBUG = k.f46335a;
         AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
         sUriMatcher = new UriMatcher(-1);
         sAccreditedSet = new HashSet<>();
@@ -89,7 +89,7 @@ public class SwanContentProvider extends ContentProvider {
                 return true;
             }
             String a2 = c.a(callingPackage);
-            Set<String> a3 = d.a.n0.d.g.c.e().a();
+            Set<String> a3 = d.a.o0.d.g.c.e().a();
             z = (a3 == null || !a3.contains(a2)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);

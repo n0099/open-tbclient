@@ -1,269 +1,210 @@
 package com.tencent.open.utils;
 
-import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapsdkplatform.comapi.map.r;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.RandomAccessFile;
+import java.net.ProtocolException;
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+import java.util.Properties;
+import java.util.zip.ZipException;
 /* loaded from: classes6.dex */
-public class b {
+public final class b {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: c  reason: collision with root package name */
-    public static String f38997c;
-    public transient /* synthetic */ FieldHolder $fh;
-
     /* renamed from: a  reason: collision with root package name */
-    public String f38998a;
+    public static final m f39209a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f38999b;
+    public static final n f39210b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f39000d;
+    /* renamed from: com.tencent.open.utils.b$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    /* renamed from: e  reason: collision with root package name */
-    public Handler f39001e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Runnable f39002f;
-
-    public b(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2036591048, "Lcom/tencent/open/utils/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2036591048, "Lcom/tencent/open/utils/b;");
                 return;
             }
         }
-        this.f39002f = new Runnable(this) { // from class: com.tencent.open.utils.b.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f39004a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.f39004a = this;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean z;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    com.tencent.open.a.f.a("AsynLoadImg", "saveFileRunnable:");
-                    String str = "share_qq_" + j.f(this.f39004a.f38998a) + ".jpg";
-                    String str2 = b.f38997c + str;
-                    File file = new File(str2);
-                    Message obtainMessage = this.f39004a.f39001e.obtainMessage();
-                    if (!file.exists()) {
-                        Bitmap a2 = b.a(this.f39004a.f38998a);
-                        if (a2 != null) {
-                            z = this.f39004a.a(a2, str);
-                        } else {
-                            com.tencent.open.a.f.a("AsynLoadImg", "saveFileRunnable:get bmp fail---");
-                            z = false;
-                        }
-                        if (z) {
-                            obtainMessage.arg1 = 0;
-                            obtainMessage.obj = str2;
-                        } else {
-                            obtainMessage.arg1 = 1;
-                        }
-                        com.tencent.open.a.f.a("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.f39004a.f39000d));
-                    } else {
-                        obtainMessage.arg1 = 0;
-                        obtainMessage.obj = str2;
-                        com.tencent.open.a.f.a("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.f39004a.f39000d));
-                    }
-                    this.f39004a.f39001e.sendMessage(obtainMessage);
-                }
-            }
-        };
-        this.f39001e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.b.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f39003a;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r8);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this, r8};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        super((Looper) newInitContext2.callArgs[0]);
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.f39003a = this;
-            }
-
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                    com.tencent.open.a.f.a("AsynLoadImg", "handleMessage:" + message.arg1);
-                    if (message.arg1 == 0) {
-                        this.f39003a.f38999b.a(message.arg1, (String) message.obj);
-                    } else {
-                        this.f39003a.f38999b.a(message.arg1, (String) null);
-                    }
-                }
-            }
-        };
+        f39209a = new m(101010256L);
+        f39210b = new n(38651);
     }
 
-    public void a(String str, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
-            com.tencent.open.a.f.a("AsynLoadImg", "--save---");
-            if (str != null && !str.equals("")) {
-                if (!j.b()) {
-                    cVar.a(2, (String) null);
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public Properties f39211a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public byte[] f39212b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                f38997c = Environment.getExternalStorageDirectory() + "/tmp/";
-                this.f39000d = System.currentTimeMillis();
-                this.f38998a = str;
-                this.f38999b = cVar;
-                new Thread(this.f39002f).start();
+            }
+            this.f39211a = new Properties();
+        }
+
+        public void a(byte[] bArr) throws IOException {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) || bArr == null) {
                 return;
             }
-            cVar.a(1, (String) null);
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            int length = b.f39210b.a().length;
+            byte[] bArr2 = new byte[length];
+            wrap.get(bArr2);
+            if (b.f39210b.equals(new n(bArr2))) {
+                if (bArr.length - length <= 2) {
+                    return;
+                }
+                byte[] bArr3 = new byte[2];
+                wrap.get(bArr3);
+                int b2 = new n(bArr3).b();
+                if ((bArr.length - length) - 2 < b2) {
+                    return;
+                }
+                byte[] bArr4 = new byte[b2];
+                wrap.get(bArr4);
+                this.f39211a.load(new ByteArrayInputStream(bArr4));
+                int length2 = ((bArr.length - length) - b2) - 2;
+                if (length2 > 0) {
+                    byte[] bArr5 = new byte[length2];
+                    this.f39212b = bArr5;
+                    wrap.get(bArr5);
+                    return;
+                }
+                return;
+            }
+            throw new ProtocolException("unknow protocl [" + Arrays.toString(bArr) + PreferencesUtil.RIGHT_MOUNT);
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "ApkExternalInfo [p=" + this.f39211a + ", otherData=" + Arrays.toString(this.f39212b) + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
+            this();
         }
     }
 
-    public boolean a(Bitmap bitmap, String str) {
+    public static String a(File file, String str) throws IOException {
         InterceptResult invokeLL;
-        BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, str)) == null) {
-            String str2 = f38997c;
-            BufferedOutputStream bufferedOutputStream2 = null;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, file, str)) != null) {
+            return (String) invokeLL.objValue;
+        }
+        RandomAccessFile randomAccessFile = null;
+        try {
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, r.f7788a);
             try {
-                try {
-                    File file = new File(str2);
-                    if (!file.exists()) {
-                        file.mkdir();
-                    }
-                    com.tencent.open.a.f.a("AsynLoadImg", "saveFile:" + str);
-                    bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(str2 + str)));
-                } catch (Throwable th) {
-                    th = th;
+                byte[] a2 = a(randomAccessFile2);
+                if (a2 == null) {
+                    randomAccessFile2.close();
+                    return null;
                 }
-            } catch (IOException e2) {
-                e = e2;
-            }
-            try {
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 80, bufferedOutputStream);
-                bufferedOutputStream.flush();
-                try {
-                    bufferedOutputStream.close();
-                    return true;
-                } catch (IOException e3) {
-                    e3.printStackTrace();
-                    return true;
-                }
-            } catch (IOException e4) {
-                e = e4;
-                bufferedOutputStream2 = bufferedOutputStream;
-                e.printStackTrace();
-                com.tencent.open.a.f.b("AsynLoadImg", "saveFile bmp fail---", e);
-                if (bufferedOutputStream2 != null) {
-                    try {
-                        bufferedOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedOutputStream2 = bufferedOutputStream;
-                if (bufferedOutputStream2 != null) {
-                    try {
-                        bufferedOutputStream2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
-                    }
+                a aVar = new a(null);
+                aVar.a(a2);
+                String property = aVar.f39211a.getProperty(str);
+                randomAccessFile2.close();
+                return property;
+            } catch (Throwable th) {
+                th = th;
+                randomAccessFile = randomAccessFile2;
+                if (randomAccessFile != null) {
+                    randomAccessFile.close();
                 }
                 throw th;
             }
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static Bitmap a(String str) {
+    public static String a(File file) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            com.tencent.open.a.f.a("AsynLoadImg", "getbitmap:" + str);
-            try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.connect();
-                InputStream inputStream = httpURLConnection.getInputStream();
-                Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
-                inputStream.close();
-                com.tencent.open.a.f.a("AsynLoadImg", "image download finished." + str);
-                return decodeStream;
-            } catch (IOException e2) {
-                e2.printStackTrace();
-                com.tencent.open.a.f.a("AsynLoadImg", "getbitmap bmp fail---");
-                return null;
-            } catch (OutOfMemoryError e3) {
-                e3.printStackTrace();
-                com.tencent.open.a.f.a("AsynLoadImg", "getbitmap bmp fail---");
-                return null;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) ? a(file, "channelNo") : (String) invokeL.objValue;
+    }
+
+    public static byte[] a(RandomAccessFile randomAccessFile) throws IOException {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, randomAccessFile)) == null) {
+            long length = randomAccessFile.length() - 22;
+            randomAccessFile.seek(length);
+            byte[] a2 = f39209a.a();
+            int read = randomAccessFile.read();
+            while (true) {
+                z = true;
+                if (read == -1) {
+                    z = false;
+                    break;
+                } else if (read == a2[0] && randomAccessFile.read() == a2[1] && randomAccessFile.read() == a2[2] && randomAccessFile.read() == a2[3]) {
+                    break;
+                } else {
+                    length--;
+                    randomAccessFile.seek(length);
+                    read = randomAccessFile.read();
+                }
             }
+            if (z) {
+                randomAccessFile.seek(length + 16 + 4);
+                byte[] bArr = new byte[2];
+                randomAccessFile.readFully(bArr);
+                int b2 = new n(bArr).b();
+                if (b2 == 0) {
+                    return null;
+                }
+                byte[] bArr2 = new byte[b2];
+                randomAccessFile.read(bArr2);
+                return bArr2;
+            }
+            throw new ZipException("archive is not a ZIP archive");
         }
-        return (Bitmap) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

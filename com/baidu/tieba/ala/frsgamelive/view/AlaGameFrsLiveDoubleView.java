@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a0.b;
-import d.a.p0.v.c;
-import d.a.p0.v.h.b.a;
+import d.a.q0.a0.b;
+import d.a.q0.v.c;
+import d.a.q0.v.h.b.a;
 /* loaded from: classes4.dex */
 public class AlaGameFrsLiveDoubleView extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.p0.v.e.d.b m;
-    public d.a.p0.v.e.d.b n;
+    public d.a.q0.v.e.d.b m;
+    public d.a.q0.v.e.d.b n;
 
     /* loaded from: classes4.dex */
     public static class AlaGameFrsLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
@@ -28,7 +28,7 @@ public class AlaGameFrsLiveDoubleView extends b<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsLiveDoubleView f14227a;
+        public AlaGameFrsLiveDoubleView f14275a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaGameFrsLiveDoubleViewHolder(AlaGameFrsLiveDoubleView alaGameFrsLiveDoubleView) {
@@ -48,7 +48,7 @@ public class AlaGameFrsLiveDoubleView extends b<a> {
                     return;
                 }
             }
-            this.f14227a = alaGameFrsLiveDoubleView;
+            this.f14275a = alaGameFrsLiveDoubleView;
         }
     }
 
@@ -73,14 +73,14 @@ public class AlaGameFrsLiveDoubleView extends b<a> {
         q();
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_sub_list_game_live : invokeV.intValue;
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public void m(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
@@ -99,8 +99,8 @@ public class AlaGameFrsLiveDoubleView extends b<a> {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.m = new d.a.p0.v.e.d.b(j());
-            this.n = new d.a.p0.v.e.d.b(j());
+            this.m = new d.a.q0.v.e.d.b(j());
+            this.n = new d.a.q0.v.e.d.b(j());
             ViewGroup viewGroup = (ViewGroup) k();
             View view = new View(b());
             viewGroup.addView(this.m.c());
@@ -110,15 +110,15 @@ public class AlaGameFrsLiveDoubleView extends b<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     /* renamed from: s */
     public void l(a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.m.d(aVar.f64766e);
-        this.n.d(aVar.f64767f);
+        this.m.d(aVar.f65411e);
+        this.n.d(aVar.f65412f);
     }
 
     public void t(String str) {

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.l.d;
+import d.a.p0.m.d;
 /* loaded from: classes3.dex */
 public class TbDebugSingleton {
     public static /* synthetic */ Interceptable $ic;

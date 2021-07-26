@@ -13,23 +13,23 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static k f3509a;
+    public static k f3535a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3510b;
+    public String f3536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3511c;
+    public String f3537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3512d;
+    public String f3538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3513e;
+    public String f3539e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f3514f;
+    public Context f3540f;
 
     public k(Context context) {
         Interceptable interceptable = $ic;
@@ -46,27 +46,27 @@ public final class k {
                 return;
             }
         }
-        this.f3512d = PushSettings.c(context);
-        this.f3510b = PushSettings.a(context);
+        this.f3538d = PushSettings.c(context);
+        this.f3536b = PushSettings.a(context);
         if (com.baidu.android.pushservice.b.d.b(context)) {
-            this.f3513e = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_token_new");
-            this.f3511c = PushSettings.b(context);
+            this.f3539e = com.baidu.android.pushservice.j.i.a(context, "com.baidu.pushservice.channel_token_new");
+            this.f3537c = PushSettings.b(context);
         }
-        this.f3514f = context;
+        this.f3540f = context;
     }
 
     public static k a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f3509a == null) {
+            if (f3535a == null) {
                 synchronized (k.class) {
-                    if (f3509a == null) {
-                        f3509a = new k(context);
+                    if (f3535a == null) {
+                        f3535a = new k(context);
                     }
                 }
             }
-            return f3509a;
+            return f3535a;
         }
         return (k) invokeL.objValue;
     }
@@ -74,19 +74,19 @@ public final class k {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3510b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3536b : (String) invokeV.objValue;
     }
 
     public synchronized void a(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
             synchronized (this) {
-                this.f3510b = str;
-                this.f3512d = str2;
-                this.f3511c = str3;
-                this.f3513e = str4;
-                PushSettings.a(this.f3514f, str, str3);
-                PushSettings.a(this.f3514f, str2);
+                this.f3536b = str;
+                this.f3538d = str2;
+                this.f3537c = str3;
+                this.f3539e = str4;
+                PushSettings.a(this.f3540f, str, str3);
+                PushSettings.a(this.f3540f, str2);
             }
         }
     }
@@ -94,32 +94,32 @@ public final class k {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3512d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3538d : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3511c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3537c : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3513e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3539e : (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TextUtils.isEmpty(this.f3510b)) {
-                this.f3510b = PushSettings.a(this.f3514f);
+            if (TextUtils.isEmpty(this.f3536b)) {
+                this.f3536b = PushSettings.a(this.f3540f);
             }
-            if (TextUtils.isEmpty(this.f3512d)) {
-                this.f3512d = PushSettings.c(this.f3514f);
+            if (TextUtils.isEmpty(this.f3538d)) {
+                this.f3538d = PushSettings.c(this.f3540f);
             }
-            return (TextUtils.isEmpty(this.f3510b) || TextUtils.isEmpty(this.f3512d)) ? false : true;
+            return (TextUtils.isEmpty(this.f3536b) || TextUtils.isEmpty(this.f3538d)) ? false : true;
         }
         return invokeV.booleanValue;
     }

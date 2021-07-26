@@ -69,8 +69,6 @@ public class GDTLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, th) == null) {
             e(str, th);
-            com.qq.e.comm.services.a.a();
-            com.qq.e.comm.services.a.a(str, th);
         }
     }
 

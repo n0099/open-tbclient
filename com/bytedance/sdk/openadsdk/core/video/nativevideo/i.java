@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Message;
 import android.text.TextUtils;
@@ -28,9 +29,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.r;
-import com.bytedance.sdk.component.utils.u;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.n;
+import com.bytedance.sdk.component.utils.t;
+import com.bytedance.sdk.component.utils.w;
 import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
 import com.bytedance.sdk.openadsdk.core.b.b;
 import com.bytedance.sdk.openadsdk.core.e.m;
@@ -45,13 +47,16 @@ import com.bytedance.sdk.openadsdk.core.widget.RoundImageView;
 import com.bytedance.sdk.openadsdk.core.widget.h;
 import com.bytedance.sdk.openadsdk.core.widget.i;
 import com.bytedance.sdk.openadsdk.downloadnew.core.a;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.e.p;
+import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
+import com.bytedance.sdk.openadsdk.q.q;
+import com.bytedance.sdk.openadsdk.q.s;
 import java.lang.ref.WeakReference;
 import java.util.EnumSet;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderview.a, h.a, i.b {
+public class i implements w.a, b, com.bytedance.sdk.openadsdk.core.video.renderview.a, h.a, i.b, p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.bytedance.sdk.openadsdk.core.widget.i A;
@@ -70,31 +75,31 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public final String N;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f30695a;
+    public View f30875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.video.renderview.b f30696b;
+    public com.bytedance.sdk.openadsdk.core.video.renderview.b f30876b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f30697c;
+    public ImageView f30877c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f30698d;
+    public View f30878d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f30699e;
+    public View f30879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f30700f;
+    public ImageView f30880f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewStub f30701g;
+    public ViewStub f30881g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f30702h;
+    public View f30882h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f30703i;
+    public ImageView f30883i;
     public View j;
     public RoundImageView k;
     public TextView l;
@@ -137,13 +142,13 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
         }
         this.z = o.a().getApplicationContext();
         c(z2);
-        this.f30695a = view;
+        this.f30875a = view;
         this.u = z;
         this.x = enumSet == null ? EnumSet.noneOf(b.a.class) : enumSet;
         this.E = cVar;
         this.y = mVar;
         c(8);
-        a(context, this.f30695a);
+        a(context, this.f30875a);
         a();
         n();
     }
@@ -161,9 +166,9 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
             return;
         }
         this.p.inflate();
-        this.J = view.findViewById(r.e(context, "tt_video_ad_cover_center_layout_draw"));
-        this.K = (TextView) view.findViewById(r.e(context, "tt_video_ad_button_draw"));
-        this.L = (TextView) view.findViewById(r.e(context, "tt_video_ad_replay"));
+        this.J = view.findViewById(t.e(context, "tt_video_ad_cover_center_layout_draw"));
+        this.K = (TextView) view.findViewById(t.e(context, "tt_video_ad_button_draw"));
+        this.L = (TextView) view.findViewById(t.e(context, "tt_video_ad_replay"));
     }
 
     private int e(int i2) {
@@ -173,8 +178,8 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
             if (this.s <= 0 || this.t <= 0) {
                 return 0;
             }
-            int dimensionPixelSize = this.z.getResources().getDimensionPixelSize(r.h(this.z, "tt_video_container_maxheight"));
-            int dimensionPixelSize2 = this.z.getResources().getDimensionPixelSize(r.h(this.z, "tt_video_container_minheight"));
+            int dimensionPixelSize = this.z.getResources().getDimensionPixelSize(t.h(this.z, "tt_video_container_maxheight"));
+            int dimensionPixelSize2 = this.z.getResources().getDimensionPixelSize(t.h(this.z, "tt_video_container_minheight"));
             int i3 = (int) (this.t * ((i2 * 1.0f) / this.s));
             return i3 > dimensionPixelSize ? dimensionPixelSize : i3 < dimensionPixelSize2 ? dimensionPixelSize2 : i3;
         }
@@ -184,8 +189,8 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     private void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2) == null) {
-            q.a(this.j, i2);
-            q.a(this.J, i2);
+            s.a(this.j, i2);
+            s.a(this.J, i2);
         }
     }
 
@@ -201,7 +206,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
 
     private void z() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.z == null || this.f30695a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.z == null || this.f30875a == null) {
             return;
         }
         View view = new View(this, this.z) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.i.4
@@ -209,10 +214,10 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ i f30707a;
+            public final /* synthetic */ i f30887a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final AtomicBoolean f30708b;
+            public final AtomicBoolean f30888b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -232,14 +237,14 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                         return;
                     }
                 }
-                this.f30707a = this;
-                this.f30708b = new AtomicBoolean(true);
+                this.f30887a = this;
+                this.f30888b = new AtomicBoolean(true);
             }
 
             private void a() {
                 com.bytedance.sdk.openadsdk.downloadnew.core.a aVar;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(65537, this) == null) && this.f30708b.getAndSet(false) && (aVar = this.f30707a.D) != null) {
+                if ((interceptable2 == null || interceptable2.invokeV(65537, this) == null) && this.f30888b.getAndSet(false) && (aVar = this.f30887a.D) != null) {
                     aVar.a();
                 }
             }
@@ -247,7 +252,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
             private void b() {
                 com.bytedance.sdk.openadsdk.downloadnew.core.a aVar;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(65538, this) == null) || this.f30708b.getAndSet(true) || (aVar = this.f30707a.D) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(65538, this) == null) || this.f30888b.getAndSet(true) || (aVar = this.f30887a.D) == null) {
                     return;
                 }
                 aVar.d();
@@ -302,7 +307,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZ(1048581, this, z) == null) {
                     super.onWindowFocusChanged(z);
-                    com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f30707a.D;
+                    com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f30887a.D;
                     if (aVar != null) {
                         if (z) {
                             aVar.b();
@@ -313,7 +318,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                 }
             }
         };
-        View view2 = this.f30695a;
+        View view2 = this.f30875a;
         if (view2 instanceof ViewGroup) {
             ((ViewGroup) view2).addView(view, 0, new RelativeLayout.LayoutParams(0, 0));
         }
@@ -331,73 +336,73 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
         }
     }
 
-    @Override // com.bytedance.sdk.component.utils.u.a
+    @Override // com.bytedance.sdk.component.utils.w.a
     public void a(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, message) == null) {
         }
     }
 
     public void a(View view, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, view, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048588, this, view, z) == null) {
         }
     }
 
     public void a(@Nullable ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, viewGroup) == null) {
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.a
     public void b(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, surfaceTexture) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, surfaceTexture) == null) {
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.a
     public void b(SurfaceTexture surfaceTexture, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048602, this, surfaceTexture, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048603, this, surfaceTexture, i2, i3) == null) {
         }
     }
 
     public void b(@Nullable ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, viewGroup) == null) {
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
         }
     }
 
     public boolean b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) {
             return false;
         }
         return invokeI.booleanValue;
@@ -405,13 +410,13 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
         }
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
             this.C = z;
             if (z) {
                 com.bytedance.sdk.openadsdk.core.b.a aVar = this.F;
@@ -440,9 +445,9 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            q.a(this.f30695a, 0);
-            com.bytedance.sdk.openadsdk.core.video.renderview.b bVar = this.f30696b;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+            s.a(this.f30875a, 0);
+            com.bytedance.sdk.openadsdk.core.video.renderview.b bVar = this.f30876b;
             if (bVar != null) {
                 bVar.setVisibility(i2);
             }
@@ -451,7 +456,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
             ProgressBar progressBar = this.o;
             if (progressBar != null) {
                 progressBar.setProgress(0);
@@ -459,19 +464,19 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
             }
             c(8);
             if (x()) {
-                this.f30696b.setVisibility(8);
+                this.f30876b.setVisibility(8);
             }
-            ImageView imageView = this.f30700f;
+            ImageView imageView = this.f30880f;
             if (imageView != null) {
                 imageView.setImageDrawable(null);
             }
             c(8);
-            q.a(this.f30702h, 8);
-            q.a((View) this.f30703i, 8);
-            q.a(this.j, 8);
-            q.a((View) this.k, 8);
-            q.a((View) this.l, 8);
-            q.a((View) this.m, 8);
+            s.a(this.f30882h, 8);
+            s.a((View) this.f30883i, 8);
+            s.a(this.j, 8);
+            s.a((View) this.k, 8);
+            s.a((View) this.l, 8);
+            s.a((View) this.m, 8);
             com.bytedance.sdk.openadsdk.core.widget.i iVar = this.A;
             if (iVar != null) {
                 iVar.a(true);
@@ -482,7 +487,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -491,12 +496,12 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.u : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.u : invokeV.booleanValue;
     }
 
     public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
             a(true, false);
         }
     }
@@ -504,19 +509,19 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.v : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.v : invokeV.booleanValue;
     }
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
         }
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             com.bytedance.sdk.openadsdk.core.widget.i iVar = this.A;
             return iVar != null && iVar.a();
         }
@@ -528,15 +533,15 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
         int i2;
         com.bytedance.sdk.openadsdk.core.b.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
             String str2 = this.C ? "embeded_ad" : "embeded_ad_landingpage";
-            if (com.bytedance.sdk.openadsdk.r.o.b(this.y)) {
+            if (q.b(this.y)) {
                 str = this.C ? "draw_ad" : "draw_ad_landingpage";
                 i2 = 6;
-            } else if (com.bytedance.sdk.openadsdk.r.o.e(this.y)) {
+            } else if (q.e(this.y)) {
                 str = "rewarded_video";
                 i2 = 7;
-            } else if (com.bytedance.sdk.openadsdk.r.o.f(this.y)) {
+            } else if (q.f(this.y)) {
                 str = "fullscreen_interstitial_ad";
                 i2 = 5;
             } else {
@@ -546,12 +551,12 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
             if (this.y.X() == 4) {
                 com.bytedance.sdk.openadsdk.downloadnew.core.a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.z, this.y, str);
                 this.D = a2;
-                a2.a(2, new a.InterfaceC0348a(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.i.1
+                a2.a(2, new a.InterfaceC0352a(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.i.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ i f30704a;
+                    public final /* synthetic */ i f30884a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -568,28 +573,28 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                                 return;
                             }
                         }
-                        this.f30704a = this;
+                        this.f30884a = this;
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC0348a
+                    @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC0352a
                     public boolean a(int i3, m mVar, String str3, String str4, Object obj) {
                         InterceptResult invokeCommon;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), mVar, str3, str4, obj})) == null) {
                             if (i3 == 2 && mVar != null && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
                                 if (str4.equals("click_start_play")) {
-                                    String str5 = this.f30704a.C ? "click_start" : "click_start_detail";
-                                    i iVar = this.f30704a;
+                                    String str5 = this.f30884a.C ? "click_start" : "click_start_detail";
+                                    i iVar = this.f30884a;
                                     com.bytedance.sdk.openadsdk.e.d.a(iVar.z, iVar.y, str3, str5, (JSONObject) null);
                                     return true;
                                 } else if (str4.equals("click_open")) {
-                                    i iVar2 = this.f30704a;
+                                    i iVar2 = this.f30884a;
                                     if (iVar2.C) {
                                         Context context = iVar2.z;
                                         m mVar2 = iVar2.y;
-                                        com.bytedance.sdk.openadsdk.e.d.j(context, mVar2, str3, com.bytedance.sdk.openadsdk.r.o.h(mVar2), null);
+                                        com.bytedance.sdk.openadsdk.e.d.i(context, mVar2, str3, q.h(mVar2), null);
                                     } else {
-                                        com.bytedance.sdk.openadsdk.e.d.i(iVar2.z, iVar2.y, str3, "click_open_detail", null);
+                                        com.bytedance.sdk.openadsdk.e.d.h(iVar2.z, iVar2.y, str3, "click_open_detail", null);
                                     }
                                 }
                             }
@@ -622,7 +627,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ i f30705a;
+                    public final /* synthetic */ i f30885a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -643,7 +648,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                                 return;
                             }
                         }
-                        this.f30705a = this;
+                        this.f30885a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.core.b.a
@@ -651,15 +656,15 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            com.bytedance.sdk.openadsdk.core.widget.i iVar = this.f30705a.A;
+                            com.bytedance.sdk.openadsdk.core.widget.i iVar = this.f30885a.A;
                             boolean a3 = iVar != null ? iVar.a() : false;
                             StringBuilder sb = new StringBuilder();
                             sb.append("isVisible=");
                             sb.append(a3);
                             sb.append(",mPlayBtn.getVisibility() == VISIBLE->");
-                            sb.append(this.f30705a.f30697c.getVisibility() == 0);
-                            j.c("ClickCreativeListener", sb.toString());
-                            return a3 || this.f30705a.f30697c.getVisibility() == 0;
+                            sb.append(this.f30885a.f30877c.getVisibility() == 0);
+                            k.c("ClickCreativeListener", sb.toString());
+                            return a3 || this.f30885a.f30877c.getVisibility() == 0;
                         }
                         return invokeV.booleanValue;
                     }
@@ -672,8 +677,8 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                         TextView textView;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                            View view2 = this.f30705a.f30702h;
-                            return (view2 != null && view2.getVisibility() == 0) || ((view = this.f30705a.j) != null && view.getVisibility() == 0) || (((roundImageView = this.f30705a.k) != null && roundImageView.getVisibility() == 0) || ((textView = this.f30705a.l) != null && textView.getVisibility() == 0));
+                            View view2 = this.f30885a.f30882h;
+                            return (view2 != null && view2.getVisibility() == 0) || ((view = this.f30885a.j) != null && view.getVisibility() == 0) || (((roundImageView = this.f30885a.k) != null && roundImageView.getVisibility() == 0) || ((textView = this.f30885a.l) != null && textView.getVisibility() == 0));
                         }
                         return invokeV.booleanValue;
                     }
@@ -685,7 +690,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ i f30706a;
+                    public final /* synthetic */ i f30886a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -702,16 +707,16 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                                 return;
                             }
                         }
-                        this.f30706a = this;
+                        this.f30886a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.core.b.b.a
                     public void a(View view, int i3) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i3) == null) || this.f30706a.M == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i3) == null) || this.f30886a.M == null) {
                             return;
                         }
-                        this.f30706a.M.a(view, i3);
+                        this.f30886a.M.a(view, i3);
                     }
                 });
                 this.G.b(true);
@@ -726,10 +731,10 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                 if (aVar5 != null) {
                     this.G.a(aVar5);
                 }
-                View view = this.f30695a;
+                View view = this.f30875a;
                 if (view != null) {
                     view.setOnClickListener(this.G);
-                    this.f30695a.setOnTouchListener(this.G);
+                    this.f30875a.setOnTouchListener(this.G);
                 }
             }
         }
@@ -738,25 +743,25 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public com.bytedance.sdk.openadsdk.core.video.renderview.b o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f30696b : (com.bytedance.sdk.openadsdk.core.video.renderview.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.f30876b : (com.bytedance.sdk.openadsdk.core.video.renderview.b) invokeV.objValue;
     }
 
     public void p() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048627, this) == null) && this.B != null && this.A == null) {
+        if ((interceptable == null || interceptable.invokeV(1048628, this) == null) && this.B != null && this.A == null) {
             long currentTimeMillis = System.currentTimeMillis();
             com.bytedance.sdk.openadsdk.core.widget.i iVar = new com.bytedance.sdk.openadsdk.core.widget.i();
             this.A = iVar;
-            iVar.a(this.z, this.f30695a);
+            iVar.a(this.z, this.f30875a);
             this.A.a(this.B, this);
-            j.b("useTime", "mVideoTrafficTipLayout use time :" + (System.currentTimeMillis() - currentTimeMillis));
+            k.b("useTime", "mVideoTrafficTipLayout use time :" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
 
     public void q() {
         com.bytedance.sdk.openadsdk.core.widget.i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048628, this) == null) || (iVar = this.A) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048629, this) == null) || (iVar = this.A) == null) {
             return;
         }
         iVar.a(false);
@@ -765,9 +770,9 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
             if (this.B == null) {
-                j.f("NewLiveViewLayout", "callback is null");
+                k.f("NewLiveViewLayout", "callback is null");
                 return false;
             }
             return true;
@@ -778,19 +783,19 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public View s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f30695a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f30875a : (View) invokeV.objValue;
     }
 
     public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
-            q.f(this.f30698d);
-            q.f(this.f30699e);
-            ImageView imageView = this.f30697c;
+        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
+            s.f(this.f30878d);
+            s.f(this.f30879e);
+            ImageView imageView = this.f30877c;
             if (imageView == null || imageView.getVisibility() != 0) {
                 return;
             }
-            q.a((View) this.f30697c, 8);
+            s.a((View) this.f30877c, 8);
         }
     }
 
@@ -798,9 +803,9 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     @TargetApi(14)
     public void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
-            q.a(this.f30695a, 0);
-            com.bytedance.sdk.openadsdk.core.video.renderview.b bVar = this.f30696b;
+        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
+            s.a(this.f30875a, 0);
+            com.bytedance.sdk.openadsdk.core.video.renderview.b bVar = this.f30876b;
             if (bVar != null) {
                 View view = bVar.getView();
                 if (view instanceof TextureView) {
@@ -812,33 +817,33 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                         viewGroup.addView(view, indexOfChild);
                     }
                 }
-                q.a(view, 8);
-                q.a(view, 0);
+                s.a(view, 8);
+                s.a(view, 0);
             }
         }
     }
 
     public void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
-            q.a(this.f30702h, 8);
-            q.a((View) this.f30703i, 8);
-            q.a(this.j, 8);
-            q.a((View) this.k, 8);
-            q.a((View) this.l, 8);
-            q.a((View) this.m, 8);
-            q.a((View) this.n, 8);
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+            s.a(this.f30882h, 8);
+            s.a((View) this.f30883i, 8);
+            s.a(this.j, 8);
+            s.a((View) this.k, 8);
+            s.a((View) this.l, 8);
+            s.a((View) this.m, 8);
+            s.a((View) this.n, 8);
         }
     }
 
     public void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
-            q.e(this.f30698d);
-            q.e(this.f30699e);
-            ImageView imageView = this.f30700f;
+        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+            s.e(this.f30878d);
+            s.e(this.f30879e);
+            ImageView imageView = this.f30880f;
             if (imageView != null) {
-                q.e(imageView);
+                s.e(imageView);
             }
         }
     }
@@ -846,12 +851,12 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? !this.x.contains(b.a.f30663c) || this.u : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? !this.x.contains(b.a.f30843c) || this.u : invokeV.booleanValue;
     }
 
     public void a(NativeVideoTsView.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, bVar) == null) {
             this.M = bVar;
         }
     }
@@ -863,18 +868,18 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, view) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            String a2 = com.bytedance.sdk.openadsdk.r.o.a(context);
+            String a2 = q.a(context);
             if (a2 == null) {
                 a2 = "0";
             }
             boolean z = Build.VERSION.SDK_INT != 20 || Integer.valueOf(a2).intValue() >= 1572864;
             if (!A() && z && com.bytedance.sdk.openadsdk.core.h.d().u() && Build.VERSION.SDK_INT >= 14) {
                 ?? sSRenderTextureView = new SSRenderTextureView(this.z);
-                j.b("NewLiveViewLayout", "use TextureView......");
+                k.b("NewLiveViewLayout", "use TextureView......");
                 sSRenderSurfaceView = sSRenderTextureView;
             } else {
                 SSRenderSurfaceView sSRenderSurfaceView2 = new SSRenderSurfaceView(this.z);
-                j.b("NewLiveViewLayout", "use SurfaceView......");
+                k.b("NewLiveViewLayout", "use SurfaceView......");
                 sSRenderSurfaceView = sSRenderSurfaceView2;
             }
             if (view instanceof RelativeLayout) {
@@ -883,47 +888,47 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                 ((RelativeLayout) view).addView(sSRenderSurfaceView, 0, layoutParams);
                 view.setBackgroundColor(-16777216);
             }
-            q.a((View) sSRenderSurfaceView, 8);
-            this.f30696b = sSRenderSurfaceView;
-            this.f30697c = (ImageView) view.findViewById(r.e(context, "tt_video_play"));
-            this.o = (ProgressBar) view.findViewById(r.e(context, "tt_video_progress"));
-            this.f30698d = view.findViewById(r.e(context, "tt_video_loading_retry_layout"));
-            this.f30699e = view.findViewById(r.e(context, "tt_video_loading_progress"));
-            this.f30700f = (ImageView) view.findViewById(r.e(context, "tt_video_loading_cover_image"));
-            this.f30701g = (ViewStub) view.findViewById(r.e(context, "tt_video_ad_cover"));
-            this.p = (ViewStub) view.findViewById(r.e(context, "tt_video_draw_layout_viewStub"));
-            j.b("useTime", "NativeVideoLayout**findViews use time :" + (System.currentTimeMillis() - currentTimeMillis));
+            s.a((View) sSRenderSurfaceView, 8);
+            this.f30876b = sSRenderSurfaceView;
+            this.f30877c = (ImageView) view.findViewById(t.e(context, "tt_video_play"));
+            this.o = (ProgressBar) view.findViewById(t.e(context, "tt_video_progress"));
+            this.f30878d = view.findViewById(t.e(context, "tt_video_loading_retry_layout"));
+            this.f30879e = view.findViewById(t.e(context, "tt_video_loading_progress"));
+            this.f30880f = (ImageView) view.findViewById(t.e(context, "tt_video_loading_cover_image"));
+            this.f30881g = (ViewStub) view.findViewById(t.e(context, "tt_video_ad_cover"));
+            this.p = (ViewStub) view.findViewById(t.e(context, "tt_video_draw_layout_viewStub"));
+            k.b("useTime", "NativeVideoLayout**findViews use time :" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            q.e(this.f30698d);
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+            s.e(this.f30878d);
         }
     }
 
     public void d() {
         m mVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            q.f(this.f30698d);
-            q.f(this.f30699e);
-            if (this.f30700f != null && (mVar = this.y) != null && mVar.V() != null && this.y.V().h() != null) {
-                q.f(this.f30700f);
-                com.bytedance.sdk.openadsdk.g.a.a(this.y.V().h()).a(this.f30700f);
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            s.f(this.f30878d);
+            s.f(this.f30879e);
+            if (this.f30880f != null && (mVar = this.y) != null && mVar.V() != null && this.y.V().h() != null) {
+                s.f(this.f30880f);
+                ImageLoaderWrapper.from(this.y.V().h()).to(this.f30880f);
             }
-            ImageView imageView = this.f30697c;
+            ImageView imageView = this.f30877c;
             if (imageView == null || imageView.getVisibility() != 0) {
                 return;
             }
-            q.a((View) this.f30697c, 8);
+            s.a((View) this.f30877c, 8);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             a(false, this.u);
             v();
         }
@@ -932,13 +937,13 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public void b(boolean z, boolean z2) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (imageView = this.f30697c) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (imageView = this.f30877c) == null) {
             return;
         }
         if (z) {
-            imageView.setImageResource(r.d(this.z, "tt_play_movebar_textpage"));
+            imageView.setImageResource(t.d(this.z, "tt_play_movebar_textpage"));
         } else {
-            imageView.setImageResource(r.d(this.z, "tt_stop_movebar_textpage"));
+            imageView.setImageResource(t.d(this.z, "tt_stop_movebar_textpage"));
         }
     }
 
@@ -946,7 +951,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
         View view;
         ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048600, this, i2, i3) == null) || (view = this.f30695a) == null || (layoutParams = view.getLayoutParams()) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048601, this, i2, i3) == null) || (view = this.f30875a) == null || (layoutParams = view.getLayoutParams()) == null) {
             return;
         }
         if (i2 == -1 || i2 == -2 || i2 > 0) {
@@ -955,12 +960,12 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
         if (i3 == -1 || i3 == -2 || i3 > 0) {
             layoutParams.height = i3;
         }
-        this.f30695a.setLayoutParams(layoutParams);
+        this.f30875a.setLayoutParams(layoutParams);
     }
 
     public void c(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048610, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048611, this, i2, i3) == null) {
             this.s = i2;
             this.t = i3;
         }
@@ -968,27 +973,27 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
             this.I = z;
         }
     }
 
     public void c(@Nullable ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048611, this, viewGroup) == null) || viewGroup == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048612, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        if (this.f30695a.getParent() != null) {
-            ((ViewGroup) this.f30695a.getParent()).removeView(this.f30695a);
+        if (this.f30875a.getParent() != null) {
+            ((ViewGroup) this.f30875a.getParent()).removeView(this.f30875a);
         }
-        viewGroup.addView(this.f30695a);
+        viewGroup.addView(this.f30875a);
         c(0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.a
     public void b(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048603, this, surfaceHolder) == null) && surfaceHolder == this.f30696b.getHolder()) {
+        if ((interceptable == null || interceptable.invokeL(1048604, this, surfaceHolder) == null) && surfaceHolder == this.f30876b.getHolder()) {
             this.v = false;
             if (r()) {
                 this.B.b(this, surfaceHolder);
@@ -1019,31 +1024,31 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
             this.w = i2;
-            q.a(this.f30695a, i2);
+            s.a(this.f30875a, i2);
         }
     }
 
     public void a(View view, Context context) {
         ViewStub viewStub;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, view, context) == null) || view == null || context == null || (viewStub = this.f30701g) == null || viewStub.getParent() == null || this.f30702h != null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048587, this, view, context) == null) || view == null || context == null || (viewStub = this.f30881g) == null || viewStub.getParent() == null || this.f30882h != null) {
             return;
         }
-        this.f30702h = this.f30701g.inflate();
-        this.f30703i = (ImageView) view.findViewById(r.e(context, "tt_video_ad_finish_cover_image"));
-        this.j = view.findViewById(r.e(context, "tt_video_ad_cover_center_layout"));
-        this.k = (RoundImageView) view.findViewById(r.e(context, "tt_video_ad_logo_image"));
-        this.l = (TextView) view.findViewById(r.e(context, "tt_video_btn_ad_image_tv"));
-        this.m = (TextView) view.findViewById(r.e(context, "tt_video_ad_name"));
-        this.n = (TextView) view.findViewById(r.e(context, "tt_video_ad_button"));
+        this.f30882h = this.f30881g.inflate();
+        this.f30883i = (ImageView) view.findViewById(t.e(context, "tt_video_ad_finish_cover_image"));
+        this.j = view.findViewById(t.e(context, "tt_video_ad_cover_center_layout"));
+        this.k = (RoundImageView) view.findViewById(t.e(context, "tt_video_ad_logo_image"));
+        this.l = (TextView) view.findViewById(t.e(context, "tt_video_btn_ad_image_tv"));
+        this.m = (TextView) view.findViewById(t.e(context, "tt_video_ad_name"));
+        this.n = (TextView) view.findViewById(t.e(context, "tt_video_ad_button"));
     }
 
     public boolean a(int i2, x xVar, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), xVar, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), xVar, Boolean.valueOf(z)})) == null) {
             com.bytedance.sdk.openadsdk.core.widget.i iVar = this.A;
             return iVar == null || iVar.a(i2, xVar, z);
         }
@@ -1052,7 +1057,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) && (aVar instanceof d)) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, aVar) == null) && (aVar instanceof d)) {
             this.B = (d) aVar;
             p();
         }
@@ -1061,15 +1066,15 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30696b.a(this);
-            ImageView imageView = this.f30697c;
+            this.f30876b.a(this);
+            ImageView imageView = this.f30877c;
             if (imageView != null) {
                 imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.i.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ i f30709a;
+                    public final /* synthetic */ i f30889a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1086,16 +1091,16 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                                 return;
                             }
                         }
-                        this.f30709a = this;
+                        this.f30889a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30709a.r()) {
-                            TextView textView = this.f30709a.n;
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30889a.r()) {
+                            TextView textView = this.f30889a.n;
                             if (textView == null || textView.getVisibility() != 0) {
-                                i iVar = this.f30709a;
+                                i iVar = this.f30889a;
                                 iVar.B.a(iVar, view);
                             }
                         }
@@ -1109,13 +1114,13 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             if (i2 == -1) {
-                i2 = q.c(this.z);
+                i2 = s.c(this.z);
             }
             if (i2 <= 0) {
                 return;
             }
             this.q = i2;
-            if (!i() && !h() && !this.x.contains(b.a.f30664d)) {
+            if (!i() && !h() && !this.x.contains(b.a.f30844d)) {
                 this.r = e(i2);
             } else {
                 this.r = i3;
@@ -1127,8 +1132,8 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            j.c("Progress", "setSeekProgress-percent=" + i2);
-            q.a((View) this.o, 0);
+            k.c("Progress", "setSeekProgress-percent=" + i2);
+            s.a((View) this.o, 0);
             ProgressBar progressBar = this.o;
             if (progressBar != null) {
                 progressBar.setProgress(i2);
@@ -1143,37 +1148,37 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
         m mVar3;
         m mVar4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048590, this, mVar, weakReference, z) == null) || mVar == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048591, this, mVar, weakReference, z) == null) || mVar == null) {
             return;
         }
         a(false, this.u);
-        a(this.f30695a, o.a());
-        View view = this.f30702h;
+        a(this.f30875a, o.a());
+        View view = this.f30882h;
         if (view != null) {
-            q.a(view, 0);
+            s.a(view, 0);
         }
-        ImageView imageView = this.f30703i;
+        ImageView imageView = this.f30883i;
         if (imageView != null) {
-            q.a((View) imageView, 0);
+            s.a((View) imageView, 0);
         }
-        if (com.bytedance.sdk.openadsdk.r.o.b(this.y)) {
-            b(this.f30695a, o.a());
-            q.a(this.j, 8);
-            q.a((View) this.f30703i, 0);
-            q.a(this.J, 0);
-            q.a((View) this.K, 0);
-            q.a((View) this.L, 0);
-            if (this.L != null && com.bytedance.sdk.component.utils.m.c(o.a()) == 0) {
-                q.a((View) this.L, 8);
+        if (q.b(this.y)) {
+            b(this.f30875a, o.a());
+            s.a(this.j, 8);
+            s.a((View) this.f30883i, 0);
+            s.a(this.J, 0);
+            s.a((View) this.K, 0);
+            s.a((View) this.L, 0);
+            if (this.L != null && n.c(o.a()) == 0) {
+                s.a((View) this.L, 8);
             }
-            View view2 = this.f30702h;
+            View view2 = this.f30882h;
             if (view2 != null) {
                 view2.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.i.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ i f30710a;
+                    public final /* synthetic */ i f30890a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1190,31 +1195,31 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                                 return;
                             }
                         }
-                        this.f30710a = this;
+                        this.f30890a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view3) {
                         c cVar;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) || (cVar = this.f30710a.E) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) || (cVar = this.f30890a.E) == null) {
                             return;
                         }
                         ((a) cVar).h();
-                        TTDrawFeedAd.DrawVideoListener drawVideoListener = this.f30710a.H;
+                        TTDrawFeedAd.DrawVideoListener drawVideoListener = this.f30890a.H;
                         if (drawVideoListener != null) {
                             drawVideoListener.onClickRetry();
                         }
                     }
                 });
             }
-            if (this.f30703i != null && (mVar4 = this.y) != null && mVar4.V() != null && this.y.V().h() != null) {
-                com.bytedance.sdk.openadsdk.core.video.d.b.a((long) this.y.V().e(), this.y.V().i(), new b.InterfaceC0344b(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.i.7
+            if (this.f30883i != null && (mVar4 = this.y) != null && mVar4.V() != null && this.y.V().h() != null) {
+                com.bytedance.sdk.openadsdk.core.video.d.b.a((long) this.y.V().e(), this.y.V().i(), new b.InterfaceC0346b(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.i.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ i f30711a;
+                    public final /* synthetic */ i f30891a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1231,33 +1236,33 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                                 return;
                             }
                         }
-                        this.f30711a = this;
+                        this.f30891a = this;
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.core.video.d.b.InterfaceC0344b
+                    @Override // com.bytedance.sdk.openadsdk.core.video.d.b.InterfaceC0346b
                     public void a(Bitmap bitmap) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bitmap) == null) {
                             if (bitmap != null) {
-                                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f30711a.f30703i.getLayoutParams();
+                                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f30891a.f30883i.getLayoutParams();
                                 if (bitmap.getWidth() > bitmap.getHeight()) {
-                                    layoutParams.width = q.c(o.a());
-                                    layoutParams.height = (bitmap.getHeight() * q.c(o.a())) / bitmap.getWidth();
+                                    layoutParams.width = s.c(o.a());
+                                    layoutParams.height = (bitmap.getHeight() * s.c(o.a())) / bitmap.getWidth();
                                     layoutParams.addRule(13);
-                                    this.f30711a.f30703i.setLayoutParams(layoutParams);
+                                    this.f30891a.f30883i.setLayoutParams(layoutParams);
                                 }
-                                this.f30711a.f30703i.setImageBitmap(bitmap);
+                                this.f30891a.f30883i.setImageBitmap(bitmap);
                                 return;
                             }
-                            com.bytedance.sdk.openadsdk.g.a.a(this.f30711a.y.V().h()).a(this.f30711a.f30703i);
+                            ImageLoaderWrapper.from(this.f30891a.y.V().h()).to(this.f30891a.f30883i);
                         }
                     }
                 });
             }
         } else {
-            q.a(this.j, 0);
-            if (this.f30703i != null && (mVar2 = this.y) != null && mVar2.V() != null && this.y.V().h() != null) {
-                com.bytedance.sdk.openadsdk.g.a.a(this.y.V().h()).a(this.f30703i);
+            s.a(this.j, 0);
+            if (this.f30883i != null && (mVar2 = this.y) != null && mVar2.V() != null && this.y.V().h() != null) {
+                ImageLoaderWrapper.from(this.y.V().h()).to(this.f30883i);
             }
         }
         if (!TextUtils.isEmpty(mVar.W())) {
@@ -1268,9 +1273,9 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
             ai = !TextUtils.isEmpty(mVar.ai()) ? mVar.ai() : "";
         }
         if (this.k != null && (mVar3 = this.y) != null && mVar3.Y() != null && this.y.Y().a() != null) {
-            q.a((View) this.k, 0);
-            q.a((View) this.l, 4);
-            com.bytedance.sdk.openadsdk.g.a.a(this.y.Y()).a(this.k);
+            s.a((View) this.k, 0);
+            s.a((View) this.l, 4);
+            ImageLoaderWrapper.from(this.y.Y()).to(this.k);
             if (y()) {
                 this.k.setOnClickListener(this.G);
                 this.k.setOnTouchListener(this.G);
@@ -1279,8 +1284,8 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
                 this.k.setOnTouchListener(this.F);
             }
         } else if (!TextUtils.isEmpty(ai)) {
-            q.a((View) this.k, 4);
-            q.a((View) this.l, 0);
+            s.a((View) this.k, 4);
+            s.a((View) this.l, 0);
             TextView textView = this.l;
             if (textView != null) {
                 textView.setText(ai.substring(0, 1));
@@ -1296,17 +1301,17 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
         if (this.m != null && !TextUtils.isEmpty(ai)) {
             this.m.setText(ai);
         }
-        q.a((View) this.m, 0);
-        q.a((View) this.n, 0);
+        s.a((View) this.m, 0);
+        s.a((View) this.n, 0);
         String aj = mVar.aj();
         if (TextUtils.isEmpty(aj)) {
             int X = mVar.X();
             if (X == 4) {
-                aj = r.a(this.z, "tt_video_download_apk");
+                aj = t.a(this.z, "tt_video_download_apk");
             } else if (X != 5) {
-                aj = r.a(this.z, "tt_video_mobile_go_detail");
+                aj = t.a(this.z, "tt_video_mobile_go_detail");
             } else {
-                aj = r.a(this.z, "tt_video_dial_phone");
+                aj = t.a(this.z, "tt_video_dial_phone");
             }
         }
         TextView textView2 = this.n;
@@ -1330,7 +1335,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.a
     public void a(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) && surfaceHolder == this.f30696b.getHolder()) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, surfaceHolder) == null) && surfaceHolder == this.f30876b.getHolder()) {
             this.v = true;
             if (r()) {
                 this.B.a(this, surfaceHolder);
@@ -1341,7 +1346,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.a
     public void a(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(1048585, this, surfaceHolder, i2, i3, i4) == null) && surfaceHolder == this.f30696b.getHolder() && r()) {
+        if ((interceptable == null || interceptable.invokeLIII(1048586, this, surfaceHolder, i2, i3, i4) == null) && surfaceHolder == this.f30876b.getHolder() && r()) {
             this.B.a(this, surfaceHolder, i2, i3, i4);
         }
     }
@@ -1361,7 +1366,7 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
     public boolean a(SurfaceTexture surfaceTexture) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, surfaceTexture)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, surfaceTexture)) == null) {
             this.v = false;
             if (r()) {
                 this.B.b(this, surfaceTexture);
@@ -1374,29 +1379,38 @@ public class i implements u.a, b, com.bytedance.sdk.openadsdk.core.video.renderv
 
     public void a(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             int i2 = 0;
-            q.a((View) this.o, 0);
-            q.a((View) this.f30697c, (!z || this.f30698d.getVisibility() == 0) ? 8 : 8);
+            s.a((View) this.o, 0);
+            s.a((View) this.f30877c, (!z || this.f30878d.getVisibility() == 0) ? 8 : 8);
         }
     }
 
     public void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            q.a((View) this.o, z ? 0 : 8);
-            q.a((View) this.f30697c, 8);
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            s.a((View) this.o, z ? 0 : 8);
+            s.a((View) this.f30877c, 8);
         }
     }
 
     public void a(TTDrawFeedAd.DrawVideoListener drawVideoListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, drawVideoListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, drawVideoListener) == null) {
             this.H = drawVideoListener;
             com.bytedance.sdk.openadsdk.core.b.a aVar = this.F;
             if (aVar != null) {
                 aVar.a(drawVideoListener);
             }
         }
+    }
+
+    public void a(Drawable drawable) {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) || (view = this.f30875a) == null) {
+            return;
+        }
+        view.setBackgroundDrawable(drawable);
     }
 }

@@ -24,10 +24,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.c.e.p.l;
-import d.a.p0.a0.b0;
-import d.a.p0.j2.j.b;
-import d.a.p0.k2.e.h;
+import d.a.d.e.p.l;
+import d.a.q0.a0.b0;
+import d.a.q0.j2.j.b;
+import d.a.q0.k2.e.h;
 /* loaded from: classes4.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f20000b;
+        public final /* synthetic */ PersonCenterMoreActivity f20118b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -60,20 +60,20 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     return;
                 }
             }
-            this.f20000b = personCenterMoreActivity;
+            this.f20118b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.a0.b0
+        @Override // d.a.q0.a0.b0
         /* renamed from: d */
         public void a(View view, h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f20000b.mItemData = hVar;
-                if (this.f20000b.mItemData == null || this.f20000b.requestPermission()) {
+                this.f20118b.mItemData = hVar;
+                if (this.f20118b.mItemData == null || this.f20118b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f20000b;
+                PersonCenterMoreActivity personCenterMoreActivity = this.f20118b;
                 personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.k);
             }
         }
@@ -128,7 +128,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            d.a.o0.l.a.s(getPageContext().getPageActivity(), true, str);
+            d.a.p0.m.a.s(getPageContext().getPageActivity(), true, str);
         }
     }
 

@@ -13,24 +13,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 @SuppressLint({"CommitPrefEdits"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class h<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Future<SharedPreferences> f72267a;
+    public final Future<SharedPreferences> f72721a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f72268b;
+    public final a f72722b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f72269c;
+    public final String f72723c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T f72270d;
+    public T f72724d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a<T> {
         String a(T t);
 
@@ -54,9 +54,9 @@ public abstract class h<T> {
                 return;
             }
         }
-        this.f72267a = future;
-        this.f72268b = aVar;
-        this.f72269c = str;
+        this.f72721a = future;
+        this.f72722b = aVar;
+        this.f72723c = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002c A[Catch: all -> 0x0012, DONT_GENERATE, TryCatch #1 {, blocks: (B:6:0x0009, B:16:0x002c, B:18:0x002e, B:20:0x0045, B:22:0x004c, B:21:0x0049, B:11:0x0015, B:13:0x001e), top: B:29:0x0009, inners: #3 }] */
@@ -68,10 +68,10 @@ public abstract class h<T> {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            this.f72270d = t;
-            synchronized (this.f72267a) {
+            this.f72724d = t;
+            synchronized (this.f72721a) {
                 try {
-                    sharedPreferences = this.f72267a.get();
+                    sharedPreferences = this.f72721a.get();
                 } catch (InterruptedException e2) {
                     Log.e("SA.PersistentIdentity", "Cannot read distinct ids from sharedPreferences.", e2);
                     sharedPreferences = null;
@@ -87,7 +87,7 @@ public abstract class h<T> {
                     return;
                 }
                 SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putString(this.f72269c, this.f72268b.a(this.f72270d));
+                edit.putString(this.f72723c, this.f72722b.a(this.f72724d));
                 if (Build.VERSION.SDK_INT >= 9) {
                     edit.apply();
                 } else {
@@ -104,13 +104,13 @@ public abstract class h<T> {
         Object load;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f72270d == null) {
-                synchronized (this.f72267a) {
+            if (this.f72724d == null) {
+                synchronized (this.f72721a) {
                     String str = null;
                     try {
-                        SharedPreferences sharedPreferences = this.f72267a.get();
+                        SharedPreferences sharedPreferences = this.f72721a.get();
                         if (sharedPreferences != null) {
-                            str = sharedPreferences.getString(this.f72269c, null);
+                            str = sharedPreferences.getString(this.f72723c, null);
                         }
                     } catch (InterruptedException e2) {
                         Log.e("SA.PersistentIdentity", "Cannot read distinct ids from sharedPreferences.", e2);
@@ -118,16 +118,16 @@ public abstract class h<T> {
                         Log.e("SA.PersistentIdentity", "Cannot read distinct ids from sharedPreferences.", e3.getCause());
                     }
                     if (str == null) {
-                        load = this.f72268b.create();
+                        load = this.f72722b.create();
                     } else {
-                        load = this.f72268b.load(str);
+                        load = this.f72722b.load(str);
                     }
                     if (load != null) {
                         a(load);
                     }
                 }
             }
-            return this.f72270d;
+            return this.f72724d;
         }
         return (T) invokeV.objValue;
     }

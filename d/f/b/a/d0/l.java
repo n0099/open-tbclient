@@ -25,13 +25,13 @@ public interface l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f69812a;
+        public final int f70266a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f69813b;
+        public final int f70267b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f69814c;
+        public final int f70268c;
 
         static {
             InterceptResult invokeClinit;
@@ -72,13 +72,13 @@ public interface l {
         public b a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f69812a == i2 ? this : new b(i2, this.f69813b, this.f69814c) : (b) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f70266a == i2 ? this : new b(i2, this.f70267b, this.f70268c) : (b) invokeI.objValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69813b != -1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70267b != -1 : invokeV.booleanValue;
         }
 
         public boolean equals(Object obj) {
@@ -92,7 +92,7 @@ public interface l {
                     return false;
                 }
                 b bVar = (b) obj;
-                return this.f69812a == bVar.f69812a && this.f69813b == bVar.f69813b && this.f69814c == bVar.f69814c;
+                return this.f70266a == bVar.f70266a && this.f70267b == bVar.f70267b && this.f70268c == bVar.f70268c;
             }
             return invokeL.booleanValue;
         }
@@ -100,7 +100,7 @@ public interface l {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((527 + this.f69812a) * 31) + this.f69813b) * 31) + this.f69814c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((527 + this.f70266a) * 31) + this.f70267b) * 31) + this.f70268c : invokeV.intValue;
         }
 
         public b(int i2, int i3, int i4) {
@@ -118,9 +118,9 @@ public interface l {
                     return;
                 }
             }
-            this.f69812a = i2;
-            this.f69813b = i3;
-            this.f69814c = i4;
+            this.f70266a = i2;
+            this.f70267b = i3;
+            this.f70268c = i4;
         }
     }
 

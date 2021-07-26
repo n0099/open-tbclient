@@ -114,10 +114,10 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Future<?> f73263e;
+        public final Future<?> f73717e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ScheduledAction f73264f;
+        public final /* synthetic */ ScheduledAction f73718f;
 
         public a(ScheduledAction scheduledAction, Future<?> future) {
             Interceptable interceptable = $ic;
@@ -134,25 +134,25 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                     return;
                 }
             }
-            this.f73264f = scheduledAction;
-            this.f73263e = future;
+            this.f73718f = scheduledAction;
+            this.f73717e = future;
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73263e.isCancelled() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73717e.isCancelled() : invokeV.booleanValue;
         }
 
         @Override // h.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f73264f.get() != Thread.currentThread()) {
-                    this.f73263e.cancel(true);
+                if (this.f73718f.get() != Thread.currentThread()) {
+                    this.f73717e.cancel(true);
                 } else {
-                    this.f73263e.cancel(false);
+                    this.f73717e.cancel(false);
                 }
             }
         }

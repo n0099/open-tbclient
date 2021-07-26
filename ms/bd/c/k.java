@@ -23,7 +23,7 @@ public final class k extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SDKMonitor f73095b;
+    public SDKMonitor f73549b;
 
     /* loaded from: classes9.dex */
     public class a implements SDKMonitor.IGetExtendParams {
@@ -65,22 +65,22 @@ public final class k extends j {
     public void d(long j, long j2, String str, String str2, String str3, int i2, JSONObject jSONObject) {
         SDKMonitor sDKMonitor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), jSONObject}) == null) || (sDKMonitor = this.f73095b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), jSONObject}) == null) || (sDKMonitor = this.f73549b) == null) {
             return;
         }
-        sDKMonitor.monitorSLA(j, j2, str, str2, str3, i2, jSONObject);
+        sDKMonitor.monitorApiError(j, j2, str, str2, str3, i2, jSONObject);
     }
 
     @Override // ms.bd.c.j
     public void e(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, jSONObject2, jSONObject3) == null) || this.f73095b == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, jSONObject2, jSONObject3) == null) || this.f73549b == null) {
             return;
         }
         if ((jSONObject == null || jSONObject.length() <= 0) && (jSONObject2 == null || jSONObject2.length() <= 0)) {
             return;
         }
-        this.f73095b.monitorEvent(str, jSONObject, jSONObject2, jSONObject3);
+        this.f73549b.monitorEvent(str, jSONObject, jSONObject2, jSONObject3);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0031 A[RETURN] */
@@ -100,7 +100,7 @@ public final class k extends j {
         if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) != null) {
             return invokeL.booleanValue;
         }
-        Context c2 = ms.bd.c.a.a().c();
+        Context a2 = ms.bd.c.a.c().a();
         String str4 = null;
         if (str != null) {
             try {
@@ -133,8 +133,8 @@ public final class k extends j {
                     str4 = str2;
                     jSONObject.remove((String) h.a(16777217, 0, 0L, "69bb53", new byte[]{36, 52, 31, 16, 3, Base64.INTERNAL_PADDING, 0, 42, 31, PublicSuffixDatabase.EXCEPTION_MARKER}));
                     jSONObject.remove((String) h.a(16777217, 0, 0L, "d639cb", new byte[]{103, 49, 80, 66, 78, 97, 82, 37, 78, 122}));
-                    SDKMonitorUtils.initMonitor(c2, str3, jSONObject, new a(this, jSONObject, str4));
-                    this.f73095b = SDKMonitorUtils.getInstance(str3);
+                    SDKMonitorUtils.initMonitor(a2, str3, jSONObject, new a(this, jSONObject, str4));
+                    this.f73549b = SDKMonitorUtils.getInstance(str3);
                     return true;
                 }
             } catch (JSONException unused3) {
@@ -147,8 +147,8 @@ public final class k extends j {
             SDKMonitorUtils.setDefaultReportUrl(str3, arrayList2);
             jSONObject.remove((String) h.a(16777217, 0, 0L, "69bb53", new byte[]{36, 52, 31, 16, 3, Base64.INTERNAL_PADDING, 0, 42, 31, PublicSuffixDatabase.EXCEPTION_MARKER}));
             jSONObject.remove((String) h.a(16777217, 0, 0L, "d639cb", new byte[]{103, 49, 80, 66, 78, 97, 82, 37, 78, 122}));
-            SDKMonitorUtils.initMonitor(c2, str3, jSONObject, new a(this, jSONObject, str4));
-            this.f73095b = SDKMonitorUtils.getInstance(str3);
+            SDKMonitorUtils.initMonitor(a2, str3, jSONObject, new a(this, jSONObject, str4));
+            this.f73549b = SDKMonitorUtils.getInstance(str3);
             return true;
         }
         jSONObject = null;
@@ -160,9 +160,9 @@ public final class k extends j {
     public void h(long j, long j2, String str, String str2, String str3, int i2, JSONObject jSONObject) {
         SDKMonitor sDKMonitor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), jSONObject}) == null) || (sDKMonitor = this.f73095b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), jSONObject}) == null) || (sDKMonitor = this.f73549b) == null) {
             return;
         }
-        sDKMonitor.monitorApiError(j, j2, str, str2, str3, i2, jSONObject);
+        sDKMonitor.monitorSLA(j, j2, str, str2, str3, i2, jSONObject);
     }
 }

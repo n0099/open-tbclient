@@ -54,7 +54,7 @@ public class PostSearchActivityStatic {
                 if (StringUtils.isNull(data)) {
                     return null;
                 }
-                d.a.p0.h3.n0.a.q(data);
+                d.a.q0.h3.n0.a.q(data);
                 return new CustomResponsedMessage<>(2009003);
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -88,7 +88,7 @@ public class PostSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                d.a.p0.h3.n0.a.d();
+                d.a.q0.h3.n0.a.d();
                 return new CustomResponsedMessage<>(2009004);
             }
             return (CustomResponsedMessage) invokeL.objValue;

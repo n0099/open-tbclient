@@ -14,7 +14,7 @@ public abstract class CommandLine {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<CommandLine> f23012a;
+    public static final AtomicReference<CommandLine> f23170a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public abstract class CommandLine {
             }
         }
         new ArrayList();
-        f23012a = new AtomicReference<>();
+        f23170a = new AtomicReference<>();
     }
 
     public CommandLine() {
@@ -51,7 +51,7 @@ public abstract class CommandLine {
     public static CommandLine a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f23012a.get() : (CommandLine) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f23170a.get() : (CommandLine) invokeV.objValue;
     }
 
     public static native void nativeAppendSwitch(String str);

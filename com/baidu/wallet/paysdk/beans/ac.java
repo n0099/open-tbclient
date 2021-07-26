@@ -19,22 +19,22 @@ public class ac extends PayBaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25956a;
+    public String f26114a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25957b;
+    public String f26115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25958c;
+    public String f26116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25959d;
+    public String f26117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25960e;
+    public String f26118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25961f;
+    public String f26119f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(Context context) {
@@ -59,10 +59,10 @@ public class ac extends PayBaseBean<Object> {
     public void a(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
-            this.f25956a = str;
-            this.f25957b = str2;
-            this.f25958c = str3;
-            this.f25959d = str4;
+            this.f26114a = str;
+            this.f26115b = str2;
+            this.f26116c = str3;
+            this.f26117d = str4;
         }
     }
 
@@ -80,15 +80,15 @@ public class ac extends PayBaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("mobile_pwd", this.f25956a));
-            arrayList.add(new RestNameValuePair("seed", this.f25957b));
-            arrayList.add(new RestNameValuePair("new_passfree_status", this.f25958c));
-            arrayList.add(new RestNameValuePair("new_passfree_credit", this.f25959d));
-            if (!TextUtils.isEmpty(this.f25960e)) {
-                arrayList.add(new RestNameValuePair("mobile", PayUtils.encrypt("phone_number", this.f25960e)));
+            arrayList.add(new RestNameValuePair("mobile_pwd", this.f26114a));
+            arrayList.add(new RestNameValuePair("seed", this.f26115b));
+            arrayList.add(new RestNameValuePair("new_passfree_status", this.f26116c));
+            arrayList.add(new RestNameValuePair("new_passfree_credit", this.f26117d));
+            if (!TextUtils.isEmpty(this.f26118e)) {
+                arrayList.add(new RestNameValuePair("mobile", PayUtils.encrypt("phone_number", this.f26118e)));
             }
-            if (!TextUtils.isEmpty(this.f25961f)) {
-                arrayList.add(new RestNameValuePair("sms_vcode", this.f25961f));
+            if (!TextUtils.isEmpty(this.f26119f)) {
+                arrayList.add(new RestNameValuePair("sms_vcode", this.f26119f));
             }
             return arrayList;
         }
@@ -115,8 +115,8 @@ public class ac extends PayBaseBean<Object> {
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.f25960e = str;
-            this.f25961f = str2;
+            this.f26118e = str;
+            this.f26119f = str2;
         }
     }
 }

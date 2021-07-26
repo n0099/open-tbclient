@@ -15,20 +15,20 @@ public interface a extends IInterface {
 
     /* renamed from: com.bytedance.embedapplog.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static abstract class AbstractBinderC0305a extends Binder implements a {
+    public static abstract class AbstractBinderC0307a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.bytedance.embedapplog.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0306a implements a {
+        public static class C0308a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f27687a;
+            public IBinder f27845a;
 
-            public C0306a(IBinder iBinder) {
+            public C0308a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f27687a = iBinder;
+                this.f27845a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.a
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f27687a.transact(1, obtain, obtain2, 0);
+                        this.f27845a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -70,7 +70,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27687a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27845a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.embedapplog.a
@@ -82,7 +82,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f27687a.transact(2, obtain, obtain2, 0);
+                        this.f27845a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -102,7 +102,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f27687a.transact(3, obtain, obtain2, 0);
+                        this.f27845a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -122,7 +122,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f27687a.transact(4, obtain, obtain2, 0);
+                        this.f27845a.transact(4, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -142,7 +142,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f27687a.transact(5, obtain, obtain2, 0);
+                        this.f27845a.transact(5, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -161,7 +161,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f27687a.transact(6, obtain, obtain2, 0);
+                        this.f27845a.transact(6, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -182,7 +182,7 @@ public interface a extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                     return (a) queryLocalInterface;
                 }
-                return new C0306a(iBinder);
+                return new C0308a(iBinder);
             }
             return (a) invokeL.objValue;
         }

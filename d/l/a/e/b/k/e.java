@@ -19,14 +19,14 @@ public final class e implements Handler.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile Handler f71901e;
+    public volatile Handler f72355e;
 
     /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Looper f71902a;
+        public static final Looper f72356a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +44,7 @@ public final class e implements Handler.Callback {
             }
             HandlerThread handlerThread = new HandlerThread("DownloadWatchDog");
             handlerThread.start();
-            f71902a = handlerThread.getLooper();
+            f72356a = handlerThread.getLooper();
         }
     }
 
@@ -66,19 +66,19 @@ public final class e implements Handler.Callback {
                 return;
             }
         }
-        this.f71901e = new Handler(a.f71902a, this);
+        this.f72355e = new Handler(a.f72356a, this);
     }
 
     public static Looper a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f71902a : (Looper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f72356a : (Looper) invokeV.objValue;
     }
 
     public void b(b bVar, long j) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048576, this, bVar, j) == null) || (handler = this.f71901e) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048576, this, bVar, j) == null) || (handler = this.f72355e) == null) {
             return;
         }
         Message obtain = Message.obtain();
@@ -90,10 +90,10 @@ public final class e implements Handler.Callback {
     public void c() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.f71901e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.f72355e) == null) {
             return;
         }
-        this.f71901e = null;
+        this.f72355e = null;
         handler.removeCallbacksAndMessages(null);
     }
 

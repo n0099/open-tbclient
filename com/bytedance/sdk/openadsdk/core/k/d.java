@@ -16,12 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.e.e;
-import com.bytedance.sdk.component.e.g;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.d.e;
+import com.bytedance.sdk.component.d.g;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.h;
 import com.bytedance.sdk.openadsdk.core.j.f;
 import com.bytedance.sdk.openadsdk.core.o;
+import com.bytedance.sdk.openadsdk.q.q;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
@@ -44,7 +45,7 @@ public class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f30341a;
+                    public final /* synthetic */ Context f30440a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -64,14 +65,14 @@ public class d {
                                 return;
                             }
                         }
-                        this.f30341a = context;
+                        this.f30440a = context;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.d(this.f30341a);
+                            d.d(this.f30440a);
                         }
                     }
                 }, 1);
@@ -93,7 +94,7 @@ public class d {
                     return new JSONArray((Collection) b(b2));
                 }
             } catch (Throwable th) {
-                j.a("InstallAppUtils", "getCacheIncrementalApps error: ", th);
+                k.a("InstallAppUtils", "getCacheIncrementalApps error: ", th);
             }
             return null;
         }
@@ -115,7 +116,7 @@ public class d {
                     b(context, a(a2));
                 }
             } catch (Exception e2) {
-                j.a("InstallAppUtils", "loadIncrementInstallApps error: ", e2);
+                k.a("InstallAppUtils", "loadIncrementInstallApps error: ", e2);
             }
         }
     }
@@ -187,7 +188,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (!com.bytedance.sdk.openadsdk.r.o.k(o.a()) || com.bytedance.sdk.openadsdk.r.o.c(o.a(), str)) {
+            if (!q.k(o.a()) || q.c(o.a(), str)) {
                 if (Build.VERSION.SDK_INT < 29 || o.a().getApplicationInfo().targetSdkVersion < 29) {
                     try {
                         String path = Environment.getExternalStorageDirectory().getPath();

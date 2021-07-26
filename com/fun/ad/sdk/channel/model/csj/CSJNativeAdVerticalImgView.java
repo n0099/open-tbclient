@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.u.b.a.b;
+import a.a.a.a.r.b.a.b;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -27,7 +27,7 @@ public final class CSJNativeAdVerticalImgView extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f32695f;
+    public ImageView f32884f;
 
     /* loaded from: classes5.dex */
     public class a extends DrawableImageViewTarget {
@@ -161,7 +161,7 @@ public final class CSJNativeAdVerticalImgView extends b {
         }
     }
 
-    @Override // a.a.a.a.u.b.a.b
+    @Override // a.a.a.a.r.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         TTImage tTImage;
         Interceptable interceptable = $ic;
@@ -171,16 +171,16 @@ public final class CSJNativeAdVerticalImgView extends b {
             if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
                 return;
             }
-            Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f32695f));
+            Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f32884f));
         }
     }
 
-    @Override // a.a.a.a.u.b.a.b, android.view.View
+    @Override // a.a.a.a.r.b.a.b, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32695f = (ImageView) findViewById(R.id.ad_img);
+            this.f32884f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 }

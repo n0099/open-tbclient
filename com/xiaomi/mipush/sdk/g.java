@@ -13,7 +13,7 @@ public class g extends aq.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f39806a;
+    public final /* synthetic */ f f40078a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i2, String str) {
@@ -34,7 +34,7 @@ public class g extends aq.a {
                 return;
             }
         }
-        this.f39806a = fVar;
+        this.f40078a = fVar;
     }
 
     @Override // com.xiaomi.push.service.aq.a
@@ -44,12 +44,12 @@ public class g extends aq.a {
         Context context2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.f39806a.f89a;
+            context = this.f40078a.f89a;
             boolean a2 = com.xiaomi.push.service.aq.a(context).a(hk.ao.a(), true);
-            z = this.f39806a.f92a;
+            z = this.f40078a.f92a;
             if (z != a2) {
-                this.f39806a.f92a = a2;
-                context2 = this.f39806a.f89a;
+                this.f40078a.f92a = a2;
+                context2 = this.f40078a.f89a;
                 i.b(context2);
             }
         }

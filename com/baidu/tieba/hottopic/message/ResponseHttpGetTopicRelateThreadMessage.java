@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.g1.c.d;
+import d.a.q0.g1.c.d;
 import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
@@ -79,6 +79,6 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
         this.page = dataRes.page;
         d dVar = new d();
         this.hotThreadItemListData = dVar;
-        dVar.v4(getTopicRelateThreadResIdl.data);
+        dVar.y4(getTopicRelateThreadResIdl.data);
     }
 }

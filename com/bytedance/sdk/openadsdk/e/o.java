@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.e.g;
-import com.bytedance.sdk.openadsdk.k.c.c;
+import com.bytedance.sdk.openadsdk.j.c.c;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -54,7 +54,7 @@ public class o extends g<c.a> {
             try {
                 JSONArray jSONArray = new JSONArray();
                 for (c.a aVar : list) {
-                    jSONArray.put(aVar.f31392b);
+                    jSONArray.put(aVar.f31636b);
                 }
                 jSONObject.put("stats_list", jSONArray);
             } catch (Exception unused) {

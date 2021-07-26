@@ -33,7 +33,7 @@ public class ZipUtils implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ZipUtils f27465a;
+        public final /* synthetic */ ZipUtils f27623a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ZipUtils zipUtils, InputStream inputStream) {
@@ -53,7 +53,7 @@ public class ZipUtils implements INoProGuard {
                     return;
                 }
             }
-            this.f27465a = zipUtils;
+            this.f27623a = zipUtils;
         }
 
         @Override // java.util.zip.ZipInputStream, java.util.zip.InflaterInputStream, java.io.FilterInputStream, java.io.InputStream

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
+import d.a.d.a.f;
 /* loaded from: classes4.dex */
 public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -23,7 +23,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f20768e;
+    public HttpMessageListener f20886e;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -95,7 +95,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH);
-        this.f20768e = aVar;
+        this.f20886e = aVar;
         registerListener(aVar);
         LoadData();
     }

@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.s0;
+import d.a.p0.s.q.s0;
 /* loaded from: classes4.dex */
 public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ThirdPartAccountService.LoginResultCallback f18507a;
+    public static ThirdPartAccountService.LoginResultCallback f18592a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ILoginListener f18508b;
+    public static final ILoginListener f18593b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -36,7 +36,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThirdPartAccountService.OpenAccessTokenCallback f18509e;
+        public final /* synthetic */ ThirdPartAccountService.OpenAccessTokenCallback f18594e;
 
         public a(ThirdPartyAccountServiceImpl thirdPartyAccountServiceImpl, ThirdPartAccountService.OpenAccessTokenCallback openAccessTokenCallback) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
                     return;
                 }
             }
-            this.f18509e = openAccessTokenCallback;
+            this.f18594e = openAccessTokenCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
         public void onFailure(OAuthResult oAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oAuthResult) == null) {
-                this.f18509e.onFailed("accessToken is null");
+                this.f18594e.onFailed("accessToken is null");
             }
         }
 
@@ -75,7 +75,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
                 return;
             }
             try {
-                this.f18509e.onResult(oAuthResult.accessToken);
+                this.f18594e.onResult(oAuthResult.accessToken);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -109,7 +109,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
                 return;
             }
         }
-        f18508b = new ILoginListener() { // from class: com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl.1
+        f18593b = new ILoginListener() { // from class: com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -131,7 +131,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
             public void onCancel() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    ThirdPartyAccountServiceImpl.f18507a.onResult(-2);
+                    ThirdPartyAccountServiceImpl.f18592a.onResult(-2);
                 }
             }
 
@@ -139,7 +139,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
             public void onFail() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    ThirdPartyAccountServiceImpl.f18507a.onResult(-1);
+                    ThirdPartyAccountServiceImpl.f18592a.onResult(-1);
                 }
             }
 
@@ -147,7 +147,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
             public void onSuccess() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    ThirdPartyAccountServiceImpl.f18507a.onResult(0);
+                    ThirdPartyAccountServiceImpl.f18592a.onResult(0);
                 }
             }
         };
@@ -192,9 +192,9 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, loginResultCallback) == null) {
             s0 s0Var = new s0(context, "");
-            s0Var.e(f18508b);
+            s0Var.e(f18593b);
             DialogLoginHelper.checkUpIsLogin(s0Var);
-            f18507a = loginResultCallback;
+            f18592a = loginResultCallback;
         }
     }
 

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
+import d.a.d.a.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SearchMajorModel extends BdBaseModel {
@@ -24,10 +24,10 @@ public class SearchMajorModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18451e;
+    public b f18536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f18452f;
+    public HttpMessageListener f18537f;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -35,7 +35,7 @@ public class SearchMajorModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SearchMajorModel f18453a;
+        public final /* synthetic */ SearchMajorModel f18538a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SearchMajorModel searchMajorModel, int i2) {
@@ -55,7 +55,7 @@ public class SearchMajorModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f18453a = searchMajorModel;
+            this.f18538a = searchMajorModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,21 +66,21 @@ public class SearchMajorModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            this.f18453a.mErrorCode = httpResponsedMessage.getError();
-            this.f18453a.mErrorString = httpResponsedMessage.getErrorString();
-            if (!StringUtils.isNull(this.f18453a.mErrorString)) {
-                str = this.f18453a.mErrorString;
+            this.f18538a.mErrorCode = httpResponsedMessage.getError();
+            this.f18538a.mErrorString = httpResponsedMessage.getErrorString();
+            if (!StringUtils.isNull(this.f18538a.mErrorString)) {
+                str = this.f18538a.mErrorString;
             } else {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
             }
             ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.f18453a.mErrorCode);
+            errorData.setError_code(this.f18538a.mErrorCode);
             errorData.setError_msg(str);
             SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage = httpResponsedMessage instanceof SearchMajorHttpResponsedMessage ? (SearchMajorHttpResponsedMessage) httpResponsedMessage : null;
-            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f62364a)) {
-                this.f18453a.f18451e.onSuccess(searchMajorHttpResponsedMessage.getData().f62364a);
+            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f63008a)) {
+                this.f18538a.f18536e.onSuccess(searchMajorHttpResponsedMessage.getData().f63008a);
             } else {
-                this.f18453a.f18451e.onError(errorData);
+                this.f18538a.f18536e.onError(errorData);
             }
         }
     }
@@ -111,10 +111,10 @@ public class SearchMajorModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_MAJOR);
-        this.f18452f = aVar;
+        this.f18537f = aVar;
         aVar.setSelfListener(true);
-        registerListener(this.f18452f);
-        this.f18451e = bVar;
+        registerListener(this.f18537f);
+        this.f18536e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

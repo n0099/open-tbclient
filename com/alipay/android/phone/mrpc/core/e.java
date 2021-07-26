@@ -14,10 +14,10 @@ public final class e extends DefaultRedirectHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1637a;
+    public int f1670a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f1638b;
+    public final /* synthetic */ d f1671b;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class e extends DefaultRedirectHandler {
                 return;
             }
         }
-        this.f1638b = dVar;
+        this.f1671b = dVar;
     }
 
     @Override // org.apache.http.impl.client.DefaultRedirectHandler, org.apache.http.client.RedirectHandler
@@ -43,9 +43,9 @@ public final class e extends DefaultRedirectHandler {
         int statusCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, httpResponse, httpContext)) == null) {
-            this.f1637a++;
+            this.f1670a++;
             boolean isRedirectRequested = super.isRedirectRequested(httpResponse, httpContext);
-            if (isRedirectRequested || this.f1637a >= 5 || !((statusCode = httpResponse.getStatusLine().getStatusCode()) == 301 || statusCode == 302)) {
+            if (isRedirectRequested || this.f1670a >= 5 || !((statusCode = httpResponse.getStatusLine().getStatusCode()) == 301 || statusCode == 302)) {
                 return isRedirectRequested;
             }
             return true;

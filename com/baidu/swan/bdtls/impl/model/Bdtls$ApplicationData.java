@@ -71,10 +71,10 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f11676e;
+        public int f11702e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ByteString f11677f;
+        public ByteString f11703f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
                     return;
                 }
             }
-            this.f11677f = ByteString.EMPTY;
+            this.f11703f = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -147,9 +147,9 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (d.a.n0.c.a.i.a) null);
-                int i2 = (this.f11676e & 1) != 1 ? 0 : 1;
-                bdtls$ApplicationData.sKR_ = this.f11677f;
+                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (d.a.o0.c.a.i.a) null);
+                int i2 = (this.f11702e & 1) != 1 ? 0 : 1;
+                bdtls$ApplicationData.sKR_ = this.f11703f;
                 bdtls$ApplicationData.bitField0_ = i2;
                 return bdtls$ApplicationData;
             }
@@ -161,8 +161,8 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f11677f = ByteString.EMPTY;
-                this.f11676e &= -2;
+                this.f11703f = ByteString.EMPTY;
+                this.f11702e &= -2;
                 return this;
             }
             return (b) invokeV.objValue;
@@ -194,7 +194,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f11676e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f11702e & 1) == 1 : invokeV.booleanValue;
         }
 
         public b t(Bdtls$ApplicationData bdtls$ApplicationData) {
@@ -253,8 +253,8 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, byteString)) == null) {
                 if (byteString != null) {
-                    this.f11676e |= 1;
-                    this.f11677f = byteString;
+                    this.f11702e |= 1;
+                    this.f11703f = byteString;
                     return this;
                 }
                 throw null;
@@ -302,7 +302,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         bdtls$ApplicationData.initFields();
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, d.a.n0.c.a.i.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, d.a.o0.c.a.i.a aVar) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -409,7 +409,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, d.a.n0.c.a.i.a aVar) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, d.a.o0.c.a.i.a aVar) {
         this(builder);
     }
 

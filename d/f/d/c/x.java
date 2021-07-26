@@ -17,7 +17,7 @@ public abstract class x<E> implements Iterable<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Optional<Iterable<E>> f70920e;
+    public final Optional<Iterable<E>> f71374e;
 
     /* loaded from: classes8.dex */
     public static class a extends x<E> {
@@ -25,7 +25,7 @@ public abstract class x<E> implements Iterable<E> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterable f70921f;
+        public final /* synthetic */ Iterable f71375f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Iterable iterable, Iterable iterable2) {
@@ -45,14 +45,14 @@ public abstract class x<E> implements Iterable<E> {
                     return;
                 }
             }
-            this.f70921f = iterable2;
+            this.f71375f = iterable2;
         }
 
         @Override // java.lang.Iterable
         public Iterator<E> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70921f.iterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71375f.iterator() : (Iterator) invokeV.objValue;
         }
     }
 
@@ -62,7 +62,7 @@ public abstract class x<E> implements Iterable<E> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterable[] f70922f;
+        public final /* synthetic */ Iterable[] f71376f;
 
         /* loaded from: classes8.dex */
         public class a extends d.f.d.c.a<Iterator<? extends T>> {
@@ -70,7 +70,7 @@ public abstract class x<E> implements Iterable<E> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f70923g;
+            public final /* synthetic */ b f71377g;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(b bVar, int i2) {
@@ -90,7 +90,7 @@ public abstract class x<E> implements Iterable<E> {
                         return;
                     }
                 }
-                this.f70923g = bVar;
+                this.f71377g = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -99,7 +99,7 @@ public abstract class x<E> implements Iterable<E> {
             public Iterator<? extends T> a(int i2) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f70923g.f70922f[i2].iterator() : (Iterator) invokeI.objValue;
+                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f71377g.f71376f[i2].iterator() : (Iterator) invokeI.objValue;
             }
         }
 
@@ -118,14 +118,14 @@ public abstract class x<E> implements Iterable<E> {
                     return;
                 }
             }
-            this.f70922f = iterableArr;
+            this.f71376f = iterableArr;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Iterators.f(new a(this, this.f70922f.length)) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Iterators.f(new a(this, this.f71376f.length)) : (Iterator) invokeV.objValue;
         }
     }
 
@@ -142,7 +142,7 @@ public abstract class x<E> implements Iterable<E> {
                 return;
             }
         }
-        this.f70920e = Optional.absent();
+        this.f71374e = Optional.absent();
     }
 
     public static <T> x<T> a(Iterable<? extends T> iterable, Iterable<? extends T> iterable2) {
@@ -178,7 +178,7 @@ public abstract class x<E> implements Iterable<E> {
     public final Iterable<E> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70920e.or((Optional<Iterable<E>>) this) : (Iterable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71374e.or((Optional<Iterable<E>>) this) : (Iterable) invokeV.objValue;
     }
 
     public final ImmutableSet<E> f() {
@@ -209,6 +209,6 @@ public abstract class x<E> implements Iterable<E> {
             }
         }
         d.f.d.a.n.p(iterable);
-        this.f70920e = Optional.fromNullable(this == iterable ? null : iterable);
+        this.f71374e = Optional.fromNullable(this == iterable ? null : iterable);
     }
 }

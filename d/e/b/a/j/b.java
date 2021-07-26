@@ -20,10 +20,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f69185a;
+    public static int f69639a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f69186b;
+    public static long f69640b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -83,15 +83,15 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f69185a == 0) {
+            if (f69639a == 0) {
                 try {
-                    f69185a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+                    f69639a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
                 } catch (Exception e2) {
                     Log.e("PerformanceUtils", "getNumCores exception", e2);
-                    f69185a = 1;
+                    f69639a = 1;
                 }
             }
-            return f69185a;
+            return f69639a;
         }
         return invokeV.intValue;
     }
@@ -105,7 +105,7 @@ public class b {
         FileReader fileReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f69186b == 0) {
+            if (f69640b == 0) {
                 long j = -1;
                 FileReader fileReader2 = null;
                 try {
@@ -141,8 +141,8 @@ public class b {
                         fileReader2.close();
                         fileReader2 = fileReader2;
                     }
-                    f69186b = j;
-                    return f69186b;
+                    f69640b = j;
+                    return f69640b;
                 } catch (Throwable th2) {
                     th = th2;
                     fileReader2 = fileReader;
@@ -155,9 +155,9 @@ public class b {
                     }
                     throw th;
                 }
-                f69186b = j;
+                f69640b = j;
             }
-            return f69186b;
+            return f69640b;
         }
         return invokeV.longValue;
     }

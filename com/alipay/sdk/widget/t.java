@@ -17,7 +17,7 @@ public class t extends WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WebViewWindow f2055a;
+    public final /* synthetic */ WebViewWindow f2088a;
 
     public t(WebViewWindow webViewWindow) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class t extends WebViewClient {
                 return;
             }
         }
-        this.f2055a = webViewWindow;
+        this.f2088a = webViewWindow;
     }
 
     @Override // android.webkit.WebViewClient
@@ -42,8 +42,8 @@ public class t extends WebViewClient {
         WebViewWindow.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            bVar = this.f2055a.f2012h;
-            if (bVar.c(this.f2055a, str)) {
+            bVar = this.f2088a.f2045h;
+            if (bVar.c(this.f2088a, str)) {
                 return;
             }
             super.onPageFinished(webView, str);
@@ -55,8 +55,8 @@ public class t extends WebViewClient {
         WebViewWindow.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i2, str, str2) == null) {
-            bVar = this.f2055a.f2012h;
-            if (bVar.a(this.f2055a, i2, str, str2)) {
+            bVar = this.f2088a.f2045h;
+            if (bVar.a(this.f2088a, i2, str, str2)) {
                 return;
             }
             super.onReceivedError(webView, i2, str, str2);
@@ -68,8 +68,8 @@ public class t extends WebViewClient {
         WebViewWindow.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, sslErrorHandler, sslError) == null) {
-            bVar = this.f2055a.f2012h;
-            if (bVar.a(this.f2055a, sslErrorHandler, sslError)) {
+            bVar = this.f2088a.f2045h;
+            if (bVar.a(this.f2088a, sslErrorHandler, sslError)) {
                 return;
             }
             super.onReceivedSslError(webView, sslErrorHandler, sslError);
@@ -82,8 +82,8 @@ public class t extends WebViewClient {
         WebViewWindow.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            bVar = this.f2055a.f2012h;
-            if (bVar.b(this.f2055a, str)) {
+            bVar = this.f2088a.f2045h;
+            if (bVar.b(this.f2088a, str)) {
                 return true;
             }
             return super.shouldOverrideUrlLoading(webView, str);

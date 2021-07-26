@@ -23,7 +23,7 @@ public class StatService {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f32680a;
+    public ConcurrentHashMap<String, Long> f32867a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -94,7 +94,7 @@ public class StatService {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f32681a;
+        public static StatService f32868a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -110,7 +110,7 @@ public class StatService {
                     return;
                 }
             }
-            f32681a = new StatService(null);
+            f32868a = new StatService(null);
         }
     }
 
@@ -127,13 +127,13 @@ public class StatService {
     public static StatService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f32681a : (StatService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f32868a : (StatService) invokeV.objValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a().f32680a.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().f32867a.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
@@ -176,12 +176,12 @@ public class StatService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            Long l = a().f32680a.get(str);
+            Long l = a().f32867a.get(str);
             if (l == null) {
                 return -1L;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f32680a.remove(str);
+            a().f32867a.remove(str);
             return valueOf.longValue();
         }
         return invokeL.longValue;
@@ -221,6 +221,6 @@ public class StatService {
                 return;
             }
         }
-        this.f32680a = new ConcurrentHashMap<>();
+        this.f32867a = new ConcurrentHashMap<>();
     }
 }

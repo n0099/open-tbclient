@@ -1,14 +1,17 @@
 package com.baidu.tieba.newinterest.activity;
 
 import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.d2.f.a;
+import d.a.p0.s.d0.b;
+import d.a.q0.d2.f.a;
 /* loaded from: classes4.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -38,6 +41,20 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         this.mScene = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
     }
 
+    private void setInterestGuideConf() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            TbSingleton.getInstance().setShowedInterestGuide(true);
+            String p = b.j().p("key_interest_guide_show", "");
+            StringBuilder sb = new StringBuilder();
+            sb.append(p);
+            sb.append(StringUtils.isNull(p) ? "" : ",");
+            String sb2 = sb.toString();
+            b j = b.j();
+            j.x("key_interest_guide_show", sb2 + System.currentTimeMillis());
+        }
+    }
+
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
@@ -65,6 +82,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             a aVar = new a(this, this.mScene);
             this.mGuideView = aVar;
             setContentView(aVar.c());
+            setInterestGuideConf();
         }
     }
 }

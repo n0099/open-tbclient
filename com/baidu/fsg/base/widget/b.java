@@ -14,7 +14,7 @@ public class b implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BdActionBar f5537a;
+    public final /* synthetic */ BdActionBar f5563a;
 
     public b(BdActionBar bdActionBar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b implements View.OnTouchListener {
                 return;
             }
         }
-        this.f5537a = bdActionBar;
+        this.f5563a = bdActionBar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -42,11 +42,11 @@ public class b implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                view2 = this.f5537a.f5493g;
+                view2 = this.f5563a.f5519g;
                 ViewHelper.setAlpha(view2, 0.5f);
                 return false;
             }
-            view3 = this.f5537a.f5493g;
+            view3 = this.f5563a.f5519g;
             ViewHelper.setAlpha(view3, 1.0f);
             return false;
         }

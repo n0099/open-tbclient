@@ -9,31 +9,31 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5282a = "wallet_stastics";
+    public static final String f5308a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5283b = 204800;
+    public static final int f5309b = 204800;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5284c = 51200;
+    public static final int f5310c = 51200;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5285d = 200;
+    public static final int f5311d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f5286e = 604800000;
+    public static final long f5312e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f5287f = 86400000;
+    public static final long f5313f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5288g = "publish_data";
+    public static final String f5314g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5289h = "sign";
+    public static final String f5315h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5290i = "mk";
+    public static final String f5316i = "mk";
     public static final String j = "array";
     public static final String k = "exception";
     public static final String l = "https://www.baifubao.com/chanpin_stat";

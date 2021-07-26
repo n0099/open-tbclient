@@ -12,14 +12,14 @@ public class RestNameValuePair implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f9120c = 847806714499261896L;
+    public static final long f9146c = 847806714499261896L;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9121a;
+    public String f9147a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9122b;
+    public String f9148b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RestNameValuePair() {
@@ -43,26 +43,26 @@ public class RestNameValuePair implements Serializable {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9121a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9147a : (String) invokeV.objValue;
     }
 
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9122b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9148b : (String) invokeV.objValue;
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f9121a = str;
+            this.f9147a = str;
         }
     }
 
     public void setValue(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f9122b = str;
+            this.f9148b = str;
         }
     }
 
@@ -70,7 +70,7 @@ public class RestNameValuePair implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "name = " + this.f9121a + ", value = " + this.f9122b;
+            return "name = " + this.f9147a + ", value = " + this.f9148b;
         }
         return (String) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public class RestNameValuePair implements Serializable {
                 return;
             }
         }
-        this.f9121a = str;
-        this.f9122b = str2;
+        this.f9147a = str;
+        this.f9148b = str2;
     }
 }

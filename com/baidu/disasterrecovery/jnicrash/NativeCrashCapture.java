@@ -29,7 +29,7 @@ public class NativeCrashCapture implements NoProGuard {
     public static final String TAG = "NativeCrashCapture";
     public static Context sContext;
     public static boolean sInit;
-    public static d.a.o.a.b sNativeCrashHandler;
+    public static d.a.p.a.b sNativeCrashHandler;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -93,7 +93,7 @@ public class NativeCrashCapture implements NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             if (Build.VERSION.SDK_INT > 19) {
-                d.a.o.a.b bVar = sNativeCrashHandler;
+                d.a.p.a.b bVar = sNativeCrashHandler;
                 if (bVar != null) {
                     bVar.d();
                     return;
@@ -103,14 +103,14 @@ public class NativeCrashCapture implements NoProGuard {
             if (DEBUG) {
                 Log.d(TAG, "beginNativeCrash");
             }
-            d.a.o.a.b bVar2 = sNativeCrashHandler;
+            d.a.p.a.b bVar2 = sNativeCrashHandler;
             if (bVar2 != null) {
                 bVar2.d();
             }
         }
     }
 
-    public static void init(@NonNull Context context, @NonNull d.a.o.a.b bVar, boolean z) {
+    public static void init(@NonNull Context context, @NonNull d.a.p.a.b bVar, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bVar, z) == null) || sInit || bVar == null || context == null) {
             return;
@@ -129,7 +129,7 @@ public class NativeCrashCapture implements NoProGuard {
             }
             nativeInit(Build.VERSION.SDK_INT);
             if (z) {
-                d.a.o.a.a.a();
+                d.a.p.a.a.a();
             }
             file.delete();
             if (DEBUG) {
@@ -198,7 +198,7 @@ public class NativeCrashCapture implements NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65546, null, str, i2, i3) == null) {
             if (Build.VERSION.SDK_INT > 19) {
-                d.a.o.a.b bVar = sNativeCrashHandler;
+                d.a.p.a.b bVar = sNativeCrashHandler;
                 if (bVar != null) {
                     bVar.i(str, i2, i3);
                     return;
@@ -208,7 +208,7 @@ public class NativeCrashCapture implements NoProGuard {
             if (DEBUG) {
                 Log.d(TAG, "uncaughtNativeCrash");
             }
-            d.a.o.a.b bVar2 = sNativeCrashHandler;
+            d.a.p.a.b bVar2 = sNativeCrashHandler;
             if (bVar2 != null) {
                 bVar2.i(str, i2, i3);
             }

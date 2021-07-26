@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import d.a.p0.h3.d0.a;
+import d.a.q0.h3.d0.a;
 /* loaded from: classes4.dex */
 public class MultiAttentionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;

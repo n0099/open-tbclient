@@ -27,13 +27,13 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f16238g;
+    public float f16293g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Shape f16239h;
+    public Shape f16294h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f16240i;
+    public Paint f16295i;
     public Paint j;
     public RectF k;
 
@@ -81,12 +81,12 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
             int saveCount = canvas.getSaveCount();
             canvas.save();
             super.dispatchDraw(canvas);
-            Shape shape = this.f16239h;
+            Shape shape = this.f16294h;
             if (shape != null) {
-                shape.draw(canvas, this.f16240i);
+                shape.draw(canvas, this.f16295i);
             }
             RectF rectF = this.k;
-            float f2 = this.f16238g;
+            float f2 = this.f16293g;
             canvas.drawRoundRect(rectF, f2, f2, this.j);
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
@@ -101,7 +101,7 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                if (this.f16239h == null) {
+                if (this.f16294h == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
@@ -110,11 +110,11 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
                     float paddingBottom = getPaddingBottom() > 0 ? getPaddingBottom() : 1.0f;
                     RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                     float[] fArr2 = new float[8];
-                    Arrays.fill(fArr2, this.f16238g);
-                    this.f16239h = new RoundRectShape(fArr, rectF, fArr2);
+                    Arrays.fill(fArr2, this.f16293g);
+                    this.f16294h = new RoundRectShape(fArr, rectF, fArr2);
                     this.k.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
                 }
-                this.f16239h.resize(getWidth(), getHeight());
+                this.f16294h.resize(getWidth(), getHeight());
             }
         }
     }
@@ -122,7 +122,7 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f16238g = f2;
+            this.f16293g = f2;
         }
     }
 
@@ -166,14 +166,14 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
                 return;
             }
         }
-        this.f16238g = 0.0f;
+        this.f16293g = 0.0f;
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f16240i = paint;
+        this.f16295i = paint;
         paint.setAntiAlias(true);
-        this.f16240i.setColor(-7829368);
-        this.f16240i.setStyle(Paint.Style.FILL);
-        this.f16240i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f16295i.setColor(-7829368);
+        this.f16295i.setStyle(Paint.Style.FILL);
+        this.f16295i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
         this.j = paint2;
         paint2.setAntiAlias(true);

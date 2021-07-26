@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.a.d;
-import d.a.c.e.l.b;
-import d.a.c.e.l.e;
-import d.a.c.e.p.j;
-import d.a.c.e.p.l;
-import d.a.c.k.d.a;
-import d.a.o0.a0.c;
-import d.a.o0.r.k;
+import d.a.d.e.a.d;
+import d.a.d.e.l.b;
+import d.a.d.e.l.e;
+import d.a.d.e.p.j;
+import d.a.d.e.p.l;
+import d.a.d.k.d.a;
+import d.a.p0.b0.c;
+import d.a.p0.s.k;
 /* loaded from: classes3.dex */
 public class ImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -52,7 +52,7 @@ public class ImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, bVar, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             byte[] bArr = new byte[0];
-            d.a.c.e.a.f.a aVar = new d.a.c.e.a.f.a("images", str, DiskFileOperate.Action.READ);
+            d.a.d.e.a.f.a aVar = new d.a.d.e.a.f.a("images", str, DiskFileOperate.Action.READ);
             aVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             aVar.setSubFolder(true);
             aVar.setIsFormatData(false);
@@ -62,7 +62,7 @@ public class ImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(aVar);
-                bVar.f41276a = diskCancelWorker;
+                bVar.f41780a = diskCancelWorker;
             }
             if (d.g().a(aVar)) {
                 int i4 = j.H() ? 500 : 2000;
@@ -79,11 +79,11 @@ public class ImageLoaderProc implements e<a> {
                         aVar.formatData(aVar.getData());
                     }
                     if (aVar.a() != null) {
-                        return new a((d.a.c.d.b) aVar.a(), BitmapHelper.Bytes2Bitmap(aVar.getData()), true);
+                        return new a((d.a.d.d.b) aVar.a(), BitmapHelper.Bytes2Bitmap(aVar.getData()), true);
                     }
                     if (B) {
                         BdLog.e("BIGIMAGE gif parse fail ");
-                        d.a.o0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
+                        d.a.p0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
                     }
                     return new a(BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(aVar.getData()), i2, i3), false, str2);
                 }
@@ -105,7 +105,7 @@ public class ImageLoaderProc implements e<a> {
         return (a) invokeLL.objValue;
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class ImageLoaderProc implements e<a> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class ImageLoaderProc implements e<a> {
         return invokeV.intValue;
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class ImageLoaderProc implements e<a> {
         }
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && (obj instanceof a)) {
@@ -153,14 +153,14 @@ public class ImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             a readGifFromDisk = readGifFromDisk(TbMd5.getNameMd5FromUrl(str2), bVar, str2, "ImageLoaderProc.getFromLocal", i2, i3);
-            d.a.c.e.l.a.f(readGifFromDisk != null, System.currentTimeMillis() - currentTimeMillis);
+            d.a.d.e.l.a.f(readGifFromDisk != null, System.currentTimeMillis() - currentTimeMillis);
             return readGifFromDisk;
         }
         return (a) invokeCommon.objValue;
@@ -168,7 +168,7 @@ public class ImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -176,7 +176,7 @@ public class ImageLoaderProc implements e<a> {
             long currentTimeMillis = System.currentTimeMillis();
             a m = c.k().m(str);
             if (z) {
-                d.a.c.e.l.a.i(m != null, System.currentTimeMillis() - currentTimeMillis);
+                d.a.d.e.l.a.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
             return m;
         }
@@ -185,7 +185,7 @@ public class ImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         String str3;
@@ -210,13 +210,13 @@ public class ImageLoaderProc implements e<a> {
                     boolean needCache = webClient.needCache();
                     if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                         BdLog.e("BIGIMAGE imageLoaderProc too big");
-                        d.a.o0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                        d.a.p0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
                     }
                     if (downloadImageBytes == null && webClient.IsRequestSuccess()) {
                         Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                         if (z && Bytes2Bitmap == null) {
                             TbadkCoreApplication.getInst().incWebpFailureCount();
-                            d.a.o0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
+                            d.a.p0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
                             downloadImageBytes = webClient.downloadImageBytes(str, false);
                             needCache = webClient.needCache();
                             if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -228,21 +228,21 @@ public class ImageLoaderProc implements e<a> {
                                 String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
                                 c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
                                 boolean B = l.B(downloadImageBytes);
-                                NSGif f2 = (NSGif.f2156f && B) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
+                                NSGif f2 = (NSGif.f2182f && B) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
                                 if (f2 != null) {
-                                    aVar = new a((d.a.c.d.b) f2, Bytes2Bitmap, true);
+                                    aVar = new a((d.a.d.d.b) f2, Bytes2Bitmap, true);
                                     aVar.y(needCache);
                                 } else {
                                     if (B) {
                                         BdLog.e("BIGIMAGE gif parse fail ");
-                                        d.a.o0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
+                                        d.a.p0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
                                     }
                                     a aVar2 = new a(BitmapHelper.checkBitmapSize(Bytes2Bitmap, i2, i3), false, str);
                                     aVar2.y(needCache);
                                     aVar = aVar2;
                                 }
                                 if (needCache) {
-                                    d.a.c.e.a.f.a aVar3 = new d.a.c.e.a.f.a("images", nameMd5FromUrl, DiskFileOperate.Action.WRITE);
+                                    d.a.d.e.a.f.a aVar3 = new d.a.d.e.a.f.a("images", nameMd5FromUrl, DiskFileOperate.Action.WRITE);
                                     aVar3.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
                                     aVar3.setSubFolder(true);
                                     aVar3.setData(downloadImageBytes);
@@ -252,7 +252,7 @@ public class ImageLoaderProc implements e<a> {
                                     if (bVar != null) {
                                         DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                                         diskCancelWorker.setOperate(aVar3);
-                                        bVar.f41276a = diskCancelWorker;
+                                        bVar.f41780a = diskCancelWorker;
                                     }
                                 }
                                 if (B) {
@@ -264,14 +264,14 @@ public class ImageLoaderProc implements e<a> {
                                 if (downloadImageBytes.length > 1) {
                                     z2 = true;
                                 }
-                                d.a.c.e.l.a.j(z2, str3, webClient.mStat, System.currentTimeMillis() - currentTimeMillis, downloadImageBytes.length);
+                                d.a.d.e.l.a.j(z2, str3, webClient.mStat, System.currentTimeMillis() - currentTimeMillis, downloadImageBytes.length);
                             }
                             return aVar;
                         }
-                        d.a.c.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
+                        d.a.d.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
                         return null;
                     }
-                    d.a.c.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
+                    d.a.d.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
                     return null;
                 }
             }
@@ -281,11 +281,11 @@ public class ImageLoaderProc implements e<a> {
             boolean needCache2 = webClient.needCache();
             if (webClient.IsRequestSuccess()) {
                 BdLog.e("BIGIMAGE imageLoaderProc too big");
-                d.a.o0.r.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                d.a.p0.s.z.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
             }
             if (downloadImageBytes == null) {
             }
-            d.a.c.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
+            d.a.d.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
             return null;
         }
         return (a) invokeCommon.objValue;

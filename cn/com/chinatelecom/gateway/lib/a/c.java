@@ -18,17 +18,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1527a = "c";
+    public static final String f1560a = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f1528b;
+    public final int[] f1561b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f1529c;
+    public int[] f1562c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f1530d;
+    public int[] f1563d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,9 +58,9 @@ public class c {
                 return;
             }
         }
-        this.f1528b = new int[]{1732584193, -271733879, -1732584194, 271733878, -1009589776};
-        this.f1529c = new int[5];
-        this.f1530d = new int[80];
+        this.f1561b = new int[]{1732584193, -271733879, -1732584194, 271733878, -1009589776};
+        this.f1562c = new int[5];
+        this.f1563d = new int[80];
     }
 
     private int a(int i2, int i3) {
@@ -87,48 +87,48 @@ public class c {
             return;
         }
         for (int i2 = 16; i2 <= 79; i2++) {
-            int[] iArr = this.f1530d;
+            int[] iArr = this.f1563d;
             iArr[i2] = a(((iArr[i2 - 3] ^ iArr[i2 - 8]) ^ iArr[i2 - 14]) ^ iArr[i2 - 16], 1);
         }
         int[] iArr2 = new int[5];
         for (int i3 = 0; i3 < 5; i3++) {
-            iArr2[i3] = this.f1529c[i3];
+            iArr2[i3] = this.f1562c[i3];
         }
         for (int i4 = 0; i4 <= 19; i4++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = a(iArr2[0], 5) + a(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f1530d[i4] + 1518500249;
+            iArr2[0] = a(iArr2[0], 5) + a(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f1563d[i4] + 1518500249;
         }
         for (int i5 = 20; i5 <= 39; i5++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f1530d[i5] + 1859775393;
+            iArr2[0] = a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f1563d[i5] + 1859775393;
         }
         for (int i6 = 40; i6 <= 59; i6++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = (((a(iArr2[0], 5) + c(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f1530d[i6]) - 1894007588;
+            iArr2[0] = (((a(iArr2[0], 5) + c(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f1563d[i6]) - 1894007588;
         }
         for (int i7 = 60; i7 <= 79; i7++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = (((a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f1530d[i7]) - 899497514;
+            iArr2[0] = (((a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f1563d[i7]) - 899497514;
         }
         for (int i8 = 0; i8 < 5; i8++) {
-            int[] iArr3 = this.f1529c;
+            int[] iArr3 = this.f1562c;
             iArr3[i8] = iArr3[i8] + iArr2[i8];
         }
         int i9 = 0;
         while (true) {
-            int[] iArr4 = this.f1530d;
+            int[] iArr4 = this.f1563d;
             if (i9 >= iArr4.length) {
                 return;
             }
@@ -152,7 +152,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
             if (TextUtils.isEmpty(str2)) {
-                CtAuth.info(f1527a, "when getHmacSHA1,the key is null");
+                CtAuth.info(f1560a, "when getHmacSHA1,the key is null");
                 return null;
             }
             try {
@@ -183,7 +183,7 @@ public class c {
                 }
                 return cVar.a(a(bArr2, cVar.a(a(bArr, e.b(str)))));
             } catch (Throwable th) {
-                CtAuth.warn(f1527a, "getHmacSHA1 error", th);
+                CtAuth.warn(f1560a, "getHmacSHA1 error", th);
                 return null;
             }
         }
@@ -242,13 +242,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, bArr)) == null) {
-            int[] iArr = this.f1528b;
-            System.arraycopy(iArr, 0, this.f1529c, 0, iArr.length);
+            int[] iArr = this.f1561b;
+            System.arraycopy(iArr, 0, this.f1562c, 0, iArr.length);
             byte[] d2 = d(bArr);
             int length = d2.length / 64;
             for (int i2 = 0; i2 < length; i2++) {
                 for (int i3 = 0; i3 < 16; i3++) {
-                    this.f1530d[i3] = a(d2, (i2 * 64) + (i3 * 4));
+                    this.f1563d[i3] = a(d2, (i2 * 64) + (i3 * 4));
                 }
                 a();
             }
@@ -321,7 +321,7 @@ public class c {
         byte[] bArr2 = new byte[20];
         int i2 = 0;
         while (true) {
-            int[] iArr = this.f1529c;
+            int[] iArr = this.f1562c;
             if (i2 >= iArr.length) {
                 return bArr2;
             }

@@ -13,27 +13,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.v2.n0;
-import d.a.n0.b.h;
+import d.a.o0.a.v2.n0;
+import d.a.o0.b.h;
 /* loaded from: classes3.dex */
 public class CommonTagView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f11667e;
+    public Context f11693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11668f;
+    public int f11694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11669g;
+    public int f11695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11670h;
+    public int f11696h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11671i;
+    public boolean f11697i;
     public boolean j;
     public Paint k;
     public RectF l;
@@ -63,9 +63,9 @@ public class CommonTagView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i2) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.CommonTagView);
-            this.f11668f = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_borderWidth, 1);
-            this.f11669g = obtainStyledAttributes.getColor(h.CommonTagView_borderColor, -16777216);
-            this.f11670h = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_cornerRadius, 3);
+            this.f11694f = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_borderWidth, 1);
+            this.f11695g = obtainStyledAttributes.getColor(h.CommonTagView_borderColor, -16777216);
+            this.f11696h = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_cornerRadius, 3);
             obtainStyledAttributes.recycle();
             setPadding(getPaddingLeft() == 0 ? n0.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? n0.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? n0.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? n0.f(context, 1.0f) : getPaddingBottom());
             b(context);
@@ -75,7 +75,7 @@ public class CommonTagView extends TextView {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f11667e = context;
+            this.f11693e = context;
             this.k = new Paint();
             this.l = new RectF();
         }
@@ -86,22 +86,22 @@ public class CommonTagView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f11671i) {
+            if (this.f11697i) {
                 this.k.setStyle(Paint.Style.STROKE);
                 this.k.setAntiAlias(true);
-                this.k.setStrokeWidth(this.f11668f);
-                if (this.j && this.f11669g != getCurrentTextColor()) {
-                    this.f11669g = getCurrentTextColor();
+                this.k.setStrokeWidth(this.f11694f);
+                if (this.j && this.f11695g != getCurrentTextColor()) {
+                    this.f11695g = getCurrentTextColor();
                 }
-                this.k.setColor(this.f11669g);
+                this.k.setColor(this.f11695g);
                 RectF rectF = this.l;
-                int i2 = this.f11668f;
+                int i2 = this.f11694f;
                 rectF.left = i2 * 0.5f;
                 rectF.top = i2 * 0.5f;
-                rectF.right = getMeasuredWidth() - (this.f11668f * 0.5f);
-                this.l.bottom = getMeasuredHeight() - (this.f11668f * 0.5f);
+                rectF.right = getMeasuredWidth() - (this.f11694f * 0.5f);
+                this.l.bottom = getMeasuredHeight() - (this.f11694f * 0.5f);
                 RectF rectF2 = this.l;
-                int i3 = this.f11670h;
+                int i3 = this.f11696h;
                 canvas.drawRoundRect(rectF2, i3, i3, this.k);
             }
         }
@@ -147,7 +147,7 @@ public class CommonTagView extends TextView {
                 return;
             }
         }
-        this.f11671i = true;
+        this.f11697i = true;
         this.j = true;
         a(context, attributeSet, i2);
     }

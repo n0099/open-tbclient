@@ -13,31 +13,31 @@ public final class db {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23542a;
+    public TextView f23700a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f23543b;
+    public ImageView f23701b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23544c;
+    public TextView f23702c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f23545d;
+    public RelativeLayout f23703d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f23546e;
+    public RelativeLayout f23704e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f23547f;
+    public TextView f23705f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23548g;
+    public TextView f23706g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f23549h;
+    public i f23707h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f23550i;
+    public ImageView f23708i;
     public TextView j;
 
     public db() {

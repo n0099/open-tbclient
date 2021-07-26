@@ -32,7 +32,7 @@ public class df implements LoggerInterface {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39973a;
+    public static String f40245a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final SimpleDateFormat f231a;
@@ -48,10 +48,10 @@ public class df implements LoggerInterface {
     public Handler f234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39974b;
+    public String f40246b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39975c;
+    public String f40247c;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public class df implements LoggerInterface {
             }
         }
         f231a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
-        f39973a = "/MiPushLog";
+        f40245a = "/MiPushLog";
         f232a = Collections.synchronizedList(new ArrayList());
     }
 
@@ -86,12 +86,12 @@ public class df implements LoggerInterface {
                 return;
             }
         }
-        this.f39975c = "";
+        this.f40247c = "";
         this.f233a = context;
         if (context.getApplicationContext() != null) {
             this.f233a = context.getApplicationContext();
         }
-        this.f39974b = this.f233a.getPackageName();
+        this.f40246b = this.f233a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
         this.f234a = new Handler(handlerThread.getLooper());
@@ -111,10 +111,10 @@ public class df implements LoggerInterface {
             try {
                 try {
                     try {
-                        if (TextUtils.isEmpty(this.f39975c) && (externalFilesDir = this.f233a.getExternalFilesDir(null)) != null) {
-                            this.f39975c = externalFilesDir.getAbsolutePath() + "";
+                        if (TextUtils.isEmpty(this.f40247c) && (externalFilesDir = this.f233a.getExternalFilesDir(null)) != null) {
+                            this.f40247c = externalFilesDir.getAbsolutePath() + "";
                         }
-                        file = new File(this.f39975c + f39973a);
+                        file = new File(this.f40247c + f40245a);
                     } catch (Throwable th) {
                         th = th;
                     }
@@ -128,10 +128,10 @@ public class df implements LoggerInterface {
                     randomAccessFile = null;
                 }
             } catch (IOException e3) {
-                Log.e(this.f39974b, "", e3);
+                Log.e(this.f40246b, "", e3);
             }
             if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-                Log.w(this.f39974b, "Create mipushlog directory fail.");
+                Log.w(this.f40246b, "Create mipushlog directory fail.");
                 return;
             }
             File file2 = new File(file, "log.lock");
@@ -154,19 +154,19 @@ public class df implements LoggerInterface {
                         } catch (Exception e4) {
                             e = e4;
                             bufferedWriter = bufferedWriter2;
-                            Log.e(this.f39974b, "", e);
+                            Log.e(this.f40246b, "", e);
                             if (bufferedWriter != null) {
                                 try {
                                     bufferedWriter.close();
                                 } catch (IOException e5) {
-                                    Log.e(this.f39974b, "", e5);
+                                    Log.e(this.f40246b, "", e5);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e6) {
-                                    Log.e(this.f39974b, "", e6);
+                                    Log.e(this.f40246b, "", e6);
                                 }
                             }
                             if (randomAccessFile != null) {
@@ -180,21 +180,21 @@ public class df implements LoggerInterface {
                                 try {
                                     bufferedWriter.close();
                                 } catch (IOException e7) {
-                                    Log.e(this.f39974b, "", e7);
+                                    Log.e(this.f40246b, "", e7);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e8) {
-                                    Log.e(this.f39974b, "", e8);
+                                    Log.e(this.f40246b, "", e8);
                                 }
                             }
                             if (randomAccessFile != null) {
                                 try {
                                     randomAccessFile.close();
                                 } catch (IOException e9) {
-                                    Log.e(this.f39974b, "", e9);
+                                    Log.e(this.f40246b, "", e9);
                                 }
                             }
                             throw th;
@@ -214,14 +214,14 @@ public class df implements LoggerInterface {
                         try {
                             bufferedWriter.close();
                         } catch (IOException e10) {
-                            Log.e(this.f39974b, "", e10);
+                            Log.e(this.f40246b, "", e10);
                         }
                     }
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();
                         } catch (IOException e11) {
-                            Log.e(this.f39974b, "", e11);
+                            Log.e(this.f40246b, "", e11);
                         }
                     }
                     randomAccessFile.close();
@@ -258,7 +258,7 @@ public class df implements LoggerInterface {
     public final void setTag(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f39974b = str;
+            this.f40246b = str;
         }
     }
 }

@@ -15,31 +15,31 @@ public class RelateTopicForumItemHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BarImageView f17131a;
+    public BarImageView f17187a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f17132b;
+    public TextView f17188b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f17133c;
+    public TextView f17189c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f17134d;
+    public TextView f17190d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17135e;
+    public TextView f17191e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f17136f;
+    public TextView f17192f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17137g;
+    public TextView f17193g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17138h;
+    public TextView f17194h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f17139i;
+    public View f17195i;
     public int j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,14 +61,14 @@ public class RelateTopicForumItemHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.j = 3;
-        this.f17132b = (TextView) view.findViewById(R.id.forum_name);
-        this.f17131a = (BarImageView) view.findViewById(R.id.forum_avatar);
-        this.f17134d = (TextView) view.findViewById(R.id.member_num_label);
-        this.f17133c = (TextView) view.findViewById(R.id.post_num_label);
-        this.f17136f = (TextView) view.findViewById(R.id.member_num);
-        this.f17135e = (TextView) view.findViewById(R.id.post_num);
-        this.f17137g = (TextView) view.findViewById(R.id.forum_content);
-        this.f17138h = (TextView) view.findViewById(R.id.forum_add_love);
-        this.f17139i = view.findViewById(R.id.forum_item_divider);
+        this.f17188b = (TextView) view.findViewById(R.id.forum_name);
+        this.f17187a = (BarImageView) view.findViewById(R.id.forum_avatar);
+        this.f17190d = (TextView) view.findViewById(R.id.member_num_label);
+        this.f17189c = (TextView) view.findViewById(R.id.post_num_label);
+        this.f17192f = (TextView) view.findViewById(R.id.member_num);
+        this.f17191e = (TextView) view.findViewById(R.id.post_num);
+        this.f17193g = (TextView) view.findViewById(R.id.forum_content);
+        this.f17194h = (TextView) view.findViewById(R.id.forum_add_love);
+        this.f17195i = view.findViewById(R.id.forum_item_divider);
     }
 }

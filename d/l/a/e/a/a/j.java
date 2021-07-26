@@ -40,7 +40,7 @@ public class j extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Intent intent = new Intent("com.android.filemanager.FILE_OPEN");
-            intent.putExtra("FilePathToBeOpenAfterScan", this.f71570c);
+            intent.putExtra("FilePathToBeOpenAfterScan", this.f72024c);
             intent.putExtra("com.iqoo.secure", true);
             intent.putExtra("OpenParentAndLocationDestFile", true);
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);

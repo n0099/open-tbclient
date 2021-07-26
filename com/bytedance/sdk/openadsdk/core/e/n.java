@@ -13,31 +13,31 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f30100a;
+    public final String f30200a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30101b;
+    public int f30201b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30102c;
+    public int f30202c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f30103d;
+    public JSONArray f30203d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30104e;
+    public int f30204e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f30105f;
+    public long f30205f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30106g;
+    public long f30206g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f30107h;
+    public long f30207h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f30108i;
+    public long f30208i;
     public JSONObject j;
 
     public n() {
@@ -53,12 +53,12 @@ public class n {
                 return;
             }
         }
-        this.f30100a = com.bytedance.sdk.openadsdk.r.o.c();
-        this.f30101b = -1;
-        this.f30102c = -1;
-        this.f30103d = null;
-        this.f30104e = 1;
-        this.f30105f = System.currentTimeMillis();
+        this.f30200a = com.bytedance.sdk.openadsdk.q.q.c();
+        this.f30201b = -1;
+        this.f30202c = -1;
+        this.f30203d = null;
+        this.f30204e = 1;
+        this.f30205f = System.currentTimeMillis();
         this.j = null;
     }
 
@@ -67,14 +67,14 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             n nVar = new n();
-            nVar.f30101b = this.f30101b;
-            nVar.f30102c = this.f30102c;
-            nVar.f30103d = this.f30103d;
-            nVar.f30104e = this.f30104e;
-            nVar.f30105f = this.f30105f;
-            nVar.f30106g = this.f30106g;
-            nVar.f30107h = this.f30107h;
-            nVar.f30108i = this.f30108i;
+            nVar.f30201b = this.f30201b;
+            nVar.f30202c = this.f30202c;
+            nVar.f30203d = this.f30203d;
+            nVar.f30204e = this.f30204e;
+            nVar.f30205f = this.f30205f;
+            nVar.f30206g = this.f30206g;
+            nVar.f30207h = this.f30207h;
+            nVar.f30208i = this.f30208i;
             return nVar;
         }
         return (n) invokeV.objValue;

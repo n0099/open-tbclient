@@ -16,13 +16,13 @@ public class a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<? super T> f32001b;
+    public final Class<? super T> f32202b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Type f32002c;
+    public final Type f32203c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f32003d;
+    public final int f32204d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class a<T> {
             }
         }
         Type a2 = a(getClass());
-        this.f32002c = a2;
-        this.f32001b = (Class<? super T>) b.e(a2);
-        this.f32003d = this.f32002c.hashCode();
+        this.f32203c = a2;
+        this.f32202b = (Class<? super T>) b.e(a2);
+        this.f32204d = this.f32203c.hashCode();
     }
 
     public static Type a(Class<?> cls) {
@@ -59,25 +59,25 @@ public class a<T> {
     public final Type b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32002c : (Type) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32203c : (Type) invokeV.objValue;
     }
 
     public final boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof a) && b.a(this.f32002c, ((a) obj).f32002c) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof a) && b.a(this.f32203c, ((a) obj).f32203c) : invokeL.booleanValue;
     }
 
     public final int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32003d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32204d : invokeV.intValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b.f(this.f32002c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b.f(this.f32203c) : (String) invokeV.objValue;
     }
 
     public static <T> a<T> b(Class<T> cls) {
@@ -102,15 +102,15 @@ public class a<T> {
             }
         }
         Type d2 = b.d((Type) com.bytedance.sdk.openadsdk.preload.a.b.a.a(type));
-        this.f32002c = d2;
-        this.f32001b = (Class<? super T>) b.e(d2);
-        this.f32003d = this.f32002c.hashCode();
+        this.f32203c = d2;
+        this.f32202b = (Class<? super T>) b.e(d2);
+        this.f32204d = this.f32203c.hashCode();
     }
 
     public final Class<? super T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32001b : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32202b : (Class) invokeV.objValue;
     }
 
     public static a<?> a(Type type) {

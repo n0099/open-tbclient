@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v.d.g.d.a;
+import d.a.q0.v.d.g.d.a;
 /* loaded from: classes4.dex */
 public class AlaSubListGameDoubleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f14166a;
+    public a f14214a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSubListGameDoubleViewHolder(a aVar) {
@@ -33,6 +33,6 @@ public class AlaSubListGameDoubleViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14166a = aVar;
+        this.f14214a = aVar;
     }
 }

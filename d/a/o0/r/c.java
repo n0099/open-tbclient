@@ -1,505 +1,683 @@
 package d.a.o0.r;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.util.Base64InputStream;
+import android.util.Base64OutputStream;
+import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.HashSet;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static boolean f52273f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f52274g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static int f52275h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f52276a;
+    public Context f51489a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, b> f52277b;
+    public a f51490b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Resources f52278c;
+    public b f51491c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f52279d;
+    public List<i> f51492d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f52280e;
+    public long f51493e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-799331522, "Ld/a/o0/r/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-799331522, "Ld/a/o0/r/c;");
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public long f51494f;
 
-    public c() {
+    /* renamed from: g  reason: collision with root package name */
+    public long f51495g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f51496h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public SparseArray<ArrayList> f51497i;
+    public HashMap<String, Long> j;
+    public m k;
+    public d l;
+
+    public c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f52276a = false;
-        this.f52277b = new HashMap();
-        this.f52280e = false;
+        this.f51489a = context;
+        this.f51490b = new a(context);
+        this.f51491c = new b(context);
+        this.k = e.h().m();
+        this.f51492d = new ArrayList(20);
+        t g2 = t.g();
+        this.f51493e = g2.getLong("ubc_last_upload_all_time", 0L);
+        this.f51494f = g2.getLong("ubc_last_upload_non_real", 0L);
+        this.f51495g = g2.getLong("ubc_reset_real_time_count_time", 0L);
+        this.f51496h = g2.getInt("ubc_real_time_count", 0);
+        d g3 = d.g();
+        this.l = g3;
+        g3.k(this, context);
     }
 
-    public static int g(Resources resources, Resources resources2, int i2) {
-        InterceptResult invokeLLI;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, resources, resources2, i2)) == null) {
-            if (f52273f) {
-                String resourceName = resources.getResourceName(i2);
-                if (TextUtils.isEmpty(resourceName)) {
-                    i3 = i2;
-                } else {
-                    if (f52275h == 0) {
-                        String packageName = BdBaseApplication.getInst().getPackageName();
-                        f52274g = packageName;
-                        f52275h = packageName.length();
-                    }
-                    int length = resourceName.length();
-                    int i4 = f52275h;
-                    if (length > i4 && resourceName.charAt(i4) != ':' && resourceName.startsWith(f52274g)) {
-                        resourceName = f52274g + resourceName.substring(resourceName.indexOf(":"));
-                    }
-                    i3 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
-                    if (i3 <= 0) {
-                        resourceName = SkinManager.PLUGIN_NIGHT_RESOURCE + resourceName.substring(resourceName.indexOf(":"));
-                        i3 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
-                    }
-                }
-                if (i3 == 0) {
-                    BdLog.e(resourceName + " 缺少夜间资源,使用了日间资源");
-                    return i2;
-                }
-                return i3;
-            }
-            return i2;
-        }
-        return invokeLLI.intValue;
-    }
-
-    public final void a(View view) {
-        Drawable f2;
-        Drawable f3;
-        Drawable f4;
-        int q;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            String str = TNCManager.TNC_PROBE_HEADER_SECEPTOR + view.getId();
-            Map<String, b> map = this.f52277b;
-            if (map == null || !map.containsKey(str)) {
-                return;
-            }
-            b bVar = this.f52277b.get(str);
-            if (view instanceof TextView) {
-                if (bVar.v() != 0) {
-                    ((TextView) view).setTextColor(e(this.f52276a, bVar.u(), bVar.v()));
-                }
-                if (bVar.t() != 0) {
-                    ((TextView) view).setHintTextColor(e(this.f52276a, bVar.s(), bVar.t()));
-                }
-                if (bVar.r() != 0) {
-                    TextView textView = (TextView) view;
-                    Context context = view.getContext();
-                    if (this.f52276a) {
-                        q = bVar.r();
-                    } else {
-                        q = bVar.q();
-                    }
-                    textView.setTextAppearance(context, q);
-                }
-                if (bVar.k() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, f(this.f52276a, bVar.j(), bVar.k()), (Drawable) null, (Drawable) null);
-                }
-                if (bVar.g() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(f(this.f52276a, bVar.f(), bVar.g()), (Drawable) null, (Drawable) null, (Drawable) null);
-                }
-                if (bVar.i() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, f(this.f52276a, bVar.h(), bVar.i()), (Drawable) null);
-                }
-            } else if (view instanceof ImageButton) {
-                if (bVar.n() != 0 && (f4 = f(this.f52276a, bVar.m(), bVar.n())) != null) {
-                    ((ImageView) view).setImageDrawable(f4);
-                }
-            } else if (view instanceof ImageView) {
-                if (bVar.n() != 0 && (f3 = f(this.f52276a, bVar.m(), bVar.n())) != null) {
-                    ((ImageView) view).setImageDrawable(f3);
-                }
-            } else if ((view instanceof ProgressBar) && bVar.p() != 0 && (f2 = f(this.f52276a, bVar.o(), bVar.p())) != null) {
-                ((ProgressBar) view).setProgressDrawable(f2);
-            }
-            if (bVar.c() != 0) {
-                int paddingLeft = view.getPaddingLeft();
-                int paddingTop = view.getPaddingTop();
-                int paddingRight = view.getPaddingRight();
-                int paddingBottom = view.getPaddingBottom();
-                String resourceTypeName = this.f52278c.getResourceTypeName(bVar.b());
-                if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    view.setBackgroundColor(d(this.f52276a, bVar.b(), bVar.c()));
-                } else {
-                    view.setBackgroundDrawable(f(this.f52276a, bVar.b(), bVar.c()));
-                }
-                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            }
-        }
-    }
-
-    public final void b(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
-            String str = TNCManager.TNC_PROBE_HEADER_SECEPTOR + viewGroup.getId();
-            Map<String, b> map = this.f52277b;
-            if (map == null || !map.containsKey(str)) {
-                return;
-            }
-            b bVar = this.f52277b.get(str);
-            if (viewGroup instanceof AdapterView) {
-                if ((viewGroup instanceof ListView) && bVar.e() != 0) {
-                    ListView listView = (ListView) viewGroup;
-                    int dividerHeight = listView.getDividerHeight();
-                    listView.setDivider(f(this.f52276a, bVar.d(), bVar.e()));
-                    listView.setDividerHeight(dividerHeight);
-                }
-                Adapter adapter = ((AdapterView) viewGroup).getAdapter();
-                if (adapter != null && (adapter instanceof BaseAdapter)) {
-                    ((BaseAdapter) adapter).notifyDataSetChanged();
-                }
-            }
-            if (bVar.c() != 0) {
-                int paddingLeft = viewGroup.getPaddingLeft();
-                int paddingTop = viewGroup.getPaddingTop();
-                int paddingRight = viewGroup.getPaddingRight();
-                int paddingBottom = viewGroup.getPaddingBottom();
-                String resourceTypeName = this.f52278c.getResourceTypeName(bVar.b());
-                if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    viewGroup.setBackgroundColor(d(this.f52276a, bVar.b(), bVar.c()));
-                } else {
-                    viewGroup.setBackgroundDrawable(f(this.f52276a, bVar.b(), bVar.c()));
-                }
-                viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            }
-        }
-    }
-
-    public void c() {
-        Map<String, b> map;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (map = this.f52277b) == null) {
-            return;
-        }
-        map.clear();
-        this.f52277b = null;
-    }
-
-    public final int d(boolean z, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 2 || (!this.f52280e && skinType == 4)) {
-                return SkinManager.getColor(i2);
-            }
-            if (!z) {
-                return this.f52278c.getColor(i2);
-            }
-            if (i2 == i3) {
-                Resources resources = this.f52278c;
-                this.f52279d = resources;
-                i3 = g(resources, resources, i2);
-            }
-            Resources resources2 = this.f52279d;
-            if (resources2 == null) {
-                return this.f52278c.getColor(i2);
-            }
-            try {
-                return resources2.getColor(i3);
-            } catch (Resources.NotFoundException unused) {
-                return this.f52278c.getColor(i2);
-            }
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final ColorStateList e(boolean z, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 2 || (!this.f52280e && skinType == 4)) {
-                return SkinManager.getColorList(i2);
-            }
-            if (!z) {
-                return this.f52278c.getColorStateList(i2);
-            }
-            if (i2 == i3) {
-                Resources resources = this.f52278c;
-                this.f52279d = resources;
-                i3 = g(resources, resources, i2);
-            }
-            Resources resources2 = this.f52279d;
-            if (resources2 == null) {
-                return this.f52278c.getColorStateList(i2);
-            }
-            try {
-                return resources2.getColorStateList(i3);
-            } catch (Resources.NotFoundException unused) {
-                return this.f52278c.getColorStateList(i2);
-            }
-        }
-        return (ColorStateList) invokeCommon.objValue;
-    }
-
-    public final Drawable f(boolean z, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 2 || (!this.f52280e && skinType == 4)) {
-                return SkinManager.getDrawable(i2);
-            }
-            if (!z) {
-                try {
-                    return this.f52278c.getDrawable(i2);
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-            if (i2 == i3) {
-                Resources resources = this.f52278c;
-                this.f52279d = resources;
-                i3 = g(resources, resources, i2);
-            }
-            Resources resources2 = this.f52279d;
-            if (resources2 == null) {
-                try {
-                    return this.f52278c.getDrawable(i2);
-                } catch (Throwable unused2) {
-                    return null;
-                }
-            }
-            try {
-                try {
-                    return resources2.getDrawable(i3);
-                } catch (Throwable unused3) {
-                    return null;
-                }
-            } catch (Resources.NotFoundException unused4) {
-                return this.f52278c.getDrawable(i2);
-            } catch (ArrayIndexOutOfBoundsException unused5) {
-                return null;
-            }
-        }
-        return (Drawable) invokeCommon.objValue;
-    }
-
-    public final int[] h(String str) {
+    public final boolean A(i iVar) {
         InterceptResult invokeL;
-        int parseInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
-                return new int[]{parseInt, g(this.f52278c, this.f52279d, parseInt)};
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iVar)) == null) {
+            if (g(this.f51489a) && c()) {
+                j();
+                u uVar = new u();
+                uVar.f51615g = true;
+                JSONObject jSONObject = iVar.f51530e;
+                try {
+                    if (jSONObject != null && jSONObject.has("bizId")) {
+                        r.a(jSONObject);
+                        uVar.a(jSONObject);
+                        long j = iVar.f51531f;
+                        uVar.g(j, j);
+                        JSONObject jSONObject2 = jSONObject.getJSONObject("content");
+                        JSONObject jSONObject3 = jSONObject.getJSONObject(DI.APP_INFO_NAME);
+                        if (jSONObject2 != null && jSONObject3 != null) {
+                            jSONObject2.put(DI.APP_INFO_NAME, jSONObject3);
+                            jSONObject.remove(DI.APP_INFO_NAME);
+                        }
+                    } else {
+                        JSONObject e2 = new r(iVar.a()).e();
+                        e2.put("bizId", iVar.f51526a);
+                        e2.put("timestamp", Long.toString(iVar.f51531f));
+                        if (iVar.f51530e != null) {
+                            e2.put("content", iVar.f51530e);
+                        } else {
+                            e2.put("content", iVar.f51529d);
+                        }
+                        e2.put("eventType", "0");
+                        if (!TextUtils.isEmpty(iVar.f51533h)) {
+                            e2.put("abtest", iVar.f51533h);
+                            uVar.f51614f = "1";
+                        }
+                        if (!TextUtils.isEmpty(iVar.f51534i)) {
+                            e2.put("c", iVar.f51534i);
+                        }
+                        if (iVar.j) {
+                            e2.put("of", "1");
+                        }
+                        e2.put(Constant.ID_TYPE, this.l.j(iVar.f51526a));
+                        uVar.a(e2);
+                        uVar.g(iVar.f51531f, iVar.f51531f);
+                    }
+                } catch (JSONException unused) {
+                }
+                if (this.f51497i == null) {
+                    f();
+                }
+                if (this.f51497i.size() > 0) {
+                    this.f51490b.m(this.f51497i.valueAt(0), uVar);
+                }
+                q(uVar);
+                i();
+                return true;
             }
-            return null;
+            return false;
         }
-        return (int[]) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void i(String str, Context context, AttributeSet attributeSet) {
-        int[] h2;
-        int d2;
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, context, attributeSet) == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g(this.f51489a) && c()) {
+            u uVar = new u();
+            uVar.f51615g = true;
+            if (this.f51497i == null) {
+                f();
+            }
+            if (this.f51497i.size() > 0) {
+                if (e.h().s()) {
+                    this.f51490b.l(uVar);
+                } else {
+                    this.f51490b.m(this.f51497i.valueAt(0), uVar);
+                }
+            }
+            q(uVar);
+            i();
+        }
+    }
+
+    public void a(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
+            j();
+            this.f51490b.d(str, i2);
+            if (Math.abs(System.currentTimeMillis() - this.f51494f) >= d.g().h()) {
+                z();
+            }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            n(true);
+            n(false);
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (e.h().s()) {
+                return true;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (Math.abs(currentTimeMillis - this.f51495g) > 86400000) {
+                this.f51496h = 0;
+                this.f51495g = currentTimeMillis;
+                t.g().putLong("ubc_reset_real_time_count_time", this.f51495g);
+                t.g().putInt("ubc_real_time_count", this.f51496h);
+            }
+            int i2 = this.f51496h;
+            if (i2 >= 1000) {
+                if (i2 == 1000) {
+                    this.f51496h = i2 + 1;
+                    e.i(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "realLimit");
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(String str, int i2, long j, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j), jSONArray}) == null) {
+            j();
+            this.f51490b.j(str, i2, j, jSONArray);
+            if (this.l.b(str)) {
+                B();
+            }
+            if (Math.abs(System.currentTimeMillis() - this.f51494f) >= d.g().h()) {
+                z();
+            }
+        }
+    }
+
+    public a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51490b : (a) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f51497i == null) {
+            SparseArray<ArrayList> sparseArray = new SparseArray<>();
+            this.f51497i = sparseArray;
+            this.f51490b.v(sparseArray);
+            this.j = new HashMap<>();
+            int i2 = 0;
+            for (int i3 = 0; i3 < this.f51497i.size(); i3++) {
+                int keyAt = this.f51497i.keyAt(i3);
+                if (keyAt != 0 && i2 == 0) {
+                    i2 = keyAt;
+                }
+                HashMap<String, Long> hashMap = this.j;
+                hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
+            }
+            this.l.p(i2);
+        }
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public final boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return false;
+            }
+            NetworkInfo networkInfo = null;
             try {
-                Resources resources = context.getResources();
-                this.f52278c = resources;
-                this.f52279d = resources;
-                int attributeCount = attributeSet.getAttributeCount();
-                b bVar = new b();
-                bVar.R(str);
-                boolean z = false;
-                for (int i2 = 0; i2 < attributeCount; i2++) {
-                    String attributeName = attributeSet.getAttributeName(i2);
-                    String attributeValue = attributeSet.getAttributeValue(i2);
-                    if (attributeName.equals("id")) {
-                        bVar.G(attributeValue);
-                    } else if (attributeName.equals("tb_background")) {
-                        int[] h3 = h(attributeValue);
-                        if (h3 != null) {
-                            bVar.w(h3[0]);
-                            bVar.x(h3[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_src")) {
-                        int[] h4 = h(attributeValue);
-                        if (h4 != null) {
-                            bVar.H(h4[0]);
-                            bVar.I(h4[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_textColor")) {
-                        int[] h5 = h(attributeValue);
-                        if (h5 != null) {
-                            bVar.P(h5[0]);
-                            bVar.Q(h5[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_style")) {
-                        int[] h6 = h(attributeValue);
-                        if (h6 != null) {
-                            bVar.L(h6[0]);
-                            bVar.M(h6[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_divider")) {
-                        int[] h7 = h(attributeValue);
-                        if (h7 != null) {
-                            bVar.y(h7[0]);
-                            bVar.z(h7[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_drawableTop")) {
-                        int[] h8 = h(attributeValue);
-                        if (h8 != null) {
-                            bVar.E(h8[0]);
-                            bVar.F(h8[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_drawableLeft")) {
-                        int[] h9 = h(attributeValue);
-                        if (h9 != null) {
-                            bVar.A(h9[0]);
-                            bVar.B(h9[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_drawableRight")) {
-                        int[] h10 = h(attributeValue);
-                        if (h10 != null) {
-                            bVar.C(h10[0]);
-                            bVar.D(h10[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_progressDrawable")) {
-                        int[] h11 = h(attributeValue);
-                        if (h11 != null) {
-                            bVar.J(h11[0]);
-                            bVar.K(h11[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_textColorHint") && (h2 = h(attributeValue)) != null) {
-                        bVar.N(h2[0]);
-                        bVar.O(h2[1]);
-                        z = true;
+                networkInfo = connectivityManager.getActiveNetworkInfo();
+            } catch (Exception unused) {
+            }
+            return networkInfo != null && networkInfo.isAvailable();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void h() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && g(this.f51489a)) {
+            File file = new File(this.f51489a.getFilesDir() + File.separator + "statistics_data");
+            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                if (listFiles.length > 50) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("type", "del_file");
+                        jSONObject.put("del_file_size", listFiles.length);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
-                    if (z && TbConfig.getDebugSwitch() && (d2 = d.a.c.e.m.b.d(attributeValue.substring(1), 0)) != 0) {
-                        String resourceName = this.f52278c.getResourceName(d2);
-                        bVar.a(attributeName + "=" + resourceName);
+                    e.i(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject.toString());
+                    for (File file2 : listFiles) {
+                        file2.delete();
+                    }
+                    this.f51490b.h();
+                }
+                for (int i2 = 0; i2 < listFiles.length; i2++) {
+                    j u = this.f51490b.u(listFiles[i2].getName());
+                    if (u != null && TextUtils.equals("0", u.a())) {
+                        s.a("processFailedData file, no need to send");
+                    } else if (u != null && TextUtils.equals("1", u.a())) {
+                        s.a("processFailedData file, send");
+                        this.f51490b.G(listFiles[i2].getName(), "0");
+                        v(listFiles[i2].getName());
+                    } else {
+                        s.a("processFailedData file, data in db, delete file");
+                        listFiles[i2].delete();
                     }
                 }
-                if (z) {
-                    if (!TextUtils.isEmpty(bVar.l()) && this.f52277b != null && !this.f52277b.containsKey(bVar.l())) {
-                        this.f52277b.put(bVar.l(), bVar);
-                    } else if (!TextUtils.isEmpty(bVar.l())) {
-                        this.f52277b.containsKey(bVar.l());
-                    }
-                }
-            } catch (Resources.NotFoundException unused) {
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
         }
     }
 
-    public void j(View view) {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || view == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.f51496h++;
+            t.g().putInt("ubc_real_time_count", this.f51496h);
+        }
+    }
+
+    public final void j() {
+        List<i> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (list = this.f51492d) == null || list.size() == 0) {
             return;
         }
-        Stack stack = new Stack();
-        stack.push(view);
-        while (!stack.isEmpty()) {
-            View view2 = (View) stack.pop();
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                b(viewGroup);
-                if (!(view2 instanceof AdapterView)) {
-                    int childCount = viewGroup.getChildCount();
-                    for (int i2 = 0; i2 < childCount; i2++) {
-                        stack.push(viewGroup.getChildAt(i2));
-                    }
+        this.f51490b.z(this.f51492d);
+        this.f51492d.clear();
+    }
+
+    public void k(i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, iVar) == null) {
+            boolean z = TextUtils.equals(iVar.f51526a, iVar.f51527b) && this.l.b(iVar.f51526a) && (iVar.f51532g & 64) == 0;
+            if (z && !A(iVar)) {
+                this.f51490b.y(iVar);
+            } else if (Math.abs(System.currentTimeMillis() - this.f51494f) >= d.g().h()) {
+                if (!z) {
+                    this.f51492d.add(iVar);
                 }
+                z();
+            } else if ((1 & iVar.f51532g) != 0) {
+                if (z) {
+                    return;
+                }
+                this.f51490b.y(iVar);
             } else {
-                a(view2);
+                if (!z) {
+                    this.f51492d.add(iVar);
+                }
+                if (this.f51492d.size() >= 20) {
+                    j();
+                }
             }
         }
     }
 
-    public void k(boolean z) {
+    public void l(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f52276a = z;
+        if (interceptable == null || interceptable.invokeL(1048589, this, iVar) == null) {
+            this.f51491c.d(iVar, this.l.b(iVar.f51526a));
         }
     }
 
-    public void l(Resources resources) {
+    public final void m(String str, String str2) {
+        OutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, resources) == null) {
-            this.f52279d = resources;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            String str3 = this.f51489a.getFilesDir() + File.separator + "statistics_data";
+            File file = new File(str3);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            File file2 = new File(str3, str2);
+            if (file2.exists()) {
+                return;
+            }
+            OutputStream outputStream = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file2);
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                outputStream = new Base64OutputStream(fileOutputStream, 0);
+                outputStream.write(str.getBytes());
+                outputStream.flush();
+                s.a("save to file suc");
+            } catch (Exception e3) {
+                e = e3;
+                outputStream = fileOutputStream;
+                e.printStackTrace();
+                d.a.o0.t.d.d(outputStream);
+            } catch (Throwable th2) {
+                th = th2;
+                outputStream = fileOutputStream;
+                d.a.o0.t.d.d(outputStream);
+                throw th;
+            }
+            d.a.o0.t.d.d(outputStream);
+        }
+    }
+
+    public final void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            u uVar = new u();
+            uVar.f51615g = z;
+            if (this.f51491c.c(uVar, z)) {
+                JSONArray jSONArray = uVar.f51609a;
+                this.f51491c.b(z);
+                n.f().s(jSONArray);
+            }
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.f51490b.C();
+        }
+    }
+
+    public void p(k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, kVar) == null) {
+            this.f51490b.B(kVar);
+        }
+    }
+
+    public final void q(u uVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, uVar) == null) || uVar.d()) {
+            return;
+        }
+        JSONArray jSONArray = uVar.f51609a;
+        String d2 = d.a.o0.t.f.d(jSONArray.toString().getBytes(), true);
+        m(jSONArray.toString(), d2);
+        this.f51490b.A(d2, uVar.f51615g);
+        if (!this.f51490b.g(uVar.f51610b, uVar.f51611c, uVar.f51615g, d2)) {
+            uVar.c();
+            File file = new File(this.f51489a.getFilesDir() + File.separator + "statistics_data", d2);
+            if (file.exists() && file.delete()) {
+                Log.d("CeresBehaviorModel", "db fail deleteUploadFile file suc");
+            }
+            this.f51490b.i(d2);
+            return;
+        }
+        n.f().r(jSONArray, d2);
+        uVar.c();
+    }
+
+    public void r(q qVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, qVar) == null) {
+            this.l.q(qVar.a());
+            this.l.n(qVar.d() * 86400000);
+            this.l.o(qVar.c());
+            t.g().putString("ubc_version_md5", qVar.b());
+            this.f51490b.D(qVar.a());
+            qVar.a().clear();
+            if (this.f51497i == null) {
+                this.f51497i = new SparseArray<>();
+            }
+            this.f51497i.clear();
+            if (this.j == null) {
+                this.j = new HashMap<>();
+            }
+            this.j.clear();
+            this.f51490b.v(this.f51497i);
+            int i2 = 0;
+            for (int i3 = 0; i3 < this.f51497i.size(); i3++) {
+                int keyAt = this.f51497i.keyAt(i3);
+                if (keyAt != 0 && i2 == 0) {
+                    i2 = keyAt;
+                }
+                HashMap<String, Long> hashMap = this.j;
+                hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
+            }
+            this.l.p(i2);
+        }
+    }
+
+    public void s(String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048596, this, str, i2, str2) == null) {
+            this.f51490b.E(str, i2, str2);
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && g(this.f51489a) && Math.abs(System.currentTimeMillis() - this.f51493e) >= 3600000) {
+            this.f51490b.f();
+            u uVar = new u();
+            if (this.f51490b.l(uVar) == 0) {
+                return;
+            }
+            u uVar2 = new u();
+            uVar2.g(uVar.f51612d, uVar.f51613e);
+            uVar2.f51614f = uVar.f51614f;
+            uVar2.f51615g = true;
+            u uVar3 = new u();
+            uVar3.g(uVar.f51612d, uVar.f51613e);
+            uVar3.f51614f = uVar.f51614f;
+            uVar3.f51615g = false;
+            SparseIntArray sparseIntArray = uVar.f51610b;
+            int size = sparseIntArray.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                if (this.l.b(String.valueOf(sparseIntArray.valueAt(i2)))) {
+                    uVar2.f(sparseIntArray.keyAt(i2), sparseIntArray.valueAt(i2));
+                } else {
+                    uVar3.f(sparseIntArray.keyAt(i2), sparseIntArray.valueAt(i2));
+                }
+            }
+            ArrayList<String> arrayList = uVar.f51611c;
+            int size2 = arrayList.size();
+            for (int i3 = 0; i3 < size2; i3++) {
+                String str = arrayList.get(i3);
+                if (this.l.b(str)) {
+                    uVar2.e(str);
+                } else {
+                    uVar3.e(str);
+                }
+            }
+            JSONArray jSONArray = uVar.f51609a;
+            int length = jSONArray.length();
+            for (int i4 = 0; i4 < length; i4++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i4);
+                if (optJSONObject.has("bizId")) {
+                    String str2 = null;
+                    try {
+                        str2 = optJSONObject.getString("bizId");
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (this.l.b(str2)) {
+                            uVar2.a(optJSONObject);
+                        } else {
+                            uVar3.a(optJSONObject);
+                        }
+                    }
+                }
+            }
+            if (uVar2.f51609a.length() > 0) {
+                q(uVar2);
+            }
+            if (uVar3.f51609a.length() > 0) {
+                q(uVar3);
+            }
+            this.f51493e = System.currentTimeMillis();
+            t.g().putLong("ubc_last_upload_all_time", this.f51493e);
+            this.f51494f = this.f51493e;
+            t.g().putLong("ubc_last_upload_non_real", this.f51494f);
+        }
+    }
+
+    public final void u(JSONArray jSONArray, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, jSONArray, str) == null) {
+            n.f().t(str, this.k.a(jSONArray));
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(1048599, this, str) != null) {
+            return;
+        }
+        File file = new File(this.f51489a.getFilesDir() + File.separator + "statistics_data", str);
+        InputStream inputStream = null;
+        try {
+            InputStream fileInputStream = new FileInputStream(file);
+            try {
+                if (fileInputStream.available() > 0) {
+                    inputStream = new Base64InputStream(fileInputStream, 0);
+                    n.f().r(new JSONArray(d.a.o0.t.h.c(inputStream)), str);
+                    fileInputStream = inputStream;
+                }
+                d.a.o0.t.d.d(fileInputStream);
+            } catch (Exception unused) {
+                inputStream = fileInputStream;
+                d.a.o0.t.d.d(inputStream);
+            } catch (Throwable th) {
+                th = th;
+                inputStream = fileInputStream;
+                d.a.o0.t.d.d(inputStream);
+                throw th;
+            }
+        } catch (Exception unused2) {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public void w(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, jSONArray) == null) || this.k.a(jSONArray)) {
+            return;
+        }
+        e.i(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "sendFail");
+    }
+
+    public void x(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            s.a("upload file fail");
+            this.f51490b.F(str);
+        }
+    }
+
+    public void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            File file = new File(this.f51489a.getFilesDir() + File.separator + "statistics_data", str);
+            s.a("delete file");
+            if (file.exists() && file.delete()) {
+                Log.d("CeresBehaviorModel", "deleteUploadFile file suc");
+                s.a("delete file suc");
+            }
+            this.f51490b.i(str);
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && g(this.f51489a)) {
+            this.f51494f = System.currentTimeMillis();
+            t.g().putLong("ubc_last_upload_non_real", this.f51494f);
+            b();
+            j();
+            this.f51490b.f();
+            HashSet hashSet = new HashSet();
+            if (this.f51497i == null) {
+                f();
+            }
+            u uVar = new u();
+            uVar.f51615g = false;
+            int i2 = 0;
+            for (int i3 = 0; i3 < this.f51497i.size(); i3++) {
+                int keyAt = this.f51497i.keyAt(i3);
+                if (keyAt != 0) {
+                    HashMap<String, Long> hashMap = this.j;
+                    long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
+                    if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.l.h()) {
+                        i2 |= this.f51490b.m(this.f51497i.valueAt(i3), uVar);
+                        HashMap<String, Long> hashMap2 = this.j;
+                        hashMap2.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
+                        hashSet.add(Integer.valueOf(keyAt));
+                    }
+                }
+            }
+            if (i2 == 0) {
+                return;
+            }
+            for (int i4 = 0; i4 < this.f51497i.size(); i4++) {
+                int keyAt2 = this.f51497i.keyAt(i4);
+                if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
+                    if (uVar.b(51200)) {
+                        break;
+                    }
+                    this.f51490b.m(this.f51497i.valueAt(i4), uVar);
+                }
+            }
+            q(uVar);
         }
     }
 }

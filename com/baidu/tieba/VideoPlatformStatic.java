@@ -27,17 +27,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.j;
-import d.a.p0.q3.e;
-import d.a.p0.x1.k;
-import d.a.p0.x1.l;
+import d.a.d.e.p.j;
+import d.a.q0.q3.e;
+import d.a.q0.x1.k;
+import d.a.q0.x1.l;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class VideoPlatformStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f13678a;
+    public static CustomMessageListener f13726a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -71,7 +71,7 @@ public class VideoPlatformStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 e.h().o();
-                d.a.p0.q3.b.d().k();
+                d.a.q0.q3.b.d().k();
             }
         }
     }
@@ -117,9 +117,9 @@ public class VideoPlatformStatic {
                 return;
             }
         }
-        f13678a = new a(2007015);
+        f13726a = new a(2007015);
         f();
-        MessageManager.getInstance().registerListener(f13678a);
+        MessageManager.getInstance().registerListener(f13726a);
         e();
     }
 
@@ -193,7 +193,7 @@ public class VideoPlatformStatic {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3986b : (j.v() || j.z()) ? "4G" : "NONE" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f4012b : (j.v() || j.z()) ? "4G" : "NONE" : (String) invokeV.objValue;
     }
 
     public static void e() {

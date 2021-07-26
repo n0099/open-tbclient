@@ -16,7 +16,7 @@ public class al {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39840a;
+    public int f40112a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f112a;
@@ -31,7 +31,7 @@ public class al {
     public volatile boolean f115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f39841b;
+    public final boolean f40113b;
 
     /* loaded from: classes6.dex */
     public class a extends Thread {
@@ -39,7 +39,7 @@ public class al {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ al f39842a;
+        public final /* synthetic */ al f40114a;
 
         /* renamed from: a  reason: collision with other field name */
         public final LinkedBlockingQueue<b> f116a;
@@ -62,7 +62,7 @@ public class al {
                     return;
                 }
             }
-            this.f39842a = alVar;
+            this.f40114a = alVar;
             this.f116a = new LinkedBlockingQueue<>();
         }
 
@@ -70,7 +70,7 @@ public class al {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(65537, this, i2, bVar) == null) {
                 try {
-                    this.f39842a.f112a.sendMessage(this.f39842a.f112a.obtainMessage(i2, bVar));
+                    this.f40114a.f112a.sendMessage(this.f40114a.f112a.obtainMessage(i2, bVar));
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
@@ -92,17 +92,17 @@ public class al {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                long j = this.f39842a.f39840a > 0 ? this.f39842a.f39840a : Long.MAX_VALUE;
-                while (!this.f39842a.f115a) {
+                long j = this.f40114a.f40112a > 0 ? this.f40114a.f40112a : Long.MAX_VALUE;
+                while (!this.f40114a.f115a) {
                     try {
                         b poll = this.f116a.poll(j, TimeUnit.SECONDS);
-                        this.f39842a.f114a = poll;
+                        this.f40114a.f114a = poll;
                         if (poll != null) {
                             a(0, poll);
                             poll.b();
                             a(1, poll);
-                        } else if (this.f39842a.f39840a > 0) {
-                            this.f39842a.a();
+                        } else if (this.f40114a.f40112a > 0) {
+                            this.f40114a.a();
                         }
                     } catch (InterruptedException e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
@@ -203,10 +203,10 @@ public class al {
         }
         this.f112a = null;
         this.f115a = false;
-        this.f39840a = 0;
+        this.f40112a = 0;
         this.f112a = new am(this, Looper.getMainLooper());
-        this.f39841b = z;
-        this.f39840a = i2;
+        this.f40113b = z;
+        this.f40112a = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -227,7 +227,7 @@ public class al {
                 if (this.f113a == null) {
                     a aVar = new a(this);
                     this.f113a = aVar;
-                    aVar.setDaemon(this.f39841b);
+                    aVar.setDaemon(this.f40113b);
                     this.f115a = false;
                     this.f113a.start();
                 }

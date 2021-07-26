@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.ResultTB;
-import d.a.c.e.m.b;
-import d.a.c.k.e.n;
+import d.a.d.e.m.b;
+import d.a.d.k.e.n;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -84,7 +84,7 @@ public class AlaEnterEffectData implements Serializable, n {
         }
     }
 
-    @Override // d.a.c.k.e.n
+    @Override // d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

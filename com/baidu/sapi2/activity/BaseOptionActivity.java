@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.b0.a.g;
+import d.a.c0.a.g;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickListener {
@@ -55,7 +55,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
     public long enterTimeMills;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageCropCallback.ImageCropResult f9747i;
+    public ImageCropCallback.ImageCropResult f9773i;
 
     static {
         InterceptResult invokeClinit;
@@ -94,7 +94,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BaseOptionActivity f9752a;
+            public final /* synthetic */ BaseOptionActivity f9778a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -111,14 +111,14 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                         return;
                     }
                 }
-                this.f9752a = this;
+                this.f9778a = this;
             }
 
             @Override // com.baidu.sapi2.callback.ImageCropCallback
             public void onImageCrop(Context context, Uri uri, int i2, int i3, ImageCropCallback.ImageCropResult imageCropResult) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{context, uri, Integer.valueOf(i2), Integer.valueOf(i3), imageCropResult}) == null) {
-                    this.f9752a.f9747i = imageCropResult;
+                    this.f9778a.f9773i = imageCropResult;
                     Intent intent = new Intent(context, ImageClipActivity.class);
                     if (i2 == ClipBoxView.H) {
                         intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 0);
@@ -127,7 +127,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                     }
                     intent.putExtra(ImageClipActivity.EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, i3);
                     intent.setData(uri);
-                    this.f9752a.startActivityForResult(intent, 1003);
+                    this.f9778a.startActivityForResult(intent, 1003);
                 }
             }
         } : (ImageCropCallback) invokeV.objValue;
@@ -161,7 +161,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BaseOptionActivity f9750a;
+                        public final /* synthetic */ BaseOptionActivity f9776a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -178,14 +178,14 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                                     return;
                                 }
                             }
-                            this.f9750a = this;
+                            this.f9776a = this;
                         }
 
                         @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                         public void onImageResult(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                                this.f9750a.processImgBase64Data(10000, "", str);
+                                this.f9776a.processImgBase64Data(10000, "", str);
                             }
                         }
                     });
@@ -199,7 +199,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BaseOptionActivity f9751a;
+                        public final /* synthetic */ BaseOptionActivity f9777a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -216,14 +216,14 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                                     return;
                                 }
                             }
-                            this.f9751a = this;
+                            this.f9777a = this;
                         }
 
                         @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                         public void onImageResult(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                                this.f9751a.processImgBase64Data(10000, "", str);
+                                this.f9777a.processImgBase64Data(10000, "", str);
                             }
                         }
                     });
@@ -265,7 +265,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseOptionActivity f9749a;
+                public final /* synthetic */ BaseOptionActivity f9775a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -282,14 +282,14 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f9749a = this;
+                    this.f9775a = this;
                 }
 
                 @Override // com.baidu.pass.permissions.PermissionsCallback
                 public void onFailure(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.f9749a.processImgBase64Data(10002, BaseOptionActivity.NO_STORAGE_PERM_MSG, null);
+                        this.f9775a.processImgBase64Data(10002, BaseOptionActivity.NO_STORAGE_PERM_MSG, null);
                     }
                 }
 
@@ -301,13 +301,13 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                             if (Build.VERSION.SDK_INT == 19) {
                                 Intent intent = new Intent("android.intent.action.PICK", MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                 intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-                                this.f9749a.startActivityForResult(intent, 1002);
+                                this.f9775a.startActivityForResult(intent, 1002);
                                 return;
                             }
                             Intent intent2 = new Intent();
                             intent2.setType(BdUploadHandler.IMAGE_MIME_TYPE);
                             intent2.setAction("android.intent.action.GET_CONTENT");
-                            this.f9749a.startActivityForResult(intent2, 1002);
+                            this.f9775a.startActivityForResult(intent2, 1002);
                         } catch (Throwable th) {
                             Log.e(th);
                         }
@@ -338,7 +338,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseOptionActivity f9748a;
+                public final /* synthetic */ BaseOptionActivity f9774a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -355,14 +355,14 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f9748a = this;
+                    this.f9774a = this;
                 }
 
                 @Override // com.baidu.pass.permissions.PermissionsCallback
                 public void onFailure(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.f9748a.processImgBase64Data(10001, BaseOptionActivity.NO_CAMERA_PERM_MSG, "");
+                        this.f9774a.processImgBase64Data(10001, BaseOptionActivity.NO_CAMERA_PERM_MSG, "");
                     }
                 }
 
@@ -372,7 +372,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.f9748a, g.sapi_sdk_user_profile_sdcard_unavailable, 0).show();
+                                Toast.makeText(this.f9774a, g.sapi_sdk_user_profile_sdcard_unavailable, 0).show();
                                 return;
                             }
                             File file = new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg");
@@ -382,14 +382,14 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                             Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                             intent.setAction("android.media.action.IMAGE_CAPTURE");
                             File file2 = new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg");
-                            if (Build.VERSION.SDK_INT >= 24 && this.f9748a.getApplicationInfo().targetSdkVersion >= 24) {
-                                BaseOptionActivity baseOptionActivity = this.f9748a;
-                                intent.putExtra("output", FileProvider.getUriForFile(baseOptionActivity, this.f9748a.getPackageName() + ".passfileprovider", file2));
+                            if (Build.VERSION.SDK_INT >= 24 && this.f9774a.getApplicationInfo().targetSdkVersion >= 24) {
+                                BaseOptionActivity baseOptionActivity = this.f9774a;
+                                intent.putExtra("output", FileProvider.getUriForFile(baseOptionActivity, this.f9774a.getPackageName() + ".passfileprovider", file2));
                             } else {
                                 intent.putExtra("output", Uri.fromFile(file2));
                             }
                             intent.putExtra("orientation", 0);
-                            this.f9748a.startActivityForResult(intent, 1001);
+                            this.f9774a.startActivityForResult(intent, 1001);
                         } catch (Throwable th) {
                             Log.e(th);
                         }
@@ -407,7 +407,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BaseOptionActivity f9753a;
+            public final /* synthetic */ BaseOptionActivity f9779a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -424,7 +424,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                         return;
                     }
                 }
-                this.f9753a = this;
+                this.f9779a = this;
             }
 
             @Override // com.baidu.sapi2.callback.ActivityResultCallback
@@ -433,12 +433,12 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                 if ((interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, intent) == null) && i2 == 1003) {
                     if (i3 == -1) {
                         byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
-                        if (byteArrayExtra == null || this.f9753a.f9747i == null) {
+                        if (byteArrayExtra == null || this.f9779a.f9773i == null) {
                             return;
                         }
-                        this.f9753a.f9747i.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
-                    } else if (this.f9753a.f9747i != null) {
-                        this.f9753a.f9747i.onImageResult(null);
+                        this.f9779a.f9773i.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
+                    } else if (this.f9779a.f9773i != null) {
+                        this.f9779a.f9773i.onImageResult(null);
                     }
                 }
             }

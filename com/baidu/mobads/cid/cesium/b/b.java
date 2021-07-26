@@ -15,10 +15,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f8228a;
+    public a f8254a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, com.baidu.mobads.cid.cesium.b.a> f8229b;
+    public Map<String, com.baidu.mobads.cid.cesium.b.a> f8255b;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -40,16 +40,16 @@ public class b {
                 return;
             }
         }
-        this.f8229b = new HashMap();
-        this.f8228a = aVar;
+        this.f8255b = new HashMap();
+        this.f8254a = aVar;
         for (com.baidu.mobads.cid.cesium.b.a aVar2 : aVar.a()) {
-            this.f8229b.put(aVar2.a(), aVar2);
+            this.f8255b.put(aVar2.a(), aVar2);
         }
     }
 
     public List<com.baidu.mobads.cid.cesium.b.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList(this.f8229b.values()) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList(this.f8255b.values()) : (List) invokeV.objValue;
     }
 }

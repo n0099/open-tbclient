@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.p0.c.a;
+import d.a.p0.r0.c.a;
 /* loaded from: classes3.dex */
 public class GameCenterAppMonitorReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;

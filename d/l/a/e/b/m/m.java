@@ -130,9 +130,9 @@ public class m extends d.l.a.e.b.g.c implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
-                synchronized (this.f71756f) {
-                    clone = this.f71756f.clone();
-                    this.f71756f.clear();
+                synchronized (this.f72210f) {
+                    clone = this.f72210f.clone();
+                    this.f72210f.clear();
                 }
                 if (clone == null || clone.size() <= 0 || d.l.a.e.b.g.e.c() == null) {
                     return;
@@ -182,12 +182,12 @@ public class m extends d.l.a.e.b.g.c implements ServiceConnection {
             sb.append("onServiceConnected aidlService!=null");
             sb.append(this.m != null);
             sb.append(" pendingTasks.size:");
-            sb.append(this.f71756f.size());
+            sb.append(this.f72210f.size());
             d.l.a.e.b.c.a.g(str, sb.toString());
             if (this.m != null) {
                 d.l.a.e.b.g.f.c().p();
-                this.f71757g = true;
-                this.f71759i = false;
+                this.f72211g = true;
+                this.f72213i = false;
                 int i2 = this.o;
                 if (i2 != -1) {
                     try {
@@ -209,7 +209,7 @@ public class m extends d.l.a.e.b.g.c implements ServiceConnection {
         if (interceptable == null || interceptable.invokeL(1048586, this, componentName) == null) {
             d.l.a.e.b.c.a.g(p, "onServiceDisconnected ");
             this.m = null;
-            this.f71757g = false;
+            this.f72211g = false;
             d.l.a.e.b.g.o oVar = this.n;
             if (oVar != null) {
                 oVar.i();

@@ -1,18 +1,24 @@
 package com.bytedance.sdk.openadsdk.downloadnew.a.b;
 
 import android.net.Uri;
+import android.os.Environment;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTCustomController;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.h;
+import com.bytedance.sdk.openadsdk.core.o;
 import d.l.a.b.a.a.a;
 import d.l.a.b.a.a.b;
 import d.l.a.b.a.a.c;
-import d.l.a.e.b.f.v;
+import d.l.a.e.b.f.w;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b {
@@ -37,13 +43,13 @@ public class b {
             c.a aVar = new c.a();
             aVar.b(Long.valueOf(mVar.ak()).longValue());
             aVar.n(mVar.Y() == null ? null : mVar.Y().a());
-            aVar.l(h.d().o());
-            aVar.q(!h.d().o());
+            aVar.l(h.d().p());
+            aVar.q(!h.d().p());
             aVar.e(mVar.ao());
             aVar.f(jSONObject2);
             aVar.p(str);
             aVar.g(true);
-            aVar.d(new v() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.b.b.1
+            aVar.d(new w() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.b.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,16 +67,23 @@ public class b {
                     }
                 }
 
-                @Override // d.l.a.e.b.f.v
+                @Override // d.l.a.e.b.f.w
                 public Uri a(String str3, String str4) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str3, str4)) == null) ? com.bytedance.sdk.openadsdk.n.a.a(str3, str4) : (Uri) invokeLL.objValue;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str3, str4)) == null) ? com.bytedance.sdk.openadsdk.m.a.a(str3, str4) : (Uri) invokeLL.objValue;
                 }
             });
-            com.bytedance.sdk.openadsdk.n.a.a(aVar);
+            com.bytedance.sdk.openadsdk.m.a.a(aVar);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 aVar.o(true);
+            }
+            TTCustomController f2 = h.d().f();
+            if (f2 != null && !f2.isCanUseWriteExternal()) {
+                try {
+                    aVar.t(a());
+                } catch (Throwable unused2) {
+                }
             }
             if (mVar.an() != null) {
                 d.l.a.a.a.f.b bVar = new d.l.a.a.a.f.b();
@@ -106,12 +119,12 @@ public class b {
             c.a aVar = new c.a();
             aVar.b(Double.valueOf(mVar.ak()).longValue());
             aVar.n(mVar.Y() == null ? null : mVar.Y().a());
-            aVar.l(h.d().o());
-            aVar.q(!h.d().o());
+            aVar.l(h.d().p());
+            aVar.q(!h.d().p());
             aVar.e(mVar.ao());
             aVar.f(jSONObject2);
             aVar.g(true);
-            aVar.d(new v() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.b.b.2
+            aVar.d(new w() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.b.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,14 +142,14 @@ public class b {
                     }
                 }
 
-                @Override // d.l.a.e.b.f.v
+                @Override // d.l.a.e.b.f.w
                 public Uri a(String str2, String str3) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str2, str3)) == null) ? com.bytedance.sdk.openadsdk.n.a.a(str2, str3) : (Uri) invokeLL.objValue;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str2, str3)) == null) ? com.bytedance.sdk.openadsdk.m.a.a(str2, str3) : (Uri) invokeLL.objValue;
                 }
             });
-            com.bytedance.sdk.openadsdk.n.a.a(aVar);
+            com.bytedance.sdk.openadsdk.m.a.a(aVar);
             com.bytedance.sdk.openadsdk.core.e.b al = mVar.al();
             if (al != null) {
                 aVar.p(al.b());
@@ -145,6 +158,13 @@ public class b {
             }
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 aVar.o(true);
+            }
+            TTCustomController f2 = h.d().f();
+            if (f2 != null && !f2.isCanUseWriteExternal()) {
+                try {
+                    aVar.t(a());
+                } catch (Throwable unused2) {
+                }
             }
             if (mVar.an() != null) {
                 d.l.a.a.a.f.b bVar = new d.l.a.a.a.f.b();
@@ -165,7 +185,7 @@ public class b {
         return (c.a) invokeLLL.objValue;
     }
 
-    public static a.C2013a a(m mVar) {
+    public static a.C2012a a(m mVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mVar)) == null) {
@@ -174,19 +194,19 @@ public class b {
             if (mVar != null && !TextUtils.isEmpty(mVar.ax())) {
                 z = 2;
             }
-            a.C2013a c2013a = new a.C2013a();
-            c2013a.a(y);
-            c2013a.e(z);
-            c2013a.c(true);
-            c2013a.f(false);
-            c2013a.b(mVar);
+            a.C2012a c2012a = new a.C2012a();
+            c2012a.a(y);
+            c2012a.e(z);
+            c2012a.c(true);
+            c2012a.f(false);
+            c2012a.b(mVar);
             if (mVar != null && mVar.am() != null) {
-                c2013a.j(mVar.am().a());
-                c2013a.k(mVar.am().b());
+                c2012a.j(mVar.am().a());
+                c2012a.k(mVar.am().b());
             }
-            return c2013a;
+            return c2012a;
         }
-        return (a.C2013a) invokeL.objValue;
+        return (a.C2012a) invokeL.objValue;
     }
 
     public static b.a a(m mVar, String str) {
@@ -206,5 +226,25 @@ public class b {
             return aVar;
         }
         return (b.a) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File externalFilesDir = o.a().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
+            if (externalFilesDir != null) {
+                if (!externalFilesDir.exists()) {
+                    externalFilesDir.mkdirs();
+                }
+                if (externalFilesDir.exists()) {
+                    return externalFilesDir.getAbsolutePath();
+                }
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.z0.b0;
-import d.a.p0.e1.e.b.c;
-import d.a.p0.u0.n0;
+import d.a.p0.b1.b0;
+import d.a.q0.e1.e.b.c;
+import d.a.q0.u0.n0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -28,7 +28,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f16639e;
+    public c f16695e;
 
     public GameVideoFragment() {
         Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         }
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -59,14 +59,14 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.o0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a066" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.o0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.p0.m0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -85,11 +85,11 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         return (List) invokeV.objValue;
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void o() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f16639e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f16695e) == null) {
             return;
         }
         cVar.x();
@@ -100,7 +100,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c cVar = this.f16639e;
+            c cVar = this.f16695e;
             if (cVar != null) {
                 cVar.n();
             }
@@ -112,10 +112,10 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            if (this.f16639e == null) {
-                this.f16639e = new c(getPageContext(), getUniqueId());
+            if (this.f16695e == null) {
+                this.f16695e = new c(getPageContext(), getUniqueId());
             }
-            this.f16639e.s();
+            this.f16695e.s();
         }
     }
 
@@ -125,12 +125,12 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
-            c cVar = this.f16639e;
+            c cVar = this.f16695e;
             if (cVar != null && cVar.r() != null) {
-                if (this.f16639e.r().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.f16639e.r().getParent()).removeView(this.f16639e.r());
+                if (this.f16695e.r().getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.f16695e.r().getParent()).removeView(this.f16695e.r());
                 }
-                return this.f16639e.r();
+                return this.f16695e.r();
             }
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
@@ -142,7 +142,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            c cVar = this.f16639e;
+            c cVar = this.f16695e;
             if (cVar != null) {
                 cVar.v();
             }
@@ -154,7 +154,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onLazyLoad();
-            c cVar = this.f16639e;
+            c cVar = this.f16695e;
             if (cVar != null) {
                 cVar.t();
             }
@@ -166,7 +166,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            c cVar = this.f16639e;
+            c cVar = this.f16695e;
             if (cVar != null) {
                 cVar.w();
             }
@@ -181,28 +181,28 @@ public class GameVideoFragment extends BaseFragment implements n0 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            c cVar = this.f16639e;
+            c cVar = this.f16695e;
             if (cVar != null) {
                 cVar.y(isPrimary());
             }
         }
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void x(b0 b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, b0Var) == null) {

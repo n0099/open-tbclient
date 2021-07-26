@@ -29,11 +29,11 @@ public class s extends t.a {
             }
         }
         ByteBuffer allocate = ByteBuffer.allocate(8);
-        allocate.order(bVar.f73131a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
+        allocate.order(bVar.f73585a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
         long j2 = j + (i2 * 16);
         wVar.h(allocate, j2, 8);
-        this.f73129a = allocate.getLong();
+        this.f73583a = allocate.getLong();
         wVar.h(allocate, j2 + 8, 8);
-        this.f73130b = allocate.getLong();
+        this.f73584b = allocate.getLong();
     }
 }

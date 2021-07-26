@@ -12,7 +12,7 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34429a;
+    public Context f34618a;
 
     public i(Context context) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class i {
                 return;
             }
         }
-        this.f34429a = context;
+        this.f34618a = context;
     }
 
     public String a() {
@@ -40,7 +40,7 @@ public class i {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f34429a);
+                str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f34618a);
             } catch (Exception e3) {
                 str = "";
                 e2 = e3;

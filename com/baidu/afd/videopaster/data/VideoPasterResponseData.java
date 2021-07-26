@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
-import d.a.d.m.e.a;
+import d.a.e.m.e.a;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -217,13 +217,13 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                             aVar5.t = 24;
                                         }
                                         a aVar6 = this.pasterData;
-                                        aVar6.f42011g = optString3;
+                                        aVar6.f42515g = optString3;
                                         aVar6.e(this.type);
                                         a aVar7 = this.pasterData;
-                                        aVar7.f42010f = optString2;
+                                        aVar7.f42514f = optString2;
                                         aVar7.j = optInt;
-                                        aVar7.f42013i = optString5;
-                                        aVar7.f42012h = optString4;
+                                        aVar7.f42517i = optString5;
+                                        aVar7.f42516h = optString4;
                                         aVar7.o = optString7;
                                         aVar7.n = optString6;
                                         aVar7.p = optString8;

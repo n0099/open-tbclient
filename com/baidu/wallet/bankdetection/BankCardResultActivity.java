@@ -38,32 +38,32 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23916a;
+    public static final String f24074a;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Pattern f23917i;
+    public static Pattern f24075i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f23918b;
+    public TextView f24076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f23919c;
+    public View f24077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f23920d;
+    public View f24078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SafeScrollView f23921e;
+    public SafeScrollView f24079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeKeyBoardEditText[] f23922f;
+    public SafeKeyBoardEditText[] f24080f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f23923g;
+    public String[] f24081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BCResult f23924h;
+    public BCResult f24082h;
 
     /* loaded from: classes5.dex */
     public class a implements InputFilter {
@@ -71,7 +71,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BankCardResultActivity f23931a;
+        public final /* synthetic */ BankCardResultActivity f24089a;
 
         public a(BankCardResultActivity bankCardResultActivity) {
             Interceptable interceptable = $ic;
@@ -88,20 +88,20 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
                     return;
                 }
             }
-            this.f23931a = bankCardResultActivity;
+            this.f24089a = bankCardResultActivity;
         }
 
         private int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-                if (this.f23931a.f23922f == null) {
+                if (this.f24089a.f24080f == null) {
                     return 0;
                 }
                 StringBuilder sb = new StringBuilder();
-                for (int i2 = 0; i2 < this.f23931a.f23922f.length; i2++) {
-                    if (this.f23931a.f23922f[i2] != null) {
-                        sb.append(this.f23931a.f23922f[i2].getText().toString());
+                for (int i2 = 0; i2 < this.f24089a.f24080f.length; i2++) {
+                    if (this.f24089a.f24080f[i2] != null) {
+                        sb.append(this.f24089a.f24080f[i2].getText().toString());
                     }
                 }
                 return sb.length();
@@ -114,7 +114,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), spanned, Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-                if (TextUtils.isEmpty(charSequence) || BankCardResultActivity.f23917i.matcher(charSequence).matches()) {
+                if (TextUtils.isEmpty(charSequence) || BankCardResultActivity.f24075i.matcher(charSequence).matches()) {
                     if (i3 - i2 > 20) {
                         i3 = i2 + 20;
                     }
@@ -126,11 +126,11 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
                         return "";
                     }
                     if (a2 > 10) {
-                        this.f23931a.f23918b.setEnabled(true);
-                        this.f23931a.f23918b.setTextColor(-1);
+                        this.f24089a.f24076b.setEnabled(true);
+                        this.f24089a.f24076b.setTextColor(-1);
                     } else {
-                        this.f23931a.f23918b.setEnabled(false);
-                        this.f23931a.f23918b.setTextColor(ResUtils.getColor(this.f23931a.getActivity(), "bcd_disable_text"));
+                        this.f24089a.f24076b.setEnabled(false);
+                        this.f24089a.f24076b.setTextColor(ResUtils.getColor(this.f24089a.getActivity(), "bcd_disable_text"));
                     }
                     return charSequence.subSequence(i2, i3);
                 }
@@ -153,8 +153,8 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
                 return;
             }
         }
-        f23916a = BankCardResultActivity.class.getSimpleName();
-        f23917i = Pattern.compile("\\d{1,20}");
+        f24074a = BankCardResultActivity.class.getSimpleName();
+        f24075i = Pattern.compile("\\d{1,20}");
     }
 
     public BankCardResultActivity() {
@@ -194,15 +194,15 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             int id = view.getId();
-            if (this.f23918b == view || ResUtils.id(getActivity(), "dialog_title_close") == id) {
+            if (this.f24076b == view || ResUtils.id(getActivity(), "dialog_title_close") == id) {
                 String charSequence = b().toString();
-                if (this.f23918b == view) {
+                if (this.f24076b == view) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.STAT_CLICKNEXT);
                     BankcardDetectionController.getInstance().update(null, charSequence);
                     setResult(CameraBaseActivity.ResultCodeExit, null);
                     finish();
                     overridePendingTransition(0, 0);
-                } else if (this.f23919c == view) {
+                } else if (this.f24077c == view) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.STAT_DISAGREE);
                     setResult(CameraBaseActivity.ResultCodeStay, null);
                     finish();
@@ -235,23 +235,23 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, event) == null) {
             if (!"BankCardResult".equals(event.mEventKey)) {
-                LogUtil.e(f23916a, "invalid bankcad result key", null);
+                LogUtil.e(f24074a, "invalid bankcad result key", null);
                 finish();
                 overridePendingTransition(0, 0);
             }
-            this.f23924h = (BCResult) event.mEventObj;
+            this.f24082h = (BCResult) event.mEventObj;
             getWindow().setSoftInputMode(2);
             Activity activity = getActivity();
             SafeScrollView safeScrollView = (SafeScrollView) LayoutInflater.from(activity).inflate(ResUtils.layout(activity, "wallet_bankcard_detection_result"), (ViewGroup) null);
-            this.f23921e = safeScrollView;
+            this.f24079e = safeScrollView;
             setContentView(safeScrollView);
-            setSafeScrollView(this.f23921e);
-            this.f23921e.post(new Runnable(this) { // from class: com.baidu.wallet.bankdetection.BankCardResultActivity.1
+            setSafeScrollView(this.f24079e);
+            this.f24079e.post(new Runnable(this) { // from class: com.baidu.wallet.bankdetection.BankCardResultActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BankCardResultActivity f23925a;
+                public final /* synthetic */ BankCardResultActivity f24083a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -268,24 +268,24 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
                             return;
                         }
                     }
-                    this.f23925a = this;
+                    this.f24083a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f23925a.c();
+                        this.f24083a.c();
                     }
                 }
             });
-            this.f23918b = (TextView) findViewById(ResUtils.id(activity, "button_ok"));
-            ((ImageView) this.f23921e.findViewById(ResUtils.id(activity, "card_num_img"))).setImageBitmap(this.f23924h.getDstRGBImage(false));
-            this.f23923g = this.f23924h.cardNumberToString().split(" ");
-            View findViewById = this.f23921e.findViewById(ResUtils.id(activity, "dialog_title_close"));
-            this.f23919c = findViewById;
+            this.f24076b = (TextView) findViewById(ResUtils.id(activity, "button_ok"));
+            ((ImageView) this.f24079e.findViewById(ResUtils.id(activity, "card_num_img"))).setImageBitmap(this.f24082h.getDstRGBImage(false));
+            this.f24081g = this.f24082h.cardNumberToString().split(" ");
+            View findViewById = this.f24079e.findViewById(ResUtils.id(activity, "dialog_title_close"));
+            this.f24077c = findViewById;
             findViewById.setOnClickListener(this);
-            View findViewById2 = this.f23921e.findViewById(ResUtils.id(activity, "button_ok"));
+            View findViewById2 = this.f24079e.findViewById(ResUtils.id(activity, "button_ok"));
             findViewById2.setOnClickListener(this);
             findViewById2.requestFocus();
         }
@@ -296,14 +296,14 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            SafeKeyBoardEditText[] safeKeyBoardEditTextArr = this.f23922f;
-            if (safeKeyBoardEditTextArr == null || this.f23921e == null) {
+            SafeKeyBoardEditText[] safeKeyBoardEditTextArr = this.f24080f;
+            if (safeKeyBoardEditTextArr == null || this.f24079e == null) {
                 return;
             }
             for (SafeKeyBoardEditText safeKeyBoardEditText : safeKeyBoardEditTextArr) {
                 if (safeKeyBoardEditText.isFocused()) {
-                    SafeScrollView safeScrollView = this.f23921e;
-                    safeScrollView.showKeyBoard(safeScrollView, safeKeyBoardEditText, this.f23920d);
+                    SafeScrollView safeScrollView = this.f24079e;
+                    safeScrollView.showKeyBoard(safeScrollView, safeKeyBoardEditText, this.f24078d);
                     return;
                 }
             }
@@ -316,19 +316,19 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            SafeKeyBoardEditText[] safeKeyBoardEditTextArr = this.f23922f;
-            if (safeKeyBoardEditTextArr != null && safeKeyBoardEditTextArr.length != 0 && (strArr = this.f23923g) != null && strArr.length != 0) {
+            SafeKeyBoardEditText[] safeKeyBoardEditTextArr = this.f24080f;
+            if (safeKeyBoardEditTextArr != null && safeKeyBoardEditTextArr.length != 0 && (strArr = this.f24081g) != null && strArr.length != 0) {
                 int i2 = 0;
                 boolean z = false;
                 while (true) {
-                    SafeKeyBoardEditText[] safeKeyBoardEditTextArr2 = this.f23922f;
+                    SafeKeyBoardEditText[] safeKeyBoardEditTextArr2 = this.f24080f;
                     if (i2 >= safeKeyBoardEditTextArr2.length) {
                         break;
                     }
                     String obj = safeKeyBoardEditTextArr2[i2].getText().toString();
                     sb.append(obj);
                     if (!z) {
-                        z = !obj.equals(this.f23923g[i2]);
+                        z = !obj.equals(this.f24081g[i2]);
                     }
                     i2++;
                 }
@@ -355,11 +355,11 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             int i2 = getWindowManager().getDefaultDisplay().getWidth() > 480 ? 16 : 13;
             Activity activity = getActivity();
-            LinearLayout linearLayout = (LinearLayout) this.f23921e.findViewById(ResUtils.id(activity, "card_num_sections"));
-            this.f23920d = this.f23921e.findViewById(ResUtils.id(activity, "bcd_result_dlg"));
+            LinearLayout linearLayout = (LinearLayout) this.f24079e.findViewById(ResUtils.id(activity, "card_num_sections"));
+            this.f24078d = this.f24079e.findViewById(ResUtils.id(activity, "bcd_result_dlg"));
             ?? r12 = 0;
             InputFilter[] inputFilterArr = {new a(this)};
-            int width = linearLayout.getWidth() / this.f23923g.length;
+            int width = linearLayout.getWidth() / this.f24081g.length;
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, linearLayout.getHeight());
             layoutParams.gravity = 17;
             layoutParams.weight = 1.0f;
@@ -368,52 +368,52 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
             int i3 = 3;
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams((width * 3) / 4, 2);
             layoutParams3.gravity = 1;
-            this.f23922f = new SafeKeyBoardEditText[this.f23923g.length];
+            this.f24080f = new SafeKeyBoardEditText[this.f24081g.length];
             int color = ResUtils.color(activity, "bcd_gray3");
             int color2 = ResUtils.getColor(activity, "bcd_color_n_underline");
             int color3 = ResUtils.getColor(activity, "bcd_color_f_underline");
             int i4 = 0;
-            while (i4 < this.f23923g.length) {
-                this.f23922f[i4] = new SafeKeyBoardEditText(activity);
-                DivisionEditText divisionEditText = this.f23922f[i4];
-                SafeScrollView safeScrollView = this.f23921e;
-                divisionEditText.initSafeKeyBoardParams(safeScrollView, safeScrollView, this.f23920d, r12);
-                this.f23922f[i4].setFilters(inputFilterArr);
-                this.f23922f[i4].setText(this.f23923g[i4]);
-                this.f23922f[i4].setTextColor(color);
-                this.f23922f[i4].setInputType(i3);
-                this.f23922f[i4].setSingleLine();
-                this.f23922f[i4].setBackgroundColor(r12);
-                this.f23922f[i4].setTextSize(1, i2);
-                this.f23922f[i4].setLayoutParams(layoutParams2);
+            while (i4 < this.f24081g.length) {
+                this.f24080f[i4] = new SafeKeyBoardEditText(activity);
+                DivisionEditText divisionEditText = this.f24080f[i4];
+                SafeScrollView safeScrollView = this.f24079e;
+                divisionEditText.initSafeKeyBoardParams(safeScrollView, safeScrollView, this.f24078d, r12);
+                this.f24080f[i4].setFilters(inputFilterArr);
+                this.f24080f[i4].setText(this.f24081g[i4]);
+                this.f24080f[i4].setTextColor(color);
+                this.f24080f[i4].setInputType(i3);
+                this.f24080f[i4].setSingleLine();
+                this.f24080f[i4].setBackgroundColor(r12);
+                this.f24080f[i4].setTextSize(1, i2);
+                this.f24080f[i4].setLayoutParams(layoutParams2);
                 LinearLayout linearLayout2 = new LinearLayout(activity);
                 linearLayout2.setOrientation(1);
                 linearLayout2.setLayoutParams(layoutParams);
-                linearLayout2.addView(this.f23922f[i4]);
+                linearLayout2.addView(this.f24080f[i4]);
                 View view = new View(activity);
                 view.setBackgroundColor(color2);
                 view.setLayoutParams(layoutParams3);
                 linearLayout2.addView(view);
                 int i5 = i4;
                 int i6 = color2;
-                this.f23922f[i5].setOnFocusChangeListener(new View.OnFocusChangeListener(this, this.f23922f[i4].getOnFocusChangeListener(), view, color3, i6) { // from class: com.baidu.wallet.bankdetection.BankCardResultActivity.2
+                this.f24080f[i5].setOnFocusChangeListener(new View.OnFocusChangeListener(this, this.f24080f[i4].getOnFocusChangeListener(), view, color3, i6) { // from class: com.baidu.wallet.bankdetection.BankCardResultActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ View.OnFocusChangeListener f23926a;
+                    public final /* synthetic */ View.OnFocusChangeListener f24084a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ View f23927b;
+                    public final /* synthetic */ View f24085b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ int f23928c;
+                    public final /* synthetic */ int f24086c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ int f23929d;
+                    public final /* synthetic */ int f24087d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ BankCardResultActivity f23930e;
+                    public final /* synthetic */ BankCardResultActivity f24088e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -430,22 +430,22 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
                                 return;
                             }
                         }
-                        this.f23930e = this;
-                        this.f23926a = r7;
-                        this.f23927b = view;
-                        this.f23928c = color3;
-                        this.f23929d = i6;
+                        this.f24088e = this;
+                        this.f24084a = r7;
+                        this.f24085b = view;
+                        this.f24086c = color3;
+                        this.f24087d = i6;
                     }
 
                     @Override // android.view.View.OnFocusChangeListener
                     public void onFocusChange(View view2, boolean z) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view2, z) == null) {
-                            View.OnFocusChangeListener onFocusChangeListener = this.f23926a;
+                            View.OnFocusChangeListener onFocusChangeListener = this.f24084a;
                             if (onFocusChangeListener != null) {
                                 onFocusChangeListener.onFocusChange(view2, z);
                             }
-                            this.f23927b.setBackgroundColor(z ? this.f23928c : this.f23929d);
+                            this.f24085b.setBackgroundColor(z ? this.f24086c : this.f24087d);
                         }
                     }
                 });

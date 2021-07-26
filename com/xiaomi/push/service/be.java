@@ -15,20 +15,20 @@ public class be {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40636a = 8;
+    public static int f40908a = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
     public byte[] f925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40637b;
+    public int f40909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40638c;
+    public int f40910c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f40639d;
+    public int f40911d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,10 +58,10 @@ public class be {
                 return;
             }
         }
-        this.f40639d = IMediaPlayer.SHARED_PLAYER_ON_INFO_EXTRA;
+        this.f40911d = IMediaPlayer.SHARED_PLAYER_ON_INFO_EXTRA;
         this.f925a = new byte[256];
-        this.f40638c = 0;
-        this.f40637b = 0;
+        this.f40910c = 0;
+        this.f40909b = 0;
     }
 
     public static int a(byte b2) {
@@ -73,8 +73,8 @@ public class be {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f40638c = 0;
-            this.f40637b = 0;
+            this.f40910c = 0;
+            this.f40909b = 0;
         }
     }
 
@@ -85,20 +85,20 @@ public class be {
             for (int i3 = 0; i3 < 256; i3++) {
                 this.f925a[i3] = (byte) i3;
             }
-            this.f40638c = 0;
-            this.f40637b = 0;
+            this.f40910c = 0;
+            this.f40909b = 0;
             while (true) {
-                int i4 = this.f40637b;
+                int i4 = this.f40909b;
                 if (i4 >= i2) {
                     break;
                 }
-                int a2 = ((this.f40638c + a(this.f925a[i4])) + a(bArr[this.f40637b % length])) % 256;
-                this.f40638c = a2;
-                a(this.f925a, this.f40637b, a2);
-                this.f40637b++;
+                int a2 = ((this.f40910c + a(this.f925a[i4])) + a(bArr[this.f40909b % length])) % 256;
+                this.f40910c = a2;
+                a(this.f925a, this.f40909b, a2);
+                this.f40909b++;
             }
             if (i2 != 256) {
-                this.f40639d = ((this.f40638c + a(this.f925a[i2])) + a(bArr[i2 % length])) % 256;
+                this.f40911d = ((this.f40910c + a(this.f925a[i2])) + a(bArr[i2 % length])) % 256;
             }
             if (z) {
                 StringBuilder sb = new StringBuilder();
@@ -113,23 +113,23 @@ public class be {
                 sb.append("   j_");
                 sb.append(i5);
                 sb.append("=");
-                sb.append(this.f40638c);
+                sb.append(this.f40910c);
                 sb.append("   j_");
                 sb.append(i2);
                 sb.append("=");
-                sb.append(this.f40639d);
+                sb.append(this.f40911d);
                 sb.append("   S_");
                 sb.append(i5);
                 sb.append("[j_");
                 sb.append(i5);
                 sb.append("]=");
-                sb.append(a(this.f925a[this.f40638c]));
+                sb.append(a(this.f925a[this.f40910c]));
                 sb.append("   S_");
                 sb.append(i5);
                 sb.append("[j_");
                 sb.append(i2);
                 sb.append("]=");
-                sb.append(a(this.f925a[this.f40639d]));
+                sb.append(a(this.f925a[this.f40911d]));
                 if (this.f925a[1] != 0) {
                     sb.append("   S[1]!=0");
                 }
@@ -227,13 +227,13 @@ public class be {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = (this.f40637b + 1) % 256;
-            this.f40637b = i2;
-            int a2 = (this.f40638c + a(this.f925a[i2])) % 256;
-            this.f40638c = a2;
-            a(this.f925a, this.f40637b, a2);
+            int i2 = (this.f40909b + 1) % 256;
+            this.f40909b = i2;
+            int a2 = (this.f40910c + a(this.f925a[i2])) % 256;
+            this.f40910c = a2;
+            a(this.f925a, this.f40909b, a2);
             byte[] bArr = this.f925a;
-            return bArr[(a(bArr[this.f40637b]) + a(this.f925a[this.f40638c])) % 256];
+            return bArr[(a(bArr[this.f40909b]) + a(this.f925a[this.f40910c])) % 256];
         }
         return invokeV.byteValue;
     }

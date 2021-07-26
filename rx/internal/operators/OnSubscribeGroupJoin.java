@@ -24,19 +24,19 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<T1> f73188e;
+    public final d<T1> f73642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d<T2> f73189f;
+    public final d<T2> f73643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final f<? super T1, ? extends d<D1>> f73190g;
+    public final f<? super T1, ? extends d<D1>> f73644g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final f<? super T2, ? extends d<D2>> f73191h;
+    public final f<? super T2, ? extends d<D2>> f73645h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g<? super T1, ? super d<T2>, ? extends R> f73192i;
+    public final g<? super T1, ? super d<T2>, ? extends R> f73646i;
 
     /* loaded from: classes9.dex */
     public final class ResultManager extends HashMap<Integer, e<T2>> implements k {
@@ -59,13 +59,13 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final int f73193e;
+            public final int f73647e;
 
             /* renamed from: f  reason: collision with root package name */
-            public boolean f73194f;
+            public boolean f73648f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ ResultManager f73195g;
+            public final /* synthetic */ ResultManager f73649g;
 
             public a(ResultManager resultManager, int i2) {
                 Interceptable interceptable = $ic;
@@ -82,24 +82,24 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                         return;
                     }
                 }
-                this.f73195g = resultManager;
-                this.f73194f = true;
-                this.f73193e = i2;
+                this.f73649g = resultManager;
+                this.f73648f = true;
+                this.f73647e = i2;
             }
 
             @Override // h.e
             public void onCompleted() {
                 e<T2> remove;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f73194f) {
-                    this.f73194f = false;
-                    synchronized (this.f73195g) {
-                        remove = this.f73195g.leftMap().remove(Integer.valueOf(this.f73193e));
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f73648f) {
+                    this.f73648f = false;
+                    synchronized (this.f73649g) {
+                        remove = this.f73649g.leftMap().remove(Integer.valueOf(this.f73647e));
                     }
                     if (remove != null) {
                         remove.onCompleted();
                     }
-                    this.f73195g.group.b(this);
+                    this.f73649g.group.b(this);
                 }
             }
 
@@ -107,7 +107,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.f73195g.errorMain(th);
+                    this.f73649g.errorMain(th);
                 }
             }
 
@@ -126,7 +126,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ResultManager f73196e;
+            public final /* synthetic */ ResultManager f73650e;
 
             public b(ResultManager resultManager) {
                 Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                         return;
                     }
                 }
-                this.f73196e = resultManager;
+                this.f73650e = resultManager;
             }
 
             @Override // h.e
@@ -151,17 +151,17 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 ArrayList arrayList;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    synchronized (this.f73196e) {
-                        this.f73196e.leftDone = true;
-                        if (this.f73196e.rightDone) {
-                            arrayList = new ArrayList(this.f73196e.leftMap().values());
-                            this.f73196e.leftMap().clear();
-                            this.f73196e.rightMap.clear();
+                    synchronized (this.f73650e) {
+                        this.f73650e.leftDone = true;
+                        if (this.f73650e.rightDone) {
+                            arrayList = new ArrayList(this.f73650e.leftMap().values());
+                            this.f73650e.leftMap().clear();
+                            this.f73650e.rightMap.clear();
                         } else {
                             arrayList = null;
                         }
                     }
-                    this.f73196e.complete(arrayList);
+                    this.f73650e.complete(arrayList);
                 }
             }
 
@@ -169,7 +169,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.f73196e.errorAll(th);
+                    this.f73650e.errorAll(th);
                 }
             }
 
@@ -182,21 +182,21 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                     try {
                         PublishSubject K = PublishSubject.K();
                         h.q.d dVar = new h.q.d(K);
-                        synchronized (this.f73196e) {
-                            ResultManager resultManager = this.f73196e;
+                        synchronized (this.f73650e) {
+                            ResultManager resultManager = this.f73650e;
                             i2 = resultManager.leftIds;
                             resultManager.leftIds = i2 + 1;
-                            this.f73196e.leftMap().put(Integer.valueOf(i2), dVar);
+                            this.f73650e.leftMap().put(Integer.valueOf(i2), dVar);
                         }
-                        h.d b2 = h.d.b(new a(K, this.f73196e.cancel));
-                        a aVar = new a(this.f73196e, i2);
-                        this.f73196e.group.a(aVar);
-                        this.f73196e.this$0.f73190g.call(t1).I(aVar);
-                        R a2 = this.f73196e.this$0.f73192i.a(t1, b2);
-                        synchronized (this.f73196e) {
-                            arrayList = new ArrayList(this.f73196e.rightMap.values());
+                        h.d b2 = h.d.b(new a(K, this.f73650e.cancel));
+                        a aVar = new a(this.f73650e, i2);
+                        this.f73650e.group.a(aVar);
+                        this.f73650e.this$0.f73644g.call(t1).I(aVar);
+                        R a2 = this.f73650e.this$0.f73646i.a(t1, b2);
+                        synchronized (this.f73650e) {
+                            arrayList = new ArrayList(this.f73650e.rightMap.values());
                         }
-                        this.f73196e.subscriber.onNext(a2);
+                        this.f73650e.subscriber.onNext(a2);
                         for (Object obj : arrayList) {
                             dVar.onNext(obj);
                         }
@@ -213,13 +213,13 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final int f73197e;
+            public final int f73651e;
 
             /* renamed from: f  reason: collision with root package name */
-            public boolean f73198f;
+            public boolean f73652f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ ResultManager f73199g;
+            public final /* synthetic */ ResultManager f73653g;
 
             public c(ResultManager resultManager, int i2) {
                 Interceptable interceptable = $ic;
@@ -236,20 +236,20 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                         return;
                     }
                 }
-                this.f73199g = resultManager;
-                this.f73198f = true;
-                this.f73197e = i2;
+                this.f73653g = resultManager;
+                this.f73652f = true;
+                this.f73651e = i2;
             }
 
             @Override // h.e
             public void onCompleted() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f73198f) {
-                    this.f73198f = false;
-                    synchronized (this.f73199g) {
-                        this.f73199g.rightMap.remove(Integer.valueOf(this.f73197e));
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f73652f) {
+                    this.f73652f = false;
+                    synchronized (this.f73653g) {
+                        this.f73653g.rightMap.remove(Integer.valueOf(this.f73651e));
                     }
-                    this.f73199g.group.b(this);
+                    this.f73653g.group.b(this);
                 }
             }
 
@@ -257,7 +257,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.f73199g.errorMain(th);
+                    this.f73653g.errorMain(th);
                 }
             }
 
@@ -276,7 +276,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ResultManager f73200e;
+            public final /* synthetic */ ResultManager f73654e;
 
             public d(ResultManager resultManager) {
                 Interceptable interceptable = $ic;
@@ -293,7 +293,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                         return;
                     }
                 }
-                this.f73200e = resultManager;
+                this.f73654e = resultManager;
             }
 
             @Override // h.e
@@ -301,17 +301,17 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 ArrayList arrayList;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    synchronized (this.f73200e) {
-                        this.f73200e.rightDone = true;
-                        if (this.f73200e.leftDone) {
-                            arrayList = new ArrayList(this.f73200e.leftMap().values());
-                            this.f73200e.leftMap().clear();
-                            this.f73200e.rightMap.clear();
+                    synchronized (this.f73654e) {
+                        this.f73654e.rightDone = true;
+                        if (this.f73654e.leftDone) {
+                            arrayList = new ArrayList(this.f73654e.leftMap().values());
+                            this.f73654e.leftMap().clear();
+                            this.f73654e.rightMap.clear();
                         } else {
                             arrayList = null;
                         }
                     }
-                    this.f73200e.complete(arrayList);
+                    this.f73654e.complete(arrayList);
                 }
             }
 
@@ -319,7 +319,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.f73200e.errorAll(th);
+                    this.f73654e.errorAll(th);
                 }
             }
 
@@ -330,17 +330,17 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t2) == null) {
                     try {
-                        synchronized (this.f73200e) {
-                            ResultManager resultManager = this.f73200e;
+                        synchronized (this.f73654e) {
+                            ResultManager resultManager = this.f73654e;
                             i2 = resultManager.rightIds;
                             resultManager.rightIds = i2 + 1;
-                            this.f73200e.rightMap.put(Integer.valueOf(i2), t2);
+                            this.f73654e.rightMap.put(Integer.valueOf(i2), t2);
                         }
-                        c cVar = new c(this.f73200e, i2);
-                        this.f73200e.group.a(cVar);
-                        this.f73200e.this$0.f73191h.call(t2).I(cVar);
-                        synchronized (this.f73200e) {
-                            arrayList = new ArrayList(this.f73200e.leftMap().values());
+                        c cVar = new c(this.f73654e, i2);
+                        this.f73654e.group.a(cVar);
+                        this.f73654e.this$0.f73645h.call(t2).I(cVar);
+                        synchronized (this.f73654e) {
+                            arrayList = new ArrayList(this.f73654e.leftMap().values());
                         }
                         for (e eVar : arrayList) {
                             eVar.onNext(t2);
@@ -422,8 +422,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 d dVar = new d(this);
                 this.group.a(bVar);
                 this.group.a(dVar);
-                this.this$0.f73188e.I(bVar);
-                this.this$0.f73189f.I(dVar);
+                this.this$0.f73642e.I(bVar);
+                this.this$0.f73643f.I(dVar);
             }
         }
 
@@ -455,25 +455,25 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final RefCountSubscription f73201e;
+        public final RefCountSubscription f73655e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d<T> f73202f;
+        public final d<T> f73656f;
 
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public final class C2096a extends j<T> {
+        public final class C2095a extends j<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final j<? super T> f73203e;
+            public final j<? super T> f73657e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final k f73204f;
+            public final k f73658f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C2096a(a aVar, j<? super T> jVar, k kVar) {
+            public C2095a(a aVar, j<? super T> jVar, k kVar) {
                 super(jVar);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -490,16 +490,16 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                         return;
                     }
                 }
-                this.f73203e = jVar;
-                this.f73204f = kVar;
+                this.f73657e = jVar;
+                this.f73658f = kVar;
             }
 
             @Override // h.e
             public void onCompleted() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f73203e.onCompleted();
-                    this.f73204f.unsubscribe();
+                    this.f73657e.onCompleted();
+                    this.f73658f.unsubscribe();
                 }
             }
 
@@ -507,8 +507,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.f73203e.onError(th);
-                    this.f73204f.unsubscribe();
+                    this.f73657e.onError(th);
+                    this.f73658f.unsubscribe();
                 }
             }
 
@@ -516,7 +516,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             public void onNext(T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                    this.f73203e.onNext(t);
+                    this.f73657e.onNext(t);
                 }
             }
         }
@@ -536,8 +536,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                     return;
                 }
             }
-            this.f73201e = refCountSubscription;
-            this.f73202f = dVar;
+            this.f73655e = refCountSubscription;
+            this.f73656f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -546,10 +546,10 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         public void call(j<? super T> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                k a2 = this.f73201e.a();
-                C2096a c2096a = new C2096a(this, jVar, a2);
-                c2096a.add(a2);
-                this.f73202f.I(c2096a);
+                k a2 = this.f73655e.a();
+                C2095a c2095a = new C2095a(this, jVar, a2);
+                c2095a.add(a2);
+                this.f73656f.I(c2095a);
             }
         }
     }

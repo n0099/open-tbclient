@@ -16,19 +16,19 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f71134a;
+    public long f71588a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71135b;
+    public int f71589b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f71136c;
+    public long f71590c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f71137d;
+    public long f71591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f71138e;
+    public String f71592e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class e {
                 return;
             }
         }
-        this.f71134a = -1L;
-        this.f71135b = -1;
-        this.f71136c = -1L;
-        this.f71137d = -1L;
+        this.f71588a = -1L;
+        this.f71589b = -1;
+        this.f71590c = -1L;
+        this.f71591d = -1L;
     }
 
     public void a(DownloadInfo downloadInfo) {
@@ -54,11 +54,11 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || downloadInfo == null) {
             return;
         }
-        this.f71134a = downloadInfo.getId();
-        this.f71135b = downloadInfo.getStatus();
-        this.f71137d = downloadInfo.getCurBytes();
-        this.f71136c = downloadInfo.getTotalBytes();
-        this.f71138e = downloadInfo.getTargetFilePath();
+        this.f71588a = downloadInfo.getId();
+        this.f71589b = downloadInfo.getStatus();
+        this.f71591d = downloadInfo.getCurBytes();
+        this.f71590c = downloadInfo.getTotalBytes();
+        this.f71592e = downloadInfo.getTargetFilePath();
         BaseException failedException = downloadInfo.getFailedException();
         if (failedException != null) {
             failedException.getErrorCode();
@@ -72,7 +72,7 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if ((obj instanceof e) && obj != null) {
                 e eVar = (e) obj;
-                return ((this.f71134a > eVar.f71134a ? 1 : (this.f71134a == eVar.f71134a ? 0 : -1)) == 0) && (this.f71135b == eVar.f71135b) && ((this.f71136c > eVar.f71136c ? 1 : (this.f71136c == eVar.f71136c ? 0 : -1)) == 0) && ((TextUtils.isEmpty(this.f71138e) && TextUtils.isEmpty(eVar.f71138e)) || (!TextUtils.isEmpty(this.f71138e) && !TextUtils.isEmpty(eVar.f71138e) && this.f71138e.equals(eVar.f71138e)));
+                return ((this.f71588a > eVar.f71588a ? 1 : (this.f71588a == eVar.f71588a ? 0 : -1)) == 0) && (this.f71589b == eVar.f71589b) && ((this.f71590c > eVar.f71590c ? 1 : (this.f71590c == eVar.f71590c ? 0 : -1)) == 0) && ((TextUtils.isEmpty(this.f71592e) && TextUtils.isEmpty(eVar.f71592e)) || (!TextUtils.isEmpty(this.f71592e) && !TextUtils.isEmpty(eVar.f71592e) && this.f71592e.equals(eVar.f71592e)));
             }
             return super.equals(obj);
         }
@@ -82,6 +82,6 @@ public class e {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Arrays.hashCode(new Object[]{Long.valueOf(this.f71134a), Integer.valueOf(this.f71135b), Long.valueOf(this.f71136c), this.f71138e}) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Arrays.hashCode(new Object[]{Long.valueOf(this.f71588a), Integer.valueOf(this.f71589b), Long.valueOf(this.f71590c), this.f71592e}) : invokeV.intValue;
     }
 }

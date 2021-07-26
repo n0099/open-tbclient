@@ -16,10 +16,10 @@ public class BlankView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f15785e;
+    public Scroller f15833e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f15786f;
+    public a f15834f;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -49,12 +49,12 @@ public class BlankView extends View {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f15785e == null) {
-                this.f15785e = new Scroller(getContext());
+            if (this.f15833e == null) {
+                this.f15833e = new Scroller(getContext());
             }
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
-                Scroller scroller = this.f15785e;
+                Scroller scroller = this.f15833e;
                 int i2 = layoutParams.height;
                 scroller.startScroll(0, i2, 0, 0 - i2);
                 invalidate();
@@ -67,12 +67,12 @@ public class BlankView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.computeScroll();
-            Scroller scroller = this.f15785e;
+            Scroller scroller = this.f15833e;
             if (scroller == null) {
                 return;
             }
             if (scroller.computeScrollOffset()) {
-                int currY = this.f15785e.getCurrY();
+                int currY = this.f15833e.getCurrY();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = currY;
@@ -81,7 +81,7 @@ public class BlankView extends View {
                 }
                 return;
             }
-            a aVar = this.f15786f;
+            a aVar = this.f15834f;
             if (aVar != null) {
                 aVar.a();
             }
@@ -91,7 +91,7 @@ public class BlankView extends View {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f15786f = aVar;
+            this.f15834f = aVar;
         }
     }
 

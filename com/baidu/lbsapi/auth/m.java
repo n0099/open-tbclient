@@ -13,13 +13,13 @@ public class m extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f6409a;
+    public Handler f6435a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f6410b;
+    public Object f6436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6411c;
+    public boolean f6437c;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class m extends Thread {
                 return;
             }
         }
-        this.f6409a = null;
-        this.f6410b = new Object();
-        this.f6411c = false;
+        this.f6435a = null;
+        this.f6436b = new Object();
+        this.f6437c = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,28 +57,28 @@ public class m extends Thread {
                 return;
             }
         }
-        this.f6409a = null;
-        this.f6410b = new Object();
-        this.f6411c = false;
+        this.f6435a = null;
+        this.f6436b = new Object();
+        this.f6437c = false;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (a.f6383a) {
+            if (a.f6409a) {
                 a.a("Looper thread quit()");
             }
-            this.f6409a.getLooper().quit();
+            this.f6435a.getLooper().quit();
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f6410b) {
+            synchronized (this.f6436b) {
                 try {
-                    if (!this.f6411c) {
-                        this.f6410b.wait();
+                    if (!this.f6437c) {
+                        this.f6436b.wait();
                     }
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
@@ -90,9 +90,9 @@ public class m extends Thread {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this.f6410b) {
-                this.f6411c = true;
-                this.f6410b.notifyAll();
+            synchronized (this.f6436b) {
+                this.f6437c = true;
+                this.f6436b.notifyAll();
             }
         }
     }
@@ -102,12 +102,12 @@ public class m extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Looper.prepare();
-            this.f6409a = new Handler();
-            if (a.f6383a) {
+            this.f6435a = new Handler();
+            if (a.f6409a) {
                 a.a("new Handler() finish!!");
             }
             Looper.loop();
-            if (a.f6383a) {
+            if (a.f6409a) {
                 a.a("LooperThread run() thread id:" + String.valueOf(Thread.currentThread().getId()));
             }
         }

@@ -25,7 +25,7 @@ public class g implements d.l.a.e.b.o.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.i.h<String, OkHttpClient> f71963a;
+    public final com.ss.android.socialbase.downloader.i.h<String, OkHttpClient> f72417a;
 
     /* loaded from: classes8.dex */
     public class a extends d.l.a.e.b.o.g {
@@ -33,16 +33,16 @@ public class g implements d.l.a.e.b.o.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InputStream f71964a;
+        public final /* synthetic */ InputStream f72418a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Response f71965b;
+        public final /* synthetic */ Response f72419b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Call f71966c;
+        public final /* synthetic */ Call f72420c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ ResponseBody f71967d;
+        public final /* synthetic */ ResponseBody f72421d;
 
         public a(g gVar, InputStream inputStream, Response response, Call call, ResponseBody responseBody) {
             Interceptable interceptable = $ic;
@@ -59,34 +59,34 @@ public class g implements d.l.a.e.b.o.a {
                     return;
                 }
             }
-            this.f71964a = inputStream;
-            this.f71965b = response;
-            this.f71966c = call;
-            this.f71967d = responseBody;
+            this.f72418a = inputStream;
+            this.f72419b = response;
+            this.f72420c = call;
+            this.f72421d = responseBody;
         }
 
         @Override // d.l.a.e.b.o.k
         public InputStream a() throws IOException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71964a : (InputStream) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72418a : (InputStream) invokeV.objValue;
         }
 
         @Override // d.l.a.e.b.o.i
         public int b() throws IOException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71965b.code() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72419b.code() : invokeV.intValue;
         }
 
         @Override // d.l.a.e.b.o.i
         public void c() {
             Call call;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (call = this.f71966c) == null || call.isCanceled()) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (call = this.f72420c) == null || call.isCanceled()) {
                 return;
             }
-            this.f71966c.cancel();
+            this.f72420c.cancel();
         }
 
         @Override // d.l.a.e.b.o.k
@@ -94,13 +94,13 @@ public class g implements d.l.a.e.b.o.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 try {
-                    if (this.f71967d != null) {
-                        this.f71967d.close();
+                    if (this.f72421d != null) {
+                        this.f72421d.close();
                     }
-                    if (this.f71966c == null || this.f71966c.isCanceled()) {
+                    if (this.f72420c == null || this.f72420c.isCanceled()) {
                         return;
                     }
-                    this.f71966c.cancel();
+                    this.f72420c.cancel();
                 } catch (Throwable unused) {
                 }
             }
@@ -117,7 +117,7 @@ public class g implements d.l.a.e.b.o.a {
         public String a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f71965b.header(str) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f72419b.header(str) : (String) invokeL.objValue;
         }
     }
 
@@ -156,7 +156,7 @@ public class g implements d.l.a.e.b.o.a {
                 return;
             }
         }
-        this.f71963a = new com.ss.android.socialbase.downloader.i.h<>(4, 8);
+        this.f72417a = new com.ss.android.socialbase.downloader.i.h<>(4, 8);
     }
 
     public final OkHttpClient a(String str, String str2) {
@@ -167,16 +167,16 @@ public class g implements d.l.a.e.b.o.a {
                 String host = Uri.parse(str).getHost();
                 if (!TextUtils.isEmpty(host) && !TextUtils.isEmpty(str2)) {
                     String str3 = host + "_" + str2;
-                    synchronized (this.f71963a) {
-                        OkHttpClient okHttpClient = this.f71963a.get(str3);
+                    synchronized (this.f72417a) {
+                        OkHttpClient okHttpClient = this.f72417a.get(str3);
                         if (okHttpClient != null) {
                             return okHttpClient;
                         }
                         OkHttpClient.Builder I0 = d.l.a.e.b.g.e.I0();
                         I0.dns(new b(this, host, str2));
                         OkHttpClient build = I0.build();
-                        synchronized (this.f71963a) {
-                            this.f71963a.put(str3, build);
+                        synchronized (this.f72417a) {
+                            this.f72417a.put(str3, build);
                         }
                         return build;
                     }

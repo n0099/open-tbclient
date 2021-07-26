@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.core.o;
-import com.bytedance.sdk.openadsdk.r.l;
+import com.bytedance.sdk.openadsdk.q.n;
 /* loaded from: classes5.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29547a;
+    public String f29645a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f29548b;
+    public Context f29646b;
 
     public i(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class i {
                 return;
             }
         }
-        this.f29548b = context;
-        this.f29547a = TextUtils.isEmpty(str) ? "" : str;
+        this.f29646b = context;
+        this.f29645a = TextUtils.isEmpty(str) ? "" : str;
     }
 
     @Nullable
@@ -50,7 +50,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            Context context = this.f29548b;
+            Context context = this.f29646b;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -60,7 +60,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return this.f29547a + "_adslot";
+            return this.f29645a + "_adslot";
         }
         return (String) invokeV.objValue;
     }
@@ -69,7 +69,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return this.f29547a + "_adslot_preload";
+            return this.f29645a + "_adslot_preload";
         }
         return (String) invokeV.objValue;
     }
@@ -98,7 +98,7 @@ public class i {
             if (TextUtils.isEmpty(str)) {
                 str = "0";
             }
-            return this.f29547a + "_cache_" + str;
+            return this.f29645a + "_cache_" + str;
         }
         return (String) invokeL.objValue;
     }
@@ -131,7 +131,7 @@ public class i {
                 } else {
                     string = f(c()).getString(str, null);
                 }
-                return l.a(string);
+                return n.a(string);
             } catch (Throwable unused) {
                 return null;
             }
@@ -210,7 +210,7 @@ public class i {
         }
         try {
             if (!TextUtils.isEmpty(adSlot.getCodeId())) {
-                String a2 = l.a(adSlot);
+                String a2 = n.a(adSlot);
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     com.bytedance.sdk.openadsdk.multipro.d.a.a(d(), "preload_data", a2);
                 } else {
@@ -228,7 +228,7 @@ public class i {
         }
         try {
             if (!TextUtils.isEmpty(adSlot.getCodeId())) {
-                String a2 = l.a(adSlot);
+                String a2 = n.a(adSlot);
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     com.bytedance.sdk.openadsdk.multipro.d.a.a(c(), adSlot.getCodeId(), a2);
                 } else {
@@ -255,7 +255,7 @@ public class i {
                     f2.edit().clear().apply();
                     str = string;
                 }
-                return l.a(str);
+                return n.a(str);
             } catch (Throwable unused) {
                 return null;
             }

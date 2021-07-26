@@ -12,10 +12,10 @@ public class de implements LoggerInterface {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoggerInterface f39971a;
+    public LoggerInterface f40243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoggerInterface f39972b;
+    public LoggerInterface f40244b;
 
     public de(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class de implements LoggerInterface {
                 return;
             }
         }
-        this.f39971a = null;
-        this.f39972b = null;
-        this.f39971a = loggerInterface;
-        this.f39972b = loggerInterface2;
+        this.f40243a = null;
+        this.f40244b = null;
+        this.f40243a = loggerInterface;
+        this.f40244b = loggerInterface2;
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            LoggerInterface loggerInterface = this.f39971a;
+            LoggerInterface loggerInterface = this.f40243a;
             if (loggerInterface != null) {
                 loggerInterface.log(str);
             }
-            LoggerInterface loggerInterface2 = this.f39972b;
+            LoggerInterface loggerInterface2 = this.f40244b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str);
             }
@@ -57,11 +57,11 @@ public class de implements LoggerInterface {
     public void log(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
-            LoggerInterface loggerInterface = this.f39971a;
+            LoggerInterface loggerInterface = this.f40243a;
             if (loggerInterface != null) {
                 loggerInterface.log(str, th);
             }
-            LoggerInterface loggerInterface2 = this.f39972b;
+            LoggerInterface loggerInterface2 = this.f40244b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str, th);
             }

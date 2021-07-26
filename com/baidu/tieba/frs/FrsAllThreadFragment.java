@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,22 +22,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.i0.c;
-import d.a.p0.u0.p0;
-import d.a.p0.u0.t;
+import d.a.p0.k0.c;
+import d.a.q0.u0.p0;
+import d.a.q0.u0.t;
 /* loaded from: classes4.dex */
 public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15289e;
+    public View f15337e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f15290f;
+    public RecyclerView f15338f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15291g;
+    public String f15339g;
 
     public FrsAllThreadFragment() {
         Interceptable interceptable = $ic;
@@ -52,38 +53,45 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
         }
     }
 
-    @Override // d.a.p0.u0.p0
-    public void E0() {
+    @Override // d.a.q0.u0.p0
+    public void J0() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (recyclerView = this.f15290f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (recyclerView = this.f15338f) == null) {
             return;
         }
         recyclerView.scrollToPosition(0);
     }
 
-    public final void H0(int i2, String str) {
+    @Override // d.a.q0.u0.p0
+    public void K(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f15291g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 
-    public final void I0() {
+    public final void M0(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
+            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f15339g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
+    }
+
+    public final void N0() {
         View view;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (view = this.f15289e) != null && (view.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.f15289e.getParent()).removeView(this.f15289e);
-            this.f15289e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view = this.f15337e) != null && (view.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.f15337e.getParent()).removeView(this.f15337e);
+            this.f15337e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
-    public void J0(View view) {
+    public void O0(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f15289e = view;
-            this.f15290f = (RecyclerView) view.findViewById(R.id.frs_lv_thread);
-            I0();
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            this.f15337e = view;
+            this.f15338f = (RecyclerView) view.findViewById(R.id.frs_lv_thread);
+            N0();
         }
     }
 
@@ -91,7 +99,7 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public c getTbPageExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
             return new c(getUniqueId(), "a006", baseFragmentActivity == null ? null : baseFragmentActivity.getIntent());
         }
@@ -103,13 +111,13 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f15291g = arguments.getString("forum_id", "");
+                this.f15339g = arguments.getString("forum_id", "");
             }
-            I0();
-            return this.f15289e;
+            N0();
+            return this.f15337e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -117,23 +125,23 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                H0(2, "4");
+                M0(2, "4");
             } else {
-                H0(2, "5");
+                M0(2, "5");
             }
         }
     }
 
-    @Override // d.a.p0.u0.p0
+    @Override // d.a.q0.u0.p0
     public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            E0();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            J0();
             t tVar = new t();
-            tVar.f63805a = 1;
-            tVar.f63806b = true;
+            tVar.f64450a = 1;
+            tVar.f64451b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
         }
     }

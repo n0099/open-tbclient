@@ -30,8 +30,8 @@ import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import com.faceunity.gles.GeneratedTexture;
 import com.kwad.sdk.core.config.item.TipsConfigItem;
-import d.a.v0.t.c;
-import d.a.v0.t.h;
+import d.a.w0.t.c;
+import d.a.w0.t.h;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -262,7 +262,7 @@ public class MultiMediaPreProcessor {
             }
             for (int i2 = 1; i2 < this.mUpdateMediaTracks.size(); i2++) {
                 MediaTrack mediaTrack = this.mUpdateMediaTracks.get(i2);
-                if (mediaTrack != null && (d.a.z.b.a.k.c.l(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) || d.a.z.b.a.k.c.l(mediaTrack, "only_background"))) {
+                if (mediaTrack != null && (d.a.a0.b.a.k.c.l(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) || d.a.a0.b.a.k.c.l(mediaTrack, "only_background"))) {
                     return true;
                 }
             }
@@ -297,7 +297,7 @@ public class MultiMediaPreProcessor {
             if (this.mUpdateMediaTracks != null) {
                 for (int i3 = 1; i3 < this.mUpdateMediaTracks.size(); i3++) {
                     MediaTrack mediaTrack = this.mUpdateMediaTracks.get(i3);
-                    if (mediaTrack != null && d.a.z.b.a.k.c.l(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND)) {
+                    if (mediaTrack != null && d.a.a0.b.a.k.c.l(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND)) {
                         for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
                             if (mediaSegment.start != 0 || mediaSegment.end != 0) {
                                 long j = mediaSegment.start;
@@ -571,7 +571,7 @@ public class MultiMediaPreProcessor {
                     MediaTrack mediaTrack2 = this.mUpdateMediaTracks.get(i7);
                     MultiMediaDataTrack multiMediaDataTrack2 = list.get(i7);
                     List<MultiMediaData> list4 = multiMediaDataTrack2.multiMediaDataList;
-                    if (list4 != null && mediaTrack2.mediaSegments != null && list4.size() == mediaTrack2.mediaSegments.size() && (!this.mCompat || !d.a.z.b.a.k.c.l(mediaTrack2, "edit_sticker"))) {
+                    if (list4 != null && mediaTrack2.mediaSegments != null && list4.size() == mediaTrack2.mediaSegments.size() && (!this.mCompat || !d.a.a0.b.a.k.c.l(mediaTrack2, "edit_sticker"))) {
                         int i8 = 0;
                         while (i8 < multiMediaDataTrack2.multiMediaDataList.size()) {
                             MultiMediaData multiMediaData4 = multiMediaDataTrack2.multiMediaDataList.get(i8);
@@ -621,7 +621,7 @@ public class MultiMediaPreProcessor {
                 MultiMediaData multiMediaData5 = list5.get(i2);
                 if (this.mShaderConfigMap != null && (list2 = this.mUpdateMediaTracks) != null && list2.size() > 0) {
                     mediaTrack = this.mUpdateMediaTracks.get(0);
-                    i4 = d.a.z.b.a.k.c.l(mediaTrack, "input_blank") ? preDraw(null, fullFrameRect, fullFrameRect2, true, true, mediaTrack.glClearColor) : preDraw(multiMediaData5, fullFrameRect, fullFrameRect2, true, true, mediaTrack.glClearColor);
+                    i4 = d.a.a0.b.a.k.c.l(mediaTrack, "input_blank") ? preDraw(null, fullFrameRect, fullFrameRect2, true, true, mediaTrack.glClearColor) : preDraw(multiMediaData5, fullFrameRect, fullFrameRect2, true, true, mediaTrack.glClearColor);
                     List<MediaSegment> list6 = mediaTrack.mediaSegments;
                     if (list6 != null && list6.size() > i2) {
                         mediaTrack.mediaSegments.get(i2).textureId = i4;

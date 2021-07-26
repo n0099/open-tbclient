@@ -29,7 +29,7 @@ public final class b implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f27063a;
+        public static b f27221a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,7 +45,7 @@ public final class b implements IBeanFactory {
                     return;
                 }
             }
-            f27063a = new b(null);
+            f27221a = new b(null);
         }
     }
 
@@ -70,7 +70,7 @@ public final class b implements IBeanFactory {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f27063a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f27221a : (b) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

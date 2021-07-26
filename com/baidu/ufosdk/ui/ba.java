@@ -13,7 +13,7 @@ public final class ba implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f23465a;
+    public final /* synthetic */ FeedbackHotActivity f23623a;
 
     public ba(FeedbackHotActivity feedbackHotActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class ba implements Runnable {
                 return;
             }
         }
-        this.f23465a = feedbackHotActivity;
+        this.f23623a = feedbackHotActivity;
     }
 
     @Override // java.lang.Runnable
@@ -38,15 +38,15 @@ public final class ba implements Runnable {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.e.a.a(this.f23465a.getApplicationContext());
-            Context applicationContext = this.f23465a.getApplicationContext();
+            com.baidu.ufosdk.e.a.a(this.f23623a.getApplicationContext());
+            Context applicationContext = this.f23623a.getApplicationContext();
             String str = UfoSDK.clientid;
             String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
             if (c2 != null) {
-                handler = this.f23465a.r;
+                handler = this.f23623a.r;
                 handler.obtainMessage(0, c2).sendToTarget();
             }
-            this.f23465a.a();
+            this.f23623a.a();
         }
     }
 }

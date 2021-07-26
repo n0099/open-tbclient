@@ -38,10 +38,10 @@ public class EnterWalletChangePayMethodAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f26062a;
+                public final /* synthetic */ RouterCallback f26220a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletChangePayMethodAction f26063b;
+                public final /* synthetic */ EnterWalletChangePayMethodAction f26221b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,19 +58,19 @@ public class EnterWalletChangePayMethodAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f26063b = this;
-                    this.f26062a = routerCallback;
+                    this.f26221b = this;
+                    this.f26220a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.api.IPrecashierCallback
                 public void onResult(String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f26062a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f26220a == null) {
                         return;
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("result", str2);
-                    this.f26062a.onResult(0, hashMap);
+                    this.f26220a.onResult(0, hashMap);
                 }
             });
         }

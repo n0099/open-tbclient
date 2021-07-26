@@ -16,42 +16,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.u;
+import com.bytedance.sdk.component.utils.w;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class EmptyView extends View implements u.a {
+public class EmptyView extends View implements w.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f29766a;
+    public boolean f29862a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29767b;
+    public boolean f29863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f29768c;
+    public a f29864c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f29769d;
+    public View f29865d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Activity> f29770e;
+    public WeakReference<Activity> f29866e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<View> f29771f;
+    public List<View> f29867f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public List<View> f29772g;
+    public List<View> f29868g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29773h;
+    public boolean f29869h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29774i;
+    public int f29870i;
     public final Handler j;
     public final AtomicBoolean k;
 
@@ -84,19 +84,19 @@ public class EmptyView extends View implements u.a {
                 return;
             }
         }
-        this.j = new com.bytedance.sdk.component.utils.u(Looper.getMainLooper(), this);
+        this.j = new com.bytedance.sdk.component.utils.w(Looper.getMainLooper(), this);
         this.k = new AtomicBoolean(true);
         if (context instanceof Activity) {
-            this.f29770e = new WeakReference<>((Activity) context);
+            this.f29866e = new WeakReference<>((Activity) context);
         }
-        this.f29769d = view;
+        this.f29865d = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
     private void b() {
         a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.k.getAndSet(false) && (aVar = this.f29768c) != null) {
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.k.getAndSet(false) && (aVar = this.f29864c) != null) {
             aVar.a();
         }
     }
@@ -104,7 +104,7 @@ public class EmptyView extends View implements u.a {
     private void c() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.k.getAndSet(true) || (aVar = this.f29768c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.k.getAndSet(true) || (aVar = this.f29864c) == null) {
             return;
         }
         aVar.b();
@@ -112,17 +112,18 @@ public class EmptyView extends View implements u.a {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f29767b && !this.f29766a) {
-            this.f29766a = true;
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f29863b && !this.f29862a) {
+            this.f29862a = true;
             this.j.sendEmptyMessage(1);
         }
     }
 
     private void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f29766a) {
-            this.j.removeCallbacksAndMessages(null);
-            this.f29766a = false;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f29862a) {
+            this.j.removeMessages(1);
+            this.j.removeMessages(2);
+            this.f29862a = false;
         }
     }
 
@@ -131,10 +132,10 @@ public class EmptyView extends View implements u.a {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            boolean a2 = com.bytedance.sdk.openadsdk.r.o.a();
-            WeakReference<Activity> weakReference = this.f29770e;
+            boolean a2 = com.bytedance.sdk.openadsdk.q.q.a();
+            WeakReference<Activity> weakReference = this.f29866e;
             boolean z = (weakReference == null || (activity = weakReference.get()) == null || activity.isFinishing()) ? false : true;
-            boolean a3 = y.a(this.f29769d, 20, this.f29774i);
+            boolean a3 = y.a(this.f29865d, 20, this.f29870i);
             if (!a2) {
                 a3 = true;
             }
@@ -149,8 +150,8 @@ public class EmptyView extends View implements u.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a(this.f29771f, null);
-            a(this.f29772g, null);
+            a(this.f29867f, null);
+            a(this.f29868g, null);
         }
     }
 
@@ -160,7 +161,7 @@ public class EmptyView extends View implements u.a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
             d();
-            this.f29773h = false;
+            this.f29869h = false;
             b();
         }
     }
@@ -171,7 +172,7 @@ public class EmptyView extends View implements u.a {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
             e();
-            this.f29773h = true;
+            this.f29869h = true;
             c();
         }
     }
@@ -199,7 +200,7 @@ public class EmptyView extends View implements u.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             super.onWindowFocusChanged(z);
-            a aVar = this.f29768c;
+            a aVar = this.f29864c;
             if (aVar != null) {
                 aVar.a(z);
             }
@@ -209,24 +210,24 @@ public class EmptyView extends View implements u.a {
     public void setAdType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f29774i = i2;
+            this.f29870i = i2;
         }
     }
 
     public void setCallback(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f29768c = aVar;
+            this.f29864c = aVar;
         }
     }
 
     public void setNeedCheckingShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f29767b = z;
-            if (!z && this.f29766a) {
+            this.f29863b = z;
+            if (!z && this.f29862a) {
                 e();
-            } else if (!z || this.f29766a) {
+            } else if (!z || this.f29862a) {
             } else {
                 d();
             }
@@ -236,20 +237,20 @@ public class EmptyView extends View implements u.a {
     public void setRefClickViews(List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f29771f = list;
+            this.f29867f = list;
         }
     }
 
     public void setRefCreativeViews(@Nullable List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.f29772g = list;
+            this.f29868g = list;
         }
     }
 
     public void a(List<View> list, com.bytedance.sdk.openadsdk.core.b.c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, cVar) == null) && com.bytedance.sdk.component.utils.h.b(list)) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, cVar) == null) && com.bytedance.sdk.component.utils.i.b(list)) {
             for (View view : list) {
                 view.setOnClickListener(cVar);
                 view.setOnTouchListener(cVar);
@@ -257,7 +258,7 @@ public class EmptyView extends View implements u.a {
         }
     }
 
-    @Override // com.bytedance.sdk.component.utils.u.a
+    @Override // com.bytedance.sdk.component.utils.w.a
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
@@ -268,17 +269,17 @@ public class EmptyView extends View implements u.a {
                 }
                 if (f()) {
                     this.j.sendEmptyMessageDelayed(2, 1000L);
-                } else if (this.f29773h) {
+                } else if (this.f29869h) {
                 } else {
                     setNeedCheckingShow(true);
                 }
-            } else if (this.f29766a) {
-                if (y.a(this.f29769d, 20, this.f29774i)) {
+            } else if (this.f29862a) {
+                if (y.a(this.f29865d, 20, this.f29870i)) {
                     e();
                     this.j.sendEmptyMessageDelayed(2, 1000L);
-                    a aVar = this.f29768c;
+                    a aVar = this.f29864c;
                     if (aVar != null) {
-                        aVar.a(this.f29769d);
+                        aVar.a(this.f29865d);
                         return;
                     }
                     return;

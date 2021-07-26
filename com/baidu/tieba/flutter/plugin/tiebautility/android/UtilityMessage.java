@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.p0.i1.t.d;
-import d.a.p0.x2.a;
+import d.a.d.e.p.k;
+import d.a.q0.i1.t.d;
+import d.a.q0.x2.a;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessage {

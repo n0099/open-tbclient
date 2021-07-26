@@ -19,16 +19,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f32210a;
+    public final Map<String, a> f32411a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32211b;
+    public String f32412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f32212c;
+    public AtomicBoolean f32413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32213d;
+    public String f32414d;
 
     public b(Context context, String str, File file) {
         Interceptable interceptable = $ic;
@@ -45,16 +45,16 @@ public class b {
                 return;
             }
         }
-        this.f32210a = new HashMap();
-        this.f32212c = new AtomicBoolean(false);
+        this.f32411a = new HashMap();
+        this.f32413c = new AtomicBoolean(false);
         if (!TextUtils.isEmpty(str)) {
-            this.f32211b = str;
+            this.f32412b = str;
             if (file == null) {
                 File filesDir = context.getFilesDir();
-                this.f32213d = new File(filesDir, "gecko_offline_res_x" + File.separator + str).getAbsolutePath();
+                this.f32414d = new File(filesDir, "gecko_offline_res_x" + File.separator + str).getAbsolutePath();
                 return;
             }
-            this.f32213d = new File(file, str).getAbsolutePath();
+            this.f32414d = new File(file, str).getAbsolutePath();
             return;
         }
         throw new RuntimeException("access key empty");
@@ -70,11 +70,11 @@ public class b {
                 new RuntimeException("缺少channel：" + str);
             }
             String substring = str.substring(0, indexOf);
-            synchronized (this.f32210a) {
-                aVar = this.f32210a.get(substring);
+            synchronized (this.f32411a) {
+                aVar = this.f32411a.get(substring);
                 if (aVar == null) {
-                    aVar = new a(this.f32211b, this.f32213d, substring);
-                    this.f32210a.put(substring, aVar);
+                    aVar = new a(this.f32412b, this.f32414d, substring);
+                    this.f32411a.put(substring, aVar);
                 }
             }
             return aVar;
@@ -86,7 +86,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!this.f32212c.get()) {
+            if (!this.f32413c.get()) {
                 if (!TextUtils.isEmpty(str)) {
                     return c(str.trim()).a(str);
                 }
@@ -101,7 +101,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!this.f32212c.get()) {
+            if (!this.f32413c.get()) {
                 if (!TextUtils.isEmpty(str)) {
                     return c(str.trim()).b(str);
                 }
@@ -115,18 +115,18 @@ public class b {
     private void b() throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            synchronized (this.f32210a) {
-                for (a aVar : this.f32210a.values()) {
+            synchronized (this.f32411a) {
+                for (a aVar : this.f32411a.values()) {
                     aVar.a();
                 }
-                this.f32210a.clear();
+                this.f32411a.clear();
             }
         }
     }
 
     public void a() throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32212c.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32413c.getAndSet(true)) {
             return;
         }
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("Loader", "release version res loader");

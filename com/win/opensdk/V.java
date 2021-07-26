@@ -1,36 +1,33 @@
 package com.win.opensdk;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.BufferUnderflowException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.util.Arrays;
+import com.win.opensdk.core.Info;
+import com.win.opensdk.downloader.WDownLoadService;
+import org.json.JSONException;
 /* loaded from: classes6.dex */
 public class V {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f39503a;
+    public final /* synthetic */ Info f39695a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f39504b;
+    public final /* synthetic */ WDownLoadService f39696b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public U f39505c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f39506d;
-
-    public V() {
+    public V(WDownLoadService wDownLoadService, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wDownLoadService, info};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -40,121 +37,77 @@ public class V {
                 return;
             }
         }
-        this.f39503a = new byte[256];
-        this.f39506d = 0;
+        this.f39696b = wDownLoadService;
+        this.f39695a = info;
     }
 
-    public V a(byte[] bArr) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr != null) {
-                ByteBuffer wrap = ByteBuffer.wrap(bArr);
-                this.f39504b = null;
-                Arrays.fill(this.f39503a, (byte) 0);
-                this.f39505c = new U();
-                this.f39506d = 0;
-                ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
-                this.f39504b = asReadOnlyBuffer;
-                asReadOnlyBuffer.position(0);
-                this.f39504b.order(ByteOrder.LITTLE_ENDIAN);
-            } else {
-                this.f39504b = null;
-                this.f39505c.f39493b = 2;
-            }
-            return this;
-        }
-        return (V) invokeL.objValue;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39505c.f39493b != 0 : invokeV.booleanValue;
-    }
-
-    public final int[] a(int i2) {
-        InterceptResult invokeI;
-        int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            byte[] bArr = new byte[i2 * 3];
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            new Handler(Looper.getMainLooper()).post(new U(this));
+            O.f39604d.f39607c = false;
+            Z0.a(this.f39696b.getApplicationContext()).a(new a1(this.f39695a), 2).a();
+            Info info = this.f39695a;
+            WDownLoadService wDownLoadService = this.f39696b;
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.win_wdownload_failed), this.f39696b.getString(R.string.win_wdownload_failed_msg), 0);
             try {
-                this.f39504b.get(bArr);
-                iArr = new int[256];
-                int i3 = 0;
-                int i4 = 0;
-                while (i3 < i2) {
-                    int i5 = i4 + 1;
-                    try {
-                        int i6 = i5 + 1;
-                        int i7 = i6 + 1;
-                        int i8 = i3 + 1;
-                        iArr[i3] = ((bArr[i4] & 255) << 16) | (-16777216) | ((bArr[i5] & 255) << 8) | (bArr[i6] & 255);
-                        i4 = i7;
-                        i3 = i8;
-                    } catch (BufferUnderflowException unused) {
-                        this.f39505c.f39493b = 1;
-                        return iArr;
-                    }
-                }
-            } catch (BufferUnderflowException unused2) {
-                iArr = null;
+                WDownLoadService.a(this.f39696b);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            return iArr;
+            this.f39696b.stopSelf();
         }
-        return (int[]) invokeI.objValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            O.f39604d.f39607c = false;
+            Z0.a(this.f39696b.getApplicationContext()).a(new a1(this.f39695a), 200).a();
+            Info info = this.f39695a;
             try {
-                return this.f39504b.get() & 255;
-            } catch (Exception unused) {
-                this.f39505c.f39493b = 1;
-                return 0;
+                N.a(info, 301, "");
+                if (info != null && !TextUtils.isEmpty(info.getVv_downf_urls())) {
+                    N.g(info.getVv_downf_urls());
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
+            WDownLoadService.a(this.f39696b, this.f39695a);
+            this.f39696b.stopSelf();
+            Y0 a2 = Z0.a(this.f39696b.getApplicationContext());
+            a1 a1Var = new a1(this.f39695a);
+            String str = this.f39696b.f39787a;
+            try {
+                a2.f39714b = Z0.a("witr", a1Var);
+                a2.a("msg", Z0.a(str));
+            } catch (JSONException unused) {
+            }
+            a2.a();
+            N.b(this.f39695a, this.f39696b.getApplicationContext(), this.f39696b.f39787a);
         }
-        return invokeV.intValue;
     }
 
-    public final int c() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int b2 = b();
-            this.f39506d = b2;
-            int i2 = 0;
-            if (b2 > 0) {
-                while (i2 < this.f39506d) {
-                    try {
-                        int i3 = this.f39506d - i2;
-                        this.f39504b.get(this.f39503a, i2, i3);
-                        i2 += i3;
-                    } catch (Exception unused) {
-                        this.f39505c.f39493b = 1;
-                    }
-                }
-            }
-            return i2;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            O.f39604d.f39607c = false;
+            Info info = this.f39695a;
+            WDownLoadService wDownLoadService = this.f39696b;
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.win_wdownload_failed), this.f39696b.getString(R.string.win_wdownload_failed_msg), 0);
+            WDownLoadService.a(this.f39696b);
+            this.f39696b.stopSelf();
+            Z0.a(this.f39696b.getApplicationContext()).a(new a1(this.f39695a), 1).a();
         }
-        return invokeV.intValue;
     }
 
-    public final void d() {
-        int b2;
+    public void a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            do {
-                try {
-                    b2 = b();
-                    this.f39504b.position(this.f39504b.position() + b2);
-                } catch (IllegalArgumentException unused) {
-                    return;
-                }
-            } while (b2 > 0);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            O.f39604d.f39607c = true;
+            Info info = this.f39695a;
+            WDownLoadService wDownLoadService = this.f39696b;
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.win_wdownload_processing), this.f39696b.getString(R.string.win_wdownload_processing), i2);
         }
     }
 }

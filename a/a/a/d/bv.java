@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.l.b.c.a;
-import d.a.l.d.b;
+import d.a.m.b.c.a;
+import d.a.m.d.b;
 import java.io.File;
 /* loaded from: classes.dex */
 public class bv extends a {
@@ -17,22 +17,22 @@ public class bv extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f1467a;
+    public final /* synthetic */ b f1500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f1468b;
+    public final /* synthetic */ String f1501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ File f1469c;
+    public final /* synthetic */ File f1502c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ File f1470d;
+    public final /* synthetic */ File f1503d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f1471e;
+    public final /* synthetic */ String f1504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ DownSoHelper f1472f;
+    public final /* synthetic */ DownSoHelper f1505f;
 
     public bv(DownSoHelper downSoHelper, b bVar, String str, File file, File file2, String str2) {
         Interceptable interceptable = $ic;
@@ -49,58 +49,58 @@ public class bv extends a {
                 return;
             }
         }
-        this.f1472f = downSoHelper;
-        this.f1467a = bVar;
-        this.f1468b = str;
-        this.f1469c = file;
-        this.f1470d = file2;
-        this.f1471e = str2;
+        this.f1505f = downSoHelper;
+        this.f1500a = bVar;
+        this.f1501b = str;
+        this.f1502c = file;
+        this.f1503d = file2;
+        this.f1504e = str2;
     }
 
-    @Override // d.a.l.b.c.a
+    @Override // d.a.m.b.c.a
     public void onCompleted(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             try {
-                this.f1469c.renameTo(this.f1470d);
-                Log.e("RtcDownSo", "unzip:" + this.f1470d + "---" + this.f1471e);
-                d.a.l.e.a.e(this.f1470d, this.f1471e);
-                d.a.l.e.a.b(this.f1470d.getAbsolutePath());
-                this.f1472f.h(this.f1467a, this.f1468b, this.f1471e);
+                this.f1502c.renameTo(this.f1503d);
+                Log.e("RtcDownSo", "unzip:" + this.f1503d + "---" + this.f1504e);
+                d.a.m.e.a.e(this.f1503d, this.f1504e);
+                d.a.m.e.a.b(this.f1503d.getAbsolutePath());
+                this.f1505f.h(this.f1500a, this.f1501b, this.f1504e);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                d.a.l.e.a.b(this.f1470d.getAbsolutePath());
-                if (d.a.l.e.a.c(this.f1471e)) {
-                    d.a.l.e.a.a(new File(this.f1471e));
+                d.a.m.e.a.b(this.f1503d.getAbsolutePath());
+                if (d.a.m.e.a.c(this.f1504e)) {
+                    d.a.m.e.a.a(new File(this.f1504e));
                 }
-                this.f1472f.e(this.f1467a, this.f1468b, 108, "unzip exception");
+                this.f1505f.e(this.f1500a, this.f1501b, 108, "unzip exception");
             }
         }
     }
 
-    @Override // d.a.l.b.c.a
+    @Override // d.a.m.b.c.a
     public void onFailed(DownloadException downloadException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
             downloadException.printStackTrace();
-            d.a.l.e.a.b(this.f1469c.getAbsolutePath());
-            this.f1472f.e(this.f1467a, this.f1468b, downloadException.getErrorCode(), downloadException.getErrorMessage());
+            d.a.m.e.a.b(this.f1502c.getAbsolutePath());
+            this.f1505f.e(this.f1500a, this.f1501b, downloadException.getErrorCode(), downloadException.getErrorMessage());
         }
     }
 
-    @Override // d.a.l.b.c.a
+    @Override // d.a.m.b.c.a
     public void onProgress(long j, long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f1472f.f(this.f1467a, this.f1468b, i2);
+            this.f1505f.f(this.f1500a, this.f1501b, i2);
         }
     }
 
-    @Override // d.a.l.b.c.a
+    @Override // d.a.m.b.c.a
     public void onStarted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f1472f.g(this.f1467a, this.f1468b);
+            this.f1505f.g(this.f1500a, this.f1501b);
         }
     }
 }

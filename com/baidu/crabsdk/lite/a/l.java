@@ -13,10 +13,10 @@ public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f4726a;
+    public static SharedPreferences f4752a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences.Editor f4727b;
+    public static SharedPreferences.Editor f4753b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,11 +37,11 @@ public final class l {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            if (f4726a == null) {
-                f4726a = context.getSharedPreferences("crablite_app_life", 0);
+            if (f4752a == null) {
+                f4752a = context.getSharedPreferences("crablite_app_life", 0);
             }
-            if (f4727b == null) {
-                f4727b = f4726a.edit();
+            if (f4753b == null) {
+                f4753b = f4752a.edit();
             }
         }
     }
@@ -49,19 +49,19 @@ public final class l {
     public static void b(String str) {
         SharedPreferences.Editor editor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (editor = f4727b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (editor = f4753b) == null) {
             return;
         }
         editor.putInt("used_count_" + str, 0);
-        com.baidu.crabsdk.lite.b.c.c(f4727b, false);
+        com.baidu.crabsdk.lite.b.c.c(f4753b, false);
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            SharedPreferences.Editor editor = f4727b;
+            SharedPreferences.Editor editor = f4753b;
             editor.putInt("used_count_" + str, d(str) + 1);
-            com.baidu.crabsdk.lite.b.c.c(f4727b, false);
+            com.baidu.crabsdk.lite.b.c.c(f4753b, false);
         }
     }
 
@@ -69,7 +69,7 @@ public final class l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            SharedPreferences sharedPreferences = f4726a;
+            SharedPreferences sharedPreferences = f4752a;
             return sharedPreferences.getInt("used_count_" + str, 0);
         }
         return invokeL.intValue;

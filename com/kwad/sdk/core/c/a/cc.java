@@ -33,8 +33,8 @@ public class cc implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.e> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, eVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        eVar.f34012a = jSONObject.optInt("sensorType");
-        eVar.f34014c = jSONObject.optLong("timestamp");
+        eVar.f34201a = jSONObject.optInt("sensorType");
+        eVar.f34203c = jSONObject.optLong("timestamp");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,8 +46,8 @@ public class cc implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.e> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "sensorType", eVar.f34012a);
-            com.kwad.sdk.utils.q.a(jSONObject, "timestamp", eVar.f34014c);
+            com.kwad.sdk.utils.q.a(jSONObject, "sensorType", eVar.f34201a);
+            com.kwad.sdk.utils.q.a(jSONObject, "timestamp", eVar.f34203c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

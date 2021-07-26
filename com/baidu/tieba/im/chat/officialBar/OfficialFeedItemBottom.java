@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i1.l.c.a;
+import d.a.q0.i1.l.c.a;
 /* loaded from: classes4.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17425e;
+    public Context f17481e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f17426f;
+    public TextView f17482f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17427g;
+    public TextView f17483g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public OfficialFeedItemBottom(Context context) {
@@ -53,9 +53,9 @@ public class OfficialFeedItemBottom extends LinearLayout {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f17427g.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f17483g.getLayoutParams();
             layoutParams.topMargin = i2;
-            this.f17427g.setLayoutParams(layoutParams);
+            this.f17483g.setLayoutParams(layoutParams);
         }
     }
 
@@ -63,9 +63,9 @@ public class OfficialFeedItemBottom extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.f17425e).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-            this.f17426f = (TextView) findViewById(R.id.message_no_image_title);
-            this.f17427g = (TextView) findViewById(R.id.message_info);
+            LayoutInflater.from(this.f17481e).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
+            this.f17482f = (TextView) findViewById(R.id.message_no_image_title);
+            this.f17483g = (TextView) findViewById(R.id.message_info);
             c();
         }
     }
@@ -73,22 +73,22 @@ public class OfficialFeedItemBottom extends LinearLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f17427g, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f17426f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f17483g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f17482f, R.color.CAM_X0105);
         }
     }
 
-    public void setData(a.C1468a c1468a, boolean z) {
+    public void setData(a.C1473a c1473a, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, c1468a, z) == null) {
-            int i2 = TextUtils.isEmpty(c1468a.f58530b) ? 8 : 0;
-            this.f17426f.setText(c1468a.f58529a);
-            this.f17427g.setText(c1468a.f58530b);
-            this.f17427g.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, c1473a, z) == null) {
+            int i2 = TextUtils.isEmpty(c1473a.f59144b) ? 8 : 0;
+            this.f17482f.setText(c1473a.f59143a);
+            this.f17483g.setText(c1473a.f59144b);
+            this.f17483g.setVisibility(i2);
             if (z) {
-                this.f17426f.setVisibility(8);
+                this.f17482f.setVisibility(8);
             } else {
-                this.f17426f.setVisibility(0);
+                this.f17482f.setVisibility(0);
             }
         }
     }
@@ -112,7 +112,7 @@ public class OfficialFeedItemBottom extends LinearLayout {
                 return;
             }
         }
-        this.f17425e = context;
+        this.f17481e = context;
         b();
     }
 }

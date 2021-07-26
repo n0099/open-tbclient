@@ -22,19 +22,19 @@ public class a extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f69135e;
+    public f f69589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f69136f;
+    public e f69590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f69137g;
+    public g f69591g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f69138h;
+    public final Handler f69592h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f69139i;
+    public final int f69593i;
     public String j;
     public boolean k;
     public boolean l;
@@ -44,11 +44,11 @@ public class a extends Thread {
 
     /* renamed from: d.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1969a implements f {
+    public static class C1968a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1969a() {
+        public C1968a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class a extends Thread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f69140e;
+        public final /* synthetic */ a f69594e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -152,15 +152,15 @@ public class a extends Thread {
                     return;
                 }
             }
-            this.f69140e = aVar;
+            this.f69594e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f69140e.m = 0L;
-                this.f69140e.n = false;
+                this.f69594e.m = 0L;
+                this.f69594e.n = false;
             }
         }
     }
@@ -193,7 +193,7 @@ public class a extends Thread {
                 return;
             }
         }
-        p = new C1969a();
+        p = new C1968a();
         q = new b();
         r = new c();
     }
@@ -213,17 +213,17 @@ public class a extends Thread {
                 return;
             }
         }
-        this.f69135e = p;
-        this.f69136f = q;
-        this.f69137g = r;
-        this.f69138h = new Handler(Looper.getMainLooper());
+        this.f69589e = p;
+        this.f69590f = q;
+        this.f69591g = r;
+        this.f69592h = new Handler(Looper.getMainLooper());
         this.j = "";
         this.k = false;
         this.l = true;
         this.m = 0L;
         this.n = false;
         this.o = new d(this);
-        this.f69139i = i2;
+        this.f69593i = i2;
     }
 
     public a c(f fVar) {
@@ -231,9 +231,9 @@ public class a extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             if (fVar == null) {
-                this.f69135e = p;
+                this.f69589e = p;
             } else {
-                this.f69135e = fVar;
+                this.f69589e = fVar;
             }
             return this;
         }
@@ -256,12 +256,12 @@ public class a extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setName("|ANR-WatchDog|");
-            long j = this.f69139i;
+            long j = this.f69593i;
             while (!isInterrupted()) {
                 boolean z = this.m == 0;
                 this.m += j;
                 if (z) {
-                    this.f69138h.post(this.o);
+                    this.f69592h.post(this.o);
                 }
                 try {
                     Thread.sleep(j);
@@ -270,21 +270,21 @@ public class a extends Thread {
                             Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
                             this.n = true;
                         } else {
-                            j = this.f69136f.a(this.m);
+                            j = this.f69590f.a(this.m);
                             if (j <= 0) {
                                 if (this.j != null) {
                                     NewMainOnly = ANRError.New(this.m, this.j, this.k);
                                 } else {
                                     NewMainOnly = ANRError.NewMainOnly(this.m);
                                 }
-                                this.f69135e.onAppNotResponding(NewMainOnly);
-                                j = this.f69139i;
+                                this.f69589e.onAppNotResponding(NewMainOnly);
+                                j = this.f69593i;
                                 this.n = true;
                             }
                         }
                     }
                 } catch (InterruptedException e2) {
-                    this.f69137g.a(e2);
+                    this.f69591g.a(e2);
                     return;
                 }
             }

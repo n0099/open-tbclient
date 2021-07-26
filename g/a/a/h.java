@@ -4,16 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f72323a;
+    public byte[] f72777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f72324b;
+    public int[] f72778b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, null, hVar, i2) == null) {
             for (int i3 = 0; i3 < i2; i3++) {
-                int[] iArr = hVar.f72324b;
-                byte[] bArr = hVar.f72323a;
+                int[] iArr = hVar.f72778b;
+                byte[] bArr = hVar.f72777a;
                 int i4 = i3 * 4;
                 iArr[i3] = ((bArr[i4 + 3] & 255) << 24) | (bArr[i4] & 255) | ((bArr[i4 + 1] & 255) << 8) | ((bArr[i4 + 2] & 255) << 16);
             }
@@ -44,8 +44,8 @@ public final class h {
     public static void b(h hVar, byte[] bArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, hVar, bArr, iArr) == null) {
-            hVar.f72323a = bArr;
-            hVar.f72324b = iArr;
+            hVar.f72777a = bArr;
+            hVar.f72778b = iArr;
         }
     }
 }

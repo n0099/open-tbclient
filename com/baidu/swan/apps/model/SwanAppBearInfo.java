@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.k;
+import d.a.o0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -87,7 +87,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = k.f45831a;
+        DEBUG = k.f46335a;
         CREATOR = new a();
     }
 

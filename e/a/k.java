@@ -4,19 +4,19 @@ import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import dxm.sasdk.DxmSdkSensorsDataAPI;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static DxmSdkSensorsDataAPI f72271a;
+    public static DxmSdkSensorsDataAPI f72725a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
             try {
-                if (f72271a.y()) {
+                if (f72725a.y()) {
                     Log.i(str, str2);
                 }
             } catch (Exception e2) {
@@ -54,7 +54,7 @@ public class k {
     public static void d(DxmSdkSensorsDataAPI dxmSdkSensorsDataAPI) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, dxmSdkSensorsDataAPI) == null) {
-            f72271a = dxmSdkSensorsDataAPI;
+            f72725a = dxmSdkSensorsDataAPI;
         }
     }
 }

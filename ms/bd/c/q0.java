@@ -36,7 +36,7 @@ public final class q0 extends b.a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
             JSONArray jSONArray = new JSONArray();
             try {
-                DhcpInfo dhcpInfo = ((WifiManager) a.a().c().getApplicationContext().getSystemService((String) h.a(16777217, 0, 0L, "529c70", new byte[]{51, 57, 76, 30}))).getDhcpInfo();
+                DhcpInfo dhcpInfo = ((WifiManager) a.c().a().getApplicationContext().getSystemService((String) h.a(16777217, 0, 0L, "529c70", new byte[]{51, 57, 76, 30}))).getDhcpInfo();
                 StringBuilder sb = new StringBuilder();
                 sb.append(dhcpInfo.dns1 & 255);
                 sb.append((String) h.a(16777217, 0, 0L, "94c3a4", new byte[]{102}));

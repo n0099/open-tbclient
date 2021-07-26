@@ -32,7 +32,7 @@ public interface IAlixPay extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f1609a;
+            public IBinder f1642a;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public interface IAlixPay extends IInterface {
                         return;
                     }
                 }
-                this.f1609a = iBinder;
+                this.f1642a = iBinder;
             }
 
             @Override // com.alipay.android.app.IAlixPay
@@ -62,7 +62,7 @@ public interface IAlixPay extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeString(str);
-                        this.f1609a.transact(1, obtain, obtain2, 0);
+                        this.f1642a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -83,7 +83,7 @@ public interface IAlixPay extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1609a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1642a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.alipay.android.app.IAlixPay
@@ -96,7 +96,7 @@ public interface IAlixPay extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeString(str);
-                        this.f1609a.transact(5, obtain, obtain2, 0);
+                        this.f1642a.transact(5, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -116,7 +116,7 @@ public interface IAlixPay extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeStrongBinder(iRemoteServiceCallback != null ? iRemoteServiceCallback.asBinder() : null);
-                        this.f1609a.transact(3, obtain, obtain2, 0);
+                        this.f1642a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -134,7 +134,7 @@ public interface IAlixPay extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.f1609a.transact(2, obtain, obtain2, 0);
+                        this.f1642a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -154,7 +154,7 @@ public interface IAlixPay extends IInterface {
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeStrongBinder(iRemoteServiceCallback != null ? iRemoteServiceCallback.asBinder() : null);
-                        this.f1609a.transact(4, obtain, obtain2, 0);
+                        this.f1642a.transact(4, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();

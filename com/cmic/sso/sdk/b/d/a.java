@@ -12,10 +12,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f32625a;
+    public int f32812a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32626b;
+    public String f32813b;
 
     public a(int i2, String str) {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public class a {
                 return;
             }
         }
-        this.f32625a = i2;
-        this.f32626b = str;
+        this.f32812a = i2;
+        this.f32813b = str;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32625a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32812a : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32626b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32813b : (String) invokeV.objValue;
     }
 
     public static a a(int i2) {

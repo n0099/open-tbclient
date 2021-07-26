@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.m.c.f;
+import d.a.n.c.f;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.UUID;

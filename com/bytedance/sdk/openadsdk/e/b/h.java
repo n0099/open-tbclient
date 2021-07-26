@@ -1,0 +1,73 @@
+package com.bytedance.sdk.openadsdk.e.b;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.VideoCloudSetting;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class h implements c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public long f31392a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f31393b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f31394c;
+
+    public h() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.f31392a = j;
+        }
+    }
+
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.f31393b = j;
+        }
+    }
+
+    public void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.f31394c = i2;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.e.b.c
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.put("video_start_duration", this.f31392a);
+            jSONObject.put(VideoCloudSetting.PREF_KEY_VIDEO_CACHE_SIZE, this.f31393b);
+            jSONObject.put("is_auto_play", this.f31394c);
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+}

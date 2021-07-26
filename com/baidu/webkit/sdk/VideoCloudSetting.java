@@ -81,7 +81,7 @@ public class VideoCloudSetting {
             FAILED = new MatchedType("FAILED", 0);
             AND_NEED_CHECK_NEXT = new MatchedType("AND_NEED_CHECK_NEXT", 1);
             OR_NEED_CHECK_NEXT = new MatchedType("OR_NEED_CHECK_NEXT", 2);
-            MatchedType matchedType = new MatchedType(c.f2103g, 3);
+            MatchedType matchedType = new MatchedType(c.f2136g, 3);
             SUCCESS = matchedType;
             $VALUES = new MatchedType[]{FAILED, AND_NEED_CHECK_NEXT, OR_NEED_CHECK_NEXT, matchedType};
         }

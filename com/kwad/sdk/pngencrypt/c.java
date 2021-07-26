@@ -20,19 +20,19 @@ public class c extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public k f35760e;
+    public k f35949e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f35761f;
+    public k f35950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f35762g;
+    public e f35951g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35763h;
+    public int f35952h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.pngencrypt.chunk.e f35764i;
+    public com.kwad.sdk.pngencrypt.chunk.e f35953i;
     public final boolean j;
     public long k;
     public boolean l;
@@ -50,7 +50,7 @@ public class c extends b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f35765a;
+        public static final /* synthetic */ int[] f35954a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -67,13 +67,13 @@ public class c extends b {
                 }
             }
             int[] iArr = new int[ChunkLoadBehaviour.values().length];
-            f35765a = iArr;
+            f35954a = iArr;
             try {
                 iArr[ChunkLoadBehaviour.LOAD_CHUNK_IF_SAFE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f35765a[ChunkLoadBehaviour.LOAD_CHUNK_NEVER.ordinal()] = 2;
+                f35954a[ChunkLoadBehaviour.LOAD_CHUNK_NEVER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -94,8 +94,8 @@ public class c extends b {
                 return;
             }
         }
-        this.f35763h = -1;
-        this.f35764i = null;
+        this.f35952h = -1;
+        this.f35953i = null;
         this.k = 0L;
         this.l = true;
         this.m = false;
@@ -114,18 +114,18 @@ public class c extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             if (str.equals("IHDR")) {
-                if (this.f35763h < 0) {
+                if (this.f35952h < 0) {
                     i2 = 0;
-                    this.f35763h = i2;
+                    this.f35952h = i2;
                     return;
                 }
                 pngjException = new PngjException("unexpected chunk " + str);
                 com.kwad.sdk.core.d.a.a(pngjException);
             } else if (str.equals("PLTE")) {
-                int i3 = this.f35763h;
+                int i3 = this.f35952h;
                 if (i3 == 0 || i3 == 1) {
                     i2 = 2;
-                    this.f35763h = i2;
+                    this.f35952h = i2;
                     return;
                 }
                 pngjException = new PngjException("unexpected chunk here " + str);
@@ -133,27 +133,27 @@ public class c extends b {
             } else {
                 if (!str.equals("IDAT")) {
                     if (!str.equals("IEND")) {
-                        int i4 = this.f35763h;
+                        int i4 = this.f35952h;
                         if (i4 <= 1) {
-                            this.f35763h = 1;
+                            this.f35952h = 1;
                             return;
                         } else if (i4 <= 3) {
-                            this.f35763h = 3;
+                            this.f35952h = 3;
                             return;
                         } else {
                             i2 = 5;
                         }
-                    } else if (this.f35763h >= 4) {
+                    } else if (this.f35952h >= 4) {
                         i2 = 6;
                     } else {
                         pngjException = new PngjException("unexpected chunk " + str);
                     }
-                    this.f35763h = i2;
+                    this.f35952h = i2;
                     return;
                 }
-                int i5 = this.f35763h;
+                int i5 = this.f35952h;
                 if (i5 >= 0 && i5 <= 4) {
-                    this.f35763h = 4;
+                    this.f35952h = 4;
                     return;
                 }
                 pngjException = new PngjException("unexpected chunk " + str);
@@ -173,7 +173,7 @@ public class c extends b {
     public DeflatedChunksSet a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new j(str, this.j, l(), this.f35762g) : (DeflatedChunksSet) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new j(str, this.j, l(), this.f35951g) : (DeflatedChunksSet) invokeL.objValue;
     }
 
     @Override // com.kwad.sdk.pngencrypt.b
@@ -197,23 +197,23 @@ public class c extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, chunkReader) == null) {
             super.a(chunkReader);
-            if (chunkReader.a().f35791c.equals("IHDR")) {
+            if (chunkReader.a().f35980c.equals("IHDR")) {
                 q qVar = new q(null);
                 qVar.a(chunkReader.a());
                 k i2 = qVar.i();
-                this.f35760e = i2;
-                this.f35761f = i2;
+                this.f35949e = i2;
+                this.f35950f = i2;
                 if (qVar.h()) {
-                    this.f35762g = new e(this.f35761f);
+                    this.f35951g = new e(this.f35950f);
                 }
-                this.f35764i = new com.kwad.sdk.pngencrypt.chunk.e(this.f35760e);
+                this.f35953i = new com.kwad.sdk.pngencrypt.chunk.e(this.f35949e);
             }
-            if (chunkReader.f35725a == ChunkReader.ChunkReaderMode.BUFFER && d(chunkReader.a().f35791c)) {
-                this.k += chunkReader.a().f35789a;
+            if (chunkReader.f35914a == ChunkReader.ChunkReaderMode.BUFFER && d(chunkReader.a().f35980c)) {
+                this.k += chunkReader.a().f35978a;
             }
-            if (chunkReader.f35725a == ChunkReader.ChunkReaderMode.BUFFER || this.m) {
+            if (chunkReader.f35914a == ChunkReader.ChunkReaderMode.BUFFER || this.m) {
                 try {
-                    this.f35764i.a(this.r.a(chunkReader.a(), j()), this.f35763h);
+                    this.f35953i.a(this.r.a(chunkReader.a(), j()), this.f35952h);
                 } catch (PngjException e2) {
                     throw e2;
                 }
@@ -252,7 +252,7 @@ public class c extends b {
             if (j <= 0 || i2 <= j) {
                 long j2 = this.q;
                 if (j2 <= 0 || i2 <= j2 - this.k) {
-                    int i3 = AnonymousClass1.f35765a[this.s.ordinal()];
+                    int i3 = AnonymousClass1.f35954a[this.s.ordinal()];
                     if (i3 != 1) {
                         if (i3 == 2) {
                             return true;
@@ -308,8 +308,8 @@ public class c extends b {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.f35763h != 6) {
-                this.f35763h = 6;
+            if (this.f35952h != 6) {
+                this.f35952h = 6;
             }
             super.close();
         }
@@ -324,7 +324,7 @@ public class c extends b {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f35763h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f35952h : invokeV.intValue;
     }
 
     public boolean g() {
@@ -355,18 +355,18 @@ public class c extends b {
     public k j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f35760e : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f35949e : (k) invokeV.objValue;
     }
 
     public e k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f35762g : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f35951g : (e) invokeV.objValue;
     }
 
     public k l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f35761f : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f35950f : (k) invokeV.objValue;
     }
 }

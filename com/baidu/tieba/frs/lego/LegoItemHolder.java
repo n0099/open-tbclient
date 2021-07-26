@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.n1.o.l.e;
+import d.a.q0.n1.o.l.e;
 /* loaded from: classes4.dex */
 public class LegoItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;

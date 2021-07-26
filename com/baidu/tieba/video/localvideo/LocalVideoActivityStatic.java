@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.e0.b;
+import d.a.q0.e0.b;
 /* loaded from: classes4.dex */
 public class LocalVideoActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -46,10 +46,10 @@ public class LocalVideoActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage.getData() instanceof d.a.p0.v3.b)) {
+                if (customMessage == null || !(customMessage.getData() instanceof d.a.q0.v3.b)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921466, new d.a.p0.v3.g.h.b((d.a.p0.v3.b) customMessage.getData()));
+                return new CustomResponsedMessage<>(2921466, new d.a.q0.v3.i.h.b((d.a.q0.v3.b) customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

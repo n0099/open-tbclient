@@ -16,31 +16,31 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5581a = "SdkConfigOptions";
+    public static final String f5607a = "SdkConfigOptions";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5582b = "global-config";
+    public static final String f5608b = "global-config";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5583c = "host_version";
+    public static final String f5609c = "host_version";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5584d = "zip_version";
+    public static final String f5610d = "zip_version";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5585e = "updateFail";
+    public static final String f5611e = "updateFail";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5586f = "distributedSdk";
+    public static final String f5612f = "distributedSdk";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5587g = "files";
+    public static final String f5613g = "files";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5588h = "list";
+    public static final String f5614h = "list";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5589i = "cpu";
+    public static final String f5615i = "cpu";
     public static final String j = "extra_params";
     public static final String k = "extra_global_enable";
     public static final String l = "enable";
@@ -81,7 +81,7 @@ public class c {
             c cVar = new c();
             cVar.q = jSONObject.optBoolean(k, true);
             try {
-                cVar.n = jSONObject.optString(f5584d);
+                cVar.n = jSONObject.optString(f5610d);
                 cVar.r = jSONObject.optBoolean(l, true);
                 cVar.s = jSONObject.optInt("gray");
                 jSONArray = jSONObject.getJSONArray("list");
@@ -117,23 +117,23 @@ public class c {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f5590d = "name";
+        public static final String f5616d = "name";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f5591e = "url";
+        public static final String f5617e = "url";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f5592f = "hash";
+        public static final String f5618f = "hash";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5593a;
+        public String f5619a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5594b;
+        public String f5620b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5595c;
+        public String f5621c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -148,9 +148,9 @@ public class c {
                     return;
                 }
             }
-            this.f5593a = null;
-            this.f5594b = null;
-            this.f5595c = null;
+            this.f5619a = null;
+            this.f5620b = null;
+            this.f5621c = null;
         }
 
         public static a a(JSONObject jSONObject) {
@@ -161,9 +161,9 @@ public class c {
                 if (jSONObject == null) {
                     return aVar;
                 }
-                aVar.f5593a = jSONObject.optString("name");
-                aVar.f5594b = jSONObject.optString("url");
-                aVar.f5595c = jSONObject.optString("hash");
+                aVar.f5619a = jSONObject.optString("name");
+                aVar.f5620b = jSONObject.optString("url");
+                aVar.f5621c = jSONObject.optString("hash");
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -175,9 +175,9 @@ public class c {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("name", this.f5593a);
-                    jSONObject.put("url", this.f5594b);
-                    jSONObject.put("hash", this.f5595c);
+                    jSONObject.put("name", this.f5619a);
+                    jSONObject.put("url", this.f5620b);
+                    jSONObject.put("hash", this.f5621c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     com.baidu.fsg.face.base.d.d.a(e2);
@@ -193,12 +193,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             c cVar = new c();
-            cVar.n = jSONObject.optString(f5584d);
-            cVar.p = jSONObject.optBoolean(f5585e);
+            cVar.n = jSONObject.optString(f5610d);
+            cVar.p = jSONObject.optBoolean(f5611e);
             cVar.q = jSONObject.optBoolean(k);
             cVar.r = jSONObject.optBoolean(l);
             cVar.s = jSONObject.optInt("gray");
-            cVar.o = a.a(jSONObject.optJSONObject(f5586f));
+            cVar.o = a.a(jSONObject.optJSONObject(f5612f));
             return cVar;
         }
         return (c) invokeL.objValue;
@@ -210,12 +210,12 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f5584d, this.n);
-                jSONObject.put(f5585e, this.p);
+                jSONObject.put(f5610d, this.n);
+                jSONObject.put(f5611e, this.p);
                 jSONObject.put(k, this.q);
                 jSONObject.put(l, this.r);
                 jSONObject.put("gray", this.s);
-                jSONObject.put(f5586f, this.o == null ? "" : this.o.a());
+                jSONObject.put(f5612f, this.o == null ? "" : this.o.a());
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

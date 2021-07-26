@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s2.d.a;
+import d.a.q0.s2.d.a;
 import java.io.IOException;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 /* loaded from: classes4.dex */
@@ -49,7 +49,7 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             try {
-                GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f20421a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
+                GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f20539a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {

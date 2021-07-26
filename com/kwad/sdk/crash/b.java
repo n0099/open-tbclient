@@ -14,31 +14,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.crash.model.b f35292a;
+    public final com.kwad.sdk.crash.model.b f35481a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.crash.model.a f35293b;
+    public final com.kwad.sdk.crash.model.a f35482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f35294c;
+    public final f f35483c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String[] f35295d;
+    public final String[] f35484d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String[] f35296e;
+    public final String[] f35485e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f35297f;
+    public final boolean f35486f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f35298g;
+    public final Context f35487g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final e f35299h;
+    public final e f35488h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f35300i;
+    public final String f35489i;
     public final String j;
     public final String k;
     public final String l;
@@ -58,31 +58,31 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f35301a;
+        public int f35490a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f35302b;
+        public String[] f35491b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f35303c;
+        public boolean f35492c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Context f35304d;
+        public Context f35493d;
 
         /* renamed from: e  reason: collision with root package name */
-        public e f35305e;
+        public e f35494e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f35306f;
+        public String f35495f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f35307g;
+        public String f35496g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f35308h;
+        public String f35497h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f35309i;
+        public String f35498i;
         public String j;
         public String k;
         public String l;
@@ -110,7 +110,7 @@ public class b {
                     return;
                 }
             }
-            this.f35303c = false;
+            this.f35492c = false;
         }
 
         public a a(int i2) {
@@ -127,7 +127,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                this.f35304d = context;
+                this.f35493d = context;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -137,7 +137,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
-                this.f35305e = eVar;
+                this.f35494e = eVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -157,7 +157,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f35306f = str;
+                this.f35495f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -193,7 +193,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f35308h = str;
+                this.f35497h = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -203,7 +203,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) {
-                this.f35302b = strArr;
+                this.f35491b = strArr;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -213,7 +213,7 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-                this.f35301a = i2;
+                this.f35490a = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -223,7 +223,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-                this.f35309i = str;
+                this.f35498i = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -325,30 +325,30 @@ public class b {
                 return;
             }
         }
-        this.f35292a = new com.kwad.sdk.crash.model.b();
-        this.f35293b = new com.kwad.sdk.crash.model.a();
-        this.f35297f = aVar.f35303c;
-        this.f35298g = aVar.f35304d;
-        this.f35299h = aVar.f35305e;
-        this.f35300i = aVar.f35306f;
-        this.j = aVar.f35307g;
-        this.k = aVar.f35308h;
-        this.l = aVar.f35309i;
+        this.f35481a = new com.kwad.sdk.crash.model.b();
+        this.f35482b = new com.kwad.sdk.crash.model.a();
+        this.f35486f = aVar.f35492c;
+        this.f35487g = aVar.f35493d;
+        this.f35488h = aVar.f35494e;
+        this.f35489i = aVar.f35495f;
+        this.j = aVar.f35496g;
+        this.k = aVar.f35497h;
+        this.l = aVar.f35498i;
         this.m = aVar.j;
         this.n = aVar.k;
-        this.f35293b.f35337a = aVar.q;
-        this.f35293b.f35338b = aVar.r;
-        this.f35293b.f35340d = aVar.t;
-        this.f35293b.f35339c = aVar.s;
-        this.f35292a.f35344d = aVar.o;
-        this.f35292a.f35345e = aVar.p;
-        this.f35292a.f35342b = aVar.m;
-        this.f35292a.f35343c = aVar.n;
-        this.f35292a.f35341a = aVar.l;
-        this.f35292a.f35346f = aVar.f35301a;
-        this.f35294c = aVar.u;
-        this.f35295d = aVar.v;
-        this.f35296e = aVar.f35302b;
+        this.f35482b.f35526a = aVar.q;
+        this.f35482b.f35527b = aVar.r;
+        this.f35482b.f35529d = aVar.t;
+        this.f35482b.f35528c = aVar.s;
+        this.f35481a.f35533d = aVar.o;
+        this.f35481a.f35534e = aVar.p;
+        this.f35481a.f35531b = aVar.m;
+        this.f35481a.f35532c = aVar.n;
+        this.f35481a.f35530a = aVar.l;
+        this.f35481a.f35535f = aVar.f35490a;
+        this.f35483c = aVar.u;
+        this.f35484d = aVar.v;
+        this.f35485e = aVar.f35491b;
     }
 
     public /* synthetic */ b(a aVar, AnonymousClass1 anonymousClass1) {
@@ -358,12 +358,12 @@ public class b {
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35299h : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35488h : (e) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35297f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35486f : invokeV.booleanValue;
     }
 }

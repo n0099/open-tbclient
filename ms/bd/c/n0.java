@@ -33,7 +33,7 @@ public final class n0 extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
             try {
-                Locale locale = a.a().c().getResources().getConfiguration().locale;
+                Locale locale = a.c().a().getResources().getConfiguration().locale;
                 String language = locale.getLanguage();
                 String country = locale.getCountry();
                 StringBuilder sb = new StringBuilder();

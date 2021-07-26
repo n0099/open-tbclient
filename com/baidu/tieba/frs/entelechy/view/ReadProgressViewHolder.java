@@ -17,26 +17,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.u0.u;
+import d.a.q0.u0.u;
 /* loaded from: classes4.dex */
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f15604d;
+    public static final int f15652d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f15605e;
+    public static final int f15653e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f15606a;
+    public View f15654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15607b;
+    public TextView f15655b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f15608c;
+    public Context f15656c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,8 +52,8 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
-        f15604d = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        f15605e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+        f15652d = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        f15653e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,21 +74,21 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15606a = view;
+        this.f15654a = view;
         TextView textView = (TextView) view.findViewById(R.id.view_frs_read_progress);
-        this.f15607b = textView;
-        int i4 = f15605e;
-        textView.setPadding(0, i4, 0, i4 - f15604d);
-        this.f15608c = context;
+        this.f15655b = textView;
+        int i4 = f15653e;
+        textView.setPadding(0, i4, 0, i4 - f15652d);
+        this.f15656c = context;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setViewTextColor(this.f15607b, R.color.CAM_X0304);
+            SkinManager.setViewTextColor(this.f15655b, R.color.CAM_X0304);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_card_refresh16, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
             pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-            this.f15607b.setCompoundDrawables(pureDrawable, null, null, null);
+            this.f15655b.setCompoundDrawables(pureDrawable, null, null, null);
         }
     }
 
@@ -97,7 +97,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uVar) == null) || uVar == null) {
             return;
         }
-        this.f15607b.setText(R.string.read_here);
+        this.f15655b.setText(R.string.read_here);
         b();
     }
 }

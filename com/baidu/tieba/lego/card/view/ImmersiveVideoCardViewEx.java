@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.n1.o.l.a;
-import d.a.p0.n1.o.l.n;
-import d.a.p0.n2.d;
-import d.a.p0.n2.e;
+import d.a.q0.n1.o.l.a;
+import d.a.q0.n1.o.l.n;
+import d.a.q0.n2.d;
+import d.a.q0.n2.e;
 /* loaded from: classes4.dex */
 public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements e, d {
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +45,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
         this.s.y(immersiveVideoCardEx.getShowExtra(), "feed");
         this.s.x(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
-        boolean z = immersiveVideoCardEx.getVideoInfo().f18212i;
+        boolean z = immersiveVideoCardEx.getVideoInfo().f18268i;
         this.s.u(z);
         this.s.t(z);
         this.t.u(z);
@@ -91,7 +91,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         H();
     }
 
-    @Override // d.a.p0.n2.d
+    @Override // d.a.q0.n2.d
     public void b() {
         a aVar;
         Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         aVar.j();
     }
 
-    @Override // d.a.p0.n2.d
+    @Override // d.a.q0.n2.d
     public void c() {
         a aVar;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         aVar.k();
     }
 
-    @Override // d.a.p0.n2.d
+    @Override // d.a.q0.n2.d
     public void d() {
         a aVar;
         Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         aVar.m();
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return invokeV.intValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,7 +163,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return (View) invokeV.objValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return (View) invokeV.objValue;
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public void startPlay() {
         n nVar;
         Interceptable interceptable = $ic;
@@ -211,7 +211,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         nVar.v();
     }
 
-    @Override // d.a.p0.n2.e
+    @Override // d.a.q0.n2.e
     public void stopPlay() {
         n nVar;
         Interceptable interceptable = $ic;

@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f72657a;
+    public static final int f73111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f72658b;
+    public static final boolean f73112b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements PrivilegedAction<ClassLoader> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,14 +64,14 @@ public final class e {
             }
         }
         int d2 = d();
-        f72657a = d2;
-        f72658b = d2 != 0;
+        f73111a = d2;
+        f73112b = d2 != 0;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f72657a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f73111a : invokeV.intValue;
     }
 
     public static ClassLoader b() {
@@ -89,7 +89,7 @@ public final class e {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f72658b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f73112b : invokeV.booleanValue;
     }
 
     public static int d() {

@@ -11,10 +11,10 @@ public final class bm implements eu {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ er f23477a;
+    public final /* synthetic */ er f23635a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23478b;
+    public final /* synthetic */ FeedbackInputActivity f23636b;
 
     public bm(FeedbackInputActivity feedbackInputActivity, er erVar) {
         Interceptable interceptable = $ic;
@@ -31,17 +31,17 @@ public final class bm implements eu {
                 return;
             }
         }
-        this.f23478b = feedbackInputActivity;
-        this.f23477a = erVar;
+        this.f23636b = feedbackInputActivity;
+        this.f23635a = erVar;
     }
 
     @Override // com.baidu.ufosdk.ui.eu
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f23477a.dismiss();
-            this.f23478b.s.setVisibility(0);
-            this.f23478b.s.bringToFront();
+            this.f23635a.dismiss();
+            this.f23636b.s.setVisibility(0);
+            this.f23636b.s.bringToFront();
             new Thread(new bp(this)).start();
         }
     }
@@ -51,23 +51,23 @@ public final class bm implements eu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (str == null || str.trim().length() == 0) {
-                this.f23477a.dismiss();
-                FeedbackInputActivity feedbackInputActivity = this.f23478b;
+                this.f23635a.dismiss();
+                FeedbackInputActivity feedbackInputActivity = this.f23636b;
                 feedbackInputActivity.D = true;
                 feedbackInputActivity.J.setTextColor(com.baidu.ufosdk.b.y);
-                this.f23478b.E.setEnabled(false);
-                this.f23478b.s.setVisibility(0);
-                this.f23478b.s.bringToFront();
+                this.f23636b.E.setEnabled(false);
+                this.f23636b.s.setVisibility(0);
+                this.f23636b.s.bringToFront();
                 new Thread(new bo(this)).start();
                 return;
             }
-            this.f23477a.dismiss();
-            FeedbackInputActivity feedbackInputActivity2 = this.f23478b;
+            this.f23635a.dismiss();
+            FeedbackInputActivity feedbackInputActivity2 = this.f23636b;
             feedbackInputActivity2.D = true;
             feedbackInputActivity2.J.setTextColor(com.baidu.ufosdk.b.y);
-            this.f23478b.E.setEnabled(false);
-            this.f23478b.s.setVisibility(0);
-            this.f23478b.s.bringToFront();
+            this.f23636b.E.setEnabled(false);
+            this.f23636b.s.setVisibility(0);
+            this.f23636b.s.bringToFront();
             new Thread(new bn(this, str)).start();
         }
     }

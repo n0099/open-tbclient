@@ -13,13 +13,13 @@ public final class hg {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hg f40259a;
+    public static final hg f40531a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hg[] f473a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hg f40260b;
+    public static final hg f40532b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -38,10 +38,10 @@ public final class hg {
                 return;
             }
         }
-        f40259a = new hg("START", 0, 0);
+        f40531a = new hg("START", 0, 0);
         hg hgVar = new hg("BIND", 1, 1);
-        f40260b = hgVar;
-        f473a = new hg[]{f40259a, hgVar};
+        f40532b = hgVar;
+        f473a = new hg[]{f40531a, hgVar};
     }
 
     public hg(String str, int i2, int i3) {

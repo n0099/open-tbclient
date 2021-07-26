@@ -20,25 +20,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.c.e.p.l;
-import d.a.o0.r.u.c;
+import d.a.d.e.p.k;
+import d.a.d.e.p.l;
+import d.a.p0.s.u.c;
 /* loaded from: classes3.dex */
 public class TopicEnterButton extends AppCompatTextView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f12623f;
+    public static final int f12672f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f12624g;
+    public static final int f12673g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f12625h;
+    public static final int f12674h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecommendTopicData.RecommendTopicListData f12626e;
+    public RecommendTopicData.RecommendTopicListData f12675e;
 
     static {
         InterceptResult invokeClinit;
@@ -53,9 +53,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        f12623f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        f12624g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        f12625h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f12623f) - f12624g;
+        f12672f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        f12673g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        f12674h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f12672f) - f12673g;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,14 +82,14 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void d(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, recommendTopicListData) == null) {
-            this.f12626e = recommendTopicListData;
+            this.f12675e = recommendTopicListData;
             if (recommendTopicListData != null) {
                 String topicName = recommendTopicListData.getTopicName();
                 if (k.isEmpty(topicName)) {
                     setVisibility(8);
                     return;
                 }
-                setText(TextUtils.ellipsize(topicName, getPaint(), f12625h, TextUtils.TruncateAt.END));
+                setText(TextUtils.ellipsize(topicName, getPaint(), f12674h, TextUtils.TruncateAt.END));
                 setVisibility(0);
                 f();
                 return;
@@ -122,9 +122,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
             Drawable maskDrawable = WebPManager.getMaskDrawable(R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
-            setCompoundDrawablePadding(f12623f);
+            setCompoundDrawablePadding(f12672f);
             if (maskDrawable != null) {
-                int i2 = f12624g;
+                int i2 = f12673g;
                 maskDrawable.setBounds(0, 0, i2, i2);
             }
             setCompoundDrawables(maskDrawable, null, null, null);
@@ -135,10 +135,10 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void onClick(View view) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (recommendTopicListData = this.f12626e) == null || k.isEmpty(recommendTopicListData.getTopicName())) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (recommendTopicListData = this.f12675e) == null || k.isEmpty(recommendTopicListData.getTopicName())) {
             return;
         }
-        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f12626e.getTopicName(), "2").start();
+        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f12675e.getTopicName(), "2").start();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -25,7 +25,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f34880a;
+    public static boolean f35069a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -72,10 +72,10 @@ public class d {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || f34880a) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || f35069a) {
             return;
         }
-        f34880a = true;
+        f35069a = true;
         ReportAction reportAction = new ReportAction(8L);
         reportAction.bp = com.kwad.sdk.collector.f.a(context);
         f.a(reportAction);
@@ -88,7 +88,7 @@ public class d {
             reportAction.aT = z;
             reportAction.aU = str;
             if (ksScene instanceof SceneImpl) {
-                reportAction.f34831b = (SceneImpl) ksScene;
+                reportAction.f35020b = (SceneImpl) ksScene;
             }
             f.a(reportAction);
         }
@@ -98,10 +98,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bVar) == null) {
             ReportAction reportAction = new ReportAction(10215L);
-            reportAction.bi = bVar.f33986a;
-            reportAction.bm = bVar.f33987b;
-            reportAction.bj = bVar.f33988c;
-            reportAction.bk = bVar.f33989d;
+            reportAction.bi = bVar.f34175a;
+            reportAction.bm = bVar.f34176b;
+            reportAction.bj = bVar.f34177c;
+            reportAction.bk = bVar.f34178d;
             f.a(reportAction);
         }
     }
@@ -214,13 +214,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, sceneImpl, aVar) == null) {
             ReportAction reportAction = new ReportAction(10214L);
-            reportAction.f34831b = sceneImpl;
-            reportAction.bc = aVar.f34662g;
-            reportAction.bd = aVar.f34656a;
-            reportAction.be = aVar.f34658c;
-            reportAction.bf = aVar.f34659d;
-            reportAction.bg = aVar.f34660e;
-            reportAction.bh = aVar.f34661f;
+            reportAction.f35020b = sceneImpl;
+            reportAction.bc = aVar.f34851g;
+            reportAction.bd = aVar.f34845a;
+            reportAction.be = aVar.f34847c;
+            reportAction.bf = aVar.f34848d;
+            reportAction.bg = aVar.f34849e;
+            reportAction.bh = aVar.f34850f;
             f.a(reportAction);
         }
     }

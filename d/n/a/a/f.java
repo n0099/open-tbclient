@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a */
-    public static final b f72194a;
+    public static final b f72648a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,11 +26,11 @@ public final class f {
                 return;
             }
         }
-        f72194a = new b(null);
+        f72648a = new b(null);
     }
 
     /* JADX DEBUG: Method not inlined, still used in: [d.n.a.a.b.b():d.n.a.a.b] */
     public static /* synthetic */ b a() {
-        return f72194a;
+        return f72648a;
     }
 }

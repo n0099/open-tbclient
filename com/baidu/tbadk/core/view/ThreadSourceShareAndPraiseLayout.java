@@ -21,26 +21,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
+import d.a.p0.s.q.b2;
 /* loaded from: classes3.dex */
 public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12604e;
+    public TextView f12653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadCommentAndPraiseInfoLayout f12605f;
+    public ThreadCommentAndPraiseInfoLayout f12654f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b2 f12606g;
+    public b2 f12655g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f12607h;
+    public Context f12656h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12608i;
+    public String f12657i;
     public View.OnClickListener j;
     public boolean k;
 
@@ -50,7 +50,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadSourceShareAndPraiseLayout f12609e;
+        public final /* synthetic */ ThreadSourceShareAndPraiseLayout f12658e;
 
         public a(ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout) {
             Interceptable interceptable = $ic;
@@ -67,18 +67,18 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f12609e = threadSourceShareAndPraiseLayout;
+            this.f12658e = threadSourceShareAndPraiseLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12609e.f12606g == null || StringUtils.isNull(this.f12609e.f12606g.W())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12658e.f12655g == null || StringUtils.isNull(this.f12658e.f12655g.X())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f12609e.f12607h).createNormalCfg(this.f12609e.f12606g.W(), this.f12609e.f12608i)));
-            if (this.f12609e.j != null) {
-                this.f12609e.j.onClick(view);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f12658e.f12656h).createNormalCfg(this.f12658e.f12655g.X(), this.f12658e.f12657i)));
+            if (this.f12658e.j != null) {
+                this.f12658e.j.onClick(view);
             }
         }
     }
@@ -109,22 +109,22 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || context == null) {
             return;
         }
-        this.f12607h = context;
+        this.f12656h = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_praise_read_info_layout, (ViewGroup) this, true);
-        this.f12604e = (TextView) inflate.findViewById(R.id.view_forum_source);
-        this.f12605f = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.layout_share_and_praise);
-        this.f12604e.setOnClickListener(new a(this));
+        this.f12653e = (TextView) inflate.findViewById(R.id.view_forum_source);
+        this.f12654f = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.layout_share_and_praise);
+        this.f12653e.setOnClickListener(new a(this));
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!this.k) {
-                SkinManager.setViewTextColor(this.f12604e, R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f12604e, R.drawable.bg_forum_source_gray);
+                SkinManager.setViewTextColor(this.f12653e, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f12653e, R.drawable.bg_forum_source_gray);
             }
-            if (this.f12605f.getVisibility() == 0) {
-                this.f12605f.onChangeSkinType();
+            if (this.f12654f.getVisibility() == 0) {
+                this.f12654f.onChangeSkinType();
             }
         }
     }
@@ -137,15 +137,15 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
                 setVisibility(8);
                 return false;
             }
-            this.f12606g = b2Var;
-            if (!StringUtils.isNull(b2Var.W()) && !this.k) {
-                TextView textView = this.f12604e;
-                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f12606g.W(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
-                this.f12604e.setVisibility(0);
+            this.f12655g = b2Var;
+            if (!StringUtils.isNull(b2Var.X()) && !this.k) {
+                TextView textView = this.f12653e;
+                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f12655g.X(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
+                this.f12653e.setVisibility(0);
             } else {
-                this.f12604e.setVisibility(8);
+                this.f12653e.setVisibility(8);
             }
-            this.f12605f.setData(this.f12606g);
+            this.f12654f.setData(this.f12655g);
             setVisibility(0);
             return true;
         }
@@ -155,7 +155,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f12605f.setForumAfterClickListener(onClickListener);
+            this.f12654f.setForumAfterClickListener(onClickListener);
             this.j = onClickListener;
         }
     }
@@ -163,7 +163,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     public void setFrom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f12605f.setFrom(i2);
+            this.f12654f.setFrom(i2);
         }
     }
 
@@ -177,22 +177,22 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     public void setShareReportFrom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f12605f.setShareReportFrom(i2);
+            this.f12654f.setShareReportFrom(i2);
         }
     }
 
     public void setSourceFromForPb(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f12605f.R = i2;
+            this.f12654f.R = i2;
         }
     }
 
     public void setStType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f12608i = str;
-            this.f12605f.setStType(str);
+            this.f12657i = str;
+            this.f12654f.setStType(str);
         }
     }
 

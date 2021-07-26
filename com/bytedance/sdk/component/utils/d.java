@@ -102,7 +102,7 @@ public class d {
                 }
                 return bitmap;
             } catch (Throwable th) {
-                j.a(th.getMessage());
+                k.a(th.getMessage());
                 return null;
             }
         }

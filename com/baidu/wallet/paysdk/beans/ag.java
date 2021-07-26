@@ -23,11 +23,11 @@ public class ag extends PayBaseBean<VerifyByBankResponse> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f25968a;
+    public static final String[] f26126a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List f25969b;
+    public final List f26127b;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class ag extends PayBaseBean<VerifyByBankResponse> {
                 return;
             }
         }
-        f25968a = new String[]{"coupon_id", "activity_id", "stage_number", "need_bind_card", "sms_vcode", "seed", "mobile_pwd", "confirm_mobile_pwd", "mobile_pwd_psp", "open_passfree", "fp_code", "fp_num", "need_open_passfree", "need_open_authorize", "message_vcode", "is_pay_sms"};
+        f26126a = new String[]{"coupon_id", "activity_id", "stage_number", "need_bind_card", "sms_vcode", "seed", "mobile_pwd", "confirm_mobile_pwd", "mobile_pwd_psp", "open_passfree", "fp_code", "fp_num", "need_open_passfree", "need_open_authorize", "message_vcode", "is_pay_sms"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,7 +63,7 @@ public class ag extends PayBaseBean<VerifyByBankResponse> {
                 return;
             }
         }
-        this.f25969b = Arrays.asList(f25968a);
+        this.f26127b = Arrays.asList(f26126a);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -82,7 +82,7 @@ public class ag extends PayBaseBean<VerifyByBankResponse> {
             ArrayList arrayList = new ArrayList(PayDataCache.getInstance().getPrePayRequestParams());
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                if (this.f25969b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
+                if (this.f26127b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
                     it.remove();
                 }
             }

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes.dex */
 public abstract class AbsTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -90,14 +90,14 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
-        bVar.f12365c = fragment;
-        bVar.f12363a = i2;
+        bVar.f12395c = fragment;
+        bVar.f12393a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.setTextColorResId(R.color.ala_sub_list_game_live_tab_txt_color);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f12364b = fragmentTabIndicator;
+        bVar.f12394b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 

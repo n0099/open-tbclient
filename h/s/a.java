@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f72736a;
+    public final long f73190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final T f72737b;
+    public final T f73191b;
 
     public a(long j, T t) {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public final class a<T> {
                 return;
             }
         }
-        this.f72737b = t;
-        this.f72736a = j;
+        this.f73191b = t;
+        this.f73190a = j;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72736a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73190a : invokeV.longValue;
     }
 
     public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72737b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73191b : (T) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -57,9 +57,9 @@ public final class a<T> {
             }
             if (obj != null && (obj instanceof a)) {
                 a aVar = (a) obj;
-                if (this.f72736a == aVar.f72736a) {
-                    T t = this.f72737b;
-                    T t2 = aVar.f72737b;
+                if (this.f73190a == aVar.f73190a) {
+                    T t = this.f73191b;
+                    T t2 = aVar.f73191b;
                     if (t == t2) {
                         return true;
                     }
@@ -78,9 +78,9 @@ public final class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.f72736a;
+            long j = this.f73190a;
             int i2 = (((int) (j ^ (j >>> 32))) + 31) * 31;
-            T t = this.f72737b;
+            T t = this.f73191b;
             return i2 + (t == null ? 0 : t.hashCode());
         }
         return invokeV.intValue;
@@ -89,6 +89,6 @@ public final class a<T> {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.f72736a), this.f72737b.toString()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.f73190a), this.f73191b.toString()) : (String) invokeV.objValue;
     }
 }

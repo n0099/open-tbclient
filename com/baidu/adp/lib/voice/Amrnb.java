@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.h;
-import d.a.c.e.p.i;
+import d.a.d.e.p.h;
+import d.a.d.e.p.i;
 /* loaded from: classes.dex */
 public class Amrnb {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public class Amrnb {
             }
         }
 
-        @Override // d.a.c.e.p.i
+        @Override // d.a.d.e.p.i
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {

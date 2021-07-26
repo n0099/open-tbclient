@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes.dex */
 public class SwipeBackLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -39,19 +39,19 @@ public class SwipeBackLayout extends FrameLayout {
     public b F;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f2410e;
+    public Activity f2436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f2411f;
+    public View f2437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f2412g;
+    public ViewGroup f2438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Scroller f2413h;
+    public Scroller f2439h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2414i;
+    public int f2440i;
     public float j;
     public float k;
     public float l;
@@ -76,7 +76,7 @@ public class SwipeBackLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final float f2415a;
+        public final float f2441a;
 
         public a(float f2) {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class SwipeBackLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f2415a = f2;
+            this.f2441a = f2;
         }
 
         @Override // android.animation.TimeInterpolator
@@ -101,7 +101,7 @@ public class SwipeBackLayout extends FrameLayout {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                float f3 = f2 * this.f2415a;
+                float f3 = f2 * this.f2441a;
                 if (f3 > 0.9d) {
                     return 1.0f;
                 }
@@ -162,16 +162,16 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
             try {
-                this.f2410e = activity;
+                this.f2436e = activity;
                 Window window = activity.getWindow();
                 window.setBackgroundDrawable(new ColorDrawable(0));
                 ViewGroup viewGroup = (ViewGroup) window.getDecorView();
                 ViewGroup viewGroup2 = (ViewGroup) viewGroup.getChildAt(0);
-                this.f2412g = viewGroup2;
+                this.f2438g = viewGroup2;
                 viewGroup.removeView(viewGroup2);
-                this.f2412g.setClickable(true);
-                addView(this.f2412g);
-                this.f2411f = (View) this.f2412g.getParent();
+                this.f2438g.setClickable(true);
+                addView(this.f2438g);
+                this.f2437f = (View) this.f2438g.getParent();
                 viewGroup.addView(this);
             } catch (Exception e2) {
                 this.q = false;
@@ -184,13 +184,13 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.r) {
-                this.f2413h.abortAnimation();
+                this.f2439h.abortAnimation();
                 int scrollX = getScrollX();
                 int scrollY = getScrollY();
-                int currX = this.f2413h.getCurrX();
-                int currY = this.f2413h.getCurrY();
+                int currX = this.f2439h.getCurrX();
+                int currY = this.f2439h.getCurrY();
                 if (scrollX != currX || scrollY != currY) {
-                    this.f2411f.scrollTo(currX, currY);
+                    this.f2437f.scrollTo(currX, currY);
                 }
             }
             this.r = false;
@@ -227,21 +227,21 @@ public class SwipeBackLayout extends FrameLayout {
     public void computeScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.f2413h.isFinished() && this.f2413h.computeScrollOffset()) {
+            if (!this.f2439h.isFinished() && this.f2439h.computeScrollOffset()) {
                 int scrollX = getScrollX();
                 int scrollY = getScrollY();
-                int currX = this.f2413h.getCurrX();
-                int currY = this.f2413h.getCurrY();
+                int currX = this.f2439h.getCurrX();
+                int currY = this.f2439h.getCurrY();
                 if (scrollX != currX || scrollY != currY) {
-                    this.f2411f.scrollTo(currX, currY);
+                    this.f2437f.scrollTo(currX, currY);
                 }
                 invalidate();
             }
-            if (this.f2413h.isFinished() && this.p) {
-                this.f2410e.finish();
-                this.f2410e.overridePendingTransition(0, 0);
+            if (this.f2439h.isFinished() && this.p) {
+                this.f2436e.finish();
+                this.f2436e.overridePendingTransition(0, 0);
             }
-            if (this.f2413h.isFinished()) {
+            if (this.f2439h.isFinished()) {
                 b();
             }
         }
@@ -260,7 +260,7 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            View view = this.f2411f;
+            View view = this.f2437f;
             if (view != null) {
                 int i2 = this.m;
                 int bottom = view.getBottom();
@@ -270,7 +270,7 @@ public class SwipeBackLayout extends FrameLayout {
                 rect.left = 0;
                 rect.right = i2;
                 canvas.clipRect(rect);
-                int i3 = this.f2414i;
+                int i3 = this.f2440i;
                 if (i3 != 0) {
                     this.s = 100 - ((int) (((-this.m) / i3) * 120.0f));
                 }
@@ -313,15 +313,15 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             if (this.B) {
-                this.f2412g.setBackgroundResource(R.color.transparent);
+                this.f2438g.setBackgroundResource(R.color.transparent);
             } else if (!this.E) {
-                this.f2412g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
             } else if (i2 == 1) {
-                this.f2412g.setBackgroundResource(R.color.swipe_layout_night_bg);
+                this.f2438g.setBackgroundResource(R.color.swipe_layout_night_bg);
             } else if (i2 == 4) {
-                this.f2412g.setBackgroundResource(R.color.swipe_layout_dark_bg);
+                this.f2438g.setBackgroundResource(R.color.swipe_layout_dark_bg);
             } else {
-                this.f2412g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
             }
         }
     }
@@ -357,7 +357,7 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
             TypedValue.applyDimension(1, 24.0f, getResources().getDisplayMetrics());
-            this.f2413h = new Scroller(context, new a(1.5f));
+            this.f2439h = new Scroller(context, new a(1.5f));
             ViewConfiguration.get(context.getApplicationContext()).getScaledTouchSlop();
             this.w = ViewConfiguration.getMaximumFlingVelocity();
             this.v = ViewConfiguration.getMinimumFlingVelocity();
@@ -382,15 +382,15 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048590, this, i2) == null) && this.q) {
             if (this.B) {
-                this.f2412g.setBackgroundResource(R.color.transparent);
+                this.f2438g.setBackgroundResource(R.color.transparent);
             } else if (!this.E) {
-                this.f2412g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
             } else if (i2 == 1) {
-                this.f2412g.setBackgroundResource(R.color.swipe_layout_night_bg);
+                this.f2438g.setBackgroundResource(R.color.swipe_layout_night_bg);
             } else if (i2 == 4) {
-                this.f2412g.setBackgroundResource(R.color.swipe_layout_dark_bg);
+                this.f2438g.setBackgroundResource(R.color.swipe_layout_dark_bg);
             } else {
-                this.f2412g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
             }
         }
     }
@@ -431,7 +431,7 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.r = true;
-            this.f2413h.startScroll(this.f2411f.getScrollX(), 0, -this.f2411f.getScrollX(), 0);
+            this.f2439h.startScroll(this.f2437f.getScrollX(), 0, -this.f2437f.getScrollX(), 0);
             postInvalidate();
         }
     }
@@ -478,7 +478,7 @@ public class SwipeBackLayout extends FrameLayout {
             } catch (Throwable unused) {
             }
             if (z) {
-                this.f2414i = getWidth();
+                this.f2440i = getWidth();
             }
         }
     }
@@ -516,7 +516,7 @@ public class SwipeBackLayout extends FrameLayout {
                             }
                             return true;
                         }
-                        if (this.f2411f.getScrollX() <= (-this.f2414i) / 2) {
+                        if (this.f2437f.getScrollX() <= (-this.f2440i) / 2) {
                             this.p = true;
                             q();
                         } else {
@@ -548,7 +548,7 @@ public class SwipeBackLayout extends FrameLayout {
                                 float f3 = this.j - x;
                                 this.j = x;
                                 float scrollX = getScrollX() + f3;
-                                float f4 = -this.f2414i;
+                                float f4 = -this.f2440i;
                                 if (scrollX < f4) {
                                     f2 = f4;
                                 } else if (scrollX <= 0.0f) {
@@ -557,7 +557,7 @@ public class SwipeBackLayout extends FrameLayout {
                                 int i2 = (int) f2;
                                 this.j += f2 - i2;
                                 this.m = i2;
-                                this.f2411f.scrollTo(i2, getScrollY());
+                                this.f2437f.scrollTo(i2, getScrollY());
                             }
                         }
                     } else if (action == 3) {
@@ -587,7 +587,7 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
             this.r = true;
-            this.f2413h.startScroll(this.f2411f.getScrollX(), 0, -this.f2411f.getScrollX(), 0, i2);
+            this.f2439h.startScroll(this.f2437f.getScrollX(), 0, -this.f2437f.getScrollX(), 0, i2);
             postInvalidate();
         }
     }
@@ -596,7 +596,7 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.r = true;
-            this.f2413h.startScroll(this.f2411f.getScrollX(), 0, (-(this.f2414i + this.f2411f.getScrollX())) + 1, 0);
+            this.f2439h.startScroll(this.f2437f.getScrollX(), 0, (-(this.f2440i + this.f2437f.getScrollX())) + 1, 0);
             postInvalidate();
         }
     }
@@ -625,7 +625,7 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.B = true;
-            ViewGroup viewGroup = this.f2412g;
+            ViewGroup viewGroup = this.f2438g;
             if (viewGroup != null) {
                 viewGroup.setBackgroundResource(R.color.transparent);
             }
@@ -637,9 +637,9 @@ public class SwipeBackLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             if (!z) {
                 if (this.B) {
-                    this.f2412g.setBackgroundResource(R.color.transparent);
+                    this.f2438g.setBackgroundResource(R.color.transparent);
                 } else {
-                    this.f2412g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                    this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
                 }
             }
             this.E = z;

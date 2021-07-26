@@ -34,12 +34,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.z0.f0;
-import d.a.o0.z0.i0;
-import d.a.p0.i1.g.c;
-import d.a.p0.i1.h.l;
-import d.a.p0.i1.k.b;
-import d.a.p0.i1.s.a;
+import d.a.p0.b1.f0;
+import d.a.p0.b1.i0;
+import d.a.q0.i1.g.c;
+import d.a.q0.i1.h.l;
+import d.a.q0.i1.k.b;
+import d.a.q0.i1.s.a;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -178,7 +178,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17604b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17660b;
             if (list == null) {
                 list = new LinkedList();
             }
@@ -295,7 +295,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.o0.z0.f0
+            @Override // d.a.p0.b1.f0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -375,7 +375,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-            aVar.f17597a = this.mUser.getUserId();
+            aVar.f17653a = this.mUser.getUserId();
             super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
             return true;
         }
@@ -383,7 +383,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(d.a.p0.i1.f.c cVar) {
+    public boolean loadFirst(d.a.q0.i1.f.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cVar)) == null) {
@@ -391,10 +391,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f17601c = 10;
-            aVar.f17599a = null;
-            aVar.f17600b = null;
-            aVar.f17602d = this.mUser.getUserIdLong() + "";
+            aVar.f17657c = 10;
+            aVar.f17655a = null;
+            aVar.f17656b = null;
+            aVar.f17658d = this.mUser.getUserIdLong() + "";
             super.sendMessage(new LoadOfficialHistoryMessage(aVar));
             return true;
         }
@@ -411,7 +411,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f17601c = 10;
+            aVar.f17657c = 10;
             MsgPageData msgPageData = this.mDatas;
             long j2 = 0;
             if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
@@ -420,9 +420,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 j2 = this.mDatas.getChatMessages().get(0).getMsgId();
                 j = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            aVar.f17599a = String.valueOf(j2);
-            aVar.f17600b = String.valueOf(j);
-            aVar.f17602d = this.mUser.getUserIdLong() + "";
+            aVar.f17655a = String.valueOf(j2);
+            aVar.f17656b = String.valueOf(j);
+            aVar.f17658d = this.mUser.getUserIdLong() + "";
             super.sendMessage(new LoadOfficialHistoryMessage(aVar));
             return true;
         }
@@ -462,7 +462,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.o0.z0.f0
+            @Override // d.a.p0.b1.f0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -490,8 +490,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             if (userData == null) {
                 return false;
             }
-            aVar.f17625b = String.valueOf(String.valueOf(userData.getUserId()));
-            aVar.f17624a = str;
+            aVar.f17681b = String.valueOf(String.valueOf(userData.getUserId()));
+            aVar.f17680a = str;
             super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
             return true;
         }

@@ -22,20 +22,20 @@ public class a extends MediaDataSource {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f28917a;
+    public static final ConcurrentHashMap<String, a> f29016a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.component.video.a.a.a f28918b;
+    public com.bytedance.sdk.component.video.a.a.a f29017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f28919c;
+    public long f29018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f28920d;
+    public Context f29019d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.component.video.b.a f28921e;
+    public final com.bytedance.sdk.component.video.b.a f29020e;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public class a extends MediaDataSource {
                 return;
             }
         }
-        f28917a = new ConcurrentHashMap<>();
+        f29016a = new ConcurrentHashMap<>();
     }
 
     public a(Context context, com.bytedance.sdk.component.video.b.a aVar) {
@@ -68,35 +68,35 @@ public class a extends MediaDataSource {
                 return;
             }
         }
-        this.f28918b = null;
-        this.f28919c = -2147483648L;
-        this.f28920d = context;
-        this.f28921e = aVar;
+        this.f29017b = null;
+        this.f29018c = -2147483648L;
+        this.f29019d = context;
+        this.f29020e = aVar;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f28918b == null) {
-            this.f28918b = new b(this.f28920d, this.f28921e);
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f29017b == null) {
+            this.f29017b = new b(this.f29019d, this.f29020e);
         }
     }
 
     public com.bytedance.sdk.component.video.b.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28921e : (com.bytedance.sdk.component.video.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29020e : (com.bytedance.sdk.component.video.b.a) invokeV.objValue;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.b("SdkMediaDataSource", "close: ", this.f28921e.b());
-            com.bytedance.sdk.component.video.a.a.a aVar = this.f28918b;
+            c.b("SdkMediaDataSource", "close: ", this.f29020e.b());
+            com.bytedance.sdk.component.video.a.a.a aVar = this.f29017b;
             if (aVar != null) {
                 aVar.a();
             }
-            f28917a.remove(this.f28921e.c());
+            f29016a.remove(this.f29020e.c());
         }
     }
 
@@ -106,14 +106,14 @@ public class a extends MediaDataSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             b();
-            if (this.f28919c == -2147483648L) {
-                if (this.f28920d == null || TextUtils.isEmpty(this.f28921e.b())) {
+            if (this.f29018c == -2147483648L) {
+                if (this.f29019d == null || TextUtils.isEmpty(this.f29020e.b())) {
                     return -1L;
                 }
-                this.f28919c = this.f28918b.b();
-                c.a("SdkMediaDataSource", "getSize: " + this.f28919c);
+                this.f29018c = this.f29017b.b();
+                c.a("SdkMediaDataSource", "getSize: " + this.f29018c);
             }
-            return this.f28919c;
+            return this.f29018c;
         }
         return invokeV.longValue;
     }
@@ -124,7 +124,7 @@ public class a extends MediaDataSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             b();
-            int a2 = this.f28918b.a(j, bArr, i2, i3);
+            int a2 = this.f29017b.a(j, bArr, i2, i3);
             c.a("SdkMediaDataSource", "readAt: position = " + j + "  buffer.length =" + bArr.length + "  offset = " + i2 + " size =" + a2 + "  current = " + Thread.currentThread());
             return a2;
         }
@@ -136,7 +136,7 @@ public class a extends MediaDataSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, aVar)) == null) {
             a aVar2 = new a(context, aVar);
-            f28917a.put(aVar.c(), aVar2);
+            f29016a.put(aVar.c(), aVar2);
             return aVar2;
         }
         return (a) invokeLL.objValue;

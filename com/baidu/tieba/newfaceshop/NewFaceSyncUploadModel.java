@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.c2.d;
+import d.a.q0.c2.d;
 /* loaded from: classes4.dex */
 public class NewFaceSyncUploadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;

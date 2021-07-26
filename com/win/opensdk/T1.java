@@ -1,15 +1,44 @@
 package com.win.opensdk;
 
-import android.graphics.Bitmap;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface T1 {
-    void a(int i2, String str, String str2);
+public class T1 {
+    public static /* synthetic */ Interceptable $ic;
 
-    void a(String str);
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f39684a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, Bitmap bitmap);
-
-    void a(String str, String str2, String str3, long j, String str4, String str5);
-
-    void b(String str);
+    public static boolean a() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            boolean z = f39684a;
+            if (z) {
+                return z;
+            }
+            String[] split = System.getenv("PATH").split(":");
+            int length = split.length;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= length) {
+                    str = null;
+                    break;
+                }
+                str = split[i2] + "/su";
+                if (new File(str).exists()) {
+                    break;
+                }
+                i2++;
+            }
+            boolean z2 = str != null;
+            f39684a = z2;
+            return z2;
+        }
+        return invokeV.booleanValue;
+    }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.IRewardAdInteractionListener;
 import java.util.Collections;
 import java.util.HashMap;
@@ -20,10 +20,10 @@ public class f extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f31541a;
+    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f31728a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile f f31542b;
+    public static volatile f f31729b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class f extends a {
                 return;
             }
         }
-        f31541a = Collections.synchronizedMap(new HashMap());
+        f31728a = Collections.synchronizedMap(new HashMap());
     }
 
     public f() {
@@ -60,14 +60,14 @@ public class f extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31542b == null) {
+            if (f31729b == null) {
                 synchronized (f.class) {
-                    if (f31542b == null) {
-                        f31542b = new f();
+                    if (f31729b == null) {
+                        f31729b = new f();
                     }
                 }
             }
-            return f31542b;
+            return f31729b;
         }
         return (f) invokeV.objValue;
     }
@@ -87,7 +87,7 @@ public class f extends a {
             synchronized (this) {
                 RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
                 remoteCallbackList.register(iRewardAdInteractionListener);
-                f31541a.put(str, remoteCallbackList);
+                f31728a.put(str, remoteCallbackList);
             }
         }
     }
@@ -98,11 +98,11 @@ public class f extends a {
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), str3, Integer.valueOf(i3), str4}) == null) {
             synchronized (this) {
                 try {
-                    if (f31541a != null) {
+                    if (f31728a != null) {
                         if ("recycleRes".equals(str2)) {
-                            remoteCallbackList = f31541a.remove(str);
+                            remoteCallbackList = f31728a.remove(str);
                         } else {
-                            remoteCallbackList = f31541a.get(str);
+                            remoteCallbackList = f31728a.get(str);
                         }
                         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList2 = remoteCallbackList;
                         if (remoteCallbackList2 != null) {
@@ -136,7 +136,7 @@ public class f extends a {
                         }
                     }
                 } catch (Throwable th) {
-                    j.c("MultiProcess", "reward2 '" + str2 + "'  throws Exception :", th);
+                    k.c("MultiProcess", "reward2 '" + str2 + "'  throws Exception :", th);
                 }
             }
         }

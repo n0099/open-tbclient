@@ -16,10 +16,10 @@ public class b implements Thread.UncaughtExceptionHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f2750a;
+    public final Context f2776a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Thread.UncaughtExceptionHandler f2751b;
+    public final Thread.UncaughtExceptionHandler f2777b;
 
     public b(Context context, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class b implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f2750a = context;
-        this.f2751b = uncaughtExceptionHandler;
+        this.f2776a = context;
+        this.f2777b = uncaughtExceptionHandler;
     }
 
     private void a(Throwable th) {
@@ -45,8 +45,8 @@ public class b implements Thread.UncaughtExceptionHandler {
         if (interceptable == null || interceptable.invokeL(65537, this, th) == null) {
             String stackTraceString = Log.getStackTraceString(th);
             if (stackTraceString.contains(MultiDexHelper.PUSH_SDK_PREFIX)) {
-                m.a("exception " + stackTraceString + " at Time " + System.currentTimeMillis(), this.f2750a.getApplicationContext());
-                new b.c(this.f2750a).a(stackTraceString).a(201002L).a();
+                m.a("exception " + stackTraceString + " at Time " + System.currentTimeMillis(), this.f2776a.getApplicationContext());
+                new b.c(this.f2776a).a(stackTraceString).a(201002L).a();
             }
         }
     }
@@ -56,7 +56,7 @@ public class b implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
             a(th);
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f2751b;
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f2777b;
             if (uncaughtExceptionHandler != null) {
                 uncaughtExceptionHandler.uncaughtException(thread, th);
             }

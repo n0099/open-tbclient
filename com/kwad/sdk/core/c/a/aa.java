@@ -34,8 +34,8 @@ public class aa implements com.kwad.sdk.core.d<ReportAction.a> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f34839a = jSONObject.optInt("posIdWidth");
-        aVar.f34840b = jSONObject.optInt("posIdHeight");
+        aVar.f35028a = jSONObject.optInt("posIdWidth");
+        aVar.f35029b = jSONObject.optInt("posIdHeight");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class aa implements com.kwad.sdk.core.d<ReportAction.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "posIdWidth", aVar.f34839a);
-            com.kwad.sdk.utils.q.a(jSONObject, "posIdHeight", aVar.f34840b);
+            com.kwad.sdk.utils.q.a(jSONObject, "posIdWidth", aVar.f35028a);
+            com.kwad.sdk.utils.q.a(jSONObject, "posIdHeight", aVar.f35029b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

@@ -50,7 +50,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
                 int statusCode = e2.getStatusCode();
                 String message = e2.getMessage();
                 Log.d(n, "handleSignInResult exception code=" + statusCode + " msg=" + message);
-                a(((BaseSSOLoginActivity) this).f9900g, statusCode, message);
+                a(((BaseSSOLoginActivity) this).f9926g, statusCode, message);
             }
         }
     }
@@ -63,7 +63,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             HashMap hashMap = new HashMap();
             hashMap.put("supportGuestAccount", "1");
             hashMap.put("id_token", str);
-            a(ParamsUtil.addExtras(urlBind, hashMap), getString(d.a.b0.a.j.a.sapi_sdk_google_loging));
+            a(ParamsUtil.addExtras(urlBind, hashMap), getString(d.a.c0.a.j.a.sapi_sdk_google_loging));
         }
     }
 
@@ -111,7 +111,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(d.a.b0.a.j.a.sapi_sdk_title_login_google);
+            setTitleText(d.a.c0.a.j.a.sapi_sdk_title_login_google);
             d();
         }
     }

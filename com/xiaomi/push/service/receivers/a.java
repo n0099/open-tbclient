@@ -11,7 +11,7 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40705a;
+    public final /* synthetic */ Context f40977a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ NetworkStatusReceiver f974a;
@@ -32,14 +32,14 @@ public class a implements Runnable {
             }
         }
         this.f974a = networkStatusReceiver;
-        this.f40705a = context;
+        this.f40977a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f974a.a(this.f40705a);
+            this.f974a.a(this.f40977a);
         }
     }
 }

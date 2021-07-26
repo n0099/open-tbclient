@@ -13,7 +13,7 @@ import java.util.List;
 public interface o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f28597a = new o() { // from class: com.bytedance.sdk.component.b.b.o.1
+    public static final o f28691a = new o() { // from class: com.bytedance.sdk.component.b.b.o.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

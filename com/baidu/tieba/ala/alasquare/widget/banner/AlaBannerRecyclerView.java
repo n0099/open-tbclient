@@ -18,10 +18,10 @@ public class AlaBannerRecyclerView extends RecyclerView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14186e;
+    public int f14234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14187f;
+    public int f14235f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaBannerRecyclerView(Context context) {
@@ -72,8 +72,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        int i2 = y - this.f14186e;
-                        int i3 = x - this.f14187f;
+                        int i2 = y - this.f14234e;
+                        int i3 = x - this.f14235f;
                         if (Math.abs(i2) > ViewConfiguration.getTouchSlop() && Math.abs(i2) > Math.abs(i3)) {
                             getParent().requestDisallowInterceptTouchEvent(false);
                         } else {
@@ -83,12 +83,12 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 }
                 getParent().requestDisallowInterceptTouchEvent(false);
             } else {
-                this.f14186e = y;
-                this.f14187f = x;
+                this.f14234e = y;
+                this.f14235f = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
-            this.f14186e = y;
-            this.f14187f = x;
+            this.f14234e = y;
+            this.f14235f = x;
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;

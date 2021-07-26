@@ -31,7 +31,7 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.b f32247a;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.b f32448a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -48,7 +48,7 @@ public class d {
                         return;
                     }
                 }
-                this.f32247a = bVar;
+                this.f32448a = bVar;
             }
 
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -56,7 +56,7 @@ public class d {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, bVar2, dVar) == null) {
                     super.a(bVar2, dVar);
-                    e.a(this.f32247a, b.a(dVar.c()));
+                    e.a(this.f32448a, b.a(dVar.c()));
                 }
             }
 
@@ -65,7 +65,7 @@ public class d {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bVar2, dVar, th) == null) {
                     super.b(bVar2, dVar, th);
-                    e.a(this.f32247a, b.a(dVar.c()));
+                    e.a(this.f32448a, b.a(dVar.c()));
                 }
             }
 
@@ -74,7 +74,7 @@ public class d {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar2, dVar, th) == null) {
                     super.a(bVar2, dVar, th);
-                    e.a(this.f32247a, b.a(dVar.c()));
+                    e.a(this.f32448a, b.a(dVar.c()));
                 }
             }
         } : (com.bytedance.sdk.openadsdk.preload.b.b.a) invokeL.objValue;
@@ -88,7 +88,7 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f32249a;
+            public final /* synthetic */ Context f32450a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -105,7 +105,7 @@ public class d {
                         return;
                     }
                 }
-                this.f32249a = context;
+                this.f32450a = context;
             }
 
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -116,9 +116,9 @@ public class d {
                     Pair pair = (Pair) bVar.b(h.class);
                     com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) pair.second).getChannel());
                     String uri = ((Uri) pair.first).toString();
-                    a2.f32261h = false;
-                    a2.f32260g = SystemClock.uptimeMillis();
-                    a2.f32258e.add(new StatisticModel.PackageStatisticModel.DownloadFailRecords(uri, th.getMessage()));
+                    a2.f32462h = false;
+                    a2.f32461g = SystemClock.uptimeMillis();
+                    a2.f32459e.add(new StatisticModel.PackageStatisticModel.DownloadFailRecords(uri, th.getMessage()));
                 }
             }
 
@@ -128,8 +128,8 @@ public class d {
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, dVar) == null) {
                     super.b(bVar, dVar);
                     com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
-                    a2.f32261h = true;
-                    a2.f32260g = SystemClock.uptimeMillis();
+                    a2.f32462h = true;
+                    a2.f32461g = SystemClock.uptimeMillis();
                 }
             }
 
@@ -140,12 +140,12 @@ public class d {
                     super.c(bVar, dVar);
                     Pair pair = (Pair) bVar.b(h.class);
                     com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) pair.second).getChannel());
-                    a2.f32257d = ((Uri) pair.first).toString();
-                    a2.p = i.a(this.f32249a);
-                    a2.f32259f = SystemClock.uptimeMillis();
+                    a2.f32458d = ((Uri) pair.first).toString();
+                    a2.p = i.a(this.f32450a);
+                    a2.f32460f = SystemClock.uptimeMillis();
                     a2.q = Long.valueOf(((UpdatePackage) pair.second).getPatch().getId());
                     a2.r = Long.valueOf(((UpdatePackage) pair.second).getFullPackage().getId());
-                    a2.f32256c = ((UpdatePackage) pair.second).getChannel();
+                    a2.f32457c = ((UpdatePackage) pair.second).getChannel();
                 }
             }
         } : (com.bytedance.sdk.openadsdk.preload.b.b.a) invokeL.objValue;
@@ -467,7 +467,7 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f32248a;
+            public final /* synthetic */ Context f32449a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -484,7 +484,7 @@ public class d {
                         return;
                     }
                 }
-                this.f32248a = context;
+                this.f32449a = context;
             }
 
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -520,17 +520,17 @@ public class d {
                     Pair pair = (Pair) bVar.b(g.class);
                     com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) pair.second).getChannel());
                     a2.v = ((Uri) pair.first).toString();
-                    a2.p = i.a(this.f32248a);
+                    a2.p = i.a(this.f32449a);
                     a2.x = SystemClock.uptimeMillis();
                     a2.r = Long.valueOf(((UpdatePackage) pair.second).getFullPackage().getId());
-                    a2.f32256c = ((UpdatePackage) pair.second).getChannel();
+                    a2.f32457c = ((UpdatePackage) pair.second).getChannel();
                     if (!TextUtils.isEmpty(((UpdatePackage) pair.second).getAccessKey())) {
-                        a2.f32254a = ((UpdatePackage) pair.second).getAccessKey();
+                        a2.f32455a = ((UpdatePackage) pair.second).getAccessKey();
                     }
                     if (TextUtils.isEmpty(((UpdatePackage) pair.second).getGroupName())) {
                         return;
                     }
-                    a2.f32255b = ((UpdatePackage) pair.second).getGroupName();
+                    a2.f32456b = ((UpdatePackage) pair.second).getGroupName();
                 }
             }
         } : (com.bytedance.sdk.openadsdk.preload.b.b.a) invokeL.objValue;
@@ -609,7 +609,7 @@ public class d {
                 if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, bVar, dVar, th) == null) {
                     super.a(bVar, dVar, th);
                     com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
-                    a2.f32262i = false;
+                    a2.f32463i = false;
                     a2.l = SystemClock.uptimeMillis();
                     a2.s = th.getMessage();
                 }
@@ -620,7 +620,7 @@ public class d {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, dVar) == null) {
                     super.b(bVar, dVar);
-                    b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel()).f32262i = true;
+                    b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel()).f32463i = true;
                 }
             }
         } : (com.bytedance.sdk.openadsdk.preload.b.b.a) invokeV.objValue;

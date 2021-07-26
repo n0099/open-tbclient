@@ -5,7 +5,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.o.a;
+import d.a.d.e.n.c;
+import d.a.d.e.o.a;
 /* loaded from: classes3.dex */
 public class SyncSwitch {
     public static /* synthetic */ Interceptable $ic;
@@ -134,9 +135,12 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(KsPrivacySwitch.class);
+            SwitchManager.getInstance().registerSwitch(c.class);
             SwitchManager.getInstance().registerSwitch(CsjPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdServerRecordSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
+            SwitchManager.getInstance().registerSwitch(WeChatShareSmallAppToH5Switch.class);
+            SwitchManager.getInstance().registerSwitch(QqShareH5Switch.class);
         }
     }
 }

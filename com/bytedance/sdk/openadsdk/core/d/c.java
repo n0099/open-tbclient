@@ -43,16 +43,16 @@ public class c extends b {
     public void a(@NonNull Context context, m mVar, AdSlot adSlot, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, mVar, adSlot, str) == null) {
-            this.f29915a = new NativeExpressVideoView(context, mVar, adSlot, str);
+            this.f30011a = new NativeExpressVideoView(context, mVar, adSlot, str);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
+    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.r, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public com.bytedance.sdk.openadsdk.multipro.b.a getVideoModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NativeExpressView nativeExpressView = this.f29915a;
+            NativeExpressView nativeExpressView = this.f30011a;
             if (nativeExpressView != null) {
                 return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
             }
@@ -61,11 +61,11 @@ public class c extends b {
         return (com.bytedance.sdk.openadsdk.multipro.b.a) invokeV.objValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
+    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.r, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
         NativeExpressView nativeExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (nativeExpressView = this.f29915a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (nativeExpressView = this.f30011a) == null) {
             return;
         }
         nativeExpressView.setVideoAdListener(expressVideoAdListener);

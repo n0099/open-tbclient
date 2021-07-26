@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.n1.o.k.b;
+import d.a.q0.n1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -29,25 +29,25 @@ public class FocusListCard extends BaseCardInfo {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18188a;
+        public String f18244a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18189b;
+        public String f18245b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18190c;
+        public String f18246c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f18191d;
+        public int f18247d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18192e;
+        public int f18248e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18193f;
+        public String f18249f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f18194g;
+        public long f18250g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -96,18 +96,18 @@ public class FocusListCard extends BaseCardInfo {
                 a aVar = new a();
                 try {
                     if (optJSONArray.length() > 0) {
-                        aVar.f18188a = optJSONArray.getString(0);
+                        aVar.f18244a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f18189b = optJSONArray.getString(1);
+                        aVar.f18245b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f18190c = optJSONArray.getString(2);
+                        aVar.f18246c = optJSONArray.getString(2);
                     }
-                    aVar.f18191d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f18192e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f18193f = optJSONObject.optString("scheme");
-                    aVar.f18194g = optJSONObject.optLong("resourceId");
+                    aVar.f18247d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f18248e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f18249f = optJSONObject.optString("scheme");
+                    aVar.f18250g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

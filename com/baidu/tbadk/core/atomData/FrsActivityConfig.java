@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.b;
-import d.a.c.e.p.l;
-import d.a.o0.b.d;
-import d.a.o0.b.g.a;
-import d.a.o0.r.q.b2;
-import d.a.o0.z0.c0;
-import d.a.p0.u0.n2.k;
-import d.a.p0.w2.w;
+import d.a.d.e.m.b;
+import d.a.d.e.p.l;
+import d.a.p0.b.d;
+import d.a.p0.b.g.a;
+import d.a.p0.b1.c0;
+import d.a.p0.s.q.b2;
+import d.a.q0.u0.n2.k;
+import d.a.q0.w2.w;
 /* loaded from: classes3.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -51,6 +51,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final int FRS_CALL_FROM_PERSON_GUEST_SAME_FORUM = 8;
     public static final int FRS_CALL_FROM_PERSON_HOST = 7;
     public static final int FRS_CALL_FROM_PUSH = 13;
+    public static final int FRS_CALL_FROM_SEARCH_SUG = 16;
     public static final int FRS_CALL_FROM_SQUARE = 5;
     public static final int FRS_CALL_FROM_TAB_RECOMMEND = 11;
     public static final int FRS_CALL_FROM_URL_JUMP = 12;
@@ -70,6 +71,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_FROM_RECOMMEND = "dimension_door";
     public static final String FRS_FROM_RECOMMEND_BAR_CAR = "recommend_bar_card_forum";
     public static final String FRS_FROM_SEARCH = "tb_searchlist";
+    public static final String FRS_FROM_SEARCH_SUG = "frs_from_search_sug";
     public static final String FRS_FROM_SQUARE = "from_square";
     public static final String FRS_FROM_SQUARE_HOT = "from_square_hot";
     public static final String FRS_FROM_SQUARE_RECOMMEND = "from_square_recommend";
@@ -192,7 +194,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.x() && a.f51510c != a.d()) {
+            if (d.y() && a.f52014c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));
@@ -201,7 +203,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else {
                 frsRequestData.K(0);
             }
-            frsRequestData.w("forum_name", d.a.c.e.p.k.getUrlEncode(stringExtra));
+            frsRequestData.w("forum_name", d.a.d.e.p.k.getUrlEncode(stringExtra));
             frsRequestData.w("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
@@ -228,7 +230,7 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.I(longExtra);
             k.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (b2.B3.get() && w.o().b() != null) {
+            if (b2.H3.get() && w.o().b() != null) {
                 int d2 = w.o().b().d(stringExtra, false);
                 int e2 = w.o().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {

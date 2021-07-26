@@ -40,7 +40,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.mobsec.metasec.ml.b f68902a;
+        public com.bytedance.mobsec.metasec.ml.b f69356a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public final class c {
                     return;
                 }
             }
-            this.f68902a = null;
+            this.f69356a = null;
         }
 
         @Override // ms.bd.c.b.a
@@ -63,12 +63,12 @@ public final class c {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-                Context c2 = ms.bd.c.a.a().c();
-                if (this.f68902a == null) {
+                Context a2 = ms.bd.c.a.c().a();
+                if (this.f69356a == null) {
                     synchronized (this) {
-                        if (this.f68902a == null) {
-                            com.bytedance.mobsec.metasec.ml.b bVar = new com.bytedance.mobsec.metasec.ml.b(c2);
-                            this.f68902a = bVar;
+                        if (this.f69356a == null) {
+                            com.bytedance.mobsec.metasec.ml.b bVar = new com.bytedance.mobsec.metasec.ml.b(a2);
+                            this.f69356a = bVar;
                             bVar.a();
                         }
                     }
@@ -108,24 +108,24 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
                 try {
-                    defaultDisplay = ((WindowManager) ms.bd.c.a.a().c().getSystemService("window")).getDefaultDisplay();
+                    defaultDisplay = ((WindowManager) ms.bd.c.a.c().a().getSystemService("window")).getDefaultDisplay();
                     point = new Point();
                 } catch (Throwable unused) {
                 }
                 if (Build.VERSION.SDK_INT >= 17) {
                     defaultDisplay.getRealSize(point);
                 } else if (Build.VERSION.SDK_INT < 13) {
-                    p1.f73127a = defaultDisplay.getWidth();
+                    p1.f73581a = defaultDisplay.getWidth();
                     height = defaultDisplay.getHeight();
-                    p1.f73128b = height;
-                    return p1.f73127a + "*" + p1.f73128b;
+                    p1.f73582b = height;
+                    return p1.f73581a + "*" + p1.f73582b;
                 } else {
                     defaultDisplay.getSize(point);
                 }
-                p1.f73127a = point.x;
+                p1.f73581a = point.x;
                 height = point.y;
-                p1.f73128b = height;
-                return p1.f73127a + "*" + p1.f73128b;
+                p1.f73582b = height;
+                return p1.f73581a + "*" + p1.f73582b;
             }
             return invokeCommon.objValue;
         }
@@ -133,11 +133,11 @@ public final class c {
 
     /* renamed from: d.b.b.b.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1961c extends b.a {
+    public static class C1960c extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1961c() {
+        public C1960c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,10 +158,10 @@ public final class c {
             TelephonyManager telephonyManager;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-                Context c2 = ms.bd.c.a.a().c();
-                if (c0.b() == 1) {
+                Context a2 = ms.bd.c.a.c().a();
+                if (c0.a() == 1) {
                     try {
-                        telephonyManager = (TelephonyManager) c2.getSystemService("phone");
+                        telephonyManager = (TelephonyManager) a2.getSystemService("phone");
                     } catch (Throwable unused) {
                     }
                     if (telephonyManager != null) {
@@ -209,10 +209,10 @@ public final class c {
             Class<?> cls;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-                Context c2 = ms.bd.c.a.a().c();
-                if (c0.b() == 1) {
+                Context a2 = ms.bd.c.a.c().a();
+                if (c0.a() == 1) {
                     try {
-                        locationManager = (LocationManager) c2.getSystemService("location");
+                        locationManager = (LocationManager) a2.getSystemService("location");
                     } catch (Throwable unused) {
                     }
                     if (locationManager == null) {
@@ -269,7 +269,7 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
                 try {
-                    telephonyManager = (TelephonyManager) ms.bd.c.a.a().c().getSystemService("phone");
+                    telephonyManager = (TelephonyManager) ms.bd.c.a.c().a().getSystemService("phone");
                 } catch (Throwable unused) {
                     str2 = "";
                 }
@@ -312,7 +312,7 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
                 try {
-                    telephonyManager = (TelephonyManager) ms.bd.c.a.a().c().getSystemService("phone");
+                    telephonyManager = (TelephonyManager) ms.bd.c.a.c().a().getSystemService("phone");
                 } catch (Throwable unused) {
                     str2 = null;
                 }
@@ -351,7 +351,7 @@ public final class c {
         public Object b(int i2, long j, String str, Object obj) throws Throwable {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) ? o1.a() : invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) ? o1.c() : invokeCommon.objValue;
         }
     }
 
@@ -378,7 +378,7 @@ public final class c {
         public Object b(int i2, long j, String str, Object obj) throws Throwable {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) ? q1.a(ms.bd.c.a.a().c()) : invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) ? q1.a(ms.bd.c.a.c().a()) : invokeCommon.objValue;
         }
     }
 
@@ -412,7 +412,7 @@ public final class c {
                 String str4 = "0";
                 String str5 = StringUtil.NULL_STRING;
                 try {
-                    WifiInfo connectionInfo = ((WifiManager) ms.bd.c.a.a().c().getSystemService("wifi")).getConnectionInfo();
+                    WifiInfo connectionInfo = ((WifiManager) ms.bd.c.a.c().a().getSystemService("wifi")).getConnectionInfo();
                     Class<?> cls = connectionInfo.getClass();
                     Method declaredMethod = cls.getDeclaredMethod(new String(c0.b("6765744253534944")), new Class[0]);
                     declaredMethod.setAccessible(true);
@@ -499,13 +499,13 @@ public final class c {
             String string;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-                Context c2 = ms.bd.c.a.a().c();
-                if (c2 == null) {
+                Context a2 = ms.bd.c.a.c().a();
+                if (a2 == null) {
                     return null;
                 }
                 String str3 = "null_";
                 try {
-                    string = Settings.Secure.getString(c2.getContentResolver(), "default_input_method");
+                    string = Settings.Secure.getString(a2.getContentResolver(), "default_input_method");
                 } catch (Throwable th) {
                     try {
                         str2 = "null_" + th.getMessage();
@@ -522,7 +522,7 @@ public final class c {
                 }
                 StringBuilder sb = new StringBuilder(str3);
                 try {
-                    for (InputMethodInfo inputMethodInfo : ((InputMethodManager) c2.getSystemService("input_method")).getInputMethodList()) {
+                    for (InputMethodInfo inputMethodInfo : ((InputMethodManager) a2.getSystemService("input_method")).getInputMethodList()) {
                         String packageName = inputMethodInfo.getPackageName();
                         if (!TextUtils.isEmpty(packageName) && sb.indexOf(packageName) < 0) {
                             sb.append("[<!>]");
@@ -541,7 +541,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             ms.bd.c.b.a((int) RouterCallback.CODE_ERROR, new b());
-            ms.bd.c.b.a((int) RouterCallback.CODE_NOT_FOUND, new C1961c());
+            ms.bd.c.b.a((int) RouterCallback.CODE_NOT_FOUND, new C1960c());
             ms.bd.c.b.a((int) RouterCallback.CODE_INVALID, new d());
             ms.bd.c.b.a((int) RouterCallback.CODE_ROUTER_NOT_REGISTER, new e());
             ms.bd.c.b.a((int) RouterCallback.CODE_NOT_IMPLEMENT, new f());

@@ -24,19 +24,19 @@ public class ShutDownValidateTipView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17867e;
+    public TextView f17923e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17868f;
+    public ImageView f17924f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17869g;
+    public TextView f17925g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17870h;
+    public TextView f17926h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f17871i;
+    public boolean f17927i;
     public ArrayList<c> j;
 
     /* loaded from: classes4.dex */
@@ -45,7 +45,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ShutDownValidateTipView f17872a;
+        public final /* synthetic */ ShutDownValidateTipView f17928a;
 
         public a(ShutDownValidateTipView shutDownValidateTipView) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                     return;
                 }
             }
-            this.f17872a = shutDownValidateTipView;
+            this.f17928a = shutDownValidateTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -93,7 +93,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ShutDownValidateTipView f17873a;
+        public final /* synthetic */ ShutDownValidateTipView f17929a;
 
         public b(ShutDownValidateTipView shutDownValidateTipView) {
             Interceptable interceptable = $ic;
@@ -110,14 +110,14 @@ public class ShutDownValidateTipView extends FrameLayout {
                     return;
                 }
             }
-            this.f17873a = shutDownValidateTipView;
+            this.f17929a = shutDownValidateTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f17873a.setVisibility(8);
+                this.f17929a.setVisibility(8);
             }
         }
 
@@ -168,27 +168,27 @@ public class ShutDownValidateTipView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-            this.f17868f = (ImageView) findViewById(R.id.no_network_icon);
-            this.f17869g = (TextView) findViewById(R.id.no_network_guide1);
-            this.f17870h = (TextView) findViewById(R.id.no_network_guide2);
-            this.f17867e = (TextView) findViewById(R.id.no_network_showmore);
+            this.f17924f = (ImageView) findViewById(R.id.no_network_icon);
+            this.f17925g = (TextView) findViewById(R.id.no_network_guide1);
+            this.f17926h = (TextView) findViewById(R.id.no_network_guide2);
+            this.f17923e = (TextView) findViewById(R.id.no_network_showmore);
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setImageResource(this.f17868f, R.drawable.icon_error);
+            SkinManager.setImageResource(this.f17924f, R.drawable.icon_error);
             SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
             if (i2 != 1 && i2 != 4) {
-                this.f17869g.setTextColor(-14277082);
-                this.f17870h.setTextColor(-5065030);
-                this.f17867e.setTextColor(-14277082);
+                this.f17925g.setTextColor(-14277082);
+                this.f17926h.setTextColor(-5065030);
+                this.f17923e.setTextColor(-14277082);
                 return;
             }
-            this.f17869g.setTextColor(-10523526);
-            this.f17870h.setTextColor(-8682095);
-            this.f17867e.setTextColor(-10523526);
+            this.f17925g.setTextColor(-10523526);
+            this.f17926h.setTextColor(-8682095);
+            this.f17923e.setTextColor(-10523526);
         }
     }
 
@@ -212,7 +212,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (textView = this.f17867e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (textView = this.f17923e) == null) {
             return;
         }
         textView.setOnClickListener(onClickListener);
@@ -220,10 +220,10 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void setVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || z == this.f17871i) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || z == this.f17927i) {
             return;
         }
-        this.f17871i = z;
+        this.f17927i = z;
         if (z) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setFillAfter(true);

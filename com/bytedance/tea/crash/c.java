@@ -15,31 +15,31 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f32378a;
+    public static final c f32565a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f32379b;
+    public static final c f32566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f32380c;
+    public static final c f32567c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f32381d;
+    public static final c f32568d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f32382e;
+    public static final c f32569e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f32383f;
+    public static final c f32570f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c f32384g;
+    public static final c f32571g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f32385h;
+    public static final c f32572h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final c f32386i;
+    public static final c f32573i;
     public static final /* synthetic */ c[] k;
     public transient /* synthetic */ FieldHolder $fh;
     public String j;
@@ -57,17 +57,17 @@ public final class c {
                 return;
             }
         }
-        f32378a = new c("LAUNCH", 0, "launch");
-        f32379b = new c(Constant.TYPE_JAVA, 1, "java");
-        f32380c = new c(Constant.TYPE_NATIVE, 2, "native");
-        f32381d = new c("ANR", 3, "anr");
-        f32382e = new c("BLOCK", 4, BreakpointSQLiteHelper.BLOCK_TABLE_NAME);
-        f32383f = new c("ENSURE", 5, "ensure");
-        f32384g = new c("DART", 6, "dart");
-        f32385h = new c("CUSTOM_JAVA", 7, "custom_java");
+        f32565a = new c("LAUNCH", 0, "launch");
+        f32566b = new c(Constant.TYPE_JAVA, 1, "java");
+        f32567c = new c(Constant.TYPE_NATIVE, 2, "native");
+        f32568d = new c("ANR", 3, "anr");
+        f32569e = new c("BLOCK", 4, BreakpointSQLiteHelper.BLOCK_TABLE_NAME);
+        f32570f = new c("ENSURE", 5, "ensure");
+        f32571g = new c("DART", 6, "dart");
+        f32572h = new c("CUSTOM_JAVA", 7, "custom_java");
         c cVar = new c("ALL", 8, "all");
-        f32386i = cVar;
-        k = new c[]{f32378a, f32379b, f32380c, f32381d, f32382e, f32383f, f32384g, f32385h, cVar};
+        f32573i = cVar;
+        k = new c[]{f32565a, f32566b, f32567c, f32568d, f32569e, f32570f, f32571g, f32572h, cVar};
     }
 
     public c(String str, int i2, String str2) {

@@ -14,7 +14,7 @@ public class p implements s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long[] f71981a;
+    public final long[] f72435a;
 
     public p(String str) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class p implements s {
                 return;
             }
         }
-        this.f71981a = b(str);
+        this.f72435a = b(str);
     }
 
     @Override // d.l.a.e.b.g.s
@@ -39,7 +39,7 @@ public class p implements s {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            long[] jArr = this.f71981a;
+            long[] jArr = this.f72435a;
             if (jArr == null || jArr.length <= 0) {
                 return 0L;
             }
@@ -47,11 +47,11 @@ public class p implements s {
             if (i4 < 0) {
                 i4 = 0;
             }
-            long[] jArr2 = this.f71981a;
+            long[] jArr2 = this.f72435a;
             if (i4 > jArr2.length - 1) {
                 i4 = jArr2.length - 1;
             }
-            return this.f71981a[i4];
+            return this.f72435a[i4];
         }
         return invokeII.longValue;
     }

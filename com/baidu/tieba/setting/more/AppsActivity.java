@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.h;
+import d.a.d.e.m.h;
 /* loaded from: classes4.dex */
 public class AppsActivity extends BaseActivity<AppsActivity> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,7 +45,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f20775e;
+        public final /* synthetic */ AppsActivity f20893e;
 
         public a(AppsActivity appsActivity) {
             Interceptable interceptable = $ic;
@@ -62,14 +62,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f20775e = appsActivity;
+            this.f20893e = appsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20775e.refresh();
+                this.f20893e.refresh();
             }
         }
     }
@@ -80,7 +80,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f20776e;
+        public final /* synthetic */ AppsActivity f20894e;
 
         public b(AppsActivity appsActivity) {
             Interceptable interceptable = $ic;
@@ -97,14 +97,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f20776e = appsActivity;
+            this.f20894e = appsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20776e.refresh();
+                this.f20894e.refresh();
             }
         }
     }
@@ -115,7 +115,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f20777e;
+        public final /* synthetic */ AppsActivity f20895e;
 
         public c(AppsActivity appsActivity) {
             Interceptable interceptable = $ic;
@@ -132,14 +132,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f20777e = appsActivity;
+            this.f20895e = appsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20777e.finish();
+                this.f20895e.finish();
             }
         }
     }
@@ -150,13 +150,13 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20778a;
+        public NetWork f20896a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20779b;
+        public String f20897b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f20780c;
+        public final /* synthetic */ AppsActivity f20898c;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -164,7 +164,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f20781e;
+            public final /* synthetic */ String f20899e;
 
             public a(d dVar, String str) {
                 Interceptable interceptable = $ic;
@@ -181,14 +181,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                         return;
                     }
                 }
-                this.f20781e = str;
+                this.f20899e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    TbadkCoreApplication.getInst().cashNoAccountData(this.f20781e, 7);
+                    TbadkCoreApplication.getInst().cashNoAccountData(this.f20899e, 7);
                 }
             }
         }
@@ -208,22 +208,22 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f20780c = appsActivity;
-            this.f20778a = null;
-            this.f20779b = null;
-            this.f20779b = str;
+            this.f20898c = appsActivity;
+            this.f20896a = null;
+            this.f20897b = null;
+            this.f20897b = str;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetWork netWork = this.f20778a;
+                NetWork netWork = this.f20896a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f20780c.mProcess.setVisibility(8);
-                this.f20780c.mTask = null;
+                this.f20898c.mProcess.setVisibility(8);
+                this.f20898c.mTask = null;
                 super.cancel(true);
             }
         }
@@ -232,9 +232,9 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f20780c.mProcess.setVisibility(0);
-                this.f20780c.mFailView.setVisibility(8);
-                this.f20780c.mWebView.setVisibility(0);
+                this.f20898c.mProcess.setVisibility(0);
+                this.f20898c.mFailView.setVisibility(8);
+                this.f20898c.mWebView.setVisibility(0);
             }
         }
 
@@ -244,15 +244,15 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr)) == null) {
-                String str = this.f20779b;
+                String str = this.f20897b;
                 if (str == null) {
                     return null;
                 }
                 NetWork netWork = new NetWork(str);
-                this.f20778a = netWork;
+                this.f20896a = netWork;
                 netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
-                this.f20778a.addPostData("client", "android");
-                return this.f20778a.postNetData();
+                this.f20896a.addPostData("client", "android");
+                return this.f20896a.postNetData();
             }
             return (String) invokeL.objValue;
         }
@@ -262,22 +262,22 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f20780c.mProcess.setVisibility(8);
-                NetWork netWork = this.f20778a;
+                this.f20898c.mProcess.setVisibility(8);
+                NetWork netWork = this.f20896a;
                 if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
-                    if (!this.f20780c.loadCacheData() && str == null) {
-                        this.f20780c.mWebView.setVisibility(8);
-                        this.f20780c.mFailView.setVisibility(0);
-                        AppsActivity appsActivity = this.f20780c;
+                    if (!this.f20898c.loadCacheData() && str == null) {
+                        this.f20898c.mWebView.setVisibility(8);
+                        this.f20898c.mFailView.setVisibility(0);
+                        AppsActivity appsActivity = this.f20898c;
                         appsActivity.showToast(appsActivity.getPageContext().getString(R.string.neterror));
                         return;
                     }
-                    this.f20780c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, this.f20780c.getPageContext().getString(R.string.server_404), SapiWebView.DATA_MIME_TYPE, "utf-8", "");
+                    this.f20898c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, this.f20898c.getPageContext().getString(R.string.server_404), SapiWebView.DATA_MIME_TYPE, "utf-8", "");
                     return;
                 }
                 h.a().b(new a(this, str));
-                d.a.o0.r.d0.b.j().w("app_inverval", System.currentTimeMillis());
-                this.f20780c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
+                d.a.p0.s.d0.b.j().w("app_inverval", System.currentTimeMillis());
+                this.f20898c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
             }
         }
     }
@@ -315,7 +315,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             } else {
                 this.mUrl = getIntent().getStringExtra("url");
             }
-            if (System.currentTimeMillis() - d.a.o0.r.d0.b.j().l("app_inverval", 0L) > 86400000) {
+            if (System.currentTimeMillis() - d.a.p0.s.d0.b.j().l("app_inverval", 0L) > 86400000) {
                 refresh();
             } else if (loadCacheData()) {
             } else {

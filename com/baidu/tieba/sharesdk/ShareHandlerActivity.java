@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
-import d.a.c.e.p.k;
-import d.a.p0.a3.d.a;
-import d.a.p0.a3.d.c;
-import d.a.p0.a3.d.d;
-import d.a.p0.a3.d.e;
-import d.a.p0.a3.d.f;
-import d.a.p0.a3.e.b;
+import d.a.d.e.p.k;
+import d.a.q0.a3.d.a;
+import d.a.q0.a3.d.c;
+import d.a.q0.a3.d.d;
+import d.a.q0.a3.d.e;
+import d.a.q0.a3.d.f;
+import d.a.q0.a3.e.b;
 /* loaded from: classes4.dex */
 public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShareCallback {
     public static /* synthetic */ Interceptable $ic = null;
@@ -154,7 +154,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
                 this.mShareByWeibo = eVar2;
                 this.mCurrentShare = eVar2;
             } else if (i2 == 8) {
-                this.mCurrentShare = new d.a.p0.a3.d.b(this);
+                this.mCurrentShare = new d.a.q0.a3.d.b(this);
             } else if (i2 == 2) {
                 this.mCurrentShare = new f(this, 2);
             } else if (i2 == 3) {
@@ -253,18 +253,18 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         }
     }
 
-    @Override // d.a.p0.a3.e.b
+    @Override // d.a.q0.a3.e.b
     public void onShare(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
             if (i3 == 1) {
-                d.a.p0.a3.f.b.b(i2, this.mShareEntity);
+                d.a.q0.a3.f.b.b(i2, this.mShareEntity);
             }
             if (i3 == 3) {
                 if (i2 != 8 && i2 != 6) {
-                    d.a.p0.a3.f.b.a(i2, this.mShareEntity);
+                    d.a.q0.a3.f.b.a(i2, this.mShareEntity);
                 } else {
-                    d.a.p0.a3.f.b.b(i2, this.mShareEntity);
+                    d.a.q0.a3.f.b.b(i2, this.mShareEntity);
                 }
             }
             if (this.mShareEntity.getStats() != null) {

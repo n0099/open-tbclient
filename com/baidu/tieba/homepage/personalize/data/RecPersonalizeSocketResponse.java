@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.e1.h.j.i;
+import d.a.q0.e1.h.j.i;
 import java.util.List;
 import tbclient.Error;
 import tbclient.Personalized.DataRes;
@@ -62,10 +62,10 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        i.f55635a = false;
+        i.f56179a = false;
         if (i.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
             this.resultData = i.b();
-            i.f55635a = true;
+            i.f56179a = true;
             i.a();
             return;
         }

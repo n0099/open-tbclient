@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
-import d.a.l0.a;
+import d.a.m0.a;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -110,7 +110,7 @@ public class OneKeyLoginSdkCall {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiConfiguration, tokenListener) == null) {
             try {
-                a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0618a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0627a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -135,7 +135,7 @@ public class OneKeyLoginSdkCall {
                         this.val$listener = tokenListener;
                     }
 
-                    @Override // d.a.l0.a.InterfaceC0618a
+                    @Override // d.a.m0.a.InterfaceC0627a
                     public void onFinish(String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -238,7 +238,7 @@ public class OneKeyLoginSdkCall {
     public void getToken(SapiConfiguration sapiConfiguration, TokenListener tokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, sapiConfiguration, tokenListener) == null) {
-            a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0618a(this, sapiConfiguration, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+            a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0627a(this, sapiConfiguration, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -265,7 +265,7 @@ public class OneKeyLoginSdkCall {
                     this.val$listener = tokenListener;
                 }
 
-                @Override // d.a.l0.a.InterfaceC0618a
+                @Override // d.a.m0.a.InterfaceC0627a
                 public void onFinish(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -421,7 +421,7 @@ public class OneKeyLoginSdkCall {
                     }
                     return;
                 }
-                a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0618a(this, str, SapiUtils.getNetworkClass(sapiConfiguration.context), oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0627a(this, str, SapiUtils.getNetworkClass(sapiConfiguration.context), oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -450,7 +450,7 @@ public class OneKeyLoginSdkCall {
                         this.val$callback = oneKeyLoginOptCallback;
                     }
 
-                    @Override // d.a.l0.a.InterfaceC0618a
+                    @Override // d.a.m0.a.InterfaceC0627a
                     public void onFinish(String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {

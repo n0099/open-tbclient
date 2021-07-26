@@ -21,14 +21,14 @@ public final class z0 implements v0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f68889b;
+    public static final String f69343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final j0<Boolean> f68890c;
+    public static final j0<Boolean> f69344c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VivoIdentifier f68891a;
+    public VivoIdentifier f69345a;
 
     /* loaded from: classes8.dex */
     public static class a extends j0<Boolean> {
@@ -55,7 +55,7 @@ public final class z0 implements v0 {
         public Boolean a(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) ? Boolean.valueOf("1".equals(z0.e(z0.f68889b, "0"))) : (Boolean) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) ? Boolean.valueOf("1".equals(z0.e(z0.f69343b, "0"))) : (Boolean) invokeL.objValue;
         }
     }
 
@@ -72,8 +72,8 @@ public final class z0 implements v0 {
                 return;
             }
         }
-        f68889b = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
-        f68890c = new a();
+        f69343b = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
+        f69344c = new a();
     }
 
     public z0(Context context) {
@@ -97,7 +97,7 @@ public final class z0 implements v0 {
         }
         try {
             VivoIdentifier vivoIdentifier = new VivoIdentifier();
-            this.f68891a = vivoIdentifier;
+            this.f69345a = vivoIdentifier;
             vivoIdentifier.preloadOaid(context);
         } catch (Throwable th) {
             o0.e("OaidVivo", Log.getStackTraceString(th));
@@ -107,7 +107,7 @@ public final class z0 implements v0 {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f68890c.b(new Object[0]).booleanValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f69344c.b(new Object[0]).booleanValue() : invokeV.booleanValue;
     }
 
     public static String e(String str, String str2) {
@@ -148,7 +148,7 @@ public final class z0 implements v0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            VivoIdentifier vivoIdentifier = this.f68891a;
+            VivoIdentifier vivoIdentifier = this.f69345a;
             if (vivoIdentifier == null) {
                 return null;
             }

@@ -33,7 +33,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73038d;
+        public Disposable f73492d;
         public final Action onFinally;
         public QueueDisposable<T> qd;
         public boolean syncFused;
@@ -69,7 +69,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f73038d.dispose();
+                this.f73492d.dispose();
                 runFinally();
             }
         }
@@ -78,7 +78,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73038d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73492d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -117,8 +117,8 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f73038d, disposable)) {
-                this.f73038d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f73492d, disposable)) {
+                this.f73492d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     this.qd = (QueueDisposable) disposable;
                 }

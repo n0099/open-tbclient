@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.g1;
+import d.a.p0.s.q.g1;
 /* loaded from: classes4.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;

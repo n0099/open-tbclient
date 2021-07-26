@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.k;
-import d.a.n0.o.a.d.f;
+import d.a.o0.a.k;
+import d.a.o0.o.a.d.f;
 /* loaded from: classes3.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -43,11 +43,11 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
                 return;
             }
         }
-        C = k.f45831a;
+        C = k.f46335a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, d.a.n0.a.z1.a.d.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
+    public PullToRefreshBaseWebView(Context context, d.a.o0.a.z1.a.d.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
         super(context, aVar, headertype);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +59,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (d.a.n0.a.z1.a.d.a) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
+                super((Context) objArr2[0], (d.a.o0.a.z1.a.d.a) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

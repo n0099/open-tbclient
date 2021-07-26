@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.o;
-import com.bytedance.sdk.openadsdk.r.p;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.q.r;
+import com.bytedance.sdk.openadsdk.q.s;
 import com.google.android.material.badge.BadgeDrawable;
 /* loaded from: classes5.dex */
 public class d extends FrameLayout {
@@ -30,31 +30,31 @@ public class d extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f29289a;
+    public final Context f29389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f29290b;
+    public c f29390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f29291c;
+    public c f29391c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f29292d;
+    public ImageView f29392d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f29293e;
+    public ImageView f29393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.ui.a f29294f;
+    public com.bytedance.sdk.openadsdk.dislike.ui.a f29394f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29295g;
+    public int f29395g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29296h;
+    public boolean f29396h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f29297i;
+    public boolean f29397i;
     public boolean j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,17 +75,17 @@ public class d extends FrameLayout {
                 return;
             }
         }
-        this.f29297i = false;
+        this.f29397i = false;
         this.j = false;
-        this.f29289a = context;
+        this.f29389a = context;
         g();
     }
 
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            c cVar = new c(this.f29289a);
-            this.f29290b = cVar;
+            c cVar = new c(this.f29389a);
+            this.f29390b = cVar;
             addView(cVar, new FrameLayout.LayoutParams(-1, -1));
             i();
             h();
@@ -98,16 +98,16 @@ public class d extends FrameLayout {
             return;
         }
         this.j = true;
-        ImageView imageView = new ImageView(this.f29289a);
-        this.f29292d = imageView;
-        imageView.setImageResource(r.d(o.a(), "tt_dislike_icon"));
-        this.f29292d.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f29292d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.a.d.1
+        ImageView imageView = new ImageView(this.f29389a);
+        this.f29392d = imageView;
+        imageView.setImageResource(t.d(o.a(), "tt_dislike_icon"));
+        this.f29392d.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f29392d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.a.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f29298a;
+            public final /* synthetic */ d f29398a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -124,51 +124,51 @@ public class d extends FrameLayout {
                         return;
                     }
                 }
-                this.f29298a = this;
+                this.f29398a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f29298a.f29294f == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f29398a.f29394f == null) {
                     return;
                 }
-                this.f29298a.f29294f.showDislikeDialog();
+                this.f29398a.f29394f.showDislikeDialog();
             }
         });
-        int b2 = (int) q.b(this.f29289a, 15.0f);
-        int b3 = (int) q.b(this.f29289a, 10.0f);
+        int b2 = (int) s.b(this.f29389a, 15.0f);
+        int b3 = (int) s.b(this.f29389a, 10.0f);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b2, b2);
         layoutParams.gravity = BadgeDrawable.TOP_END;
         layoutParams.topMargin = b3;
         layoutParams.rightMargin = b3;
-        addView(this.f29292d, layoutParams);
-        q.a(this.f29292d, b2, b2, b2, b2);
+        addView(this.f29392d, layoutParams);
+        s.a(this.f29392d, b2, b2, b2, b2);
     }
 
     private void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || this.f29297i) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || this.f29397i) {
             return;
         }
-        this.f29297i = true;
-        ImageView imageView = new ImageView(this.f29289a);
-        this.f29293e = imageView;
-        imageView.setImageResource(r.d(o.a(), "tt_ad_logo_small"));
-        this.f29293e.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f29397i = true;
+        ImageView imageView = new ImageView(this.f29389a);
+        this.f29393e = imageView;
+        imageView.setImageResource(t.d(o.a(), "tt_ad_logo_new"));
+        this.f29393e.setScaleType(ImageView.ScaleType.FIT_XY);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(20, 20);
         layoutParams.gravity = BadgeDrawable.BOTTOM_END;
-        addView(this.f29293e, layoutParams);
+        addView(this.f29393e, layoutParams);
     }
 
     private void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            ImageView imageView = this.f29293e;
+            ImageView imageView = this.f29393e;
             if (imageView != null) {
                 bringChildToFront(imageView);
             }
-            ImageView imageView2 = this.f29292d;
+            ImageView imageView2 = this.f29392d;
             if (imageView2 != null) {
                 bringChildToFront(imageView2);
             }
@@ -179,9 +179,9 @@ public class d extends FrameLayout {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            c cVar = this.f29290b;
-            this.f29290b = this.f29291c;
-            this.f29291c = cVar;
+            c cVar = this.f29390b;
+            this.f29390b = this.f29391c;
+            this.f29391c = cVar;
             cVar.b();
         }
     }
@@ -198,32 +198,32 @@ public class d extends FrameLayout {
     public c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29291c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29391c : (c) invokeV.objValue;
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29292d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29392d : (View) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f29296h) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f29396h) {
             return;
         }
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(a(this.f29290b)).with(b(this.f29291c));
-        animatorSet.setDuration(this.f29295g).start();
-        this.f29291c.setVisibility(0);
-        this.f29296h = true;
+        animatorSet.play(a(this.f29390b)).with(b(this.f29391c));
+        animatorSet.setDuration(this.f29395g).start();
+        this.f29391c.setVisibility(0);
+        this.f29396h = true;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            c cVar = this.f29291c;
+            c cVar = this.f29391c;
             return (cVar == null || cVar.a() == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -234,7 +234,7 @@ public class d extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDetachedFromWindow();
-            this.f29297i = false;
+            this.f29397i = false;
             this.j = false;
         }
     }
@@ -242,7 +242,7 @@ public class d extends FrameLayout {
     public c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29290b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29390b : (c) invokeV.objValue;
     }
 
     private ObjectAnimator b(c cVar) {
@@ -255,10 +255,10 @@ public class d extends FrameLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f29299a;
+                public final /* synthetic */ c f29399a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f29300b;
+                public final /* synthetic */ d f29400b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -275,8 +275,8 @@ public class d extends FrameLayout {
                             return;
                         }
                     }
-                    this.f29300b = this;
-                    this.f29299a = cVar;
+                    this.f29400b = this;
+                    this.f29399a = cVar;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -290,13 +290,13 @@ public class d extends FrameLayout {
                 public void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                        this.f29300b.f29296h = false;
-                        this.f29300b.k();
-                        c cVar2 = this.f29299a;
+                        this.f29400b.f29396h = false;
+                        this.f29400b.k();
+                        c cVar2 = this.f29399a;
                         if (cVar2 != null) {
-                            this.f29300b.a(cVar2.a());
+                            this.f29400b.a(cVar2.a());
                         }
-                        j.b("TTBannerAd", "SLIDE END");
+                        k.b("TTBannerAd", "SLIDE END");
                     }
                 }
 
@@ -311,7 +311,7 @@ public class d extends FrameLayout {
                 public void onAnimationStart(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, animator) == null) {
-                        j.b("TTBannerAd", "SLIDE START");
+                        k.b("TTBannerAd", "SLIDE START");
                     }
                 }
             });
@@ -332,10 +332,10 @@ public class d extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c cVar = new c(this.f29289a);
-            this.f29291c = cVar;
+            c cVar = new c(this.f29389a);
+            this.f29391c = cVar;
             cVar.setVisibility(8);
-            addView(this.f29291c, new FrameLayout.LayoutParams(-1, -1));
+            addView(this.f29391c, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -351,7 +351,7 @@ public class d extends FrameLayout {
     public void a(com.bytedance.sdk.openadsdk.dislike.ui.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f29294f = aVar;
+            this.f29394f = aVar;
         }
     }
 
@@ -367,7 +367,7 @@ public class d extends FrameLayout {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f29295g = i2;
+            this.f29395g = i2;
         }
     }
 
@@ -390,7 +390,7 @@ public class d extends FrameLayout {
     public void a(m mVar) {
         com.bytedance.sdk.openadsdk.dislike.ui.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mVar) == null) || (aVar = this.f29294f) == null || mVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mVar) == null) || (aVar = this.f29394f) == null || mVar == null) {
             return;
         }
         aVar.a(mVar.aG());
@@ -399,7 +399,7 @@ public class d extends FrameLayout {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            p.a(this.f29293e, str);
+            r.a(this.f29393e, str);
         }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.l.f;
+import d.a.p0.s.l.f;
 /* loaded from: classes4.dex */
 public class UtilitySettings implements TiebaUtilitySettingsAuto.HostUtilitySettings {
     public static /* synthetic */ Interceptable $ic;

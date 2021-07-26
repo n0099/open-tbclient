@@ -15,13 +15,13 @@ public class DnsProxyResponseData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<HashMap<String, List<DnsProxyIpData>>> f14574e;
+    public List<HashMap<String, List<DnsProxyIpData>>> f14622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14575f;
+    public int f14623f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14576g;
+    public String f14624g;
 
     /* loaded from: classes4.dex */
     public static class DnsProxyIpData extends OrmObject {
@@ -29,7 +29,7 @@ public class DnsProxyResponseData extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f14577e;
+        public String f14625e;
 
         public DnsProxyIpData() {
             Interceptable interceptable = $ic;
@@ -48,13 +48,13 @@ public class DnsProxyResponseData extends OrmObject {
         public String getIp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14577e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14625e : (String) invokeV.objValue;
         }
 
         public void setIp(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f14577e = str;
+                this.f14625e = str;
             }
         }
     }
@@ -76,18 +76,18 @@ public class DnsProxyResponseData extends OrmObject {
     public List<HashMap<String, List<DnsProxyIpData>>> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14574e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14622e : (List) invokeV.objValue;
     }
 
     public String getErrmsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14576g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14624g : (String) invokeV.objValue;
     }
 
     public int getErrno() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14575f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14623f : invokeV.intValue;
     }
 }

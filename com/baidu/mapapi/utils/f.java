@@ -11,10 +11,10 @@ public final class f implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f7511a;
+    public final /* synthetic */ Context f7537a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f7512b;
+    public final /* synthetic */ int f7538b;
 
     public f(Context context, int i2) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class f implements Runnable {
                 return;
             }
         }
-        this.f7511a = context;
-        this.f7512b = i2;
+        this.f7537a = context;
+        this.f7538b = i2;
     }
 
     @Override // java.lang.Runnable
@@ -43,8 +43,8 @@ public final class f implements Runnable {
             long currentTimeMillis = System.currentTimeMillis();
             do {
                 if (System.currentTimeMillis() - currentTimeMillis > 3000) {
-                    b.a(this.f7511a);
-                    b.a(this.f7512b, this.f7511a);
+                    b.a(this.f7537a);
+                    b.a(this.f7538b, this.f7537a);
                 }
                 thread = b.v;
             } while (!thread.isInterrupted());

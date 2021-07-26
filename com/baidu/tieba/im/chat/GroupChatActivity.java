@@ -28,10 +28,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.o0.z0.f0;
-import d.a.o0.z0.i0;
-import d.a.o0.z0.n;
+import d.a.d.e.p.k;
+import d.a.p0.b1.f0;
+import d.a.p0.b1.i0;
+import d.a.p0.b1.n;
 /* loaded from: classes4.dex */
 public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -43,10 +43,10 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f17291a;
+        public final /* synthetic */ GroupData f17347a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f17292b;
+        public final /* synthetic */ GroupChatActivity f17348b;
 
         public a(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -63,17 +63,17 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f17292b = groupChatActivity;
-            this.f17291a = groupData;
+            this.f17348b = groupChatActivity;
+            this.f17347a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.a.o0.z0.f0
+        @Override // d.a.p0.b1.f0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.p0.i1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17291a.getGroupId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.q0.i1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17347a.getGroupId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -83,10 +83,10 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f17293a;
+        public final /* synthetic */ GroupData f17349a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f17294b;
+        public final /* synthetic */ GroupChatActivity f17350b;
 
         public b(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -103,12 +103,12 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f17294b = groupChatActivity;
-            this.f17293a = groupData;
+            this.f17350b = groupChatActivity;
+            this.f17349a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.o0.z0.n
+        @Override // d.a.p0.b1.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             GroupData groupData;
@@ -117,18 +117,18 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 return;
             }
             if (bool.booleanValue()) {
-                this.f17294b.mListView.closeNotNotify();
+                this.f17350b.mListView.closeNotNotify();
             } else {
-                this.f17294b.mListView.showNotNotfiy();
+                this.f17350b.mListView.showNotNotfiy();
             }
-            if (this.f17294b.mListModel == null || (groupData = this.f17293a) == null) {
+            if (this.f17350b.mListModel == null || (groupData = this.f17349a) == null) {
                 return;
             }
             String name = groupData.getName();
             if (TextUtils.isEmpty(name)) {
                 return;
             }
-            this.f17294b.mListView.refreshHeaderFooter(name, true);
+            this.f17350b.mListView.refreshHeaderFooter(name, true);
         }
     }
 
@@ -138,7 +138,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f17295a;
+        public final /* synthetic */ GroupChatActivity f17351a;
 
         public c(GroupChatActivity groupChatActivity) {
             Interceptable interceptable = $ic;
@@ -155,7 +155,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f17295a = groupChatActivity;
+            this.f17351a = groupChatActivity;
         }
 
         @Override // com.baidu.tieba.im.chat.AbsMsglistView.f
@@ -171,7 +171,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceData$VoiceModel) == null) || voiceData$VoiceModel == null) {
                 return;
             }
-            this.f17295a.mListModel.sendMsgVoice(voiceData$VoiceModel.voiceId, voiceData$VoiceModel.duration);
+            this.f17351a.mListModel.sendMsgVoice(voiceData$VoiceModel.voiceId, voiceData$VoiceModel.duration);
         }
     }
 
@@ -226,7 +226,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean first(d.a.p0.i1.f.c cVar) {
+    public boolean first(d.a.q0.i1.f.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
@@ -314,7 +314,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.TalkableActivity, d.a.c.e.h.b
+    @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.TalkableActivity, d.a.d.e.h.b
     public void onItemViewLongClick(View view, int i2, int i3, long j) {
         ChatMessage msg;
         Interceptable interceptable = $ic;
@@ -327,7 +327,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.a.o0.b1.m.h
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.a.p0.d1.m.h
     public void onLinkButtonClicked(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
@@ -371,7 +371,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             super.onResume();
             ChatStatusManager.getInst().setIsOpen(2, true);
             String curId = ChatStatusManager.getInst().getCurId(2);
-            d.a.o0.s.d.b.g0().d(curId);
+            d.a.p0.t.d.b.g0().d(curId);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 1)));
         }
     }

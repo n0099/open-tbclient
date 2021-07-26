@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.i1.w.b;
+import d.a.q0.i1.w.b;
 import protobuf.CommitGroupMsg.CommitGroupMsgResIdl;
 /* loaded from: classes4.dex */
 public class ResponseCommitGroupMessage extends ResponseCommitMessage {

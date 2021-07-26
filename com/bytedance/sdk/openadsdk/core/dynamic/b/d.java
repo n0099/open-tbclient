@@ -20,31 +20,31 @@ public class d {
     public boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f29950a;
+    public float f30048a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f29951b;
+    public float f30049b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f29952c;
+    public float f30050c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f29953d;
+    public float f30051d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f29954e;
+    public float f30052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f29955f;
+    public float f30053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f29956g;
+    public float f30054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f29957h;
+    public float f30055h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f29958i;
+    public float f30056i;
     public float j;
     public int k;
     public int l;
@@ -80,61 +80,61 @@ public class d {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29950a : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30048a : invokeV.floatValue;
     }
 
     public float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29951b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30049b : invokeV.floatValue;
     }
 
     public void c(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.f29952c = f2;
+            this.f30050c = f2;
         }
     }
 
     public void d(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            this.f29953d = f2;
+            this.f30051d = f2;
         }
     }
 
     public void e(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f29954e = f2;
+            this.f30052e = f2;
         }
     }
 
     public void f(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
-            this.f29955f = f2;
+            this.f30053f = f2;
         }
     }
 
     public void g(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048598, this, f2) == null) {
-            this.f29956g = f2;
+            this.f30054g = f2;
         }
     }
 
     public void h(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
-            this.f29957h = f2;
+            this.f30055h = f2;
         }
     }
 
     public void i(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048604, this, f2) == null) {
-            this.f29958i = f2;
+            this.f30056i = f2;
         }
     }
 
@@ -179,39 +179,39 @@ public class d {
     public void a(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f29950a = f2;
+            this.f30048a = f2;
         }
     }
 
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.f29951b = f2;
+            this.f30049b = f2;
         }
     }
 
     public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29955f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30053f : invokeV.floatValue;
     }
 
     public float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f29956g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f30054g : invokeV.floatValue;
     }
 
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f29957h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f30055h : invokeV.floatValue;
     }
 
     public float f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f29958i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f30056i : invokeV.floatValue;
     }
 
     public float g() {

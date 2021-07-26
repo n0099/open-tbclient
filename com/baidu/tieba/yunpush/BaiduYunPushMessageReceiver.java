@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.d0.b;
+import d.a.p0.s.d0.b;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
@@ -92,7 +92,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     str4 = jSONObject3.getString("task_id");
                 }
             }
-            int d2 = d.a.c.e.m.b.d(str4, 2500);
+            int d2 = d.a.d.e.m.b.d(str4, 2500);
             if (d2 < 2500) {
                 d2 += 2500;
             }

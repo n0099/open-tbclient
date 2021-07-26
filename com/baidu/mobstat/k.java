@@ -19,26 +19,26 @@ public abstract class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final k f8990a;
+    public static final k f9016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k f8991b;
+    public static final k f9017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f8992c;
+    public static final k f9018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final k f8993d;
+    public static final k f9019d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final k f8994e;
+    public static final k f9020e;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ k[] f8995g;
+    public static final /* synthetic */ k[] f9021g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8996f;
+    public int f9022f;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public abstract class k {
                 return;
             }
         }
-        f8990a = new k("AP_LIST", 0, 0) { // from class: com.baidu.mobstat.k.1
+        f9016a = new k("AP_LIST", 0, 0) { // from class: com.baidu.mobstat.k.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,7 +85,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new n() : (j) invokeV.objValue;
             }
         };
-        f8991b = new k("APP_LIST", 1, 1) { // from class: com.baidu.mobstat.k.2
+        f9017b = new k("APP_LIST", 1, 1) { // from class: com.baidu.mobstat.k.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +117,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new q() : (j) invokeV.objValue;
             }
         };
-        f8992c = new k("APP_TRACE", 2, 2) { // from class: com.baidu.mobstat.k.3
+        f9018c = new k("APP_TRACE", 2, 2) { // from class: com.baidu.mobstat.k.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -149,7 +149,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new r() : (j) invokeV.objValue;
             }
         };
-        f8993d = new k("APP_CHANGE", 3, 3) { // from class: com.baidu.mobstat.k.4
+        f9019d = new k("APP_CHANGE", 3, 3) { // from class: com.baidu.mobstat.k.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,8 +213,8 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new o() : (j) invokeV.objValue;
             }
         };
-        f8994e = kVar;
-        f8995g = new k[]{f8990a, f8991b, f8992c, f8993d, kVar};
+        f9020e = kVar;
+        f9021g = new k[]{f9016a, f9017b, f9018c, f9019d, kVar};
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -263,7 +263,7 @@ public abstract class k {
     public static k[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (k[]) f8995g.clone() : (k[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (k[]) f9021g.clone() : (k[]) invokeV.objValue;
     }
 
     public abstract j a();
@@ -324,7 +324,7 @@ public abstract class k {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.valueOf(this.f8996f) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.valueOf(this.f9022f) : (String) invokeV.objValue;
     }
 
     public k(String str, int i2, int i3) {
@@ -345,7 +345,7 @@ public abstract class k {
                 return;
             }
         }
-        this.f8996f = i3;
+        this.f9022f = i3;
     }
 
     public synchronized boolean b(int i2) {

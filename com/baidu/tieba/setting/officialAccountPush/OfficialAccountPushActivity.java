@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.j;
-import d.a.c.e.p.l;
-import d.a.p0.z2.d.a;
+import d.a.d.e.p.j;
+import d.a.d.e.p.l;
+import d.a.q0.z2.d.a;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.b {

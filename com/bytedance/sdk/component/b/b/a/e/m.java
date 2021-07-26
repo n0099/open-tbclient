@@ -12,7 +12,7 @@ import java.util.List;
 public interface m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final m f28436a = new m() { // from class: com.bytedance.sdk.component.b.b.a.e.m.1
+    public static final m f28530a = new m() { // from class: com.bytedance.sdk.component.b.b.a.e.m.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

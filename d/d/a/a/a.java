@@ -23,25 +23,25 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f69103d;
+    public static Context f69557d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.d.a.a.b.a f69104a;
+    public d.d.a.a.b.a f69558a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69105b;
+    public boolean f69559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f69106c;
+    public c f69560c;
 
     /* renamed from: d.d.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1968a {
+    public static class C1967a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f69107a;
+        public static a f69561a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -57,7 +57,7 @@ public final class a {
                     return;
                 }
             }
-            f69107a = new a(null);
+            f69561a = new a(null);
         }
     }
 
@@ -75,10 +75,10 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f69103d == null && context != null) {
-                f69103d = context.getApplicationContext();
+            if (f69557d == null && context != null) {
+                f69557d = context.getApplicationContext();
             }
-            return f69103d != null;
+            return f69557d != null;
         }
         return invokeL.booleanValue;
     }
@@ -86,13 +86,13 @@ public final class a {
     public static Context c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f69103d : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f69557d : (Context) invokeV.objValue;
     }
 
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C1968a.f69107a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C1967a.f69561a : (a) invokeV.objValue;
     }
 
     public static void g(Context context, d.d.a.a.b.a aVar) {
@@ -103,12 +103,12 @@ public final class a {
                 return;
             }
             a e2 = e();
-            e2.f69104a = aVar;
+            e2.f69558a = aVar;
             try {
-                if (e2.f69105b) {
+                if (e2.f69559b) {
                     return;
                 }
-                e2.f69105b = true;
+                e2.f69559b = true;
                 i.a().e();
                 d.h().i("normal_log");
             } catch (Exception e3) {
@@ -266,7 +266,7 @@ public final class a {
     public static void x(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, null, cVar) == null) {
-            e().f69106c = cVar;
+            e().f69560c = cVar;
         }
     }
 
@@ -274,7 +274,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d.d.a.a.b.a aVar = this.f69104a;
+            d.d.a.a.b.a aVar = this.f69558a;
             if (aVar != null) {
                 return aVar.isDisabled();
             }
@@ -286,13 +286,13 @@ public final class a {
     public c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69106c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69560c : (c) invokeV.objValue;
     }
 
     public d.d.a.a.b.a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69104a : (d.d.a.a.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69558a : (d.d.a.a.b.a) invokeV.objValue;
     }
 
     public a() {

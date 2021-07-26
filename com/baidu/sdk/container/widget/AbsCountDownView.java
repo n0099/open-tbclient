@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.a.l.c;
+import d.a.i0.a.l.c;
 import java.util.concurrent.TimeUnit;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
@@ -20,21 +20,21 @@ public abstract class AbsCountDownView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f10160e;
+    public long f10186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f10161f;
+    public b f10187f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.h0.a.l.b f10162g;
+    public d.a.i0.a.l.b f10188g;
 
     /* loaded from: classes2.dex */
-    public class a extends d.a.h0.a.l.b {
+    public class a extends d.a.i0.a.l.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AbsCountDownView f10163g;
+        public final /* synthetic */ AbsCountDownView f10189g;
 
         public a(AbsCountDownView absCountDownView) {
             Interceptable interceptable = $ic;
@@ -51,15 +51,15 @@ public abstract class AbsCountDownView extends TextView {
                     return;
                 }
             }
-            this.f10163g = absCountDownView;
+            this.f10189g = absCountDownView;
         }
 
-        @Override // d.a.h0.a.l.b
+        @Override // d.a.i0.a.l.b
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f10163g.d();
+                this.f10189g.d();
                 return null;
             }
             return invokeV.objValue;
@@ -97,8 +97,8 @@ public abstract class AbsCountDownView extends TextView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f10162g = new a(this);
-            c.a().d(this.f10162g, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+            this.f10188g = new a(this);
+            c.a().d(this.f10188g, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
         }
     }
 
@@ -111,13 +111,13 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void c() {
-        d.a.h0.a.l.b bVar;
+        d.a.i0.a.l.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f10162g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f10188g) == null) {
             return;
         }
         bVar.cancel();
-        this.f10162g = null;
+        this.f10188g = null;
     }
 
     public abstract void d();
@@ -132,7 +132,7 @@ public abstract class AbsCountDownView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j = this.f10160e;
+            long j = this.f10186e;
             if (j == 0) {
                 return 100L;
             }
@@ -144,14 +144,14 @@ public abstract class AbsCountDownView extends TextView {
     public void setCountdownProgressListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f10161f = bVar;
+            this.f10187f = bVar;
         }
     }
 
     public void setTaskPeriod(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.f10160e = j;
+            this.f10186e = j;
         }
     }
 

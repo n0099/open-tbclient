@@ -20,7 +20,7 @@ public class HomeRecommendItemView extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25047a;
+    public NetImageView f25205a;
     public MaskTextView mDesc_1;
     public MaskTextView mDesc_2;
     public MaskTextView mRmdText;
@@ -56,7 +56,7 @@ public class HomeRecommendItemView extends BaseItemView {
             this.mTitle = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_rmd_title"));
             this.mDesc_1 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_rmd_title_des_1"));
             this.mDesc_2 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_rmd_title_des_2"));
-            this.f25047a = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+            this.f25205a = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
         }
     }
 
@@ -117,10 +117,10 @@ public class HomeRecommendItemView extends BaseItemView {
         }
         if (!handlePoint() && hasCornor()) {
             setIconUrl(getData().corner_addr);
-            this.f25047a.setVisibility(0);
+            this.f25205a.setVisibility(0);
             return;
         }
-        this.f25047a.setVisibility(8);
+        this.f25205a.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -171,10 +171,10 @@ public class HomeRecommendItemView extends BaseItemView {
 
     public void setIconUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || this.f25047a == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || this.f25205a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        NetImageView netImageView = this.f25047a;
+        NetImageView netImageView = this.f25205a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + str);
     }
 

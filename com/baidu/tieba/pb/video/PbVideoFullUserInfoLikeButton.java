@@ -38,7 +38,7 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (this.f12758g) {
+            if (this.f12807g) {
                 SkinManager.setBackgroundResource(this, R.drawable.haslike_grey_bg);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0110);
                 return;

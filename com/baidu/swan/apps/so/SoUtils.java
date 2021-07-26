@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.h2.c;
-import d.a.n0.a.k;
+import d.a.o0.a.h2.c;
+import d.a.o0.a.k;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,7 +58,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = k.f45831a;
+        DEBUG = k.f46335a;
         sUbcImpl = new c();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
@@ -188,6 +188,6 @@ public final class SoUtils {
         if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        onEvent(SO_EVENT_ID_DEFAULT, str);
+        onEvent("24", str);
     }
 }

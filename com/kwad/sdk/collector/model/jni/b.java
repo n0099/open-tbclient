@@ -21,7 +21,7 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f34076a;
+    public static SimpleDateFormat f34265a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
                 return;
             }
         }
-        f34076a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
+        f34265a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
     }
 
     public b(long j) {
@@ -112,7 +112,7 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
     public String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? f34076a.format(new Date(j)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? f34265a.format(new Date(j)) : (String) invokeJ.objValue;
     }
 
     @Override // com.kwad.sdk.collector.model.jni.NativeObject

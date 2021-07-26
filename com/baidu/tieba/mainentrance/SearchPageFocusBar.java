@@ -23,19 +23,19 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f18398e;
+    public RelativeLayout f18454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f18399f;
+    public TextView f18455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f18400g;
+    public TbPageContext<?> f18456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f18401h;
+    public Context f18457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18402i;
+    public TextView f18458i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPageFocusBar(Context context) {
@@ -61,17 +61,17 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f18401h = context;
+            this.f18457h = context;
             LayoutInflater.from(context).inflate(R.layout.home_search_focusbar, this);
-            this.f18398e = (RelativeLayout) findViewById(R.id.focusbar_container);
+            this.f18454e = (RelativeLayout) findViewById(R.id.focusbar_container);
             TextView textView = (TextView) findViewById(R.id.focusbar_hint);
-            this.f18402i = textView;
+            this.f18458i = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
-            this.f18402i.setVisibility(8);
+            this.f18458i.setVisibility(8);
             TextView textView2 = (TextView) findViewById(R.id.focusbar_show);
-            this.f18399f = textView2;
+            this.f18455f = textView2;
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
-            this.f18399f.setVisibility(8);
+            this.f18455f.setVisibility(8);
         }
     }
 
@@ -83,7 +83,7 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             if (StringUtils.isNull(charSequence)) {
                 return;
             }
-            this.f18400g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18400g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
+            this.f18456g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18456g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
         }
     }
 

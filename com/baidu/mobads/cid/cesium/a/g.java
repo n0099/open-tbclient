@@ -12,19 +12,19 @@ public abstract class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8194a;
+    public long f8220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8195b;
+    public int f8221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f8196c;
+    public int f8222c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8197d;
+    public int f8223d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8198e;
+    public int f8224e;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public abstract class g {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8197d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8223d : invokeV.intValue;
     }
 
     public abstract b a(byte[] bArr, int i2, int i3);
@@ -51,12 +51,12 @@ public abstract class g {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8196c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8222c : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8198e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8224e : invokeV.intValue;
     }
 }

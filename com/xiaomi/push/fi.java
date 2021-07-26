@@ -10,7 +10,7 @@ public class fi extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fh f40122a;
+    public final /* synthetic */ fh f40394a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fi(fh fhVar, String str) {
@@ -30,7 +30,7 @@ public class fi extends Thread {
                 return;
             }
         }
-        this.f40122a = fhVar;
+        this.f40394a = fhVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -39,10 +39,10 @@ public class fi extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                fcVar = this.f40122a.f40121a;
+                fcVar = this.f40394a.f40393a;
                 fcVar.m311a();
             } catch (Exception e2) {
-                this.f40122a.c(9, e2);
+                this.f40394a.c(9, e2);
             }
         }
     }

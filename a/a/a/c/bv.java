@@ -11,10 +11,10 @@ public class bv {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1459a;
+    public int f1492a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1460b;
+    public int f1493b;
 
     public bv() {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class bv {
                 return;
             }
         }
-        this.f1459a = 10;
-        this.f1460b = 2;
+        this.f1492a = 10;
+        this.f1493b = 2;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1460b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1493b : invokeV.intValue;
     }
 }

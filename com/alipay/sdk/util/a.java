@@ -21,20 +21,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1952a = "00:00:00:00:00:00";
+    public static final String f1985a = "00:00:00:00:00:00";
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f1953e;
+    public static a f1986e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1954b;
+    public String f1987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1955c;
+    public String f1988c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1956d;
+    public String f1989d;
 
     static {
         InterceptResult invokeClinit;
@@ -72,20 +72,20 @@ public class a {
                 b(telephonyManager.getDeviceId());
                 a(telephonyManager.getSubscriberId());
                 String macAddress = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-                this.f1956d = macAddress;
+                this.f1989d = macAddress;
                 if (!TextUtils.isEmpty(macAddress)) {
                     return;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
-                if (!TextUtils.isEmpty(this.f1956d)) {
+                if (!TextUtils.isEmpty(this.f1989d)) {
                     return;
                 }
             }
-            this.f1956d = f1952a;
+            this.f1989d = f1985a;
         } catch (Throwable th) {
-            if (TextUtils.isEmpty(this.f1956d)) {
-                this.f1956d = f1952a;
+            if (TextUtils.isEmpty(this.f1989d)) {
+                this.f1989d = f1985a;
             }
             throw th;
         }
@@ -95,10 +95,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f1953e == null) {
-                f1953e = new a(context);
+            if (f1986e == null) {
+                f1986e = new a(context);
             }
-            return f1953e;
+            return f1986e;
         }
         return (a) invokeL.objValue;
     }
@@ -107,10 +107,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f1955c)) {
-                this.f1955c = "000000000000000";
+            if (TextUtils.isEmpty(this.f1988c)) {
+                this.f1988c = "000000000000000";
             }
-            return this.f1955c;
+            return this.f1988c;
         }
         return (String) invokeV.objValue;
     }
@@ -132,7 +132,7 @@ public class a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1956d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1989d : (String) invokeV.objValue;
     }
 
     public static String d(Context context) {
@@ -155,10 +155,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f1954b)) {
-                this.f1954b = "000000000000000";
+            if (TextUtils.isEmpty(this.f1987b)) {
+                this.f1987b = "000000000000000";
             }
-            return this.f1954b;
+            return this.f1987b;
         }
         return (String) invokeV.objValue;
     }
@@ -176,7 +176,7 @@ public class a {
                 String str2 = new String(bytes);
                 str = (str2 + "000000000000000").substring(0, 15);
             }
-            this.f1955c = str;
+            this.f1988c = str;
         }
     }
 
@@ -192,7 +192,7 @@ public class a {
             if (str != null) {
                 str = (str + "000000000000000").substring(0, 15);
             }
-            this.f1954b = str;
+            this.f1987b = str;
         }
     }
 
@@ -206,7 +206,7 @@ public class a {
                     return d.a(activeNetworkInfo.getSubtype());
                 }
                 if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
-                    return d.f1958a;
+                    return d.f1991a;
                 }
                 return d.o;
             } catch (Exception unused) {

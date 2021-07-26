@@ -5,18 +5,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f72317a;
+    public static final int[] f72771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f72318b;
+    public static final int[] f72772b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class e {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class e {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,12 +52,12 @@ public final class e {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final byte[] f72319a;
+        public static final byte[] f72773a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -73,13 +73,13 @@ public final class e {
                     return;
                 }
             }
-            f72319a = new byte[122784];
+            f72773a = new byte[122784];
             String[] strArr = {a.a(), b.a(), c.a()};
             int i2 = 0;
             for (int i3 = 0; i3 < 3; i3++) {
                 i2 += strArr[i3].length();
             }
-            if (i2 != f72319a.length) {
+            if (i2 != f72773a.length) {
                 throw new RuntimeException("Corrupted brotli dictionary");
             }
             int i4 = 0;
@@ -87,7 +87,7 @@ public final class e {
                 String str = strArr[i5];
                 int i6 = 0;
                 while (i6 < str.length()) {
-                    f72319a[i4] = (byte) str.charAt(i6);
+                    f72773a[i4] = (byte) str.charAt(i6);
                     i6++;
                     i4++;
                 }
@@ -108,13 +108,13 @@ public final class e {
                 return;
             }
         }
-        f72317a = new int[]{0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
-        f72318b = new int[]{0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
+        f72771a = new int[]{0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
+        f72772b = new int[]{0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
     }
 
     public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.f72319a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.f72773a : (byte[]) invokeV.objValue;
     }
 }

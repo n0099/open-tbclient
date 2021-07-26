@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.r.u.c;
-import d.a.p0.h2.h.n;
-import d.a.p0.h2.k.e.o;
-import d.a.p0.h2.o.b;
+import d.a.d.e.p.l;
+import d.a.p0.s.u.c;
+import d.a.q0.h2.h.n;
+import d.a.q0.h2.k.e.o;
+import d.a.q0.h2.o.b;
 /* loaded from: classes4.dex */
 public class PbPrivateTitleAdapter extends o<n, PbPrivateTitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -33,13 +33,13 @@ public class PbPrivateTitleAdapter extends o<n, PbPrivateTitleViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19443a;
+        public int f19533a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f19444b;
+        public View f19534b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f19445c;
+        public TextView f19535c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PbPrivateTitleViewHolder(TbPageContext tbPageContext, View view) {
@@ -59,41 +59,41 @@ public class PbPrivateTitleAdapter extends o<n, PbPrivateTitleViewHolder> {
                     return;
                 }
             }
-            this.f19443a = 3;
+            this.f19533a = 3;
             if (view == null) {
                 return;
             }
-            this.f19444b = view.findViewById(R.id.background);
-            this.f19445c = (TextView) view.findViewById(R.id.title);
+            this.f19534b = view.findViewById(R.id.background);
+            this.f19535c = (TextView) view.findViewById(R.id.title);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.pb_private_block_title));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_barrules_careful12, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan.d(l.g(tbPageContext.getContext(), R.dimen.tbds31));
+            eMRichTextAnyIconSpan.e(l.g(tbPageContext.getContext(), R.dimen.tbds31));
             eMRichTextAnyIconSpan.c(l.g(tbPageContext.getContext(), R.dimen.M_W_X002));
             eMRichTextAnyIconSpan.a(0);
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-            this.f19445c.setText(spannableStringBuilder);
+            this.f19535c.setText(spannableStringBuilder);
             b(TbadkCoreApplication.getInst().getSkinType());
         }
 
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (this.f19443a != i2) {
-                    c d2 = c.d(this.f19445c);
+                if (this.f19533a != i2) {
+                    c d2 = c.d(this.f19535c);
                     d2.t(R.color.CAM_X0109);
                     d2.y(R.string.F_X01);
-                    c d3 = c.d(this.f19444b);
+                    c d3 = c.d(this.f19534b);
                     d3.n(R.string.J_X05);
                     d3.f(R.color.CAM_X0204);
                 }
-                this.f19443a = i2;
+                this.f19533a = i2;
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbPrivateTitleAdapter(b bVar) {
-        super(bVar, n.f56929e);
+        super(bVar, n.f57473e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,19 +112,19 @@ public class PbPrivateTitleAdapter extends o<n, PbPrivateTitleViewHolder> {
         }
     }
 
-    @Override // d.a.p0.h2.k.e.o, d.a.c.k.e.a
+    @Override // d.a.q0.h2.k.e.o, d.a.d.k.e.a
     public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         i0(i2, view, viewGroup, (n) obj, (PbPrivateTitleViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: h0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: g0 */
     public PbPrivateTitleViewHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPrivateTitleViewHolder(this.m.getPageContext(), LayoutInflater.from(this.f41837e).inflate(R.layout.pb_private_title_layout, viewGroup, false)) : (PbPrivateTitleViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPrivateTitleViewHolder(this.m.getPageContext(), LayoutInflater.from(this.f42341e).inflate(R.layout.pb_private_title_layout, viewGroup, false)) : (PbPrivateTitleViewHolder) invokeL.objValue;
     }
 
     public View i0(int i2, View view, ViewGroup viewGroup, n nVar, PbPrivateTitleViewHolder pbPrivateTitleViewHolder) {

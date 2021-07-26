@@ -10,10 +10,10 @@ public class ad extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35777h;
+    public int f35966h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35778i;
+    public int f35967i;
     public int j;
     public int k;
     public int[] l;
@@ -44,18 +44,18 @@ public class ad extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            com.kwad.sdk.pngencrypt.k kVar = this.f35770e;
-            if (kVar.f35854f) {
-                this.f35777h = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 0);
-            } else if (!kVar.f35855g) {
-                this.f35778i = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 0);
-                this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 2);
-                this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 4);
+            com.kwad.sdk.pngencrypt.k kVar = this.f35959e;
+            if (kVar.f36043f) {
+                this.f35966h = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, 0);
+            } else if (!kVar.f36044g) {
+                this.f35967i = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, 0);
+                this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, 2);
+                this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, 4);
             } else {
-                int length = dVar.f35792d.length;
+                int length = dVar.f35981d.length;
                 this.l = new int[length];
                 for (int i2 = 0; i2 < length; i2++) {
-                    this.l[i2] = dVar.f35792d[i2] & 255;
+                    this.l[i2] = dVar.f35981d[i2] & 255;
                 }
             }
         }

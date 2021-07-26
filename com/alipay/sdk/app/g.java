@@ -10,16 +10,16 @@ public class g implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f1799a;
+    public final /* synthetic */ String f1832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f1800b;
+    public final /* synthetic */ boolean f1833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ H5PayCallback f1801c;
+    public final /* synthetic */ H5PayCallback f1834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ PayTask f1802d;
+    public final /* synthetic */ PayTask f1835d;
 
     public g(PayTask payTask, String str, boolean z, H5PayCallback h5PayCallback) {
         Interceptable interceptable = $ic;
@@ -36,17 +36,17 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f1802d = payTask;
-        this.f1799a = str;
-        this.f1800b = z;
-        this.f1801c = h5PayCallback;
+        this.f1835d = payTask;
+        this.f1832a = str;
+        this.f1833b = z;
+        this.f1834c = h5PayCallback;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1801c.onPayResult(this.f1802d.h5Pay(this.f1799a, this.f1800b));
+            this.f1834c.onPayResult(this.f1835d.h5Pay(this.f1832a, this.f1833b));
         }
     }
 }

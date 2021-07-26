@@ -22,13 +22,13 @@ public class BannerDownloadStateBar extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f13750e;
+    public View f13798e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f13751f;
+    public TextView f13799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f13752g;
+    public ImageView f13800g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BannerDownloadStateBar(Context context) {
@@ -54,12 +54,12 @@ public class BannerDownloadStateBar extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f13750e = LayoutInflater.from(getContext()).inflate(R.layout.ad_apk_download_action_view, (ViewGroup) this, true);
+            this.f13798e = LayoutInflater.from(getContext()).inflate(R.layout.ad_apk_download_action_view, (ViewGroup) this, true);
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-            this.f13752g = (ImageView) this.f13750e.findViewById(R.id.apk_download_state_icon);
-            this.f13751f = (TextView) this.f13750e.findViewById(R.id.apk_download_state_text);
+            this.f13800g = (ImageView) this.f13798e.findViewById(R.id.apk_download_state_icon);
+            this.f13799f = (TextView) this.f13798e.findViewById(R.id.apk_download_state_text);
             setState(0);
         }
     }
@@ -69,40 +69,40 @@ public class BannerDownloadStateBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             if (i2 == 0) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f13752g.setVisibility(8);
-                this.f13752g.setImageDrawable(null);
-                this.f13751f.setText(R.string.ad_button_download_now);
-                this.f13751f.setTextColor(Color.parseColor("#333333"));
+                this.f13800g.setVisibility(8);
+                this.f13800g.setImageDrawable(null);
+                this.f13799f.setText(R.string.ad_button_download_now);
+                this.f13799f.setTextColor(Color.parseColor("#333333"));
             } else if (i2 == 1) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f13752g.setVisibility(0);
-                this.f13752g.setImageResource(R.drawable.ad_banner_download_pause);
-                this.f13751f.setText(R.string.ad_button_pause);
-                this.f13751f.setTextColor(Color.parseColor("#333333"));
+                this.f13800g.setVisibility(0);
+                this.f13800g.setImageResource(R.drawable.ad_banner_download_pause);
+                this.f13799f.setText(R.string.ad_button_pause);
+                this.f13799f.setTextColor(Color.parseColor("#333333"));
             } else if (i2 == 2) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f13752g.setVisibility(0);
-                this.f13752g.setImageResource(R.drawable.ad_banner_download_resume);
-                this.f13751f.setText(R.string.ad_button_resume);
-                this.f13751f.setTextColor(Color.parseColor("#333333"));
+                this.f13800g.setVisibility(0);
+                this.f13800g.setImageResource(R.drawable.ad_banner_download_resume);
+                this.f13799f.setText(R.string.ad_button_resume);
+                this.f13799f.setTextColor(Color.parseColor("#333333"));
             } else if (i2 == 3) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.f13752g.setVisibility(8);
-                this.f13752g.setImageDrawable(null);
-                this.f13751f.setText(R.string.ad_button_install);
-                this.f13751f.setTextColor(Color.parseColor("#FFFFFF"));
+                this.f13800g.setVisibility(8);
+                this.f13800g.setImageDrawable(null);
+                this.f13799f.setText(R.string.ad_button_install);
+                this.f13799f.setTextColor(Color.parseColor("#FFFFFF"));
             } else if (i2 != 4) {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f13752g.setVisibility(8);
-                this.f13752g.setImageDrawable(null);
-                this.f13751f.setText(R.string.ad_button_download_now);
-                this.f13751f.setTextColor(Color.parseColor("#333333"));
+                this.f13800g.setVisibility(8);
+                this.f13800g.setImageDrawable(null);
+                this.f13799f.setText(R.string.ad_button_download_now);
+                this.f13799f.setTextColor(Color.parseColor("#333333"));
             } else {
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.f13752g.setVisibility(8);
-                this.f13752g.setImageDrawable(null);
-                this.f13751f.setText(R.string.ad_button_open);
-                this.f13751f.setTextColor(Color.parseColor("#FFFFFF"));
+                this.f13800g.setVisibility(8);
+                this.f13800g.setImageDrawable(null);
+                this.f13799f.setText(R.string.ad_button_open);
+                this.f13799f.setTextColor(Color.parseColor("#FFFFFF"));
             }
         }
     }

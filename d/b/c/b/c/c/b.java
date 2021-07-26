@@ -60,8 +60,8 @@ public class b extends a<d.b.c.b.c.a.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("path", aVar.f68937a);
-            contentValues.put(HostTB.INSERTTIME, Long.valueOf(aVar.f68938b));
+            contentValues.put("path", aVar.f69391a);
+            contentValues.put(HostTB.INSERTTIME, Long.valueOf(aVar.f69392b));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -69,12 +69,12 @@ public class b extends a<d.b.c.b.c.a.a> {
 
     public void f(SQLiteDatabase sQLiteDatabase, d.b.c.b.c.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, sQLiteDatabase, aVar) == null) || aVar == null || g(sQLiteDatabase, aVar.f68937a)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, sQLiteDatabase, aVar) == null) || aVar == null || g(sQLiteDatabase, aVar.f69391a)) {
             return;
         }
         super.d(sQLiteDatabase, aVar);
         try {
-            sQLiteDatabase.execSQL("delete from " + this.f68942a + " where _id in (select _id from " + this.f68942a + " order by " + HostTB.INSERTTIME + " desc limit 1000 offset 500" + SmallTailInfo.EMOTION_SUFFIX);
+            sQLiteDatabase.execSQL("delete from " + this.f69396a + " where _id in (select _id from " + this.f69396a + " order by " + HostTB.INSERTTIME + " desc limit 1000 offset 500" + SmallTailInfo.EMOTION_SUFFIX);
         } catch (Exception e2) {
             l.k.c(e2);
         }
@@ -95,7 +95,7 @@ public class b extends a<d.b.c.b.c.a.a> {
                 return false;
             }
             try {
-                query = sQLiteDatabase.query(this.f68942a, null, "path=?", new String[]{str}, null, null, null);
+                query = sQLiteDatabase.query(this.f69396a, null, "path=?", new String[]{str}, null, null, null);
                 i2 = query.getCount();
             } catch (Exception e2) {
                 e = e2;

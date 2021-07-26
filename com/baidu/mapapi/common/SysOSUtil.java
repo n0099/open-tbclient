@@ -30,7 +30,7 @@ public class SysOSUtil {
     public static float getDensity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? i.f8011c : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? i.f8037c : invokeV.floatValue;
     }
 
     public static int getDensityDpi() {

@@ -13,28 +13,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.c;
-import d.a.n0.a.r1.l.b;
-import d.a.n0.k.d;
+import d.a.o0.a.c;
+import d.a.o0.a.r1.l.b;
+import d.a.o0.k.d;
 /* loaded from: classes3.dex */
 public class SwanAppLaunchCircleAnimationView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f11571e;
+    public Paint f11597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f11572f;
+    public Paint f11598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11573g;
+    public int f11599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11574h;
+    public int f11600h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Float f11575i;
+    public Float f11601i;
     public ValueAnimator j;
     public long k;
     public boolean l;
@@ -50,7 +50,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLaunchCircleAnimationView f11576e;
+        public final /* synthetic */ SwanAppLaunchCircleAnimationView f11602e;
 
         public a(SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView) {
             Interceptable interceptable = $ic;
@@ -67,26 +67,26 @@ public class SwanAppLaunchCircleAnimationView extends View {
                     return;
                 }
             }
-            this.f11576e = swanAppLaunchCircleAnimationView;
+            this.f11602e = swanAppLaunchCircleAnimationView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f11576e.f11575i = (Float) valueAnimator.getAnimatedValue();
-                SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = this.f11576e;
-                swanAppLaunchCircleAnimationView.p = (swanAppLaunchCircleAnimationView.getWidth() - ((this.f11576e.o * 6.0f) / 96.0f)) / 2.0f;
-                if (this.f11576e.f11575i.floatValue() <= 0.3f) {
-                    SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView2 = this.f11576e;
-                    swanAppLaunchCircleAnimationView2.n = ((float) (((swanAppLaunchCircleAnimationView2.f11575i.floatValue() * 0.26d) / 0.3d) + 0.04d)) * 360.0f;
+                this.f11602e.f11601i = (Float) valueAnimator.getAnimatedValue();
+                SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = this.f11602e;
+                swanAppLaunchCircleAnimationView.p = (swanAppLaunchCircleAnimationView.getWidth() - ((this.f11602e.o * 6.0f) / 96.0f)) / 2.0f;
+                if (this.f11602e.f11601i.floatValue() <= 0.3f) {
+                    SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView2 = this.f11602e;
+                    swanAppLaunchCircleAnimationView2.n = ((float) (((swanAppLaunchCircleAnimationView2.f11601i.floatValue() * 0.26d) / 0.3d) + 0.04d)) * 360.0f;
                 } else {
-                    SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView3 = this.f11576e;
-                    swanAppLaunchCircleAnimationView3.n = ((float) (0.3d - (((swanAppLaunchCircleAnimationView3.f11575i.floatValue() - 0.3d) * 0.26d) / 0.7d))) * 360.0f;
+                    SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView3 = this.f11602e;
+                    swanAppLaunchCircleAnimationView3.n = ((float) (0.3d - (((swanAppLaunchCircleAnimationView3.f11601i.floatValue() - 0.3d) * 0.26d) / 0.7d))) * 360.0f;
                 }
-                SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView4 = this.f11576e;
-                swanAppLaunchCircleAnimationView4.q = (swanAppLaunchCircleAnimationView4.f11575i.floatValue() * 360.0f) - 90.0f;
-                this.f11576e.postInvalidate();
+                SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView4 = this.f11602e;
+                swanAppLaunchCircleAnimationView4.q = (swanAppLaunchCircleAnimationView4.f11601i.floatValue() * 360.0f) - 90.0f;
+                this.f11602e.postInvalidate();
             }
         }
     }
@@ -109,8 +109,8 @@ public class SwanAppLaunchCircleAnimationView extends View {
                 return;
             }
         }
-        this.f11571e = new Paint();
-        this.f11572f = new Paint();
+        this.f11597e = new Paint();
+        this.f11598f = new Paint();
         this.m = null;
     }
 
@@ -118,15 +118,15 @@ public class SwanAppLaunchCircleAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.k = System.currentTimeMillis();
-            this.f11574h = getResources().getColor(c.app_Launch_Gray_Arc_Color);
-            this.f11573g = getResources().getColor(c.app_Launch_Blue_Arc_Color);
-            this.f11571e.setColor(this.f11574h);
-            this.f11571e.setAntiAlias(true);
-            this.f11571e.setStyle(Paint.Style.STROKE);
-            this.f11572f.setColor(this.f11573g);
-            this.f11572f.setAntiAlias(true);
-            this.f11572f.setStyle(Paint.Style.STROKE);
-            this.f11572f.setStrokeCap(Paint.Cap.ROUND);
+            this.f11600h = getResources().getColor(c.app_Launch_Gray_Arc_Color);
+            this.f11599g = getResources().getColor(c.app_Launch_Blue_Arc_Color);
+            this.f11597e.setColor(this.f11600h);
+            this.f11597e.setAntiAlias(true);
+            this.f11597e.setStyle(Paint.Style.STROKE);
+            this.f11598f.setColor(this.f11599g);
+            this.f11598f.setAntiAlias(true);
+            this.f11598f.setStyle(Paint.Style.STROKE);
+            this.f11598f.setStrokeCap(Paint.Cap.ROUND);
         }
     }
 
@@ -169,7 +169,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
         }
         i();
         Float valueOf = Float.valueOf(f2);
-        this.f11575i = valueOf;
+        this.f11601i = valueOf;
         this.q = -90.0f;
         this.n = valueOf.floatValue() * 360.0f;
         postInvalidate();
@@ -189,8 +189,8 @@ public class SwanAppLaunchCircleAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             int i2 = this.o;
-            canvas.drawCircle(i2, i2, this.p, this.f11571e);
-            canvas.drawArc(this.m, this.q, this.n, false, this.f11572f);
+            canvas.drawCircle(i2, i2, this.p, this.f11597e);
+            canvas.drawArc(this.m, this.q, this.n, false, this.f11598f);
         }
     }
 
@@ -201,8 +201,8 @@ public class SwanAppLaunchCircleAnimationView extends View {
             super.onSizeChanged(i2, i3, i4, i5);
             int width = getWidth() / 2;
             this.o = width;
-            this.f11571e.setStrokeWidth(((float) width) > 99.0f ? (width * 1.0f) / 99.0f : 1.0f);
-            this.f11572f.setStrokeWidth((this.o * 6) / 99.0f);
+            this.f11597e.setStrokeWidth(((float) width) > 99.0f ? (width * 1.0f) / 99.0f : 1.0f);
+            this.f11598f.setStrokeWidth((this.o * 6) / 99.0f);
             int i6 = this.o;
             this.m = new RectF(((i6 * 3.0f) / 96.0f) + 1.0f, ((i6 * 3.0f) / 96.0f) + 1.0f, (getWidth() - ((this.o * 3.0f) / 96.0f)) - 1.0f, (getHeight() - ((this.o * 3.0f) / 96.0f)) - 1.0f);
         }
@@ -227,8 +227,8 @@ public class SwanAppLaunchCircleAnimationView extends View {
                 return;
             }
         }
-        this.f11571e = new Paint();
-        this.f11572f = new Paint();
+        this.f11597e = new Paint();
+        this.f11598f = new Paint();
         this.m = null;
     }
 
@@ -251,8 +251,8 @@ public class SwanAppLaunchCircleAnimationView extends View {
                 return;
             }
         }
-        this.f11571e = new Paint();
-        this.f11572f = new Paint();
+        this.f11597e = new Paint();
+        this.f11598f = new Paint();
         this.m = null;
     }
 }

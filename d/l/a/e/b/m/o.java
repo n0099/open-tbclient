@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.l.a.e.b.f.v;
+import d.l.a.e.b.f.w;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class o implements d.l.a.e.b.g.n {
@@ -18,16 +18,16 @@ public class o implements d.l.a.e.b.g.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f71977a;
+    public final a f72431a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.l.a.e.b.g.k f71978b;
+    public final d.l.a.e.b.g.k f72432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.l.a.e.b.g.p f71979c;
+    public final d.l.a.e.b.g.p f72433c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f71980d;
+    public final boolean f72434d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public o() {
@@ -51,7 +51,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.J(i2);
@@ -62,7 +62,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-            a aVar = this.f71977a;
+            a aVar = this.f72431a;
             if (aVar != null) {
                 return aVar.S(i2);
             }
@@ -75,7 +75,7 @@ public class o implements d.l.a.e.b.g.n {
     public void c(int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048602, this, i2) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048602, this, i2) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.K(i2);
@@ -85,7 +85,7 @@ public class o implements d.l.a.e.b.g.n {
     public void d(int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048609, this, i2) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048609, this, i2) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.L(i2);
@@ -97,7 +97,7 @@ public class o implements d.l.a.e.b.g.n {
         DownloadInfo b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) {
-            d.l.a.e.b.g.k kVar = this.f71978b;
+            d.l.a.e.b.g.k kVar = this.f72432b;
             if (kVar == null || (b2 = kVar.b(i2)) == null) {
                 return 0L;
             }
@@ -105,7 +105,7 @@ public class o implements d.l.a.e.b.g.n {
             if (chunkCount <= 1) {
                 return b2.getCurBytes();
             }
-            List<com.ss.android.socialbase.downloader.model.b> c2 = this.f71978b.c(i2);
+            List<com.ss.android.socialbase.downloader.model.b> c2 = this.f72432b.c(i2);
             if (c2 == null || c2.size() != chunkCount) {
                 return 0L;
             }
@@ -127,7 +127,7 @@ public class o implements d.l.a.e.b.g.n {
         DownloadInfo G;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i2)) == null) {
-            a aVar = this.f71977a;
+            a aVar = this.f72431a;
             if (aVar == null || (G = aVar.G(i2)) == null) {
                 return 0;
             }
@@ -141,7 +141,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i2)) == null) {
-            a aVar = this.f71977a;
+            a aVar = this.f72431a;
             if (aVar != null) {
                 return aVar.r(i2);
             }
@@ -155,7 +155,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i2)) == null) {
-            a aVar = this.f71977a;
+            a aVar = this.f72431a;
             if (aVar != null) {
                 return aVar.G(i2);
             }
@@ -168,14 +168,14 @@ public class o implements d.l.a.e.b.g.n {
     public List<com.ss.android.socialbase.downloader.model.b> i(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i2)) == null) ? this.f71978b.c(i2) : (List) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i2)) == null) ? this.f72432b.c(i2) : (List) invokeI.objValue;
     }
 
     @Override // d.l.a.e.b.g.n
     public void j(int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048626, this, i2) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048626, this, i2) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.R(i2);
@@ -194,7 +194,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i2)) == null) {
-            a aVar = this.f71977a;
+            a aVar = this.f72431a;
             if (aVar != null) {
                 return aVar.P(i2);
             }
@@ -214,14 +214,14 @@ public class o implements d.l.a.e.b.g.n {
     public boolean n(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i2)) == null) ? this.f71978b.e(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i2)) == null) ? this.f72432b.e(i2) : invokeI.booleanValue;
     }
 
     @Override // d.l.a.e.b.g.n
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            this.f71978b.d(i2);
+            this.f72432b.d(i2);
         }
     }
 
@@ -229,47 +229,47 @@ public class o implements d.l.a.e.b.g.n {
     public boolean p(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048632, this, i2)) == null) ? this.f71978b.f(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048632, this, i2)) == null) ? this.f72432b.f(i2) : invokeI.booleanValue;
     }
 
     @Override // d.l.a.e.b.g.n
-    public d.l.a.e.b.f.d q(int i2) {
+    public d.l.a.e.b.f.e q(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i2)) == null) {
-            a aVar = this.f71977a;
+            a aVar = this.f72431a;
             if (aVar != null) {
                 return aVar.N(i2);
             }
             return null;
         }
-        return (d.l.a.e.b.f.d) invokeI.objValue;
+        return (d.l.a.e.b.f.e) invokeI.objValue;
     }
 
     @Override // d.l.a.e.b.g.n
-    public d.l.a.e.b.f.i r(int i2) {
+    public d.l.a.e.b.f.j r(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048634, this, i2)) == null) {
-            a aVar = this.f71977a;
-            d.l.a.e.b.f.i M = aVar != null ? aVar.M(i2) : null;
+            a aVar = this.f72431a;
+            d.l.a.e.b.f.j M = aVar != null ? aVar.M(i2) : null;
             return M == null ? d.l.a.e.b.g.e.j() : M;
         }
-        return (d.l.a.e.b.f.i) invokeI.objValue;
+        return (d.l.a.e.b.f.j) invokeI.objValue;
     }
 
     @Override // d.l.a.e.b.g.n
-    public v s(int i2) {
+    public w s(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i2)) == null) {
-            a aVar = this.f71977a;
+            a aVar = this.f72431a;
             if (aVar != null) {
                 return aVar.O(i2);
             }
             return null;
         }
-        return (v) invokeI.objValue;
+        return (w) invokeI.objValue;
     }
 
     public o(boolean z) {
@@ -287,20 +287,20 @@ public class o implements d.l.a.e.b.g.n {
                 return;
             }
         }
-        this.f71977a = d.l.a.e.b.g.e.c();
-        this.f71978b = d.l.a.e.b.g.e.M0();
+        this.f72431a = d.l.a.e.b.g.e.c();
+        this.f72432b = d.l.a.e.b.g.e.M0();
         if (!z) {
-            this.f71979c = d.l.a.e.b.g.e.N0();
+            this.f72433c = d.l.a.e.b.g.e.N0();
         } else {
-            this.f71979c = d.l.a.e.b.g.e.O0();
+            this.f72433c = d.l.a.e.b.g.e.O0();
         }
-        this.f71980d = d.l.a.e.b.j.a.r().q("service_alive", false);
+        this.f72434d = d.l.a.e.b.j.a.r().q("service_alive", false);
     }
 
     public void i(int i2, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.E(i2, z);
@@ -310,7 +310,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(int i2, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.s(i2, z);
@@ -321,7 +321,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            d.l.a.e.b.g.k kVar = this.f71978b;
+            d.l.a.e.b.g.k kVar = this.f72432b;
             if (kVar != null) {
                 return kVar.b(str);
             }
@@ -335,7 +335,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-            d.l.a.e.b.g.k kVar = this.f71978b;
+            d.l.a.e.b.g.k kVar = this.f72432b;
             if (kVar != null) {
                 return kVar.c(str);
             }
@@ -349,7 +349,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            d.l.a.e.b.g.k kVar = this.f71978b;
+            d.l.a.e.b.g.k kVar = this.f72432b;
             if (kVar != null) {
                 return kVar.b();
             }
@@ -359,37 +359,46 @@ public class o implements d.l.a.e.b.g.n {
     }
 
     @Override // d.l.a.e.b.g.n
-    public void g(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z) {
-        a aVar;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), bVar, gVar, Boolean.valueOf(z)}) == null) || (aVar = this.f71977a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+            this.f72432b.c();
         }
-        aVar.w(i2, i3, bVar, gVar, z);
     }
 
     @Override // d.l.a.e.b.g.n
-    public void h(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), bVar, gVar, Boolean.valueOf(z)}) == null) || (aVar = this.f71977a) == null) {
-            return;
-        }
-        aVar.f(i2, i3, bVar, gVar, z);
-    }
-
-    @Override // d.l.a.e.b.g.n
-    public boolean f() {
+    public boolean h() {
         InterceptResult invokeV;
+        d.l.a.e.b.g.p pVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f71978b.d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.f72434d && (pVar = this.f72433c) != null && pVar.a() : invokeV.booleanValue;
+    }
+
+    @Override // d.l.a.e.b.g.n
+    public void f(int i2, int i3, d.l.a.e.b.f.c cVar, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (aVar = this.f72431a) == null) {
+            return;
+        }
+        aVar.g(i2, i3, cVar, fVar, z, z2);
+    }
+
+    @Override // d.l.a.e.b.g.n
+    public void g(int i2, d.l.a.e.b.f.e eVar) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048619, this, i2, eVar) == null) || (aVar = this.f72431a) == null) {
+            return;
+        }
+        aVar.i(i2, eVar);
     }
 
     @Override // d.l.a.e.b.g.n
     public void a() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.u();
@@ -399,7 +408,7 @@ public class o implements d.l.a.e.b.g.n {
     public void b(List<String> list) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, list) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, list) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.B(list);
@@ -409,55 +418,42 @@ public class o implements d.l.a.e.b.g.n {
     public void c(boolean z, boolean z2) {
         d.l.a.e.b.g.p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (pVar = this.f71979c) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (pVar = this.f72433c) == null) {
             return;
         }
         pVar.a(z2);
     }
 
     @Override // d.l.a.e.b.g.n
-    public List<DownloadInfo> d(String str) {
-        InterceptResult invokeL;
+    public void d(int i2, int i3, d.l.a.e.b.f.c cVar, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
-            d.l.a.e.b.g.k kVar = this.f71978b;
-            if (kVar != null) {
-                return kVar.d(str);
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, fVar, Boolean.valueOf(z)}) == null) || (aVar = this.f72431a) == null) {
+            return;
         }
-        return (List) invokeL.objValue;
+        aVar.w(i2, i3, cVar, fVar, z);
     }
 
     @Override // d.l.a.e.b.g.n
-    public void f(d.l.a.e.b.f.l lVar) {
+    public void h(d.l.a.e.b.f.m mVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, lVar) == null) {
-            d.l.a.e.b.g.e.I(lVar);
+        if (interceptable == null || interceptable.invokeL(1048622, this, mVar) == null) {
+            d.l.a.e.b.g.e.I(mVar);
         }
     }
 
     @Override // d.l.a.e.b.g.n
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            this.f71978b.c();
-        }
-    }
-
-    @Override // d.l.a.e.b.g.n
-    public boolean h() {
+    public boolean f() {
         InterceptResult invokeV;
-        d.l.a.e.b.g.p pVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.f71980d && (pVar = this.f71979c) != null && pVar.a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f72432b.d() : invokeV.booleanValue;
     }
 
     @Override // d.l.a.e.b.g.n
     public void a(List<String> list) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, list) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, list) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.q(list);
@@ -478,13 +474,17 @@ public class o implements d.l.a.e.b.g.n {
     }
 
     @Override // d.l.a.e.b.g.n
-    public void d(int i2, d.l.a.e.b.f.d dVar) {
-        a aVar;
+    public List<DownloadInfo> d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048610, this, i2, dVar) == null) || (aVar = this.f71977a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
+            d.l.a.e.b.g.k kVar = this.f72432b;
+            if (kVar != null) {
+                return kVar.d(str);
+            }
+            return null;
         }
-        aVar.i(i2, dVar);
+        return (List) invokeL.objValue;
     }
 
     @Override // d.l.a.e.b.g.n
@@ -496,13 +496,13 @@ public class o implements d.l.a.e.b.g.n {
     }
 
     @Override // d.l.a.e.b.g.n
-    public void e(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z, boolean z2) {
+    public void e(int i2, int i3, d.l.a.e.b.f.c cVar, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), bVar, gVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, fVar, Boolean.valueOf(z)}) == null) || (aVar = this.f72431a) == null) {
             return;
         }
-        aVar.g(i2, i3, bVar, gVar, z, z2);
+        aVar.f(i2, i3, cVar, fVar, z);
     }
 
     @Override // d.l.a.e.b.g.n
@@ -510,7 +510,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            a aVar = this.f71977a;
+            a aVar = this.f72431a;
             if (aVar != null) {
                 return aVar.c(str);
             }
@@ -523,7 +523,7 @@ public class o implements d.l.a.e.b.g.n {
     public void b(int i2, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.y(i2, z);
@@ -533,7 +533,7 @@ public class o implements d.l.a.e.b.g.n {
     public boolean c(DownloadInfo downloadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, downloadInfo)) == null) ? this.f71978b.a(downloadInfo) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, downloadInfo)) == null) ? this.f72432b.a(downloadInfo) : invokeL.booleanValue;
     }
 
     @Override // d.l.a.e.b.g.n
@@ -541,7 +541,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
-            a aVar = this.f71977a;
+            a aVar = this.f72431a;
             if (aVar != null) {
                 return aVar.t(str);
             }
@@ -562,7 +562,7 @@ public class o implements d.l.a.e.b.g.n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            d.l.a.e.b.g.p pVar = this.f71979c;
+            d.l.a.e.b.g.p pVar = this.f72433c;
             if (pVar != null) {
                 return pVar.b();
             }
@@ -596,7 +596,7 @@ public class o implements d.l.a.e.b.g.n {
     public void b(d.l.a.e.b.n.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) {
-            d.l.a.e.b.g.p pVar = this.f71979c;
+            d.l.a.e.b.g.p pVar = this.f72433c;
             if (pVar != null) {
                 pVar.a(aVar);
             } else if (aVar != null) {
@@ -609,7 +609,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(int i2, Notification notification) {
         d.l.a.e.b.g.p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, notification) == null) || (pVar = this.f71979c) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, notification) == null) || (pVar = this.f72433c) == null) {
             return;
         }
         pVar.a(i2, notification);
@@ -619,7 +619,7 @@ public class o implements d.l.a.e.b.g.n {
     public void b(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, downloadInfo) == null) {
-            this.f71978b.b(downloadInfo);
+            this.f72432b.b(downloadInfo);
         }
     }
 
@@ -627,7 +627,7 @@ public class o implements d.l.a.e.b.g.n {
     public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048594, this, i2, list) == null) {
-            this.f71978b.b(i2, list);
+            this.f72432b.b(i2, list);
         }
     }
 
@@ -635,7 +635,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(d.l.a.e.b.n.a aVar) {
         d.l.a.e.b.g.p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) || (pVar = this.f71979c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) || (pVar = this.f72433c) == null) {
             return;
         }
         pVar.b(aVar);
@@ -645,7 +645,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i2, list) == null) {
-            this.f71978b.a(i2, list);
+            this.f72432b.a(i2, list);
         }
     }
 
@@ -653,7 +653,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.f71978b.a(bVar);
+            this.f72432b.a(bVar);
         }
     }
 
@@ -661,7 +661,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(int i2, int i3, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-            this.f71978b.a(i2, i3, j);
+            this.f72432b.a(i2, i3, j);
         }
     }
 
@@ -669,7 +669,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(int i2, int i3, int i4, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) {
-            this.f71978b.a(i2, i3, i4, j);
+            this.f72432b.a(i2, i3, i4, j);
         }
     }
 
@@ -677,7 +677,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-            this.f71978b.a(i2, i3, i4, i5);
+            this.f72432b.a(i2, i3, i4, i5);
         }
     }
 
@@ -687,9 +687,9 @@ public class o implements d.l.a.e.b.g.n {
         if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || d.l.a.e.b.g.e.p0() == null) {
             return;
         }
-        for (d.l.a.e.b.f.l lVar : d.l.a.e.b.g.e.p0()) {
-            if (lVar != null) {
-                lVar.a(i3, i2);
+        for (d.l.a.e.b.f.m mVar : d.l.a.e.b.g.e.p0()) {
+            if (mVar != null) {
+                mVar.a(i3, i2);
             }
         }
     }
@@ -698,7 +698,7 @@ public class o implements d.l.a.e.b.g.n {
     public void a(int i2, long j) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (aVar = this.f71977a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (aVar = this.f72431a) == null) {
             return;
         }
         aVar.x(i2, j);

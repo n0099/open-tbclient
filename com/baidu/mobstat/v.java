@@ -14,7 +14,7 @@ public class v implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public z f9013a;
+    public z f9039a;
 
     public v() {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class v implements a {
                 return;
             }
         }
-        this.f9013a = z.f9030a;
+        this.f9039a = z.f9056a;
     }
 
     @Override // com.baidu.mobstat.a
     public void a(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
-            this.f9013a.a(context, jSONObject);
+            this.f9039a.a(context, jSONObject);
         }
     }
 
@@ -44,7 +44,7 @@ public class v implements a {
     public void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
-            this.f9013a.b(context, str);
+            this.f9039a.b(context, str);
         }
     }
 
@@ -52,7 +52,7 @@ public class v implements a {
     public void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
-            this.f9013a.a(context, str);
+            this.f9039a.a(context, str);
         }
     }
 
@@ -60,14 +60,14 @@ public class v implements a {
     public boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.f9013a.b(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.f9039a.b(context) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.mobstat.a
     public void a(Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
-            this.f9013a.a(context, j);
+            this.f9039a.a(context, j);
         }
     }
 
@@ -75,6 +75,6 @@ public class v implements a {
     public boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? this.f9013a.a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? this.f9039a.a(context) : invokeL.booleanValue;
     }
 }

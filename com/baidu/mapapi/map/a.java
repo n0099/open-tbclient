@@ -15,7 +15,7 @@ public class a implements Overlay.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f7159a;
+    public final /* synthetic */ BaiduMap f7185a;
 
     public a(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a implements Overlay.a {
                 return;
             }
         }
-        this.f7159a = baiduMap;
+        this.f7185a = baiduMap;
     }
 
     @Override // com.baidu.mapapi.map.Overlay.a
@@ -51,37 +51,37 @@ public class a implements Overlay.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, overlay) == null) {
             if (overlay != null) {
-                list6 = this.f7159a.k;
+                list6 = this.f7185a.k;
                 if (list6.contains(overlay)) {
                     Bundle a2 = overlay.a();
-                    eVar3 = this.f7159a.f6888i;
+                    eVar3 = this.f7185a.f6914i;
                     if (eVar3 != null) {
-                        eVar4 = this.f7159a.f6888i;
+                        eVar4 = this.f7185a.f6914i;
                         eVar4.d(a2);
                     }
-                    list7 = this.f7159a.k;
+                    list7 = this.f7185a.k;
                     list7.remove(overlay);
                 }
             }
             if (overlay != null) {
-                list4 = this.f7159a.m;
+                list4 = this.f7185a.m;
                 if (list4.contains(overlay)) {
-                    list5 = this.f7159a.m;
+                    list5 = this.f7185a.m;
                     list5.remove(overlay);
                 }
             }
             if (overlay != null) {
-                list = this.f7159a.l;
+                list = this.f7185a.l;
                 if (list.contains(overlay)) {
                     Marker marker = (Marker) overlay;
                     if (marker.o != null) {
-                        list2 = this.f7159a.l;
+                        list2 = this.f7185a.l;
                         list2.remove(marker);
-                        list3 = this.f7159a.l;
+                        list3 = this.f7185a.l;
                         if (list3.size() == 0) {
-                            eVar = this.f7159a.f6888i;
+                            eVar = this.f7185a.f6914i;
                             if (eVar != null) {
-                                eVar2 = this.f7159a.f6888i;
+                                eVar2 = this.f7185a.f6914i;
                                 eVar2.b(false);
                             }
                         }
@@ -110,22 +110,22 @@ public class a implements Overlay.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, overlay) == null) {
             if (overlay != null) {
-                list4 = this.f7159a.k;
+                list4 = this.f7185a.k;
                 if (list4.contains(overlay)) {
                     boolean z = false;
                     if (overlay instanceof Marker) {
                         Marker marker = (Marker) overlay;
-                        if (marker.f7029b != null) {
+                        if (marker.f7055b != null) {
                             ArrayList<BitmapDescriptor> arrayList = marker.o;
                             if (arrayList != null && arrayList.size() > 1) {
                                 Bundle bundle = new Bundle();
-                                eVar5 = this.f7159a.f6888i;
+                                eVar5 = this.f7185a.f6914i;
                                 if (eVar5 != null) {
                                     marker.remove();
                                     marker.o.clear();
-                                    eVar6 = this.f7159a.f6888i;
+                                    eVar6 = this.f7185a.f6914i;
                                     eVar6.b(overlay.a(bundle));
-                                    list8 = this.f7159a.k;
+                                    list8 = this.f7185a.k;
                                     list8.add(overlay);
                                     z = true;
                                 }
@@ -133,36 +133,36 @@ public class a implements Overlay.a {
                         } else {
                             ArrayList<BitmapDescriptor> arrayList2 = marker.o;
                             if (arrayList2 != null && arrayList2.size() != 0) {
-                                list5 = this.f7159a.l;
+                                list5 = this.f7185a.l;
                                 if (list5.contains(marker)) {
-                                    list7 = this.f7159a.l;
+                                    list7 = this.f7185a.l;
                                     list7.remove(marker);
                                 }
-                                list6 = this.f7159a.l;
+                                list6 = this.f7185a.l;
                                 list6.add(marker);
-                                eVar3 = this.f7159a.f6888i;
+                                eVar3 = this.f7185a.f6914i;
                                 if (eVar3 != null) {
-                                    eVar4 = this.f7159a.f6888i;
+                                    eVar4 = this.f7185a.f6914i;
                                     eVar4.b(true);
                                 }
                             }
                         }
                     }
-                    eVar = this.f7159a.f6888i;
+                    eVar = this.f7185a.f6914i;
                     if (eVar != null && !z) {
                         Bundle bundle2 = new Bundle();
-                        eVar2 = this.f7159a.f6888i;
+                        eVar2 = this.f7185a.f6914i;
                         eVar2.c(overlay.a(bundle2));
                     }
                 }
             }
-            list = this.f7159a.m;
+            list = this.f7185a.m;
             if (list.contains(overlay)) {
-                list3 = this.f7159a.m;
+                list3 = this.f7185a.m;
                 list3.remove(overlay);
             }
             if (overlay instanceof Marker) {
-                list2 = this.f7159a.m;
+                list2 = this.f7185a.m;
                 list2.add((Marker) overlay);
             }
         }

@@ -19,13 +19,13 @@ public class LightappBrowserWebView extends LightappWebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f25446a;
+    public final String f25604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25447b;
+    public int f25605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25448c;
+    public int f25606c;
     public boolean isTop;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,9 +46,9 @@ public class LightappBrowserWebView extends LightappWebView {
                 return;
             }
         }
-        this.f25446a = LightappBrowserWebView.class.getSimpleName();
-        this.f25447b = -1;
-        this.f25448c = -1;
+        this.f25604a = LightappBrowserWebView.class.getSimpleName();
+        this.f25605b = -1;
+        this.f25606c = -1;
         this.isTop = true;
     }
 
@@ -71,7 +71,7 @@ public class LightappBrowserWebView extends LightappWebView {
     private boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f25447b > 0 && this.f25448c > 0 && a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f25605b > 0 && this.f25606c > 0 && a() : invokeV.booleanValue;
     }
 
     @Override // android.webkit.WebView, android.widget.AbsoluteLayout, android.view.View
@@ -81,18 +81,18 @@ public class LightappBrowserWebView extends LightappWebView {
             super.onMeasure(i2, i3);
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            if (this.f25447b < 0 && measuredWidth > 0) {
-                this.f25447b = measuredWidth;
+            if (this.f25605b < 0 && measuredWidth > 0) {
+                this.f25605b = measuredWidth;
             }
-            if (this.f25448c < 0 && measuredHeight > 10) {
-                this.f25448c = measuredHeight;
+            if (this.f25606c < 0 && measuredHeight > 10) {
+                this.f25606c = measuredHeight;
             }
-            String str = this.f25446a;
+            String str = this.f25604a;
             LogUtil.d(str, "onMeasure current:(" + measuredWidth + "," + measuredHeight + SmallTailInfo.EMOTION_SUFFIX);
             if (b()) {
-                String str2 = this.f25446a;
-                LogUtil.d(str2, "onMeasure force to:(" + this.f25447b + "," + this.f25448c + SmallTailInfo.EMOTION_SUFFIX);
-                setMeasuredDimension(this.f25447b, this.f25448c);
+                String str2 = this.f25604a;
+                LogUtil.d(str2, "onMeasure force to:(" + this.f25605b + "," + this.f25606c + SmallTailInfo.EMOTION_SUFFIX);
+                setMeasuredDimension(this.f25605b, this.f25606c);
             }
         }
     }

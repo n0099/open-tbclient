@@ -11,28 +11,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.j.e;
-import d.a.n0.j.o.b;
-import d.a.n0.j.o.c;
+import d.a.o0.j.e;
+import d.a.o0.j.o.b;
+import d.a.o0.j.o.c;
 /* loaded from: classes3.dex */
 public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12002e;
+    public TextView f12028e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12003f;
+    public TextView f12029f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f12004g;
+    public View f12030g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocationDetailAdapter f12005h;
+    public LocationDetailAdapter f12031h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f12006i;
+    public c f12032i;
     public b j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,17 +54,17 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
             }
         }
         a(view);
-        this.f12005h = locationDetailAdapter;
+        this.f12031h = locationDetailAdapter;
         this.j = bVar;
     }
 
     public final void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f12002e = (TextView) view.findViewById(e.main_title);
-            this.f12003f = (TextView) view.findViewById(e.sub_title);
+            this.f12028e = (TextView) view.findViewById(e.main_title);
+            this.f12029f = (TextView) view.findViewById(e.sub_title);
             View findViewById = view.findViewById(e.select);
-            this.f12004g = findViewById;
+            this.f12030g = findViewById;
             findViewById.setVisibility(8);
             this.itemView.setOnClickListener(this);
         }
@@ -90,26 +90,26 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
         if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, cVar, str, z) == null) || cVar == null) {
             return;
         }
-        this.f12006i = cVar;
-        this.f12002e.setText(z ? b(cVar.f50519a.name, str) : cVar.f50519a.name);
-        this.f12003f.setVisibility(0);
-        this.f12003f.setText(cVar.f50519a.address);
-        if (cVar.f50521c || TextUtils.isEmpty(cVar.f50519a.address)) {
-            this.f12003f.setVisibility(8);
+        this.f12032i = cVar;
+        this.f12028e.setText(z ? b(cVar.f51023a.name, str) : cVar.f51023a.name);
+        this.f12029f.setVisibility(0);
+        this.f12029f.setText(cVar.f51023a.address);
+        if (cVar.f51025c || TextUtils.isEmpty(cVar.f51023a.address)) {
+            this.f12029f.setVisibility(8);
         }
-        this.f12004g.setVisibility(cVar.f50520b ? 0 : 8);
+        this.f12030g.setVisibility(cVar.f51024b ? 0 : 8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f12005h.f();
-            this.f12006i.f50520b = true;
-            this.f12005h.notifyDataSetChanged();
+            this.f12031h.f();
+            this.f12032i.f51024b = true;
+            this.f12031h.notifyDataSetChanged();
             b bVar = this.j;
             if (bVar != null) {
-                bVar.c(this.f12006i);
+                bVar.c(this.f12032i);
             }
         }
     }

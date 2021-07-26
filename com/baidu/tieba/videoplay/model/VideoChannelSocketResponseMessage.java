@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.o0.r.q.b2;
+import d.a.p0.s.q.b2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Feed.FeedResIdl;
@@ -62,7 +62,7 @@ public class VideoChannelSocketResponseMessage extends SocketResponsedMessage {
             for (int i3 = 0; i3 < list.size(); i3++) {
                 VideoItemData videoItemData = new VideoItemData();
                 b2 b2Var = new b2();
-                b2Var.I2(list.get(i3));
+                b2Var.K2(list.get(i3));
                 videoItemData.parseProto(b2Var);
                 this.mVideoItemDatas.add(videoItemData);
             }

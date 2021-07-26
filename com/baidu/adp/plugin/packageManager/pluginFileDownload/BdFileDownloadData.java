@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.h.j.e.a;
+import d.a.d.h.j.e.a;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class BdFileDownloadData implements Serializable {

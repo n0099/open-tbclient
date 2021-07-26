@@ -33,52 +33,52 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.m.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class C2050a {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class C2049a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f72090a;
+        public Intent f72544a;
 
-        public /* synthetic */ b(Context context, C2050a c2050a) {
+        public /* synthetic */ b(Context context, C2049a c2049a) {
             this(context);
         }
 
         public final int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72090a.getIntExtra("level", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72544a.getIntExtra("level", 0) : invokeV.intValue;
         }
 
         public final int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72090a.getIntExtra("scale", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72544a.getIntExtra("scale", 0) : invokeV.intValue;
         }
 
         public final int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72090a.getIntExtra("temperature", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72544a.getIntExtra("temperature", 0) : invokeV.intValue;
         }
 
         public final int h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72090a.getIntExtra("voltage", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72544a.getIntExtra("voltage", 0) : invokeV.intValue;
         }
 
         public b(Context context) {
@@ -96,7 +96,7 @@ public class a {
                     return;
                 }
             }
-            this.f72090a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.f72544a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
     }
 
@@ -285,7 +285,7 @@ public class a {
                         case 12:
                         case 14:
                         case 15:
-                            str = g.f3986b;
+                            str = g.f4012b;
                             str2 = str;
                             break;
                         case 13:

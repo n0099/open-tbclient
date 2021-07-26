@@ -23,27 +23,27 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f70980a;
+    public Handler f71434a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f70981b;
+    public Context f71435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f70982c;
+    public c f71436c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f70983d;
+    public ServiceConnection f71437d;
 
     /* renamed from: d.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class ServiceConnectionC2006a implements ServiceConnection {
+    public class ServiceConnectionC2005a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f70984e;
+        public final /* synthetic */ a f71438e;
 
-        public ServiceConnectionC2006a(a aVar) {
+        public ServiceConnectionC2005a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public class a {
                     return;
                 }
             }
-            this.f70984e = aVar;
+            this.f71438e = aVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -79,8 +79,8 @@ public class a {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
-                this.f70984e.f70980a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
-                this.f70984e.f70980a.removeMessages(2);
+                this.f71438e.f71434a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+                this.f71438e.f71434a.removeMessages(2);
             }
         }
 
@@ -98,7 +98,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f70985a;
+        public final /* synthetic */ a f71439a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, Looper looper) {
@@ -118,7 +118,7 @@ public class a {
                     return;
                 }
             }
-            this.f70985a = aVar;
+            this.f71439a = aVar;
         }
 
         @Override // android.os.Handler
@@ -127,34 +127,34 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 0) {
-                    this.f70985a.f70982c.a(-1, null);
+                    this.f71439a.f71436c.a(-1, null);
                 } else if (i2 != 1) {
                     if (i2 != 2) {
                         return;
                     }
-                    this.f70985a.f70982c.a(-2, null);
+                    this.f71439a.f71436c.a(-2, null);
                 } else {
                     OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
                     try {
                         try {
-                            this.f70985a.f70982c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            this.f71439a.f71436c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
                             try {
-                                this.f70985a.f70981b.unbindService(this.f70985a.f70983d);
+                                this.f71439a.f71435b.unbindService(this.f71439a.f71437d);
                             } catch (Exception e2) {
-                                this.f70985a.f70982c.a(-4, e2);
+                                this.f71439a.f71436c.a(-4, e2);
                             }
                         } catch (RemoteException e3) {
-                            this.f70985a.f70982c.a(-3, e3);
+                            this.f71439a.f71436c.a(-3, e3);
                             try {
-                                this.f70985a.f70981b.unbindService(this.f70985a.f70983d);
+                                this.f71439a.f71435b.unbindService(this.f71439a.f71437d);
                             } catch (Exception unused) {
                             }
                         }
                     } catch (Throwable th) {
                         try {
-                            this.f70985a.f70981b.unbindService(this.f70985a.f70983d);
+                            this.f71439a.f71435b.unbindService(this.f71439a.f71437d);
                         } catch (Exception e4) {
-                            this.f70985a.f70982c.a(-4, e4);
+                            this.f71439a.f71436c.a(-4, e4);
                         }
                         throw th;
                     }
@@ -185,10 +185,10 @@ public class a {
                 return;
             }
         }
-        this.f70983d = new ServiceConnectionC2006a(this);
-        this.f70981b = context;
-        this.f70982c = cVar;
-        this.f70980a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
+        this.f71437d = new ServiceConnectionC2005a(this);
+        this.f71435b = context;
+        this.f71436c = cVar;
+        this.f71434a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
     public static void d(Context context, c cVar) {
@@ -210,12 +210,12 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            if (this.f70981b.bindService(intent, this.f70983d, 1)) {
-                Handler handler = this.f70980a;
+            if (this.f71435b.bindService(intent, this.f71437d, 1)) {
+                Handler handler = this.f71434a;
                 handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
                 return;
             }
-            this.f70980a.sendEmptyMessage(0);
+            this.f71434a.sendEmptyMessage(0);
         }
     }
 }

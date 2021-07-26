@@ -26,7 +26,7 @@ public class h extends com.kwai.sodler.lib.a.f<g> {
             }
         }
         this.p = bVar;
-        this.f36966a = str;
+        this.f37155a = str;
     }
 
     @Override // com.kwai.sodler.lib.a.f

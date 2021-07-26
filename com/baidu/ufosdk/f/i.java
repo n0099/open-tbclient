@@ -32,7 +32,7 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f23337a;
+    public static SimpleDateFormat f23495a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a() {
@@ -109,10 +109,10 @@ public final class i {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            if (f23337a == null) {
-                f23337a = new SimpleDateFormat("MM-dd HH:mm");
+            if (f23495a == null) {
+                f23495a = new SimpleDateFormat("MM-dd HH:mm");
             }
-            return f23337a.format(new Date(j));
+            return f23495a.format(new Date(j));
         }
         return (String) invokeJ.objValue;
     }
@@ -200,7 +200,7 @@ public final class i {
             rotateAnimation.setRepeatCount(-1);
             rotateAnimation.setInterpolator(linearInterpolator);
             progressBar.startAnimation(rotateAnimation);
-            progressBar.setId(R.drawable.res_0x7f080033_ic_pic_mask_newuser_background_svg__1);
+            progressBar.setId(R.drawable.res_0x7f080033_ic_pic_mask_newuser_background_svg__10);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(a(context, 17.0f), a(context, 17.0f));
             layoutParams.addRule(15);
             layoutParams.setMargins(a(context, 3.0f), 0, 0, 0);
@@ -226,10 +226,10 @@ public final class i {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
-            if (f23337a == null) {
-                f23337a = new SimpleDateFormat("yy-MM-dd");
+            if (f23495a == null) {
+                f23495a = new SimpleDateFormat("yy-MM-dd");
             }
-            return f23337a.format(new Date(j));
+            return f23495a.format(new Date(j));
         }
         return (String) invokeJ.objValue;
     }
@@ -251,9 +251,9 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-            f23337a = simpleDateFormat;
+            f23495a = simpleDateFormat;
             String format = simpleDateFormat.format(new Date(j));
-            f23337a = null;
+            f23495a = null;
             return format.split(" ")[1];
         }
         return (String) invokeJ.objValue;

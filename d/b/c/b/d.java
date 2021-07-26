@@ -19,19 +19,19 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<c, List<b>> f68943a;
+    public Map<c, List<b>> f69397a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f68944b;
+    public Map<String, String> f69398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<i> f68945c;
+    public final List<i> f69399c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<i> f68946d;
+    public final List<i> f69400d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k f68947e;
+    public k f69401e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -46,39 +46,39 @@ public class d {
                 return;
             }
         }
-        this.f68943a = new HashMap();
-        this.f68944b = new HashMap();
+        this.f69397a = new HashMap();
+        this.f69398b = new HashMap();
         new CopyOnWriteArrayList();
-        this.f68945c = new CopyOnWriteArrayList();
+        this.f69399c = new CopyOnWriteArrayList();
         new CopyOnWriteArrayList();
-        this.f68946d = new CopyOnWriteArrayList();
-        this.f68947e = null;
+        this.f69400d = new CopyOnWriteArrayList();
+        this.f69401e = null;
     }
 
     @Nullable
     public List<b> a(c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? this.f68943a.get(cVar) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? this.f69397a.get(cVar) : (List) invokeL.objValue;
     }
 
     public Map<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68944b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69398b : (Map) invokeV.objValue;
     }
 
     public void c(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-            this.f68947e = kVar;
+            this.f69401e = kVar;
         }
     }
 
     public void d(Map<? extends String, ? extends String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            this.f68944b.putAll(map);
+            this.f69398b.putAll(map);
         }
     }
 
@@ -86,20 +86,20 @@ public class d {
     public List<i> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68945c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69399c : (List) invokeV.objValue;
     }
 
     @NonNull
     public List<i> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f68946d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69400d : (List) invokeV.objValue;
     }
 
     @Nullable
     public k g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68947e : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69401e : (k) invokeV.objValue;
     }
 }

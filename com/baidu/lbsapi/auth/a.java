@@ -13,10 +13,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f6383a = false;
+    public static boolean f6409a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6384b = "BaiduApiAuth";
+    public static String f6410b = "BaiduApiAuth";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,8 +46,8 @@ public class a {
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && f6383a && Thread.currentThread().getStackTrace().length != 0) {
-            String str2 = f6384b;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && f6409a && Thread.currentThread().getStackTrace().length != 0) {
+            String str2 = f6410b;
             Log.d(str2, a() + ";" + str);
         }
     }
@@ -57,13 +57,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
-        Log.i(f6384b, str);
+        Log.i(f6410b, str);
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f6383a && Thread.currentThread().getStackTrace().length != 0) {
-            String str2 = f6384b;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f6409a && Thread.currentThread().getStackTrace().length != 0) {
+            String str2 = f6410b;
             Log.e(str2, a() + ";" + str);
         }
     }

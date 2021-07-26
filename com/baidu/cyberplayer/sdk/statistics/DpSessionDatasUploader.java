@@ -28,14 +28,14 @@ public final class DpSessionDatasUploader {
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    public static DpSessionDatasUploader f5033a;
+    public static DpSessionDatasUploader f5059a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f5034b;
+    public d f5060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f5035c;
+    public d f5061c;
 
     public DpSessionDatasUploader() {
         Interceptable interceptable = $ic;
@@ -50,18 +50,18 @@ public final class DpSessionDatasUploader {
                 return;
             }
         }
-        this.f5034b = new d();
-        this.f5035c = new d("live_show_session");
+        this.f5060b = new d();
+        this.f5061c = new d("live_show_session");
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            d dVar = this.f5034b;
+            d dVar = this.f5060b;
             if (dVar != null) {
                 dVar.a();
             }
-            d dVar2 = this.f5035c;
+            d dVar2 = this.f5061c;
             if (dVar2 != null) {
                 dVar2.a();
             }
@@ -95,12 +95,12 @@ public final class DpSessionDatasUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2) == null) {
             if (i2 == 24) {
-                dVar = this.f5035c;
+                dVar = this.f5061c;
                 if (dVar == null) {
                     return;
                 }
             } else {
-                dVar = this.f5034b;
+                dVar = this.f5060b;
                 if (dVar == null) {
                     return;
                 }
@@ -133,10 +133,10 @@ public final class DpSessionDatasUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             synchronized (DpSessionDatasUploader.class) {
-                if (f5033a == null) {
-                    f5033a = new DpSessionDatasUploader();
+                if (f5059a == null) {
+                    f5059a = new DpSessionDatasUploader();
                 }
-                dpSessionDatasUploader = f5033a;
+                dpSessionDatasUploader = f5059a;
             }
             return dpSessionDatasUploader;
         }
@@ -163,11 +163,11 @@ public final class DpSessionDatasUploader {
     public void a(Context context) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f5034b) == null || this.f5035c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f5060b) == null || this.f5061c == null) {
             return;
         }
         dVar.a(context);
-        this.f5035c.a(context);
+        this.f5061c.a(context);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x00e2 */
@@ -295,13 +295,13 @@ public final class DpSessionDatasUploader {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f5036a;
+                public final /* synthetic */ String f5062a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f5037b;
+                public final /* synthetic */ String f5063b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f5038c;
+                public final /* synthetic */ DpSessionDatasUploader f5064c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -318,16 +318,16 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f5038c = this;
-                    this.f5036a = str;
-                    this.f5037b = str2;
+                    this.f5064c = this;
+                    this.f5062a = str;
+                    this.f5063b = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f5038c.a(this.f5036a, this.f5037b, 1);
+                        this.f5064c.a(this.f5062a, this.f5063b, 1);
                     }
                 }
             });
@@ -343,16 +343,16 @@ public final class DpSessionDatasUploader {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f5039a;
+                public final /* synthetic */ int f5065a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f5040b;
+                public final /* synthetic */ String f5066b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f5041c;
+                public final /* synthetic */ String f5067c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f5042d;
+                public final /* synthetic */ DpSessionDatasUploader f5068d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -369,20 +369,20 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f5042d = this;
-                    this.f5039a = i2;
-                    this.f5040b = str;
-                    this.f5041c = str2;
+                    this.f5068d = this;
+                    this.f5065a = i2;
+                    this.f5066b = str;
+                    this.f5067c = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (com.baidu.cyberplayer.sdk.c.a().c() && this.f5039a == 24) {
-                            this.f5042d.a(this.f5040b, this.f5041c, 24);
+                        if (com.baidu.cyberplayer.sdk.c.a().c() && this.f5065a == 24) {
+                            this.f5068d.a(this.f5066b, this.f5067c, 24);
                         }
-                        this.f5042d.a(this.f5040b, this.f5041c, 1);
+                        this.f5068d.a(this.f5066b, this.f5067c, 1);
                     }
                 }
             });

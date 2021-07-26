@@ -30,31 +30,31 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f6615a;
+    public e f6641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f6616b;
+    public Context f6642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f6617c;
+    public WebView f6643c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LocationClient f6618d;
+    public LocationClient f6644d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f6619e;
+    public a f6645e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b> f6620f;
+    public List<b> f6646f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6621g;
+    public boolean f6647g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f6622h;
+    public long f6648h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BDLocation f6623i;
+    public BDLocation f6649i;
     public f k;
     public boolean l;
 
@@ -71,7 +71,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f6624a;
+        public final /* synthetic */ k f6650a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(k kVar, Looper looper) {
@@ -91,7 +91,7 @@ public class k {
                     return;
                 }
             }
-            this.f6624a = kVar;
+            this.f6650a = kVar;
         }
 
         private String a(BDLocation bDLocation) {
@@ -133,19 +133,19 @@ public class k {
         private void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-                if (this.f6624a.l) {
-                    this.f6624a.f6619e.removeCallbacks(this.f6624a.k);
-                    this.f6624a.l = false;
+                if (this.f6650a.l) {
+                    this.f6650a.f6645e.removeCallbacks(this.f6650a.k);
+                    this.f6650a.l = false;
                 }
-                if (this.f6624a.f6620f == null || this.f6624a.f6620f.size() <= 0) {
+                if (this.f6650a.f6646f == null || this.f6650a.f6646f.size() <= 0) {
                     return;
                 }
-                Iterator it = this.f6624a.f6620f.iterator();
+                Iterator it = this.f6650a.f6646f.iterator();
                 while (it.hasNext()) {
                     try {
                         b bVar = (b) it.next();
                         if (bVar.b() != null) {
-                            this.f6624a.f6617c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
+                            this.f6650a.f6643c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
                         }
                         it.remove();
                     } catch (Exception unused) {
@@ -169,32 +169,32 @@ public class k {
                 switch (message.what) {
                     case 1:
                         b bVar = (b) message.obj;
-                        if (this.f6624a.f6620f != null) {
-                            this.f6624a.f6620f.add(bVar);
+                        if (this.f6650a.f6646f != null) {
+                            this.f6650a.f6646f.add(bVar);
                         }
-                        if (this.f6624a.f6618d == null) {
+                        if (this.f6650a.f6644d == null) {
                             return;
                         }
-                        if (this.f6624a.f6618d.requestLocation() != 0) {
-                            long currentTimeMillis = System.currentTimeMillis() - this.f6624a.f6622h;
-                            if (this.f6624a.f6623i != null && currentTimeMillis <= 10000) {
-                                Message obtainMessage = this.f6624a.f6619e.obtainMessage(2);
-                                obtainMessage.obj = this.f6624a.f6623i;
+                        if (this.f6650a.f6644d.requestLocation() != 0) {
+                            long currentTimeMillis = System.currentTimeMillis() - this.f6650a.f6648h;
+                            if (this.f6650a.f6649i != null && currentTimeMillis <= 10000) {
+                                Message obtainMessage = this.f6650a.f6645e.obtainMessage(2);
+                                obtainMessage.obj = this.f6650a.f6649i;
                                 obtainMessage.sendToTarget();
                                 z = false;
                                 if (z) {
                                     return;
                                 }
-                                if (this.f6624a.l) {
-                                    this.f6624a.f6619e.removeCallbacks(this.f6624a.k);
-                                    this.f6624a.l = false;
+                                if (this.f6650a.l) {
+                                    this.f6650a.f6645e.removeCallbacks(this.f6650a.k);
+                                    this.f6650a.l = false;
                                 }
-                                if (this.f6624a.k == null) {
-                                    k kVar = this.f6624a;
+                                if (this.f6650a.k == null) {
+                                    k kVar = this.f6650a;
                                     kVar.k = new f(kVar, null);
                                 }
-                                this.f6624a.f6619e.postDelayed(this.f6624a.k, k.j);
-                                this.f6624a.l = true;
+                                this.f6650a.f6645e.postDelayed(this.f6650a.k, k.j);
+                                this.f6650a.l = true;
                                 return;
                             }
                         }
@@ -206,25 +206,25 @@ public class k {
                         a(a((BDLocation) message.obj));
                         return;
                     case 3:
-                        if (this.f6624a.f6620f == null) {
-                            this.f6624a.f6620f = new ArrayList();
+                        if (this.f6650a.f6646f == null) {
+                            this.f6650a.f6646f = new ArrayList();
                         } else {
-                            this.f6624a.f6620f.clear();
+                            this.f6650a.f6646f.clear();
                         }
-                        this.f6624a.f6618d.registerLocationListener(this.f6624a.f6615a);
+                        this.f6650a.f6644d.registerLocationListener(this.f6650a.f6641a);
                         return;
                     case 4:
-                        if (this.f6624a.f6620f != null) {
-                            this.f6624a.f6620f.clear();
-                            this.f6624a.f6620f = null;
+                        if (this.f6650a.f6646f != null) {
+                            this.f6650a.f6646f.clear();
+                            this.f6650a.f6646f = null;
                         }
-                        this.f6624a.f6618d.unRegisterLocationListener(this.f6624a.f6615a);
-                        this.f6624a.f6622h = 0L;
-                        this.f6624a.f6623i = null;
-                        if (this.f6624a.k != null && this.f6624a.l) {
-                            this.f6624a.f6619e.removeCallbacks(this.f6624a.k);
+                        this.f6650a.f6644d.unRegisterLocationListener(this.f6650a.f6641a);
+                        this.f6650a.f6648h = 0L;
+                        this.f6650a.f6649i = null;
+                        if (this.f6650a.k != null && this.f6650a.l) {
+                            this.f6650a.f6645e.removeCallbacks(this.f6650a.k);
                         }
-                        this.f6624a.l = false;
+                        this.f6650a.l = false;
                         return;
                     case 5:
                         try {
@@ -262,16 +262,16 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f6625a;
+        public final /* synthetic */ k f6651a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6626b;
+        public String f6652b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f6627c;
+        public String f6653c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f6628d;
+        public long f6654d;
 
         public b(k kVar, String str) {
             Interceptable interceptable = $ic;
@@ -288,17 +288,17 @@ public class k {
                     return;
                 }
             }
-            this.f6625a = kVar;
-            this.f6626b = null;
-            this.f6627c = null;
-            this.f6628d = 0L;
+            this.f6651a = kVar;
+            this.f6652b = null;
+            this.f6653c = null;
+            this.f6654d = 0L;
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("action")) {
-                    this.f6626b = jSONObject.getString("action");
+                    this.f6652b = jSONObject.getString("action");
                 }
                 if (jSONObject.has("callback")) {
-                    this.f6627c = jSONObject.getString("callback");
+                    this.f6653c = jSONObject.getString("callback");
                 }
                 if (jSONObject.has("timeout")) {
                     long j = jSONObject.getLong("timeout");
@@ -306,23 +306,23 @@ public class k {
                         long unused = k.j = j;
                     }
                 }
-                this.f6628d = System.currentTimeMillis();
+                this.f6654d = System.currentTimeMillis();
             } catch (Exception unused2) {
-                this.f6626b = null;
-                this.f6627c = null;
+                this.f6652b = null;
+                this.f6653c = null;
             }
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6626b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6652b : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6627c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6653c : (String) invokeV.objValue;
         }
     }
 
@@ -331,7 +331,7 @@ public class k {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final k f6629a;
+        public static final k f6655a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -347,7 +347,7 @@ public class k {
                     return;
                 }
             }
-            f6629a = new k(null);
+            f6655a = new k(null);
         }
     }
 
@@ -357,7 +357,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f6630a;
+        public final /* synthetic */ k f6656a;
 
         public d(k kVar) {
             Interceptable interceptable = $ic;
@@ -374,7 +374,7 @@ public class k {
                     return;
                 }
             }
-            this.f6630a = kVar;
+            this.f6656a = kVar;
         }
 
         public /* synthetic */ d(k kVar, AnonymousClass1 anonymousClass1) {
@@ -384,12 +384,12 @@ public class k {
         @JavascriptInterface
         public void sendMessage(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.f6630a.f6621g) {
-                b bVar = new b(this.f6630a, str);
-                if (bVar.a() == null || !bVar.a().equals("requestLoc") || this.f6630a.f6619e == null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.f6656a.f6647g) {
+                b bVar = new b(this.f6656a, str);
+                if (bVar.a() == null || !bVar.a().equals("requestLoc") || this.f6656a.f6645e == null) {
                     return;
                 }
-                Message obtainMessage = this.f6630a.f6619e.obtainMessage(1);
+                Message obtainMessage = this.f6656a.f6645e.obtainMessage(1);
                 obtainMessage.obj = bVar;
                 obtainMessage.sendToTarget();
             }
@@ -409,7 +409,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f6631a;
+        public final /* synthetic */ k f6657a;
 
         public e(k kVar) {
             Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public class k {
                     return;
                 }
             }
-            this.f6631a = kVar;
+            this.f6657a = kVar;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
@@ -434,7 +434,7 @@ public class k {
             Message obtainMessage;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) && this.f6631a.f6621g && bDLocation != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) && this.f6657a.f6647g && bDLocation != null) {
                 BDLocation bDLocation2 = new BDLocation(bDLocation);
                 int locType = bDLocation2.getLocType();
                 String coorType = bDLocation2.getCoorType();
@@ -451,12 +451,12 @@ public class k {
                             bDLocation2 = LocationClient.getBDLocationInCoorType(LocationClient.getBDLocationInCoorType(bDLocation2, str), "gcj2wgs");
                         }
                     }
-                    this.f6631a.f6622h = System.currentTimeMillis();
-                    this.f6631a.f6623i = new BDLocation(bDLocation2);
-                    obtainMessage = this.f6631a.f6619e.obtainMessage(2);
+                    this.f6657a.f6648h = System.currentTimeMillis();
+                    this.f6657a.f6649i = new BDLocation(bDLocation2);
+                    obtainMessage = this.f6657a.f6645e.obtainMessage(2);
                     obtainMessage.obj = bDLocation2;
                 } else {
-                    obtainMessage = this.f6631a.f6619e.obtainMessage(5);
+                    obtainMessage = this.f6657a.f6645e.obtainMessage(5);
                 }
                 obtainMessage.sendToTarget();
             }
@@ -469,7 +469,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f6632a;
+        public final /* synthetic */ k f6658a;
 
         public f(k kVar) {
             Interceptable interceptable = $ic;
@@ -486,7 +486,7 @@ public class k {
                     return;
                 }
             }
-            this.f6632a = kVar;
+            this.f6658a = kVar;
         }
 
         public /* synthetic */ f(k kVar, AnonymousClass1 anonymousClass1) {
@@ -497,8 +497,8 @@ public class k {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6632a.l = false;
-                this.f6632a.f6619e.obtainMessage(6).sendToTarget();
+                this.f6658a.l = false;
+                this.f6658a.f6645e.obtainMessage(6).sendToTarget();
             }
         }
     }
@@ -531,14 +531,14 @@ public class k {
                 return;
             }
         }
-        this.f6616b = null;
-        this.f6618d = null;
-        this.f6615a = new e(this);
-        this.f6619e = null;
-        this.f6620f = null;
-        this.f6621g = false;
-        this.f6622h = 0L;
-        this.f6623i = null;
+        this.f6642b = null;
+        this.f6644d = null;
+        this.f6641a = new e(this);
+        this.f6645e = null;
+        this.f6646f = null;
+        this.f6647g = false;
+        this.f6648h = 0L;
+        this.f6649i = null;
         this.k = null;
         this.l = false;
     }
@@ -550,7 +550,7 @@ public class k {
     public static k a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c.f6629a : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c.f6655a : (k) invokeV.objValue;
     }
 
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
@@ -563,25 +563,25 @@ public class k {
 
     public void a(Context context, WebView webView, LocationClient locationClient) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, webView, locationClient) == null) || this.f6621g || Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, webView, locationClient) == null) || this.f6647g || Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return;
         }
-        this.f6616b = context;
-        this.f6617c = webView;
-        this.f6618d = locationClient;
+        this.f6642b = context;
+        this.f6643c = webView;
+        this.f6644d = locationClient;
         a aVar = new a(this, Looper.getMainLooper());
-        this.f6619e = aVar;
+        this.f6645e = aVar;
         aVar.obtainMessage(3).sendToTarget();
         webView.getSettings().setJavaScriptEnabled(true);
-        a(this.f6617c);
-        this.f6621g = true;
+        a(this.f6643c);
+        this.f6647g = true;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f6621g) {
-            this.f6619e.obtainMessage(4).sendToTarget();
-            this.f6621g = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f6647g) {
+            this.f6645e.obtainMessage(4).sendToTarget();
+            this.f6647g = false;
         }
     }
 }

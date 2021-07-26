@@ -35,10 +35,10 @@ public final class z0 extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Context c2 = a.a().c();
-            if (c2 != null) {
+            Context a2 = a.c().a();
+            if (a2 != null) {
                 try {
-                    ConnectivityManager connectivityManager = (ConnectivityManager) c2.getSystemService((String) h.a(16777217, 0, 0L, "e96af6", new byte[]{119, 52, 75, 27, 92, 34, 114, 17, 113, 56, 96, 34}));
+                    ConnectivityManager connectivityManager = (ConnectivityManager) a2.getSystemService((String) h.a(16777217, 0, 0L, "e96af6", new byte[]{119, 52, 75, 27, 92, 34, 114, 17, 113, 56, 96, 34}));
                     Method declaredMethod = connectivityManager.getClass().getDeclaredMethod((String) h.a(16777217, 0, 0L, "4f6a44", new byte[]{34, 97, 81, 52, 8, 55, 62, 81, 98, 31, 32, 112, 82, 26, 25, 40, 30, 73, 97, 62}), new Class[0]);
                     declaredMethod.setAccessible(true);
                     NetworkInfo networkInfo = (NetworkInfo) declaredMethod.invoke(connectivityManager, new Object[0]);

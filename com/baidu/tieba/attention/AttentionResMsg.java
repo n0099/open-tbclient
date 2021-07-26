@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.t.j;
+import d.a.p0.u.i;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -23,7 +23,7 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mHasMore;
-    public List<j> mSelectForumDataList;
+    public List<i> mSelectForumDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AttentionResMsg(int i2) {
@@ -54,20 +54,20 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             JSONObject optJSONObject2 = jSONArray.optJSONObject(i2);
             if (optJSONObject2 != null) {
-                j jVar = new j();
-                jVar.f53429a = optJSONObject2.optString("id");
-                jVar.f53430b = optJSONObject2.optString("avatar");
-                jVar.f53431c = optJSONObject2.optString("name");
-                jVar.f53432d = optJSONObject2.optInt("level_id");
-                jVar.f53433e = optJSONObject2.optInt("this_week_post") == 1;
+                i iVar = new i();
+                iVar.f54102a = optJSONObject2.optString("id");
+                iVar.f54103b = optJSONObject2.optString("avatar");
+                iVar.f54104c = optJSONObject2.optString("name");
+                iVar.f54105d = optJSONObject2.optInt("level_id");
+                iVar.f54106e = optJSONObject2.optInt("this_week_post") == 1;
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("block_pop_info");
                 if (optJSONObject3 != null) {
-                    jVar.f53434f = optJSONObject3.optInt("can_post") == 1;
-                    jVar.f53435g = optJSONObject3.optString("block_info");
+                    iVar.f54107f = optJSONObject3.optInt("can_post") == 1;
+                    iVar.f54108g = optJSONObject3.optString("block_info");
                 }
                 JSONArray optJSONArray = optJSONObject2.optJSONArray("tab_info");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    jVar.f53436h = new ArrayList();
+                    iVar.f54109h = new ArrayList();
                     for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         JSONObject optJSONObject4 = optJSONArray.optJSONObject(i3);
                         if (optJSONObject4 != null) {
@@ -82,17 +82,17 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                             builder.tab_code = optJSONObject4.optString(LowFlowsActivityConfig.TAB_CODE);
                             builder.tab_version = Integer.valueOf(optJSONObject4.optInt("tab_version"));
                             builder.is_default = Integer.valueOf(optJSONObject4.optInt(AddressField.KEY_IS_DEFAULT));
-                            jVar.f53436h.add(new FrsTabItemData(builder.build(true)));
+                            iVar.f54109h.add(new FrsTabItemData(builder.build(true)));
                         }
                     }
                 }
-                jVar.j = optJSONObject2.optInt("is_forum_business_account") == 1;
+                iVar.j = optJSONObject2.optInt("is_forum_business_account") == 1;
                 if (optJSONObject2.optInt("has_postpre") == 1 && (optJSONObject = optJSONObject2.optJSONObject("post_prefix")) != null) {
                     PostPrefixData postPrefixData = new PostPrefixData();
-                    jVar.f53437i = postPrefixData;
+                    iVar.f54110i = postPrefixData;
                     postPrefixData.parserJson(optJSONObject);
                 }
-                this.mSelectForumDataList.add(jVar);
+                this.mSelectForumDataList.add(iVar);
             }
         }
     }
@@ -116,7 +116,7 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHasMore : invokeV.booleanValue;
     }
 
-    public List<j> getSelectForumDataList() {
+    public List<i> getSelectForumDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSelectForumDataList : (List) invokeV.objValue;

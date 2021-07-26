@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
-import d.a.v0.t.g;
-import d.a.v0.t.m;
-import d.a.v0.t.t;
-import d.a.v0.t.w;
+import d.a.w0.t.g;
+import d.a.w0.t.m;
+import d.a.w0.t.t;
+import d.a.w0.t.w;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(18)
@@ -389,7 +389,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
                             int b2 = ((int) (g.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (t.f68262b) {
+                            if (t.f68940b) {
                                 trackFormat.setInteger("rotation-degrees", b2);
                             } else {
                                 trackFormat.setInteger("rotation-degrees", b2);

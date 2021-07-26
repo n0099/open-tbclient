@@ -22,31 +22,31 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WireField.Label f71046a;
+    public final WireField.Label f71500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f71047b;
+    public final String f71501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f71048c;
+    public final int f71502c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f71049d;
+    public final String f71503d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f71050e;
+    public final String f71504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f71051f;
+    public final boolean f71505f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Field f71052g;
+    public final Field f71506g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Field f71053h;
+    public final Field f71507h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Method f71054i;
+    public final Method f71508i;
     public ProtoAdapter<?> j;
     public ProtoAdapter<?> k;
     public ProtoAdapter<Object> l;
@@ -66,15 +66,15 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
                 return;
             }
         }
-        this.f71046a = wireField.label();
-        this.f71047b = field.getName();
-        this.f71048c = wireField.tag();
-        this.f71049d = wireField.keyAdapter();
-        this.f71050e = wireField.adapter();
-        this.f71051f = wireField.redacted();
-        this.f71052g = field;
-        this.f71053h = c(cls, this.f71047b);
-        this.f71054i = d(cls, this.f71047b, field.getType());
+        this.f71500a = wireField.label();
+        this.f71501b = field.getName();
+        this.f71502c = wireField.tag();
+        this.f71503d = wireField.keyAdapter();
+        this.f71504e = wireField.adapter();
+        this.f71505f = wireField.redacted();
+        this.f71506g = field;
+        this.f71507h = c(cls, this.f71501b);
+        this.f71508i = d(cls, this.f71501b, field.getType());
     }
 
     public static Field c(Class<?> cls, String str) {
@@ -116,7 +116,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
                 this.l = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = i().withLabel(this.f71046a);
+            ProtoAdapter<?> withLabel = i().withLabel(this.f71500a);
             this.l = withLabel;
             return withLabel;
         }
@@ -128,7 +128,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m)) == null) {
             try {
-                return this.f71052g.get(m);
+                return this.f71506g.get(m);
             } catch (IllegalAccessException e2) {
                 throw new AssertionError(e2);
             }
@@ -141,7 +141,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2)) == null) {
             try {
-                return this.f71053h.get(b2);
+                return this.f71507h.get(b2);
             } catch (IllegalAccessException e2) {
                 throw new AssertionError(e2);
             }
@@ -152,7 +152,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !this.f71049d.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !this.f71503d.isEmpty() : invokeV.booleanValue;
     }
 
     public ProtoAdapter<?> g() {
@@ -163,7 +163,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
             if (protoAdapter != null) {
                 return protoAdapter;
             }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f71049d);
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f71503d);
             this.k = protoAdapter2;
             return protoAdapter2;
         }
@@ -174,10 +174,10 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, b2, obj) == null) {
             try {
-                if (this.f71046a.isOneOf()) {
-                    this.f71054i.invoke(b2, obj);
+                if (this.f71500a.isOneOf()) {
+                    this.f71508i.invoke(b2, obj);
                 } else {
-                    this.f71053h.set(b2, obj);
+                    this.f71507h.set(b2, obj);
                 }
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw new AssertionError(e2);
@@ -193,7 +193,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
             if (protoAdapter != null) {
                 return protoAdapter;
             }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f71050e);
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f71504e);
             this.j = protoAdapter2;
             return protoAdapter2;
         }
@@ -203,9 +203,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public void j(B b2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, b2, obj) == null) {
-            if (this.f71046a.isRepeated()) {
+            if (this.f71500a.isRepeated()) {
                 ((List) e(b2)).add(obj);
-            } else if (!this.f71049d.isEmpty()) {
+            } else if (!this.f71503d.isEmpty()) {
                 ((Map) e(b2)).putAll((Map) obj);
             } else {
                 h(b2, obj);

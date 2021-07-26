@@ -40,7 +40,7 @@ public final class BlockingFirstObserver<T> extends BlockingBaseObserver<T> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && this.value == null) {
             this.value = t;
-            this.f72994d.dispose();
+            this.f73448d.dispose();
             countDown();
         }
     }

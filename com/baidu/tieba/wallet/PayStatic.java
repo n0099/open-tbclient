@@ -23,7 +23,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatProxyCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
-import d.a.o0.d.a;
+import d.a.p0.e.a;
 import tv.athena.revenue.payui.YYPayUIKit;
 /* loaded from: classes4.dex */
 public class PayStatic {
@@ -71,9 +71,9 @@ public class PayStatic {
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iAlipayProxyCallback}) == null) {
                     try {
                         a aVar = new a();
-                        aVar.f51881a = activity;
-                        aVar.f51882b = str;
-                        aVar.f51883c = false;
+                        aVar.f52495a = activity;
+                        aVar.f52496b = str;
+                        aVar.f52497c = false;
                         iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
                     } catch (Exception e2) {
                         iAlipayProxyCallback.onFail(e2.getMessage());

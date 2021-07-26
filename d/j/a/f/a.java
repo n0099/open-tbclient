@@ -20,24 +20,24 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f71005a;
+    public final e f71459a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SVGAVideoEntity f71006b;
+    public final SVGAVideoEntity f71460b;
 
     /* renamed from: d.j.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public final class C2008a {
+    public final class C2007a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f71007a;
+        public final String f71461a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final g f71008b;
+        public final g f71462b;
 
-        public C2008a(a aVar, String str, g gVar) {
+        public C2007a(a aVar, String str, g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,20 +52,20 @@ public class a {
                     return;
                 }
             }
-            this.f71007a = str;
-            this.f71008b = gVar;
+            this.f71461a = str;
+            this.f71462b = gVar;
         }
 
         public final g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71008b : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71462b : (g) invokeV.objValue;
         }
 
         public final String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71007a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71461a : (String) invokeV.objValue;
         }
     }
 
@@ -84,42 +84,42 @@ public class a {
                 return;
             }
         }
-        this.f71006b = sVGAVideoEntity;
-        this.f71005a = new e();
+        this.f71460b = sVGAVideoEntity;
+        this.f71459a = new e();
     }
 
     public void a(Canvas canvas, int i2, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i2, scaleType) == null) {
-            this.f71005a.f(canvas.getWidth(), canvas.getHeight(), (float) this.f71006b.h().b(), (float) this.f71006b.h().a(), scaleType);
+            this.f71459a.f(canvas.getWidth(), canvas.getHeight(), (float) this.f71460b.h().b(), (float) this.f71460b.h().a(), scaleType);
         }
     }
 
     public final e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71005a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71459a : (e) invokeV.objValue;
     }
 
     public final SVGAVideoEntity c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71006b : (SVGAVideoEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71460b : (SVGAVideoEntity) invokeV.objValue;
     }
 
-    public final List<C2008a> d(int i2) {
+    public final List<C2007a> d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            List<f> g2 = this.f71006b.g();
+            List<f> g2 = this.f71460b.g();
             ArrayList arrayList = new ArrayList();
             for (f fVar : g2) {
-                C2008a c2008a = null;
+                C2007a c2007a = null;
                 if (i2 >= 0 && i2 < fVar.a().size() && fVar.a().get(i2).a() > 0.0d) {
-                    c2008a = new C2008a(this, fVar.b(), fVar.a().get(i2));
+                    c2007a = new C2007a(this, fVar.b(), fVar.a().get(i2));
                 }
-                if (c2008a != null) {
-                    arrayList.add(c2008a);
+                if (c2007a != null) {
+                    arrayList.add(c2007a);
                 }
             }
             return arrayList;

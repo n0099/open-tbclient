@@ -15,30 +15,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.k.f;
-import d.a.n0.k.g;
-import d.a.n0.k.h;
-import d.a.n0.k.i;
-import d.a.n0.k.j;
+import d.a.o0.k.f;
+import d.a.o0.k.g;
+import d.a.o0.k.h;
+import d.a.o0.k.i;
+import d.a.o0.k.j;
 /* loaded from: classes3.dex */
 public abstract class BaseMenuView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12022e;
+    public Context f12048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12023f;
+    public View f12049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12024g;
+    public TextView f12050g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f12025h;
+    public View f12051h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f12026i;
+    public final int f12052i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseMenuView(@NonNull Context context) {
@@ -64,8 +64,8 @@ public abstract class BaseMenuView extends FrameLayout {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f12023f.getLayoutParams().height = i2 + this.f12026i;
-            this.f12023f.requestLayout();
+            this.f12049f.getLayoutParams().height = i2 + this.f12052i;
+            this.f12049f.requestLayout();
         }
     }
 
@@ -78,29 +78,29 @@ public abstract class BaseMenuView extends FrameLayout {
         }
         int height = view.getHeight();
         if (height != 0) {
-            this.f12023f.getLayoutParams().height = height + this.f12026i;
+            this.f12049f.getLayoutParams().height = height + this.f12052i;
         }
-        this.f12025h = view;
-        layoutParams.bottomMargin = this.f12026i;
+        this.f12051h = view;
+        layoutParams.bottomMargin = this.f12052i;
         addView(view, layoutParams);
     }
 
     public View getBgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12023f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12049f : (View) invokeV.objValue;
     }
 
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12025h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12051h : (View) invokeV.objValue;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f12024g.setOnClickListener(onClickListener);
+            this.f12050g.setOnClickListener(onClickListener);
         }
     }
 
@@ -108,10 +108,10 @@ public abstract class BaseMenuView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Resources resources = getResources();
-            this.f12023f.setBackground(resources.getDrawable(h.swan_app_menu_content_bg));
-            this.f12024g.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
-            this.f12024g.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
-            this.f12024g.setAlpha(1.0f);
+            this.f12049f.setBackground(resources.getDrawable(h.swan_app_menu_content_bg));
+            this.f12050g.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
+            this.f12050g.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
+            this.f12050g.setAlpha(1.0f);
         }
     }
 
@@ -155,10 +155,10 @@ public abstract class BaseMenuView extends FrameLayout {
                 return;
             }
         }
-        this.f12022e = context;
+        this.f12048e = context;
         View inflate = FrameLayout.inflate(context, j.aiapp_menu_base_view_layout, this);
-        this.f12023f = inflate.findViewById(i.background);
-        this.f12024g = (TextView) inflate.findViewById(i.cancel);
-        this.f12026i = (int) context.getResources().getDimension(g.aiapp_menu_cancel_btn_height);
+        this.f12049f = inflate.findViewById(i.background);
+        this.f12050g = (TextView) inflate.findViewById(i.cancel);
+        this.f12052i = (int) context.getResources().getDimension(g.aiapp_menu_cancel_btn_height);
     }
 }

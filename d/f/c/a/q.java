@@ -18,13 +18,13 @@ public final class q implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Activity f70809e;
+    public final /* synthetic */ Activity f71263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ m f70810f;
+    public final /* synthetic */ m f71264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ l f70811g;
+    public final /* synthetic */ l f71265g;
 
     public q(l lVar, Activity activity, m mVar) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public final class q implements Runnable {
                 return;
             }
         }
-        this.f70811g = lVar;
-        this.f70809e = activity;
-        this.f70810f = mVar;
+        this.f71265g = lVar;
+        this.f71263e = activity;
+        this.f71264f = mVar;
     }
 
     @Override // java.lang.Runnable
@@ -54,16 +54,16 @@ public final class q implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.f70811g.f70796d;
-                String str = this.f70809e.getApplicationInfo().packageName;
-                l lVar = this.f70811g;
+                aVar = this.f71265g.f71250d;
+                String str = this.f71263e.getApplicationInfo().packageName;
+                l lVar = this.f71265g;
                 l = l.l();
                 aVar.a(str, Collections.singletonList(l), new Bundle(), new x(this, atomicBoolean));
                 new Handler().postDelayed(new r(this, atomicBoolean), 3000L);
             } catch (RemoteException e2) {
                 Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e2);
-                l lVar2 = this.f70811g;
-                l.n(this.f70809e, this.f70810f);
+                l lVar2 = this.f71265g;
+                l.n(this.f71263e, this.f71264f);
             }
         }
     }

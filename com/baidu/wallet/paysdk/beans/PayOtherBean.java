@@ -25,7 +25,7 @@ public class PayOtherBean<T> extends OtherBean<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f25942a;
+    public long f26100a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PayOtherBean(Context context) {
@@ -45,13 +45,13 @@ public class PayOtherBean<T> extends OtherBean<T> {
                 return;
             }
         }
-        this.f25942a = 0L;
+        this.f26100a = 0L;
     }
 
     private void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f25942a;
+            long currentTimeMillis = System.currentTimeMillis() - this.f26100a;
             try {
                 String path = new URL(getUrl()).getPath();
                 List<String> collectData = StatHelper.collectData(path, i2 + "");
@@ -162,7 +162,7 @@ public class PayOtherBean<T> extends OtherBean<T> {
     public <T, E> void execBean(Class<T> cls, Class<E> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2) == null) {
-            this.f25942a = System.currentTimeMillis();
+            this.f26100a = System.currentTimeMillis();
             super.execBean(cls, cls2);
         }
     }

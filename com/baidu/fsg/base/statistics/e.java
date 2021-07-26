@@ -10,7 +10,7 @@ public class e implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f5303a;
+    public final /* synthetic */ d f5329a;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class e implements Runnable {
                 return;
             }
         }
-        this.f5303a = dVar;
+        this.f5329a = dVar;
     }
 
     @Override // java.lang.Runnable

@@ -7,16 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.adnet.d.d;
+import com.bytedance.sdk.component.adnet.d.c;
 import com.bytedance.sdk.component.b.b.u;
 import com.bytedance.sdk.component.b.b.w;
 import com.bytedance.sdk.component.net.executor.DownloadExecutor;
 import com.bytedance.sdk.component.net.executor.GetExecutor;
 import com.bytedance.sdk.component.net.executor.PostExecutor;
-import com.bytedance.sdk.component.net.tnc.AppConfig;
 import com.bytedance.sdk.component.net.tnc.ITTAdNetDepend;
-import com.bytedance.sdk.component.net.tnc.TNCManager;
 import com.bytedance.sdk.component.net.tnc.TncHostInterceptor;
+import com.bytedance.sdk.component.net.tnc.TncInstanceManager;
 import com.bytedance.sdk.component.net.utils.ProcessUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,9 @@ import java.util.concurrent.TimeUnit;
 public class NetClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int mAid;
     public w okHttpClient;
+    public TncHostInterceptor tncHostInterceptor;
 
     /* renamed from: com.bytedance.sdk.component.net.NetClient$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -141,7 +142,7 @@ public class NetClient {
     public static void openDeubg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            d.a(d.a.f28053a);
+            c.a(c.a.f28147a);
         }
     }
 
@@ -166,22 +167,31 @@ public class NetClient {
     public void tryInitTTAdNet(Context context, boolean z, boolean z2, ITTAdNetDepend iTTAdNetDepend) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), iTTAdNetDepend}) == null) {
-            if (context != null) {
-                TNCManager.getInstance().setURLDispatchEnabled(z2);
-                TNCManager.getInstance().setITTAdNetDepend(iTTAdNetDepend);
-                TNCManager.getInstance().initTnc(context, ProcessUtils.isMainProcess(context));
+            if (context == null) {
+                throw new IllegalArgumentException("tryInitAdTTNet context is null");
+            }
+            if (iTTAdNetDepend != null) {
+                int aid = iTTAdNetDepend.getAid();
+                this.mAid = aid;
+                TncHostInterceptor tncHostInterceptor = this.tncHostInterceptor;
+                if (tncHostInterceptor != null) {
+                    tncHostInterceptor.setAid(aid);
+                }
+                TncInstanceManager.getInstance().getTNCManager(this.mAid).setURLDispatchEnabled(z2);
+                TncInstanceManager.getInstance().getTNCManager(this.mAid).setITTAdNetDepend(iTTAdNetDepend);
+                TncInstanceManager.getInstance().getTNCManager(this.mAid).initTnc(context, ProcessUtils.isMainProcess(context));
                 if (ProcessUtils.isMessageProcess(context) || (!ProcessUtils.isMainProcess(context) && z)) {
-                    AppConfig.getInstance(context).tryLoadLocalConfig();
-                    AppConfig.getInstance(context).tryRefreshConfig();
+                    TncInstanceManager.getInstance().getAppConfig(this.mAid, context).tryLoadLocalConfig();
+                    TncInstanceManager.getInstance().getAppConfig(this.mAid, context).tryRefreshConfig();
                 }
                 if (ProcessUtils.isMainProcess(context)) {
-                    AppConfig.getInstance(context).tryLoadLocalConfig();
-                    AppConfig.getInstance(context).tryRefreshConfig();
+                    TncInstanceManager.getInstance().getAppConfig(this.mAid, context).tryLoadLocalConfig();
+                    TncInstanceManager.getInstance().getAppConfig(this.mAid, context).tryRefreshConfig();
                     return;
                 }
                 return;
             }
-            throw new IllegalArgumentException("tryInitAdTTNet context is null");
+            throw new IllegalArgumentException("tryInitAdTTNet ITTAdNetDepend is null");
         }
     }
 
@@ -202,7 +212,9 @@ public class NetClient {
         }
         w.a b2 = new w.a().a(builder.connectTimeout, TimeUnit.MILLISECONDS).c(builder.writeTimeout, TimeUnit.MILLISECONDS).b(builder.readTimeout, TimeUnit.MILLISECONDS);
         if (builder.enableTNC) {
-            b2.a(new TncHostInterceptor());
+            TncHostInterceptor tncHostInterceptor = new TncHostInterceptor();
+            this.tncHostInterceptor = tncHostInterceptor;
+            b2.a(tncHostInterceptor);
         }
         this.okHttpClient = b2.a();
     }

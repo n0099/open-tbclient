@@ -12,7 +12,7 @@ public class SquareLiveCategoryViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f13938a;
+    public View f13986a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SquareLiveCategoryViewHolder(View view) {
@@ -32,6 +32,6 @@ public class SquareLiveCategoryViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f13938a = view;
+        this.f13986a = view;
     }
 }

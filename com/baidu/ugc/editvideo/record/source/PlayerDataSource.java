@@ -15,9 +15,9 @@ import com.baidu.ugc.editvideo.player.IPlayer;
 import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import com.baidu.ugc.editvideo.record.source.IMediaDataSource;
-import d.a.v0.t.c;
-import d.a.v0.t.h;
-import d.a.v0.t.w;
+import d.a.w0.t.c;
+import d.a.w0.t.h;
+import d.a.w0.t.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */

@@ -9,10 +9,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
 /* loaded from: classes3.dex */
-public class AlaUserInfoData extends OrmObject {
+public class AlaUserInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long ala_id;
@@ -54,9 +55,54 @@ public class AlaUserInfoData extends OrmObject {
         }
     }
 
+    public void parserJson(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+        }
+    }
+
+    public void parserProtobuf(AlaUserInfo alaUserInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaUserInfo) == null) || alaUserInfo == null) {
+            return;
+        }
+        try {
+            this.ala_id = alaUserInfo.ala_id.longValue();
+            this.user_name = alaUserInfo.user_name;
+            this.portrait = alaUserInfo.portrait;
+            this.anchor_live = alaUserInfo.anchor_live.longValue();
+            this.enter_live = alaUserInfo.enter_live.longValue();
+            this.description = alaUserInfo.description;
+            this.sex = alaUserInfo.sex;
+            this.live_status = alaUserInfo.live_status.intValue();
+            this.live_id = alaUserInfo.live_id.longValue();
+            this.location = alaUserInfo.location;
+            this.update_time = alaUserInfo.update_time.intValue();
+            this.charm_count = alaUserInfo.charm_count.longValue();
+            this.level_exp = alaUserInfo.level_exp.longValue();
+            this.is_official = alaUserInfo.is_official.intValue();
+            this.verify_status = alaUserInfo.verify_status;
+            this.level_id = alaUserInfo.level_id.intValue();
+            this.great_anchor_icon = alaUserInfo.great_anchor_icon;
+            this.great_anchor_desc_grade = alaUserInfo.great_anchor_desc_grade;
+            this.great_anchor_desc_role = alaUserInfo.great_anchor_desc_role;
+            this.lng = alaUserInfo.lng.doubleValue();
+            this.lat = alaUserInfo.lat.doubleValue();
+            this.user_id = alaUserInfo.user_id.longValue();
+            this.anchor_fans = alaUserInfo.anchor_fans.intValue();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+        }
+    }
+
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -84,40 +130,6 @@ public class AlaUserInfoData extends OrmObject {
             this.lat = jSONObject.optDouble(SuggestAddrField.KEY_LAT);
             this.user_id = jSONObject.optLong("user_id");
             this.anchor_fans = jSONObject.optInt("anchor_fans");
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-        }
-    }
-
-    public void w(AlaUserInfo alaUserInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaUserInfo) == null) || alaUserInfo == null) {
-            return;
-        }
-        try {
-            this.ala_id = alaUserInfo.ala_id.longValue();
-            this.user_name = alaUserInfo.user_name;
-            this.portrait = alaUserInfo.portrait;
-            this.anchor_live = alaUserInfo.anchor_live.longValue();
-            this.enter_live = alaUserInfo.enter_live.longValue();
-            this.description = alaUserInfo.description;
-            this.sex = alaUserInfo.sex;
-            this.live_status = alaUserInfo.live_status.intValue();
-            this.live_id = alaUserInfo.live_id.longValue();
-            this.location = alaUserInfo.location;
-            this.update_time = alaUserInfo.update_time.intValue();
-            this.charm_count = alaUserInfo.charm_count.longValue();
-            this.level_exp = alaUserInfo.level_exp.longValue();
-            this.is_official = alaUserInfo.is_official.intValue();
-            this.verify_status = alaUserInfo.verify_status;
-            this.level_id = alaUserInfo.level_id.intValue();
-            this.great_anchor_icon = alaUserInfo.great_anchor_icon;
-            this.great_anchor_desc_grade = alaUserInfo.great_anchor_desc_grade;
-            this.great_anchor_desc_role = alaUserInfo.great_anchor_desc_role;
-            this.lng = alaUserInfo.lng.doubleValue();
-            this.lat = alaUserInfo.lat.doubleValue();
-            this.user_id = alaUserInfo.user_id.longValue();
-            this.anchor_fans = alaUserInfo.anchor_fans.intValue();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

@@ -18,10 +18,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f32102a;
+    public b f32303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f32103b;
+    public AtomicBoolean f32304b;
 
     public a(Context context, String str, File file) {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class a {
                 return;
             }
         }
-        this.f32103b = new AtomicBoolean(false);
+        this.f32304b = new AtomicBoolean(false);
         if (context != null) {
             if (TextUtils.isEmpty(str)) {
                 throw new RuntimeException("access key empty");
             }
             if (file != null) {
-                this.f32102a = new b(context, str, file);
+                this.f32303a = new b(context, str, file);
                 return;
             }
             throw new RuntimeException("resRootDir == null");
@@ -56,9 +56,9 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!this.f32103b.get()) {
+            if (!this.f32304b.get()) {
                 com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("WebOffline-falcon", "GeckoResLoader ready to load, file:", str);
-                return this.f32102a.a(str);
+                return this.f32303a.a(str);
             }
             throw new RuntimeException("released!");
         }
@@ -69,8 +69,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!this.f32103b.get()) {
-                return this.f32102a.b(str);
+            if (!this.f32304b.get()) {
+                return this.f32303a.b(str);
             }
             throw new RuntimeException("released!");
         }
@@ -79,9 +79,9 @@ public class a {
 
     public void a() throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32103b.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32304b.getAndSet(true)) {
             return;
         }
-        this.f32102a.a();
+        this.f32303a.a();
     }
 }

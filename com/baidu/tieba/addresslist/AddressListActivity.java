@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AddressListActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar mNavigationBar;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddressListActivity f13802e;
+        public final /* synthetic */ AddressListActivity f13850e;
 
         public a(AddressListActivity addressListActivity) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class AddressListActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f13802e = addressListActivity;
+            this.f13850e = addressListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f13802e.finish();
+                this.f13850e.finish();
             }
         }
     }

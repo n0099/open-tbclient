@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes4.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserTropicGiftBagActivity f21519e;
+        public final /* synthetic */ UserTropicGiftBagActivity f21637e;
 
         public a(UserTropicGiftBagActivity userTropicGiftBagActivity) {
             Interceptable interceptable = $ic;
@@ -63,21 +63,21 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f21519e = userTropicGiftBagActivity;
+            this.f21637e = userTropicGiftBagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbPageContext<?> pageContext = this.f21519e.getPageContext();
-                if (view.getId() == this.f21519e.mKnow.getId()) {
+                TbPageContext<?> pageContext = this.f21637e.getPageContext();
+                if (view.getId() == this.f21637e.mKnow.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.f21519e.sendStatisticLog(2);
-                    this.f21519e.finish();
+                    this.f21637e.sendStatisticLog(2);
+                    this.f21637e.finish();
                 }
-                if (view.getId() == this.f21519e.mClose.getId()) {
-                    this.f21519e.finish();
+                if (view.getId() == this.f21637e.mClose.getId()) {
+                    this.f21637e.finish();
                 }
             }
         }

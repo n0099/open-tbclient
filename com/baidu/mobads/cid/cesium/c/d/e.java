@@ -13,10 +13,10 @@ public class e implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BigInteger f8327a;
+    public BigInteger f8353a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BigInteger f8328b;
+    public BigInteger f8354b;
 
     public e(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public class e implements d {
                 return;
             }
         }
-        this.f8327a = new BigInteger(bArr);
-        this.f8328b = new BigInteger(bArr2);
+        this.f8353a = new BigInteger(bArr);
+        this.f8354b = new BigInteger(bArr2);
     }
 
     @Override // com.baidu.mobads.cid.cesium.c.d.d
     public BigInteger a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8327a : (BigInteger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8353a : (BigInteger) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.cid.cesium.c.d.d
     public BigInteger b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8328b : (BigInteger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8354b : (BigInteger) invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.wallet;
 import android.app.Activity;
 import android.content.Context;
 import com.baidu.adp.BdUniqueId;
-import d.a.o0.l0.f;
+import d.a.p0.n0.f;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public interface IWalletPlugin {

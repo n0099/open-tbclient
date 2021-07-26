@@ -27,39 +27,39 @@ public class a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final n f70082a;
+    public final n f70536a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f70083b;
+    public final int f70537b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f70084c;
+    public final f f70538c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.f.b.a.d0.u.d[] f70085d;
+    public final d.f.b.a.d0.u.d[] f70539d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final e f70086e;
+    public final e f70540e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.f.b.a.d0.x.e.a f70087f;
+    public d.f.b.a.d0.x.e.a f70541f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f70088g;
+    public int f70542g;
 
     /* renamed from: h  reason: collision with root package name */
-    public IOException f70089h;
+    public IOException f70543h;
 
     /* renamed from: d.f.b.a.d0.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C1981a implements b.a {
+    public static final class C1980a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final e.a f70090a;
+        public final e.a f70544a;
 
-        public C1981a(e.a aVar) {
+        public C1980a(e.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,14 +74,14 @@ public class a implements b {
                     return;
                 }
             }
-            this.f70090a = aVar;
+            this.f70544a = aVar;
         }
 
         @Override // d.f.b.a.d0.x.b.a
         public b a(n nVar, d.f.b.a.d0.x.e.a aVar, int i2, f fVar, k[] kVarArr) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{nVar, aVar, Integer.valueOf(i2), fVar, kVarArr})) == null) ? new a(nVar, aVar, i2, fVar, this.f70090a.a(), kVarArr) : (b) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{nVar, aVar, Integer.valueOf(i2), fVar, kVarArr})) == null) ? new a(nVar, aVar, i2, fVar, this.f70544a.a(), kVarArr) : (b) invokeCommon.objValue;
         }
     }
 
@@ -100,19 +100,19 @@ public class a implements b {
                 return;
             }
         }
-        this.f70082a = nVar;
-        this.f70087f = aVar;
-        this.f70083b = i2;
-        this.f70084c = fVar;
-        this.f70086e = eVar;
-        a.b bVar = aVar.f70104c[i2];
-        this.f70085d = new d.f.b.a.d0.u.d[fVar.length()];
+        this.f70536a = nVar;
+        this.f70541f = aVar;
+        this.f70537b = i2;
+        this.f70538c = fVar;
+        this.f70540e = eVar;
+        a.b bVar = aVar.f70558c[i2];
+        this.f70539d = new d.f.b.a.d0.u.d[fVar.length()];
         int i5 = 0;
-        while (i5 < this.f70085d.length) {
+        while (i5 < this.f70539d.length) {
             int b2 = fVar.b(i5);
-            Format format = bVar.f70111c[b2];
+            Format format = bVar.f70565c[b2];
             int i6 = i5;
-            this.f70085d[i6] = new d.f.b.a.d0.u.d(new d.f.b.a.a0.q.e(3, null, new j(b2, bVar.f70109a, bVar.f70110b, -9223372036854775807L, aVar.f70105d, format, 0, kVarArr, bVar.f70109a == 2 ? 4 : 0, null, null), null), bVar.f70109a, format);
+            this.f70539d[i6] = new d.f.b.a.d0.u.d(new d.f.b.a.a0.q.e(3, null, new j(b2, bVar.f70563a, bVar.f70564b, -9223372036854775807L, aVar.f70559d, format, 0, kVarArr, bVar.f70563a == 2 ? 4 : 0, null, null), null), bVar.f70563a, format);
             i5 = i6 + 1;
         }
     }
@@ -127,9 +127,9 @@ public class a implements b {
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            IOException iOException = this.f70089h;
+            IOException iOException = this.f70543h;
             if (iOException == null) {
-                this.f70082a.a();
+                this.f70536a.a();
                 return;
             }
             throw iOException;
@@ -140,24 +140,24 @@ public class a implements b {
     public void b(d.f.b.a.d0.x.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            a.b[] bVarArr = this.f70087f.f70104c;
-            int i2 = this.f70083b;
+            a.b[] bVarArr = this.f70541f.f70558c;
+            int i2 = this.f70537b;
             a.b bVar = bVarArr[i2];
-            int i3 = bVar.f70112d;
-            a.b bVar2 = aVar.f70104c[i2];
-            if (i3 != 0 && bVar2.f70112d != 0) {
+            int i3 = bVar.f70566d;
+            a.b bVar2 = aVar.f70558c[i2];
+            if (i3 != 0 && bVar2.f70566d != 0) {
                 int i4 = i3 - 1;
                 long d2 = bVar.d(i4) + bVar.b(i4);
                 long d3 = bVar2.d(0);
                 if (d2 <= d3) {
-                    this.f70088g += i3;
+                    this.f70542g += i3;
                 } else {
-                    this.f70088g += bVar.c(d3);
+                    this.f70542g += bVar.c(d3);
                 }
             } else {
-                this.f70088g += i3;
+                this.f70542g += i3;
             }
-            this.f70087f = aVar;
+            this.f70541f = aVar;
         }
     }
 
@@ -174,8 +174,8 @@ public class a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{cVar, Boolean.valueOf(z), exc})) == null) {
             if (z) {
-                f fVar = this.f70084c;
-                if (h.a(fVar, fVar.k(cVar.f69862c), exc)) {
+                f fVar = this.f70538c;
+                if (h.a(fVar, fVar.k(cVar.f70316c), exc)) {
                     return true;
                 }
             }
@@ -186,35 +186,35 @@ public class a implements b {
 
     @Override // d.f.b.a.d0.u.g
     public final void f(l lVar, long j, long j2, d.f.b.a.d0.u.e eVar) {
-        int f2;
+        int e2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{lVar, Long.valueOf(j), Long.valueOf(j2), eVar}) == null) && this.f70089h == null) {
-            d.f.b.a.d0.x.e.a aVar = this.f70087f;
-            a.b bVar = aVar.f70104c[this.f70083b];
-            if (bVar.f70112d == 0) {
-                eVar.f69879b = !aVar.f70102a;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{lVar, Long.valueOf(j), Long.valueOf(j2), eVar}) == null) && this.f70543h == null) {
+            d.f.b.a.d0.x.e.a aVar = this.f70541f;
+            a.b bVar = aVar.f70558c[this.f70537b];
+            if (bVar.f70566d == 0) {
+                eVar.f70333b = !aVar.f70556a;
                 return;
             }
             if (lVar == null) {
-                f2 = bVar.c(j2);
+                e2 = bVar.c(j2);
             } else {
-                f2 = lVar.f() - this.f70088g;
-                if (f2 < 0) {
-                    this.f70089h = new BehindLiveWindowException();
+                e2 = lVar.e() - this.f70542g;
+                if (e2 < 0) {
+                    this.f70543h = new BehindLiveWindowException();
                     return;
                 }
             }
-            int i2 = f2;
-            if (i2 >= bVar.f70112d) {
-                eVar.f69879b = !this.f70087f.f70102a;
+            int i2 = e2;
+            if (i2 >= bVar.f70566d) {
+                eVar.f70333b = !this.f70541f.f70556a;
                 return;
             }
-            this.f70084c.i(j, j2 - j, h(j));
+            this.f70538c.i(j, j2 - j, h(j));
             long d2 = bVar.d(i2);
             long b2 = d2 + bVar.b(i2);
-            int i3 = i2 + this.f70088g;
-            int a2 = this.f70084c.a();
-            eVar.f69878a = g(this.f70084c.f(), this.f70086e, bVar.a(this.f70084c.b(a2), i2), null, i3, d2, b2, this.f70084c.l(), this.f70084c.j(), this.f70085d[a2]);
+            int i3 = i2 + this.f70542g;
+            int a2 = this.f70538c.a();
+            eVar.f70332a = g(this.f70538c.f(), this.f70540e, bVar.a(this.f70538c.b(a2), i2), null, i3, d2, b2, this.f70538c.l(), this.f70538c.j(), this.f70539d[a2]);
         }
     }
 
@@ -222,10 +222,10 @@ public class a implements b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            d.f.b.a.d0.x.e.a aVar = this.f70087f;
-            if (aVar.f70102a) {
-                a.b bVar = aVar.f70104c[this.f70083b];
-                int i2 = bVar.f70112d - 1;
+            d.f.b.a.d0.x.e.a aVar = this.f70541f;
+            if (aVar.f70556a) {
+                a.b bVar = aVar.f70558c[this.f70537b];
+                int i2 = bVar.f70566d - 1;
                 return (bVar.d(i2) + bVar.b(i2)) - j;
             }
             return -9223372036854775807L;

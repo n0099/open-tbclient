@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.f0.a;
+import d.a.p0.h0.a;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public abstract class StickyEvent extends OrmObject implements Serializable, a {
@@ -37,21 +37,21 @@ public abstract class StickyEvent extends OrmObject implements Serializable, a {
         this.mPid = Process.myPid();
     }
 
-    @Override // d.a.o0.f0.a
+    @Override // d.a.p0.h0.a
     public int getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPid : invokeV.intValue;
     }
 
-    @Override // d.a.o0.f0.a
+    @Override // d.a.p0.h0.a
     public int getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTag : invokeV.intValue;
     }
 
-    @Override // d.a.o0.f0.a
+    @Override // d.a.p0.h0.a
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public abstract class StickyEvent extends OrmObject implements Serializable, a {
         }
     }
 
-    @Override // d.a.o0.f0.a
+    @Override // d.a.p0.h0.a
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {

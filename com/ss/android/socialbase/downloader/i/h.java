@@ -14,7 +14,7 @@ public class h<K, T> extends LinkedHashMap<K, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38603a;
+    public int f38775a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public h() {
@@ -38,7 +38,7 @@ public class h<K, T> extends LinkedHashMap<K, T> {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f38603a = i2;
+            this.f38775a = i2;
         }
     }
 
@@ -46,7 +46,7 @@ public class h<K, T> extends LinkedHashMap<K, T> {
     public boolean removeEldestEntry(Map.Entry<K, T> entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? size() > this.f38603a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? size() > this.f38775a : invokeL.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

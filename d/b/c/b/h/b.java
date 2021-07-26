@@ -19,13 +19,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68985a;
+    public Context f69439a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.c.b.g f68986b;
+    public d.b.c.b.g f69440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f68987c;
+    public Map<String, Object> f69441c;
 
     public b(@NonNull Context context, @NonNull d.b.c.b.g gVar) {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class b {
                 return;
             }
         }
-        this.f68985a = context;
-        this.f68986b = gVar;
+        this.f69439a = context;
+        this.f69440b = gVar;
     }
 
     public static boolean b(Map<String, Object> map) {
@@ -57,13 +57,13 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Map<String, Object> a2 = this.f68986b.a();
+            Map<String, Object> a2 = this.f69440b.a();
             if (a2 == null) {
                 a2 = new HashMap<>(4);
             }
             if (b(a2)) {
                 try {
-                    PackageInfo packageInfo = this.f68985a.getPackageManager().getPackageInfo(this.f68985a.getPackageName(), 128);
+                    PackageInfo packageInfo = this.f69439a.getPackageManager().getPackageInfo(this.f69439a.getPackageName(), 128);
                     a2.put("version_name", packageInfo.versionName);
                     a2.put("version_code", Integer.valueOf(packageInfo.versionCode));
                     if (a2.get("update_version_code") == null) {
@@ -74,8 +74,8 @@ public class b {
                         a2.put("update_version_code", obj);
                     }
                 } catch (Throwable unused) {
-                    a2.put("version_name", l.b.l(this.f68985a));
-                    a2.put("version_code", Integer.valueOf(l.b.m(this.f68985a)));
+                    a2.put("version_name", l.b.l(this.f69439a));
+                    a2.put("version_code", Integer.valueOf(l.b.m(this.f69439a)));
                     if (a2.get("update_version_code") == null) {
                         a2.put("update_version_code", a2.get("version_code"));
                     }
@@ -91,10 +91,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f68987c == null) {
-                this.f68987c = this.f68986b.g();
+            if (this.f69441c == null) {
+                this.f69441c = this.f69440b.g();
             }
-            return this.f68987c;
+            return this.f69441c;
         }
         return (Map) invokeV.objValue;
     }
@@ -103,18 +103,18 @@ public class b {
     public d.b.c.b.g d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68986b : (d.b.c.b.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69440b : (d.b.c.b.g) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? l.b.k(this.f68985a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? l.b.k(this.f69439a) : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68986b.b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69440b.b() : (String) invokeV.objValue;
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
-import com.baidu.swan.apps.so.SoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,8 +25,8 @@ public class h {
                 jSONObject.put(Config.CUID_SEC, bw.a(2, context));
                 jSONObject.put("w", bw.c(context));
                 jSONObject.put("h", bw.d(context));
-                jSONObject.put("ly", ab.f8617c);
-                jSONObject.put("pv", SoUtils.SO_EVENT_ID_DEFAULT);
+                jSONObject.put("ly", ab.f8643c);
+                jSONObject.put("pv", "24");
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                     jSONObject.put(Config.PACKAGE_NAME, bw.h(2, context));

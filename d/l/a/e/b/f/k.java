@@ -1,9 +1,8 @@
 package d.l.a.e.b.f;
 
-import com.ss.android.socialbase.downloader.exception.BaseException;
+import androidx.annotation.Nullable;
+import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
 public interface k {
-    void a();
-
-    void a(BaseException baseException);
+    void a(@Nullable DownloadInfo downloadInfo, @Nullable String str);
 }

@@ -25,13 +25,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.r;
-import com.bytedance.sdk.component.utils.u;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.t;
+import com.bytedance.sdk.component.utils.w;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.b;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
+import com.bytedance.sdk.openadsdk.q.s;
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -56,7 +57,7 @@ public class h extends i {
     public TextView V;
     public TextView W;
     public ImageView X;
-    public final u Y;
+    public final w Y;
     public boolean Z;
     public boolean aA;
     public boolean aB;
@@ -106,7 +107,7 @@ public class h extends i {
                 return;
             }
         }
-        this.Y = new u(this);
+        this.Y = new w(this);
         this.Z = false;
         this.aa = false;
         this.ab = 0;
@@ -126,10 +127,10 @@ public class h extends i {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ h f30692a;
+            public final /* synthetic */ h f30872a;
 
             /* renamed from: b  reason: collision with root package name */
-            public float f30693b;
+            public float f30873b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -146,7 +147,7 @@ public class h extends i {
                         return;
                     }
                 }
-                this.f30692a = this;
+                this.f30872a = this;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -159,14 +160,14 @@ public class h extends i {
                     int actionMasked = motionEvent.getActionMasked();
                     if (actionMasked != 0) {
                         if (actionMasked == 1) {
-                            this.f30692a.ap = Math.abs(this.f30693b - motionEvent.getX()) < 10.0f;
+                            this.f30872a.ap = Math.abs(this.f30873b - motionEvent.getX()) < 10.0f;
                         } else if (actionMasked == 2) {
                             view2.getParent().requestDisallowInterceptTouchEvent(true);
                         } else if (actionMasked == 3) {
                             view2.getParent().requestDisallowInterceptTouchEvent(false);
                         }
                     } else {
-                        this.f30693b = x;
+                        this.f30873b = x;
                     }
                     return false;
                 }
@@ -178,7 +179,7 @@ public class h extends i {
         this.az = new Rect();
         this.z = o.a().getApplicationContext();
         c(z2);
-        this.f30695a = view;
+        this.f30875a = view;
         this.u = z;
         com.bytedance.sdk.openadsdk.core.widget.h hVar = new com.bytedance.sdk.openadsdk.core.widget.h(this);
         this.ao = hVar;
@@ -190,7 +191,7 @@ public class h extends i {
         this.E = cVar;
         this.y = mVar;
         c(8);
-        a(context, this.f30695a);
+        a(context, this.f30875a);
         a();
         n();
     }
@@ -206,16 +207,16 @@ public class h extends i {
                 ColorStateList textColors = this.W.getTextColors();
                 this.as = textColors;
                 if (textColors != null) {
-                    this.W.setTextColor(r.i(this.z, "tt_ssxinzi15"));
+                    this.W.setTextColor(t.i(this.z, "tt_ssxinzi15"));
                 }
                 this.at = this.W.getAlpha();
                 this.W.setAlpha(0.85f);
-                this.W.setShadowLayer(0.0f, q.b(this.z, 0.5f), q.b(this.z, 0.5f), r.i(this.z, "tt_video_shaoow_color_fullscreen"));
+                this.W.setShadowLayer(0.0f, s.b(this.z, 0.5f), s.b(this.z, 0.5f), t.i(this.z, "tt_video_shaoow_color_fullscreen"));
                 ViewGroup.LayoutParams layoutParams = this.W.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                     this.au.set(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
-                    q.b(this.W, (int) TypedValue.applyDimension(1, 16.0f, displayMetrics), this.au.top, (int) TypedValue.applyDimension(1, 14.0f, displayMetrics), this.au.bottom);
+                    s.b(this.W, (int) TypedValue.applyDimension(1, 16.0f, displayMetrics), this.au.top, (int) TypedValue.applyDimension(1, 14.0f, displayMetrics), this.au.bottom);
                 }
             }
             TextView textView2 = this.V;
@@ -225,17 +226,17 @@ public class h extends i {
                 ColorStateList textColors2 = this.V.getTextColors();
                 this.aw = textColors2;
                 if (textColors2 != null) {
-                    this.V.setTextColor(r.i(this.z, "tt_ssxinzi15"));
+                    this.V.setTextColor(t.i(this.z, "tt_ssxinzi15"));
                 }
                 this.ax = this.V.getAlpha();
                 this.V.setAlpha(0.85f);
-                this.V.setShadowLayer(0.0f, q.b(this.z, 0.5f), q.b(this.z, 0.5f), r.i(this.z, "tt_video_shaoow_color_fullscreen"));
+                this.V.setShadowLayer(0.0f, s.b(this.z, 0.5f), s.b(this.z, 0.5f), t.i(this.z, "tt_video_shaoow_color_fullscreen"));
                 ViewGroup.LayoutParams layoutParams2 = this.V.getLayoutParams();
                 if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
                     this.ay.set(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin, marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin);
                     Rect rect = this.ay;
-                    q.b(this.V, (int) TypedValue.applyDimension(1, 14.0f, displayMetrics), rect.top, rect.right, rect.bottom);
+                    s.b(this.V, (int) TypedValue.applyDimension(1, 14.0f, displayMetrics), rect.top, rect.right, rect.bottom);
                 }
             }
             ImageView imageView = this.X;
@@ -246,19 +247,19 @@ public class h extends i {
                     this.az.set(marginLayoutParams3.leftMargin, marginLayoutParams3.topMargin, marginLayoutParams3.rightMargin, marginLayoutParams3.bottomMargin);
                     ImageView imageView2 = this.X;
                     Rect rect2 = this.az;
-                    q.b(imageView2, rect2.left, rect2.top, (int) TypedValue.applyDimension(1, 16.0f, displayMetrics), this.az.bottom);
+                    s.b(imageView2, rect2.left, rect2.top, (int) TypedValue.applyDimension(1, 16.0f, displayMetrics), this.az.bottom);
                 }
             }
             ImageView imageView3 = this.X;
             if (imageView3 != null) {
-                imageView3.setImageDrawable(r.c(this.z, "tt_shrink_fullscreen"));
+                imageView3.setImageDrawable(t.c(this.z, "tt_shrink_fullscreen"));
             }
             TextView textView3 = this.N;
             if (textView3 != null) {
                 ColorStateList textColors3 = textView3.getTextColors();
                 this.ah = textColors3;
                 if (textColors3 != null) {
-                    this.N.setTextColor(r.i(this.z, "tt_ssxinzi15"));
+                    this.N.setTextColor(t.i(this.z, "tt_ssxinzi15"));
                 }
                 this.ai = this.N.getAlpha();
                 this.N.setAlpha(0.85f);
@@ -267,7 +268,7 @@ public class h extends i {
                     ViewGroup.MarginLayoutParams marginLayoutParams4 = (ViewGroup.MarginLayoutParams) layoutParams4;
                     this.aj.set(marginLayoutParams4.leftMargin, marginLayoutParams4.topMargin, marginLayoutParams4.rightMargin, marginLayoutParams4.bottomMargin);
                     Rect rect3 = this.ay;
-                    q.b(this.N, (int) TypedValue.applyDimension(1, 1.0f, displayMetrics), rect3.top, rect3.right, rect3.bottom);
+                    s.b(this.N, (int) TypedValue.applyDimension(1, 1.0f, displayMetrics), rect3.top, rect3.right, rect3.bottom);
                 }
             }
             View view = this.L;
@@ -276,7 +277,7 @@ public class h extends i {
                 this.ak = layoutParams5.height;
                 layoutParams5.height = (int) TypedValue.applyDimension(1, 49.0f, displayMetrics);
                 this.L.setLayoutParams(layoutParams5);
-                this.L.setBackgroundResource(r.d(this.z, "tt_shadow_fullscreen_top"));
+                this.L.setBackgroundResource(t.d(this.z, "tt_shadow_fullscreen_top"));
             }
             b(this.al, true);
         }
@@ -293,10 +294,10 @@ public class h extends i {
                     this.W.setTextColor(colorStateList);
                 }
                 this.W.setAlpha(this.at);
-                this.W.setShadowLayer(q.b(this.z, 1.0f), 0.0f, 0.0f, r.i(this.z, "tt_video_shadow_color"));
+                this.W.setShadowLayer(s.b(this.z, 1.0f), 0.0f, 0.0f, t.i(this.z, "tt_video_shadow_color"));
                 TextView textView2 = this.W;
                 Rect rect = this.au;
-                q.b(textView2, rect.left, rect.top, rect.right, rect.bottom);
+                s.b(textView2, rect.left, rect.top, rect.right, rect.bottom);
             }
             TextView textView3 = this.V;
             if (textView3 != null) {
@@ -306,19 +307,19 @@ public class h extends i {
                     this.V.setTextColor(colorStateList2);
                 }
                 this.V.setAlpha(this.ax);
-                this.V.setShadowLayer(q.b(this.z, 1.0f), 0.0f, 0.0f, r.i(this.z, "tt_video_shadow_color"));
+                this.V.setShadowLayer(s.b(this.z, 1.0f), 0.0f, 0.0f, t.i(this.z, "tt_video_shadow_color"));
                 TextView textView4 = this.V;
                 Rect rect2 = this.ay;
-                q.b(textView4, rect2.left, rect2.top, rect2.right, rect2.bottom);
+                s.b(textView4, rect2.left, rect2.top, rect2.right, rect2.bottom);
             }
             ImageView imageView = this.X;
             if (imageView != null) {
                 Rect rect3 = this.az;
-                q.b(imageView, rect3.left, rect3.top, rect3.right, rect3.bottom);
+                s.b(imageView, rect3.left, rect3.top, rect3.right, rect3.bottom);
             }
             ImageView imageView2 = this.X;
             if (imageView2 != null) {
-                imageView2.setImageDrawable(r.c(this.z, "tt_enlarge_video"));
+                imageView2.setImageDrawable(t.c(this.z, "tt_enlarge_video"));
             }
             TextView textView5 = this.N;
             if (textView5 != null) {
@@ -329,14 +330,14 @@ public class h extends i {
                 this.N.setAlpha(this.ai);
                 TextView textView6 = this.N;
                 Rect rect4 = this.ay;
-                q.b(textView6, rect4.left, rect4.top, rect4.right, rect4.bottom);
+                s.b(textView6, rect4.left, rect4.top, rect4.right, rect4.bottom);
             }
             View view = this.L;
             if (view != null) {
                 ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
                 layoutParams.height = this.ak;
                 this.L.setLayoutParams(layoutParams);
-                this.L.setBackgroundResource(r.d(this.z, "tt_video_black_desc_gradient"));
+                this.L.setBackgroundResource(t.d(this.z, "tt_video_black_desc_gradient"));
             }
             b(this.al, true);
         }
@@ -364,15 +365,15 @@ public class h extends i {
         m mVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            q.f(this.f30698d);
-            q.f(this.f30699e);
-            q.e(this.Q);
-            if (this.f30700f != null && (mVar = this.y) != null && mVar.V() != null && this.y.V().h() != null) {
-                q.f(this.f30700f);
-                com.bytedance.sdk.openadsdk.g.a.a(this.y.V().h()).a(this.f30700f);
+            s.f(this.f30878d);
+            s.f(this.f30879e);
+            s.e(this.Q);
+            if (this.f30880f != null && (mVar = this.y) != null && mVar.V() != null && this.y.V().h() != null) {
+                s.f(this.f30880f);
+                ImageLoaderWrapper.from(this.y.V().h()).to(this.f30880f);
             }
-            if (this.f30697c.getVisibility() == 0) {
-                q.a((View) this.f30697c, 8);
+            if (this.f30877c.getVisibility() == 0) {
+                s.a((View) this.f30877c, 8);
             }
         }
     }
@@ -390,8 +391,8 @@ public class h extends i {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            q.e(this.f30698d);
-            q.e(this.Q);
+            s.e(this.f30878d);
+            s.e(this.Q);
         }
     }
 
@@ -403,24 +404,24 @@ public class h extends i {
             this.U.setSecondaryProgress(0);
             this.o.setProgress(0);
             this.o.setSecondaryProgress(0);
-            this.V.setText(r.b(this.z, "tt_00_00"));
-            this.W.setText(r.b(this.z, "tt_00_00"));
+            this.V.setText(t.b(this.z, "tt_00_00"));
+            this.W.setText(t.b(this.z, "tt_00_00"));
             c(8);
             if (x()) {
-                this.f30696b.setVisibility(8);
+                this.f30876b.setVisibility(8);
             }
-            ImageView imageView = this.f30700f;
+            ImageView imageView = this.f30880f;
             if (imageView != null) {
                 imageView.setImageDrawable(null);
             }
             c(8);
-            q.a(this.T, 8);
-            q.a(this.f30702h, 8);
-            q.a((View) this.f30703i, 8);
-            q.a(this.j, 8);
-            q.a((View) this.k, 8);
-            q.a((View) this.l, 8);
-            q.a((View) this.m, 8);
+            s.a(this.T, 8);
+            s.a(this.f30882h, 8);
+            s.a((View) this.f30883i, 8);
+            s.a(this.j, 8);
+            s.a((View) this.k, 8);
+            s.a((View) this.l, 8);
+            s.a((View) this.m, 8);
             com.bytedance.sdk.openadsdk.core.widget.i iVar = this.A;
             if (iVar != null) {
                 iVar.a(true);
@@ -482,7 +483,7 @@ public class h extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
             this.w = i2;
-            q.a(this.f30695a, i2);
+            s.a(this.f30875a, i2);
             if (i2 != 0) {
                 this.aB = false;
             } else if (this.aA) {
@@ -507,22 +508,22 @@ public class h extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, view) == null) {
             super.a(context, view);
-            this.J = (TextView) view.findViewById(r.e(context, "tt_video_back"));
-            this.K = (ImageView) view.findViewById(r.e(context, "tt_video_close"));
-            this.L = view.findViewById(r.e(context, "tt_video_top_layout"));
-            this.P = (ImageView) view.findViewById(r.e(context, "tt_video_fullscreen_back"));
-            this.M = (TextView) view.findViewById(r.e(context, "tt_video_title"));
-            this.N = (TextView) view.findViewById(r.e(context, "tt_video_top_title"));
-            this.O = (TextView) view.findViewById(r.e(context, "tt_video_current_time"));
-            this.Q = view.findViewById(r.e(context, "tt_video_loading_retry"));
-            this.R = (ImageView) view.findViewById(r.e(context, "tt_video_retry"));
-            this.S = (TextView) view.findViewById(r.e(context, "tt_video_retry_des"));
-            this.U = (SeekBar) view.findViewById(r.e(context, "tt_video_seekbar"));
-            this.V = (TextView) view.findViewById(r.e(context, "tt_video_time_left_time"));
-            this.W = (TextView) view.findViewById(r.e(context, "tt_video_time_play"));
-            this.T = view.findViewById(r.e(context, "tt_video_ad_bottom_layout"));
-            this.X = (ImageView) view.findViewById(r.e(context, "tt_video_ad_full_screen"));
-            this.f30701g = (ViewStub) view.findViewById(r.e(context, "tt_video_ad_cover"));
+            this.J = (TextView) view.findViewById(t.e(context, "tt_video_back"));
+            this.K = (ImageView) view.findViewById(t.e(context, "tt_video_close"));
+            this.L = view.findViewById(t.e(context, "tt_video_top_layout"));
+            this.P = (ImageView) view.findViewById(t.e(context, "tt_video_fullscreen_back"));
+            this.M = (TextView) view.findViewById(t.e(context, "tt_video_title"));
+            this.N = (TextView) view.findViewById(t.e(context, "tt_video_top_title"));
+            this.O = (TextView) view.findViewById(t.e(context, "tt_video_current_time"));
+            this.Q = view.findViewById(t.e(context, "tt_video_loading_retry"));
+            this.R = (ImageView) view.findViewById(t.e(context, "tt_video_retry"));
+            this.S = (TextView) view.findViewById(t.e(context, "tt_video_retry_des"));
+            this.U = (SeekBar) view.findViewById(t.e(context, "tt_video_seekbar"));
+            this.V = (TextView) view.findViewById(t.e(context, "tt_video_time_left_time"));
+            this.W = (TextView) view.findViewById(t.e(context, "tt_video_time_play"));
+            this.T = view.findViewById(t.e(context, "tt_video_ad_bottom_layout"));
+            this.X = (ImageView) view.findViewById(t.e(context, "tt_video_ad_full_screen"));
+            this.f30881g = (ViewStub) view.findViewById(t.e(context, "tt_video_ad_cover"));
         }
     }
 
@@ -531,17 +532,17 @@ public class h extends i {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, viewGroup) == null) {
-            j.f("FullScreen", "Detail exitFullScreen.....");
-            if (viewGroup == null || (view = this.f30695a) == null || !(view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            k.f("FullScreen", "Detail exitFullScreen.....");
+            if (viewGroup == null || (view = this.f30875a) == null || !(view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
                 return;
             }
             this.Z = false;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f30695a.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f30875a.getLayoutParams();
             marginLayoutParams.width = this.ad;
             marginLayoutParams.height = this.ae;
             marginLayoutParams.leftMargin = this.ac;
             marginLayoutParams.topMargin = this.ab;
-            this.f30695a.setLayoutParams(marginLayoutParams);
+            this.f30875a.setLayoutParams(marginLayoutParams);
             ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
@@ -550,17 +551,17 @@ public class h extends i {
             }
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 Rect rect = this.ag;
-                q.b(viewGroup, rect.left, rect.top, rect.right, rect.bottom);
+                s.b(viewGroup, rect.left, rect.top, rect.right, rect.bottom);
             }
             a(true);
-            this.X.setImageDrawable(r.c(this.z, "tt_enlarge_video"));
-            this.U.setThumb(r.c(this.z, "tt_seek_thumb_normal"));
+            this.X.setImageDrawable(t.c(this.z, "tt_enlarge_video"));
+            this.U.setThumb(t.c(this.z, "tt_seek_thumb_normal"));
             this.U.setThumbOffset(0);
-            com.bytedance.sdk.openadsdk.core.video.d.a.a(this.f30695a, true);
+            com.bytedance.sdk.openadsdk.core.video.d.a.a(this.f30875a, true);
             e(this.Z);
-            q.a(this.L, 8);
-            if (this.x.contains(b.a.f30662b)) {
-                q.a((View) this.J, 0);
+            s.a(this.L, 8);
+            if (this.x.contains(b.a.f30842b)) {
+                s.a((View) this.J, 0);
             }
         }
     }
@@ -570,15 +571,15 @@ public class h extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.ao.a(this.f30695a);
+            this.ao.a(this.f30875a);
             int i2 = 8;
-            q.a((View) this.K, (this.u || this.x.contains(b.a.f30661a)) ? 8 : 0);
+            s.a((View) this.K, (this.u || this.x.contains(b.a.f30841a)) ? 8 : 0);
             this.K.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f30686a;
+                public final /* synthetic */ h f30866a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -595,25 +596,25 @@ public class h extends i {
                             return;
                         }
                     }
-                    this.f30686a = this;
+                    this.f30866a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30686a.r()) {
-                        h hVar = this.f30686a;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30866a.r()) {
+                        h hVar = this.f30866a;
                         hVar.B.c(hVar, view);
                     }
                 }
             });
-            q.a((View) this.J, (!this.u || this.x.contains(b.a.f30662b)) ? 0 : 0);
+            s.a((View) this.J, (!this.u || this.x.contains(b.a.f30842b)) ? 0 : 0);
             this.J.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f30687a;
+                public final /* synthetic */ h f30867a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -630,14 +631,14 @@ public class h extends i {
                             return;
                         }
                     }
-                    this.f30687a = this;
+                    this.f30867a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30687a.r()) {
-                        h hVar = this.f30687a;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30867a.r()) {
+                        h hVar = this.f30867a;
                         hVar.B.d(hVar, view);
                     }
                 }
@@ -647,7 +648,7 @@ public class h extends i {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f30688a;
+                public final /* synthetic */ h f30868a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -664,14 +665,14 @@ public class h extends i {
                             return;
                         }
                     }
-                    this.f30688a = this;
+                    this.f30868a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30688a.r()) {
-                        h hVar = this.f30688a;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30868a.r()) {
+                        h hVar = this.f30868a;
                         hVar.B.e(hVar, view);
                     }
                 }
@@ -681,7 +682,7 @@ public class h extends i {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f30689a;
+                public final /* synthetic */ h f30869a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -698,18 +699,18 @@ public class h extends i {
                             return;
                         }
                     }
-                    this.f30689a = this;
+                    this.f30869a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f30689a.b(false, true);
-                        this.f30689a.f();
-                        this.f30689a.d();
-                        if (this.f30689a.r()) {
-                            h hVar = this.f30689a;
+                        this.f30869a.b(false, true);
+                        this.f30869a.f();
+                        this.f30869a.d();
+                        if (this.f30869a.r()) {
+                            h hVar = this.f30869a;
                             hVar.B.f(hVar, view);
                         }
                     }
@@ -720,7 +721,7 @@ public class h extends i {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f30690a;
+                public final /* synthetic */ h f30870a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -737,14 +738,14 @@ public class h extends i {
                             return;
                         }
                     }
-                    this.f30690a = this;
+                    this.f30870a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30690a.r()) {
-                        h hVar = this.f30690a;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f30870a.r()) {
+                        h hVar = this.f30870a;
                         hVar.B.b(hVar, view);
                     }
                 }
@@ -755,7 +756,7 @@ public class h extends i {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f30691a;
+                public final /* synthetic */ h f30871a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -772,14 +773,14 @@ public class h extends i {
                             return;
                         }
                     }
-                    this.f30691a = this;
+                    this.f30871a = this;
                 }
 
                 @Override // android.widget.SeekBar.OnSeekBarChangeListener
                 public void onProgressChanged(SeekBar seekBar, int i3, boolean z) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i3), Boolean.valueOf(z)}) == null) && this.f30691a.r()) {
-                        h hVar = this.f30691a;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i3), Boolean.valueOf(z)}) == null) && this.f30871a.r()) {
+                        h hVar = this.f30871a;
                         hVar.B.a(hVar, i3, z);
                     }
                 }
@@ -788,12 +789,12 @@ public class h extends i {
                 public void onStartTrackingTouch(SeekBar seekBar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                        if (!this.f30691a.Z && this.f30691a.z != null) {
-                            seekBar.setThumb(r.c(o.a(), "tt_seek_thumb_press"));
+                        if (!this.f30871a.Z && this.f30871a.z != null) {
+                            seekBar.setThumb(t.c(o.a(), "tt_seek_thumb_press"));
                         }
-                        if (this.f30691a.r()) {
+                        if (this.f30871a.r()) {
                             seekBar.setThumbOffset(0);
-                            h hVar = this.f30691a;
+                            h hVar = this.f30871a;
                             hVar.B.b(hVar, seekBar.getProgress());
                         }
                     }
@@ -803,12 +804,12 @@ public class h extends i {
                 public void onStopTrackingTouch(SeekBar seekBar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                        if (!this.f30691a.Z && this.f30691a.z != null) {
-                            seekBar.setThumb(r.c(o.a(), "tt_seek_thumb_normal"));
+                        if (!this.f30871a.Z && this.f30871a.z != null) {
+                            seekBar.setThumb(t.c(o.a(), "tt_seek_thumb_normal"));
                         }
-                        if (this.f30691a.r()) {
+                        if (this.f30871a.r()) {
                             seekBar.setThumbOffset(0);
-                            h hVar = this.f30691a;
+                            h hVar = this.f30871a;
                             hVar.B.a(hVar, seekBar.getProgress());
                         }
                     }
@@ -837,9 +838,9 @@ public class h extends i {
             return;
         }
         if (this.u) {
-            q.a((View) textView, 8);
+            s.a((View) textView, 8);
         } else {
-            q.a((View) textView, z ? 0 : 8);
+            s.a((View) textView, z ? 0 : 8);
         }
     }
 
@@ -852,8 +853,8 @@ public class h extends i {
             if (this.t <= 0 || this.s <= 0 || i2 <= 0) {
                 return;
             }
-            if (!i() && !h() && !this.x.contains(b.a.f30664d)) {
-                i3 = this.z.getResources().getDimensionPixelSize(r.h(this.z, "tt_video_container_maxheight"));
+            if (!i() && !h() && !this.x.contains(b.a.f30844d)) {
+                i3 = this.z.getResources().getDimensionPixelSize(t.h(this.z, "tt_video_container_maxheight"));
             }
             int i4 = this.s;
             int i5 = this.t;
@@ -867,7 +868,7 @@ public class h extends i {
                 i2 = this.q;
                 i3 = this.r;
             }
-            this.f30696b.a(i2, i3);
+            this.f30876b.a(i2, i3);
         }
     }
 
@@ -892,10 +893,10 @@ public class h extends i {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             View view = this.T;
             if (view != null && view.getVisibility() == 0) {
-                q.a((View) this.o, 8);
+                s.a((View) this.o, 8);
                 return;
             }
-            q.a((View) this.o, 0);
+            s.a((View) this.o, 0);
             this.U.setProgress(i2);
             this.o.setProgress(i2);
         }
@@ -927,25 +928,25 @@ public class h extends i {
         if (!(interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, mVar, weakReference, z) == null) || mVar == null) {
             return;
         }
-        a(this.f30695a, o.a());
+        a(this.f30875a, o.a());
         a(false, this.u);
-        q.a(this.f30702h, 0);
-        q.a((View) this.f30703i, 0);
-        q.a(this.j, 0);
-        if (this.f30703i != null && (mVar2 = this.y) != null && mVar2.V() != null && this.y.V().h() != null) {
-            com.bytedance.sdk.openadsdk.g.a.a(this.y.V().h()).a(this.f30703i);
+        s.a(this.f30882h, 0);
+        s.a((View) this.f30883i, 0);
+        s.a(this.j, 0);
+        if (this.f30883i != null && (mVar2 = this.y) != null && mVar2.V() != null && this.y.V().h() != null) {
+            ImageLoaderWrapper.from(this.y.V().h()).to(this.f30883i);
         }
-        q.a((View) this.n, 0);
-        q.a((View) this.k, 8);
-        q.a((View) this.l, 8);
-        q.a((View) this.m, 8);
-        q.a(this.n, r.a(this.z, "tt_video_dial_replay"));
-        q.a(this.n, new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.8
+        s.a((View) this.n, 0);
+        s.a((View) this.k, 8);
+        s.a((View) this.l, 8);
+        s.a((View) this.m, 8);
+        s.a(this.n, (CharSequence) t.a(this.z, "tt_video_dial_replay"));
+        s.a(this.n, new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ h f30694a;
+            public final /* synthetic */ h f30874a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -962,28 +963,28 @@ public class h extends i {
                         return;
                     }
                 }
-                this.f30694a = this;
+                this.f30874a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 d dVar;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (dVar = this.f30694a.B) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (dVar = this.f30874a.B) == null) {
                     return;
                 }
                 dVar.h();
             }
         }, "video_ad_button");
-        q.a(this.n, (View.OnTouchListener) null, "video_ad_button");
+        s.a(this.n, (View.OnTouchListener) null, "video_ad_button");
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.i
     public void a(@Nullable ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, viewGroup) == null) && viewGroup != null && (this.f30695a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, viewGroup) == null) && viewGroup != null && (this.f30875a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             this.Z = true;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f30695a.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f30875a.getLayoutParams();
             this.ac = marginLayoutParams.leftMargin;
             this.ab = marginLayoutParams.topMargin;
             this.ad = marginLayoutParams.width;
@@ -992,7 +993,7 @@ public class h extends i {
             marginLayoutParams.height = -1;
             marginLayoutParams.topMargin = 0;
             marginLayoutParams.leftMargin = 0;
-            this.f30695a.setLayoutParams(marginLayoutParams);
+            this.f30875a.setLayoutParams(marginLayoutParams);
             ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
@@ -1004,25 +1005,25 @@ public class h extends i {
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
                 this.ag.set(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin, marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin);
-                q.b(viewGroup, 0, 0, 0, 0);
+                s.b(viewGroup, 0, 0, 0, 0);
             }
             a(true);
-            this.X.setImageDrawable(r.c(this.z, "tt_shrink_video"));
-            this.U.setThumb(r.c(this.z, "tt_seek_thumb_fullscreen_selector"));
+            this.X.setImageDrawable(t.c(this.z, "tt_shrink_video"));
+            this.U.setThumb(t.c(this.z, "tt_seek_thumb_fullscreen_selector"));
             this.U.setThumbOffset(0);
-            com.bytedance.sdk.openadsdk.core.video.d.a.a(this.f30695a, false);
+            com.bytedance.sdk.openadsdk.core.video.d.a.a(this.f30875a, false);
             e(this.Z);
-            q.a(this.L, 8);
+            s.a(this.L, 8);
             if (!this.u) {
-                q.a((View) this.K, 8);
-                q.a((View) this.J, 8);
-            } else if (this.x.contains(b.a.f30661a)) {
-                q.a((View) this.K, 8);
+                s.a((View) this.K, 8);
+                s.a((View) this.J, 8);
+            } else if (this.x.contains(b.a.f30841a)) {
+                s.a((View) this.K, 8);
             }
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.i, com.bytedance.sdk.component.utils.u.a
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.i, com.bytedance.sdk.component.utils.w.a
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, message) == null) && message.what == 1) {
@@ -1034,24 +1035,24 @@ public class h extends i {
     public void a(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            q.a(this.T, 0);
-            q.a((View) this.o, 0);
+            s.a(this.T, 0);
+            s.a((View) this.o, 0);
             if (this.Z) {
-                q.a(this.L, 0);
-                q.a((View) this.N, 0);
+                s.a(this.L, 0);
+                s.a((View) this.N, 0);
             } else if (z3) {
-                q.a(this.L, 8);
+                s.a(this.L, 8);
             }
-            q.a((View) this.f30697c, (!z || this.f30698d.getVisibility() == 0) ? 8 : 0);
+            s.a((View) this.f30877c, (!z || this.f30878d.getVisibility() == 0) ? 8 : 0);
             if (!this.u && !this.Z) {
-                if (!this.x.contains(b.a.f30661a) && !z3) {
-                    q.a((View) this.K, 0);
+                if (!this.x.contains(b.a.f30841a) && !z3) {
+                    s.a((View) this.K, 0);
                 }
-                q.a((View) this.J, z3 ? 8 : 0);
+                s.a((View) this.J, z3 ? 8 : 0);
             }
-            q.a((View) this.V, 0);
-            q.a((View) this.W, 0);
-            q.a((View) this.U, 0);
+            s.a((View) this.V, 0);
+            s.a((View) this.W, 0);
+            s.a((View) this.U, 0);
         }
     }
 
@@ -1059,21 +1060,21 @@ public class h extends i {
     public void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            q.a(this.T, 8);
-            q.a(this.L, 8);
-            q.a((View) this.o, z ? 0 : 8);
-            q.a((View) this.f30697c, 8);
+            s.a(this.T, 8);
+            s.a(this.L, 8);
+            s.a((View) this.o, z ? 0 : 8);
+            s.a((View) this.f30877c, 8);
             if (!this.u && !this.Z) {
-                q.a((View) this.K, 8);
-                if (!this.x.contains(b.a.f30662b)) {
-                    q.a((View) this.J, 8);
+                s.a((View) this.K, 8);
+                if (!this.x.contains(b.a.f30842b)) {
+                    s.a((View) this.J, 8);
                 }
-            } else if (this.x.contains(b.a.f30661a)) {
-                q.a((View) this.K, 8);
+            } else if (this.x.contains(b.a.f30841a)) {
+                s.a((View) this.K, 8);
             }
             if (z2) {
-                q.a((View) this.K, 8);
-                q.a((View) this.J, 8);
+                s.a((View) this.K, 8);
+                s.a((View) this.J, 8);
             }
             b(false);
         }
@@ -1099,7 +1100,7 @@ public class h extends i {
             }
             b(this.u && !this.Z);
             if (r()) {
-                this.B.a(this, view, true, this.f30698d.getVisibility() != 0);
+                this.B.a(this, view, true, this.f30878d.getVisibility() != 0);
             }
         }
     }

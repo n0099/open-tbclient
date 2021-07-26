@@ -32,8 +32,8 @@ public final class p0 extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Context c2 = a.a().c();
-            Signature[] signatureArr = c2.getPackageManager().getPackageInfo(c2.getPackageName(), 64).signatures;
+            Context a2 = a.c().a();
+            Signature[] signatureArr = a2.getPackageManager().getPackageInfo(a2.getPackageName(), 64).signatures;
             if (signatureArr == null || signatureArr.length <= 0) {
                 return null;
             }

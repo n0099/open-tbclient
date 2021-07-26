@@ -18,7 +18,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IProgressRemoteView f34380a;
+    public IProgressRemoteView f34569a;
 
     public c(IProgressRemoteView iProgressRemoteView) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class c {
                 return;
             }
         }
-        this.f34380a = iProgressRemoteView;
+        this.f34569a = iProgressRemoteView;
     }
 
     public static c a(Context context, int i2, boolean z) {
@@ -76,7 +76,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            IProgressRemoteView iProgressRemoteView = this.f34380a;
+            IProgressRemoteView iProgressRemoteView = this.f34569a;
             if (iProgressRemoteView != null) {
                 return iProgressRemoteView.build();
             }
@@ -88,7 +88,7 @@ public class c {
     public void a(int i2, int i3, boolean z) {
         IProgressRemoteView iProgressRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || (iProgressRemoteView = this.f34380a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || (iProgressRemoteView = this.f34569a) == null) {
             return;
         }
         iProgressRemoteView.setProgress(i2, i3, z);
@@ -97,7 +97,7 @@ public class c {
     public void a(Bitmap bitmap) {
         IProgressRemoteView iProgressRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) || (iProgressRemoteView = this.f34380a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) || (iProgressRemoteView = this.f34569a) == null) {
             return;
         }
         iProgressRemoteView.setIcon(bitmap);
@@ -106,7 +106,7 @@ public class c {
     public void a(String str) {
         IProgressRemoteView iProgressRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (iProgressRemoteView = this.f34380a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (iProgressRemoteView = this.f34569a) == null) {
             return;
         }
         iProgressRemoteView.setName(str);
@@ -116,8 +116,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             try {
-                if (this.f34380a != null) {
-                    this.f34380a.setControlBtnPaused(z);
+                if (this.f34569a != null) {
+                    this.f34569a.setControlBtnPaused(z);
                 }
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
@@ -128,7 +128,7 @@ public class c {
     public void b(String str) {
         IProgressRemoteView iProgressRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (iProgressRemoteView = this.f34380a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (iProgressRemoteView = this.f34569a) == null) {
             return;
         }
         iProgressRemoteView.setStatus(str);
@@ -137,7 +137,7 @@ public class c {
     public void c(String str) {
         IProgressRemoteView iProgressRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (iProgressRemoteView = this.f34380a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (iProgressRemoteView = this.f34569a) == null) {
             return;
         }
         iProgressRemoteView.setSize(str);
@@ -146,7 +146,7 @@ public class c {
     public void d(String str) {
         IProgressRemoteView iProgressRemoteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (iProgressRemoteView = this.f34380a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (iProgressRemoteView = this.f34569a) == null) {
             return;
         }
         iProgressRemoteView.setPercentNum(str);

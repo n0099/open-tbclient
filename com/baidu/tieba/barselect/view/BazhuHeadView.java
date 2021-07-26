@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.n1.o.k.b;
+import d.a.d.e.p.l;
+import d.a.q0.n1.o.k.b;
 /* loaded from: classes4.dex */
 public class BazhuHeadView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;

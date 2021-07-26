@@ -15,19 +15,19 @@ public final class f extends InputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final e f70378e;
+    public final e f70832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g f70379f;
+    public final g f70833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final byte[] f70380g;
+    public final byte[] f70834g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f70381h;
+    public boolean f70835h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f70382i;
+    public boolean f70836i;
     public long j;
 
     public f(e eVar, g gVar) {
@@ -45,21 +45,21 @@ public final class f extends InputStream {
                 return;
             }
         }
-        this.f70381h = false;
-        this.f70382i = false;
-        this.f70378e = eVar;
-        this.f70379f = gVar;
-        this.f70380g = new byte[1];
+        this.f70835h = false;
+        this.f70836i = false;
+        this.f70832e = eVar;
+        this.f70833f = gVar;
+        this.f70834g = new byte[1];
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f70382i) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f70836i) {
             return;
         }
-        this.f70378e.close();
-        this.f70382i = true;
+        this.f70832e.close();
+        this.f70836i = true;
     }
 
     public long g() {
@@ -70,11 +70,11 @@ public final class f extends InputStream {
 
     public final void n() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f70381h) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f70835h) {
             return;
         }
-        this.f70378e.a(this.f70379f);
-        this.f70381h = true;
+        this.f70832e.a(this.f70833f);
+        this.f70835h = true;
     }
 
     public void o() throws IOException {
@@ -89,10 +89,10 @@ public final class f extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (read(this.f70380g) == -1) {
+            if (read(this.f70834g) == -1) {
                 return -1;
             }
-            return this.f70380g[0] & 255;
+            return this.f70834g[0] & 255;
         }
         return invokeV.intValue;
     }
@@ -109,9 +109,9 @@ public final class f extends InputStream {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            d.f.b.a.i0.a.f(!this.f70382i);
+            d.f.b.a.i0.a.f(!this.f70836i);
             n();
-            int read = this.f70378e.read(bArr, i2, i3);
+            int read = this.f70832e.read(bArr, i2, i3);
             if (read == -1) {
                 return -1;
             }

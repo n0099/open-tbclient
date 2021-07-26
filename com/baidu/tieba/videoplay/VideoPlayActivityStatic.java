@@ -5,6 +5,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconHttpResponse;
 import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconSocketResponse;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h3.d0.a;
+import d.a.q0.h3.d0.a;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ThreadInfo;
@@ -41,6 +42,7 @@ public class VideoPlayActivityStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(VideoPlayActivityConfig.class, VideoPlayActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(VideoRecommentPlayActivityConfig.class, VideoRecommentPlayActivity.class);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_NANI_VIDEO, TbConfig.SERVER_ADDRESS + "c/f/video/getVideoMidPage");
         tbHttpMessageTask.setResponsedClass(ResponseGetNaniVideoMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

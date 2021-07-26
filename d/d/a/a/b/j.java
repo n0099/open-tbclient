@@ -16,28 +16,28 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f69125a;
+    public String f69579a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f69126b;
+    public long f69580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f69127c;
+    public String f69581c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f69128d;
+    public String f69582d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f69129e;
+    public String f69583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f69130f;
+    public long f69584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f69131g;
+    public String f69585g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, Object> f69132h;
+    public Map<String, Object> f69586h;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -58,21 +58,21 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2, Long.valueOf(j2), str3, collection, map, str4})) == null) {
             j jVar = new j();
-            jVar.f69125a = str;
-            jVar.f69126b = j;
-            jVar.f69128d = str2;
-            jVar.f69130f = j2;
-            jVar.f69129e = str3;
-            jVar.f69131g = str4;
+            jVar.f69579a = str;
+            jVar.f69580b = j;
+            jVar.f69582d = str2;
+            jVar.f69584f = j2;
+            jVar.f69583e = str3;
+            jVar.f69585g = str4;
             if (collection != null) {
                 JSONArray jSONArray = new JSONArray();
                 for (String str5 : collection) {
                     jSONArray.put(str5);
                 }
-                jVar.f69127c = jSONArray.toString();
+                jVar.f69581c = jSONArray.toString();
             }
             if (map != null && !map.isEmpty()) {
-                jVar.f69132h = map;
+                jVar.f69586h = map;
             }
             return jVar;
         }
@@ -85,21 +85,21 @@ public class j {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("en", this.f69125a);
-                jSONObject.put("et", this.f69126b);
-                jSONObject.put("nu", this.f69130f);
-                if (!TextUtils.isEmpty(this.f69128d)) {
-                    jSONObject.put("eg", this.f69128d);
+                jSONObject.put("en", this.f69579a);
+                jSONObject.put("et", this.f69580b);
+                jSONObject.put("nu", this.f69584f);
+                if (!TextUtils.isEmpty(this.f69582d)) {
+                    jSONObject.put("eg", this.f69582d);
                 }
-                jSONObject.putOpt("lk", this.f69129e);
-                if (this.f69127c != null) {
-                    jSONObject.put("ev", this.f69127c);
+                jSONObject.putOpt("lk", this.f69583e);
+                if (this.f69581c != null) {
+                    jSONObject.put("ev", this.f69581c);
                 }
-                if (!TextUtils.isEmpty(this.f69131g)) {
-                    jSONObject.put("at", this.f69131g);
+                if (!TextUtils.isEmpty(this.f69585g)) {
+                    jSONObject.put("at", this.f69585g);
                 }
-                if (this.f69132h != null && !this.f69132h.isEmpty()) {
-                    for (Map.Entry<String, Object> entry : this.f69132h.entrySet()) {
+                if (this.f69586h != null && !this.f69586h.isEmpty()) {
+                    for (Map.Entry<String, Object> entry : this.f69586h.entrySet()) {
                         if (entry.getValue() instanceof Integer) {
                             jSONObject.put(entry.getKey(), ((Integer) entry.getValue()).intValue());
                         } else if (entry.getValue() instanceof Long) {

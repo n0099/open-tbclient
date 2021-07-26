@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f72734a;
+    public static final g f73188a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class g {
                 return;
             }
         }
-        f72734a = new g();
+        f73188a = new g();
     }
 
     public g() {
@@ -107,7 +107,7 @@ public class g {
     public static g h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f72734a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f73188a : (g) invokeV.objValue;
     }
 
     public h.g g() {

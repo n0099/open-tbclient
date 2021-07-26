@@ -26,7 +26,7 @@ public class CrabHelper {
     public static final String CRAB_TAG = "crab";
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f23890a;
+    public static volatile boolean f24048a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +61,7 @@ public class CrabHelper {
     public static void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            f23890a = true;
+            f24048a = true;
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 Class.forName("com.baidu.crabsdk.lite.CrabLite");
@@ -124,13 +124,13 @@ public class CrabHelper {
     public static void initCrab(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            if (StatSettings.getInstance(context).isEnableCrashHandler() && !f23890a) {
+            if (StatSettings.getInstance(context).isEnableCrashHandler() && !f24048a) {
                 new Thread(new Runnable(context) { // from class: com.baidu.wallet.api.CrabHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f23891a;
+                    public final /* synthetic */ Context f24049a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -147,7 +147,7 @@ public class CrabHelper {
                                 return;
                             }
                         }
-                        this.f23891a = context;
+                        this.f24049a = context;
                     }
 
                     @Override // java.lang.Runnable
@@ -155,14 +155,14 @@ public class CrabHelper {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             LogUtil.d(CrabHelper.CRAB_TAG, "init in child thread");
-                            CrabHelper.b(this.f23891a);
+                            CrabHelper.b(this.f24049a);
                         }
                     }
                 }).start();
                 return;
             }
-            if (f23890a) {
-                LogUtil.d(CRAB_TAG, "crab already init :" + f23890a);
+            if (f24048a) {
+                LogUtil.d(CRAB_TAG, "crab already init :" + f24048a);
             }
             if (StatSettings.getInstance(context).isEnableCrashHandler()) {
                 return;

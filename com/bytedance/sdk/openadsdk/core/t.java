@@ -16,29 +16,29 @@ public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static t f30534a;
+    public static t f30707a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.video.nativevideo.c f30535b;
+    public com.bytedance.sdk.openadsdk.core.video.nativevideo.c f30708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30536c;
+    public boolean f30709c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f30537d;
+    public com.bytedance.sdk.openadsdk.core.e.m f30710d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TTRewardVideoAd.RewardAdInteractionListener f30538e;
+    public TTRewardVideoAd.RewardAdInteractionListener f30711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a f30539f;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f30712f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f30540g;
+    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f30713g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30541h;
+    public boolean f30714h;
 
     public t() {
         Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public class t {
                 return;
             }
         }
-        this.f30536c = true;
-        this.f30541h = false;
+        this.f30709c = true;
+        this.f30714h = false;
     }
 
     @MainThread
@@ -62,10 +62,10 @@ public class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f30534a == null) {
-                f30534a = new t();
+            if (f30707a == null) {
+                f30707a = new t();
             }
-            return f30534a;
+            return f30707a;
         }
         return (t) invokeV.objValue;
     }
@@ -73,86 +73,86 @@ public class t {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30536c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30709c : invokeV.booleanValue;
     }
 
     @NonNull
     public com.bytedance.sdk.openadsdk.core.e.m c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30537d : (com.bytedance.sdk.openadsdk.core.e.m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30710d : (com.bytedance.sdk.openadsdk.core.e.m) invokeV.objValue;
     }
 
     public TTRewardVideoAd.RewardAdInteractionListener d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30538e : (TTRewardVideoAd.RewardAdInteractionListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30711e : (TTRewardVideoAd.RewardAdInteractionListener) invokeV.objValue;
     }
 
     public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30540g : (TTFullScreenVideoAd.FullScreenVideoAdInteractionListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30713g : (TTFullScreenVideoAd.FullScreenVideoAdInteractionListener) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.downloadnew.core.a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30539f : (com.bytedance.sdk.openadsdk.downloadnew.core.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30712f : (com.bytedance.sdk.openadsdk.downloadnew.core.a) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f30535b = null;
-            this.f30537d = null;
-            this.f30538e = null;
-            this.f30540g = null;
-            this.f30539f = null;
-            this.f30541h = false;
-            this.f30536c = true;
+            this.f30708b = null;
+            this.f30710d = null;
+            this.f30711e = null;
+            this.f30713g = null;
+            this.f30712f = null;
+            this.f30714h = false;
+            this.f30709c = true;
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f30541h = z;
+            this.f30714h = z;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f30536c = z;
+            this.f30709c = z;
         }
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.e.m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-            this.f30537d = mVar;
+            this.f30710d = mVar;
         }
     }
 
     public void a(TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fullScreenVideoAdInteractionListener) == null) {
-            this.f30540g = fullScreenVideoAdInteractionListener;
+            this.f30713g = fullScreenVideoAdInteractionListener;
         }
     }
 
     public void a(TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rewardAdInteractionListener) == null) {
-            this.f30538e = rewardAdInteractionListener;
+            this.f30711e = rewardAdInteractionListener;
         }
     }
 
     public void a(com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f30539f = aVar;
+            this.f30712f = aVar;
         }
     }
 }

@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.k0.d;
-import d.a.p0.n3.f.b.b;
-import d.a.p0.n3.f.b.c;
-import d.a.p0.n3.h.e;
+import d.a.p0.m0.d;
+import d.a.q0.n3.f.b.b;
+import d.a.q0.n3.f.b.c;
+import d.a.q0.n3.h.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel.c mCallback;
-    public d.a.p0.n3.f.a.a mItemController;
+    public d.a.q0.n3.f.a.a mItemController;
     public BubbleGroupModel mModel;
     public c mView;
 
@@ -29,7 +29,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleGroupActivity f21460a;
+        public final /* synthetic */ BubbleGroupActivity f21578a;
 
         public a(BubbleGroupActivity bubbleGroupActivity) {
             Interceptable interceptable = $ic;
@@ -46,22 +46,22 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     return;
                 }
             }
-            this.f21460a = bubbleGroupActivity;
+            this.f21578a = bubbleGroupActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
         public void a(int i2, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                BubbleGroupActivity bubbleGroupActivity = this.f21460a;
+                BubbleGroupActivity bubbleGroupActivity = this.f21578a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.mView.d());
-                this.f21460a.mView.i();
+                this.f21578a.mView.i();
                 if (i2 == 0) {
-                    this.f21460a.mView.k(eVar, list, this.f21460a.mModel.D());
+                    this.f21578a.mView.k(eVar, list, this.f21578a.mModel.D());
                     return;
                 }
-                this.f21460a.showToast(str);
-                this.f21460a.mView.j();
+                this.f21578a.showToast(str);
+                this.f21578a.mView.j();
             }
         }
     }
@@ -82,7 +82,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.o0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f52058a = true;
+                pageStayDurationItem.f52762a = true;
             }
             return pageStayDurationItem;
         }
@@ -123,7 +123,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.mModel = bubbleGroupModel;
             bubbleGroupModel.G(this.mCallback);
-            d.a.p0.n3.f.a.a aVar = new d.a.p0.n3.f.a.a(getPageContext());
+            d.a.q0.n3.f.a.a aVar = new d.a.q0.n3.f.a.a(getPageContext());
             this.mItemController = aVar;
             c cVar = new c(this, aVar);
             this.mView = cVar;

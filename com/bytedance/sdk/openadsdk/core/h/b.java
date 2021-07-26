@@ -16,7 +16,7 @@ public class b {
     public static void a(Context context, m mVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65536, null, context, mVar) == null) && o.a(mVar)) {
-            d.k(context, mVar, "playable_preload", "preload_start", null);
+            d.j(context, mVar, "playable_preload", "preload_start", null);
         }
     }
 
@@ -26,7 +26,7 @@ public class b {
             HashMap hashMap = new HashMap();
             hashMap.put("loadzip_success_time", Long.valueOf(j));
             hashMap.put("unzip_success_time", Long.valueOf(j2));
-            d.k(context, mVar, "playable_preload", "preload_success", hashMap);
+            d.j(context, mVar, "playable_preload", "preload_success", hashMap);
         }
     }
 
@@ -36,7 +36,7 @@ public class b {
             HashMap hashMap = new HashMap();
             hashMap.put("error_code", Integer.valueOf(i2));
             hashMap.put(LoadErrorCode.Statistics.KEY_ERROR_REASON, str);
-            d.k(context, mVar, "playable_preload", "preload_fail", hashMap);
+            d.j(context, mVar, "playable_preload", "preload_fail", hashMap);
         }
     }
 }

@@ -13,19 +13,19 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f38208a = "aes_key";
+    public static String f38383a = "aes_key";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f38209b;
+    public static boolean f38384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f38210c;
+    public static boolean f38385c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f38211d;
+    public static boolean f38386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f38212e;
+    public static boolean f38387e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,10 +42,10 @@ public class f {
             }
         }
         new HashMap();
-        f38209b = false;
-        f38210c = true;
-        f38211d = false;
-        f38212e = false;
+        f38384b = false;
+        f38385c = true;
+        f38386d = false;
+        f38387e = false;
     }
 
     public f() {

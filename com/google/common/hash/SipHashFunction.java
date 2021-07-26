@@ -25,10 +25,10 @@ public final class SipHashFunction extends b implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33517c;
+    public final int f33706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f33518d;
+    public final int f33707d;
     public final long k0;
     public final long k1;
 
@@ -38,22 +38,22 @@ public final class SipHashFunction extends b implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f33519d;
+        public final int f33708d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f33520e;
+        public final int f33709e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f33521f;
+        public long f33710f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f33522g;
+        public long f33711g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f33523h;
+        public long f33712h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f33524i;
+        public long f33713i;
         public long j;
         public long k;
 
@@ -75,18 +75,18 @@ public final class SipHashFunction extends b implements Serializable {
                     return;
                 }
             }
-            this.f33521f = 8317987319222330741L;
-            this.f33522g = 7237128888997146477L;
-            this.f33523h = 7816392313619706465L;
-            this.f33524i = 8387220255154660723L;
+            this.f33710f = 8317987319222330741L;
+            this.f33711g = 7237128888997146477L;
+            this.f33712h = 7816392313619706465L;
+            this.f33713i = 8387220255154660723L;
             this.j = 0L;
             this.k = 0L;
-            this.f33519d = i2;
-            this.f33520e = i3;
-            this.f33521f = 8317987319222330741L ^ j;
-            this.f33522g = 7237128888997146477L ^ j2;
-            this.f33523h = 7816392313619706465L ^ j;
-            this.f33524i = 8387220255154660723L ^ j2;
+            this.f33708d = i2;
+            this.f33709e = i3;
+            this.f33710f = 8317987319222330741L ^ j;
+            this.f33711g = 7237128888997146477L ^ j2;
+            this.f33712h = 7816392313619706465L ^ j;
+            this.f33713i = 8387220255154660723L ^ j2;
         }
 
         @Override // d.f.d.d.d
@@ -97,9 +97,9 @@ public final class SipHashFunction extends b implements Serializable {
                 long j = this.k ^ (this.j << 56);
                 this.k = j;
                 r(j);
-                this.f33523h ^= 255;
-                s(this.f33520e);
-                return HashCode.fromLong(((this.f33521f ^ this.f33522g) ^ this.f33523h) ^ this.f33524i);
+                this.f33712h ^= 255;
+                s(this.f33709e);
+                return HashCode.fromLong(((this.f33710f ^ this.f33711g) ^ this.f33712h) ^ this.f33713i);
             }
             return (HashCode) invokeV.objValue;
         }
@@ -129,9 +129,9 @@ public final class SipHashFunction extends b implements Serializable {
         public final void r(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-                this.f33524i ^= j;
-                s(this.f33519d);
-                this.f33521f = j ^ this.f33521f;
+                this.f33713i ^= j;
+                s(this.f33708d);
+                this.f33710f = j ^ this.f33710f;
             }
         }
 
@@ -139,31 +139,31 @@ public final class SipHashFunction extends b implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
                 for (int i3 = 0; i3 < i2; i3++) {
-                    long j = this.f33521f;
-                    long j2 = this.f33522g;
-                    this.f33521f = j + j2;
-                    this.f33523h += this.f33524i;
-                    this.f33522g = Long.rotateLeft(j2, 13);
-                    long rotateLeft = Long.rotateLeft(this.f33524i, 16);
-                    this.f33524i = rotateLeft;
-                    long j3 = this.f33522g;
-                    long j4 = this.f33521f;
-                    this.f33522g = j3 ^ j4;
-                    this.f33524i = rotateLeft ^ this.f33523h;
+                    long j = this.f33710f;
+                    long j2 = this.f33711g;
+                    this.f33710f = j + j2;
+                    this.f33712h += this.f33713i;
+                    this.f33711g = Long.rotateLeft(j2, 13);
+                    long rotateLeft = Long.rotateLeft(this.f33713i, 16);
+                    this.f33713i = rotateLeft;
+                    long j3 = this.f33711g;
+                    long j4 = this.f33710f;
+                    this.f33711g = j3 ^ j4;
+                    this.f33713i = rotateLeft ^ this.f33712h;
                     long rotateLeft2 = Long.rotateLeft(j4, 32);
-                    this.f33521f = rotateLeft2;
-                    long j5 = this.f33523h;
-                    long j6 = this.f33522g;
-                    this.f33523h = j5 + j6;
-                    this.f33521f = rotateLeft2 + this.f33524i;
-                    this.f33522g = Long.rotateLeft(j6, 17);
-                    long rotateLeft3 = Long.rotateLeft(this.f33524i, 21);
-                    this.f33524i = rotateLeft3;
-                    long j7 = this.f33522g;
-                    long j8 = this.f33523h;
-                    this.f33522g = j7 ^ j8;
-                    this.f33524i = rotateLeft3 ^ this.f33521f;
-                    this.f33523h = Long.rotateLeft(j8, 32);
+                    this.f33710f = rotateLeft2;
+                    long j5 = this.f33712h;
+                    long j6 = this.f33711g;
+                    this.f33712h = j5 + j6;
+                    this.f33710f = rotateLeft2 + this.f33713i;
+                    this.f33711g = Long.rotateLeft(j6, 17);
+                    long rotateLeft3 = Long.rotateLeft(this.f33713i, 21);
+                    this.f33713i = rotateLeft3;
+                    long j7 = this.f33711g;
+                    long j8 = this.f33712h;
+                    this.f33711g = j7 ^ j8;
+                    this.f33713i = rotateLeft3 ^ this.f33710f;
+                    this.f33712h = Long.rotateLeft(j8, 32);
                 }
             }
         }
@@ -202,8 +202,8 @@ public final class SipHashFunction extends b implements Serializable {
         }
         n.f(i2 > 0, "The number of SipRound iterations (c=%s) during Compression must be positive.", i2);
         n.f(i3 > 0, "The number of SipRound iterations (d=%s) during Finalization must be positive.", i3);
-        this.f33517c = i2;
-        this.f33518d = i3;
+        this.f33706c = i2;
+        this.f33707d = i3;
         this.k0 = j;
         this.k1 = j2;
     }
@@ -223,7 +223,7 @@ public final class SipHashFunction extends b implements Serializable {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (obj instanceof SipHashFunction) {
                 SipHashFunction sipHashFunction = (SipHashFunction) obj;
-                return this.f33517c == sipHashFunction.f33517c && this.f33518d == sipHashFunction.f33518d && this.k0 == sipHashFunction.k0 && this.k1 == sipHashFunction.k1;
+                return this.f33706c == sipHashFunction.f33706c && this.f33707d == sipHashFunction.f33707d && this.k0 == sipHashFunction.k0 && this.k1 == sipHashFunction.k1;
             }
             return false;
         }
@@ -233,21 +233,21 @@ public final class SipHashFunction extends b implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) ((((SipHashFunction.class.hashCode() ^ this.f33517c) ^ this.f33518d) ^ this.k0) ^ this.k1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) ((((SipHashFunction.class.hashCode() ^ this.f33706c) ^ this.f33707d) ^ this.k0) ^ this.k1) : invokeV.intValue;
     }
 
     @Override // d.f.d.d.e
     public f newHasher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new a(this.f33517c, this.f33518d, this.k0, this.k1) : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new a(this.f33706c, this.f33707d, this.k0, this.k1) : (f) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "Hashing.sipHash" + this.f33517c + "" + this.f33518d + "(" + this.k0 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.k1 + SmallTailInfo.EMOTION_SUFFIX;
+            return "Hashing.sipHash" + this.f33706c + "" + this.f33707d + "(" + this.k0 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.k1 + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

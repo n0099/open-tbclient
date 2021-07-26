@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
-public abstract class a implements b {
+public abstract class a implements c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f71743a = "a";
+    public static final String f72197a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,65 +48,65 @@ public abstract class a implements b {
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void b(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             d.l.a.e.b.c.a.g(str, " onPause -- " + downloadInfo.getName());
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void c(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             d.l.a.e.b.c.a.g(str, " onStart -- " + downloadInfo.getName());
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void d(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             d.l.a.e.b.c.a.g(str, " onFirstStart -- " + downloadInfo.getName());
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void e(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             d.l.a.e.b.c.a.g(str, " onCanceled -- " + downloadInfo.getName());
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void f(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             d.l.a.e.b.c.a.g(str, " onSuccessed -- " + downloadInfo.getName() + " " + downloadInfo.isSuccessByCache());
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void g(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) || !d.l.a.e.b.c.a.e() || downloadInfo == null || downloadInfo.getTotalBytes() == 0) {
             return;
         }
-        d.l.a.e.b.c.a.g(f71743a, String.format("onProgress %s %.2f%%", downloadInfo.getName(), Float.valueOf((((float) downloadInfo.getCurBytes()) / ((float) downloadInfo.getTotalBytes())) * 100.0f)));
+        d.l.a.e.b.c.a.g(f72197a, String.format("onProgress %s %.2f%%", downloadInfo.getName(), Float.valueOf((((float) downloadInfo.getCurBytes()) / ((float) downloadInfo.getTotalBytes())) * 100.0f)));
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void h(DownloadInfo downloadInfo, BaseException baseException) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, downloadInfo, baseException) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             Object[] objArr = new Object[2];
             objArr[0] = downloadInfo.getName();
             objArr[1] = baseException != null ? baseException.getErrorMessage() : "unkown";
@@ -114,11 +114,11 @@ public abstract class a implements b {
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void i(DownloadInfo downloadInfo, BaseException baseException) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, downloadInfo, baseException) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             Object[] objArr = new Object[2];
             objArr[0] = downloadInfo.getName();
             objArr[1] = baseException != null ? baseException.getErrorMessage() : "unkown";
@@ -126,11 +126,11 @@ public abstract class a implements b {
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void j(DownloadInfo downloadInfo, BaseException baseException) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadInfo, baseException) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             Object[] objArr = new Object[2];
             objArr[0] = downloadInfo.getName();
             objArr[1] = baseException != null ? baseException.getErrorMessage() : "unkown";
@@ -138,20 +138,20 @@ public abstract class a implements b {
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void k(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, downloadInfo) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             d.l.a.e.b.c.a.g(str, " onFirstSuccess -- " + downloadInfo.getName());
         }
     }
 
-    @Override // d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.c
     public void l(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, downloadInfo) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             d.l.a.e.b.c.a.g(str, " onPrepare -- " + downloadInfo.getName());
         }
     }
@@ -159,7 +159,7 @@ public abstract class a implements b {
     public void m(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, downloadInfo) == null) && d.l.a.e.b.c.a.e() && downloadInfo != null) {
-            String str = f71743a;
+            String str = f72197a;
             d.l.a.e.b.c.a.g(str, " onIntercept -- " + downloadInfo.getName());
         }
     }

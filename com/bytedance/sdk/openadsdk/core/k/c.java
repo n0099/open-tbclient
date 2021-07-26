@@ -17,6 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.pass.face.platform.utils.DeviceUtils;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -27,17 +28,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.JProtect;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.m;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.n;
 import com.bytedance.sdk.openadsdk.AppLogHelper;
+import com.bytedance.sdk.openadsdk.TTCustomController;
 import com.bytedance.sdk.openadsdk.core.h;
+import com.bytedance.sdk.openadsdk.core.j;
 import com.bytedance.sdk.openadsdk.core.o;
-import com.bytedance.sdk.openadsdk.core.s;
-import com.bytedance.sdk.openadsdk.r.e;
-import com.bytedance.sdk.openadsdk.r.i;
-import com.bytedance.sdk.openadsdk.r.k;
-import com.bytedance.sdk.openadsdk.r.q;
-import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
+import com.bytedance.sdk.openadsdk.q.f;
+import com.bytedance.sdk.openadsdk.q.l;
+import com.bytedance.sdk.openadsdk.q.m;
+import com.bytedance.sdk.openadsdk.q.q;
+import com.bytedance.sdk.openadsdk.q.s;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -50,13 +52,13 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30337a = null;
+    public static String f30436a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f30338b = false;
+    public static volatile boolean f30437b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f30339c = true;
+    public static volatile boolean f30438c = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -64,7 +66,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IntentFilter f30340a;
+        public static final IntentFilter f30439a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -80,7 +82,7 @@ public class c {
                     return;
                 }
             }
-            f30340a = new IntentFilter("android.intent.action.BATTERY_CHANGED");
+            f30439a = new IntentFilter("android.intent.action.BATTERY_CHANGED");
         }
 
         public static int a(Context context) {
@@ -88,7 +90,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
                 try {
-                    Intent registerReceiver = context.registerReceiver(null, f30340a);
+                    Intent registerReceiver = context.registerReceiver(null, f30439a);
                     if (registerReceiver != null) {
                         int intExtra = registerReceiver.getIntExtra("status", -1);
                         return intExtra == -1 ? intExtra : intExtra == 2 ? 1 : 0;
@@ -105,7 +107,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
                 try {
-                    Intent registerReceiver = context.registerReceiver(null, f30340a);
+                    Intent registerReceiver = context.registerReceiver(null, f30439a);
                     if (registerReceiver != null) {
                         return (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
                     }
@@ -142,11 +144,11 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
                 if ("android.intent.action.SCREEN_ON".equals(intent.getAction())) {
-                    boolean unused = c.f30339c = true;
-                    j.c(DeviceUtils.TAG, "screen_on");
+                    boolean unused = c.f30438c = true;
+                    k.c(DeviceUtils.TAG, "screen_on");
                 } else if ("android.intent.action.SCREEN_OFF".equals(intent.getAction())) {
-                    boolean unused2 = c.f30339c = false;
-                    j.c(DeviceUtils.TAG, "screen_off");
+                    boolean unused2 = c.f30438c = false;
+                    k.c(DeviceUtils.TAG, "screen_off");
                 }
             }
         }
@@ -232,13 +234,13 @@ public class c {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f30338b) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f30437b) {
             return;
         }
         try {
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             if (powerManager != null) {
-                f30339c = powerManager.isScreenOn();
+                f30438c = powerManager.isScreenOn();
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -248,209 +250,58 @@ public class c {
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         context.registerReceiver(bVar, intentFilter);
-        f30338b = true;
+        f30437b = true;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Build.VERSION.SDK_INT == 29 && com.bytedance.sdk.openadsdk.r.j.r()) {
+            if (Build.VERSION.SDK_INT == 29 && l.r()) {
                 try {
                     PowerManager powerManager = (PowerManager) o.a().getSystemService("power");
                     if (powerManager != null) {
-                        f30339c = powerManager.isScreenOn();
+                        f30438c = powerManager.isScreenOn();
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            return f30339c;
+            return f30438c;
         }
         return invokeV.booleanValue;
     }
 
-    /*  JADX ERROR: IF instruction can be used only in fallback mode
-        jadx.core.utils.exceptions.CodegenException: IF instruction can be used only in fallback mode
-        	at jadx.core.codegen.InsnGen.fallbackOnlyInsn(InsnGen.java:664)
-        	at jadx.core.codegen.InsnGen.makeInsnBody(InsnGen.java:522)
-        	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:280)
-        	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:250)
-        	at jadx.core.codegen.RegionGen.makeSimpleBlock(RegionGen.java:91)
-        	at jadx.core.dex.nodes.IBlock.generate(IBlock.java:15)
-        	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
-        	at jadx.core.dex.regions.Region.generate(Region.java:35)
-        	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
-        	at jadx.core.codegen.RegionGen.makeRegionIndent(RegionGen.java:80)
-        	at jadx.core.codegen.RegionGen.makeLoop(RegionGen.java:175)
-        	at jadx.core.dex.regions.loops.LoopRegion.generate(LoopRegion.java:171)
-        	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
-        	at jadx.core.dex.regions.Region.generate(Region.java:35)
-        	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
-        	at jadx.core.dex.regions.Region.generate(Region.java:35)
-        	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
-        	at jadx.core.dex.regions.Region.generate(Region.java:35)
-        	at jadx.core.codegen.RegionGen.makeRegion(RegionGen.java:63)
-        	at jadx.core.codegen.MethodGen.addRegionInsns(MethodGen.java:296)
-        	at jadx.core.codegen.MethodGen.addInstructions(MethodGen.java:275)
-        	at jadx.core.codegen.ClassGen.addMethodCode(ClassGen.java:377)
-        	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:306)
-        	at jadx.core.codegen.ClassGen.lambda$addInnerClsAndMethods$2(ClassGen.java:272)
-        	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
-        	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-        	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
-        	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
-        */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0022, code lost:
-        r0 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0037, code lost:
-        if (r0 != false) goto L12;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0039, code lost:
-        r0 = com.bytedance.sdk.openadsdk.core.h.d().f();
-        r1 = "DU:MM:YA:DD:RE:SS";
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0043, code lost:
-        if (r0 == null) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0049, code lost:
-        if (r0.isCanUseWifiState() == false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x004f, code lost:
-        if (r0.isCanUseLocation() == false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0051, code lost:
-        r0 = a(com.baidu.mobads.container.util.network.NetworkInfoUtils.NETWORK_NAME);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x005c, code lost:
-        if (android.text.TextUtils.isEmpty(r0) == false) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x005e, code lost:
-        r0 = a("eth0");
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0065, code lost:
-        r0 = "DU:MM:YA:DD:RE:SS";
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x006a, code lost:
-        if (android.text.TextUtils.isEmpty(r0) == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x006d, code lost:
-        r1 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x006e, code lost:
-        com.bytedance.sdk.openadsdk.core.k.c.f30337a = r1;
-        com.bytedance.sdk.openadsdk.core.h.a("sdk_local_mac_address", r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0075, code lost:
-        return com.bytedance.sdk.openadsdk.core.k.c.f30337a;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x002a A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0076 A[SYNTHETIC] */
-    @androidx.annotation.NonNull
-    @androidx.annotation.Keep
-    @com.bytedance.JProtect
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static java.lang.String b() {
-        /*
-            com.baidu.titan.sdk.runtime.Interceptable r0 = com.bytedance.sdk.openadsdk.core.k.c.$ic
-            if (r0 != 0) goto L7b
-        L4:
-            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.k.c.f30337a
-            boolean r0 = android.text.TextUtils.isEmpty(r0)
-        La:
-            r1 = 68
-            r2 = 39
-            r3 = 39
-        L10:
-            java.lang.String r4 = "sdk_local_mac_address"
-            switch(r1) {
-                case 68: goto L24;
-                case 69: goto L1d;
-                case 70: goto L16;
-                default: goto L15;
+    @NonNull
+    @Keep
+    @JProtect
+    public static String b() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (TextUtils.isEmpty(f30436a)) {
+                String a2 = h.a("sdk_local_mac_address", 172800000L);
+                f30436a = a2;
+                if (TextUtils.isEmpty(a2)) {
+                    TTCustomController f2 = h.d().f();
+                    if (f2 != null && f2.isCanUseWifiState() && f2.isCanUseLocation()) {
+                        str = a(NetworkInfoUtils.NETWORK_NAME);
+                        if (TextUtils.isEmpty(str)) {
+                            str = a("eth0");
+                        }
+                    } else {
+                        str = "DU:MM:YA:DD:RE:SS";
+                    }
+                    String str2 = TextUtils.isEmpty(str) ? "DU:MM:YA:DD:RE:SS" : str;
+                    f30436a = str2;
+                    h.a("sdk_local_mac_address", str2);
+                }
+                return f30436a;
             }
-        L15:
-            goto L76
-        L16:
-            switch(r3) {
-                case 29: goto L1a;
-                case 30: goto L1a;
-                case 31: goto L39;
-                default: goto L19;
-            }
-        L19:
-            goto L27
-        L1a:
-            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.k.c.f30337a
-            return r0
-        L1d:
-            r1 = 22
-            if (r3 <= r1) goto L22
-            goto La
-        L22:
-            r0 = 0
-            goto L37
-        L24:
-            if (r3 == r2) goto L27
-            goto L24
-        L27:
-            if (r0 != 0) goto L2a
-            goto L76
-        L2a:
-            r0 = 172800000(0xa4cb800, double:8.53745436E-316)
-            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.h.a(r4, r0)
-            com.bytedance.sdk.openadsdk.core.k.c.f30337a = r0
-            boolean r0 = android.text.TextUtils.isEmpty(r0)
-        L37:
-            if (r0 == 0) goto L73
-        L39:
-            com.bytedance.sdk.openadsdk.core.h r0 = com.bytedance.sdk.openadsdk.core.h.d()
-            com.bytedance.sdk.openadsdk.TTCustomController r0 = r0.f()
-            java.lang.String r1 = "DU:MM:YA:DD:RE:SS"
-            if (r0 == 0) goto L65
-            boolean r2 = r0.isCanUseWifiState()
-            if (r2 == 0) goto L65
-            boolean r0 = r0.isCanUseLocation()
-            if (r0 == 0) goto L65
-            java.lang.String r0 = "wlan0"
-            java.lang.String r0 = a(r0)
-            boolean r2 = android.text.TextUtils.isEmpty(r0)
-            if (r2 == 0) goto L66
-            java.lang.String r0 = "eth0"
-            java.lang.String r0 = a(r0)
-            goto L66
-        L65:
-            r0 = r1
-        L66:
-            boolean r2 = android.text.TextUtils.isEmpty(r0)
-            if (r2 == 0) goto L6d
-            goto L6e
-        L6d:
-            r1 = r0
-        L6e:
-            com.bytedance.sdk.openadsdk.core.k.c.f30337a = r1
-            com.bytedance.sdk.openadsdk.core.h.a(r4, r1)
-        L73:
-            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.k.c.f30337a
-            return r0
-        L76:
-            r1 = 70
-            r3 = 30
-            goto L10
-        L7b:
-            r2 = r0
-            r3 = 65541(0x10005, float:9.1843E-41)
-            r4 = 0
-            com.baidu.titan.sdk.runtime.InterceptResult r0 = r2.invokeV(r3, r4)
-            if (r0 == 0) goto L4
-            java.lang.Object r1 = r0.objValue
-            java.lang.String r1 = (java.lang.String) r1
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.bytedance.sdk.openadsdk.core.k.c.b():java.lang.String");
+            return f30436a;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static boolean b(Context context) {
@@ -503,7 +354,7 @@ public class c {
                     i2 = Settings.System.getInt(a2.getContentResolver(), "screen_brightness", -1);
                 }
             } catch (Throwable th) {
-                j.f(DeviceUtils.TAG, th.getMessage());
+                k.f(DeviceUtils.TAG, th.getMessage());
             }
             if (i2 < 0) {
                 return -1.0f;
@@ -581,15 +432,15 @@ public class c {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("imei", com.bytedance.sdk.openadsdk.core.j.d(context));
-                jSONObject.put(IAdRequestParam.ANDROID_ID, com.bytedance.sdk.openadsdk.core.j.c(context));
-                jSONObject.put("uuid", com.bytedance.sdk.openadsdk.core.j.e(context));
-                jSONObject.put("ssid", com.bytedance.sdk.openadsdk.core.j.g(context));
-                jSONObject.put("wifi_mac", com.bytedance.sdk.openadsdk.core.j.h(context));
-                jSONObject.put(BaseStatisContent.IMSI, com.bytedance.sdk.openadsdk.core.j.f(context));
+                jSONObject.put("imei", j.d(context));
+                jSONObject.put(IAdRequestParam.ANDROID_ID, j.c(context));
+                jSONObject.put("uuid", j.e(context));
+                jSONObject.put("ssid", j.g(context));
+                jSONObject.put("wifi_mac", j.h(context));
+                jSONObject.put(BaseStatisContent.IMSI, j.f(context));
                 jSONObject.put("power_on_time", SystemClock.elapsedRealtime() + "");
-                jSONObject.put("rom_version", com.bytedance.sdk.openadsdk.r.j.a());
-                jSONObject.put("sys_compiling_time", com.bytedance.sdk.openadsdk.core.j.b(context));
+                jSONObject.put("rom_version", l.a());
+                jSONObject.put("sys_compiling_time", j.b(context));
                 jSONObject.put("type", d(context));
                 jSONObject.put(IAdRequestParam.OS, 1);
                 jSONObject.put("os_api", Build.VERSION.SDK_INT);
@@ -597,33 +448,33 @@ public class c {
                 jSONObject.put("vendor", Build.MANUFACTURER);
                 jSONObject.put("model", Build.MODEL);
                 jSONObject.put("language", Locale.getDefault().getLanguage());
-                jSONObject.put("conn_type", m.b(context));
+                jSONObject.put("conn_type", n.b(context));
                 jSONObject.put("mac", b());
-                jSONObject.put("screen_width", q.c(context));
-                jSONObject.put("screen_height", q.d(context));
-                jSONObject.put("oaid", i.a());
-                jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, e.f32322a);
+                jSONObject.put("screen_width", s.c(context));
+                jSONObject.put("screen_height", s.d(context));
+                jSONObject.put("oaid", com.bytedance.sdk.openadsdk.q.k.a());
+                jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, f.f32508a);
                 jSONObject.put("applog_did", AppLogHelper.getInstance().getAppLogDid());
-                jSONObject.put("sec_did", s.a().b());
+                jSONObject.put("sec_did", com.bytedance.sdk.openadsdk.core.s.a().b());
                 jSONObject.put("locale_language", c());
                 jSONObject.put("screen_bright", Math.ceil(d() * 10.0f) / 10.0d);
                 jSONObject.put("is_screen_off", a() ? 0 : 1);
-                jSONObject.put("cpu_num", com.bytedance.sdk.openadsdk.r.o.c(context));
-                jSONObject.put("cpu_max_freq", com.bytedance.sdk.openadsdk.r.o.d(context));
-                jSONObject.put("cpu_min_freq", com.bytedance.sdk.openadsdk.r.o.e(context));
+                jSONObject.put("cpu_num", q.c(context));
+                jSONObject.put("cpu_max_freq", q.d(context));
+                jSONObject.put("cpu_min_freq", q.e(context));
                 jSONObject.put("battery_remaining_pct", (int) a.b(context));
                 jSONObject.put("is_charging", a.a(context));
-                jSONObject.put("total_mem", String.valueOf(Long.parseLong(com.bytedance.sdk.openadsdk.r.o.b(context)) * 1024));
-                jSONObject.put("total_space", String.valueOf(com.bytedance.sdk.openadsdk.r.o.f(context)));
-                jSONObject.put("free_space_in", String.valueOf(com.bytedance.sdk.openadsdk.r.o.g(context)));
-                jSONObject.put("sdcard_size", String.valueOf(com.bytedance.sdk.openadsdk.r.o.h(context)));
-                jSONObject.put("rooted", com.bytedance.sdk.openadsdk.r.o.i(context));
+                jSONObject.put("total_mem", String.valueOf(Long.parseLong(q.b(context)) * 1024));
+                jSONObject.put("total_space", String.valueOf(q.f(context)));
+                jSONObject.put("free_space_in", String.valueOf(q.g(context)));
+                jSONObject.put("sdcard_size", String.valueOf(q.h(context)));
+                jSONObject.put("rooted", q.i(context));
                 jSONObject.put("enable_assisted_clicking", e());
-                jSONObject.put("mnc", k.b());
-                jSONObject.put("mcc", k.a());
+                jSONObject.put("mnc", m.b());
+                jSONObject.put("mcc", m.a());
                 jSONObject.put("download_channel", com.bytedance.sdk.openadsdk.c.a.b(context));
                 jSONObject.put("applog_did", AppLogHelper.getInstance().getAppLogDid());
-                jSONObject.put("sec_did", s.a().b());
+                jSONObject.put("sec_did", com.bytedance.sdk.openadsdk.core.s.a().b());
             } catch (Throwable unused) {
             }
             return jSONObject;
@@ -637,16 +488,16 @@ public class c {
         if (!(interceptable == null || interceptable.invokeV(65550, null) == null) || (a2 = o.a()) == null) {
             return;
         }
-        com.bytedance.sdk.openadsdk.core.c.a(a2).a("cpu_count", com.bytedance.sdk.openadsdk.r.o.g());
-        com.bytedance.sdk.openadsdk.core.c.a(a2).a("cpu_max_frequency", com.bytedance.sdk.openadsdk.r.o.c(com.bytedance.sdk.openadsdk.r.o.g()));
-        com.bytedance.sdk.openadsdk.core.c.a(a2).a("cpu_min_frequency", com.bytedance.sdk.openadsdk.r.o.d(com.bytedance.sdk.openadsdk.r.o.g()));
-        String e2 = com.bytedance.sdk.openadsdk.r.o.e(a2, "MemTotal");
+        com.bytedance.sdk.openadsdk.core.c.a(a2).a("cpu_count", q.g());
+        com.bytedance.sdk.openadsdk.core.c.a(a2).a("cpu_max_frequency", q.c(q.g()));
+        com.bytedance.sdk.openadsdk.core.c.a(a2).a("cpu_min_frequency", q.d(q.g()));
+        String e2 = q.e(a2, "MemTotal");
         if (e2 != null) {
             com.bytedance.sdk.openadsdk.core.c.a(a2).a("total_memory", e2);
         }
-        com.bytedance.sdk.openadsdk.core.c.a(a2).a("total_internal_storage", com.bytedance.sdk.openadsdk.r.o.h());
-        com.bytedance.sdk.openadsdk.core.c.a(a2).a("free_internal_storage", com.bytedance.sdk.component.utils.k.a());
-        com.bytedance.sdk.openadsdk.core.c.a(a2).a("total_sdcard_storage", com.bytedance.sdk.openadsdk.r.o.i());
-        com.bytedance.sdk.openadsdk.core.c.a(a2).a("is_root", com.bytedance.sdk.openadsdk.r.o.j() ? 1 : 0);
+        com.bytedance.sdk.openadsdk.core.c.a(a2).a("total_internal_storage", q.h());
+        com.bytedance.sdk.openadsdk.core.c.a(a2).a("free_internal_storage", com.bytedance.sdk.component.utils.l.a());
+        com.bytedance.sdk.openadsdk.core.c.a(a2).a("total_sdcard_storage", q.i());
+        com.bytedance.sdk.openadsdk.core.c.a(a2).a("is_root", q.j() ? 1 : 0);
     }
 }

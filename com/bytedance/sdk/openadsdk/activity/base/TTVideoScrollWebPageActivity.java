@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.c;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.g;
@@ -19,7 +19,7 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTScrollView f29208d;
+    public TTScrollView f29308d;
 
     public TTVideoScrollWebPageActivity() {
         Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            TTScrollView tTScrollView = (TTScrollView) findViewById(r.e(getApplicationContext(), "tt_scroll_view"));
-            this.f29208d = tTScrollView;
+            TTScrollView tTScrollView = (TTScrollView) findViewById(t.e(getApplicationContext(), "tt_scroll_view"));
+            this.f29308d = tTScrollView;
             tTScrollView.setListener(new TTScrollView.a(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTVideoScrollWebPageActivity f29209a;
+                public final /* synthetic */ TTVideoScrollWebPageActivity f29309a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -64,7 +64,7 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                             return;
                         }
                     }
-                    this.f29209a = this;
+                    this.f29309a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.TTScrollView.a
@@ -72,31 +72,31 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
                         try {
-                            if (this.f29209a.f29213c != null && (this.f29209a.f29213c instanceof g)) {
-                                if (z && !this.f29209a.f29213c.w()) {
-                                    ((g) this.f29209a.f29213c).g(false);
+                            if (this.f29309a.f29313c != null && (this.f29309a.f29313c instanceof g)) {
+                                if (z && !this.f29309a.f29313c.x()) {
+                                    ((g) this.f29309a.f29313c).f(false);
                                 } else {
-                                    this.f29209a.f29213c.i();
+                                    this.f29309a.f29313c.i();
                                 }
                             }
                         } catch (Throwable th) {
-                            j.c("TTVideoScrollWebPageActivity", "onCreate isShow error", th);
+                            k.c("TTVideoScrollWebPageActivity", "onCreate isShow error", th);
                         }
                     }
                 }
             });
-            c cVar = this.f29213c;
+            c cVar = this.f29313c;
             if (cVar != null) {
-                cVar.e(false);
+                cVar.d(false);
             }
-            NativeVideoTsView nativeVideoTsView = this.f29212b;
+            NativeVideoTsView nativeVideoTsView = this.f29312b;
             if (nativeVideoTsView != null) {
                 nativeVideoTsView.setVideoAdInteractionListener(new c.b(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TTVideoScrollWebPageActivity f29210a;
+                    public final /* synthetic */ TTVideoScrollWebPageActivity f29310a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -113,7 +113,7 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                                 return;
                             }
                         }
-                        this.f29210a = this;
+                        this.f29310a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
@@ -126,11 +126,11 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
                     public void e_() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29210a.f29208d == null || this.f29210a.f29208d.a()) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29310a.f29308d == null || this.f29310a.f29308d.a()) {
                             return;
                         }
-                        j.b("TTVideoScrollWebPageActivity", "video start play but video is hidden so pause");
-                        c cVar2 = this.f29210a.f29213c;
+                        k.b("TTVideoScrollWebPageActivity", "video start play but video is hidden so pause");
+                        c cVar2 = this.f29310a.f29313c;
                         if (cVar2 != null) {
                             cVar2.j();
                         }
@@ -165,7 +165,7 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
     public void setContentView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.setContentView(r.f(getApplicationContext(), "tt_activity_video_scroll_landingpage"));
+            super.setContentView(t.f(getApplicationContext(), "tt_activity_video_scroll_landingpage"));
         }
     }
 }

@@ -16,13 +16,13 @@ public class n1 extends h1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long[] f68813d;
+    public static final long[] f69267d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long[] f68814e;
+    public static final long[] f69268e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long[] f68815f;
+    public static final long[] f69269f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +38,9 @@ public class n1 extends h1 {
                 return;
             }
         }
-        f68813d = new long[]{60000, 60000, 60000, AppConfig.TIMESTAMP_AVAILABLE_DURATION, AppConfig.TIMESTAMP_AVAILABLE_DURATION, AppConfig.TIMESTAMP_AVAILABLE_DURATION, 180000, 180000};
-        f68814e = new long[]{180000, 180000, 360000, 360000, 540000, 540000};
-        f68815f = new long[]{10000, 10000, 20000, 20000, 60000, 6000, 180000, 180000, 540000, 540000};
+        f69267d = new long[]{60000, 60000, 60000, AppConfig.TIMESTAMP_AVAILABLE_DURATION, AppConfig.TIMESTAMP_AVAILABLE_DURATION, AppConfig.TIMESTAMP_AVAILABLE_DURATION, 180000, 180000};
+        f69268e = new long[]{180000, 180000, 360000, 360000, 540000, 540000};
+        f69269f = new long[]{10000, 10000, 20000, 20000, 60000, 6000, 180000, 180000, 540000, 540000};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -78,7 +78,7 @@ public class n1 extends h1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f68781a.j().E() + (this.f68781a.m().i() ? Constants.IM_TRACK_DURATION_MS : 43200000);
+            return this.f69235a.j().E() + (this.f69235a.m().i() ? Constants.IM_TRACK_DURATION_MS : 43200000);
         }
         return invokeV.longValue;
     }
@@ -88,18 +88,18 @@ public class n1 extends h1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int D = this.f68781a.j().D();
+            int D = this.f69235a.j().D();
             if (D != 0) {
                 if (D != 1) {
                     if (D != 2) {
                         h0.b(null);
-                        return f68814e;
+                        return f69268e;
                     }
-                    return f68813d;
+                    return f69267d;
                 }
-                return f68814e;
+                return f69268e;
             }
-            return f68815f;
+            return f69269f;
         }
         return (long[]) invokeV.objValue;
     }
@@ -110,14 +110,14 @@ public class n1 extends h1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            JSONObject c2 = this.f68781a.j().c();
+            JSONObject c2 = this.f69235a.j().c();
             if (c2 != null) {
                 jSONObject.put("magic_tag", "ss_app_log");
                 jSONObject.put("header", c2);
                 jSONObject.put("_gen_time", System.currentTimeMillis());
-                JSONObject e2 = n.e(o.a(this.f68781a.f(), this.f68781a.j().c(), this.f68781a.n().getRegisterUri(), true, AppLog.getIAppParam()), jSONObject);
+                JSONObject e2 = n.e(o.a(this.f69235a.f(), this.f69235a.j().c(), this.f69235a.n().getRegisterUri(), true, AppLog.getIAppParam()), jSONObject);
                 if (e2 != null) {
-                    return this.f68781a.j().i(e2, e2.optString("device_id", ""), e2.optString("install_id", ""), e2.optString("ssid", ""));
+                    return this.f69235a.j().i(e2, e2.optString("device_id", ""), e2.optString("install_id", ""), e2.optString("ssid", ""));
                 }
                 return false;
             }
@@ -131,6 +131,6 @@ public class n1 extends h1 {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.baidu.mapsdkplatform.comapi.map.r.f7762a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.baidu.mapsdkplatform.comapi.map.r.f7788a : (String) invokeV.objValue;
     }
 }

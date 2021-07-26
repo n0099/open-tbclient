@@ -15,7 +15,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
@@ -28,10 +31,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.c.e.p.l;
-import d.a.o0.r.f0.t.c;
-import d.a.o0.z0.n0;
+import d.a.d.e.p.k;
+import d.a.d.e.p.l;
+import d.a.p0.b1.n0;
+import d.a.p0.s.f0.t.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -40,16 +43,16 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f21858a;
+    public Context f21995a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<VideoAttentionPersonListData> f21859b;
+    public List<VideoAttentionPersonListData> f21996b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f21860c;
+    public View f21997c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f21861d;
+    public View f21998d;
 
     /* loaded from: classes4.dex */
     public static class RecomendViewHolder extends RecyclerView.ViewHolder {
@@ -57,31 +60,31 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public UserIconBox f21862a;
+        public UserIconBox f21999a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f21863b;
+        public TextView f22000b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f21864c;
+        public TextView f22001c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f21865d;
+        public TextView f22002d;
 
         /* renamed from: e  reason: collision with root package name */
-        public UserLikeInAttentionButton f21866e;
+        public UserLikeInAttentionButton f22003e;
 
         /* renamed from: f  reason: collision with root package name */
-        public HeadPendantClickableView f21867f;
+        public HeadPendantClickableView f22004f;
 
         /* renamed from: g  reason: collision with root package name */
-        public RecyclerView f21868g;
+        public RecyclerView f22005g;
 
         /* renamed from: h  reason: collision with root package name */
-        public VideoAttentionReccomendListAdapter f21869h;
+        public VideoAttentionReccomendListAdapter f22006h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c f21870i;
+        public c f22007i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public RecomendViewHolder(Context context, View view) {
@@ -102,38 +105,38 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
                 }
             }
             HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view.findViewById(R.id.head_view_video_info_item);
-            this.f21867f = headPendantClickableView;
+            this.f22004f = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
-            this.f21867f.getHeadView().setIsRound(true);
-            this.f21867f.getHeadView().setDrawBorder(true);
-            this.f21867f.getHeadView().setBorderWidth(l.g(context, R.dimen.L_X01));
-            this.f21867f.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f21867f.getHeadView().setPlaceHolder(1);
-            this.f21867f.setBigVDimenSize(R.dimen.tbds27);
-            this.f21862a = (UserIconBox) view.findViewById(R.id.vip_icon_video_info_item);
-            this.f21863b = (TextView) view.findViewById(R.id.user_name_video_info_item);
-            this.f21864c = (TextView) view.findViewById(R.id.bjh_author_auth_video_info_item);
-            this.f21865d = (TextView) view.findViewById(R.id.fans_count_video_info_item);
-            this.f21866e = (UserLikeInAttentionButton) view.findViewById(R.id.concern_video_info_item);
+            this.f22004f.getHeadView().setIsRound(true);
+            this.f22004f.getHeadView().setDrawBorder(true);
+            this.f22004f.getHeadView().setBorderWidth(l.g(context, R.dimen.L_X01));
+            this.f22004f.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f22004f.getHeadView().setPlaceHolder(1);
+            this.f22004f.setBigVDimenSize(R.dimen.tbds27);
+            this.f21999a = (UserIconBox) view.findViewById(R.id.vip_icon_video_info_item);
+            this.f22000b = (TextView) view.findViewById(R.id.user_name_video_info_item);
+            this.f22001c = (TextView) view.findViewById(R.id.bjh_author_auth_video_info_item);
+            this.f22002d = (TextView) view.findViewById(R.id.fans_count_video_info_item);
+            this.f22003e = (UserLikeInAttentionButton) view.findViewById(R.id.concern_video_info_item);
             RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.thread_card_list);
-            this.f21868g = recyclerView;
+            this.f22005g = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
             VideoAttentionReccomendListAdapter videoAttentionReccomendListAdapter = new VideoAttentionReccomendListAdapter(context);
-            this.f21869h = videoAttentionReccomendListAdapter;
-            this.f21868g.setAdapter(videoAttentionReccomendListAdapter);
-            c cVar = new c(this.f21867f.getTbPageContext(), this.f21866e);
-            this.f21870i = cVar;
+            this.f22006h = videoAttentionReccomendListAdapter;
+            this.f22005g.setAdapter(videoAttentionReccomendListAdapter);
+            c cVar = new c(this.f22004f.getTbPageContext(), this.f22003e);
+            this.f22007i = cVar;
             cVar.k(true);
         }
 
         public void a(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                this.f21867f.setOnClickListener(onClickListener);
-                this.f21862a.setOnClickListener(onClickListener);
-                this.f21863b.setOnClickListener(onClickListener);
-                this.f21864c.setOnClickListener(onClickListener);
-                this.f21865d.setOnClickListener(onClickListener);
+                this.f22004f.setOnClickListener(onClickListener);
+                this.f21999a.setOnClickListener(onClickListener);
+                this.f22000b.setOnClickListener(onClickListener);
+                this.f22001c.setOnClickListener(onClickListener);
+                this.f22002d.setOnClickListener(onClickListener);
             }
         }
     }
@@ -144,10 +147,10 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionPersonListData f21871e;
+        public final /* synthetic */ VideoAttentionPersonListData f22008e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionPageRecomendListAdapter f21872f;
+        public final /* synthetic */ VideoAttentionPageRecomendListAdapter f22009f;
 
         public a(VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter, VideoAttentionPersonListData videoAttentionPersonListData) {
             Interceptable interceptable = $ic;
@@ -164,8 +167,8 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
                     return;
                 }
             }
-            this.f21872f = videoAttentionPageRecomendListAdapter;
-            this.f21871e = videoAttentionPersonListData;
+            this.f22009f = videoAttentionPageRecomendListAdapter;
+            this.f22008e = videoAttentionPersonListData;
         }
 
         @Override // android.view.View.OnClickListener
@@ -174,12 +177,58 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() != R.id.head_view_video_info_item && view.getId() != R.id.vip_icon_video_info_item) {
                     if (view.getId() == R.id.user_name_video_info_item || view.getId() == R.id.bjh_author_auth_video_info_item || view.getId() == R.id.fans_count_video_info_item) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f21872f.f21858a, this.f21871e.getUserData().getUserId(), this.f21871e.getUserData().getName_show())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f22009f.f21995a, this.f22008e.getUserData().getUserId(), this.f22008e.getUserData().getName_show())));
+                        this.f22009f.e(1);
                         return;
                     }
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f21872f.f21858a, this.f21871e.getUserData().getUserId(), this.f21871e.getUserData().getName_show())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f22009f.f21995a, this.f22008e.getUserData().getUserId(), this.f22008e.getUserData().getName_show())));
+                this.f22009f.e(1);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements UserLikeInAttentionButton.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ VideoAttentionPersonListData f22010a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ VideoAttentionPageRecomendListAdapter f22011b;
+
+        public b(VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter, VideoAttentionPersonListData videoAttentionPersonListData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoAttentionPageRecomendListAdapter, videoAttentionPersonListData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f22011b = videoAttentionPageRecomendListAdapter;
+            this.f22010a = videoAttentionPersonListData;
+        }
+
+        @Override // com.baidu.tieba.view.UserLikeInAttentionButton.a
+        public void a(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22010a.getUserData() == null) {
+                return;
+            }
+            if (this.f22010a.getUserData().getIsLike()) {
+                this.f22011b.e(3);
+            } else {
+                this.f22011b.e(2);
             }
         }
     }
@@ -199,27 +248,37 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
                 return;
             }
         }
-        this.f21858a = context;
-        this.f21859b = new ArrayList();
+        this.f21995a = context;
+        this.f21996b = new ArrayList();
+    }
+
+    public void e(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_ATTENTION_PAGE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_locate", i2);
+            TiebaStatic.log(statisticItem);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: e */
+    /* renamed from: f */
     public void onBindViewHolder(RecomendViewHolder recomendViewHolder, int i2) {
         List<VideoAttentionPersonListData> list;
         VideoAttentionPersonListData videoAttentionPersonListData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, recomendViewHolder, i2) == null) || recomendViewHolder == null || (list = this.f21859b) == null || (videoAttentionPersonListData = list.get(i2)) == null || videoAttentionPersonListData.getUserData().getName_show() == null || videoAttentionPersonListData.getUserData().getUserId() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recomendViewHolder, i2) == null) || recomendViewHolder == null || (list = this.f21996b) == null || (videoAttentionPersonListData = list.get(i2)) == null || videoAttentionPersonListData.getUserData().getName_show() == null || videoAttentionPersonListData.getUserData().getUserId() == null) {
             return;
         }
-        i(videoAttentionPersonListData, recomendViewHolder);
+        j(videoAttentionPersonListData, recomendViewHolder);
+        m(videoAttentionPersonListData, recomendViewHolder);
         l(videoAttentionPersonListData, recomendViewHolder);
-        k(videoAttentionPersonListData, recomendViewHolder);
+        i(videoAttentionPersonListData, recomendViewHolder);
+        k(videoAttentionPersonListData.getVideoItemDatas(), recomendViewHolder);
         h(videoAttentionPersonListData, recomendViewHolder);
-        j(videoAttentionPersonListData.getVideoItemDatas(), recomendViewHolder);
-        g(videoAttentionPersonListData, recomendViewHolder);
-        d.a.o0.r.u.c d2 = d.a.o0.r.u.c.d(this.f21861d);
+        d.a.p0.s.u.c d2 = d.a.p0.s.u.c.d(this.f21998d);
         d2.n(R.string.J_X05);
         d2.g(SkinManager.getColor(0, R.color.CAM_X0105));
         recomendViewHolder.a(new a(this, videoAttentionPersonListData));
@@ -227,26 +286,17 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: f */
+    /* renamed from: g */
     public RecomendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) {
-            View inflate = LayoutInflater.from(this.f21858a).inflate(R.layout.video_attention_recomend_list_view, viewGroup, false);
-            this.f21860c = inflate;
-            this.f21861d = inflate.findViewById(R.id.viedo_attention_list_view);
-            return new RecomendViewHolder(this.f21858a, this.f21860c);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
+            View inflate = LayoutInflater.from(this.f21995a).inflate(R.layout.video_attention_recomend_list_view, viewGroup, false);
+            this.f21997c = inflate;
+            this.f21998d = inflate.findViewById(R.id.viedo_attention_list_view);
+            return new RecomendViewHolder(this.f21995a, this.f21997c);
         }
         return (RecomendViewHolder) invokeLI.objValue;
-    }
-
-    public final void g(VideoAttentionPersonListData videoAttentionPersonListData, RecomendViewHolder recomendViewHolder) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, videoAttentionPersonListData, recomendViewHolder) == null) || videoAttentionPersonListData == null || recomendViewHolder == null || (cVar = recomendViewHolder.f21870i) == null) {
-            return;
-        }
-        cVar.n(videoAttentionPersonListData.getUserData());
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -254,7 +304,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<VideoAttentionPersonListData> list = this.f21859b;
+            List<VideoAttentionPersonListData> list = this.f21996b;
             if (list == null) {
                 return 0;
             }
@@ -264,30 +314,14 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
     }
 
     public final void h(VideoAttentionPersonListData videoAttentionPersonListData, RecomendViewHolder recomendViewHolder) {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, videoAttentionPersonListData, recomendViewHolder) == null) || videoAttentionPersonListData == null || recomendViewHolder == null) {
-            return;
-        }
-        String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(videoAttentionPersonListData.getUserData().getFansNum());
-        TextView textView = recomendViewHolder.f21865d;
-        textView.setText(TbadkCoreApplication.getInst().getString(R.string.fans_default_name) + numberUniformFormatExtra);
-        if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().isNewGod()) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) recomendViewHolder.f21865d.getLayoutParams();
-            layoutParams.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds32), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-            recomendViewHolder.f21864c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getNewGodData().getFieldName() + n0.d(videoAttentionPersonListData.getUserData().getNewGodData().isVideoGod()), 16, StringHelper.STRING_MORE));
-            recomendViewHolder.f21864c.setVisibility(0);
-        } else if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().showBazhuGrade()) {
-            recomendViewHolder.f21864c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE));
-            recomendViewHolder.f21864c.setVisibility(0);
-        } else if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().getBaijiahaoInfo() != null && !k.isEmpty(videoAttentionPersonListData.getUserData().getBaijiahaoInfo().auth_desc)) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) recomendViewHolder.f21865d.getLayoutParams();
-            layoutParams2.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds32), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
-            recomendViewHolder.f21864c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getBaijiahaoInfo().auth_desc, 16, StringHelper.STRING_MORE));
-            recomendViewHolder.f21864c.setVisibility(0);
-        } else {
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) recomendViewHolder.f21865d.getLayoutParams();
-            layoutParams3.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20), layoutParams3.topMargin, layoutParams3.rightMargin, layoutParams3.bottomMargin);
-            recomendViewHolder.f21864c.setVisibility(8);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, videoAttentionPersonListData, recomendViewHolder) == null) {
+            recomendViewHolder.f22003e.setOnClickEvent(new b(this, videoAttentionPersonListData));
+            if (videoAttentionPersonListData == null || recomendViewHolder == null || (cVar = recomendViewHolder.f22007i) == null) {
+                return;
+            }
+            cVar.n(videoAttentionPersonListData.getUserData());
         }
     }
 
@@ -296,29 +330,47 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, videoAttentionPersonListData, recomendViewHolder) == null) || videoAttentionPersonListData == null || recomendViewHolder == null) {
             return;
         }
-        recomendViewHolder.f21867f.getHeadView().setUserId(videoAttentionPersonListData.getUserData().getUserId());
-        recomendViewHolder.f21867f.getHeadView().setUserName(videoAttentionPersonListData.getUserData().getUserName());
-        recomendViewHolder.f21867f.i(videoAttentionPersonListData.getUserData(), 4);
-        recomendViewHolder.f21867f.m(videoAttentionPersonListData.getUserData());
+        String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(videoAttentionPersonListData.getUserData().getFansNum());
+        TextView textView = recomendViewHolder.f22002d;
+        textView.setText(TbadkCoreApplication.getInst().getString(R.string.fans_default_name) + numberUniformFormatExtra);
+        if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().isNewGod()) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) recomendViewHolder.f22002d.getLayoutParams();
+            layoutParams.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds32), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+            recomendViewHolder.f22001c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getNewGodData().getFieldName() + n0.d(videoAttentionPersonListData.getUserData().getNewGodData().isVideoGod()), 16, StringHelper.STRING_MORE));
+            recomendViewHolder.f22001c.setVisibility(0);
+        } else if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().showBazhuGrade()) {
+            recomendViewHolder.f22001c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE));
+            recomendViewHolder.f22001c.setVisibility(0);
+        } else if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().getBaijiahaoInfo() != null && !k.isEmpty(videoAttentionPersonListData.getUserData().getBaijiahaoInfo().auth_desc)) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) recomendViewHolder.f22002d.getLayoutParams();
+            layoutParams2.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds32), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
+            recomendViewHolder.f22001c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getBaijiahaoInfo().auth_desc, 16, StringHelper.STRING_MORE));
+            recomendViewHolder.f22001c.setVisibility(0);
+        } else {
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) recomendViewHolder.f22002d.getLayoutParams();
+            layoutParams3.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20), layoutParams3.topMargin, layoutParams3.rightMargin, layoutParams3.bottomMargin);
+            recomendViewHolder.f22001c.setVisibility(8);
+        }
     }
 
-    public final void j(ArrayList<VideoItemData> arrayList, RecomendViewHolder recomendViewHolder) {
+    public final void j(VideoAttentionPersonListData videoAttentionPersonListData, RecomendViewHolder recomendViewHolder) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, videoAttentionPersonListData, recomendViewHolder) == null) || videoAttentionPersonListData == null || recomendViewHolder == null) {
+            return;
+        }
+        recomendViewHolder.f22004f.getHeadView().setUserId(videoAttentionPersonListData.getUserData().getUserId());
+        recomendViewHolder.f22004f.getHeadView().setUserName(videoAttentionPersonListData.getUserData().getUserName());
+        recomendViewHolder.f22004f.i(videoAttentionPersonListData.getUserData(), 4);
+        recomendViewHolder.f22004f.m(videoAttentionPersonListData.getUserData());
+    }
+
+    public final void k(ArrayList<VideoItemData> arrayList, RecomendViewHolder recomendViewHolder) {
         VideoAttentionReccomendListAdapter videoAttentionReccomendListAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, arrayList, recomendViewHolder) == null) || arrayList == null || recomendViewHolder == null || (videoAttentionReccomendListAdapter = recomendViewHolder.f21869h) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, arrayList, recomendViewHolder) == null) || arrayList == null || recomendViewHolder == null || (videoAttentionReccomendListAdapter = recomendViewHolder.f22006h) == null) {
             return;
         }
         videoAttentionReccomendListAdapter.setData(arrayList);
-    }
-
-    public final void k(VideoAttentionPersonListData videoAttentionPersonListData, RecomendViewHolder recomendViewHolder) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, videoAttentionPersonListData, recomendViewHolder) == null) || videoAttentionPersonListData == null || recomendViewHolder == null) {
-            return;
-        }
-        recomendViewHolder.f21863b.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getName_show(), 16, StringHelper.STRING_MORE));
-        recomendViewHolder.f21863b.setTag(R.id.tag_user_id, videoAttentionPersonListData.getUserData().getUserId());
-        recomendViewHolder.f21863b.setTag(R.id.tag_user_name, videoAttentionPersonListData.getUserData().getName_show());
     }
 
     public final void l(VideoAttentionPersonListData videoAttentionPersonListData, RecomendViewHolder recomendViewHolder) {
@@ -326,23 +378,33 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoAttentionPersonListData, recomendViewHolder) == null) || videoAttentionPersonListData == null || recomendViewHolder == null) {
             return;
         }
+        recomendViewHolder.f22000b.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getName_show(), 16, StringHelper.STRING_MORE));
+        recomendViewHolder.f22000b.setTag(R.id.tag_user_id, videoAttentionPersonListData.getUserData().getUserId());
+        recomendViewHolder.f22000b.setTag(R.id.tag_user_name, videoAttentionPersonListData.getUserData().getName_show());
+    }
+
+    public final void m(VideoAttentionPersonListData videoAttentionPersonListData, RecomendViewHolder recomendViewHolder) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, videoAttentionPersonListData, recomendViewHolder) == null) || videoAttentionPersonListData == null || recomendViewHolder == null) {
+            return;
+        }
         ArrayList<IconData> tShowInfoNew = videoAttentionPersonListData.getUserData().getTShowInfoNew();
         if (tShowInfoNew != null && tShowInfoNew.size() > 0 && tShowInfoNew.get(0) != null) {
-            recomendViewHolder.f21862a.setTag(tShowInfoNew.get(0).getUrl());
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) recomendViewHolder.f21863b.getLayoutParams();
+            recomendViewHolder.f21999a.setTag(tShowInfoNew.get(0).getUrl());
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) recomendViewHolder.f22000b.getLayoutParams();
             layoutParams.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
         } else {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) recomendViewHolder.f21863b.getLayoutParams();
-            layoutParams2.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) recomendViewHolder.f22000b.getLayoutParams();
+            layoutParams2.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
         }
-        recomendViewHolder.f21862a.h(tShowInfoNew, 3, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10), true);
+        recomendViewHolder.f21999a.h(tShowInfoNew, 3, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10), true);
     }
 
     public void setData(List<VideoAttentionPersonListData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f21859b.clear();
-            this.f21859b.addAll(list);
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.f21996b.clear();
+            this.f21996b.addAll(list);
             notifyDataSetChanged();
         }
     }

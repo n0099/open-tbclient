@@ -15,50 +15,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.k.b;
-import d.a.c.e.d.a;
-import d.a.c.e.d.c;
-import d.a.c.e.d.e;
-import d.a.c.e.d.f;
-import d.a.c.e.d.h;
-import d.a.c.e.d.i;
-import d.a.c.e.d.j;
-import d.a.c.e.d.k;
-import d.a.c.e.d.l;
-import d.a.c.e.d.m;
-import d.a.c.e.d.n;
-import d.a.c.e.d.p;
-import d.a.c.e.d.q;
-import d.a.c.e.d.r;
+import d.a.d.a.k.b;
+import d.a.d.e.d.a;
+import d.a.d.e.d.c;
+import d.a.d.e.d.e;
+import d.a.d.e.d.f;
+import d.a.d.e.d.h;
+import d.a.d.e.d.i;
+import d.a.d.e.d.j;
+import d.a.d.e.d.k;
+import d.a.d.e.d.l;
+import d.a.d.e.d.m;
+import d.a.d.e.d.n;
+import d.a.d.e.d.p;
+import d.a.d.e.d.q;
+import d.a.d.e.d.r;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdCacheService extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile BdCacheService f2172h;
+    public static volatile BdCacheService f2198h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public p f2173a;
+    public p f2199a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f2174b;
+    public Context f2200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f2175c;
+    public b f2201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f2176d;
+    public final String f2202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, l<String>> f2177e;
+    public HashMap<String, l<String>> f2203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, l<byte[]>> f2178f;
+    public HashMap<String, l<byte[]>> f2204f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f2179g;
+    public boolean f2205g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -200,11 +200,11 @@ public class BdCacheService extends CustomMessageListener {
                 return;
             }
         }
-        this.f2177e = new HashMap<>();
-        this.f2178f = new HashMap<>();
-        this.f2176d = str;
+        this.f2203e = new HashMap<>();
+        this.f2204f = new HashMap<>();
+        this.f2202d = str;
         if (BdBaseApplication.getInst() != null) {
-            this.f2179g = BdBaseApplication.getInst().isDebugMode();
+            this.f2205g = BdBaseApplication.getInst().isDebugMode();
         }
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
@@ -219,14 +219,14 @@ public class BdCacheService extends CustomMessageListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2172h == null) {
+            if (f2198h == null) {
                 synchronized (BdCacheService.class) {
-                    if (f2172h == null) {
-                        f2172h = new BdCacheService("baidu_adp.db");
+                    if (f2198h == null) {
+                        f2198h = new BdCacheService("baidu_adp.db");
                     }
                 }
             }
-            return f2172h;
+            return f2198h;
         }
         return (BdCacheService) invokeV.objValue;
     }
@@ -238,7 +238,7 @@ public class BdCacheService extends CustomMessageListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, str, cacheStorage, cacheEvictPolicy, i2)) == null) {
             synchronized (this) {
-                l<byte[]> lVar = this.f2178f.get(str);
+                l<byte[]> lVar = this.f2204f.get(str);
                 if (lVar != null) {
                     return lVar;
                 }
@@ -251,7 +251,7 @@ public class BdCacheService extends CustomMessageListener {
                     b2 = f.b();
                 }
                 if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                    aVar = new d.a.c.e.d.b(f());
+                    aVar = new d.a.d.e.d.b(f());
                     z = false;
                 } else {
                     aVar = new a(f(), "cache_kv_bshare");
@@ -269,7 +269,7 @@ public class BdCacheService extends CustomMessageListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, kVar)) == null) {
             synchronized (this) {
-                l<byte[]> lVar = this.f2178f.get(str);
+                l<byte[]> lVar = this.f2204f.get(str);
                 if (lVar != null) {
                     if (kVar != null && (lVar instanceof l.c) && ((l.c) lVar).c() != kVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + kVar + "]. Make sure to return the old cache before re-use the same namespace.");
@@ -281,7 +281,7 @@ public class BdCacheService extends CustomMessageListener {
                 } else {
                     nVar = new n(str, kVar);
                 }
-                this.f2178f.put(str, nVar);
+                this.f2204f.put(str, nVar);
                 nVar.k();
                 return nVar;
             }
@@ -296,7 +296,7 @@ public class BdCacheService extends CustomMessageListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, str, cacheStorage, cacheEvictPolicy, i2)) == null) {
             synchronized (this) {
-                l<String> lVar = this.f2177e.get(str);
+                l<String> lVar = this.f2203e.get(str);
                 if (lVar != null) {
                     return lVar;
                 }
@@ -327,7 +327,7 @@ public class BdCacheService extends CustomMessageListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, kVar)) == null) {
             synchronized (this) {
-                l<String> lVar = this.f2177e.get(str);
+                l<String> lVar = this.f2203e.get(str);
                 if (lVar != null) {
                     if (kVar != null && (lVar instanceof l.c) && ((l.c) lVar).c() != kVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + kVar + "]. Make sure to return the old cache before re-use the same namespace.");
@@ -339,7 +339,7 @@ public class BdCacheService extends CustomMessageListener {
                 } else {
                     nVar = new n(str, kVar);
                 }
-                this.f2177e.put(str, nVar);
+                this.f2203e.put(str, nVar);
                 nVar.k();
                 return nVar;
             }
@@ -351,7 +351,7 @@ public class BdCacheService extends CustomMessageListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Context context = this.f2174b;
+            Context context = this.f2200b;
             return context == null ? BdBaseApplication.getInst().getApp() : context;
         }
         return (Context) invokeV.objValue;
@@ -361,10 +361,10 @@ public class BdCacheService extends CustomMessageListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f2175c == null) {
-                this.f2175c = new b(new i(e(), this.f2176d));
+            if (this.f2201c == null) {
+                this.f2201c = new b(new i(e(), this.f2202d));
             }
-            return this.f2175c;
+            return this.f2201c;
         }
         return (b) invokeV.objValue;
     }
@@ -373,10 +373,10 @@ public class BdCacheService extends CustomMessageListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f2173a == null) {
-                this.f2173a = new p(e(), f());
+            if (this.f2199a == null) {
+                this.f2199a = new p(e(), f());
             }
-            return this.f2173a;
+            return this.f2199a;
         }
         return (p) invokeV.objValue;
     }
@@ -392,24 +392,24 @@ public class BdCacheService extends CustomMessageListener {
                 h c2 = g3.c(str);
                 if (c2 == null) {
                     c2 = new h();
-                    c2.f41111a = str;
-                    c2.f41115e = g2;
-                    c2.f41114d = str2;
-                    c2.f41113c = i2;
-                    c2.f41116f = System.currentTimeMillis();
-                    c2.f41112b = cVar.l(str);
+                    c2.f41615a = str;
+                    c2.f41619e = g2;
+                    c2.f41618d = str2;
+                    c2.f41617c = i2;
+                    c2.f41620f = System.currentTimeMillis();
+                    c2.f41616b = cVar.l(str);
                     g3.a(c2);
-                } else if (str2.equalsIgnoreCase(c2.f41114d)) {
-                    c2.f41113c = i2;
-                    c2.f41116f = System.currentTimeMillis();
-                    if (g2 != c2.f41115e) {
-                        cVar.k(str, c2.f41112b, g2, c2.f41115e);
+                } else if (str2.equalsIgnoreCase(c2.f41618d)) {
+                    c2.f41617c = i2;
+                    c2.f41620f = System.currentTimeMillis();
+                    if (g2 != c2.f41619e) {
+                        cVar.k(str, c2.f41616b, g2, c2.f41619e);
                     }
                     g3.a(c2);
                 } else {
-                    throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + c2.f41114d);
+                    throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + c2.f41618d);
                 }
-                str3 = c2.f41112b;
+                str3 = c2.f41616b;
             }
             return str3;
         }
@@ -419,7 +419,7 @@ public class BdCacheService extends CustomMessageListener {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2179g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2205g : invokeV.booleanValue;
     }
 
     public void k(l<?> lVar) {
@@ -429,7 +429,7 @@ public class BdCacheService extends CustomMessageListener {
             synchronized (cVar) {
                 String j = cVar.j();
                 cVar.b();
-                this.f2177e.remove(j);
+                this.f2203e.remove(j);
             }
         }
     }
@@ -439,9 +439,9 @@ public class BdCacheService extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         String databaseFile;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BdDatabaseNewCreatedMessage) && (databaseFile = ((BdDatabaseNewCreatedMessage) customResponsedMessage).getDatabaseFile()) != null && databaseFile.contains(this.f2176d)) {
-            this.f2177e.clear();
-            this.f2178f.clear();
+        if ((interceptable == null || interceptable.invokeL(1048586, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BdDatabaseNewCreatedMessage) && (databaseFile = ((BdDatabaseNewCreatedMessage) customResponsedMessage).getDatabaseFile()) != null && databaseFile.contains(this.f2202d)) {
+            this.f2203e.clear();
+            this.f2204f.clear();
         }
     }
 }

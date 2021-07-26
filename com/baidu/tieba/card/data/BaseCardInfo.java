@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.n;
-import d.a.d.j;
-import d.a.d.k;
+import d.a.d.k.e.n;
+import d.a.e.j;
+import d.a.e.k;
 /* loaded from: classes4.dex */
 public abstract class BaseCardInfo implements n, k {
     public static /* synthetic */ Interceptable $ic;
@@ -116,7 +116,7 @@ public abstract class BaseCardInfo implements n, k {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (j) invokeV.objValue;
     }
 
-    @Override // d.a.c.k.e.n
+    @Override // d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public abstract class BaseCardInfo implements n, k {
         }
     }
 
-    @Override // d.a.d.k
+    @Override // d.a.e.k
     public void setTrigger(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jVar) == null) {

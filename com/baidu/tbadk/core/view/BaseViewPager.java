@@ -18,7 +18,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f12396i;
+    public GestureDetector f12426i;
     public a j;
     public a k;
     public boolean l;
@@ -46,7 +46,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
                 return;
             }
         }
-        this.f12396i = null;
+        this.f12426i = null;
         this.j = null;
         this.k = null;
         this.l = false;
@@ -56,7 +56,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f12396i = new GestureDetector(this);
+            this.f12426i = new GestureDetector(this);
         }
     }
 
@@ -143,8 +143,8 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (this.f12396i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
-                this.f12396i.onTouchEvent(motionEvent);
+            if (this.f12426i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
+                this.f12426i.onTouchEvent(motionEvent);
                 return super.onTouchEvent(motionEvent);
             }
             return super.onTouchEvent(motionEvent);
@@ -185,7 +185,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
                 return;
             }
         }
-        this.f12396i = null;
+        this.f12426i = null;
         this.j = null;
         this.k = null;
         this.l = false;

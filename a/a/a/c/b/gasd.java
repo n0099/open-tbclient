@@ -55,9 +55,9 @@ public class gasd extends uiou {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lbvzxVar)) == null) {
             HashMap hashMap = new HashMap();
-            long j = lbvzxVar.f1437b;
-            long j2 = lbvzxVar.f1439d;
-            long j3 = lbvzxVar.f1438c;
+            long j = lbvzxVar.f1470b;
+            long j2 = lbvzxVar.f1472d;
+            long j3 = lbvzxVar.f1471c;
             hashMap.put("Range", "bytes=" + (j + j2) + "-" + j3);
             return hashMap;
         }

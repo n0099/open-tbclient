@@ -28,7 +28,7 @@ public class DataInfo extends JSONObject {
             }
         }
         try {
-            put(r.f7762a, System.currentTimeMillis());
+            put(r.f7788a, System.currentTimeMillis());
         } catch (JSONException unused) {
         }
     }

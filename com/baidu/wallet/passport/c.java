@@ -49,10 +49,10 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f25835a;
+                public final /* synthetic */ View f25993a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SapiWebView f25836b;
+                public final /* synthetic */ SapiWebView f25994b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -69,16 +69,16 @@ public class c {
                             return;
                         }
                     }
-                    this.f25835a = inflate;
-                    this.f25836b = sapiWebView;
+                    this.f25993a = inflate;
+                    this.f25994b = sapiWebView;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f25835a.setVisibility(4);
-                        this.f25836b.reload();
+                        this.f25993a.setVisibility(4);
+                        this.f25994b.reload();
                     }
                 }
             });
@@ -97,10 +97,10 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SapiWebView f25837a;
+                public final /* synthetic */ SapiWebView f25995a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f25838b;
+                public final /* synthetic */ View f25996b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -117,20 +117,20 @@ public class c {
                             return;
                         }
                     }
-                    this.f25837a = sapiWebView;
-                    this.f25838b = inflate;
+                    this.f25995a = sapiWebView;
+                    this.f25996b = inflate;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f25837a.post(new Runnable(this) { // from class: com.baidu.wallet.passport.c.2.1
+                        this.f25995a.post(new Runnable(this) { // from class: com.baidu.wallet.passport.c.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f25839a;
+                            public final /* synthetic */ AnonymousClass2 f25997a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -147,15 +147,15 @@ public class c {
                                         return;
                                     }
                                 }
-                                this.f25839a = this;
+                                this.f25997a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f25839a.f25838b.setVisibility(4);
-                                    this.f25839a.f25837a.reload();
+                                    this.f25997a.f25996b.setVisibility(4);
+                                    this.f25997a.f25995a.reload();
                                 }
                             }
                         });

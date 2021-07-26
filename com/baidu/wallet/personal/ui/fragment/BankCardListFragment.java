@@ -43,19 +43,19 @@ public class BankCardListFragment extends CardListBaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f27141a;
+    public LinearLayout f27299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f27142b;
+    public View f27300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27143c;
+    public boolean f27301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f27144d;
+    public e f27302d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f27145e;
+    public View f27303e;
 
     public BankCardListFragment() {
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class BankCardListFragment extends CardListBaseFragment {
                 return;
             }
         }
-        this.f27143c = false;
+        this.f27301c = false;
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment
@@ -106,8 +106,8 @@ public class BankCardListFragment extends CardListBaseFragment {
             }
             CardListResponse.Misc misc2 = this.mCardListResponse.card_bind_misc_info;
             if (misc2 != null) {
-                this.f27143c = "1".equals(misc2.can_bind_card_flag);
-                View view = this.f27142b;
+                this.f27301c = "1".equals(misc2.can_bind_card_flag);
+                View view = this.f27300b;
                 if (view != null) {
                     view.setVisibility(0);
                 }
@@ -133,7 +133,7 @@ public class BankCardListFragment extends CardListBaseFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BankCardListFragment f27147a;
+                public final /* synthetic */ BankCardListFragment f27305a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -150,7 +150,7 @@ public class BankCardListFragment extends CardListBaseFragment {
                             return;
                         }
                     }
-                    this.f27147a = this;
+                    this.f27305a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -158,15 +158,15 @@ public class BankCardListFragment extends CardListBaseFragment {
                 public void a(CardListResponse cardListResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cardListResponse) == null) {
-                        this.f27147a.mActivity.runOnUiThread(new Runnable(this, cardListResponse) { // from class: com.baidu.wallet.personal.ui.fragment.BankCardListFragment.2.1
+                        this.f27305a.mActivity.runOnUiThread(new Runnable(this, cardListResponse) { // from class: com.baidu.wallet.personal.ui.fragment.BankCardListFragment.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ CardListResponse f27148a;
+                            public final /* synthetic */ CardListResponse f27306a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f27149b;
+                            public final /* synthetic */ AnonymousClass2 f27307b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -183,20 +183,20 @@ public class BankCardListFragment extends CardListBaseFragment {
                                         return;
                                     }
                                 }
-                                this.f27149b = this;
-                                this.f27148a = cardListResponse;
+                                this.f27307b = this;
+                                this.f27306a = cardListResponse;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    BankCardListFragment bankCardListFragment = this.f27149b.f27147a;
-                                    CardListResponse cardListResponse2 = this.f27148a;
+                                    BankCardListFragment bankCardListFragment = this.f27307b.f27305a;
+                                    CardListResponse cardListResponse2 = this.f27306a;
                                     bankCardListFragment.mCardListResponse = cardListResponse2;
                                     if (cardListResponse2 != null) {
                                         bankCardListFragment.mLoadFailedView.setVisibility(4);
-                                        this.f27149b.f27147a.bindData(true);
+                                        this.f27307b.f27305a.bindData(true);
                                     }
                                 }
                             }
@@ -212,12 +212,12 @@ public class BankCardListFragment extends CardListBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             removeRequest();
-            if (this.f27144d == null) {
-                this.f27144d = (e) PayBeanFactory.getInstance().getBean((Context) this.mActivity, PayBeanFactory.BEAN_ID_CARD_LIST, "BankCardListFragment");
+            if (this.f27302d == null) {
+                this.f27302d = (e) PayBeanFactory.getInstance().getBean((Context) this.mActivity, PayBeanFactory.BEAN_ID_CARD_LIST, "BankCardListFragment");
             }
-            this.f27144d.setResponseCallback(this);
-            this.f27144d.a(SourceFlag.SDK);
-            this.f27144d.execBean();
+            this.f27302d.setResponseCallback(this);
+            this.f27302d.a(SourceFlag.SDK);
+            this.f27302d.execBean();
         }
     }
 
@@ -228,9 +228,9 @@ public class BankCardListFragment extends CardListBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             super.onClick(view);
-            if (view == this.f27142b) {
+            if (view == this.f27300b) {
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.ADD_NEW_BANK_CARD, "addBankCard");
-                if (this.f27143c) {
+                if (this.f27301c) {
                     CardListBaseFragment.a aVar = this.mCallback;
                     if (aVar != null) {
                         aVar.bindCard();
@@ -300,19 +300,19 @@ public class BankCardListFragment extends CardListBaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f27145e == null) {
+            if (this.f27303e == null) {
                 View inflate = this.mInflater.inflate(ResUtils.layout(this.mActivity, "wallet_bank_card_list_fragment"), (ViewGroup) null);
-                this.f27145e = inflate;
-                this.f27141a = (LinearLayout) inflate.findViewById(ResUtils.id(this.mActivity, "wallet_my_bank_ll_credicard"));
-                View findViewById = this.f27145e.findViewById(ResUtils.id(this.mActivity, "wallet_my_bank_card_btn"));
-                this.f27142b = findViewById;
+                this.f27303e = inflate;
+                this.f27299a = (LinearLayout) inflate.findViewById(ResUtils.id(this.mActivity, "wallet_my_bank_ll_credicard"));
+                View findViewById = this.f27303e.findViewById(ResUtils.id(this.mActivity, "wallet_my_bank_card_btn"));
+                this.f27300b = findViewById;
                 findViewById.setOnClickListener(this);
-                this.f27142b.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.wallet.personal.ui.fragment.BankCardListFragment.1
+                this.f27300b.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.wallet.personal.ui.fragment.BankCardListFragment.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BankCardListFragment f27146a;
+                    public final /* synthetic */ BankCardListFragment f27304a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -329,7 +329,7 @@ public class BankCardListFragment extends CardListBaseFragment {
                                 return;
                             }
                         }
-                        this.f27146a = this;
+                        this.f27304a = this;
                     }
 
                     @Override // android.view.View.OnTouchListener
@@ -338,17 +338,17 @@ public class BankCardListFragment extends CardListBaseFragment {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                             if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                                ViewHelper.setAlpha(this.f27146a.f27142b, 0.5f);
+                                ViewHelper.setAlpha(this.f27304a.f27300b, 0.5f);
                                 return false;
                             }
-                            ViewHelper.setAlpha(this.f27146a.f27142b, 1.0f);
+                            ViewHelper.setAlpha(this.f27304a.f27300b, 1.0f);
                             return false;
                         }
                         return invokeLL.booleanValue;
                     }
                 });
             }
-            return this.f27145e;
+            return this.f27303e;
         }
         return (View) invokeV.objValue;
     }
@@ -367,9 +367,9 @@ public class BankCardListFragment extends CardListBaseFragment {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, applyCardEntranceArr) == null) {
-            LinearLayout linearLayout2 = this.f27141a;
+            LinearLayout linearLayout2 = this.f27299a;
             if (linearLayout2 != null && linearLayout2.getChildCount() > 0) {
-                this.f27141a.removeAllViews();
+                this.f27299a.removeAllViews();
             }
             Activity activity = this.mActivity;
             if (activity == null || applyCardEntranceArr == null || applyCardEntranceArr.length <= 0) {
@@ -388,7 +388,7 @@ public class BankCardListFragment extends CardListBaseFragment {
                     a2.setAdjustViewBounds(true);
                     a2.setContentDescription(applyCardEntrance.desc + "");
                     LinearLayout.LayoutParams a3 = a(heightToWidthRatio, displayWidth, dimension, z ? dimension2 : dimension);
-                    if (a2 != null && a3 != null && (linearLayout = this.f27141a) != null) {
+                    if (a2 != null && a3 != null && (linearLayout = this.f27299a) != null) {
                         linearLayout.addView(a2, a3);
                     }
                     z = false;
@@ -412,10 +412,10 @@ public class BankCardListFragment extends CardListBaseFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NetImageView f27150a;
+                public final /* synthetic */ NetImageView f27308a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BankCardListFragment f27151b;
+                public final /* synthetic */ BankCardListFragment f27309b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -432,8 +432,8 @@ public class BankCardListFragment extends CardListBaseFragment {
                             return;
                         }
                     }
-                    this.f27151b = this;
-                    this.f27150a = netImageView;
+                    this.f27309b = this;
+                    this.f27308a = netImageView;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -442,10 +442,10 @@ public class BankCardListFragment extends CardListBaseFragment {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                         if (motionEvent.getAction() != 0 && motionEvent.getAction() != 2) {
-                            ViewHelper.setAlpha(this.f27150a, 1.0f);
+                            ViewHelper.setAlpha(this.f27308a, 1.0f);
                             return false;
                         }
-                        ViewHelper.setAlpha(this.f27150a, 0.5f);
+                        ViewHelper.setAlpha(this.f27308a, 0.5f);
                         return false;
                     }
                     return invokeLL2.booleanValue;
@@ -456,10 +456,10 @@ public class BankCardListFragment extends CardListBaseFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f27152a;
+                public final /* synthetic */ String f27310a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BankCardListFragment f27153b;
+                public final /* synthetic */ BankCardListFragment f27311b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -476,8 +476,8 @@ public class BankCardListFragment extends CardListBaseFragment {
                             return;
                         }
                     }
-                    this.f27153b = this;
-                    this.f27152a = str2;
+                    this.f27311b = this;
+                    this.f27310a = str2;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -486,12 +486,12 @@ public class BankCardListFragment extends CardListBaseFragment {
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                         return;
                     }
-                    if (TextUtils.isEmpty(this.f27152a)) {
-                        GlobalUtils.toast(this.f27153b.mActivity, ResUtils.getString(this.f27153b.mActivity, "bd_wallet_jump_url_error"));
+                    if (TextUtils.isEmpty(this.f27310a)) {
+                        GlobalUtils.toast(this.f27311b.mActivity, ResUtils.getString(this.f27311b.mActivity, "bd_wallet_jump_url_error"));
                         return;
                     }
-                    this.f27153b.mRefreshFlag = true;
-                    BaiduWalletDelegate.getInstance().openH5Module(this.f27153b.mActivity, this.f27152a, true);
+                    this.f27311b.mRefreshFlag = true;
+                    BaiduWalletDelegate.getInstance().openH5Module(this.f27311b.mActivity, this.f27310a, true);
                 }
             });
             return netImageView;

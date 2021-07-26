@@ -11,7 +11,7 @@ public final class bz implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23494a;
+    public final /* synthetic */ FeedbackInputActivity f23652a;
 
     public bz(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class bz implements View.OnClickListener {
                 return;
             }
         }
-        this.f23494a = feedbackInputActivity;
+        this.f23652a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,6 +37,6 @@ public final class bz implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        FeedbackInputActivity.a(this.f23494a);
+        FeedbackInputActivity.a(this.f23652a);
     }
 }

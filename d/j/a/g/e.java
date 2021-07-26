@@ -11,7 +11,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Path f71029a;
+    public static final Path f71483a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,12 +27,12 @@ public final class e {
                 return;
             }
         }
-        f71029a = new Path();
+        f71483a = new Path();
     }
 
     public static final Path a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f71029a : (Path) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f71483a : (Path) invokeV.objValue;
     }
 }

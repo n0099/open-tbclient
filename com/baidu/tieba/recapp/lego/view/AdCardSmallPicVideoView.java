@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.e;
+import d.a.p0.s.q.e;
 import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
 public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
@@ -37,10 +37,10 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20528e;
+        public final /* synthetic */ AdCard f20646e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdCardSmallPicVideoView f20529f;
+        public final /* synthetic */ AdCardSmallPicVideoView f20647f;
 
         public a(AdCardSmallPicVideoView adCardSmallPicVideoView, AdCard adCard) {
             Interceptable interceptable = $ic;
@@ -57,22 +57,22 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                     return;
                 }
             }
-            this.f20529f = adCardSmallPicVideoView;
-            this.f20528e = adCard;
+            this.f20647f = adCardSmallPicVideoView;
+            this.f20646e = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AdCardSmallPicVideoView adCardSmallPicVideoView = this.f20529f;
+                AdCardSmallPicVideoView adCardSmallPicVideoView = this.f20647f;
                 if (adCardSmallPicVideoView.C == null) {
-                    adCardSmallPicVideoView.W(this.f20528e);
+                    adCardSmallPicVideoView.V(this.f20646e);
                 }
-                DistributeVideoView distributeVideoView = this.f20529f.C;
+                DistributeVideoView distributeVideoView = this.f20647f.C;
                 int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
-                if (this.f20529f.o != null) {
-                    this.f20529f.o.a(jump2DownloadDetailPage, null);
+                if (this.f20647f.o != null) {
+                    this.f20647f.o.a(jump2DownloadDetailPage, null);
                 }
             }
         }
@@ -120,7 +120,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                     this.A.M(str, 17, false);
                 }
                 AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-                if (advertAppInfo != null && advertAppInfo.t4()) {
+                if (advertAppInfo != null && advertAppInfo.w4()) {
                     this.r.setOnClickListener(new a(this, adCard));
                 }
                 this.D.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
@@ -145,7 +145,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         }
     }
 
-    public final void W(AdCard adCard) {
+    public final void V(AdCard adCard) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) && this.C == null) {
             DistributeVideoView distributeVideoView = new DistributeVideoView(getContext());
@@ -159,10 +159,10 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
             if (advertAppInfo != null) {
                 int i2 = -1;
                 String pageTypeByBusiness = getPageTypeByBusiness();
-                e eVar = advertAppInfo.U3;
+                e eVar = advertAppInfo.a4;
                 if (eVar != null) {
-                    i2 = eVar.f52633b;
-                    pageTypeByBusiness = eVar.f52632a;
+                    i2 = eVar.f53297b;
+                    pageTypeByBusiness = eVar.f53296a;
                 }
                 this.C.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
             }

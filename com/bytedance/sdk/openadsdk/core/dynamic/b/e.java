@@ -20,16 +20,19 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29959a;
+    public int f30057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29960b;
+    public String f30058b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f29961c;
+    public d f30059c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f29962d;
+    public c f30060d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f30061e;
 
     public e(@NonNull c cVar) {
         Interceptable interceptable = $ic;
@@ -46,63 +49,64 @@ public class e {
                 return;
             }
         }
-        this.f29962d = cVar;
-        this.f29959a = cVar.a();
-        this.f29960b = cVar.b();
+        this.f30060d = cVar;
+        this.f30057a = cVar.a();
+        this.f30058b = cVar.b();
+        this.f30061e = cVar.c();
         if (h.d().A() == 1) {
-            this.f29961c = cVar.d();
+            this.f30059c = cVar.e();
         } else {
-            this.f29961c = cVar.c();
+            this.f30059c = cVar.d();
         }
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (int) this.f29961c.c() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (int) this.f30059c.c() : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) this.f29961c.f() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) this.f30059c.f() : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) this.f29961c.d() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) this.f30059c.d() : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (int) this.f29961c.e() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (int) this.f30059c.e() : invokeV.intValue;
     }
 
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29961c.g() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30059c.g() : invokeV.floatValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29959a == 0 ? this.f29960b : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30057a == 0 ? this.f30058b : "" : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a(this.f29961c.j()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a(this.f30059c.j()) : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String i2 = this.f29961c.i();
+            String i2 = this.f30059c.i();
             if (CustomDialogData.POS_LEFT.equals(i2)) {
                 return 2;
             }
@@ -117,50 +121,56 @@ public class e {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29959a == 2 ? this.f29960b : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30057a == 2 ? this.f30058b : "" : (String) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29959a == 1 ? this.f29960b : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30057a == 1 ? this.f30058b : "" : (String) invokeV.objValue;
     }
 
-    public int k() {
+    public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29961c.h() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f30061e : (String) invokeV.objValue;
     }
 
-    public float l() {
+    public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f29961c.a() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f30059c.h() : invokeV.intValue;
     }
 
-    public int m() {
+    public float m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? a(this.f29961c.l()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f30059c.a() : invokeV.floatValue;
     }
 
-    public float n() {
+    public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f29961c.b() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? a(this.f30059c.l()) : invokeV.intValue;
     }
 
-    public boolean o() {
+    public float o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f29961c.o() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f30059c.b() : invokeV.floatValue;
     }
 
-    public int p() {
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            String m = this.f29961c.m();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f30059c.o() : invokeV.booleanValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            String m = this.f30059c.m();
             if (!TextUtils.isEmpty(m) && !m.equals("none")) {
                 if (m.equals("normal")) {
                     return 1;
@@ -171,7 +181,7 @@ public class e {
                 if (m.equals("video")) {
                     return 4;
                 }
-                if ("slide".equals(this.f29961c.n())) {
+                if ("slide".equals(this.f30059c.n())) {
                     return 2;
                 }
             }
@@ -180,10 +190,10 @@ public class e {
         return invokeV.intValue;
     }
 
-    public int q() {
+    public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? a(this.f29961c.k()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? a(this.f30059c.k()) : invokeV.intValue;
     }
 
     private int a(String str) {
@@ -200,6 +210,9 @@ public class e {
             if (str.charAt(0) == '#' && str.length() == 7) {
                 return Color.parseColor(str);
             }
+            if (str.charAt(0) == '#' && str.length() == 9) {
+                return Color.parseColor(str);
+            }
             if (str.startsWith("rgba") && (split = str.substring(str.indexOf("(") + 1, str.indexOf(SmallTailInfo.EMOTION_SUFFIX)).split(",")) != null && split.length == 4) {
                 return (((int) ((Float.parseFloat(split[3]) * 255.0f) + 0.5f)) << 24) | (((int) Float.parseFloat(split[0])) << 16) | (((int) Float.parseFloat(split[1])) << 8) | ((int) Float.parseFloat(split[2])) | 0;
             }
@@ -212,16 +225,16 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            c cVar = this.f29962d;
+            c cVar = this.f30060d;
             if (cVar == null) {
                 return false;
             }
             if (i2 == 1) {
-                this.f29961c = cVar.d();
+                this.f30059c = cVar.e();
             } else {
-                this.f29961c = cVar.c();
+                this.f30059c = cVar.d();
             }
-            return this.f29961c != null;
+            return this.f30059c != null;
         }
         return invokeI.booleanValue;
     }

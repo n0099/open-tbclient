@@ -10,33 +10,33 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f27756a;
+    public static boolean f27914a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            f27756a = z;
+            f27914a = z;
         }
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f27756a) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f27914a) {
             Log.w("JsBridge2", str);
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f27756a) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f27914a) {
             Log.i("JsBridge2", str);
         }
     }
 
     public static void b(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, th) == null) && f27756a) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, th) == null) && f27914a) {
             Log.e("JsBridge2", str, th);
             Log.e("JsBridge2", "Stacktrace: " + Log.getStackTraceString(th));
         }
@@ -44,7 +44,7 @@ public class i {
 
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, th) == null) && f27756a) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, th) == null) && f27914a) {
             Log.w("JsBridge2", str, th);
             Log.w("JsBridge2", "Stacktrace: " + Log.getStackTraceString(th));
         }
@@ -52,7 +52,7 @@ public class i {
 
     public static void a(RuntimeException runtimeException) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, runtimeException) == null) && f27756a) {
+        if ((interceptable == null || interceptable.invokeL(65536, null, runtimeException) == null) && f27914a) {
             throw runtimeException;
         }
     }

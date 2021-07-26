@@ -12,13 +12,13 @@ public final class a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a<T> f38103a;
+    public a<T> f38278a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38104b;
+    public boolean f38279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k<?> f38105c;
+    public k<?> f38280c;
 
     public a(T t) {
         Interceptable interceptable = $ic;
@@ -35,26 +35,26 @@ public final class a<T> {
                 return;
             }
         }
-        this.f38104b = false;
+        this.f38279b = false;
         a(t);
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38105c.f38130a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38280c.f38305a : invokeV.intValue;
     }
 
     public final void a(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             if (t == null) {
-                this.f38105c = null;
+                this.f38280c = null;
             } else if (!(t instanceof k)) {
-                this.f38105c = new k<>(b.f38106a, t);
+                this.f38280c = new k<>(b.f38281a, t);
             } else {
-                this.f38105c = (k) t;
-                this.f38104b = true;
+                this.f38280c = (k) t;
+                this.f38279b = true;
             }
         }
     }
@@ -64,11 +64,11 @@ public final class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ?? r0 = (T) this.f38105c;
+            ?? r0 = (T) this.f38280c;
             if (r0 == 0) {
                 return null;
             }
-            return this.f38104b ? r0 : (T) r0.f38131b;
+            return this.f38279b ? r0 : (T) r0.f38306b;
         }
         return (T) invokeV.objValue;
     }

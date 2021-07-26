@@ -1,25 +1,29 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.webkit.WebView;
+import android.os.Handler;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class w1 implements Runnable {
+public class w1 implements N0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f39699a;
+    public final /* synthetic */ View f39975a;
 
-    public w1(Context context) {
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ A1 f39976b;
+
+    public w1(A1 a1, View view) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {a1, view};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,14 +33,30 @@ public final class w1 implements Runnable {
                 return;
             }
         }
-        this.f39699a = context;
+        this.f39976b = a1;
+        this.f39975a = view;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.win.opensdk.N0
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            x1.f39715a = new WebView(this.f39699a).getSettings().getUserAgentString();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f39975a == null) {
+            return;
+        }
+        new Handler().postDelayed(new v1(this), this.f39976b.f39541c.getSpet());
+    }
+
+    @Override // com.win.opensdk.N0
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
+    @Override // com.win.opensdk.N0
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

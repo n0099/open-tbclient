@@ -21,19 +21,19 @@ public class CHCreditItem extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f25110a;
+    public MaskTextView f25268a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f25111b;
+    public MaskTextView f25269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f25112c;
+    public MaskTextView f25270c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f25113d;
+    public MaskTextView f25271d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f25114e;
+    public MaskTextView f25272e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHCreditItem(Context context) {
@@ -69,11 +69,11 @@ public class CHCreditItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_item"), this);
-            this.f25110a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines"));
-            this.f25111b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_tip"));
-            this.f25112c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title"));
-            this.f25114e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_lable"));
-            this.f25113d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title_desc"));
+            this.f25268a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines"));
+            this.f25269b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_tip"));
+            this.f25270c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title"));
+            this.f25272e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_lable"));
+            this.f25271d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_lines_title_desc"));
         }
     }
 
@@ -87,24 +87,24 @@ public class CHCreditItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(getData().value1) && (maskTextView5 = this.f25110a) != null) {
+        if (!TextUtils.isEmpty(getData().value1) && (maskTextView5 = this.f25268a) != null) {
             maskTextView5.setMaskText(getData().value1);
         }
-        if (!TextUtils.isEmpty(getData().value2) && (maskTextView4 = this.f25111b) != null) {
+        if (!TextUtils.isEmpty(getData().value2) && (maskTextView4 = this.f25269b) != null) {
             maskTextView4.setMaskText(getData().value2);
         }
-        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f25112c) != null) {
+        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f25270c) != null) {
             maskTextView3.setMaskText(getData().name);
         }
-        if (!TextUtils.isEmpty(getData().label) && (maskTextView2 = this.f25114e) != null) {
+        if (!TextUtils.isEmpty(getData().label) && (maskTextView2 = this.f25272e) != null) {
             maskTextView2.setMaskText(getData().label);
         } else {
-            MaskTextView maskTextView6 = this.f25114e;
+            MaskTextView maskTextView6 = this.f25272e;
             if (maskTextView6 != null) {
                 maskTextView6.setVisibility(8);
             }
         }
-        if (TextUtils.isEmpty(getData().value3) || (maskTextView = this.f25113d) == null) {
+        if (TextUtils.isEmpty(getData().value3) || (maskTextView = this.f25271d) == null) {
             return;
         }
         maskTextView.setMaskText(getData().value3);

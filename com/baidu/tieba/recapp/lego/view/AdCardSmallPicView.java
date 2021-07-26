@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.n1.o.k.a;
-import d.a.p0.w2.f0.b.c;
+import d.a.q0.n1.o.k.a;
+import d.a.q0.w2.f0.b.c;
 /* loaded from: classes4.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public static /* synthetic */ Interceptable $ic;
@@ -46,8 +46,8 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            if (adCard != null && (cVar = adCard.picInfo) != null && a.k(cVar.f65912c) >= 1) {
-                String str = (String) a.d(adCard.picInfo.f65912c, 0);
+            if (adCard != null && (cVar = adCard.picInfo) != null && a.k(cVar.f66587c) >= 1) {
+                String str = (String) a.d(adCard.picInfo.f66587c, 0);
                 if (!TextUtils.isEmpty(str)) {
                     this.t.setVisibility(0);
                     this.A.M(str, 17, false);

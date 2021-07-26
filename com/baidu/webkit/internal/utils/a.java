@@ -12,7 +12,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f27466a = "none";
+    public static String f27624a = "none";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,13 +60,13 @@ public final class a {
                     } else if (!file.delete()) {
                         sb = new StringBuilder("remove fail, can not delete file = ");
                         sb.append(file.getAbsolutePath());
-                        f27466a = sb.toString();
+                        f27624a = sb.toString();
                         return false;
                     }
                 } else if (!file.delete()) {
                     sb = new StringBuilder("remove fail, can not delete file = ");
                     sb.append(file.getAbsolutePath());
-                    f27466a = sb.toString();
+                    f27624a = sb.toString();
                     return false;
                 }
             }

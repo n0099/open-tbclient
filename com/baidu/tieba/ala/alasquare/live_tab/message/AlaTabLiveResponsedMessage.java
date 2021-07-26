@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.p0.v.d.c.e.a;
-import d.a.p0.v.d.c.e.d;
-import d.a.p0.v.d.c.e.g;
-import d.a.p0.v.d.c.e.h;
-import d.a.p0.v.d.c.e.j;
+import d.a.d.e.p.k;
+import d.a.q0.v.d.c.e.a;
+import d.a.q0.v.d.c.e.d;
+import d.a.q0.v.d.c.e.g;
+import d.a.q0.v.d.c.e.h;
+import d.a.q0.v.d.c.e.j;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {

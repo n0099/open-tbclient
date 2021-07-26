@@ -28,23 +28,23 @@ public class WeiboSsoSdk {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static WeiboSsoSdk f39303e;
+    public static WeiboSsoSdk f39524e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d.m.a.c f39304f;
+    public static d.m.a.c f39525f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile ReentrantLock f39305a;
+    public volatile ReentrantLock f39526a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39306b;
+    public boolean f39527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f39307c;
+    public d f39528c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39308d;
+    public int f39529d;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -52,7 +52,7 @@ public class WeiboSsoSdk {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WeiboSsoSdk f39309e;
+        public final /* synthetic */ WeiboSsoSdk f39530e;
 
         public a(WeiboSsoSdk weiboSsoSdk) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class WeiboSsoSdk {
                     return;
                 }
             }
-            this.f39309e = weiboSsoSdk;
+            this.f39530e = weiboSsoSdk;
         }
 
         @Override // java.lang.Runnable
@@ -81,7 +81,7 @@ public class WeiboSsoSdk {
             while (true) {
                 try {
                     Thread.sleep(86400000L);
-                    WeiboSsoSdk.i().l((this.f39309e.f39307c == null || TextUtils.isEmpty(this.f39309e.f39307c.a())) ? this.f39309e.k() : this.f39309e.f39307c.a(), 2);
+                    WeiboSsoSdk.i().l((this.f39530e.f39528c == null || TextUtils.isEmpty(this.f39530e.f39528c.a())) ? this.f39530e.k() : this.f39530e.f39528c.a(), 2);
                 } catch (Exception unused) {
                 }
             }
@@ -94,7 +94,7 @@ public class WeiboSsoSdk {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WeiboSsoSdk f39310e;
+        public final /* synthetic */ WeiboSsoSdk f39531e;
 
         public b(WeiboSsoSdk weiboSsoSdk) {
             Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class WeiboSsoSdk {
                     return;
                 }
             }
-            this.f39310e = weiboSsoSdk;
+            this.f39531e = weiboSsoSdk;
         }
 
         @Override // java.lang.Runnable
@@ -120,8 +120,8 @@ public class WeiboSsoSdk {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     Thread.sleep(60000L);
-                    if (this.f39310e.f39306b) {
-                        this.f39310e.l((this.f39310e.f39307c == null || TextUtils.isEmpty(this.f39310e.f39307c.a())) ? this.f39310e.k() : this.f39310e.f39307c.a(), 2);
+                    if (this.f39531e.f39527b) {
+                        this.f39531e.l((this.f39531e.f39528c == null || TextUtils.isEmpty(this.f39531e.f39528c.a())) ? this.f39531e.k() : this.f39531e.f39528c.a(), 2);
                     }
                 } catch (Exception unused) {
                 }
@@ -135,10 +135,10 @@ public class WeiboSsoSdk {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.m.a.b f39311e;
+        public final /* synthetic */ d.m.a.b f39532e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WeiboSsoSdk f39312f;
+        public final /* synthetic */ WeiboSsoSdk f39533f;
 
         public c(WeiboSsoSdk weiboSsoSdk, d.m.a.b bVar) {
             Interceptable interceptable = $ic;
@@ -155,8 +155,8 @@ public class WeiboSsoSdk {
                     return;
                 }
             }
-            this.f39312f = weiboSsoSdk;
-            this.f39311e = bVar;
+            this.f39533f = weiboSsoSdk;
+            this.f39532e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -164,13 +164,13 @@ public class WeiboSsoSdk {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f39312f.l("", 1);
+                    this.f39533f.l("", 1);
                 } catch (Exception unused) {
                 }
-                if (this.f39312f.f39307c == null) {
-                    this.f39312f.f39307c = new d();
+                if (this.f39533f.f39528c == null) {
+                    this.f39533f.f39528c = new d();
                 }
-                this.f39311e.handler(this.f39312f.f39307c);
+                this.f39532e.handler(this.f39533f.f39528c);
             }
         }
     }
@@ -181,10 +181,10 @@ public class WeiboSsoSdk {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39313a;
+        public String f39534a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39314b;
+        public String f39535b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -199,8 +199,8 @@ public class WeiboSsoSdk {
                     return;
                 }
             }
-            this.f39313a = "";
-            this.f39314b = "";
+            this.f39534a = "";
+            this.f39535b = "";
         }
 
         public static d c(String str) throws Exception {
@@ -213,8 +213,8 @@ public class WeiboSsoSdk {
                     String optString = jSONObject.optString("retcode", "");
                     JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                     if (optString.equals("20000000") && jSONObject2 != null) {
-                        dVar.f39313a = jSONObject2.optString("aid", "");
-                        dVar.f39314b = jSONObject2.optString("sub", "");
+                        dVar.f39534a = jSONObject2.optString("aid", "");
+                        dVar.f39535b = jSONObject2.optString("sub", "");
                         return dVar;
                     }
                     throw new Exception("error： " + optString + " msg:" + jSONObject.optString("msg", ""));
@@ -228,13 +228,13 @@ public class WeiboSsoSdk {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39313a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39534a : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39314b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39535b : (String) invokeV.objValue;
         }
     }
 
@@ -267,11 +267,11 @@ public class WeiboSsoSdk {
                 return;
             }
         }
-        this.f39305a = new ReentrantLock(true);
-        this.f39306b = true;
-        d.m.a.c cVar = f39304f;
+        this.f39526a = new ReentrantLock(true);
+        this.f39527b = true;
+        d.m.a.c cVar = f39525f;
         if (cVar != null && cVar.p()) {
-            this.f39308d = 0;
+            this.f39529d = 0;
             new Thread(new a(this)).start();
             new Thread(new b(this)).start();
             return;
@@ -285,10 +285,10 @@ public class WeiboSsoSdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (WeiboSsoSdk.class) {
-                if (f39303e == null) {
-                    f39303e = new WeiboSsoSdk();
+                if (f39524e == null) {
+                    f39524e = new WeiboSsoSdk();
                 }
-                weiboSsoSdk = f39303e;
+                weiboSsoSdk = f39524e;
             }
             return weiboSsoSdk;
         }
@@ -304,9 +304,9 @@ public class WeiboSsoSdk {
                     return false;
                 }
                 if (cVar.p()) {
-                    if (f39304f == null) {
+                    if (f39525f == null) {
                         d.m.a.c cVar2 = (d.m.a.c) cVar.clone();
-                        f39304f = cVar2;
+                        f39525f = cVar2;
                         d.m.a.a.w(cVar2.d());
                         return true;
                     }
@@ -403,7 +403,7 @@ public class WeiboSsoSdk {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            File filesDir = f39304f.d().getFilesDir();
+            File filesDir = f39525f.d().getFilesDir();
             return new File(filesDir, "weibo_sso_sdk_aid" + i2);
         }
         return (File) invokeI.objValue;
@@ -458,23 +458,23 @@ public class WeiboSsoSdk {
     public final void l(String str, int i2) throws Exception {
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, str, i2) == null) || TextUtils.isEmpty(f39304f.a(false))) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, str, i2) == null) || TextUtils.isEmpty(f39525f.a(false))) {
             return;
         }
-        if (!this.f39305a.tryLock()) {
-            this.f39305a.lock();
-            this.f39305a.unlock();
+        if (!this.f39526a.tryLock()) {
+            this.f39526a.lock();
+            this.f39526a.unlock();
             return;
         }
-        this.f39306b = false;
-        String n = d.m.a.a.n(f39304f.d());
+        this.f39527b = false;
+        String n = d.m.a.a.n(f39525f.d());
         try {
             str2 = URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException unused) {
             str2 = "";
         }
-        String g2 = g(riseWind(f39304f.a(true), f39304f.d().getPackageName(), str2, n, f39304f.f(true), f39304f.g(true), f39304f.j(true), f39304f.i(true), f39304f.h(true), f39304f.e(true), i2, this.f39308d));
-        this.f39308d++;
+        String g2 = g(riseWind(f39525f.a(true), f39525f.d().getPackageName(), str2, n, f39525f.f(true), f39525f.g(true), f39525f.j(true), f39525f.i(true), f39525f.h(true), f39525f.e(true), i2, this.f39529d));
+        this.f39529d++;
         if (g2 != null) {
             try {
                 d c2 = d.c(g2);
@@ -482,25 +482,25 @@ public class WeiboSsoSdk {
                     f(c2.a());
                 }
                 if (i2 == 1) {
-                    this.f39307c = c2;
+                    this.f39528c = c2;
                 }
-                this.f39305a.unlock();
+                this.f39526a.unlock();
                 return;
             } catch (Exception e2) {
-                this.f39305a.unlock();
+                this.f39526a.unlock();
                 throw e2;
             }
         }
-        this.f39305a.unlock();
+        this.f39526a.unlock();
         throw new Exception("network error.");
     }
 
     public void m(d.m.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            d dVar = this.f39307c;
-            if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.f39307c.b())) {
-                bVar.handler(this.f39307c);
+            d dVar = this.f39528c;
+            if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.f39528c.b())) {
+                bVar.handler(this.f39528c);
             } else {
                 Executors.newSingleThreadExecutor().execute(new c(this, bVar));
             }

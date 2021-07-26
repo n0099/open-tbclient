@@ -23,13 +23,13 @@ public class BlueCheckRadioButton extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12397e;
+    public Context f12427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12398f;
+    public TextView f12428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RadioButton f12399g;
+    public RadioButton f12429g;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -37,7 +37,7 @@ public class BlueCheckRadioButton extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlueCheckRadioButton f12400e;
+        public final /* synthetic */ BlueCheckRadioButton f12430e;
 
         public a(BlueCheckRadioButton blueCheckRadioButton) {
             Interceptable interceptable = $ic;
@@ -54,17 +54,17 @@ public class BlueCheckRadioButton extends RelativeLayout {
                     return;
                 }
             }
-            this.f12400e = blueCheckRadioButton;
+            this.f12430e = blueCheckRadioButton;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12400e.f12399g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12430e.f12429g == null) {
                 return;
             }
-            this.f12400e.f12399g.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
-            this.f12400e.f12399g.toggle();
+            this.f12430e.f12429g.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
+            this.f12430e.f12429g.toggle();
         }
     }
 
@@ -86,16 +86,16 @@ public class BlueCheckRadioButton extends RelativeLayout {
                 return;
             }
         }
-        this.f12397e = context;
+        this.f12427e = context;
         b();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f12397e).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-            this.f12398f = (TextView) findViewById(R.id.custom_check_radio_button_tv);
-            this.f12399g = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
+            LayoutInflater.from(this.f12427e).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
+            this.f12428f = (TextView) findViewById(R.id.custom_check_radio_button_tv);
+            this.f12429g = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
             c();
             setOnClickListener(new a(this));
         }
@@ -104,7 +104,7 @@ public class BlueCheckRadioButton extends RelativeLayout {
     public void c() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f12398f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f12428f) == null) {
             return;
         }
         SkinManager.setViewTextColor(textView, "CAM_X0302");
@@ -114,20 +114,20 @@ public class BlueCheckRadioButton extends RelativeLayout {
     public Object getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12399g.getTag() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12429g.getTag() : invokeV.objValue;
     }
 
     public void setChecked(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f12399g.setChecked(z);
+            this.f12429g.setChecked(z);
         }
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
         RadioButton radioButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, onCheckedChangeListener) == null) || (radioButton = this.f12399g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onCheckedChangeListener) == null) || (radioButton = this.f12429g) == null) {
             return;
         }
         radioButton.setOnCheckedChangeListener(onCheckedChangeListener);
@@ -137,7 +137,7 @@ public class BlueCheckRadioButton extends RelativeLayout {
     public void setTag(Object obj) {
         RadioButton radioButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, obj) == null) || (radioButton = this.f12399g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, obj) == null) || (radioButton = this.f12429g) == null) {
             return;
         }
         radioButton.setTag(obj);
@@ -146,7 +146,7 @@ public class BlueCheckRadioButton extends RelativeLayout {
     public void setText(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (textView = this.f12398f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (textView = this.f12428f) == null) {
             return;
         }
         textView.setText(str);
@@ -171,7 +171,7 @@ public class BlueCheckRadioButton extends RelativeLayout {
                 return;
             }
         }
-        this.f12397e = context;
+        this.f12427e = context;
         b();
     }
 }

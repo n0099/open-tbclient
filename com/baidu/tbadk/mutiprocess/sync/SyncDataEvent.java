@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class SyncDataEvent extends SerializableEvent {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final long serialVersionUID = -4019344353242140288L;
     public transient /* synthetic */ FieldHolder $fh;
     public ABTestExtraData abtestExtraData;
     public String sampleId;

@@ -26,31 +26,31 @@ public class e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f73081a;
+    public String f73535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f73082b;
+    public String f73536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f73083c;
+    public String f73537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f73084d;
+    public String f73538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f73085e;
+    public String f73539e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f73086f;
+    public String f73540f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f73087g;
+    public String f73541g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f73088h;
+    public String f73542h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f73089i;
+    public String f73543i;
     public int j;
     public int k;
     public Map<String, String> l;
@@ -76,9 +76,9 @@ public class e0 {
                     return;
                 }
             }
-            this.f73087g = str;
-            this.f73088h = str2;
-            this.f73089i = str3;
+            this.f73541g = str;
+            this.f73542h = str2;
+            this.f73543i = str3;
             if (TextUtils.isEmpty(str) || "0".equals(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                 throw new IllegalArgumentException("sdkID or license must be set.");
             }
@@ -110,7 +110,7 @@ public class e0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f73083c = str;
+                this.f73537c = str;
                 return this;
             }
             return (T) invokeL.objValue;
@@ -134,15 +134,15 @@ public class e0 {
                 return;
             }
         }
-        this.f73081a = "";
-        this.f73082b = "";
-        this.f73083c = "";
-        this.f73084d = "";
-        this.f73085e = "";
-        this.f73086f = "";
-        this.f73087g = "";
-        this.f73088h = "";
-        this.f73089i = "";
+        this.f73535a = "";
+        this.f73536b = "";
+        this.f73537c = "";
+        this.f73538d = "";
+        this.f73539e = "";
+        this.f73540f = "";
+        this.f73541g = "";
+        this.f73542h = "";
+        this.f73543i = "";
         this.j = -1;
         this.k = -1;
         this.l = new HashMap();
@@ -154,15 +154,15 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(a(this.f73081a));
-            jSONArray.put(a(this.f73088h));
-            jSONArray.put(a(this.f73087g));
-            jSONArray.put(a(this.f73089i));
-            jSONArray.put(a(this.f73082b));
-            jSONArray.put(a(this.f73083c));
-            jSONArray.put(a(this.f73084d));
-            jSONArray.put(a(this.f73085e));
-            jSONArray.put(a(this.f73086f));
+            jSONArray.put(a(this.f73535a));
+            jSONArray.put(a(this.f73542h));
+            jSONArray.put(a(this.f73541g));
+            jSONArray.put(a(this.f73543i));
+            jSONArray.put(a(this.f73536b));
+            jSONArray.put(a(this.f73537c));
+            jSONArray.put(a(this.f73538d));
+            jSONArray.put(a(this.f73539e));
+            jSONArray.put(a(this.f73540f));
             jSONArray.put(String.valueOf(this.j));
             jSONArray.put(String.valueOf(this.k));
             JSONArray jSONArray2 = new JSONArray();

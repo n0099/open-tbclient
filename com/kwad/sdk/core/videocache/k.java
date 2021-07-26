@@ -16,28 +16,28 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f35060a;
+    public final m f35249a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a f35061b;
+    public final com.kwad.sdk.core.videocache.a f35250b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f35062c;
+    public final Object f35251c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f35063d;
+    public final Object f35252d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicInteger f35064e;
+    public final AtomicInteger f35253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile Thread f35065f;
+    public volatile Thread f35254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f35066g;
+    public volatile boolean f35255g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f35067h;
+    public volatile int f35256h;
 
     /* renamed from: com.kwad.sdk.core.videocache.k$1  reason: invalid class name */
     /* loaded from: classes6.dex */
@@ -52,7 +52,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f35068a;
+        public final /* synthetic */ k f35257a;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class k {
                     return;
                 }
             }
-            this.f35068a = kVar;
+            this.f35257a = kVar;
         }
 
         public /* synthetic */ a(k kVar, AnonymousClass1 anonymousClass1) {
@@ -80,7 +80,7 @@ public class k {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f35068a.e();
+                this.f35257a.e();
             }
         }
     }
@@ -100,21 +100,21 @@ public class k {
                 return;
             }
         }
-        this.f35062c = new Object();
-        this.f35063d = new Object();
-        this.f35067h = -1;
-        this.f35060a = (m) j.a(mVar);
-        this.f35061b = (com.kwad.sdk.core.videocache.a) j.a(aVar);
-        this.f35064e = new AtomicInteger();
+        this.f35251c = new Object();
+        this.f35252d = new Object();
+        this.f35256h = -1;
+        this.f35249a = (m) j.a(mVar);
+        this.f35250b = (com.kwad.sdk.core.videocache.a) j.a(aVar);
+        this.f35253e = new AtomicInteger();
     }
 
     private void b() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i2 = this.f35064e.get()) < 1) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i2 = this.f35253e.get()) < 1) {
             return;
         }
-        this.f35064e.set(0);
+        this.f35253e.set(0);
         throw new ProxyCacheException("Error reading source " + i2 + " times");
     }
 
@@ -122,8 +122,8 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             a(j, j2);
-            synchronized (this.f35062c) {
-                this.f35062c.notifyAll();
+            synchronized (this.f35251c) {
+                this.f35251c.notifyAll();
             }
         }
     }
@@ -132,11 +132,11 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             synchronized (this) {
-                boolean z = (this.f35065f == null || this.f35065f.getState() == Thread.State.TERMINATED) ? false : true;
-                if (!this.f35066g && !this.f35061b.d() && !z) {
+                boolean z = (this.f35254f == null || this.f35254f.getState() == Thread.State.TERMINATED) ? false : true;
+                if (!this.f35255g && !this.f35250b.d() && !z) {
                     a aVar = new a(this, null);
-                    this.f35065f = new Thread(aVar, "Source reader for " + this.f35060a);
-                    this.f35065f.start();
+                    this.f35254f = new Thread(aVar, "Source reader for " + this.f35249a);
+                    this.f35254f.start();
                 }
             }
         }
@@ -145,10 +145,10 @@ public class k {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            synchronized (this.f35062c) {
+            synchronized (this.f35251c) {
                 try {
                     try {
-                        this.f35062c.wait(1000L);
+                        this.f35251c.wait(1000L);
                     } catch (InterruptedException e2) {
                         throw new ProxyCacheException("Waiting source data is interrupted!", e2);
                     }
@@ -169,22 +169,22 @@ public class k {
         long j = -1;
         long j2 = 0;
         try {
-            j2 = this.f35061b.a();
-            this.f35060a.a(j2);
-            j = this.f35060a.a();
+            j2 = this.f35250b.a();
+            this.f35249a.a(j2);
+            j = this.f35249a.a();
             byte[] bArr = new byte[8192];
             while (true) {
-                int a2 = this.f35060a.a(bArr);
+                int a2 = this.f35249a.a(bArr);
                 if (a2 == -1) {
                     g();
                     f();
                     break;
                 }
-                synchronized (this.f35063d) {
+                synchronized (this.f35252d) {
                     if (h()) {
                         return;
                     }
-                    this.f35061b.a(bArr, a2);
+                    this.f35250b.a(bArr, a2);
                 }
                 j2 += a2;
                 b(j2, j);
@@ -199,17 +199,17 @@ public class k {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f35067h = 100;
-            a(this.f35067h);
+            this.f35256h = 100;
+            a(this.f35256h);
         }
     }
 
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            synchronized (this.f35063d) {
-                if (!h() && this.f35061b.a() == this.f35060a.a()) {
-                    this.f35061b.c();
+            synchronized (this.f35252d) {
+                if (!h() && this.f35250b.a() == this.f35249a.a()) {
+                    this.f35250b.c();
                 }
             }
         }
@@ -218,16 +218,16 @@ public class k {
     private boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? Thread.currentThread().isInterrupted() || this.f35066g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? Thread.currentThread().isInterrupted() || this.f35255g : invokeV.booleanValue;
     }
 
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
-                this.f35060a.b();
+                this.f35249a.b();
             } catch (ProxyCacheException e2) {
-                a(new ProxyCacheException("Error closing source " + this.f35060a, e2));
+                a(new ProxyCacheException("Error closing source " + this.f35249a, e2));
             }
         }
     }
@@ -237,14 +237,14 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
             l.a(bArr, j, i2);
-            while (!this.f35061b.d() && this.f35061b.a() < i2 + j && !this.f35066g) {
+            while (!this.f35250b.d() && this.f35250b.a() < i2 + j && !this.f35255g) {
                 c();
                 d();
                 b();
             }
-            int a2 = this.f35061b.a(bArr, j, i2);
-            if (this.f35061b.d() && this.f35067h != 100) {
-                this.f35067h = 100;
+            int a2 = this.f35250b.a(bArr, j, i2);
+            if (this.f35250b.d() && this.f35256h != 100) {
+                this.f35256h = 100;
                 a(100);
             }
             return a2;
@@ -255,14 +255,14 @@ public class k {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f35063d) {
-                com.kwad.sdk.core.d.a.a("ProxyCache", "Shutdown proxy for " + this.f35060a);
+            synchronized (this.f35252d) {
+                com.kwad.sdk.core.d.a.a("ProxyCache", "Shutdown proxy for " + this.f35249a);
                 try {
-                    this.f35066g = true;
-                    if (this.f35065f != null) {
-                        this.f35065f.interrupt();
+                    this.f35255g = true;
+                    if (this.f35254f != null) {
+                        this.f35254f.interrupt();
                     }
-                    this.f35061b.b();
+                    this.f35250b.b();
                 } catch (ProxyCacheException e2) {
                     a(e2);
                 }
@@ -281,11 +281,11 @@ public class k {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             int i3 = i2 == 0 ? 100 : (int) ((((float) j) / ((float) j2)) * 100.0f);
-            boolean z = i3 != this.f35067h;
+            boolean z = i3 != this.f35256h;
             if ((i2 >= 0) && z) {
                 a(i3);
             }
-            this.f35067h = i3;
+            this.f35256h = i3;
         }
     }
 

@@ -51,14 +51,14 @@ public final class a extends e {
     public final Object a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f38010a.opt(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f38204a.opt(str) : invokeL.objValue;
     }
 
     public final Object a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            JSONObject optJSONObject = this.f38010a.optJSONObject("ps");
+            JSONObject optJSONObject = this.f38204a.optJSONObject("ps");
             JSONObject optJSONObject2 = optJSONObject != null ? optJSONObject.optJSONObject(str2) : null;
             if (optJSONObject2 != null) {
                 return optJSONObject2.opt(str);
@@ -72,7 +72,7 @@ public final class a extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj) == null) {
             try {
-                this.f38010a.putOpt(str, obj);
+                this.f38204a.putOpt(str, obj);
             } catch (JSONException e2) {
                 GDTLogger.e("Exception while update setting", e2);
             }
@@ -83,10 +83,10 @@ public final class a extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, obj, str2) == null) {
             try {
-                JSONObject optJSONObject = this.f38010a.optJSONObject("ps");
+                JSONObject optJSONObject = this.f38204a.optJSONObject("ps");
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
-                    this.f38010a.putOpt("ps", optJSONObject);
+                    this.f38204a.putOpt("ps", optJSONObject);
                 }
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(str2);
                 if (optJSONObject2 == null) {

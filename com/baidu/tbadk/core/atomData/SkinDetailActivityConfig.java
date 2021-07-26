@@ -78,7 +78,7 @@ public class SkinDetailActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(THEME_ID, i2);
-        getIntent().putExtra(THEME_CURRENT_TYPE, i3);
+        getIntent().putExtra("current_type", i3);
         getIntent().putExtra(THEME_ALBUM_PICTURE, str);
         getIntent().putExtra(THEME_PERMISSION_ICON_URL, str2);
     }

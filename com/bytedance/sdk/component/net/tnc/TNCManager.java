@@ -41,6 +41,7 @@ public class TNCManager implements TNCBridge {
     public static TNCManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, Integer> hostReplaceMapFailed;
+    public int mAid;
     public AppConfig mAppConfig;
     public Context mContext;
     public Handler mHandler;
@@ -123,7 +124,7 @@ public class TNCManager implements TNCBridge {
     private void addTNCHostReplaceNum(String str) {
         Map<String, String> tNCHostReplaceMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || TextUtils.isEmpty(str) || (tNCHostReplaceMap = getTNCHostReplaceMap()) == null || !tNCHostReplaceMap.containsValue(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, str) == null) || TextUtils.isEmpty(str) || (tNCHostReplaceMap = getTNCHostReplaceMap()) == null || !tNCHostReplaceMap.containsValue(str)) {
             return;
         }
         if (this.hostReplaceMapFailed.get(str) == null) {
@@ -137,7 +138,7 @@ public class TNCManager implements TNCBridge {
     public void doUpdateRemote(boolean z) {
         TNCConfig tNCConfig;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65539, this, z) == null) || (tNCConfig = getTNCConfig()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) || (tNCConfig = getTNCConfig()) == null) {
             return;
         }
         Logger.debug(TAG, "doUpdateRemote, " + z);
@@ -147,13 +148,13 @@ public class TNCManager implements TNCBridge {
             return;
         }
         this.mLastDoUpdateTime = elapsedRealtime;
-        AppConfig.getInstance(this.mContext).doRefresh(NetworkUtils.checkWifiAndGPRS(this.mContext));
+        TncInstanceManager.getInstance().getAppConfig(this.mAid, this.mContext).doRefresh(NetworkUtils.checkWifiAndGPRS(this.mContext));
     }
 
     private String getConnectionIpStr(z zVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, zVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, zVar)) == null) {
             if (zVar == null || zVar.a() == null) {
                 return "";
             }
@@ -171,7 +172,7 @@ public class TNCManager implements TNCBridge {
     private String getExceptionStr(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, exc)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, exc)) == null) {
             StringWriter stringWriter = new StringWriter();
             exc.printStackTrace(new PrintWriter(stringWriter));
             return stringWriter.toString().toLowerCase();
@@ -183,7 +184,7 @@ public class TNCManager implements TNCBridge {
         InterceptResult invokeV;
         TNCManager tNCManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (TNCManager.class) {
                 if (sInstance == null) {
                     sInstance = new TNCManager();
@@ -205,7 +206,7 @@ public class TNCManager implements TNCBridge {
         long j;
         TNCConfig tNCConfig;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, this, abVar, str) == null) && abVar != null && this.mIsMainProcess) {
+        if ((interceptable == null || interceptable.invokeLL(65544, this, abVar, str) == null) && abVar != null && this.mIsMainProcess) {
             String a2 = abVar.a(TNC_PROBE_HEADER, null);
             if (TextUtils.isEmpty(a2)) {
                 Logger.debug(TAG, "handleTncProbe, no probeProto, " + str);
@@ -236,7 +237,7 @@ public class TNCManager implements TNCBridge {
                 }
                 this.mTncProbeCmd = i2;
                 this.mTncProbeVersion = j;
-                this.mContext.getSharedPreferences(TNC_SP_NAME, 0).edit().putInt("tnc_probe_cmd", i2).putLong("tnc_probe_version", j).apply();
+                this.mContext.getSharedPreferences(getTncSpName(), 0).edit().putInt("tnc_probe_cmd", i2).putLong("tnc_probe_version", j).apply();
                 if (this.mTncProbeCmd != 10000 || (tNCConfig = getTNCConfig()) == null) {
                     return;
                 }
@@ -254,7 +255,7 @@ public class TNCManager implements TNCBridge {
     private boolean isHttpRespCodeInBlack(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) {
             if (i2 < 100 || i2 >= 1000) {
                 return true;
             }
@@ -274,13 +275,13 @@ public class TNCManager implements TNCBridge {
     private boolean isHttpRespCodeOk(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? i2 >= 200 && i2 < 400 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i2)) == null) ? i2 >= 200 && i2 < 400 : invokeI.booleanValue;
     }
 
     private boolean isTNCHostFailedOverLimit(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, str)) == null) {
             Map<String, String> tNCHostReplaceMap = getTNCHostReplaceMap();
             if (tNCHostReplaceMap == null) {
                 return false;
@@ -297,8 +298,8 @@ public class TNCManager implements TNCBridge {
 
     private void loadProbeInfo() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            SharedPreferences sharedPreferences = this.mContext.getSharedPreferences(TNC_SP_NAME, 0);
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            SharedPreferences sharedPreferences = this.mContext.getSharedPreferences(getTncSpName(), 0);
             this.mTncProbeCmd = sharedPreferences.getInt("tnc_probe_cmd", 0);
             this.mTncProbeVersion = sharedPreferences.getLong("tnc_probe_version", TNC_DATA_VERSION_DEFAULT);
         }
@@ -306,7 +307,7 @@ public class TNCManager implements TNCBridge {
 
     private void resetTNCControlState() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             Logger.debug(TAG, "resetTNCControlState");
             this.mReqToCnt = 0;
             this.mReqToApiMap.clear();
@@ -319,14 +320,14 @@ public class TNCManager implements TNCBridge {
 
     private void resetTNCHostReplaceNum(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, this, str) == null) && !TextUtils.isEmpty(str) && this.hostReplaceMapFailed.containsKey(str)) {
+        if ((interceptable == null || interceptable.invokeL(65550, this, str) == null) && !TextUtils.isEmpty(str) && this.hostReplaceMapFailed.containsKey(str)) {
             this.hostReplaceMapFailed.put(str, 0);
         }
     }
 
     private void sendUpdateMsg(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || this.mHandler.hasMessages(10000)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || this.mHandler.hasMessages(10000)) {
             return;
         }
         Message obtainMessage = this.mHandler.obtainMessage();
@@ -383,10 +384,19 @@ public class TNCManager implements TNCBridge {
         return (Map) invokeV.objValue;
     }
 
+    public String getTncSpName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return TNC_SP_NAME + this.mAid;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public boolean getURLDispatchEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mURLDispatchEnabled : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mURLDispatchEnabled : invokeV.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0060  */
@@ -398,7 +408,7 @@ public class TNCManager implements TNCBridge {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             if (!TextUtils.isEmpty(str) && !str.contains("/network/get_network") && !str.contains("/get_domains/v4") && !str.contains("/ies/speed")) {
                 String str3 = null;
                 try {
@@ -449,23 +459,23 @@ public class TNCManager implements TNCBridge {
 
     public void handleRequestResult() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
     public synchronized void initTnc(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, context, z) == null) {
             synchronized (this) {
                 if (!this.mInited) {
                     this.mContext = context;
                     this.mIsMainProcess = z;
-                    this.mTNCConfigHandler = new TNCConfigHandler(context, z);
+                    this.mTNCConfigHandler = new TNCConfigHandler(context, z, this.mAid);
                     if (z) {
                         loadProbeInfo();
                     }
                     Logger.debug(TAG, "initTnc, isMainProc: " + z + " probeCmd: " + this.mTncProbeCmd + " probeVersion: " + this.mTncProbeVersion);
-                    this.mAppConfig = AppConfig.getInstance(this.mContext);
+                    this.mAppConfig = TncInstanceManager.getInstance().getAppConfig(this.mAid, this.mContext);
                     this.mInited = true;
                 }
             }
@@ -475,7 +485,7 @@ public class TNCManager implements TNCBridge {
     @Override // com.bytedance.sdk.component.net.tnc.TNCBridge
     public synchronized void onError(z zVar, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, zVar, exc) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, zVar, exc) == null) {
             synchronized (this) {
                 if (zVar != null) {
                     if (zVar.a() != null && exc != null) {
@@ -520,7 +530,7 @@ public class TNCManager implements TNCBridge {
     @Override // com.bytedance.sdk.component.net.tnc.TNCBridge
     public synchronized void onResponse(z zVar, ab abVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, zVar, abVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, zVar, abVar) == null) {
             synchronized (this) {
                 if (zVar == null || abVar == null) {
                     return;
@@ -580,22 +590,86 @@ public class TNCManager implements TNCBridge {
 
     public void resetHostReplaceMapFailed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.hostReplaceMapFailed.clear();
         }
     }
 
     public void setITTAdNetDepend(ITTAdNetDepend iTTAdNetDepend) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, iTTAdNetDepend) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, iTTAdNetDepend) == null) {
             this.mITTAdNetDepend = iTTAdNetDepend;
         }
     }
 
     public void setURLDispatchEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.mURLDispatchEnabled = z;
         }
+    }
+
+    public TNCManager(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mLastDoUpdateTime = 0L;
+        this.mInited = false;
+        this.mTncProbeCmd = 0;
+        this.mTncProbeVersion = TNC_DATA_VERSION_DEFAULT;
+        this.mReqToCnt = 0;
+        this.mReqToApiMap = new HashMap<>();
+        this.mReqToIpMap = new HashMap<>();
+        this.mReqErrorCnt = 0;
+        this.mReqErrApiMap = new HashMap<>();
+        this.mReqErrIpMap = new HashMap<>();
+        this.mIsMainProcess = true;
+        this.hostReplaceMapFailed = new HashMap();
+        this.mHandler = new Handler(this, Looper.getMainLooper()) { // from class: com.bytedance.sdk.component.net.tnc.TNCManager.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ TNCManager this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr;
+                    Object[] objArr2 = {this, r8};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i42 = newInitContext2.flag;
+                    if ((i42 & 1) != 0) {
+                        int i5 = i42 & 2;
+                        super((Looper) newInitContext2.callArgs[0]);
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 10000) {
+                    this.this$0.doUpdateRemote(message.arg1 != 0);
+                }
+            }
+        };
+        this.mAid = i2;
     }
 }

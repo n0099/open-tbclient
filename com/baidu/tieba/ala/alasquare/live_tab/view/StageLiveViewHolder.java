@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v.d.c.h.c;
+import d.a.q0.v.d.c.h.c;
 /* loaded from: classes4.dex */
 public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f14043a;
+    public c f14091a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StageLiveViewHolder(c cVar) {
@@ -33,6 +33,6 @@ public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14043a = cVar;
+        this.f14091a = cVar;
     }
 }

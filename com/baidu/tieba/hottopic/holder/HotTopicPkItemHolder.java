@@ -15,22 +15,22 @@ public class HotTopicPkItemHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17116a;
+    public int f17172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f17117b;
+    public TextView f17173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f17118c;
+    public TextView f17174c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HotTopicPkView f17119d;
+    public HotTopicPkView f17175d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17120e;
+    public TextView f17176e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f17121f;
+    public TextView f17177f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicPkItemHolder(View view) {
@@ -50,7 +50,7 @@ public class HotTopicPkItemHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f17116a = 3;
+        this.f17172a = 3;
         b(view);
     }
 
@@ -59,10 +59,10 @@ public class HotTopicPkItemHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.f17117b = (TextView) view.findViewById(R.id.pk_item_theme_title);
-        this.f17118c = (TextView) view.findViewById(R.id.pk_topic_title);
-        this.f17119d = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
-        this.f17120e = (TextView) view.findViewById(R.id.pk_topic_positive);
-        this.f17121f = (TextView) view.findViewById(R.id.pk_topic_opposing);
+        this.f17173b = (TextView) view.findViewById(R.id.pk_item_theme_title);
+        this.f17174c = (TextView) view.findViewById(R.id.pk_topic_title);
+        this.f17175d = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
+        this.f17176e = (TextView) view.findViewById(R.id.pk_topic_positive);
+        this.f17177f = (TextView) view.findViewById(R.id.pk_topic_opposing);
     }
 }

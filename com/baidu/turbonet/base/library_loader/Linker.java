@@ -184,7 +184,7 @@ public abstract class Linker {
                 fromFd.writeToParcel(parcel, 0);
                 fromFd.close();
             } catch (IOException e2) {
-                d.a.q0.a.a.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e2);
+                d.a.r0.a.a.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e2);
             }
         }
 

@@ -1,447 +1,264 @@
 package com.bytedance.sdk.openadsdk.n;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
-import com.bytedance.sdk.component.net.utils.NetworkUtils;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.AppLogHelper;
-import com.bytedance.sdk.openadsdk.TTAdConfig;
-import com.bytedance.sdk.openadsdk.TTCustomController;
-import com.bytedance.sdk.openadsdk.core.h;
-import com.bytedance.sdk.openadsdk.core.j;
-import com.bytedance.sdk.openadsdk.core.k.b;
-import com.bytedance.sdk.openadsdk.core.k.d;
-import com.bytedance.sdk.openadsdk.core.l;
-import com.bytedance.sdk.openadsdk.core.o;
-import com.bytedance.sdk.openadsdk.core.s;
-import com.bytedance.sdk.openadsdk.r.q;
-import d.b.c.b.g;
-import d.b.c.b.k;
-import d.l.a.b.a.a.c;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import com.bytedance.sdk.component.adnet.err.VAdError;
+import com.bytedance.sdk.openadsdk.n.i;
+import com.bytedance.sdk.openadsdk.n.l;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
-public class a {
+public abstract class a implements k {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicLong m;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Uri a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            return null;
-        }
-        return (Uri) invokeLL.objValue;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public volatile com.bytedance.sdk.openadsdk.n.a.a f31811a;
 
-    public static void a(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, jSONObject) == null) {
-            try {
-                float f2 = 0.0f;
-                float f3 = b.a(context) == null ? 0.0f : b.a(context).f30320a;
-                if (b.a(context) != null) {
-                    f2 = b.a(context).f30321b;
-                }
-                jSONObject.put("latitude", f3);
-                jSONObject.put("longitude", f2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+    /* renamed from: b  reason: collision with root package name */
+    public final com.bytedance.sdk.openadsdk.n.b.c f31812b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final AtomicInteger f31813c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final AtomicLong f31814d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.bytedance.sdk.openadsdk.n.d.a f31815e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public volatile List<i.b> f31816f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public volatile String f31817g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public volatile String f31818h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public volatile i f31819i;
+    public volatile l j;
+    public volatile boolean k;
+    public final long l;
+    public final AtomicInteger n;
+    public int o;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(98019920, "Lcom/bytedance/sdk/openadsdk/n/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(98019920, "Lcom/bytedance/sdk/openadsdk/n/a;");
+                return;
             }
         }
+        m = new AtomicLong();
     }
 
-    public static void a(TTAdConfig tTAdConfig) {
+    public a(com.bytedance.sdk.openadsdk.n.a.a aVar, com.bytedance.sdk.openadsdk.n.b.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tTAdConfig) == null) {
-        }
-    }
-
-    public static void a(c.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, aVar) == null) {
-        }
-    }
-
-    public static void a(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, jSONObject, jSONObject2) == null) {
-        }
-    }
-
-    public static boolean a(d.l.a.a.a.f.c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cVar)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, jSONObject) == null) {
-            try {
-                jSONObject.put("imei", j.d(context));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, cVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f31813c = new AtomicInteger();
+        this.f31814d = new AtomicLong();
+        this.k = false;
+        this.l = m.incrementAndGet();
+        this.n = new AtomicInteger(0);
+        this.o = -1;
+        this.f31811a = aVar;
+        this.f31812b = cVar;
     }
 
-    public static void c(Context context, JSONObject jSONObject) {
+    public void a(Boolean bool, String str, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, context, jSONObject) == null) {
-            try {
-                jSONObject.put("udid", j.d(context));
-                jSONObject.put(Config.DEVICE_MAC_ID, com.bytedance.sdk.openadsdk.core.k.c.b());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, bool, str, th) == null) {
         }
     }
 
-    public static String d() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? "df979cdb-05a7-448c-bece-92d5005a1247" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n.get() == 1 : invokeV.booleanValue;
     }
 
-    public static void d(Context context, JSONObject jSONObject) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, null, context, jSONObject) == null) {
-            try {
-                JSONArray a2 = d.a(context);
-                if (a2 != null) {
-                    jSONObject.put("app_list", a2);
-                }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.n.compareAndSet(0, 2);
         }
     }
 
-    public static String e() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? s.a().c() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.n.get() == 2 : invokeV.booleanValue;
     }
 
-    public static String b() {
+    public void e() throws com.bytedance.sdk.openadsdk.n.c.a {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && b()) {
+            throw new com.bytedance.sdk.openadsdk.n.c.a();
+        }
+    }
+
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (l.f30343b == null || l.f30343b.isCanUseWifiState()) {
-                return j.h(o.a());
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.f31819i != null) {
+                return this.f31819i.f31976c.f31977a;
             }
-            return null;
+            return this.f31811a instanceof com.bytedance.sdk.openadsdk.n.a.b ? 1 : 0;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static void c() {
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            com.bytedance.sdk.openadsdk.core.j.b.c().d();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? f() == 1 : invokeV.booleanValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.n.compareAndSet(0, 1);
         }
     }
 
-    public static void b(JSONObject jSONObject) {
+    public com.bytedance.sdk.openadsdk.n.e.a a(l.a aVar, int i2, int i3, String str) throws IOException, VAdError {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, jSONObject) == null) {
-            try {
-                com.bytedance.sdk.openadsdk.core.k.a a2 = b.a(o.a());
-                JSONObject jSONObject2 = new JSONObject();
-                if (a2 != null) {
-                    jSONObject2.put("longitude", a2.f30321b);
-                    jSONObject2.put("latitude", a2.f30320a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{aVar, Integer.valueOf(i2), Integer.valueOf(i3), str})) == null) {
+            com.bytedance.sdk.openadsdk.n.e.b b2 = com.bytedance.sdk.openadsdk.n.e.c.a().b();
+            com.bytedance.sdk.openadsdk.n.e.f fVar = new com.bytedance.sdk.openadsdk.n.e.f();
+            HashMap hashMap = new HashMap();
+            fVar.f31905b = aVar.f32000a;
+            fVar.f31904a = 0;
+            if ("HEAD".equalsIgnoreCase(str)) {
+                fVar.f31904a = 4;
+            }
+            List<i.b> list = this.f31816f;
+            if (list != null && !list.isEmpty()) {
+                for (i.b bVar : list) {
+                    if (!"Range".equalsIgnoreCase(bVar.f31984a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f31984a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f31984a) && !"Host".equalsIgnoreCase(bVar.f31984a)) {
+                        hashMap.put(bVar.f31984a, bVar.f31985b);
+                    }
                 }
-                jSONObject.put("location", jSONObject2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
             }
+            String a2 = com.bytedance.sdk.openadsdk.n.g.d.a(i2, i3);
+            if (a2 != null) {
+                hashMap.put("Range", a2);
+            }
+            if (e.f31896f) {
+                hashMap.put("Cache-Control", "no-cache");
+            }
+            d c2 = d.c();
+            f a3 = f.a();
+            boolean z = this.f31819i == null;
+            c a4 = z ? c2.a() : a3.b();
+            c b3 = z ? c2.b() : a3.c();
+            if (a4 != null || b3 != null) {
+                if (a4 != null) {
+                    fVar.f31906c = a4.a(aVar.f32001b);
+                }
+                if (b3 != null) {
+                    fVar.f31907d = b3.a(aVar.f32001b);
+                }
+            }
+            fVar.f31908e = hashMap;
+            if (this.k) {
+                this.k = false;
+                return null;
+            }
+            return b2.a(fVar);
         }
+        return (com.bytedance.sdk.openadsdk.n.e.a) invokeCommon.objValue;
     }
 
-    public static void c(Context context) {
+    public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, context) == null) {
-            d.b.c.b.l.a(context.getApplicationContext(), new g(context) { // from class: com.bytedance.sdk.openadsdk.n.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || i2 <= 0 || i3 < 0) {
+            return;
+        }
+        int i4 = e.f31897g;
+        int f2 = f();
+        if (i4 == 1 || (i4 == 2 && f2 == 1)) {
+            int i5 = (int) ((i3 / i2) * 100.0f);
+            if (i5 > 100) {
+                i5 = 100;
+            }
+            synchronized (this) {
+                if (i5 <= this.o) {
+                    return;
+                }
+                this.o = i5;
+                com.bytedance.sdk.openadsdk.n.g.d.a(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.n.a.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f31624a;
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ a f31820a;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {context};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i6 = newInitContext.flag;
+                            if ((i6 & 1) != 0) {
+                                int i7 = i6 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f31820a = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        a aVar;
+                        com.bytedance.sdk.openadsdk.n.d.a aVar2;
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar2 = (aVar = this.f31820a).f31815e) == null) {
                             return;
                         }
+                        aVar2.a(aVar.j, this.f31820a.o);
                     }
-                    this.f31624a = context;
-                }
-
-                @Override // d.b.c.b.g
-                public Map<String, Object> a() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        HashMap hashMap = new HashMap();
-                        String appLogDid = AppLogHelper.getInstance().getAppLogDid();
-                        if (TextUtils.isEmpty(appLogDid)) {
-                            appLogDid = j.a(this.f31624a);
-                        }
-                        if (!TextUtils.isEmpty(appLogDid)) {
-                            hashMap.put("device_id", appLogDid);
-                        }
-                        hashMap.put("ac", NetworkUtils.getNetworkTypeString(this.f31624a));
-                        hashMap.put("aid", 164362);
-                        hashMap.put("app_name", "unionser_slardar_applog");
-                        String f2 = com.bytedance.sdk.openadsdk.r.o.f();
-                        if (!TextUtils.isEmpty(f2)) {
-                            hashMap.put("app_version", f2);
-                        }
-                        String e2 = com.bytedance.sdk.openadsdk.r.o.e();
-                        if (!TextUtils.isEmpty(e2)) {
-                            hashMap.put("version_code", e2);
-                            hashMap.put("update_version_code", e2);
-                        }
-                        hashMap.put("version_name", "3.6.1.3");
-                        hashMap.put("device_platform", "android");
-                        hashMap.put(IAdRequestParam.OS, "Android");
-                        hashMap.put(HttpConstants.DEVICE_TYPE, Build.MODEL);
-                        hashMap.put("device_mode", Build.MODEL);
-                        hashMap.put(Config.ROM, com.bytedance.sdk.openadsdk.r.j.a());
-                        hashMap.put(PmsConstant.EnvParam.Key.CPU_ABI, Build.CPU_ABI);
-                        hashMap.put("device_brand", Build.BRAND);
-                        hashMap.put("language", Locale.getDefault().getLanguage());
-                        hashMap.put("os_api", String.valueOf(Build.VERSION.SDK_INT));
-                        try {
-                            String str = Build.VERSION.RELEASE;
-                            if (str != null && str.length() > 10) {
-                                str = str.substring(0, 10);
-                            }
-                            hashMap.put(HttpConstants.OS_VERSION, str);
-                        } catch (Exception unused) {
-                        }
-                        hashMap.put("openudid", j.c(this.f31624a));
-                        hashMap.put("dpi", String.valueOf(q.g(this.f31624a)));
-                        hashMap.put("resolution", q.c(this.f31624a) + "*" + q.d(this.f31624a));
-                        return hashMap;
-                    }
-                    return (Map) invokeV.objValue;
-                }
-
-                @Override // d.b.c.b.g
-                public String b() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? j.a(this.f31624a) : (String) invokeV.objValue;
-                }
-
-                @Override // d.b.c.b.g
-                public String c() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? AppLogHelper.getInstance().getAppLogUserUniqueID() : (String) invokeV.objValue;
-                }
-
-                @Override // d.b.c.b.g
-                public String d() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
-                        return null;
-                    }
-                    return (String) invokeV.objValue;
-                }
-
-                @Override // d.b.c.b.g
-                public Map<String, Integer> e() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
-                        return null;
-                    }
-                    return (Map) invokeV.objValue;
-                }
-
-                @Override // d.b.c.b.g
-                public List<String> f() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) {
-                        return null;
-                    }
-                    return (List) invokeV.objValue;
-                }
-
-                @Override // d.b.c.b.g
-                public Map<String, Object> g() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) {
-                        HashMap hashMap = new HashMap();
-                        String h2 = h.d().h();
-                        if (TextUtils.isEmpty(h2)) {
-                            h2 = String.valueOf(164362);
-                        }
-                        hashMap.put("host_appid", h2);
-                        hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3.6.1.3");
-                        return hashMap;
-                    }
-                    return (Map) invokeV.objValue;
-                }
-            }, true, false);
-            d.b.c.b.l.d(new k() { // from class: com.bytedance.sdk.openadsdk.n.a.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                /* JADX WARN: Removed duplicated region for block: B:15:0x0037 A[Catch: all -> 0x0043, TRY_LEAVE, TryCatch #0 {all -> 0x0043, blocks: (B:5:0x0005, B:7:0x0018, B:9:0x0029, B:15:0x0037), top: B:23:0x0005 }] */
-                @Override // d.b.c.b.k
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public boolean a(Throwable th, Thread thread) {
-                    InterceptResult invokeLL;
-                    boolean z;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, th, thread)) == null) {
-                        try {
-                            StringWriter stringWriter = new StringWriter();
-                            th.printStackTrace(new PrintWriter(stringWriter));
-                            String stringWriter2 = stringWriter.toString();
-                            if (stringWriter2 != null) {
-                                if (!stringWriter2.contains(AdSlot.class.getPackage().getName()) && !stringWriter2.contains("com.bytedance.msdk")) {
-                                    z = false;
-                                    if (z) {
-                                        d.b.c.b.l.e(com.bytedance.sdk.openadsdk.core.d.a().b());
-                                        return true;
-                                    }
-                                }
-                                z = true;
-                                if (z) {
-                                }
-                            }
-                        } catch (Throwable unused) {
-                        }
-                        return false;
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
+                });
+            }
         }
-    }
-
-    public static void a(TTCustomController tTCustomController, List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, tTCustomController, list) == null) && tTCustomController.isCanUseLocation()) {
-            list.add("android.permission.ACCESS_COARSE_LOCATION");
-            list.add("android.permission.ACCESS_FINE_LOCATION");
-        }
-    }
-
-    public static void a(JSONObject jSONObject) {
-        com.bytedance.sdk.openadsdk.core.k.a a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) || (a2 = b.a(o.a())) == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("latitude", a2.f30320a);
-            jSONObject2.put("longitude", a2.f30321b);
-            jSONObject.put("geo", jSONObject2);
-        } catch (Exception unused) {
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
-            s.a().a(str);
-        }
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, context) == null) || TextUtils.isEmpty(j.a(context))) {
-            return;
-        }
-        s.a().b("AdShow");
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (l.f30343b == null || l.f30343b.isCanUsePhoneState()) ? j.f(o.a()) : "" : (String) invokeV.objValue;
-    }
-
-    public static Map<String, String> b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            return s.a().a(str, str2 != null ? str2.getBytes() : new byte[0]);
-        }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            b.a(context);
-        }
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? d.a(str) : invokeL.booleanValue;
     }
 }

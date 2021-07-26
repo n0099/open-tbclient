@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i1.w.c;
+import d.a.q0.i1.w.c;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,7 +85,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002b, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.a.c.e.h.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.a.d.e.h.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

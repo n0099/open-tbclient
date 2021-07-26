@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.j;
-import d.a.o0.m.c;
-import d.a.o0.m.d;
+import d.a.d.a.j;
+import d.a.p0.n.c;
+import d.a.p0.n.d;
 /* loaded from: classes3.dex */
 public class BannerGifView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public GifView f12859e;
+    public GifView f12908e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f12860f;
+    public ImageView f12909f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f12861g;
+    public View f12910g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f12862h;
+    public float f12911h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12863i;
+    public String f12912i;
     public String j;
     public boolean k;
     public c l;
@@ -54,7 +54,7 @@ public class BannerGifView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BannerGifView f12864a;
+        public final /* synthetic */ BannerGifView f12913a;
 
         public a(BannerGifView bannerGifView) {
             Interceptable interceptable = $ic;
@@ -71,16 +71,16 @@ public class BannerGifView extends RelativeLayout {
                     return;
                 }
             }
-            this.f12864a = bannerGifView;
+            this.f12913a = bannerGifView;
         }
 
-        @Override // d.a.o0.m.d
+        @Override // d.a.p0.n.d
         public boolean a(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f12864a.m == null || !this.f12864a.m.a(view)) {
-                    this.f12864a.e();
+                if (this.f12913a.m == null || !this.f12913a.m.a(view)) {
+                    this.f12913a.e();
                     return true;
                 }
                 return true;
@@ -95,7 +95,7 @@ public class BannerGifView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BannerGifView f12865e;
+        public final /* synthetic */ BannerGifView f12914e;
 
         public b(BannerGifView bannerGifView) {
             Interceptable interceptable = $ic;
@@ -112,14 +112,14 @@ public class BannerGifView extends RelativeLayout {
                     return;
                 }
             }
-            this.f12865e = bannerGifView;
+            this.f12914e = bannerGifView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view == this.f12865e.f12860f) {
-                this.f12865e.setCloseVisibility(false);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view == this.f12914e.f12909f) {
+                this.f12914e.setCloseVisibility(false);
             }
         }
     }
@@ -142,7 +142,7 @@ public class BannerGifView extends RelativeLayout {
                 return;
             }
         }
-        this.f12862h = 5.744f;
+        this.f12911h = 5.744f;
         this.k = false;
         this.n = new a(this);
         this.o = new b(this);
@@ -157,7 +157,7 @@ public class BannerGifView extends RelativeLayout {
             if (i2 != 1 && i2 != 4) {
                 z = false;
             }
-            this.f12861g.setVisibility((this.k && z) ? 8 : 8);
+            this.f12910g.setVisibility((this.k && z) ? 8 : 8);
         }
     }
 
@@ -179,15 +179,15 @@ public class BannerGifView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.gif_banner_view, this);
-            this.f12860f = (ImageView) inflate.findViewById(R.id.btn_close);
-            this.f12861g = inflate.findViewById(R.id.image_mask);
+            this.f12909f = (ImageView) inflate.findViewById(R.id.btn_close);
+            this.f12910g = inflate.findViewById(R.id.image_mask);
             GifView gifView = (GifView) inflate.findViewById(R.id.image_gif);
-            this.f12859e = gifView;
+            this.f12908e = gifView;
             gifView.setShowStaticDrawable(false);
-            this.f12859e.setSupportNoImage(false);
-            this.f12859e.setAutoPlay(true);
-            this.f12860f.setOnClickListener(this.o);
-            this.f12859e.setOnInterceptClickListener(this.n);
+            this.f12908e.setSupportNoImage(false);
+            this.f12908e.setAutoPlay(true);
+            this.f12909f.setOnClickListener(this.o);
+            this.f12908e.setOnInterceptClickListener(this.n);
             g(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -195,7 +195,7 @@ public class BannerGifView extends RelativeLayout {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f12861g, R.color.black_alpha30, i2);
+            SkinManager.setBackgroundColor(this.f12910g, R.color.black_alpha30, i2);
             d(i2);
         }
     }
@@ -203,13 +203,13 @@ public class BannerGifView extends RelativeLayout {
     public GifView getGifView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12859e : (GifView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12908e : (GifView) invokeV.objValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12863i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12912i : (String) invokeV.objValue;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -222,7 +222,7 @@ public class BannerGifView extends RelativeLayout {
             View.MeasureSpec.getSize(i3);
             getPaddingBottom();
             getPaddingTop();
-            float f2 = this.f12862h;
+            float f2 = this.f12911h;
             if (f2 > 0.0f) {
                 i3 = View.MeasureSpec.makeMeasureSpec((int) ((size / f2) + 0.5f), 1073741824);
             }
@@ -236,7 +236,7 @@ public class BannerGifView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
             if (this.l != null) {
-                this.l.a(this, i2 == 0, this.f12863i);
+                this.l.a(this, i2 == 0, this.f12912i);
             }
         }
     }
@@ -244,21 +244,21 @@ public class BannerGifView extends RelativeLayout {
     public void setCloseVisibility(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f12860f.setVisibility(z ? 0 : 8);
+            this.f12909f.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setDefaultResid(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            SkinManager.setImageResource(this.f12859e, i2);
+            SkinManager.setImageResource(this.f12908e, i2);
         }
     }
 
     public void setErrorResid(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f12859e.setErrorResid(i2);
+            this.f12908e.setErrorResid(i2);
         }
     }
 
@@ -287,7 +287,7 @@ public class BannerGifView extends RelativeLayout {
     public void setRatio(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.f12862h = f2;
+            this.f12911h = f2;
             invalidate();
         }
     }

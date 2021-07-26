@@ -26,9 +26,9 @@ import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.ImportExportConfigUtil;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.v0.j.b;
-import d.a.v0.t.h;
-import d.a.z.b.a.k.c;
+import d.a.a0.b.a.k.c;
+import d.a.w0.j.b;
+import d.a.w0.t.h;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -96,7 +96,7 @@ public class InnerImportExportConfigUtil {
             HashMap hashMap2 = new HashMap();
             if (map != null) {
                 for (Map.Entry<String, ShaderConfig> entry : map.entrySet()) {
-                    if (!TextUtils.equals(entry.getKey(), c.f68741b) && !TextUtils.equals(entry.getKey(), c.f68744e) && (!TextUtils.equals(entry.getKey(), c.f68742c) || !h.e(entry.getValue().textures))) {
+                    if (!TextUtils.equals(entry.getKey(), c.f41273b) && !TextUtils.equals(entry.getKey(), c.f41276e) && (!TextUtils.equals(entry.getKey(), c.f41274c) || !h.e(entry.getValue().textures))) {
                         ShaderConfig shaderConfig = (ShaderConfig) entry.getValue().clone();
                         if (!TextUtils.isEmpty(shaderConfig.resourcePath)) {
                             File file = new File(shaderConfig.resourcePath);

@@ -1,97 +1,98 @@
 package d.a.o0.a.e0;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import d.a.o0.a.h;
+import d.a.o0.a.z1.b.b.h;
 /* loaded from: classes7.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int A = 3;
-    public static int B = 4;
-    public static int C = 5;
-    public static int D = 1;
-    public static int E = 2;
-    public static int y = 1;
-    public static int z = 2;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51306a;
+    public static boolean f44483a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f51307b;
+    /* renamed from: d.a.o0.a.e0.a$a  reason: collision with other inner class name */
+    /* loaded from: classes7.dex */
+    public static class DialogInterface$OnClickListenerC0673a implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public int f51308c;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.a.o0.a.a2.e f44484e;
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f51309d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f51310e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f51311f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f51312g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f51313h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f51314i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public double n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public long t;
-    public long u;
-    public ArrayList<String> v;
-    public ArrayList<String> w;
-    public int x;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(507191303, "Ld/a/o0/a/e0/a;")) == null) {
-            return;
+        public DialogInterface$OnClickListenerC0673a(d.a.o0.a.a2.e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f44484e = eVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(507191303, "Ld/a/o0/a/e0/a;");
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                SwanAppActivity x = this.f44484e.x();
+                if (x != null && Build.VERSION.SDK_INT >= 21) {
+                    x.finishAndRemoveTask();
+                }
+                System.exit(0);
+            }
         }
     }
 
-    public a() {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f44483a : invokeV.booleanValue;
+    }
+
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            f44483a = z;
         }
-        this.v = new ArrayList<>();
-        this.w = new ArrayList<>();
-        this.x = 0;
+    }
+
+    public static void c(Context context, boolean z) {
+        d.a.o0.a.a2.e i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (i2 = d.a.o0.a.a2.e.i()) == null) {
+            return;
+        }
+        b.c(z);
+        int i3 = z ? h.aiapps_open_debug : h.aiapps_close_debug;
+        h.a aVar = new h.a(context);
+        aVar.V(context.getString(d.a.o0.a.h.aiapps_debug_switch_title));
+        aVar.x(context.getString(i3));
+        aVar.n(new d.a.o0.a.w2.h.a());
+        aVar.m(false);
+        aVar.O(d.a.o0.a.h.aiapps_confirm, new DialogInterface$OnClickListenerC0673a(i2));
+        aVar.X();
+    }
+
+    public static void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            c(context, !a());
+        }
     }
 }

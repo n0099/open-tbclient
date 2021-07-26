@@ -13,7 +13,7 @@ public abstract class TagPayloadReader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f32832a;
+    public final m f33021a;
 
     /* loaded from: classes5.dex */
     public static final class UnsupportedFormatException extends ParserException {
@@ -56,7 +56,7 @@ public abstract class TagPayloadReader {
                 return;
             }
         }
-        this.f32832a = mVar;
+        this.f33021a = mVar;
     }
 
     public final void a(l lVar, long j) throws ParserException {

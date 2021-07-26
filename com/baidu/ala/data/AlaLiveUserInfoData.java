@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.p;
+import d.a.p0.s.q.p;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +84,7 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         this.isNewGiftPriceStrategy = false;
     }
 
-    @Override // d.a.o0.r.q.p
+    @Override // d.a.p0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.n;
+import d.a.d.k.e.n;
 import java.io.Serializable;
 import tbclient.GuessLikeThreadInfo;
 /* loaded from: classes4.dex */
@@ -56,7 +56,7 @@ public class CardHListViewNormalItemData implements n, Serializable {
         }
     }
 
-    @Override // d.a.c.k.e.n
+    @Override // d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

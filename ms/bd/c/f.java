@@ -34,7 +34,7 @@ public final class f extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
             try {
-                z = g.c(a.a().c(), str, obj.toString());
+                z = g.c(a.c().a(), str, obj.toString());
             } catch (Throwable unused) {
                 String str2 = (String) h.a(16777217, 0, 0L, "7fde33", new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, Constants.SHORT_PING_CMD_TYPE, 17});
                 z = false;

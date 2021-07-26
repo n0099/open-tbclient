@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.n2.q.e;
+import d.a.q0.n2.q.e;
 /* loaded from: classes4.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleVideoPlayActivity f20287e;
+        public final /* synthetic */ SimpleVideoPlayActivity f20405e;
 
         public a(SimpleVideoPlayActivity simpleVideoPlayActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class SimpleVideoPlayActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20287e = simpleVideoPlayActivity;
+            this.f20405e = simpleVideoPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20287e.finish();
+                this.f20405e.finish();
             }
         }
     }

@@ -23,16 +23,16 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f17802f;
+    public Context f17858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f17803g;
+    public LinearLayout f17859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17804h;
+    public int f17860h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f17805i;
+    public int f17861i;
     public int j;
     public int k;
     public HeadImageView l;
@@ -45,7 +45,7 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendCandidateList f17806e;
+        public final /* synthetic */ InviteFriendCandidateList f17862e;
 
         public a(InviteFriendCandidateList inviteFriendCandidateList) {
             Interceptable interceptable = $ic;
@@ -62,19 +62,19 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
                     return;
                 }
             }
-            this.f17806e = inviteFriendCandidateList;
+            this.f17862e = inviteFriendCandidateList;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17806e.f17803g.removeView(view);
-                if (!this.f17806e.i()) {
-                    this.f17806e.k();
+                this.f17862e.f17859g.removeView(view);
+                if (!this.f17862e.i()) {
+                    this.f17862e.k();
                 }
-                if (this.f17806e.m != null) {
-                    this.f17806e.m.a(view, view.getTag());
+                if (this.f17862e.m != null) {
+                    this.f17862e.m.a(view, view.getTag());
                 }
             }
         }
@@ -104,16 +104,16 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
                 return;
             }
         }
-        this.f17804h = -1;
-        this.f17805i = -1;
+        this.f17860h = -1;
+        this.f17861i = -1;
         this.j = -1;
         this.k = 4;
         this.n = new a(this);
-        this.f17802f = context;
+        this.f17858f = context;
         j();
     }
 
-    public void e(d.a.o0.s.f.a aVar) {
+    public void e(d.a.p0.t.f.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || getItemLength() >= this.k) {
             return;
@@ -124,8 +124,8 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         if (i()) {
             f2.setTag(aVar);
             f2.setOnClickListener(this.n);
-            this.f17803g.addView(f2, getItemLength());
-            scrollTo(getItemLength() * (this.f17804h + this.j), 0);
+            this.f17859g.addView(f2, getItemLength());
+            scrollTo(getItemLength() * (this.f17860h + this.j), 0);
         }
         if (getItemLength() >= this.k) {
             m();
@@ -136,9 +136,9 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HeadImageView headImageView = new HeadImageView(this.f17802f);
+            HeadImageView headImageView = new HeadImageView(this.f17858f);
             headImageView.setIsRound(false);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.f17804h, this.f17805i);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.f17860h, this.f17861i);
             layoutParams.setMargins(this.j, 0, 0, 0);
             headImageView.setLayoutParams(layoutParams);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -152,15 +152,15 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         Object tag;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int childCount = this.f17803g.getChildCount();
+            int childCount = this.f17859g.getChildCount();
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.f17803g.getChildAt(i2);
-                if (childAt != this.l && (tag = childAt.getTag()) != null && (tag instanceof d.a.o0.s.f.a)) {
+                View childAt = this.f17859g.getChildAt(i2);
+                if (childAt != this.l && (tag = childAt.getTag()) != null && (tag instanceof d.a.p0.t.f.a)) {
                     if (i2 > 0) {
                         sb.append(",");
                     }
-                    sb.append(((d.a.o0.s.f.a) tag).e());
+                    sb.append(((d.a.p0.t.f.a) tag).e());
                 }
             }
             return sb.toString();
@@ -173,22 +173,22 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (i()) {
-                return this.f17803g.getChildCount() - 1;
+                return this.f17859g.getChildCount() - 1;
             }
-            return this.f17803g.getChildCount();
+            return this.f17859g.getChildCount();
         }
         return invokeV.intValue;
     }
 
-    public boolean h(d.a.o0.s.f.a aVar) {
+    public boolean h(d.a.p0.t.f.a aVar) {
         InterceptResult invokeL;
         Object tag;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            int childCount = this.f17803g.getChildCount();
+            int childCount = this.f17859g.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.f17803g.getChildAt(i2);
-                if (childAt != this.l && (tag = childAt.getTag()) != null && (tag instanceof d.a.o0.s.f.a) && ((d.a.o0.s.f.a) tag).equals(aVar)) {
+                View childAt = this.f17859g.getChildAt(i2);
+                if (childAt != this.l && (tag = childAt.getTag()) != null && (tag instanceof d.a.p0.t.f.a) && ((d.a.p0.t.f.a) tag).equals(aVar)) {
                     aVar.setChecked(true);
                     childAt.setTag(aVar);
                     return true;
@@ -203,8 +203,8 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int childCount = this.f17803g.getChildCount();
-            return childCount > 0 && this.f17803g.getChildAt(childCount - 1) == this.l;
+            int childCount = this.f17859g.getChildCount();
+            return childCount > 0 && this.f17859g.getChildAt(childCount - 1) == this.l;
         }
         return invokeV.booleanValue;
     }
@@ -212,18 +212,18 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f17804h = this.f17802f.getResources().getDimensionPixelSize(R.dimen.ds80);
-            this.f17805i = this.f17802f.getResources().getDimensionPixelSize(R.dimen.ds80);
-            this.j = this.f17802f.getResources().getDimensionPixelSize(R.dimen.ds12);
-            this.f17803g = new LinearLayout(this.f17802f);
+            this.f17860h = this.f17858f.getResources().getDimensionPixelSize(R.dimen.ds80);
+            this.f17861i = this.f17858f.getResources().getDimensionPixelSize(R.dimen.ds80);
+            this.j = this.f17858f.getResources().getDimensionPixelSize(R.dimen.ds12);
+            this.f17859g = new LinearLayout(this.f17858f);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.width = -2;
             layoutParams.height = -2;
-            this.f17803g.setLayoutParams(layoutParams);
-            this.f17803g.setHorizontalScrollBarEnabled(true);
-            this.f17803g.setOrientation(0);
+            this.f17859g.setLayoutParams(layoutParams);
+            this.f17859g.setHorizontalScrollBarEnabled(true);
+            this.f17859g.setOrientation(0);
             k();
-            addView(this.f17803g);
+            addView(this.f17859g);
             setSmoothScrollingEnabled(true);
         }
     }
@@ -237,17 +237,17 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
                 f2.setDrawBorder(false);
             }
             this.l.setImageBitmap(SkinManager.getBitmap(R.drawable.icon_add_pop));
-            this.f17803g.addView(this.l);
+            this.f17859g.addView(this.l);
         }
     }
 
-    public void l(d.a.o0.s.f.a aVar) {
+    public void l(d.a.p0.t.f.a aVar) {
         View findViewWithTag;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (findViewWithTag = this.f17803g.findViewWithTag(aVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (findViewWithTag = this.f17859g.findViewWithTag(aVar)) == null) {
             return;
         }
-        this.f17803g.removeView(findViewWithTag);
+        this.f17859g.removeView(findViewWithTag);
         if (i()) {
             return;
         }
@@ -257,7 +257,7 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
     public final void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && i()) {
-            this.f17803g.removeView(this.l);
+            this.f17859g.removeView(this.l);
         }
     }
 

@@ -12,22 +12,22 @@ public final class p extends u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1667c;
+    public int f1700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1668d;
+    public String f1701d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f1669e;
+    public long f1702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f1670f;
+    public long f1703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1671g;
+    public String f1704g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpUrlHeader f1672h;
+    public HttpUrlHeader f1705h;
 
     public p(HttpUrlHeader httpUrlHeader, int i2, String str, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -44,36 +44,36 @@ public final class p extends u {
                 return;
             }
         }
-        this.f1672h = httpUrlHeader;
-        this.f1667c = i2;
-        this.f1668d = str;
-        this.f1685a = bArr;
+        this.f1705h = httpUrlHeader;
+        this.f1700c = i2;
+        this.f1701d = str;
+        this.f1718a = bArr;
     }
 
     public final HttpUrlHeader a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1672h : (HttpUrlHeader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1705h : (HttpUrlHeader) invokeV.objValue;
     }
 
     public final void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f1669e = j;
+            this.f1702e = j;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f1671g = str;
+            this.f1704g = str;
         }
     }
 
     public final void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f1670f = j;
+            this.f1703f = j;
         }
     }
 }

@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.h3.v;
-import d.a.p0.n1.i;
-import d.a.p0.n1.o.f;
-import d.a.p0.n1.o.j.c;
-import d.a.p0.n1.o.k.b;
+import d.a.d.e.p.l;
+import d.a.q0.h3.v;
+import d.a.q0.n1.i;
+import d.a.q0.n1.o.f;
+import d.a.q0.n1.o.j.c;
+import d.a.q0.n1.o.k.b;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
 public class SingleLineCardView extends BaseCardView<SingleLineCard> {
@@ -49,10 +49,10 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCard f18285e;
+        public final /* synthetic */ SingleLineCard f18341e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCardView f18286f;
+        public final /* synthetic */ SingleLineCardView f18342f;
 
         public a(SingleLineCardView singleLineCardView, SingleLineCard singleLineCard) {
             Interceptable interceptable = $ic;
@@ -69,16 +69,16 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
                     return;
                 }
             }
-            this.f18286f = singleLineCardView;
-            this.f18285e = singleLineCard;
+            this.f18342f = singleLineCardView;
+            this.f18341e = singleLineCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                i.e(this.f18285e).d(TiebaStatic.Params.OBJ_URL, this.f18285e.getScheme()).b("obj_locate", this.f18286f.getStatPosition()).a(this.f18285e);
-                v.c(this.f18286f.m, this.f18285e.getScheme());
+                i.e(this.f18341e).d(TiebaStatic.Params.OBJ_URL, this.f18341e.getScheme()).b("obj_locate", this.f18342f.getStatPosition()).a(this.f18341e);
+                v.c(this.f18342f.m, this.f18341e.getScheme());
             }
         }
     }
@@ -188,7 +188,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public void v(SingleLineCard singleLineCard, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleLineCard, i2) == null) {
-            d.a.o0.s0.a.a(this.m, getRootView());
+            d.a.p0.u0.a.a(this.m, getRootView());
             SkinManager.setBackgroundColor(this.s, R.color.CAM_X0308);
             if (singleLineCard != null) {
                 setBgColor(singleLineCard);

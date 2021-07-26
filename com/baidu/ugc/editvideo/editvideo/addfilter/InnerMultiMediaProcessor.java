@@ -36,11 +36,11 @@ import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.v0.t.c;
-import d.a.v0.t.h;
-import d.a.v0.t.m;
-import d.a.v0.t.u;
-import d.a.z.b.a.g;
+import d.a.a0.b.a.g;
+import d.a.w0.t.c;
+import d.a.w0.t.h;
+import d.a.w0.t.m;
+import d.a.w0.t.u;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -594,7 +594,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 }
                 mediaSegment.effectStart = subTitle.startTime;
                 mediaSegment.effectEnd = subTitle.endTime;
-                mediaSegment.mediaAEffect = d.a.z.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
+                mediaSegment.mediaAEffect = d.a.a0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
                 multiMediaData.width = 0;
                 multiMediaData.height = 0;
                 multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, subTitle.textBitmap.copy(Bitmap.Config.ARGB_8888, false));
@@ -688,7 +688,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
     private void log() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            d.a.z.b.a.k.c.k();
+            d.a.a0.b.a.k.c.k();
         }
     }
 

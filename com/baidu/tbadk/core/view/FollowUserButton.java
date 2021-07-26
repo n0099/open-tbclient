@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.f0.t.b;
+import d.a.p0.s.f0.t.b;
 /* loaded from: classes3.dex */
 public class FollowUserButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
@@ -50,7 +50,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void a(View view) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         aVar.onClick(view);
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -68,7 +68,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void c(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
@@ -76,14 +76,14 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void e(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -108,14 +108,14 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
             if (z) {
                 setVisibility(0);
                 setClickable(this.u);
-                d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
+                d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
                 bVar.r(R.color.CAM_X0109);
                 bVar.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                 setConfig(bVar);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 setVisibility(0);
-                d.a.o0.r.f0.n.b bVar2 = new d.a.o0.r.f0.n.b();
+                d.a.p0.s.f0.n.b bVar2 = new d.a.p0.s.f0.n.b();
                 bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
                 bVar2.i(this.t, 0, TBSpecificationButtonConfig.IconType.SVG);
                 bVar2.q(R.color.CAM_X0304);
@@ -191,7 +191,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
         this.t = 0;
         this.u = true;
-        d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
+        d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
         bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
         bVar.i(this.t, 0, TBSpecificationButtonConfig.IconType.SVG);
         bVar.q(R.color.CAM_X0304);

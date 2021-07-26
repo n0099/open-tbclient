@@ -17,26 +17,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes4.dex */
 public class SearchView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f14460e;
+    public Context f14508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f14461f;
+    public View f14509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f14462g;
+    public TextView f14510g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f14463h;
+    public TextView f14511h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f14464i;
+    public View f14512i;
     public ImageView j;
     public TextView k;
     public View.OnClickListener l;
@@ -66,17 +66,17 @@ public class SearchView extends LinearLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) && this.l == null) {
             this.l = onClickListener;
-            this.f14464i.setOnClickListener(onClickListener);
+            this.f14512i.setOnClickListener(onClickListener);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f14461f = findViewById(R.id.search_view_title_container);
-            this.f14462g = (TextView) findViewById(R.id.search_view_title);
-            this.f14463h = (TextView) findViewById(R.id.search_view_rank);
-            this.f14464i = findViewById(R.id.search_container);
+            this.f14509f = findViewById(R.id.search_view_title_container);
+            this.f14510g = (TextView) findViewById(R.id.search_view_title);
+            this.f14511h = (TextView) findViewById(R.id.search_view_rank);
+            this.f14512i = findViewById(R.id.search_container);
             this.j = (ImageView) findViewById(R.id.search_bar_icon);
             this.k = (TextView) findViewById(R.id.search_text);
         }
@@ -85,7 +85,7 @@ public class SearchView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f14460e = getContext();
+            this.f14508e = getContext();
             setOrientation(1);
             setMinimumHeight(l.g(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -98,12 +98,12 @@ public class SearchView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             int g2 = l.g(getContext(), R.dimen.tbds100);
-            View view = this.f14464i;
+            View view = this.f14512i;
             int i3 = R.color.CAM_X0204;
             SkinManager.setBackgroundShapeDrawable(view, g2, i3, i3, i2);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f14462g, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f14463h, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f14510g, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f14511h, R.color.CAM_X0105, 1, i2);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i2);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i2);
         }
@@ -112,8 +112,8 @@ public class SearchView extends LinearLayout {
     public void setRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f14461f.setVisibility(0);
-            this.f14463h.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i2)));
+            this.f14509f.setVisibility(0);
+            this.f14511h.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i2)));
         }
     }
 

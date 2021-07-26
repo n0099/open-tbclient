@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.u.b.a.b;
-import a.a.a.a.y.d;
+import a.a.a.a.r.b.a.b;
+import a.a.a.a.v.d;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
@@ -25,10 +25,10 @@ public final class CSJNativeAdSmallImgView extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f32693f;
+    public ImageView f32882f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f32694g;
+    public float f32883g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdSmallImgView(Context context) {
@@ -48,7 +48,7 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
         }
-        this.f32694g = 1.78f;
+        this.f32883g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
         }
-        this.f32694g = 1.78f;
+        this.f32883g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,10 +92,10 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
         }
-        this.f32694g = 1.78f;
+        this.f32883g = 1.78f;
     }
 
-    @Override // a.a.a.a.u.b.a.b
+    @Override // a.a.a.a.r.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         TTImage tTImage;
         Interceptable interceptable = $ic;
@@ -106,10 +106,10 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
             d.b("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-            this.f32694g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
+            this.f32883g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
             Context context = getContext();
             String imageUrl = tTImage.getImageUrl();
-            ImageView imageView = this.f32693f;
+            ImageView imageView = this.f32882f;
             if (context == null) {
                 d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -126,12 +126,12 @@ public final class CSJNativeAdSmallImgView extends b {
         }
     }
 
-    @Override // a.a.a.a.u.b.a.b, android.view.View
+    @Override // a.a.a.a.r.b.a.b, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32693f = (ImageView) findViewById(R.id.ad_img);
+            this.f32882f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -140,11 +140,11 @@ public final class CSJNativeAdSmallImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32693f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32882f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f32694g);
-            this.f32693f.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f32883g);
+            this.f32882f.setLayoutParams(layoutParams);
         }
     }
 }

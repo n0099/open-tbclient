@@ -12,10 +12,10 @@ public class g implements AlipayResultActivity.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CountDownLatch f1977a;
+    public final /* synthetic */ CountDownLatch f2010a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f1978b;
+    public final /* synthetic */ e f2011b;
 
     public g(e eVar, CountDownLatch countDownLatch) {
         Interceptable interceptable = $ic;
@@ -32,16 +32,16 @@ public class g implements AlipayResultActivity.a {
                 return;
             }
         }
-        this.f1978b = eVar;
-        this.f1977a = countDownLatch;
+        this.f2011b = eVar;
+        this.f2010a = countDownLatch;
     }
 
     @Override // com.alipay.sdk.app.AlipayResultActivity.a
     public void a(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) {
-            this.f1978b.f1975i = com.alipay.sdk.app.j.a(i2, str, str2);
-            this.f1977a.countDown();
+            this.f2011b.f2008i = com.alipay.sdk.app.j.a(i2, str, str2);
+            this.f2010a.countDown();
         }
     }
 }

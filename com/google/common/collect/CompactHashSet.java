@@ -46,16 +46,16 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33161e;
+        public int f33350e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33162f;
+        public int f33351f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f33163g;
+        public int f33352g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CompactHashSet f33164h;
+        public final /* synthetic */ CompactHashSet f33353h;
 
         public a(CompactHashSet compactHashSet) {
             Interceptable interceptable = $ic;
@@ -72,16 +72,16 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
                     return;
                 }
             }
-            this.f33164h = compactHashSet;
-            CompactHashSet compactHashSet2 = this.f33164h;
-            this.f33161e = compactHashSet2.modCount;
-            this.f33162f = compactHashSet2.firstEntryIndex();
-            this.f33163g = -1;
+            this.f33353h = compactHashSet;
+            CompactHashSet compactHashSet2 = this.f33353h;
+            this.f33350e = compactHashSet2.modCount;
+            this.f33351f = compactHashSet2.firstEntryIndex();
+            this.f33352g = -1;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f33164h.modCount != this.f33161e) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f33353h.modCount != this.f33350e) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -90,7 +90,7 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33162f >= 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33351f >= 0 : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -100,11 +100,11 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 a();
                 if (hasNext()) {
-                    int i2 = this.f33162f;
-                    this.f33163g = i2;
-                    CompactHashSet compactHashSet = this.f33164h;
+                    int i2 = this.f33351f;
+                    this.f33352g = i2;
+                    CompactHashSet compactHashSet = this.f33353h;
                     E e2 = (E) compactHashSet.elements[i2];
-                    this.f33162f = compactHashSet.getSuccessor(i2);
+                    this.f33351f = compactHashSet.getSuccessor(i2);
                     return e2;
                 }
                 throw new NoSuchElementException();
@@ -117,12 +117,12 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 a();
-                m.e(this.f33163g >= 0);
-                this.f33161e++;
-                CompactHashSet compactHashSet = this.f33164h;
-                compactHashSet.remove(compactHashSet.elements[this.f33163g], CompactHashSet.getHash(compactHashSet.entries[this.f33163g]));
-                this.f33162f = this.f33164h.adjustAfterRemove(this.f33162f, this.f33163g);
-                this.f33163g = -1;
+                m.e(this.f33352g >= 0);
+                this.f33350e++;
+                CompactHashSet compactHashSet = this.f33353h;
+                compactHashSet.remove(compactHashSet.elements[this.f33352g], CompactHashSet.getHash(compactHashSet.entries[this.f33352g]));
+                this.f33351f = this.f33353h.adjustAfterRemove(this.f33351f, this.f33352g);
+                this.f33352g = -1;
             }
         }
     }

@@ -148,13 +148,13 @@ public final class TBAlertConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12285a;
+        public String f12315a;
 
         /* renamed from: b  reason: collision with root package name */
-        public OperateBtnStyle f12286b;
+        public OperateBtnStyle f12316b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View.OnClickListener f12287c;
+        public View.OnClickListener f12317c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(@StringRes int i2, @NonNull OperateBtnStyle operateBtnStyle) {
@@ -180,7 +180,7 @@ public final class TBAlertConfig {
         public void a(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                this.f12287c = onClickListener;
+                this.f12317c = onClickListener;
             }
         }
 
@@ -199,9 +199,9 @@ public final class TBAlertConfig {
                     return;
                 }
             }
-            this.f12285a = TbadkCoreApplication.getInst().getResources().getString(i2);
-            this.f12286b = operateBtnStyle;
-            this.f12287c = onClickListener;
+            this.f12315a = TbadkCoreApplication.getInst().getResources().getString(i2);
+            this.f12316b = operateBtnStyle;
+            this.f12317c = onClickListener;
         }
     }
 
@@ -211,16 +211,16 @@ public final class TBAlertConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final OperateType f12288a;
+        public final OperateType f12318a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f12289b;
+        public a f12319b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f12290c;
+        public a f12320c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f12291d;
+        public a f12321d;
 
         public b(OperateType operateType) {
             Interceptable interceptable = $ic;
@@ -237,7 +237,7 @@ public final class TBAlertConfig {
                     return;
                 }
             }
-            this.f12288a = operateType;
+            this.f12318a = operateType;
         }
 
         public static b a(a aVar) {
@@ -245,7 +245,7 @@ public final class TBAlertConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
                 b bVar = new b(OperateType.ONE);
-                bVar.f12289b = aVar;
+                bVar.f12319b = aVar;
                 return bVar;
             }
             return (b) invokeL.objValue;
@@ -256,9 +256,9 @@ public final class TBAlertConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, aVar, aVar2, aVar3)) == null) {
                 b bVar = new b(OperateType.THREE);
-                bVar.f12289b = aVar;
-                bVar.f12290c = aVar2;
-                bVar.f12291d = aVar3;
+                bVar.f12319b = aVar;
+                bVar.f12320c = aVar2;
+                bVar.f12321d = aVar3;
                 return bVar;
             }
             return (b) invokeLLL.objValue;
@@ -269,8 +269,8 @@ public final class TBAlertConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, aVar, aVar2)) == null) {
                 b bVar = new b(OperateType.TWO);
-                bVar.f12289b = aVar;
-                bVar.f12290c = aVar2;
+                bVar.f12319b = aVar;
+                bVar.f12320c = aVar2;
                 return bVar;
             }
             return (b) invokeLL.objValue;

@@ -23,31 +23,31 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<k> f71824a;
+    public final List<k> f72278a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<k> f71825b;
+    public final List<k> f72279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DownloadInfo f71826c;
+    public final DownloadInfo f72280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.l.a.e.b.g.k f71827d;
+    public final d.l.a.e.b.g.k f72281d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.l.a.e.b.j.a f71828e;
+    public final d.l.a.e.b.j.a f72282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.l.a.e.b.k.f f71829f;
+    public final d.l.a.e.b.k.f f72283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f71830g;
+    public final c f72284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseException f71831h;
+    public BaseException f72285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f71832i;
+    public volatile boolean f72286i;
     public volatile boolean j;
     public volatile boolean k;
     public final d.l.a.e.b.a.a l;
@@ -74,37 +74,37 @@ public class g {
                 return;
             }
         }
-        this.f71824a = new LinkedList();
-        this.f71825b = new ArrayList();
-        this.f71832i = false;
+        this.f72278a = new LinkedList();
+        this.f72279b = new ArrayList();
+        this.f72286i = false;
         this.j = false;
         this.k = false;
         this.r = 0L;
         this.s = 0L;
-        this.f71826c = downloadInfo;
-        this.f71827d = d.l.a.e.b.g.e.M0();
-        this.f71829f = fVar;
-        this.f71830g = cVar;
+        this.f72280c = downloadInfo;
+        this.f72281d = d.l.a.e.b.g.e.M0();
+        this.f72283f = fVar;
+        this.f72284g = cVar;
         this.l = d.l.a.e.b.a.a.c();
         d.l.a.e.b.j.a d2 = d.l.a.e.b.j.a.d(downloadInfo.getId());
-        this.f71828e = d2;
+        this.f72282e = d2;
         boolean z = d2.b("sync_strategy", 0) == 1;
         this.m = z;
         if (z) {
-            this.n = Math.max(this.f71828e.b("sync_interval_ms_fg", 5000), 500L);
-            this.o = Math.max(this.f71828e.b("sync_interval_ms_bg", 1000), 500L);
+            this.n = Math.max(this.f72282e.b("sync_interval_ms_fg", 5000), 500L);
+            this.o = Math.max(this.f72282e.b("sync_interval_ms_bg", 1000), 500L);
         } else {
             this.n = 0L;
             this.o = 0L;
         }
-        this.p = this.f71828e.m("monitor_rw") == 1;
+        this.p = this.f72282e.m("monitor_rw") == 1;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.k = true;
-            this.f71832i = true;
+            this.f72286i = true;
         }
     }
 
@@ -120,7 +120,7 @@ public class g {
                 }
                 return;
             }
-            long curBytes = this.f71826c.getCurBytes() - this.r;
+            long curBytes = this.f72280c.getCurBytes() - this.r;
             if (z || h(curBytes, j2)) {
                 k();
                 this.s = j;
@@ -172,10 +172,10 @@ public class g {
             return;
         }
         d.l.a.e.b.o.d.e();
-        this.f71831h = null;
-        downloadInfo = this.f71826c;
-        d.l.a.e.b.k.f fVar = this.f71829f;
-        c cVar = this.f71830g;
+        this.f72285h = null;
+        downloadInfo = this.f72280c;
+        d.l.a.e.b.k.f fVar = this.f72283f;
+        c cVar = this.f72284g;
         curBytes = downloadInfo.getCurBytes();
         nanoTime = System.nanoTime();
         z = this.p;
@@ -199,7 +199,7 @@ public class g {
                             i3 = i4;
                             j4 = j7;
                             try {
-                                this.f71831h = e;
+                                this.f72285h = e;
                                 throw e;
                             } catch (Throwable th6) {
                                 th = th6;
@@ -218,12 +218,12 @@ public class g {
                             j2 = j5;
                             i2 = i4;
                             j3 = j7;
-                            if (!this.f71828e.l("ignore_base_ex_on_stop_status")) {
+                            if (!this.f72282e.l("ignore_base_ex_on_stop_status")) {
                             }
                             if (d.l.a.e.b.c.a.e()) {
                             }
                             d.l.a.e.b.c.a.j("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                            this.f71831h = e;
+                            this.f72285h = e;
                             throw e;
                         } catch (Throwable th7) {
                             th = th7;
@@ -246,10 +246,10 @@ public class g {
                         }
                         j2 = j5;
                         try {
-                            int i5 = a2.f71813c;
+                            int i5 = a2.f72267c;
                             if (i5 == -1) {
                                 try {
-                                    d(a2.f71812b);
+                                    d(a2.f72266b);
                                     cVar.a(a2);
                                     j5 = j2;
                                 } catch (p e4) {
@@ -257,13 +257,13 @@ public class g {
                                     i3 = i4;
                                     j4 = j7;
                                     j5 = j2;
-                                    this.f71831h = e;
+                                    this.f72285h = e;
                                     throw e;
                                 } catch (BaseException e5) {
                                     e = e5;
                                     i2 = i4;
                                     j3 = j7;
-                                    if (!this.f71828e.l("ignore_base_ex_on_stop_status") && (this.j || this.k)) {
+                                    if (!this.f72282e.l("ignore_base_ex_on_stop_status") && (this.j || this.k)) {
                                         if (i2 > 0) {
                                             try {
                                                 fVar.b(i2);
@@ -277,12 +277,12 @@ public class g {
                                                 th3 = th8;
                                                 d.l.a.e.b.c.a.j("MultiSegmentWriter", "loopAndWrite: finally sync, e = " + th3);
                                                 synchronized (this) {
-                                                    l(this.f71824a);
-                                                    this.f71824a.clear();
+                                                    l(this.f72278a);
+                                                    this.f72278a.clear();
                                                 }
-                                                d.l.a.e.b.e.a.f(this.f71828e, downloadInfo, downloadInfo.getUrl(), null, this.j, this.k, this.f71831h, downloadInfo.getCurBytes() - curBytes, System.nanoTime() - nanoTime, z, j2, j3, this.q, null);
+                                                d.l.a.e.b.e.a.f(this.f72282e, downloadInfo, downloadInfo.getUrl(), null, this.j, this.k, this.f72285h, downloadInfo.getCurBytes() - curBytes, System.nanoTime() - nanoTime, z, j2, j3, this.q, null);
                                                 if (th3 != null) {
-                                                    if (!this.j && !this.k && this.f71831h == null) {
+                                                    if (!this.j && !this.k && this.f72285h == null) {
                                                         z2 = false;
                                                     }
                                                     if (z2) {
@@ -292,7 +292,7 @@ public class g {
                                                         d.l.a.e.b.l.f.B(th3, "loopAndWrite_finally");
                                                         throw null;
                                                     } catch (BaseException e6) {
-                                                        this.f71831h = e6;
+                                                        this.f72285h = e6;
                                                         throw e6;
                                                     }
                                                 }
@@ -307,7 +307,7 @@ public class g {
                                             e.printStackTrace();
                                         }
                                         d.l.a.e.b.c.a.j("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                                        this.f71831h = e;
+                                        this.f72285h = e;
                                         throw e;
                                     }
                                 } catch (Throwable th9) {
@@ -323,7 +323,7 @@ public class g {
                                             d.l.a.e.b.l.f.B(th, "loopAndWrite");
                                             throw null;
                                         } catch (BaseException e7) {
-                                            this.f71831h = e7;
+                                            this.f72285h = e7;
                                             throw e7;
                                         }
                                     }
@@ -334,12 +334,12 @@ public class g {
                                             th2 = th10;
                                             d.l.a.e.b.c.a.j("MultiSegmentWriter", "loopAndWrite: finally sync, e = " + th2);
                                             synchronized (this) {
-                                                l(this.f71824a);
-                                                this.f71824a.clear();
+                                                l(this.f72278a);
+                                                this.f72278a.clear();
                                             }
-                                            d.l.a.e.b.e.a.f(this.f71828e, downloadInfo, downloadInfo.getUrl(), null, this.j, this.k, this.f71831h, downloadInfo.getCurBytes() - curBytes, System.nanoTime() - nanoTime, z, j2, j, this.q, null);
+                                            d.l.a.e.b.e.a.f(this.f72282e, downloadInfo, downloadInfo.getUrl(), null, this.j, this.k, this.f72285h, downloadInfo.getCurBytes() - curBytes, System.nanoTime() - nanoTime, z, j2, j, this.q, null);
                                             if (th2 != null) {
-                                                if (!this.j && !this.k && this.f71831h == null) {
+                                                if (!this.j && !this.k && this.f72285h == null) {
                                                     z2 = false;
                                                 }
                                                 if (z2) {
@@ -349,7 +349,7 @@ public class g {
                                                     d.l.a.e.b.l.f.B(th2, "loopAndWrite_finally");
                                                     throw null;
                                                 } catch (BaseException e8) {
-                                                    this.f71831h = e8;
+                                                    this.f72285h = e8;
                                                     throw e8;
                                                 }
                                             }
@@ -364,14 +364,14 @@ public class g {
                                 if (z) {
                                     j6 = System.nanoTime();
                                 }
-                                a2.f71812b.b(a2);
+                                a2.f72266b.b(a2);
                                 if (z) {
                                     j7 += System.nanoTime() - j6;
                                 }
                                 j4 = j7;
                                 try {
                                     cVar.a(a2);
-                                    if (this.f71832i) {
+                                    if (this.f72286i) {
                                         if (this.j) {
                                             break;
                                         }
@@ -379,23 +379,23 @@ public class g {
                                             if (this.k) {
                                                 break;
                                             }
-                                            this.f71832i = z3;
+                                            this.f72286i = z3;
                                         } catch (p e9) {
                                             e = e9;
                                             i3 = i4;
                                             j5 = j2;
-                                            this.f71831h = e;
+                                            this.f72285h = e;
                                             throw e;
                                         } catch (BaseException e10) {
                                             e = e10;
                                             i2 = i4;
                                             j3 = j4;
-                                            if (!this.f71828e.l("ignore_base_ex_on_stop_status")) {
+                                            if (!this.f72282e.l("ignore_base_ex_on_stop_status")) {
                                             }
                                             if (d.l.a.e.b.c.a.e()) {
                                             }
                                             d.l.a.e.b.c.a.j("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                                            this.f71831h = e;
+                                            this.f72285h = e;
                                             throw e;
                                         } catch (Throwable th11) {
                                             th = th11;
@@ -423,7 +423,7 @@ public class g {
                                                 long j9 = j6;
                                                 try {
                                                     b(uptimeMillis, fVar.b(i4));
-                                                    if (!d.l.a.e.b.o.d.f72045f) {
+                                                    if (!d.l.a.e.b.o.d.f72499f) {
                                                         if (!downloadInfo.isOnlyWifi()) {
                                                             if (downloadInfo.isDownloadFromReserveWifi() && downloadInfo.isPauseReserveOnWifi()) {
                                                                 throw new com.ss.android.socialbase.downloader.exception.e();
@@ -442,18 +442,18 @@ public class g {
                                                     e = e11;
                                                     j5 = j2;
                                                     i3 = 0;
-                                                    this.f71831h = e;
+                                                    this.f72285h = e;
                                                     throw e;
                                                 } catch (BaseException e12) {
                                                     e = e12;
                                                     j3 = j4;
                                                     i2 = 0;
-                                                    if (!this.f71828e.l("ignore_base_ex_on_stop_status")) {
+                                                    if (!this.f72282e.l("ignore_base_ex_on_stop_status")) {
                                                     }
                                                     if (d.l.a.e.b.c.a.e()) {
                                                     }
                                                     d.l.a.e.b.c.a.j("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                                                    this.f71831h = e;
+                                                    this.f72285h = e;
                                                     throw e;
                                                 } catch (Throwable th12) {
                                                     th = th12;
@@ -472,18 +472,18 @@ public class g {
                                             e = e13;
                                             i3 = i4;
                                             j5 = j2;
-                                            this.f71831h = e;
+                                            this.f72285h = e;
                                             throw e;
                                         } catch (BaseException e14) {
                                             e = e14;
                                             i2 = i4;
                                             j3 = j4;
-                                            if (!this.f71828e.l("ignore_base_ex_on_stop_status")) {
+                                            if (!this.f72282e.l("ignore_base_ex_on_stop_status")) {
                                             }
                                             if (d.l.a.e.b.c.a.e()) {
                                             }
                                             d.l.a.e.b.c.a.j("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                                            this.f71831h = e;
+                                            this.f72285h = e;
                                             throw e;
                                         } catch (Throwable th13) {
                                             th = th13;
@@ -518,12 +518,12 @@ public class g {
                             e = e18;
                             i2 = i4;
                             j3 = j7;
-                            if (!this.f71828e.l("ignore_base_ex_on_stop_status")) {
+                            if (!this.f72282e.l("ignore_base_ex_on_stop_status")) {
                             }
                             if (d.l.a.e.b.c.a.e()) {
                             }
                             d.l.a.e.b.c.a.j("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                            this.f71831h = e;
+                            this.f72285h = e;
                             throw e;
                         } catch (Throwable th15) {
                             th = th15;
@@ -569,12 +569,12 @@ public class g {
                 }
                 th4 = null;
                 synchronized (this) {
-                    l(this.f71824a);
-                    this.f71824a.clear();
+                    l(this.f72278a);
+                    this.f72278a.clear();
                 }
-                d.l.a.e.b.e.a.f(this.f71828e, downloadInfo, downloadInfo.getUrl(), null, this.j, this.k, this.f71831h, downloadInfo.getCurBytes() - curBytes, System.nanoTime() - nanoTime, z, j2, j, this.q, null);
+                d.l.a.e.b.e.a.f(this.f72282e, downloadInfo, downloadInfo.getUrl(), null, this.j, this.k, this.f72285h, downloadInfo.getCurBytes() - curBytes, System.nanoTime() - nanoTime, z, j2, j, this.q, null);
                 if (th4 != null) {
-                    if (!this.j && !this.k && this.f71831h == null) {
+                    if (!this.j && !this.k && this.f72285h == null) {
                         z2 = false;
                     }
                     if (!z2) {
@@ -582,7 +582,7 @@ public class g {
                             d.l.a.e.b.l.f.B(th4, "loopAndWrite_finally");
                             throw null;
                         } catch (BaseException e21) {
-                            this.f71831h = e21;
+                            this.f72285h = e21;
                             throw e21;
                         }
                     }
@@ -608,12 +608,12 @@ public class g {
                 th5 = th20;
                 d.l.a.e.b.c.a.j("MultiSegmentWriter", "loopAndWrite: finally sync, e = " + th5);
                 synchronized (this) {
-                    l(this.f71824a);
-                    this.f71824a.clear();
+                    l(this.f72278a);
+                    this.f72278a.clear();
                 }
-                d.l.a.e.b.e.a.f(this.f71828e, downloadInfo, downloadInfo.getUrl(), null, this.j, this.k, this.f71831h, downloadInfo.getCurBytes() - curBytes, System.nanoTime() - nanoTime, z, j2, j4, this.q, null);
+                d.l.a.e.b.e.a.f(this.f72282e, downloadInfo, downloadInfo.getUrl(), null, this.j, this.k, this.f72285h, downloadInfo.getCurBytes() - curBytes, System.nanoTime() - nanoTime, z, j2, j4, this.q, null);
                 if (th5 != null) {
-                    if (!this.j && !this.k && this.f71831h == null) {
+                    if (!this.j && !this.k && this.f72285h == null) {
                         z2 = false;
                     }
                     if (z2) {
@@ -623,7 +623,7 @@ public class g {
                         d.l.a.e.b.l.f.B(th5, "loopAndWrite_finally");
                         throw null;
                     } catch (BaseException e24) {
-                        this.f71831h = e24;
+                        this.f72285h = e24;
                         throw e24;
                     }
                 }
@@ -639,7 +639,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
             synchronized (this) {
-                this.f71825b.add((k) eVar);
+                this.f72279b.add((k) eVar);
             }
         }
     }
@@ -648,7 +648,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, kVar) == null) {
             synchronized (this) {
-                this.f71824a.add(kVar);
+                this.f72278a.add(kVar);
             }
         }
     }
@@ -688,7 +688,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.j = true;
-            this.f71832i = true;
+            this.f72286i = true;
         }
     }
 
@@ -706,10 +706,10 @@ public class g {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             boolean z = this.p;
             long nanoTime = z ? System.nanoTime() : 0L;
-            DownloadInfo downloadInfo = this.f71826c;
-            d.l.a.e.b.g.k kVar = this.f71827d;
-            List<k> list = this.f71824a;
-            List<k> list2 = this.f71825b;
+            DownloadInfo downloadInfo = this.f72280c;
+            d.l.a.e.b.g.k kVar = this.f72281d;
+            List<k> list = this.f72278a;
+            List<k> list2 = this.f72279b;
             Map<Long, i> l = kVar.l(downloadInfo.getId());
             if (l == null) {
                 l = new HashMap<>(4);

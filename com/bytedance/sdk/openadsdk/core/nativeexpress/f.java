@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.w;
 import com.bytedance.sdk.openadsdk.core.widget.webview.a.e;
-import java.io.File;
-import java.io.FileInputStream;
+import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
+import java.io.InputStream;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
+public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f30434a;
+    public com.bytedance.sdk.openadsdk.core.e.m f30577a;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30435h;
+    public boolean f30578h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context, w wVar, com.bytedance.sdk.openadsdk.core.e.m mVar, com.bytedance.sdk.openadsdk.e.j jVar, boolean z) {
@@ -48,8 +48,8 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
                 return;
             }
         }
-        this.f30434a = mVar;
-        this.f30435h = z;
+        this.f30577a = mVar;
+        this.f30578h = z;
     }
 
     private WebResourceResponse a(WebView webView, String str) {
@@ -61,8 +61,8 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
                 return null;
             }
             e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-            if (a2 != e.a.f30953d) {
-                Iterator<com.bytedance.sdk.openadsdk.core.e.l> it = this.f30434a.ad().iterator();
+            if (a2 != e.a.f31130d) {
+                Iterator<com.bytedance.sdk.openadsdk.core.e.l> it = this.f30577a.ad().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -80,33 +80,36 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
                     }
                 }
             }
-            if (a2 == e.a.f30953d) {
+            if (a2 == e.a.f31130d) {
                 return a(str, "");
             }
-            return com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a(str, a2, lVar != null ? lVar.g() : "");
+            if (lVar != null) {
+                return a(str, lVar.g());
+            }
+            return com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a(str, a2, "");
         }
         return (WebResourceResponse) invokeLL.objValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
+    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            this.f30965f = false;
+            this.f31152f = false;
             super.onPageFinished(webView, str);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
+    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-            this.f30966g = false;
+            this.f31153g = false;
             super.onPageStarted(webView, str, bitmap);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
+    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
     @TargetApi(21)
     public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
@@ -115,14 +118,14 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
             try {
                 return shouldInterceptRequest(webView, webResourceRequest.getUrl().toString());
             } catch (Throwable th) {
-                com.bytedance.sdk.component.utils.j.c("ExpressClient", "shouldInterceptRequest error1", th);
+                com.bytedance.sdk.component.utils.k.c("ExpressClient", "shouldInterceptRequest error1", th);
                 return super.shouldInterceptRequest(webView, webResourceRequest);
             }
         }
         return (WebResourceResponse) invokeLL.objValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
+    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
     public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -135,7 +138,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
                     return a2;
                 }
             } catch (Throwable th) {
-                com.bytedance.sdk.component.utils.j.c("ExpressClient", "shouldInterceptRequest error2", th);
+                com.bytedance.sdk.component.utils.k.c("ExpressClient", "shouldInterceptRequest error2", th);
             }
             return super.shouldInterceptRequest(webView, str);
         }
@@ -150,16 +153,13 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
                 return null;
             }
             try {
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = com.bytedance.sdk.openadsdk.l.a.a.a().a(str, 0, 0, null);
+                InputStream a2 = ImageLoaderWrapper.a(str, str2);
+                if (a2 != null) {
+                    return new WebResourceResponse(e.a.f31130d.a(), "utf-8", a2);
                 }
-                File a2 = com.bytedance.sdk.openadsdk.l.a.a.a().a(str2, this.f30435h);
-                if (a2 == null || !a2.exists() || a2.length() <= 0) {
-                    return null;
-                }
-                return new WebResourceResponse(e.a.f30953d.a(), "utf-8", new FileInputStream(a2));
+                return null;
             } catch (Throwable th) {
-                com.bytedance.sdk.component.utils.j.c("ExpressClient", "get image WebResourceResponse error", th);
+                com.bytedance.sdk.component.utils.k.c("ExpressClient", "get image WebResourceResponse error", th);
                 return null;
             }
         }
@@ -169,14 +169,14 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
     private void a(long j, long j2, String str, int i2) {
         com.bytedance.sdk.openadsdk.e.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Integer.valueOf(i2)}) == null) || (jVar = this.f30964e) == null || jVar.b() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Integer.valueOf(i2)}) == null) || (jVar = this.f31151e) == null || jVar.b() == null) {
             return;
         }
         e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-        if (a2 == e.a.f30950a) {
-            this.f30964e.b().a(str, j, j2, i2);
-        } else if (a2 == e.a.f30952c) {
-            this.f30964e.b().b(str, j, j2, i2);
+        if (a2 == e.a.f31127a) {
+            this.f31151e.b().a(str, j, j2, i2);
+        } else if (a2 == e.a.f31129c) {
+            this.f31151e.b().b(str, j, j2, i2);
         }
     }
 }

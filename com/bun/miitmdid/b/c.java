@@ -17,7 +17,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f27594a;
+    public Map<String, String> f27752a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -32,22 +32,22 @@ public class c {
                 return;
             }
         }
-        this.f27594a = new HashMap();
+        this.f27752a = new HashMap();
     }
 
     private Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f27594a.isEmpty()) {
-                this.f27594a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
-                this.f27594a.put("sv", sysParamters.a().c());
-                this.f27594a.put("md", sysParamters.a().d());
-                this.f27594a.put("mf", sysParamters.a().e());
-                this.f27594a.put(Config.PACKAGE_NAME, sysParamters.g());
+            if (this.f27752a.isEmpty()) {
+                this.f27752a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
+                this.f27752a.put("sv", sysParamters.a().c());
+                this.f27752a.put("md", sysParamters.a().d());
+                this.f27752a.put("mf", sysParamters.a().e());
+                this.f27752a.put(Config.PACKAGE_NAME, sysParamters.g());
             }
-            this.f27594a.put("tm", String.valueOf(System.currentTimeMillis()));
-            return this.f27594a;
+            this.f27752a.put("tm", String.valueOf(System.currentTimeMillis()));
+            return this.f27752a;
         }
         return (Map) invokeV.objValue;
     }
@@ -68,7 +68,7 @@ public class c {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f27595a;
+                    public final /* synthetic */ c f27753a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -85,7 +85,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f27595a = this;
+                        this.f27753a = this;
                     }
 
                     @Override // com.bun.miitmdid.b.b.a

@@ -19,10 +19,10 @@ import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-import d.a.v0.t.c;
-import d.a.v0.t.d;
-import d.a.v0.t.h;
-import d.a.z.b.a.e;
+import d.a.a0.b.a.e;
+import d.a.w0.t.c;
+import d.a.w0.t.d;
+import d.a.w0.t.h;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */

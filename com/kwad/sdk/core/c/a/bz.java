@@ -38,11 +38,11 @@ public class bz implements com.kwad.sdk.core.d<ReportAction> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, reportAction, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        reportAction.f34833d = jSONObject.optLong("timestamp");
-        reportAction.f34834e = jSONObject.optString("sessionId");
-        reportAction.f34835f = jSONObject.optLong(IAdRequestParam.SEQ);
-        reportAction.f34837h = jSONObject.optLong("listId");
-        reportAction.f34838i = jSONObject.optLong(LightInvokerImpl.VOICE_ACTIONTYPE);
+        reportAction.f35022d = jSONObject.optLong("timestamp");
+        reportAction.f35023e = jSONObject.optString("sessionId");
+        reportAction.f35024f = jSONObject.optLong(IAdRequestParam.SEQ);
+        reportAction.f35026h = jSONObject.optLong("listId");
+        reportAction.f35027i = jSONObject.optLong(LightInvokerImpl.VOICE_ACTIONTYPE);
         reportAction.j = jSONObject.optLong("llsid");
         reportAction.k = jSONObject.optJSONObject("extra");
         reportAction.l = jSONObject.optJSONObject("impAdExtra");
@@ -173,11 +173,11 @@ public class bz implements com.kwad.sdk.core.d<ReportAction> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "timestamp", reportAction.f34833d);
-            com.kwad.sdk.utils.q.a(jSONObject, "sessionId", reportAction.f34834e);
-            com.kwad.sdk.utils.q.a(jSONObject, IAdRequestParam.SEQ, reportAction.f34835f);
-            com.kwad.sdk.utils.q.a(jSONObject, "listId", reportAction.f34837h);
-            com.kwad.sdk.utils.q.a(jSONObject, LightInvokerImpl.VOICE_ACTIONTYPE, reportAction.f34838i);
+            com.kwad.sdk.utils.q.a(jSONObject, "timestamp", reportAction.f35022d);
+            com.kwad.sdk.utils.q.a(jSONObject, "sessionId", reportAction.f35023e);
+            com.kwad.sdk.utils.q.a(jSONObject, IAdRequestParam.SEQ, reportAction.f35024f);
+            com.kwad.sdk.utils.q.a(jSONObject, "listId", reportAction.f35026h);
+            com.kwad.sdk.utils.q.a(jSONObject, LightInvokerImpl.VOICE_ACTIONTYPE, reportAction.f35027i);
             com.kwad.sdk.utils.q.a(jSONObject, "llsid", reportAction.j);
             com.kwad.sdk.utils.q.a(jSONObject, "extra", reportAction.k);
             com.kwad.sdk.utils.q.a(jSONObject, "impAdExtra", reportAction.l);

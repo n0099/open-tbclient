@@ -22,10 +22,10 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27306a;
+    public int f27464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrecashierCreateOrderResponse f27307b;
+    public PrecashierCreateOrderResponse f27465b;
 
     public RemotePaySplashActivity() {
         Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
                 finish();
                 return;
             }
-            this.f27306a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
-            this.f27307b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
+            this.f27464a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
+            this.f27465b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
         }
     }
 
@@ -98,8 +98,8 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Intent intent = new Intent(this, WelcomeActivity.class);
-            intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f27306a);
-            PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f27307b;
+            intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f27464a);
+            PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f27465b;
             if (precashierCreateOrderResponse != null) {
                 intent.putExtra(BaiduPay.PRECASHIER_PAY_RESPONSE, precashierCreateOrderResponse);
             }

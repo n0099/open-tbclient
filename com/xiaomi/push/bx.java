@@ -15,7 +15,7 @@ public class bx extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f39913a;
+    public final /* synthetic */ bu f40185a;
 
     public bx(bu buVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class bx extends ai.a {
                 return;
             }
         }
-        this.f39913a = buVar;
+        this.f40185a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -50,12 +50,12 @@ public class bx extends ai.a {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ckVar = this.f39913a.f163a;
+            ckVar = this.f40185a.f163a;
             if (ckVar != null) {
-                ckVar2 = this.f39913a.f163a;
-                context = this.f39913a.f160a;
+                ckVar2 = this.f40185a.f163a;
+                context = this.f40185a.f160a;
                 ckVar2.b(context);
-                this.f39913a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
+                this.f40185a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
             }
         }
     }

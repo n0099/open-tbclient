@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.H1;
 import com.win.opensdk.bridge.core.JsCallback;
-import com.win.opensdk.f1;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class JsInvokeJavaScope {
@@ -33,42 +33,42 @@ public class JsInvokeJavaScope {
     public static void finish(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, webView, jSONObject, jsCallback) == null) {
-            f1.a("hcl", "hcl", null);
+            H1.a("hcl", "hcl", null);
         }
     }
 
     public static void onPlayProgress(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, webView, jSONObject, jsCallback) == null) {
-            f1.a("onPlayProgress", "onPlayProgress", Integer.valueOf(jSONObject.optInt("message", 0)));
+            H1.a("onPlayProgress", "onPlayProgress", Integer.valueOf(jSONObject.optInt("message", 0)));
         }
     }
 
     public static void onRewardedAdFinish(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, webView, jSONObject, jsCallback) == null) {
-            f1.a("onRewardedAdFinish", "onRewardedAdFinish", Integer.valueOf(jSONObject.optInt("message", 0)));
+            H1.a("onRewardedAdFinish", "onRewardedAdFinish", Integer.valueOf(jSONObject.optInt("message", 0)));
         }
     }
 
     public static void onRewardedAdStart(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, webView, jSONObject, jsCallback) == null) {
-            f1.a("onRewardedAdStart", "onRewardedAdStart", null);
+            H1.a("onRewardedAdStart", "onRewardedAdStart", null);
         }
     }
 
     public static void onRewardedShowFail(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, webView, jSONObject, jsCallback) == null) {
-            f1.a("onRewardedShowFail", "onRewardedShowFail", jSONObject.optString("message"));
+            H1.a("onRewardedShowFail", "onRewardedShowFail", jSONObject.optString("message"));
         }
     }
 
     public static void onT(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, webView, jSONObject, jsCallback) == null) {
-            f1.a("onT", "onT", jSONObject.optString("message"));
+            H1.a("onT", "onT", jSONObject.optString("message"));
         }
     }
 

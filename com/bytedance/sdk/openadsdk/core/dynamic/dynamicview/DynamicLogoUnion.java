@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 /* loaded from: classes5.dex */
 public class DynamicLogoUnion extends DynamicBaseWidgetImp {
@@ -47,7 +47,7 @@ public class DynamicLogoUnion extends DynamicBaseWidgetImp {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
             ((ImageView) this.n).setScaleType(ImageView.ScaleType.FIT_XY);
-            ((ImageView) this.n).setImageResource(r.d(getContext(), "tt_ad_logo_small"));
+            ((ImageView) this.n).setImageResource(t.d(getContext(), "tt_ad_logo_small"));
             return true;
         }
         return invokeV.booleanValue;

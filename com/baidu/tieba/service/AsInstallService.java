@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.n;
+import d.a.q0.n;
 /* loaded from: classes4.dex */
 public class AsInstallService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
@@ -39,7 +39,7 @@ public class AsInstallService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AsInstallService f20687e;
+        public final /* synthetic */ AsInstallService f20805e;
 
         public a(AsInstallService asInstallService) {
             Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public class AsInstallService extends BdBaseService {
                     return;
                 }
             }
-            this.f20687e = asInstallService;
+            this.f20805e = asInstallService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20687e.stopSelf();
+                this.f20805e.stopSelf();
             }
         }
     }

@@ -1,936 +1,481 @@
 package d.a.o0.a;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Calendar;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.MissionInfo;
 /* loaded from: classes7.dex */
-public class c {
+public final class c {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String C = "activityid";
-    public static String D = "missionid";
-    public static String E = "activitysource";
-    public static String F = "source";
-    public static String G = "tab";
-    public static String H = "calltype";
-    public static String I = "tasktype";
-    public static String J = "browsetimepage";
-    public static String K = "browsetime";
-    public static String L = "threadnum";
-    public static String M = "forumnum";
-    public static String N = "cleartype";
-    public static String O = "cleartime";
-    public static String P = "tid";
-    public static String Q = "fid";
-    public static String R = "threadtext";
-    public static String S = "threadimg";
-    public static String T = "threadforum";
-    public static String U = "total_limit";
-    public static int V = -1;
-    public static int W = 1;
-    public static int X = 2;
-    public static int Y = 3;
-    public static int Z = 8;
-    public static int a0 = 9;
-    public static int b0 = -1;
-    public static int c0 = 0;
-    public static int d0 = 1;
-    public static int e0 = 2;
-    public static int f0 = 3;
+    public static final int BC132 = 2131099649;
+    public static final int BC145 = 2131099650;
+    public static final int GC1 = 2131099936;
+    public static final int GC10 = 2131099937;
+    public static final int GC11 = 2131099938;
+    public static final int GC12 = 2131099939;
+    public static final int GC13 = 2131099940;
+    public static final int GC14 = 2131099941;
+    public static final int GC15 = 2131099942;
+    public static final int GC16 = 2131099943;
+    public static final int GC17 = 2131099944;
+    public static final int GC18 = 2131099945;
+    public static final int GC19 = 2131099946;
+    public static final int GC2 = 2131099947;
+    public static final int GC20 = 2131099948;
+    public static final int GC21 = 2131099949;
+    public static final int GC22 = 2131099950;
+    public static final int GC23 = 2131099951;
+    public static final int GC24 = 2131099952;
+    public static final int GC25 = 2131099953;
+    public static final int GC26 = 2131099954;
+    public static final int GC27 = 2131099955;
+    public static final int GC28 = 2131099956;
+    public static final int GC29 = 2131099957;
+    public static final int GC3 = 2131099958;
+    public static final int GC30 = 2131099959;
+    public static final int GC31 = 2131099960;
+    public static final int GC32 = 2131099961;
+    public static final int GC33 = 2131099962;
+    public static final int GC34 = 2131099963;
+    public static final int GC35 = 2131099964;
+    public static final int GC36 = 2131099965;
+    public static final int GC37 = 2131099966;
+    public static final int GC38 = 2131099967;
+    public static final int GC39 = 2131099968;
+    public static final int GC4 = 2131099969;
+    public static final int GC40 = 2131099970;
+    public static final int GC41 = 2131099971;
+    public static final int GC42 = 2131099972;
+    public static final int GC43 = 2131099973;
+    public static final int GC44 = 2131099974;
+    public static final int GC45 = 2131099975;
+    public static final int GC46 = 2131099976;
+    public static final int GC47 = 2131099977;
+    public static final int GC48 = 2131099978;
+    public static final int GC49 = 2131099979;
+    public static final int GC5 = 2131099980;
+    public static final int GC50 = 2131099981;
+    public static final int GC51 = 2131099982;
+    public static final int GC52 = 2131099983;
+    public static final int GC53 = 2131099984;
+    public static final int GC54 = 2131099985;
+    public static final int GC55 = 2131099986;
+    public static final int GC56 = 2131099987;
+    public static final int GC57 = 2131099988;
+    public static final int GC58 = 2131099989;
+    public static final int GC59 = 2131099990;
+    public static final int GC6 = 2131099991;
+    public static final int GC60 = 2131099992;
+    public static final int GC61 = 2131099993;
+    public static final int GC62 = 2131099994;
+    public static final int GC63 = 2131099995;
+    public static final int GC64 = 2131099996;
+    public static final int GC65 = 2131099997;
+    public static final int GC66 = 2131099998;
+    public static final int GC67 = 2131099999;
+    public static final int GC68 = 2131100000;
+    public static final int GC69 = 2131100001;
+    public static final int GC7 = 2131100002;
+    public static final int GC70 = 2131100003;
+    public static final int GC71 = 2131100004;
+    public static final int GC72 = 2131100005;
+    public static final int GC73 = 2131100006;
+    public static final int GC74 = 2131100007;
+    public static final int GC75 = 2131100008;
+    public static final int GC76 = 2131100009;
+    public static final int GC77 = 2131100010;
+    public static final int GC78 = 2131100011;
+    public static final int GC79 = 2131100012;
+    public static final int GC8 = 2131100013;
+    public static final int GC80 = 2131100014;
+    public static final int GC81 = 2131100015;
+    public static final int GC82 = 2131100016;
+    public static final int GC83 = 2131100017;
+    public static final int GC84 = 2131100018;
+    public static final int GC85 = 2131100019;
+    public static final int GC86 = 2131100020;
+    public static final int GC87 = 2131100021;
+    public static final int GC88 = 2131100022;
+    public static final int GC89 = 2131100023;
+    public static final int GC9 = 2131100024;
+    public static final int GC90 = 2131100025;
+    public static final int abc_background_cache_hint_selector_material_dark = 2131100026;
+    public static final int abc_background_cache_hint_selector_material_light = 2131100027;
+    public static final int abc_btn_colored_borderless_text_material = 2131100028;
+    public static final int abc_btn_colored_text_material = 2131100029;
+    public static final int abc_color_highlight_material = 2131100030;
+    public static final int abc_hint_foreground_material_dark = 2131100033;
+    public static final int abc_hint_foreground_material_light = 2131100034;
+    public static final int abc_primary_text_disable_only_material_dark = 2131100035;
+    public static final int abc_primary_text_disable_only_material_light = 2131100036;
+    public static final int abc_primary_text_material_dark = 2131100037;
+    public static final int abc_primary_text_material_light = 2131100038;
+    public static final int abc_search_url_text = 2131100039;
+    public static final int abc_search_url_text_normal = 2131100040;
+    public static final int abc_search_url_text_pressed = 2131100041;
+    public static final int abc_search_url_text_selected = 2131100042;
+    public static final int abc_secondary_text_material_dark = 2131100043;
+    public static final int abc_secondary_text_material_light = 2131100044;
+    public static final int abc_tint_btn_checkable = 2131100045;
+    public static final int abc_tint_default = 2131100046;
+    public static final int abc_tint_edittext = 2131100047;
+    public static final int abc_tint_seek_thumb = 2131100048;
+    public static final int abc_tint_spinner = 2131100049;
+    public static final int abc_tint_switch_track = 2131100050;
+    public static final int accent_material_dark = 2131100051;
+    public static final int accent_material_light = 2131100052;
+    public static final int aiapp_menu_cancel_text_color_bg = 2131100053;
+    public static final int aiapp_menu_cancel_text_color_day = 2131100054;
+    public static final int aiapp_menu_content_bg = 2131100055;
+    public static final int aiapp_menu_item_text = 2131100056;
+    public static final int aiapp_menu_item_text_pressed = 2131100057;
+    public static final int aiapp_menu_item_title_color_selector = 2131100058;
+    public static final int aiapp_menu_mask = 2131100059;
+    public static final int aiapp_menu_split_line_day = 2131100060;
+    public static final int aiapp_menu_text_cancel_color_day = 2131100061;
+    public static final int aiapp_menu_text_cancel_color_day_pressed = 2131100062;
+    public static final int aiapps_about_icon_border = 2131100063;
+    public static final int aiapps_action_bar_menu_bg_solid = 2131100064;
+    public static final int aiapps_action_bar_menu_bg_solid_white = 2131100065;
+    public static final int aiapps_action_bar_menu_bg_stroke = 2131100066;
+    public static final int aiapps_action_bar_menu_bg_stroke_white = 2131100067;
+    public static final int aiapps_action_bar_menu_line_color = 2131100068;
+    public static final int aiapps_action_bar_menu_line_white = 2131100069;
+    public static final int aiapps_action_bar_operation_btn_txt_color = 2131100070;
+    public static final int aiapps_action_bar_operation_btn_txt_color_disable = 2131100071;
+    public static final int aiapps_action_bar_operation_btn_txt_color_pressed = 2131100072;
+    public static final int aiapps_action_sheet_cancel_enable = 2131100073;
+    public static final int aiapps_action_sheet_item_color = 2131100074;
+    public static final int aiapps_action_sheet_scrollbar = 2131100075;
+    public static final int aiapps_action_sheet_split_color = 2131100076;
+    public static final int aiapps_auth_dialog_btn_pos = 2131100078;
+    public static final int aiapps_auth_dialog_divider = 2131100079;
+    public static final int aiapps_auth_dialog_scopes = 2131100080;
+    public static final int aiapps_black = 2131100081;
+    public static final int aiapps_box_dialog_message_text_color = 2131100082;
+    public static final int aiapps_card_remind_timepicker_wheel_background = 2131100083;
+    public static final int aiapps_custom_blue_btn_bg_color = 2131100088;
+    public static final int aiapps_custom_blue_btn_bg_color_pressed = 2131100089;
+    public static final int aiapps_custom_blue_btn_text_color = 2131100090;
+    public static final int aiapps_custom_blue_btn_text_color_pressed = 2131100091;
+    public static final int aiapps_custom_dialog_btn_bg_pressed_color = 2131100092;
+    public static final int aiapps_data_picker_color = 2131100093;
+    public static final int aiapps_dialog_btn_text_color = 2131100094;
+    public static final int aiapps_dialog_gray = 2131100095;
+    public static final int aiapps_dialog_immersion_status_bar_color = 2131100096;
+    public static final int aiapps_dialog_title_night_text_color = 2131100097;
+    public static final int aiapps_dialog_title_text_color = 2131100098;
+    public static final int aiapps_discovery_home_menu_item_press_color = 2131100099;
+    public static final int aiapps_discovery_home_menu_text_color = 2131100100;
+    public static final int aiapps_empty_btn_solid_default = 2131100106;
+    public static final int aiapps_empty_btn_solid_pressed = 2131100107;
+    public static final int aiapps_empty_btn_stroke_default = 2131100108;
+    public static final int aiapps_empty_btn_stroke_pressed = 2131100109;
+    public static final int aiapps_empty_layout_backgroud = 2131100110;
+    public static final int aiapps_empty_view_btn_text_pressed = 2131100111;
+    public static final int aiapps_emptyview_link_text_color = 2131100112;
+    public static final int aiapps_emptyview_subtitle_text_color = 2131100113;
+    public static final int aiapps_emptyview_subtitle_text_color_night = 2131100114;
+    public static final int aiapps_emptyview_title_text_color = 2131100115;
+    public static final int aiapps_emptyview_title_text_color_night = 2131100116;
+    public static final int aiapps_entry_guide_split_line3 = 2131100117;
+    public static final int aiapps_error_detail_color = 2131100118;
+    public static final int aiapps_error_fragment_background = 2131100119;
+    public static final int aiapps_error_msg_color = 2131100120;
+    public static final int aiapps_game_keyboard_sendbutton_mask = 2131100121;
+    public static final int aiapps_games_loading_progress = 2131100125;
+    public static final int aiapps_games_loading_tips_message = 2131100126;
+    public static final int aiapps_games_loading_tips_quotation = 2131100127;
+    public static final int aiapps_go_permission_color = 2131100128;
+    public static final int aiapps_history_develop_tag_text_color = 2131100129;
+    public static final int aiapps_home_menu_separator_color = 2131100130;
+    public static final int aiapps_keyboard_divider_color = 2131100135;
+    public static final int aiapps_keyboard_item_background_pressed = 2131100136;
+    public static final int aiapps_keyboard_non_number_item_background_normal = 2131100137;
+    public static final int aiapps_keyboard_number_item_background_normal = 2131100138;
+    public static final int aiapps_keyboard_text_color_normal = 2131100139;
+    public static final int aiapps_keyboard_text_color_pressed = 2131100140;
+    public static final int aiapps_loading_text_color = 2131100141;
+    public static final int aiapps_location_item_bg_normal = 2131100142;
+    public static final int aiapps_location_item_bg_pressed = 2131100144;
+    public static final int aiapps_modal_button_press_bg = 2131100151;
+    public static final int aiapps_modal_cancel_color = 2131100152;
+    public static final int aiapps_modal_confirm_color = 2131100153;
+    public static final int aiapps_night_mode_cover_layer = 2131100154;
+    public static final int aiapps_open_location_menu_press = 2131100155;
+    public static final int aiapps_picture_loading_text_color = 2131100156;
+    public static final int aiapps_picture_pullrefresh_last_update_time_color = 2131100157;
+    public static final int aiapps_preference_title_text_color_disable = 2131100158;
+    public static final int aiapps_preference_title_text_color_enable = 2131100159;
+    public static final int aiapps_pull_load_footer_image_color = 2131100163;
+    public static final int aiapps_pull_loading_bg = 2131100164;
+    public static final int aiapps_pull_loading_refresh_anim_color = 2131100165;
+    public static final int aiapps_pull_refresh_result_text_color = 2131100166;
+    public static final int aiapps_refresh_result_bg_color = 2131100167;
+    public static final int aiapps_safe_dialog_btn_black = 2131100168;
+    public static final int aiapps_safe_dialog_btn_blue = 2131100169;
+    public static final int aiapps_safe_dialog_message = 2131100170;
+    public static final int aiapps_setting_action_sheet_divider_color = 2131100171;
+    public static final int aiapps_setting_aiapps_item_divider_color = 2131100172;
+    public static final int aiapps_ssl_dialog_go_on_text_color = 2131100174;
+    public static final int aiapps_statusbar_immersion_bg = 2131100175;
+    public static final int aiapps_statusbar_immersion_bg_below_lollipop = 2131100176;
+    public static final int aiapps_tabbar_top_divider_color = 2131100177;
+    public static final int aiapps_title_text_color = 2131100178;
+    public static final int aiapps_toast_bg_color = 2131100179;
+    public static final int aiapps_toast_bg_stroke_color = 2131100180;
+    public static final int aiapps_toast_button_bg_enable_color = 2131100181;
+    public static final int aiapps_toast_button_bg_stroke_color = 2131100182;
+    public static final int aiapps_toast_button_bg_unable_color = 2131100183;
+    public static final int aiapps_transparent = 2131100184;
+    public static final int aiapps_ui_cover_layer_color = 2131100185;
+    public static final int aiapps_white = 2131100186;
+    public static final int aiapps_white_text = 2131100187;
+    public static final int androidx_core_ripple_material_light = 2131100201;
+    public static final int androidx_core_secondary_text_default_material_light = 2131100202;
+    public static final int app_Launch_Blue_Arc_Color = 2131100203;
+    public static final int app_Launch_Download_Text_Color = 2131100204;
+    public static final int app_Launch_Gray_Arc_Color = 2131100205;
+    public static final int app_Launch_Title_Text_Color = 2131100206;
+    public static final int background_floating_material_dark = 2131100210;
+    public static final int background_floating_material_light = 2131100211;
+    public static final int background_material_dark = 2131100212;
+    public static final int background_material_light = 2131100213;
+    public static final int banner_back_solid = 2131100214;
+    public static final int banner_desc = 2131100215;
+    public static final int banner_download_stroke = 2131100216;
+    public static final int banner_download_txt_normal = 2131100217;
+    public static final int banner_download_txt_press = 2131100218;
+    public static final int black = 2131100342;
+    public static final int bright_foreground_disabled_material_dark = 2131100362;
+    public static final int bright_foreground_disabled_material_light = 2131100363;
+    public static final int bright_foreground_inverse_material_dark = 2131100364;
+    public static final int bright_foreground_inverse_material_light = 2131100365;
+    public static final int bright_foreground_material_dark = 2131100366;
+    public static final int bright_foreground_material_light = 2131100367;
+    public static final int button_material_dark = 2131100389;
+    public static final int button_material_light = 2131100390;
+    public static final int channel_bg = 2131100398;
+    public static final int close_ad_text_color = 2131100400;
+    public static final int close_back_solid = 2131100401;
+    public static final int close_back_stroke = 2131100402;
+    public static final int close_mid_vol_view = 2131100403;
+    public static final int core_permission_dialog_info_color = 2131100869;
+    public static final int core_permission_go_setting_text_color = 2131100870;
+    public static final int core_permission_guide_icon_text_color = 2131100871;
+    public static final int core_permission_next_step_text_color = 2131100872;
+    public static final int core_permission_next_step_top_divider_color = 2131100873;
+    public static final int coupon_description = 2131100874;
+    public static final int dim_foreground_disabled_material_dark = 2131101095;
+    public static final int dim_foreground_disabled_material_light = 2131101096;
+    public static final int dim_foreground_material_dark = 2131101097;
+    public static final int dim_foreground_material_light = 2131101098;
+    public static final int divider_color = 2131101100;
+    public static final int duxiaomancolor = 2131101103;
+    public static final int error_color_material_dark = 2131101195;
+    public static final int error_color_material_light = 2131101196;
+    public static final int foreground_material_dark = 2131101200;
+    public static final int foreground_material_light = 2131101201;
+    public static final int highlighted_text_material_dark = 2131101234;
+    public static final int highlighted_text_material_light = 2131101235;
+    public static final int ksw_md_back_color = 2131101293;
+    public static final int ksw_md_ripple_checked = 2131101294;
+    public static final int ksw_md_ripple_normal = 2131101295;
+    public static final int ksw_md_solid_checked = 2131101296;
+    public static final int ksw_md_solid_checked_disable = 2131101297;
+    public static final int ksw_md_solid_disable = 2131101298;
+    public static final int ksw_md_solid_normal = 2131101299;
+    public static final int ksw_md_solid_shadow = 2131101300;
+    public static final int material_blue_grey_800 = 2131101336;
+    public static final int material_blue_grey_900 = 2131101337;
+    public static final int material_blue_grey_950 = 2131101338;
+    public static final int material_deep_teal_200 = 2131101339;
+    public static final int material_deep_teal_500 = 2131101340;
+    public static final int material_grey_100 = 2131101341;
+    public static final int material_grey_300 = 2131101342;
+    public static final int material_grey_50 = 2131101343;
+    public static final int material_grey_600 = 2131101344;
+    public static final int material_grey_800 = 2131101345;
+    public static final int material_grey_850 = 2131101346;
+    public static final int material_grey_900 = 2131101347;
+    public static final int money_color = 2131101374;
+    public static final int ng_game_ad_gray = 2131101441;
+    public static final int ng_game_banner_act = 2131101442;
+    public static final int ng_game_banner_act_solid = 2131101443;
+    public static final int ng_game_banner_ad_background = 2131101444;
+    public static final int ng_game_banner_appname = 2131101445;
+    public static final int ng_game_banner_title = 2131101446;
+    public static final int ng_game_black = 2131101447;
+    public static final int ng_game_reward_banner_act_btn_col = 2131101448;
+    public static final int notification_action_color_filter = 2131101451;
+    public static final int notification_icon_bg_color = 2131101452;
+    public static final int pop_tips_content_color = 2131101525;
+    public static final int primary_dark_material_dark = 2131101529;
+    public static final int primary_dark_material_light = 2131101530;
+    public static final int primary_material_dark = 2131101531;
+    public static final int primary_material_light = 2131101532;
+    public static final int primary_text_default_material_dark = 2131101533;
+    public static final int primary_text_default_material_light = 2131101534;
+    public static final int primary_text_disabled_material_dark = 2131101535;
+    public static final int primary_text_disabled_material_light = 2131101536;
+    public static final int progress_circle_color = 2131101537;
+    public static final int ripple_material_dark = 2131101705;
+    public static final int ripple_material_light = 2131101706;
+    public static final int sailor_common_black = 2131101726;
+    public static final int sailor_safe_bg = 2131101727;
+    public static final int sailor_safe_bg_night = 2131101728;
+    public static final int sailor_safe_btn_bordor_color = 2131101729;
+    public static final int sailor_safe_btn_bordor_color_night = 2131101730;
+    public static final int sailor_safe_download_btn_color = 2131101731;
+    public static final int sailor_safe_download_btn_color_night = 2131101732;
+    public static final int sailor_safe_download_btn_text_color = 2131101733;
+    public static final int sailor_safe_download_btn_text_color_night = 2131101734;
+    public static final int sailor_safe_line_color = 2131101735;
+    public static final int sailor_safe_line_color_night = 2131101736;
+    public static final int sailor_safe_text_color = 2131101737;
+    public static final int sailor_safe_text_color_night = 2131101738;
+    public static final int sailor_safe_url_color = 2131101739;
+    public static final int sailor_safe_url_color_night = 2131101740;
+    public static final int sailor_ssl_text_label = 2131101741;
+    public static final int sailor_ssl_text_value = 2131101742;
+    public static final int sailor_web_loading_point = 2131101743;
+    public static final int sailor_web_loading_point_select = 2131101744;
+    public static final int sailor_web_loading_point_select_night = 2131101745;
+    public static final int sailor_webview_bg = 2131101746;
+    public static final int sailor_webview_bg_night = 2131101747;
+    public static final int sailor_white = 2131101748;
+    public static final int secondary_text_default_material_dark = 2131102019;
+    public static final int secondary_text_default_material_light = 2131102020;
+    public static final int secondary_text_disabled_material_dark = 2131102021;
+    public static final int secondary_text_disabled_material_light = 2131102022;
+    public static final int subtitle_color = 2131102039;
+    public static final int swan_ad_auth_dialog_btn_pos = 2131102040;
+    public static final int swan_ad_auth_dialog_divider = 2131102041;
+    public static final int swan_ad_auth_dialog_label = 2131102042;
+    public static final int swan_ad_auth_dialog_scopes = 2131102043;
+    public static final int swan_ad_box_dialog_message_text_color = 2131102044;
+    public static final int swan_ad_dialog_btn_text_color = 2131102045;
+    public static final int swan_ad_dialog_gray = 2131102046;
+    public static final int swan_ad_dialog_title_night_text_color = 2131102047;
+    public static final int swan_ad_dialog_title_text_color = 2131102048;
+    public static final int swan_ad_game_continue_watch = 2131102049;
+    public static final int swan_ad_modal_button_press_bg = 2131102050;
+    public static final int swan_ad_night_mode_cover_layer = 2131102051;
+    public static final int swan_ad_white = 2131102052;
+    public static final int swan_app_about_attentation_text_selector = 2131102053;
+    public static final int swan_app_about_attention_text = 2131102054;
+    public static final int swan_app_about_attention_text_pressed = 2131102055;
+    public static final int swan_app_about_share_text = 2131102056;
+    public static final int swan_app_about_share_text_pressed = 2131102057;
+    public static final int swan_app_action_bar_operation_btn_selector = 2131102058;
+    public static final int swan_app_action_sheet_cancel_text = 2131102059;
+    public static final int swan_app_attention_stroke_default = 2131102060;
+    public static final int swan_app_attention_stroke_pressed = 2131102061;
+    public static final int swan_app_attention_text_default = 2131102062;
+    public static final int swan_app_attention_text_pressed = 2131102063;
+    public static final int swan_app_auth_icon_border = 2131102064;
+    public static final int swan_app_auth_refuse_text_selector = 2131102065;
+    public static final int swan_app_cancel_attention_stroke_default = 2131102066;
+    public static final int swan_app_cancel_attention_stroke_pressed = 2131102067;
+    public static final int swan_app_cancel_attention_text_default = 2131102068;
+    public static final int swan_app_cancel_attention_text_pressed = 2131102069;
+    public static final int swan_app_custom_blue_btn_text_color_selector = 2131102078;
+    public static final int swan_app_emptyview_btn_text_color = 2131102079;
+    public static final int swan_app_emptyview_btn_text_color_night = 2131102080;
+    public static final int swan_app_emptyview_feed_back_btn_text_color = 2131102081;
+    public static final int swan_app_half_screen_divider_color = 2131102082;
+    public static final int swan_app_half_screen_title_close_color = 2131102083;
+    public static final int swan_app_keyboard_text_color_selector = 2131102084;
+    public static final int swan_app_local_debug_running_bg = 2131102085;
+    public static final int swan_app_menu_header_pressed = 2131102086;
+    public static final int swan_app_menu_item_tip_text = 2131102087;
+    public static final int swan_app_msg_dialog_title = 2131102088;
+    public static final int swan_app_picture_set_wallpaper_text_selector = 2131102090;
+    public static final int swan_app_plugin_divider_bg = 2131102091;
+    public static final int swan_app_preference_text_color_title = 2131102092;
+    public static final int swan_attention_text_pressed = 2131102094;
+    public static final int swan_cancel_attention_btn = 2131102095;
+    public static final int swan_cancel_attention_btn_pressed = 2131102096;
+    public static final int swan_cancel_attention_text_pressed = 2131102097;
+    public static final int swan_context_menu_bg = 2131102098;
+    public static final int swan_context_menu_divider_color = 2131102099;
+    public static final int swan_context_menu_item_pressed_color = 2131102100;
+    public static final int swan_empty_view_feed_back_btn_text_pressed = 2131102101;
+    public static final int swan_game_recommend_dialog_text_selector = 2131102102;
+    public static final int swan_image_menu_item_bg = 2131102105;
+    public static final int swan_text_menu_item_separator_color = 2131102106;
+    public static final int swanapp_ad_download_button_color = 2131102107;
+    public static final int swanapp_ad_download_button_default_bg_color = 2131102108;
+    public static final int swanapp_ad_download_button_default_fg_color = 2131102109;
+    public static final int swanapp_ad_footer_background_color = 2131102110;
+    public static final int swanapp_ad_footer_font_color = 2131102111;
+    public static final int swanapp_ad_footer_line_color = 2131102112;
+    public static final int swanapp_ad_tail_background_color = 2131102113;
+    public static final int swanapp_ad_video_author_border_color = 2131102114;
+    public static final int swanapp_agreement_layout_bg = 2131102115;
+    public static final int swanapp_agreement_layout_pressed_bg = 2131102116;
+    public static final int swanapp_album_bottom_preview_color = 2131102117;
+    public static final int swanapp_album_bottom_preview_unable_color = 2131102118;
+    public static final int swanapp_album_camera_bg_color = 2131102119;
+    public static final int swanapp_album_cancel = 2131102120;
+    public static final int swanapp_album_empty_tv_color = 2131102121;
+    public static final int swanapp_album_item_press_color = 2131102122;
+    public static final int swanapp_album_item_select_bg = 2131102123;
+    public static final int swanapp_album_layer_text_color = 2131102124;
+    public static final int swanapp_album_line_color = 2131102125;
+    public static final int swanapp_album_name_container_bg = 2131102126;
+    public static final int swanapp_album_pregress_bg = 2131102127;
+    public static final int swanapp_album_pregress_stroke = 2131102128;
+    public static final int swanapp_album_preview_finish_color = 2131102129;
+    public static final int swanapp_album_preview_header_bg = 2131102130;
+    public static final int swanapp_album_preview_select_done_color = 2131102131;
+    public static final int swanapp_album_select_done_color = 2131102132;
+    public static final int swanapp_album_select_done_unable_color = 2131102133;
+    public static final int swanapp_album_select_number_color = 2131102134;
+    public static final int swanapp_album_selected_bg = 2131102135;
+    public static final int swanapp_album_thumbnail_line_color = 2131102136;
+    public static final int swanapp_album_unenable_shadow_color = 2131102137;
+    public static final int swanapp_album_video_upload_shadow_color = 2131102138;
+    public static final int swanapp_attention_btn_text_color = 2131102139;
+    public static final int swanapp_cancel_attention_btn_text_color = 2131102140;
+    public static final int swanapp_emoji_layout_bg = 2131102141;
+    public static final int swanapp_emotion_circle_indicator = 2131102142;
+    public static final int swanapp_emotion_circle_indicator_highlight = 2131102143;
+    public static final int swanapp_post_target_color = 2131102144;
+    public static final int swanapp_publish_btn_disable_color = 2131102145;
+    public static final int swanapp_publish_btn_enable_color = 2131102146;
+    public static final int swanapp_publish_cancel_btn_text_color = 2131102147;
+    public static final int swanapp_publisher_content_hint_color = 2131102148;
+    public static final int swanapp_publisher_publish_color = 2131102149;
+    public static final int swanapp_publisher_split_line_color = 2131102150;
+    public static final int swanapp_reply_editor_button_disable = 2131102151;
+    public static final int swanapp_reply_editor_button_mask_color = 2131102152;
+    public static final int swanapp_reply_editor_content_color = 2131102153;
+    public static final int swanapp_reply_editor_content_stroke_color = 2131102154;
+    public static final int swanapp_reply_editor_input_length_hint_color = 2131102155;
+    public static final int swanapp_reply_editor_over_length_color = 2131102156;
+    public static final int swanapp_reply_editor_text_color = 2131102157;
+    public static final int swanapp_text_number_color = 2131102158;
+    public static final int swanapp_ugc_publish_no_able_color = 2131102159;
+    public static final int swanapp_ugc_video_upload_shadow_color = 2131102160;
+    public static final int swangame_game_ad_progress_backgroud = 2131102162;
+    public static final int swangame_game_ad_progress_color = 2131102163;
+    public static final int swangame_game_close_guide_line = 2131102164;
+    public static final int swangame_recommend_dialog_button_normal_gradient_end = 2131102165;
+    public static final int swangame_recommend_dialog_button_normal_gradient_start = 2131102166;
+    public static final int swangame_recommend_dialog_button_press_gradient_end = 2131102167;
+    public static final int swangame_recommend_dialog_button_press_gradient_start = 2131102168;
+    public static final int swangame_recommend_dialog_icon_border = 2131102169;
+    public static final int swangame_recommend_dialog_list_click = 2131102170;
+    public static final int swangame_recommend_dialog_list_item_detail_text = 2131102172;
+    public static final int swangame_recommend_dialog_text_normal = 2131102173;
+    public static final int swangame_recommend_dialog_text_press = 2131102174;
+    public static final int switch_thumb_disabled_material_dark = 2131102179;
+    public static final int switch_thumb_disabled_material_light = 2131102180;
+    public static final int switch_thumb_material_dark = 2131102181;
+    public static final int switch_thumb_material_light = 2131102182;
+    public static final int switch_thumb_normal_material_dark = 2131102183;
+    public static final int switch_thumb_normal_material_light = 2131102184;
+    public static final int title_color = 2131102192;
+    public static final int tooltip_background_dark = 2131102193;
+    public static final int tooltip_background_light = 2131102194;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public final ArrayList<j> B;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f51236a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f51237b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f51238c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f51239d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f51240e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f51241f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f51242g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f51243h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public long f51244i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public long o;
-    public int p;
-    public long q;
-    public int[] r;
-    public long s;
-    public int t;
-    public volatile int u;
-    public volatile int v;
-    public boolean w;
-    public int x;
-    public volatile int y;
-    public boolean z;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-799837969, "Ld/a/o0/a/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-799837969, "Ld/a/o0/a/c;");
-        }
-    }
-
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.p = b0;
-        this.u = 0;
-        this.v = 0;
-        this.w = false;
-        this.x = 1;
-        this.y = 0;
-        this.z = false;
-        this.B = new ArrayList<>();
-    }
-
-    public int A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51241f : invokeV.intValue;
-    }
-
-    public String B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (String) invokeV.objValue;
-    }
-
-    public long C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51243h : invokeV.longValue;
-    }
-
-    public final long D(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            long u = u();
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(11, i2);
-            calendar.set(12, 0);
-            calendar.set(13, 0);
-            calendar.set(14, 0);
-            return calendar.getTimeInMillis() - u;
-        }
-        return invokeI.longValue;
-    }
-
-    public String E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.A : (String) invokeV.objValue;
-    }
-
-    public int F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.x : invokeV.intValue;
-    }
-
-    public synchronized int G() {
-        InterceptResult invokeV;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                i2 = this.v + 1;
-                this.v = i2;
-            }
-            return i2;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int H() {
-        InterceptResult invokeV;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                i2 = this.y + 1;
-                this.y = i2;
-            }
-            return i2;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int I() {
-        InterceptResult invokeV;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (this) {
-                i2 = this.u + 1;
-                this.u = i2;
-            }
-            return i2;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean J(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            for (int i2 = 0; i2 < this.B.size(); i2++) {
-                j jVar = (j) ListUtils.getItem(this.B, i2);
-                if (jVar != null) {
-                    long m = m(jVar);
-                    if (m > 0 && m == j && jVar.e()) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public boolean K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f51236a > 0 && this.f51237b > 0 && this.f51238c > 0 && this.f51239d > 0 : invokeV.booleanValue;
-    }
-
-    public boolean L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.w : invokeV.booleanValue;
-    }
-
-    public boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? System.currentTimeMillis() > t() * 1000 : invokeV.booleanValue;
-    }
-
-    public boolean N(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (d.a.c.e.p.k.isEmpty(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.f51236a = jSONObject.optInt(C);
-                this.f51237b = jSONObject.optInt(D);
-                this.j = jSONObject.optString(E);
-                this.l = jSONObject.optString(F);
-                this.k = jSONObject.optString(G);
-                this.t = jSONObject.optInt(H);
-                this.f51238c = jSONObject.optInt(I);
-                String optString = jSONObject.optString(J);
-                this.f51240e = optString;
-                this.r = Q(optString);
-                this.f51239d = jSONObject.optLong(K);
-                this.f51241f = jSONObject.optInt(L);
-                this.f51242g = jSONObject.optInt(M);
-                this.p = jSONObject.optInt(N);
-                this.q = jSONObject.optLong(O);
-                this.s = c();
-                this.f51243h = jSONObject.optLong(P);
-                this.f51244i = jSONObject.optLong(Q);
-                this.m = jSONObject.optString(R);
-                this.n = jSONObject.optString(S);
-                this.o = jSONObject.optLong(T);
-                int optInt = jSONObject.optInt(U);
-                if (optInt > 0) {
-                    this.x = optInt;
-                    return true;
-                }
-                return true;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void O(ActiveCenterData.ActiveCenterMissionData activeCenterMissionData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, activeCenterMissionData) == null) || activeCenterMissionData == null) {
-            return;
-        }
-        b0(activeCenterMissionData.mission_id);
-        m0(activeCenterMissionData.total_limit);
-        f0(activeCenterMissionData.task_type);
-        S(activeCenterMissionData.active_id);
-        Y(activeCenterMissionData.cleartype);
-        X(activeCenterMissionData.cleartime);
-    }
-
-    public void P(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i2, str) == null) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i3);
-                    long optLong = jSONObject.optLong("i");
-                    long optLong2 = jSONObject.optLong("t");
-                    boolean optBoolean = jSONObject.optBoolean("c");
-                    int optInt = jSONObject.optInt("a");
-                    if (i2 == 7) {
-                        if (optLong > 0) {
-                            m mVar = new m(this, optLong);
-                            mVar.f(optBoolean);
-                            mVar.g(optLong2);
-                            mVar.h(optInt);
-                            a(mVar);
-                        }
-                    } else if (i2 == 1) {
-                        if (optLong > 0) {
-                            o oVar = new o(this, optLong);
-                            oVar.f(optBoolean);
-                            oVar.g(optLong2);
-                            oVar.h(optInt);
-                            a(oVar);
-                        }
-                    } else if (i2 == 2) {
-                        if (optLong > 0) {
-                            l lVar = new l(this, optLong);
-                            lVar.f(optBoolean);
-                            lVar.g(optLong2);
-                            lVar.h(optInt);
-                            a(lVar);
-                        }
-                    } else if (i2 == 4) {
-                        k kVar = new k(this);
-                        kVar.f(optBoolean);
-                        kVar.g(optLong2);
-                        kVar.h(optInt);
-                        a(kVar);
-                    } else if (i2 == 8) {
-                        n nVar = new n(this);
-                        nVar.f(optBoolean);
-                        nVar.g(optLong2);
-                        nVar.h(optInt);
-                        a(nVar);
-                    }
-                }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public final int[] Q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            int i2 = this.f51238c;
-            if (i2 == 8) {
-                return new int[]{V};
-            }
-            if (i2 == 7) {
-                return new int[]{W, Z, a0};
-            }
-            if (str == null) {
-                return null;
-            }
-            String[] split = str.split(",");
-            int[] iArr = new int[split.length];
-            for (int i3 = 0; i3 < split.length; i3++) {
-                int d2 = d.a.c.e.m.b.d(split[i3], 0);
-                if (d2 > 0) {
-                    iArr[i3] = d2;
-                }
-            }
-            return iArr;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.B.clear();
-            this.u = 0;
-            this.v = 0;
-            this.y = 0;
-        }
-    }
-
-    public void S(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f51236a = i2;
-        }
-    }
-
-    public void T(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void U(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.f51239d = j;
-        }
-    }
-
-    public void V(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f51240e = str;
-            this.r = Q(str);
-        }
-    }
-
-    public void W(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.t = i2;
-        }
-    }
-
-    public void X(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
-            this.q = j;
-        }
-    }
-
-    public void Y(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.p = i2;
-        }
-    }
-
-    public void Z(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
-            this.f51244i = j;
-        }
-    }
-
-    public void a(j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, jVar) == null) {
-            if (this.f51238c == 7 && (jVar instanceof m)) {
-                if (this.B.contains(jVar)) {
-                    return;
-                }
-                this.B.add(jVar);
-            } else if (this.f51238c == 1 && (jVar instanceof o)) {
-                if (this.B.contains(jVar)) {
-                    return;
-                }
-                this.B.add(jVar);
-            } else if (this.f51238c == 2 && (jVar instanceof l)) {
-                if (this.B.contains(jVar)) {
-                    return;
-                }
-                this.B.add(jVar);
-            } else if (this.f51238c == 4 && (jVar instanceof k)) {
-                if (this.B.contains(jVar)) {
-                    return;
-                }
-                this.B.add(jVar);
-            } else if (this.f51238c == 8 && (jVar instanceof n) && !this.B.contains(jVar)) {
-                this.B.add(jVar);
-            }
-        }
-    }
-
-    public void a0(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.f51242g = i2;
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            try {
-                ArrayList<j> arrayList = this.B;
-                JSONArray jSONArray = new JSONArray();
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    j jVar = (j) ListUtils.getItem(arrayList, i2);
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("i", m(jVar));
-                    jSONObject.put("t", jVar.b());
-                    jSONObject.put("c", jVar.e());
-                    jSONObject.put("a", jVar.d());
-                    jSONArray.put(jSONObject);
-                }
-                return jSONArray.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return "[]";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void b0(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.f51237b = i2;
-        }
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            int i2 = this.p;
-            if (i2 == b0) {
-                return 0L;
-            }
-            if (i2 == c0) {
-                return this.q + (System.currentTimeMillis() / 1000);
-            }
-            if (i2 == d0) {
-                long u = this.q + (u() / 1000);
-                return System.currentTimeMillis() > u ? u + 86400 : u;
-            } else if (i2 == e0) {
-                return r((int) this.q, D(4)) / 1000;
-            } else {
-                if (i2 == f0) {
-                    return this.q / 1000;
-                }
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public void c0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.w = z;
-        }
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f51236a : invokeV.intValue;
-    }
-
-    public void d0(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048609, this, j) == null) {
-            this.s = j;
-        }
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.j : (String) invokeV.objValue;
-    }
-
-    public void e0(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.y = i2;
-        }
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f51239d : invokeV.longValue;
-    }
-
-    public void f0(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.f51238c = i2;
-        }
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f51240e : (String) invokeV.objValue;
-    }
-
-    public void g0(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
-            this.o = j;
-        }
-    }
-
-    public int[] h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.r : (int[]) invokeV.objValue;
-    }
-
-    public void h0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.t : invokeV.intValue;
-    }
-
-    public void i0(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.f51241f = i2;
-        }
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.q : invokeV.longValue;
-    }
-
-    public void j0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
-            this.m = str;
-        }
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.p : invokeV.intValue;
-    }
-
-    public void k0(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048623, this, j) == null) {
-            this.f51243h = j;
-        }
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            int size = this.B.size();
-            int i2 = 0;
-            for (int i3 = 0; i3 < size; i3++) {
-                j jVar = (j) ListUtils.getItem(this.B, i3);
-                if ((jVar instanceof m) && ((m) jVar).d() == w()) {
-                    i2++;
-                }
-            }
-            return i2;
-        }
-        return invokeV.intValue;
-    }
-
-    public void l0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
-            this.A = str;
-        }
-    }
-
-    public long m(j jVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, jVar)) == null) {
-            if (jVar == null) {
-                return 0L;
-            }
-            if (this.f51238c == 7 && (jVar instanceof m)) {
-                return ((m) jVar).i();
-            }
-            if (this.f51238c == 1 && (jVar instanceof o)) {
-                return ((o) jVar).i();
-            }
-            if (this.f51238c == 2 && (jVar instanceof l)) {
-                return ((l) jVar).i();
-            }
-            return 0L;
-        }
-        return invokeL.longValue;
-    }
-
-    public void m0(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
-            this.x = i2;
-        }
-    }
-
-    public ArrayList<j> n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.B : (ArrayList) invokeV.objValue;
-    }
-
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
-            int size = this.B.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                j jVar = (j) ListUtils.getItem(this.B, i2);
-                if (jVar != null) {
-                    jVar.f(true);
-                }
-            }
-        }
-    }
-
-    public long o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f51244i : invokeV.longValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f51242g : invokeV.intValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f51237b : invokeV.intValue;
-    }
-
-    public final long r(int i2, long j) {
-        InterceptResult invokeCommon;
-        long timeInMillis;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            switch (i2) {
-                case 1:
-                    i2 = 2;
-                    break;
-                case 2:
-                    i2 = 3;
-                    break;
-                case 3:
-                    i2 = 4;
-                    break;
-                case 4:
-                    i2 = 5;
-                    break;
-                case 5:
-                    i2 = 6;
-                    break;
-                case 6:
-                    i2 = 7;
-                    break;
-                case 7:
-                    i2 = 1;
-                    break;
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(11, 0);
-            calendar.set(12, 0);
-            calendar.set(13, 0);
-            calendar.set(14, 0);
-            long timeInMillis2 = calendar.getTimeInMillis();
-            if (calendar.get(7) == i2 && System.currentTimeMillis() - timeInMillis2 < j) {
-                timeInMillis = calendar.getTimeInMillis();
-            } else {
-                do {
-                    calendar.add(5, 1);
-                } while (calendar.get(7) != i2);
-                timeInMillis = calendar.getTimeInMillis();
-            }
-            return timeInMillis + j;
-        }
-        return invokeCommon.longValue;
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.l : (String) invokeV.objValue;
-    }
-
-    public long t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.s : invokeV.longValue;
-    }
-
-    public final long u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(11, 0);
-            calendar.set(12, 0);
-            calendar.set(13, 0);
-            calendar.set(14, 0);
-            return calendar.getTimeInMillis();
-        }
-        return invokeV.longValue;
-    }
-
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.k : (String) invokeV.objValue;
-    }
-
-    public int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.y : invokeV.intValue;
-    }
-
-    public int x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.f51238c : invokeV.intValue;
-    }
-
-    public long y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.o : invokeV.longValue;
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.n : (String) invokeV.objValue;
-    }
-
-    public c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.p = b0;
-        this.u = 0;
-        this.v = 0;
-        this.w = false;
-        this.x = 1;
-        this.y = 0;
-        this.z = false;
-        this.B = new ArrayList<>();
-        N(str);
-    }
-
-    public c(MissionInfo missionInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {missionInfo};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.p = b0;
-        this.u = 0;
-        this.v = 0;
-        this.w = false;
-        this.x = 1;
-        this.y = 0;
-        this.z = false;
-        this.B = new ArrayList<>();
-        if (missionInfo == null) {
-            return;
-        }
-        this.f51236a = missionInfo.activityid.intValue();
-        this.f51237b = missionInfo.missionid.intValue();
-        this.f51238c = missionInfo.tasktype.intValue();
-        this.p = missionInfo.cleartype.intValue();
-        this.q = missionInfo.cleartime.intValue();
-        this.s = c();
-        String str = missionInfo.browsetimepage;
-        this.f51240e = str;
-        this.r = Q(str);
-        if (missionInfo.threadnum.intValue() > 0) {
-            this.f51241f = missionInfo.threadnum.intValue();
-        }
-        if (missionInfo.browsetime.intValue() > 0) {
-            this.f51239d = missionInfo.browsetime.intValue();
-        }
-        if (missionInfo.total_limit.intValue() > 0) {
-            this.x = missionInfo.total_limit.intValue();
-        }
-    }
 }

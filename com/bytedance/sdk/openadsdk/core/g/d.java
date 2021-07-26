@@ -20,41 +20,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.o;
-import com.bytedance.sdk.openadsdk.r.j;
+import com.bytedance.sdk.openadsdk.q.l;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f30204a = "d";
+    public static final String f30304a = "d";
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f30205e;
+    public static d f30305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<String, Integer> f30206f;
+    public static final Map<String, Integer> f30306f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f30207b;
+    public final CopyOnWriteArraySet<String> f30307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<WeakReference<e>> f30208c;
+    public final List<WeakReference<e>> f30308c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<e> f30209d;
+    public final List<e> f30309d;
 
     static {
         InterceptResult invokeClinit;
@@ -70,13 +69,13 @@ public class d {
             }
         }
         HashMap hashMap = new HashMap();
-        f30206f = hashMap;
-        hashMap.put("android.permission.ACCESS_COARSE_LOCATION", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_location")));
-        f30206f.put("android.permission.ACCESS_FINE_LOCATION", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_location")));
-        f30206f.put("android.permission.READ_PHONE_STATE", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_read_phone_state")));
-        f30206f.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_external_storage")));
+        f30306f = hashMap;
+        hashMap.put("android.permission.ACCESS_COARSE_LOCATION", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_location")));
+        f30306f.put("android.permission.ACCESS_FINE_LOCATION", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_location")));
+        f30306f.put("android.permission.READ_PHONE_STATE", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_read_phone_state")));
+        f30306f.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_external_storage")));
         if (Build.VERSION.SDK_INT >= 16) {
-            f30206f.put("android.permission.READ_EXTERNAL_STORAGE", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_external_storage")));
+            f30306f.put("android.permission.READ_EXTERNAL_STORAGE", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_external_storage")));
         }
     }
 
@@ -93,9 +92,9 @@ public class d {
                 return;
             }
         }
-        this.f30207b = new HashSet(1);
-        this.f30208c = new ArrayList(1);
-        this.f30209d = new ArrayList(1);
+        this.f30307b = new CopyOnWriteArraySet<>();
+        this.f30308c = new ArrayList(1);
+        this.f30309d = new ArrayList(1);
         b();
     }
 
@@ -103,10 +102,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f30205e == null) {
-                f30205e = new d();
+            if (f30305e == null) {
+                f30305e = new d();
             }
-            return f30205e;
+            return f30305e;
         }
         return (d) invokeV.objValue;
     }
@@ -124,9 +123,9 @@ public class d {
                     try {
                         str = (String) field.get("");
                     } catch (IllegalAccessException e2) {
-                        Log.e(f30204a, "Could not access field", e2);
+                        Log.e(f30304a, "Could not access field", e2);
                     }
-                    this.f30207b.add(str);
+                    this.f30307b.add(str);
                 }
             }
         }
@@ -146,7 +145,7 @@ public class d {
             if (packageManager != null && (packageInfo = packageManager.getPackageInfo(packageName, 4096)) != null && (strArr = packageInfo.requestedPermissions) != null && strArr.length != 0) {
                 for (int i2 = 0; i2 < strArr.length; i2++) {
                     if (!TextUtils.isEmpty(strArr[i2])) {
-                        this.f30207b.add(strArr[i2]);
+                        this.f30307b.add(strArr[i2]);
                     }
                 }
             }
@@ -162,8 +161,8 @@ public class d {
                     return;
                 }
                 eVar.a(strArr);
-                this.f30209d.add(eVar);
-                this.f30208c.add(new WeakReference<>(eVar));
+                this.f30309d.add(eVar);
+                this.f30308c.add(new WeakReference<>(eVar));
             }
         }
     }
@@ -172,14 +171,14 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, eVar) == null) {
             synchronized (this) {
-                Iterator<WeakReference<e>> it = this.f30208c.iterator();
+                Iterator<WeakReference<e>> it = this.f30308c.iterator();
                 while (it.hasNext()) {
                     WeakReference<e> next = it.next();
                     if (next.get() == eVar || next.get() == null) {
                         it.remove();
                     }
                 }
-                Iterator<e> it2 = this.f30209d.iterator();
+                Iterator<e> it2 = this.f30309d.iterator();
                 while (it2.hasNext()) {
                     if (it2.next() == eVar) {
                         it2.remove();
@@ -196,12 +195,12 @@ public class d {
             for (String str : strArr) {
                 if (eVar != null) {
                     try {
-                        if (!this.f30207b.contains(str)) {
-                            a2 = eVar.a(str, c.f30202c);
+                        if (!this.f30307b.contains(str)) {
+                            a2 = eVar.a(str, c.f30302c);
                         } else if (b.a(activity, str) != 0) {
-                            a2 = eVar.a(str, c.f30201b);
+                            a2 = eVar.a(str, c.f30301b);
                         } else {
-                            a2 = eVar.a(str, c.f30200a);
+                            a2 = eVar.a(str, c.f30300a);
                         }
                         if (a2) {
                             break;
@@ -222,14 +221,14 @@ public class d {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, this, activity, strArr, eVar)) == null) {
             ArrayList arrayList = new ArrayList(strArr.length);
             for (String str : strArr) {
-                if (this.f30207b.contains(str)) {
+                if (this.f30307b.contains(str)) {
                     if (!a(activity, str)) {
                         arrayList.add(str);
                     } else if (eVar != null) {
-                        eVar.a(str, c.f30200a);
+                        eVar.a(str, c.f30300a);
                     }
                 } else if (eVar != null) {
-                    eVar.a(str, c.f30202c);
+                    eVar.a(str, c.f30302c);
                 }
             }
             return arrayList;
@@ -246,13 +245,13 @@ public class d {
                 if (context == null) {
                     return false;
                 }
-                if (j.e()) {
-                    if (a.a(context, str) && (b.a(context, str) == 0 || !this.f30207b.contains(str))) {
+                if (l.e()) {
+                    if (a.a(context, str) && (b.a(context, str) == 0 || !this.f30307b.contains(str))) {
                         z = true;
                     }
                     return z;
                 }
-                return (b.a(context, str) == 0 || !this.f30207b.contains(str)) ? true : true;
+                return (b.a(context, str) == 0 || !this.f30307b.contains(str)) ? true : true;
             }
         }
         return invokeLL.booleanValue;
@@ -292,7 +291,7 @@ public class d {
                     int length = strArr.length;
                     for (int i2 = 0; i2 < length; i2++) {
                         String str = strArr[i2];
-                        if ((iArr[i2] == -1 || (j.e() && !a.a(activity, str))) && iArr[i2] != -1) {
+                        if ((iArr[i2] == -1 || (l.e() && !a.a(activity, str))) && iArr[i2] != -1) {
                             iArr[i2] = -1;
                         }
                     }
@@ -313,7 +312,7 @@ public class d {
                 if (iArr.length < length) {
                     length = iArr.length;
                 }
-                Iterator<WeakReference<e>> it = this.f30208c.iterator();
+                Iterator<WeakReference<e>> it = this.f30308c.iterator();
                 while (it.hasNext()) {
                     e eVar = it.next().get();
                     while (i2 < length) {
@@ -322,7 +321,7 @@ public class d {
                         break;
                     }
                 }
-                Iterator<e> it2 = this.f30209d.iterator();
+                Iterator<e> it2 = this.f30309d.iterator();
                 while (it2.hasNext()) {
                     it2.next();
                     it2.remove();

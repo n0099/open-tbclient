@@ -1,86 +1,87 @@
 package com.win.opensdk;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class W1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static W1 f39510b;
+    public static final BlockingQueue f39703b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final ThreadFactory f39704c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static W1 f39705d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap f39511a;
+    public ThreadPoolExecutor f39706a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1639724587, "Lcom/win/opensdk/W1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1639724587, "Lcom/win/opensdk/W1;");
+                return;
+            }
+        }
+        f39703b = new LinkedBlockingQueue(210);
+        f39704c = new V1();
+    }
 
     public W1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f39511a = new ConcurrentHashMap();
+        this.f39706a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f39703b, f39704c);
     }
 
-    public static W1 a() {
+    public static synchronized W1 a() {
         InterceptResult invokeV;
+        W1 w1;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f39510b == null) {
-                synchronized (W1.class) {
-                    if (f39510b == null) {
-                        f39510b = new W1();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (W1.class) {
+                if (f39705d == null) {
+                    f39705d = new W1();
                 }
+                w1 = f39705d;
             }
-            return f39510b;
+            return w1;
         }
         return (W1) invokeV.objValue;
     }
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (str.length() > 16) {
-                str = str.substring(0, 16);
-            }
-            return str + str2 + str3;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public U1 a(String str) {
-        InterceptResult invokeL;
-        U1 u1;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (W1.class) {
-                u1 = (U1) this.f39511a.remove(str);
-            }
-            return u1;
-        }
-        return (U1) invokeL.objValue;
-    }
-
-    public void a(String str, U1 u1) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, u1) == null) {
-            synchronized (W1.class) {
-                this.f39511a.put(str, u1);
-            }
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            a().f39706a.execute(runnable);
         }
     }
 }

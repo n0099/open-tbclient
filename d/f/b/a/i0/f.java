@@ -12,16 +12,16 @@ public final class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f70463a;
+    public final int f70917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f70464b;
+    public final int f70918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f70465c;
+    public final int f70919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f70466d;
+    public final long f70920d;
 
     public f(byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
@@ -44,21 +44,21 @@ public final class f {
         kVar.g(16);
         kVar.g(24);
         kVar.g(24);
-        this.f70463a = kVar.g(20);
-        this.f70464b = kVar.g(3) + 1;
-        this.f70465c = kVar.g(5) + 1;
-        this.f70466d = ((kVar.g(4) & 15) << 32) | (kVar.g(32) & 4294967295L);
+        this.f70917a = kVar.g(20);
+        this.f70918b = kVar.g(3) + 1;
+        this.f70919c = kVar.g(5) + 1;
+        this.f70920d = ((kVar.g(4) & 15) << 32) | (kVar.g(32) & 4294967295L);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70465c * this.f70463a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70919c * this.f70917a : invokeV.intValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f70466d * 1000000) / this.f70463a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f70920d * 1000000) / this.f70917a : invokeV.longValue;
     }
 }

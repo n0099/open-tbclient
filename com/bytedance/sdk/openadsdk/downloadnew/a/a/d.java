@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTCustomController;
 import com.bytedance.sdk.openadsdk.core.o;
-import com.bytedance.sdk.openadsdk.r.c;
+import com.bytedance.sdk.openadsdk.q.d;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.l.a.a.a.c.h;
 import d.l.a.a.a.c.t;
@@ -25,7 +25,7 @@ public class d implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f31101a;
+    public final WeakReference<Context> f31283a;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class d implements h {
                 return;
             }
         }
-        this.f31101a = new WeakReference<>(context);
+        this.f31283a = new WeakReference<>(context);
     }
 
     @Override // d.l.a.a.a.c.h
@@ -90,18 +90,18 @@ public class d implements h {
                 for (String str : strArr) {
                     hashCode += str.hashCode();
                 }
-                com.bytedance.sdk.openadsdk.r.c.a(String.valueOf(hashCode), strArr, new c.a(this, tVar, strArr) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.d.1
+                com.bytedance.sdk.openadsdk.q.d.a(String.valueOf(hashCode), strArr, new d.a(this, tVar, strArr) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.d.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ t f31102a;
+                    public final /* synthetic */ t f31284a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String[] f31103b;
+                    public final /* synthetic */ String[] f31285b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f31104c;
+                    public final /* synthetic */ d f31286c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -118,32 +118,32 @@ public class d implements h {
                                 return;
                             }
                         }
-                        this.f31104c = this;
-                        this.f31102a = tVar;
-                        this.f31103b = strArr;
+                        this.f31286c = this;
+                        this.f31284a = tVar;
+                        this.f31285b = strArr;
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.r.c.a
+                    @Override // com.bytedance.sdk.openadsdk.q.d.a
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            t tVar2 = this.f31102a;
+                            t tVar2 = this.f31284a;
                             if (tVar2 != null) {
                                 tVar2.a();
                             }
-                            com.bytedance.sdk.openadsdk.k.a.a().a(true, this.f31103b);
+                            com.bytedance.sdk.openadsdk.j.a.a().a(true, this.f31285b);
                         }
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.r.c.a
+                    @Override // com.bytedance.sdk.openadsdk.q.d.a
                     public void a(String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
-                            t tVar2 = this.f31102a;
+                            t tVar2 = this.f31284a;
                             if (tVar2 != null) {
                                 tVar2.a(str2);
                             }
-                            com.bytedance.sdk.openadsdk.k.a.a().a(false, new String[]{str2});
+                            com.bytedance.sdk.openadsdk.j.a.a().a(false, new String[]{str2});
                         }
                     }
                 });

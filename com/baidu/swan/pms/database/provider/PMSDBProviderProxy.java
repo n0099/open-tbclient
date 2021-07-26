@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.n.c;
-import d.a.n0.n.g.e.b;
+import d.a.o0.n.c;
+import d.a.o0.n.g.e.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
@@ -50,7 +50,7 @@ public class PMSDBProviderProxy extends ContentProvider {
             SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
             try {
                 try {
-                    if (c.f50608a) {
+                    if (c.f51112a) {
                         Log.e(TAG, "applyBatch beginTransaction");
                     }
                     writableDatabase.beginTransaction();
@@ -58,7 +58,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                     for (ContentProviderResult contentProviderResult : applyBatch) {
                         if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
                             writableDatabase.endTransaction();
-                            if (c.f50608a) {
+                            if (c.f51112a) {
                                 Log.e(TAG, "applyBatch endTransaction");
                             }
                             return applyBatch;
@@ -66,23 +66,23 @@ public class PMSDBProviderProxy extends ContentProvider {
                     }
                     writableDatabase.setTransactionSuccessful();
                     writableDatabase.endTransaction();
-                    if (c.f50608a) {
+                    if (c.f51112a) {
                         Log.e(TAG, "applyBatch endTransaction");
                     }
                     return applyBatch;
                 } catch (Exception e2) {
-                    if (c.f50608a) {
+                    if (c.f51112a) {
                         Log.e(TAG, "applyBatch Exception:" + e2.getMessage());
                     }
                     writableDatabase.endTransaction();
-                    if (c.f50608a) {
+                    if (c.f51112a) {
                         Log.e(TAG, "applyBatch endTransaction");
                     }
                     return new ContentProviderResult[0];
                 }
             } catch (Throwable th) {
                 writableDatabase.endTransaction();
-                if (c.f50608a) {
+                if (c.f51112a) {
                     Log.e(TAG, "applyBatch endTransaction");
                 }
                 throw th;

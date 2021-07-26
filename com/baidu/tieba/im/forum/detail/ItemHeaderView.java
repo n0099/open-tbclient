@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class ItemHeaderView extends RelativeLayout {
@@ -24,19 +24,19 @@ public class ItemHeaderView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17528e;
+    public Context f17584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BarImageView f17529f;
+    public BarImageView f17585f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17530g;
+    public TextView f17586g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17531h;
+    public TextView f17587h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17532i;
+    public TextView f17588i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,15 +63,15 @@ public class ItemHeaderView extends RelativeLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f17528e = context;
+            this.f17584e = context;
             LayoutInflater.from(context).inflate(R.layout.forum_detail_header, (ViewGroup) this, true);
             setVisibility(8);
-            this.f17529f = (BarImageView) findViewById(R.id.h_forum_portrait);
-            this.f17530g = (TextView) findViewById(R.id.h_forum_name);
-            this.f17531h = (TextView) findViewById(R.id.forum_authen);
-            this.f17532i = (TextView) findViewById(R.id.h_fans_num);
+            this.f17585f = (BarImageView) findViewById(R.id.h_forum_portrait);
+            this.f17586g = (TextView) findViewById(R.id.h_forum_name);
+            this.f17587h = (TextView) findViewById(R.id.forum_authen);
+            this.f17588i = (TextView) findViewById(R.id.h_fans_num);
             this.j = (TextView) findViewById(R.id.h_thread_num);
-            this.f17529f.setPlaceHolder(1);
+            this.f17585f.setPlaceHolder(1);
         }
     }
 
@@ -89,24 +89,24 @@ public class ItemHeaderView extends RelativeLayout {
             return;
         }
         boolean z = recommendForumInfo.forum_type.intValue() == 1;
-        this.f17530g.setText(recommendForumInfo.forum_name);
+        this.f17586g.setText(recommendForumInfo.forum_name);
         if (z) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            this.f17530g.setCompoundDrawables(null, null, bitmapDrawable, null);
-            TextView textView = this.f17530g;
-            Context context = this.f17528e;
+            this.f17586g.setCompoundDrawables(null, null, bitmapDrawable, null);
+            TextView textView = this.f17586g;
+            Context context = this.f17584e;
             textView.setCompoundDrawablePadding(l.e(context, context.getResources().getDimension(R.dimen.ds4)));
-            this.f17531h.setText(recommendForumInfo.authen);
-            this.f17531h.setVisibility(0);
+            this.f17587h.setText(recommendForumInfo.authen);
+            this.f17587h.setVisibility(0);
         } else {
-            this.f17530g.setCompoundDrawables(null, null, null, null);
-            this.f17531h.setVisibility(8);
+            this.f17586g.setCompoundDrawables(null, null, null, null);
+            this.f17587h.setVisibility(8);
         }
-        this.f17532i.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
+        this.f17588i.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
         this.j.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
-        int e2 = l.e(this.f17528e, 80.0f);
-        this.f17529f.J(recommendForumInfo.avatar, 10, e2, e2, false);
+        int e2 = l.e(this.f17584e, 80.0f);
+        this.f17585f.J(recommendForumInfo.avatar, 10, e2, e2, false);
         setVisibility(0);
     }
 

@@ -32,18 +32,18 @@ public final class d1 extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Throwable c2 = z1.b().c();
-            if (c2 == null) {
+            Throwable a2 = z1.c().a();
+            if (a2 == null) {
                 return null;
             }
-            StackTraceElement[] stackTrace = c2.getStackTrace();
+            StackTraceElement[] stackTrace = a2.getStackTrace();
             if (stackTrace.length < 4) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             for (int i3 = 1; i3 < 4; i3++) {
                 if (stackTrace[i3] != null && !TextUtils.isEmpty(stackTrace[i3].getClassName())) {
-                    arrayList.addAll(z1.b().a(Class.forName(stackTrace[i3].getClassName()), stackTrace[i3].getMethodName()));
+                    arrayList.addAll(z1.c().b(Class.forName(stackTrace[i3].getClassName()), stackTrace[i3].getMethodName()));
                 }
             }
             return arrayList;

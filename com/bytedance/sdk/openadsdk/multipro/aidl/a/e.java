@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener;
 import java.util.Collections;
 import java.util.HashMap;
@@ -20,10 +20,10 @@ public class e extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<IFullScreenVideoAdInteractionListener>> f31539a;
+    public static Map<String, RemoteCallbackList<IFullScreenVideoAdInteractionListener>> f31726a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f31540b;
+    public static volatile e f31727b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class e extends a {
                 return;
             }
         }
-        f31539a = Collections.synchronizedMap(new HashMap());
+        f31726a = Collections.synchronizedMap(new HashMap());
     }
 
     public e() {
@@ -60,14 +60,14 @@ public class e extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31540b == null) {
+            if (f31727b == null) {
                 synchronized (e.class) {
-                    if (f31540b == null) {
-                        f31540b = new e();
+                    if (f31727b == null) {
+                        f31727b = new e();
                     }
                 }
             }
-            return f31540b;
+            return f31727b;
         }
         return (e) invokeV.objValue;
     }
@@ -87,7 +87,7 @@ public class e extends a {
             synchronized (this) {
                 RemoteCallbackList<IFullScreenVideoAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
                 remoteCallbackList.register(iFullScreenVideoAdInteractionListener);
-                f31539a.put(str, remoteCallbackList);
+                f31726a.put(str, remoteCallbackList);
             }
         }
     }
@@ -98,11 +98,11 @@ public class e extends a {
         if (interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) {
             synchronized (this) {
                 try {
-                    if (f31539a != null) {
+                    if (f31726a != null) {
                         if ("recycleRes".equals(str2)) {
-                            remoteCallbackList = f31539a.remove(str);
+                            remoteCallbackList = f31726a.remove(str);
                         } else {
-                            remoteCallbackList = f31539a.get(str);
+                            remoteCallbackList = f31726a.get(str);
                         }
                         if (remoteCallbackList != null) {
                             int beginBroadcast = remoteCallbackList.beginBroadcast();
@@ -131,7 +131,7 @@ public class e extends a {
                         }
                     }
                 } catch (Throwable th) {
-                    j.c("MultiProcess", "fullScreen1 method " + str2 + " throws Exception :", th);
+                    k.c("MultiProcess", "fullScreen1 method " + str2 + " throws Exception :", th);
                 }
             }
         }

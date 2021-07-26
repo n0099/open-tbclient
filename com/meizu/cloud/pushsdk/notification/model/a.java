@@ -25,19 +25,19 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37533a;
+    public int f37722a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37534b;
+    public String f37723b;
 
     public a() {
-        this.f37533a = 0;
+        this.f37722a = 0;
     }
 
     public a(Parcel parcel) {
-        this.f37533a = 0;
-        this.f37533a = parcel.readInt();
-        this.f37534b = parcel.readString();
+        this.f37722a = 0;
+        this.f37722a = parcel.readInt();
+        this.f37723b = parcel.readString();
     }
 
     public static a a(MessageV3 messageV3) {
@@ -108,19 +108,19 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.f37533a;
+        return this.f37722a;
     }
 
     public void a(int i2) {
-        this.f37533a = i2;
+        this.f37722a = i2;
     }
 
     public void a(String str) {
-        this.f37534b = str;
+        this.f37723b = str;
     }
 
     public String b() {
-        return this.f37534b;
+        return this.f37723b;
     }
 
     @Override // android.os.Parcelable
@@ -129,12 +129,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.f37533a + ", notifyKey='" + this.f37534b + "'}";
+        return "NotifyOption{notifyId=" + this.f37722a + ", notifyKey='" + this.f37723b + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f37533a);
-        parcel.writeString(this.f37534b);
+        parcel.writeInt(this.f37722a);
+        parcel.writeString(this.f37723b);
     }
 }

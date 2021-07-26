@@ -15,23 +15,23 @@ import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.dislike.a.b;
 import com.bytedance.sdk.openadsdk.dislike.a.c;
 import com.bytedance.sdk.openadsdk.e.d;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.q.s;
 /* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f31022a;
+    public static b f31204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f31023b;
+    public static c f31205b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            if (f31023b == null) {
-                f31023b = new c() { // from class: com.bytedance.sdk.openadsdk.dislike.a.1
+            if (f31205b == null) {
+                f31205b = new c() { // from class: com.bytedance.sdk.openadsdk.dislike.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +53,7 @@ public class a {
                     public int a(Context context, float f2) {
                         InterceptResult invokeLF;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLF = interceptable2.invokeLF(1048576, this, context, f2)) == null) ? q.d(context, f2) : invokeLF.intValue;
+                        return (interceptable2 == null || (invokeLF = interceptable2.invokeLF(1048576, this, context, f2)) == null) ? s.d(context, f2) : invokeLF.intValue;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.dislike.a.c
@@ -74,8 +74,8 @@ public class a {
                     }
                 };
             }
-            if (f31022a == null) {
-                f31022a = new b() { // from class: com.bytedance.sdk.openadsdk.dislike.a.2
+            if (f31204a == null) {
+                f31204a = new b() { // from class: com.bytedance.sdk.openadsdk.dislike.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +110,7 @@ public class a {
                     }
                 };
             }
-            com.bytedance.sdk.openadsdk.dislike.a.a.a(f31022a, f31023b);
+            com.bytedance.sdk.openadsdk.dislike.a.a.a(f31204a, f31205b);
         }
     }
 }

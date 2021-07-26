@@ -21,10 +21,10 @@ public class a extends BaseBean<ApplyCouponResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27061a;
+    public String f27219a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27062b;
+    public String f27220b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -60,8 +60,8 @@ public class a extends BaseBean<ApplyCouponResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("activity_id", this.f27061a));
-            arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f27062b));
+            arrayList.add(new RestNameValuePair("activity_id", this.f27219a));
+            arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f27220b));
             return arrayList;
         }
         return (List) invokeV.objValue;

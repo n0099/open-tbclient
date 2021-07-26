@@ -15,7 +15,7 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g f7918a;
+    public final /* synthetic */ g f7944a;
 
     public h(g gVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
                 return;
             }
         }
-        this.f7918a = gVar;
+        this.f7944a = gVar;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
@@ -42,17 +42,17 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            bVar = this.f7918a.j;
+            bVar = this.f7944a.j;
             Message obtainMessage = bVar.obtainMessage();
             obtainMessage.what = CustomerServiceMenu.TRANSFER_RECORD;
             obtainMessage.obj = aVar;
-            bVar2 = this.f7918a.j;
+            bVar2 = this.f7944a.j;
             if (bVar2 != null) {
-                bVar3 = this.f7918a.j;
+                bVar3 = this.f7944a.j;
                 bVar3.sendMessage(obtainMessage);
             }
-            if (c.a.f7851e == aVar || c.a.f7848b == aVar || c.a.f7849c == aVar) {
-                g.b(this.f7918a);
+            if (c.a.f7877e == aVar || c.a.f7874b == aVar || c.a.f7875c == aVar) {
+                g.b(this.f7944a);
             }
         }
     }
@@ -64,16 +64,16 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            bVar = this.f7918a.j;
+            bVar = this.f7944a.j;
             Message obtainMessage = bVar.obtainMessage();
             obtainMessage.what = 100000;
             obtainMessage.obj = str;
-            bVar2 = this.f7918a.j;
+            bVar2 = this.f7944a.j;
             if (bVar2 != null) {
-                bVar3 = this.f7918a.j;
+                bVar3 = this.f7944a.j;
                 bVar3.sendMessage(obtainMessage);
             }
-            this.f7918a.k = 0;
+            this.f7944a.k = 0;
         }
     }
 }

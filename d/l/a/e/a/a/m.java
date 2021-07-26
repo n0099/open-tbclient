@@ -44,20 +44,20 @@ public class m extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String t = this.f71569b.t("s");
-            String b2 = d.l.a.e.a.h.d.b(this.f71569b.t("bb"), t);
+            String t = this.f72023b.t("s");
+            String b2 = d.l.a.e.a.h.d.b(this.f72023b.t("bb"), t);
             if (!TextUtils.isEmpty(b2) && b2.split(",").length == 2) {
-                String b3 = d.l.a.e.a.h.d.b(this.f71569b.t("bc"), t);
+                String b3 = d.l.a.e.a.h.d.b(this.f72023b.t("bc"), t);
                 if (!TextUtils.isEmpty(b3) && b3.split(",").length == 2) {
                     String[] split = b2.split(",");
                     String[] split2 = b3.split(",");
-                    String b4 = d.l.a.e.a.h.d.b(this.f71569b.t(Config.DEVICE_BRAND), t);
-                    String b5 = d.l.a.e.a.h.d.b(this.f71569b.t("be"), t);
-                    String b6 = d.l.a.e.a.h.d.b(this.f71569b.t("bf"), t);
+                    String b4 = d.l.a.e.a.h.d.b(this.f72023b.t(Config.DEVICE_BRAND), t);
+                    String b5 = d.l.a.e.a.h.d.b(this.f72023b.t("be"), t);
+                    String b6 = d.l.a.e.a.h.d.b(this.f72023b.t("bf"), t);
                     HashMap hashMap = new HashMap();
                     hashMap.put(split[0], split[1]);
                     hashMap.put(split2[0], split2[1]);
-                    hashMap.put(b4, this.f71570c);
+                    hashMap.put(b4, this.f72024c);
                     Intent intent = new Intent();
                     intent.setAction(b6);
                     intent.setData(Uri.parse(b5 + b(hashMap)));

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.s.f.a;
+import d.a.p0.t.f.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class GetContactListResponsedMessage extends CustomResponsedMessage<String> {

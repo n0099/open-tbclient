@@ -21,7 +21,7 @@ public class z extends PayBaseBean<QueryPayResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<RestNameValuePair> f26022a;
+    public List<RestNameValuePair> f26180a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> z(Context context) {
@@ -56,7 +56,7 @@ public class z extends PayBaseBean<QueryPayResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<RestNameValuePair> list = this.f26022a;
+            List<RestNameValuePair> list = this.f26180a;
             if (list != null) {
                 return list;
             }
@@ -71,7 +71,7 @@ public class z extends PayBaseBean<QueryPayResponse> {
                 arrayList.add(new RestNameValuePair("bank_no", payQueryRequest.mBankNo));
             }
             arrayList.add(new RestNameValuePair("sign", payQueryRequest.getMd5Sign()));
-            this.f26022a = arrayList;
+            this.f26180a = arrayList;
             return arrayList;
         }
         return (List) invokeV.objValue;

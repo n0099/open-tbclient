@@ -23,19 +23,19 @@ public class BindCardHeadView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f26873a;
+    public ImageView f27031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26874b;
+    public TextView f27032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26875c;
+    public TextView f27033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f26876d;
+    public View f27034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f26877e;
+    public View f27035e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BindCardHeadView(Context context) {
@@ -62,49 +62,49 @@ public class BindCardHeadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_bind_card_head_view"), this);
-            this.f26873a = (ImageView) findViewById(ResUtils.id(getContext(), "bind_card_img"));
-            this.f26874b = (TextView) findViewById(ResUtils.id(getContext(), "bind_card_title"));
-            this.f26875c = (TextView) findViewById(ResUtils.id(getContext(), "bind_card_subtitle"));
-            this.f26876d = findViewById(ResUtils.id(getContext(), "bind_card_line"));
-            this.f26877e = findViewById(ResUtils.id(getContext(), "bind_card_head_bottom_margin"));
+            this.f27031a = (ImageView) findViewById(ResUtils.id(getContext(), "bind_card_img"));
+            this.f27032b = (TextView) findViewById(ResUtils.id(getContext(), "bind_card_title"));
+            this.f27033c = (TextView) findViewById(ResUtils.id(getContext(), "bind_card_subtitle"));
+            this.f27034d = findViewById(ResUtils.id(getContext(), "bind_card_line"));
+            this.f27035e = findViewById(ResUtils.id(getContext(), "bind_card_head_bottom_margin"));
         }
     }
 
     public void setImageSrcId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f26873a.setImageResource(i2);
+            this.f27031a.setImageResource(i2);
         }
     }
 
     public void setLineVisiable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f26876d.setVisibility(z ? 0 : 8);
-            this.f26877e.setVisibility(z ? 8 : 0);
+            this.f27034d.setVisibility(z ? 0 : 8);
+            this.f27035e.setVisibility(z ? 8 : 0);
         }
     }
 
     public void setSubTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
-            this.f26875c.setText(charSequence);
+            this.f27033c.setText(charSequence);
         }
     }
 
     public void setSubTitleVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f26875c.setVisibility(i2);
+            this.f27033c.setVisibility(i2);
         }
     }
 
     public void setTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            this.f26874b.setText(charSequence);
+            this.f27032b.setText(charSequence);
             if (charSequence instanceof Spannable) {
-                this.f26874b.setMovementMethod(LinkMovementMethod.getInstance());
+                this.f27032b.setMovementMethod(LinkMovementMethod.getInstance());
             }
         }
     }
@@ -112,8 +112,8 @@ public class BindCardHeadView extends LinearLayout {
     public void setTitleVisiable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f26874b.setVisibility(z ? 0 : 8);
-            this.f26875c.setVisibility(z ? 0 : 8);
+            this.f27032b.setVisibility(z ? 0 : 8);
+            this.f27033c.setVisibility(z ? 0 : 8);
         }
     }
 

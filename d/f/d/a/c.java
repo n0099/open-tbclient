@@ -12,7 +12,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f70820a;
+    public static final Charset f71274a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class c {
         }
         Charset.forName("US-ASCII");
         Charset.forName("ISO-8859-1");
-        f70820a = Charset.forName("UTF-8");
+        f71274a = Charset.forName("UTF-8");
         Charset.forName(CharEncoding.UTF_16BE);
         Charset.forName(CharEncoding.UTF_16LE);
         Charset.forName("UTF-16");

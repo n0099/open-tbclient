@@ -38,7 +38,7 @@ public class SSWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30917a;
+    public boolean f31100a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SSWebView(Context context) {
@@ -58,7 +58,7 @@ public class SSWebView extends WebView {
                 return;
             }
         }
-        this.f30917a = false;
+        this.f31100a = false;
         b(a(context));
     }
 
@@ -337,16 +337,24 @@ public class SSWebView extends WebView {
         }
     }
 
+    @Override // android.webkit.WebView
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            super.onResume();
+        }
+    }
+
     @Override // android.webkit.WebView, android.view.View
     @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
         ViewParent a2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, motionEvent)) == null) {
             try {
                 boolean onTouchEvent = super.onTouchEvent(motionEvent);
-                if (motionEvent.getActionMasked() == 0 && this.f30917a && (a2 = a(this)) != null) {
+                if (motionEvent.getActionMasked() == 0 && this.f31100a && (a2 = a(this)) != null) {
                     a2.requestDisallowInterceptTouchEvent(true);
                 }
                 return onTouchEvent;
@@ -360,7 +368,7 @@ public class SSWebView extends WebView {
     @Override // android.webkit.WebView
     public void postUrl(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, str, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048597, this, str, bArr) == null) {
             try {
                 setJavaScriptEnabled(str);
                 super.postUrl(str, bArr);
@@ -372,7 +380,7 @@ public class SSWebView extends WebView {
     @Override // android.webkit.WebView
     public void reload() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             try {
                 super.reload();
             } catch (Exception unused) {
@@ -383,7 +391,7 @@ public class SSWebView extends WebView {
     @Override // android.webkit.WebView, android.view.View
     public void setBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
             try {
                 super.setBackgroundColor(i2);
             } catch (Exception unused) {
@@ -394,7 +402,7 @@ public class SSWebView extends WebView {
     @Override // android.webkit.WebView
     public void setDownloadListener(DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, downloadListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, downloadListener) == null) {
             try {
                 super.setDownloadListener(downloadListener);
             } catch (Exception unused) {
@@ -404,15 +412,15 @@ public class SSWebView extends WebView {
 
     public void setIsPreventTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.f30917a = z;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.f31100a = z;
         }
     }
 
     @Override // android.webkit.WebView, android.view.View
     public void setLayerType(int i2, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048601, this, i2, paint) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048602, this, i2, paint) == null) {
             try {
                 super.setLayerType(i2, paint);
             } catch (Throwable unused) {
@@ -423,7 +431,7 @@ public class SSWebView extends WebView {
     @Override // android.webkit.WebView
     public void setNetworkAvailable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             try {
                 super.setNetworkAvailable(z);
             } catch (Exception unused) {
@@ -434,7 +442,7 @@ public class SSWebView extends WebView {
     @Override // android.webkit.WebView, android.view.View
     public void setOverScrollMode(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
             try {
                 super.setOverScrollMode(i2);
             } catch (Throwable unused) {
@@ -445,7 +453,7 @@ public class SSWebView extends WebView {
     @Override // android.webkit.WebView
     public void setWebChromeClient(WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, webChromeClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, webChromeClient) == null) {
             try {
                 super.setWebChromeClient(webChromeClient);
             } catch (Exception unused) {
@@ -456,7 +464,7 @@ public class SSWebView extends WebView {
     @Override // android.webkit.WebView
     public void setWebViewClient(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, webViewClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, webViewClient) == null) {
             try {
                 super.setWebViewClient(webViewClient);
             } catch (Exception unused) {
@@ -467,7 +475,7 @@ public class SSWebView extends WebView {
     @Override // android.webkit.WebView
     public void stopLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             try {
                 super.stopLoading();
             } catch (Exception unused) {
@@ -516,7 +524,7 @@ public class SSWebView extends WebView {
                 return;
             }
         }
-        this.f30917a = false;
+        this.f31100a = false;
         b(a(context));
     }
 
@@ -548,7 +556,7 @@ public class SSWebView extends WebView {
                 return;
             }
         }
-        this.f30917a = false;
+        this.f31100a = false;
         b(a(context));
     }
 

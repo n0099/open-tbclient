@@ -36,7 +36,7 @@ public class l extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
-            eVar.f3554d = true;
+            eVar.f3580d = true;
             g gVar = new g();
             gVar.a(0);
             return gVar;

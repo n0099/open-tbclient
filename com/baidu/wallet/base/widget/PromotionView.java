@@ -23,19 +23,19 @@ public class PromotionView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24340a;
+    public NetImageView f24498a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24341b;
+    public TextView f24499b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f24342c;
+    public ImageView f24500c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f24343d;
+    public View f24501d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f24344e;
+    public NetImageView f24502e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromotionView(Context context, AttributeSet attributeSet, int i2) {
@@ -61,23 +61,23 @@ public class PromotionView extends RelativeLayout {
 
     public void updatePromotionView(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) || this.f24343d == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) || this.f24501d == null) {
             return;
         }
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3)) {
             return;
         }
-        this.f24343d.setVisibility(0);
+        this.f24501d.setVisibility(0);
         if (!TextUtils.isEmpty(str4)) {
-            this.f24343d.setOnClickListener(new View.OnClickListener(this, str4) { // from class: com.baidu.wallet.base.widget.PromotionView.2
+            this.f24501d.setOnClickListener(new View.OnClickListener(this, str4) { // from class: com.baidu.wallet.base.widget.PromotionView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f24346a;
+                public final /* synthetic */ String f24504a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromotionView f24347b;
+                public final /* synthetic */ PromotionView f24505b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,55 +94,55 @@ public class PromotionView extends RelativeLayout {
                             return;
                         }
                     }
-                    this.f24347b = this;
-                    this.f24346a = str4;
+                    this.f24505b = this;
+                    this.f24504a = str4;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        Intent intent = new Intent(this.f24347b.getContext(), WebViewActivity.class);
-                        intent.putExtra("jump_url", this.f24346a);
-                        this.f24347b.getContext().startActivity(intent);
+                        Intent intent = new Intent(this.f24505b.getContext(), WebViewActivity.class);
+                        intent.putExtra("jump_url", this.f24504a);
+                        this.f24505b.getContext().startActivity(intent);
                     }
                 }
             });
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f24344e.setImageUrl(str);
-            this.f24344e.setVisibility(0);
+            this.f24502e.setImageUrl(str);
+            this.f24502e.setVisibility(0);
             return;
         }
         if (!TextUtils.isEmpty(str2)) {
-            this.f24340a.setVisibility(0);
-            this.f24340a.setImageUrl(str2);
+            this.f24498a.setVisibility(0);
+            this.f24498a.setImageUrl(str2);
         } else {
-            this.f24340a.setVisibility(8);
+            this.f24498a.setVisibility(8);
         }
         if (TextUtils.isEmpty(str3)) {
             return;
         }
-        this.f24341b.setText(str3);
-        this.f24341b.setVisibility(0);
+        this.f24499b.setText(str3);
+        this.f24499b.setVisibility(0);
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_promotion_view"), this);
-            this.f24343d = findViewById(ResUtils.id(getContext(), "wallet_promotion_all"));
-            this.f24344e = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_big_image"));
-            this.f24340a = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_img"));
-            this.f24341b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_promotion_txt"));
+            this.f24501d = findViewById(ResUtils.id(getContext(), "wallet_promotion_all"));
+            this.f24502e = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_big_image"));
+            this.f24498a = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_img"));
+            this.f24499b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_promotion_txt"));
             ImageView imageView = (ImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_image_del"));
-            this.f24342c = imageView;
+            this.f24500c = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.PromotionView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PromotionView f24345a;
+                public final /* synthetic */ PromotionView f24503a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -159,14 +159,14 @@ public class PromotionView extends RelativeLayout {
                             return;
                         }
                     }
-                    this.f24345a = this;
+                    this.f24503a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f24345a.f24343d.setVisibility(8);
+                        this.f24503a.f24501d.setVisibility(8);
                     }
                 }
             });

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
-import d.a.o0.s.c.v;
-import d.a.p0.o0.b;
+import d.a.p0.t.c.v;
+import d.a.q0.o0.b;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
@@ -30,7 +30,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorInputView f19374a;
+        public final /* synthetic */ PbFullScreenEditorInputView f19464a;
 
         public a(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
             Interceptable interceptable = $ic;
@@ -47,15 +47,15 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
                     return;
                 }
             }
-            this.f19374a = pbFullScreenEditorInputView;
+            this.f19464a = pbFullScreenEditorInputView;
         }
 
-        @Override // d.a.p0.o0.b.f
+        @Override // d.a.q0.o0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f19374a.setText(spannableStringBuilder);
-                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f19374a;
+                this.f19464a.setText(spannableStringBuilder);
+                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f19464a;
                 pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
             }
         }
@@ -67,7 +67,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorInputView f19375a;
+        public final /* synthetic */ PbFullScreenEditorInputView f19465a;
 
         public b(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
                     return;
                 }
             }
-            this.f19375a = pbFullScreenEditorInputView;
+            this.f19465a = pbFullScreenEditorInputView;
         }
 
-        @Override // d.a.p0.o0.b.f
+        @Override // d.a.q0.o0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f19375a.setHint(spannableStringBuilder);
+                this.f19465a.setHint(spannableStringBuilder);
             }
         }
     }
@@ -102,7 +102,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorInputView f19376a;
+        public final /* synthetic */ PbFullScreenEditorInputView f19466a;
 
         public c(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
             Interceptable interceptable = $ic;
@@ -119,15 +119,15 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
                     return;
                 }
             }
-            this.f19376a = pbFullScreenEditorInputView;
+            this.f19466a = pbFullScreenEditorInputView;
         }
 
-        @Override // d.a.p0.o0.b.f
+        @Override // d.a.q0.o0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f19376a.setText(spannableStringBuilder);
-                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f19376a;
+                this.f19466a.setText(spannableStringBuilder);
+                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f19466a;
                 pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
             }
         }
@@ -189,29 +189,29 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        d.a.p0.o0.b.d(getContext(), str, new a(this));
+        d.a.q0.o0.b.d(getContext(), str, new a(this));
     }
 
     public void k(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             if (!TextUtils.isEmpty(str)) {
-                d.a.p0.o0.b.d(getContext(), str, new b(this));
+                d.a.q0.o0.b.d(getContext(), str, new b(this));
             }
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            d.a.p0.o0.b.d(getContext(), str2, new c(this));
+            d.a.q0.o0.b.d(getContext(), str2, new c(this));
         }
     }
 
     public void l(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, vVar) == null) {
-            if (d.a.p0.o0.a.a(getText().toString()) >= 10) {
+            if (d.a.q0.o0.a.a(getText().toString()) >= 10) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                d.a.p0.o0.b.b(getContext(), vVar, this);
+                d.a.q0.o0.b.b(getContext(), vVar, this);
             }
         }
     }

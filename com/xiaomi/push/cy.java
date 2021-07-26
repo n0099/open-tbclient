@@ -36,7 +36,7 @@ public class cy {
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, iqVar, hfVar)) == null) {
-            switch (cz.f39958a[hfVar.ordinal()]) {
+            switch (cz.f40230a[hfVar.ordinal()]) {
                 case 1:
                 case 2:
                 case 3:

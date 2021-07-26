@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.e.l;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.j.h;
@@ -30,8 +30,10 @@ import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.widget.TTRatingBar;
 import com.bytedance.sdk.openadsdk.core.widget.TTRoundRectImageView;
 import com.bytedance.sdk.openadsdk.core.widget.g;
-import com.bytedance.sdk.openadsdk.r.p;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
+import com.bytedance.sdk.openadsdk.q.q;
+import com.bytedance.sdk.openadsdk.q.r;
+import com.bytedance.sdk.openadsdk.q.s;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
@@ -40,31 +42,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f29623a;
+    public View f29721a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f29624b;
+    public RelativeLayout f29722b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TTRoundRectImageView f29625c;
+    public TTRoundRectImageView f29723c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f29626d;
+    public TextView f29724d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f29627e;
+    public TextView f29725e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f29628f;
+    public TextView f29726f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTRatingBar f29629g;
+    public TTRatingBar f29727g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f29630h;
+    public TextView f29728h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f29631i;
+    public FrameLayout f29729i;
     public FrameLayout j;
     public FrameLayout k;
     public boolean l;
@@ -105,36 +107,37 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Activity activity = this.o;
-            this.f29623a = activity.findViewById(r.e(activity, "tt_reward_root"));
+            this.f29721a = activity.findViewById(t.e(activity, "tt_reward_root"));
             Activity activity2 = this.o;
-            this.f29624b = (RelativeLayout) activity2.findViewById(r.e(activity2, "tt_video_reward_bar"));
+            this.f29722b = (RelativeLayout) activity2.findViewById(t.e(activity2, "tt_video_reward_bar"));
             Activity activity3 = this.o;
-            this.f29625c = (TTRoundRectImageView) activity3.findViewById(r.e(activity3, "tt_reward_ad_icon"));
+            this.f29723c = (TTRoundRectImageView) activity3.findViewById(t.e(activity3, "tt_reward_ad_icon"));
             Activity activity4 = this.o;
-            this.f29626d = (TextView) activity4.findViewById(r.e(activity4, "tt_reward_ad_appname"));
+            this.f29724d = (TextView) activity4.findViewById(t.e(activity4, "tt_reward_ad_appname"));
             Activity activity5 = this.o;
-            this.f29627e = (TextView) activity5.findViewById(r.e(activity5, "tt_comment_vertical"));
+            this.f29725e = (TextView) activity5.findViewById(t.e(activity5, "tt_comment_vertical"));
             Activity activity6 = this.o;
-            this.f29628f = (TextView) activity6.findViewById(r.e(activity6, "tt_reward_ad_download"));
+            this.f29726f = (TextView) activity6.findViewById(t.e(activity6, "tt_reward_ad_download"));
             Activity activity7 = this.o;
-            TTRatingBar tTRatingBar = (TTRatingBar) activity7.findViewById(r.e(activity7, "tt_rb_score"));
-            this.f29629g = tTRatingBar;
+            TTRatingBar tTRatingBar = (TTRatingBar) activity7.findViewById(t.e(activity7, "tt_rb_score"));
+            this.f29727g = tTRatingBar;
             if (tTRatingBar != null) {
                 tTRatingBar.setStarEmptyNum(1);
-                this.f29629g.setStarFillNum(4);
-                this.f29629g.setStarImageWidth(q.d(this.o, 15.0f));
-                this.f29629g.setStarImageHeight(q.d(this.o, 14.0f));
-                this.f29629g.setStarImagePadding(q.d(this.o, 4.0f));
-                this.f29629g.a();
+                this.f29727g.setStarFillNum(4);
+                this.f29727g.setStarImageWidth(s.d(this.o, 15.0f));
+                this.f29727g.setStarImageHeight(s.d(this.o, 14.0f));
+                this.f29727g.setStarImagePadding(s.d(this.o, 4.0f));
+                this.f29727g.a();
             }
             Activity activity8 = this.o;
-            this.f29630h = (TextView) activity8.findViewById(r.e(activity8, "tt_ad_logo"));
+            this.f29728h = (TextView) activity8.findViewById(t.e(activity8, "tt_ad_logo"));
             Activity activity9 = this.o;
-            this.f29631i = (FrameLayout) activity9.findViewById(r.e(activity9, "tt_video_reward_container"));
+            this.f29729i = (FrameLayout) activity9.findViewById(t.e(activity9, "tt_video_reward_container"));
             Activity activity10 = this.o;
-            this.j = (FrameLayout) activity10.findViewById(r.e(activity10, "tt_click_upper_non_content_layout"));
+            this.j = (FrameLayout) activity10.findViewById(t.e(activity10, "tt_click_upper_non_content_layout"));
             Activity activity11 = this.o;
-            this.k = (FrameLayout) activity11.findViewById(r.e(activity11, "tt_click_lower_non_content_layout"));
+            this.k = (FrameLayout) activity11.findViewById(t.e(activity11, "tt_click_lower_non_content_layout"));
+            s.a(this.f29728h, this.p);
         }
     }
 
@@ -145,7 +148,7 @@ public class c {
             this.u = t;
             if (t == -200) {
                 h h2 = o.h();
-                this.u = h2.k(com.bytedance.sdk.openadsdk.r.o.d(this.p.ao()) + "");
+                this.u = h2.k(q.d(this.p.ao()) + "");
             }
             if (this.u == -1 && this.l) {
                 b(0);
@@ -155,7 +158,7 @@ public class c {
 
     private void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f29624b == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f29722b == null) {
             return;
         }
         Keyframe ofFloat = Keyframe.ofFloat(0.0f, 0.0f);
@@ -164,7 +167,7 @@ public class c {
         Keyframe ofFloat4 = Keyframe.ofFloat(0.88f, 1.0f);
         Keyframe ofFloat5 = Keyframe.ofFloat(0.95f, 0.95f);
         Keyframe ofFloat6 = Keyframe.ofFloat(1.0f, 1.0f);
-        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f29624b, PropertyValuesHolder.ofKeyframe("scaleX", ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5, ofFloat6), PropertyValuesHolder.ofKeyframe("scaleY", ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5, ofFloat6));
+        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f29722b, PropertyValuesHolder.ofKeyframe("scaleX", ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5, ofFloat6), PropertyValuesHolder.ofKeyframe("scaleY", ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5, ofFloat6));
         ofPropertyValuesHolder.setDuration(1000L);
         ofPropertyValuesHolder.start();
     }
@@ -188,7 +191,7 @@ public class c {
         if (interceptable != null && (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) != null) {
             return (String) invokeV.objValue;
         }
-        String j = com.bytedance.sdk.openadsdk.r.o.j(this.o);
+        String j = q.j(this.o);
         if (j == null) {
             j = "";
         }
@@ -219,8 +222,8 @@ public class c {
                 } else {
                     str = this.p.aj();
                     if (str != null) {
-                        if (!com.bytedance.sdk.openadsdk.r.o.k(str) || str.length() <= 2) {
-                            if (!com.bytedance.sdk.openadsdk.r.o.k(str) && str.length() > 7) {
+                        if (!q.k(str) || str.length() <= 2) {
+                            if (!q.k(str) && str.length() > 7) {
                                 if (z) {
                                     str = b(true);
                                 } else if (z2) {
@@ -234,10 +237,10 @@ public class c {
                         }
                     }
                 }
-                if (z2 && !com.bytedance.sdk.openadsdk.r.o.k(str)) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f29628f.getLayoutParams();
-                    layoutParams.bottomMargin = q.d(this.o, 4.0f);
-                    this.f29628f.setLayoutParams(layoutParams);
+                if (z2 && !q.k(str)) {
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f29726f.getLayoutParams();
+                    layoutParams.bottomMargin = s.d(this.o, 4.0f);
+                    this.f29726f.setLayoutParams(layoutParams);
                 }
                 return str;
             }
@@ -263,27 +266,27 @@ public class c {
         }
         try {
             if (this.r == 2 && this.p.k() == 1) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f29628f.getLayoutParams();
-                layoutParams.height = (int) q.b(this.o, 55.0f);
-                layoutParams.topMargin = (int) q.b(this.o, 20.0f);
-                this.f29628f.setLayoutParams(layoutParams);
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f29624b.getLayoutParams();
-                layoutParams2.bottomMargin = (int) q.b(this.o, 12.0f);
-                this.f29624b.setLayoutParams(layoutParams2);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f29726f.getLayoutParams();
+                layoutParams.height = (int) s.b(this.o, 55.0f);
+                layoutParams.topMargin = (int) s.b(this.o, 20.0f);
+                this.f29726f.setLayoutParams(layoutParams);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f29722b.getLayoutParams();
+                layoutParams2.bottomMargin = (int) s.b(this.o, 12.0f);
+                this.f29722b.setLayoutParams(layoutParams2);
             }
         } catch (Throwable unused) {
         }
-        if (this.p.k() != 1 || this.f29631i == null) {
+        if (this.p.k() != 1 || this.f29729i == null) {
             return;
         }
-        int c2 = q.c((Context) this.o);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f29631i.getLayoutParams();
+        int c2 = s.c((Context) this.o);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f29729i.getLayoutParams();
         layoutParams3.width = c2;
         int i2 = (c2 * 9) / 16;
         layoutParams3.height = i2;
-        this.f29631i.setLayoutParams(layoutParams3);
-        this.m = (q.d((Context) this.o) - i2) / 2;
-        j.f("RewardFullVideoLayout", "NonContentAreaHeight:" + this.m);
+        this.f29729i.setLayoutParams(layoutParams3);
+        this.m = (s.d((Context) this.o) - i2) / 2;
+        k.f("RewardFullVideoLayout", "NonContentAreaHeight:" + this.m);
     }
 
     public void a(m mVar, String str, int i2, boolean z, String str2) {
@@ -304,19 +307,19 @@ public class c {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.f29625c != null) {
+            if (this.f29723c != null) {
                 l Y = this.p.Y();
                 if (Y != null && !TextUtils.isEmpty(Y.a())) {
-                    com.bytedance.sdk.openadsdk.g.a.a(Y).a(this.f29625c);
+                    ImageLoaderWrapper.from(Y).to(this.f29723c);
                 } else {
-                    this.f29625c.setImageResource(r.d(this.o, "tt_ad_logo_small"));
+                    this.f29723c.setImageResource(t.d(this.o, "tt_ad_logo_small"));
                 }
             }
-            if (this.f29626d != null) {
+            if (this.f29724d != null) {
                 if (this.r == 1 && this.p.al() != null && !TextUtils.isEmpty(this.p.al().c())) {
-                    this.f29626d.setText(this.p.al().c());
+                    this.f29724d.setText(this.p.al().c());
                 } else {
-                    this.f29626d.setText(this.p.ah());
+                    this.f29724d.setText(this.p.ah());
                 }
             }
         }
@@ -325,62 +328,62 @@ public class c {
     public void c() {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f29627e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f29725e == null) {
             return;
         }
         int f2 = this.p.al() != null ? this.p.al().f() : 6870;
-        String a2 = r.a(this.o, "tt_comment_num");
+        String a2 = t.a(this.o, "tt_comment_num");
         if (f2 > 10000) {
             str = (f2 / 10000) + "万";
         } else {
             str = f2 + "";
         }
-        this.f29627e.setText(String.format(a2, str));
+        this.f29725e.setText(String.format(a2, str));
     }
 
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, onClickListener) == null) {
-            q.a(this.f29631i, onClickListener, "TTBaseVideoActivity#mVideoNativeFrame");
+            s.a(this.f29729i, onClickListener, "TTBaseVideoActivity#mVideoNativeFrame");
         }
     }
 
     public FrameLayout e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f29631i : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f29729i : (FrameLayout) invokeV.objValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && this.p.k() == 3) {
             int[] iArr = {Color.parseColor("#0070FF")};
-            g.a e2 = new g.a().a(iArr[0]).b(Color.parseColor("#80000000")).a(iArr).c(q.d(this.o, 17.0f)).d(0).e(q.d(this.o, 3.0f));
+            g.a e2 = new g.a().a(iArr[0]).b(Color.parseColor("#80000000")).a(iArr).c(s.d(this.o, 17.0f)).d(0).e(s.d(this.o, 3.0f));
             Activity activity = this.o;
-            g.a((LinearLayout) activity.findViewById(r.e(activity, "tt_reward_ad_download_layout")), e2);
+            g.a((LinearLayout) activity.findViewById(t.e(activity, "tt_reward_ad_download_layout")), e2);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            q.a((View) this.f29631i, 8);
-            q.a((View) this.j, 8);
-            q.a((View) this.k, 8);
-            q.a((View) this.f29624b, 8);
-            q.a((View) this.f29626d, 8);
-            q.a((View) this.f29625c, 8);
-            q.a((View) this.f29627e, 8);
-            q.a((View) this.f29629g, 8);
-            q.a((View) this.f29628f, 8);
-            q.a((View) this.f29630h, 8);
+            s.a((View) this.f29729i, 8);
+            s.a((View) this.j, 8);
+            s.a((View) this.k, 8);
+            s.a((View) this.f29722b, 8);
+            s.a((View) this.f29724d, 8);
+            s.a((View) this.f29723c, 8);
+            s.a((View) this.f29725e, 8);
+            s.a((View) this.f29727g, 8);
+            s.a((View) this.f29726f, 8);
+            s.a((View) this.f29728h, 8);
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
-            q.a(this.f29624b, onClickListener, "TTBaseVideoActivity#mRlDownloadBar");
+            s.a(this.f29722b, onClickListener, "TTBaseVideoActivity#mRlDownloadBar");
         }
     }
 
@@ -388,7 +391,7 @@ public class c {
     public void c(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, onTouchListener) == null) {
-            q.a(this.f29624b, onTouchListener, "TTBaseVideoActivity#mRlDownloadBar");
+            s.a(this.f29722b, onTouchListener, "TTBaseVideoActivity#mRlDownloadBar");
         }
     }
 
@@ -404,14 +407,14 @@ public class c {
             if (this.s) {
                 h();
             }
-            p.a(this.f29630h, this.p.aH());
+            r.a(this.f29728h, this.p.aH());
         }
     }
 
     public void b(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (textView = this.f29628f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (textView = this.f29726f) == null) {
             return;
         }
         if (this.p.k() == 3) {
@@ -434,7 +437,7 @@ public class c {
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            this.f29628f.setOnClickListener(onClickListener);
+            s.a(this.f29726f, onClickListener, (String) null);
         }
     }
 
@@ -442,14 +445,14 @@ public class c {
     public void b(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onTouchListener) == null) {
-            this.f29628f.setOnTouchListener(onTouchListener);
+            s.a(this.f29726f, onTouchListener, (String) null);
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            q.a((View) this.f29624b, i2);
+            s.a((View) this.f29722b, i2);
         }
     }
 
@@ -469,21 +472,21 @@ public class c {
     public RelativeLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29624b : (RelativeLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29722b : (RelativeLayout) invokeV.objValue;
     }
 
     public void a(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 1) {
-                TextView textView = this.f29626d;
+                TextView textView = this.f29724d;
                 if (textView != null) {
-                    textView.setMaxWidth((int) q.b(this.o, 153.0f));
+                    textView.setMaxWidth((int) s.b(this.o, 153.0f));
                 }
             } else {
-                TextView textView2 = this.f29626d;
+                TextView textView2 = this.f29724d;
                 if (textView2 != null) {
-                    textView2.setMaxWidth((int) q.b(this.o, 404.0f));
+                    textView2.setMaxWidth((int) s.b(this.o, 404.0f));
                 }
             }
             if (z) {
@@ -496,18 +499,18 @@ public class c {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            q.a((View) this.f29630h, i2);
+            s.a((View) this.f29728h, i2);
         }
     }
 
     public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            q.a(this.f29624b, onClickListener, "TTBaseVideoActivity#mRlDownloadBar");
-            this.f29626d.setOnClickListener(onClickListener);
-            this.f29625c.setOnClickListener(onClickListener);
-            this.f29627e.setOnClickListener(onClickListener);
-            this.f29629g.setOnClickListener(onClickListener);
+            s.a(this.f29722b, onClickListener, "TTBaseVideoActivity#mRlDownloadBar");
+            s.a(this.f29724d, onClickListener, (String) null);
+            s.a(this.f29723c, onClickListener, (String) null);
+            s.a(this.f29725e, onClickListener, (String) null);
+            s.a(this.f29727g, onClickListener, (String) null);
         }
     }
 
@@ -515,11 +518,11 @@ public class c {
     public void a(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onTouchListener) == null) {
-            q.a(this.f29624b, onTouchListener, "TTBaseVideoActivity#mRlDownloadBar");
-            this.f29626d.setOnTouchListener(onTouchListener);
-            this.f29625c.setOnTouchListener(onTouchListener);
-            this.f29627e.setOnTouchListener(onTouchListener);
-            this.f29629g.setOnTouchListener(onTouchListener);
+            s.a(this.f29722b, onTouchListener, "TTBaseVideoActivity#mRlDownloadBar");
+            s.a(this.f29724d, onTouchListener, (String) null);
+            s.a(this.f29723c, onTouchListener, (String) null);
+            s.a(this.f29725e, onTouchListener, (String) null);
+            s.a(this.f29727g, onTouchListener, (String) null);
         }
     }
 
@@ -537,20 +540,20 @@ public class c {
         if (interceptable == null || interceptable.invokeLLL(1048581, this, onClickListener, onTouchListener, onClickListener2) == null) {
             m mVar = this.p;
             if (mVar != null && mVar.l() != null) {
-                if (this.p.l().f30024e) {
+                if (this.p.l().f30124e) {
                     b(onClickListener);
                     b(onTouchListener);
                 } else {
                     b(onClickListener2);
                 }
                 if (this.p.k() == 1) {
-                    if (this.p.l().f30020a) {
+                    if (this.p.l().f30120a) {
                         a(onClickListener);
                         a(onTouchListener);
                     } else {
                         a(onClickListener2);
                     }
-                } else if (this.p.l().f30022c) {
+                } else if (this.p.l().f30122c) {
                     c(onClickListener);
                     c(onTouchListener);
                 } else {
@@ -559,7 +562,7 @@ public class c {
             }
             m mVar2 = this.p;
             if (mVar2 != null && mVar2.l() != null) {
-                if (this.p.l().f30025f) {
+                if (this.p.l().f30125f) {
                     d(onClickListener);
                 } else {
                     d(onClickListener2);
@@ -570,11 +573,11 @@ public class c {
                 return;
             }
             if (this.p.l() != null && (frameLayout2 = this.j) != null) {
-                q.a((View) frameLayout2, 0);
+                s.a((View) frameLayout2, 0);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
                 layoutParams.height = this.m;
                 this.j.setLayoutParams(layoutParams);
-                if (this.p.l().f30021b) {
+                if (this.p.l().f30121b) {
                     this.j.setOnClickListener(onClickListener);
                     this.j.setOnTouchListener(onTouchListener);
                 } else {
@@ -584,11 +587,11 @@ public class c {
             if (this.p.l() == null || (frameLayout = this.k) == null) {
                 return;
             }
-            q.a((View) frameLayout, 0);
+            s.a((View) frameLayout, 0);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.k.getLayoutParams();
             layoutParams2.height = this.m;
             this.k.setLayoutParams(layoutParams2);
-            if (this.p.l().f30023d) {
+            if (this.p.l().f30123d) {
                 this.k.setOnClickListener(onClickListener);
                 this.k.setOnTouchListener(onTouchListener);
                 return;
@@ -601,15 +604,15 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mVar)) == null) {
-            int f2 = r.f(this.o, "tt_activity_full_video_default_style");
+            int f2 = t.f(this.o, "tt_activity_full_video_default_style");
             int k = mVar.k();
             if (k != 0) {
                 if (k != 1) {
-                    return k != 3 ? f2 : r.f(this.o, "tt_activity_full_video_new_bar_style");
+                    return k != 3 ? f2 : t.f(this.o, "tt_activity_full_video_new_bar_style");
                 }
-                return com.bytedance.sdk.openadsdk.core.e.o.j(this.p) ? r.f(this.o, "tt_activity_full_video_default_style") : r.f(this.o, "tt_activity_full_video_no_bar_style");
+                return com.bytedance.sdk.openadsdk.core.e.o.j(this.p) ? t.f(this.o, "tt_activity_full_video_default_style") : t.f(this.o, "tt_activity_full_video_no_bar_style");
             }
-            return r.f(this.o, "tt_activity_full_video_default_style");
+            return t.f(this.o, "tt_activity_full_video_default_style");
         }
         return invokeL.intValue;
     }

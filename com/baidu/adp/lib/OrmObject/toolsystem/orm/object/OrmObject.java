@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.b.b.a.a.a;
+import d.a.d.e.b.b.a.a.a;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -101,7 +101,7 @@ public class OrmObject extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bundle, cls)) == null) {
-            OrmObject ormObject = (OrmObject) d.a.c.e.b.a.a.f(cls);
+            OrmObject ormObject = (OrmObject) d.a.d.e.b.a.a.f(cls);
             if (ormObject == null || !ormObject.fillByBundle(bundle)) {
                 return null;
             }
@@ -114,7 +114,7 @@ public class OrmObject extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, intent, cls)) == null) {
-            OrmObject ormObject = (OrmObject) d.a.c.e.b.a.a.f(cls);
+            OrmObject ormObject = (OrmObject) d.a.d.e.b.a.a.f(cls);
             if (ormObject == null || !ormObject.fillByIntent(intent)) {
                 return null;
             }
@@ -127,7 +127,7 @@ public class OrmObject extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, jSONObject, cls)) == null) {
-            OrmObject ormObject = (OrmObject) d.a.c.e.b.a.a.f(cls);
+            OrmObject ormObject = (OrmObject) d.a.d.e.b.a.a.f(cls);
             if (ormObject == null || !ormObject.fillByJsonObject(jSONObject)) {
                 return null;
             }
@@ -157,7 +157,7 @@ public class OrmObject extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, map, cls)) == null) {
-            OrmObject ormObject = (OrmObject) d.a.c.e.b.a.a.f(cls);
+            OrmObject ormObject = (OrmObject) d.a.d.e.b.a.a.f(cls);
             if (ormObject == null || !ormObject.fillByMap(map)) {
                 return null;
             }

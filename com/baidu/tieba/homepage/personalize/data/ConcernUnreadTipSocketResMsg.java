@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.e1.h.j.e;
+import d.a.q0.e1.h.j.e;
 import tbclient.Error;
 import tbclient.UnreadTip.UnreadTipResIdl;
 /* loaded from: classes4.dex */

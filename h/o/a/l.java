@@ -8,27 +8,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class l<T, R> implements d.b<R, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Class<R> f72490e;
+    public final Class<R> f72944e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a<T, R> extends h.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super R> f72491e;
+        public final h.j<? super R> f72945e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Class<R> f72492f;
+        public final Class<R> f72946f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f72493g;
+        public boolean f72947g;
 
         public a(h.j<? super R> jVar, Class<R> cls) {
             Interceptable interceptable = $ic;
@@ -45,29 +45,29 @@ public class l<T, R> implements d.b<R, T> {
                     return;
                 }
             }
-            this.f72491e = jVar;
-            this.f72492f = cls;
+            this.f72945e = jVar;
+            this.f72946f = cls;
         }
 
         @Override // h.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72493g) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72947g) {
                 return;
             }
-            this.f72491e.onCompleted();
+            this.f72945e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.f72493g) {
+                if (this.f72947g) {
                     h.r.c.j(th);
                     return;
                 }
-                this.f72493g = true;
-                this.f72491e.onError(th);
+                this.f72947g = true;
+                this.f72945e.onError(th);
             }
         }
 
@@ -76,7 +76,7 @@ public class l<T, R> implements d.b<R, T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
                 try {
-                    this.f72491e.onNext(this.f72492f.cast(t));
+                    this.f72945e.onNext(this.f72946f.cast(t));
                 } catch (Throwable th) {
                     h.m.a.e(th);
                     unsubscribe();
@@ -89,7 +89,7 @@ public class l<T, R> implements d.b<R, T> {
         public void setProducer(h.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-                this.f72491e.setProducer(fVar);
+                this.f72945e.setProducer(fVar);
             }
         }
     }
@@ -109,7 +109,7 @@ public class l<T, R> implements d.b<R, T> {
                 return;
             }
         }
-        this.f72490e = cls;
+        this.f72944e = cls;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -119,7 +119,7 @@ public class l<T, R> implements d.b<R, T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            a aVar = new a(jVar, this.f72490e);
+            a aVar = new a(jVar, this.f72944e);
             jVar.add(aVar);
             return aVar;
         }

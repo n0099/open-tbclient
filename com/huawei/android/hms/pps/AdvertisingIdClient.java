@@ -101,12 +101,12 @@ public class AdvertisingIdClient {
                 Log.i(getTag(), "bind ok");
                 try {
                     try {
-                        if (aVar.f33587a) {
+                        if (aVar.f33776a) {
                             throw new IllegalStateException();
                         }
-                        aVar.f33587a = true;
-                        b.a.C0396a c0396a = new b.a.C0396a(aVar.f33588b.take());
-                        return new Info(c0396a.a(), c0396a.b());
+                        aVar.f33776a = true;
+                        b.a.C0398a c0398a = new b.a.C0398a(aVar.f33777b.take());
+                        return new Info(c0398a.a(), c0398a.b());
                     } finally {
                         context.unbindService(aVar);
                     }

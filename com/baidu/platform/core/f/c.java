@@ -30,7 +30,7 @@ public class c extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9444b = "c";
+    public static final String f9470b = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -116,7 +116,7 @@ public class c extends com.baidu.platform.base.d {
                     return false;
                 }
             } catch (JSONException e2) {
-                Log.e(f9444b, "Parse sug search error", e2);
+                Log.e(f9470b, "Parse sug search error", e2);
             }
             suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return false;
@@ -173,7 +173,7 @@ public class c extends com.baidu.platform.base.d {
                 try {
                     jSONObject = new JSONObject(str);
                 } catch (JSONException e2) {
-                    Log.e(f9444b, "Parse suggestion search result error", e2);
+                    Log.e(f9470b, "Parse suggestion search result error", e2);
                 }
                 if (jSONObject.length() != 0) {
                     if (jSONObject.has("SDK_InnerError")) {

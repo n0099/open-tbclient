@@ -1,65 +1,25 @@
 package com.win.opensdk;
 
-import android.text.TextUtils;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.zip.GZIPInputStream;
-import javax.net.ssl.HttpsURLConnection;
+import com.win.opensdk.image.gif2.GifImageView;
 /* loaded from: classes6.dex */
-public class s0 {
+public class s0 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public URL f39651a;
+    public final /* synthetic */ GifImageView f39932a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public byte[] f39652b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Map f39653c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Map f39654d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f39655e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f39656f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f39657g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f39658h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f39659i;
-    public int j;
-
-    public s0(String str, String str2, Map map) {
+    public s0(GifImageView gifImageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, map};
+            Object[] objArr = {gifImageView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -69,107 +29,17 @@ public class s0 {
                 return;
             }
         }
-        this.f39655e = "GET";
-        this.f39656f = -1;
-        this.f39657g = false;
-        this.f39658h = true;
-        this.f39651a = new URL(str);
-        this.f39655e = str2;
-        this.f39653c = map;
-        this.f39659i = 20000;
-        this.j = 20000;
+        this.f39932a = gifImageView;
     }
 
-    public t0 a() {
-        InterceptResult invokeV;
-        HttpURLConnection httpURLConnection;
-        InputStream errorStream;
+    @Override // java.lang.Runnable
+    public void run() {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            String url = this.f39651a.toString();
-            if (!TextUtils.isEmpty(url) ? url.startsWith("http") : false) {
-                httpURLConnection = (HttpURLConnection) this.f39651a.openConnection();
-            } else {
-                httpURLConnection = (HttpsURLConnection) this.f39651a.openConnection();
-            }
-            httpURLConnection.setRequestMethod(this.f39655e);
-            httpURLConnection.setInstanceFollowRedirects(this.f39658h);
-            httpURLConnection.setReadTimeout(this.j);
-            httpURLConnection.setConnectTimeout(this.f39659i);
-            httpURLConnection.setDoInput(true);
-            Map map = this.f39653c;
-            if (map != null && map.size() > 0) {
-                for (Map.Entry entry : map.entrySet()) {
-                    String str = (String) entry.getKey();
-                    for (String str2 : (List) entry.getValue()) {
-                        String str3 = "header:" + str + "=" + str2;
-                        httpURLConnection.setRequestProperty(str, str2);
-                    }
-                }
-            }
-            if (this.f39655e.equals("POST")) {
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setDoOutput(true);
-                PrintWriter printWriter = null;
-                PrintWriter printWriter2 = null;
-                try {
-                    OutputStream outputStream = httpURLConnection.getOutputStream();
-                    byte[] bArr = this.f39652b;
-                    if (bArr == null) {
-                        PrintWriter printWriter3 = new PrintWriter((Writer) new OutputStreamWriter(outputStream, "UTF-8"), true);
-                        try {
-                            URL url2 = this.f39651a;
-                            printWriter3.print(url2 != null ? url2.getQuery() : null);
-                            printWriter3.flush();
-                            printWriter2 = printWriter3;
-                        } catch (Throwable th) {
-                            th = th;
-                            printWriter = printWriter3;
-                            if (printWriter != null) {
-                                printWriter.close();
-                            }
-                            throw th;
-                        }
-                    } else {
-                        outputStream.write(bArr);
-                        outputStream.flush();
-                    }
-                    if (printWriter2 != null) {
-                        printWriter2.close();
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            }
-            this.f39656f = httpURLConnection.getResponseCode();
-            httpURLConnection.getContentLength();
-            if (httpURLConnection.getHeaderFields() != null) {
-                this.f39654d = httpURLConnection.getHeaderFields();
-            }
-            try {
-                String contentEncoding = httpURLConnection.getContentEncoding();
-                errorStream = (contentEncoding == null || !contentEncoding.contains(AsyncHttpClient.ENCODING_GZIP)) ? httpURLConnection.getInputStream() : new GZIPInputStream(httpURLConnection.getInputStream());
-            } catch (IOException e2) {
-                errorStream = httpURLConnection.getErrorStream();
-                if (errorStream == null) {
-                    throw new RuntimeException("InputStream is error: " + e2.getMessage());
-                }
-            }
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
-            byte[] bArr2 = new byte[4096];
-            int i2 = 0;
-            while (!this.f39657g && i2 != -1) {
-                i2 = bufferedInputStream.read(bArr2);
-                if (i2 > 0) {
-                    byteArrayOutputStream.write(bArr2, 0, i2);
-                }
-            }
-            httpURLConnection.disconnect();
-            byteArrayOutputStream.flush();
-            errorStream.close();
-            return new t0(this.f39656f, byteArrayOutputStream.toByteArray(), this.f39654d);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.f39932a.f39835b) == null || bitmap.isRecycled()) {
+            return;
         }
-        return (t0) invokeV.objValue;
+        GifImageView gifImageView = this.f39932a;
+        gifImageView.setImageBitmap(gifImageView.f39835b);
     }
 }

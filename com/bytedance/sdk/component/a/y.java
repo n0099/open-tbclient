@@ -1,218 +1,58 @@
 package com.bytedance.sdk.component.a;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class y extends a {
+public class y {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean j;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f27979a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: h  reason: collision with root package name */
-    public String f27821h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public WebView f27822i;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2131109227, "Lcom/bytedance/sdk/component/a/y;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2131109227, "Lcom/bytedance/sdk/component/a/y;");
-                return;
-            }
-        }
-        j = !y.class.desiredAssertionStatus();
-    }
-
-    public y() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.component.a.a
-    @NonNull
-    public Context a(j jVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            Context context = jVar.f27761e;
-            if (context != null) {
-                return context;
-            }
-            WebView webView = jVar.f27757a;
-            if (webView != null) {
-                return webView.getContext();
-            }
-            throw new IllegalStateException("WebView cannot be null!");
-        }
-        return (Context) invokeL.objValue;
-    }
-
-    @Override // com.bytedance.sdk.component.a.a
-    @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
-    public void b(j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
-            this.f27822i = jVar.f27757a;
-            this.f27821h = jVar.f27759c;
-            if (Build.VERSION.SDK_INT < 17 || jVar.n) {
-                return;
-            }
-            c();
-        }
-    }
-
-    @SuppressLint({"AddJavascriptInterface"})
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!j && this.f27822i == null) {
-                throw new AssertionError();
-            }
-            this.f27822i.addJavascriptInterface(this, this.f27821h);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f27822i.removeJavascriptInterface(this.f27821h);
-        }
-    }
-
-    @Override // com.bytedance.sdk.component.a.a
-    @JavascriptInterface
-    public void invokeMethod(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            super.invokeMethod(str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.component.a.a
-    public String a() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27822i.getUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    @Override // com.bytedance.sdk.component.a.a
-    public void b() {
+    public static String a(@Nullable Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.b();
-            d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("{\"code\":");
+            sb.append(th instanceof s ? ((s) th).f27947a : 0);
+            sb.append("}");
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.bytedance.sdk.component.a.a
-    public void a(String str, @Nullable p pVar) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, pVar) == null) {
-            if (pVar != null && !TextUtils.isEmpty(pVar.f27773h)) {
-                String str2 = pVar.f27773h;
-                a(str, String.format("javascript:(function(){   const iframe = document.querySelector(atob('%s'));   if (iframe && iframe.contentWindow) {        iframe.contentWindow.postMessage(%s, atob('%s'));   }})()", Base64.encodeToString(String.format("iframe[src=\"%s\"", str2).getBytes(), 2), str, Base64.encodeToString(str2.getBytes(), 2)));
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "{\"code\":1}";
             }
-            super.a(str, pVar);
+            String substring = f27979a ? str.substring(1, str.length() - 1) : "";
+            String str2 = "{\"code\":1,\"__data\":" + str;
+            if (!substring.isEmpty()) {
+                return str2 + "," + substring + "}";
+            }
+            return str2 + "}";
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.bytedance.sdk.component.a.a
-    public void a(String str) {
+    public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            a(str, "javascript:" + this.f27821h + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            f27979a = z;
         }
-    }
-
-    private void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) || this.f27725f || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        Runnable runnable = new Runnable(this, str2) { // from class: com.bytedance.sdk.component.a.y.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f27823a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ y f27824b;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, str2};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f27824b = this;
-                this.f27823a = str2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f27824b.f27725f) {
-                    return;
-                }
-                if (Build.VERSION.SDK_INT >= 19) {
-                    i.a("Invoking Jsb using evaluateJavascript: " + this.f27823a);
-                    this.f27824b.f27822i.evaluateJavascript(this.f27823a, null);
-                    return;
-                }
-                i.a("Invoking Jsb using loadUrl: " + this.f27823a);
-                this.f27824b.f27822i.loadUrl(this.f27823a);
-            }
-        };
-        if (Looper.myLooper() != Looper.getMainLooper()) {
-            i.a("Received call on sub-thread, posting to main thread: " + str2);
-            this.f27723d.post(runnable);
-            return;
-        }
-        runnable.run();
     }
 }

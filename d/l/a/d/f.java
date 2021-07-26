@@ -15,17 +15,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.appdownloader.DownloadHandlerService;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
+import d.l.a.a.a.c.i;
 import d.l.a.a.a.c.k;
 import d.l.a.a.a.c.q;
 import d.l.a.a.a.c.u;
 import d.l.a.d.b.c;
-import d.l.a.d.b.j;
 import d.l.a.d.b.l;
 import d.l.a.d.c;
 import d.l.a.d.d;
 import d.l.a.d.h;
 import d.l.a.e.b.a.a;
-import d.l.a.e.b.f.i;
+import d.l.a.e.b.f.j;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f implements d.l.a.a.a.b {
@@ -55,7 +55,7 @@ public class f implements d.l.a.a.a.b {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements i {
+    public class b implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,7 +75,7 @@ public class f implements d.l.a.a.a.b {
             }
         }
 
-        @Override // d.l.a.e.b.f.i
+        @Override // d.l.a.e.b.f.j
         public boolean a(DownloadInfo downloadInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class f implements d.l.a.a.a.b {
             return invokeL.booleanValue;
         }
 
-        @Override // d.l.a.e.b.f.i
+        @Override // d.l.a.e.b.f.j
         public boolean b(DownloadInfo downloadInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class f implements d.l.a.a.a.b {
             return invokeL.booleanValue;
         }
 
-        @Override // d.l.a.e.b.f.i
+        @Override // d.l.a.e.b.f.j
         public boolean c(DownloadInfo downloadInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class f implements d.l.a.a.a.b {
                     if (c2 != null && c2.c()) {
                         d2 = d.l.a.e.b.j.a.d(downloadInfo.getId()).h("ad_notification_jump_url", null);
                     } else {
-                        d2 = j.d(downloadInfo);
+                        d2 = d.l.a.d.b.j.d(downloadInfo);
                     }
                     if (TextUtils.isEmpty(d2)) {
                         return false;
@@ -195,7 +195,7 @@ public class f implements d.l.a.a.a.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Runnable f71479a;
+            public final /* synthetic */ Runnable f71933a;
 
             public a(Runnable runnable) {
                 Interceptable interceptable = $ic;
@@ -212,7 +212,7 @@ public class f implements d.l.a.a.a.b {
                         return;
                     }
                 }
-                this.f71479a = runnable;
+                this.f71933a = runnable;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -222,7 +222,7 @@ public class f implements d.l.a.a.a.b {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.f71479a.run();
+                    this.f71933a.run();
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -279,7 +279,7 @@ public class f implements d.l.a.a.a.b {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static e f71480a;
+            public static e f71934a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -295,7 +295,7 @@ public class f implements d.l.a.a.a.b {
                         return;
                     }
                 }
-                f71480a = new e();
+                f71934a = new e();
             }
         }
 
@@ -316,7 +316,7 @@ public class f implements d.l.a.a.a.b {
         public static e b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f71480a : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f71934a : (e) invokeV.objValue;
         }
 
         public static String c(Throwable th) {
@@ -464,7 +464,7 @@ public class f implements d.l.a.a.a.b {
     }
 
     @Override // d.l.a.a.a.b
-    public d.l.a.a.a.b d(@NonNull d.l.a.a.a.c.i iVar) {
+    public d.l.a.a.a.b d(@NonNull i iVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iVar)) == null) {

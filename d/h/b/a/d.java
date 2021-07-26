@@ -18,29 +18,29 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile d f70972g;
+    public static volatile d f71426g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f70973h;
+    public static boolean f71427h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f70974a;
+    public a f71428a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f70975b;
+    public a f71429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f70976c;
+    public a f71430c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f70977d;
+    public a f71431d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Boolean f70978e;
+    public Boolean f71432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BroadcastReceiver f70979f;
+    public BroadcastReceiver f71433f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class d {
                 return;
             }
         }
-        this.f70974a = new a("udid");
-        this.f70975b = new a("oaid");
-        this.f70977d = new a("vaid");
-        this.f70976c = new a("aaid");
+        this.f71428a = new a("udid");
+        this.f71429b = new a("oaid");
+        this.f71431d = new a("vaid");
+        this.f71430c = new a("aaid");
     }
 
     public static c a(Cursor cursor) {
@@ -73,19 +73,19 @@ public class d {
                 cursor.moveToFirst();
                 int columnIndex = cursor.getColumnIndex("value");
                 if (columnIndex >= 0) {
-                    cVar.f70969a = cursor.getString(columnIndex);
+                    cVar.f71423a = cursor.getString(columnIndex);
                 } else {
                     e("parseValue fail, index < 0.");
                 }
                 int columnIndex2 = cursor.getColumnIndex("code");
                 if (columnIndex2 >= 0) {
-                    cVar.f70970b = cursor.getInt(columnIndex2);
+                    cVar.f71424b = cursor.getInt(columnIndex2);
                 } else {
                     e("parseCode fail, index < 0.");
                 }
                 int columnIndex3 = cursor.getColumnIndex("expired");
                 if (columnIndex3 >= 0) {
-                    cVar.f70971c = cursor.getLong(columnIndex3);
+                    cVar.f71425c = cursor.getLong(columnIndex3);
                 } else {
                     e("parseExpired fail, index < 0.");
                 }
@@ -103,19 +103,19 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f70972g == null) {
+            if (f71426g == null) {
                 synchronized (d.class) {
-                    f70972g = new d();
+                    f71426g = new d();
                 }
             }
-            return f70972g;
+            return f71426g;
         }
         return (d) invokeV.objValue;
     }
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f70973h) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f71427h) {
             Log.d("OpenIdManager", str);
         }
     }
@@ -141,12 +141,12 @@ public class d {
                 return null;
             }
             if (aVar.d()) {
-                return aVar.f70966b;
+                return aVar.f71420b;
             }
-            e("queryId : " + aVar.f70967c);
+            e("queryId : " + aVar.f71421c);
             try {
                 try {
-                    cursor = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{aVar.f70967c}, null);
+                    cursor = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{aVar.f71421c}, null);
                 } catch (Exception e2) {
                     e = e2;
                     str = null;
@@ -189,12 +189,12 @@ public class d {
                 return str2;
             }
             c a2 = a(cursor);
-            str2 = a2.f70969a;
+            str2 = a2.f71423a;
             aVar.c(str2);
-            aVar.b(a2.f70971c);
-            aVar.a(a2.f70970b);
-            e(aVar.f70967c + " errorCode : " + aVar.f70968d);
-            if (a2.f70970b != 1000) {
+            aVar.b(a2.f71425c);
+            aVar.a(a2.f71424b);
+            e(aVar.f71421c + " errorCode : " + aVar.f71422d);
+            if (a2.f71424b != 1000) {
                 d(context);
                 if (!f(context, false)) {
                     f2 = f(context, true);
@@ -217,13 +217,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             synchronized (this) {
-                if (this.f70979f != null) {
+                if (this.f71433f != null) {
                     return;
                 }
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
                 com.meizu.flyme.openidsdk.d dVar = new com.meizu.flyme.openidsdk.d();
-                this.f70979f = dVar;
+                this.f71433f = dVar;
                 context.registerReceiver(dVar, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
             }
         }
@@ -263,13 +263,13 @@ public class d {
         if (interceptable != null && (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z)) != null) {
             return invokeLZ.booleanValue;
         }
-        Boolean bool = this.f70978e;
+        Boolean bool = this.f71432e;
         if (bool != null && !z) {
             return bool.booleanValue();
         }
         if (!((context == 0 || (packageManager = context.getPackageManager()) == null || packageManager.resolveContentProvider("com.meizu.flyme.openidsdk", 0) == null) ? false : true)) {
             e("is not Supported, for isLegalProvider : false");
-            this.f70978e = Boolean.FALSE;
+            this.f71432e = Boolean.FALSE;
             return false;
         }
         String str = null;
@@ -295,7 +295,7 @@ public class d {
         }
         if (context != 0) {
             try {
-                str = a(context).f70969a;
+                str = a(context).f71423a;
                 context = context;
             } catch (Exception e3) {
                 e = e3;
@@ -305,7 +305,7 @@ public class d {
             context.close();
             e("querySupport, result : " + str);
             Boolean valueOf = Boolean.valueOf("0".equals(str));
-            this.f70978e = valueOf;
+            this.f71432e = valueOf;
             return valueOf.booleanValue();
         }
     }
@@ -315,16 +315,16 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if ("oaid".equals(str)) {
-                return this.f70975b;
+                return this.f71429b;
             }
             if ("vaid".equals(str)) {
-                return this.f70977d;
+                return this.f71431d;
             }
             if ("aaid".equals(str)) {
-                return this.f70976c;
+                return this.f71430c;
             }
             if ("udid".equals(str)) {
-                return this.f70974a;
+                return this.f71428a;
             }
             return null;
         }

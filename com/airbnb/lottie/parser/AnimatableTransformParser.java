@@ -45,7 +45,7 @@ public class AnimatableTransformParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f7762a, Config.OS, "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
+        NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f7788a, Config.OS, "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
         ANIMATABLE_NAMES = JsonReader.Options.of(Config.APP_KEY);
     }
 

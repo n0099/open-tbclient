@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.o0.r.q.b2;
+import d.a.p0.s.q.b2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetShoubaiThreadList.DataRes;
@@ -65,7 +65,7 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
             for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
                 if (threadInfo != null) {
                     b2 b2Var = new b2();
-                    b2Var.I2(threadInfo);
+                    b2Var.K2(threadInfo);
                     this.mThreadDataList.add(b2Var);
                 }
             }

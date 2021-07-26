@@ -26,12 +26,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.p0.w.c;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
+public class XiubaTbJsBridge implements d.a.q0.h3.l0.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -53,7 +54,7 @@ public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f12170a;
+        public final /* synthetic */ XiubaTbJsBridge f12200a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -73,7 +74,7 @@ public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
                     return;
                 }
             }
-            this.f12170a = xiubaTbJsBridge;
+            this.f12200a = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,7 +83,7 @@ public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
             Object data;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (data = customResponsedMessage.getData()) != null && (data instanceof Intent) && "com.xiu8.baidu.activity".equals(XiubaTbJsBridge.getPackageName((Intent) data))) {
-                this.f12170a.callInstallListener();
+                this.f12200a.callInstallListener();
             }
         }
     }
@@ -93,10 +94,10 @@ public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f12171a;
+        public boolean f12201a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f12172b;
+        public final /* synthetic */ XiubaTbJsBridge f12202b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -116,7 +117,7 @@ public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
                     return;
                 }
             }
-            this.f12172b = xiubaTbJsBridge;
+            this.f12202b = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -131,16 +132,16 @@ public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
-                            if (!this.f12171a) {
-                                this.f12171a = true;
-                                this.f12172b.callDownloadListener(1);
+                            if (!this.f12201a) {
+                                this.f12201a = true;
+                                this.f12202b.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.f12172b.callDownloadListener(2);
-                            this.f12171a = false;
+                            this.f12202b.callDownloadListener(2);
+                            this.f12201a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
-                            this.f12172b.callDownloadListener(0);
-                            this.f12171a = false;
+                            this.f12202b.callDownloadListener(0);
+                            this.f12201a = false;
                         }
                     }
                 }
@@ -301,11 +302,11 @@ public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
             if (!StringUtils.isNull(str) && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length != 0) {
-                int d2 = d.a.c.e.m.b.d(split[0], 0);
+                int d2 = d.a.d.e.m.b.d(split[0], 0);
                 if (d2 > 3) {
                     return true;
                 }
-                if (split.length >= 2 && d2 == 3 && d.a.c.e.m.b.d(split[1], 0) >= 2) {
+                if (split.length >= 2 && d2 == 3 && d.a.d.e.m.b.d(split[1], 0) >= 2) {
                     return true;
                 }
             }
@@ -345,7 +346,7 @@ public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            d.a.o0.v.b.l().r("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+            c.l().r("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
         }
     }
 
@@ -374,7 +375,7 @@ public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.p0.h3.l0.b
+    @Override // d.a.q0.h3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

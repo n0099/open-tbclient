@@ -15,31 +15,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f69944a;
+    public final long f70398a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f69945b;
+    public final long f70399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f69946c;
+    public final boolean f70400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f69947d;
+    public final long f70401d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f69948e;
+    public final long f70402e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f69949f;
+    public final long f70403f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final k f69950g;
+    public final k f70404g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Uri f69951h;
+    public final Uri f70405h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<e> f69952i;
+    public final List<e> f70406i;
 
     public b(long j, long j2, long j3, boolean z, long j4, long j5, long j6, k kVar, Uri uri, List<e> list) {
         Interceptable interceptable = $ic;
@@ -56,41 +56,41 @@ public class b {
                 return;
             }
         }
-        this.f69944a = j;
-        this.f69945b = j2;
-        this.f69946c = z;
-        this.f69947d = j4;
-        this.f69948e = j5;
-        this.f69949f = j6;
-        this.f69950g = kVar;
-        this.f69951h = uri;
-        this.f69952i = list == null ? Collections.emptyList() : list;
+        this.f70398a = j;
+        this.f70399b = j2;
+        this.f70400c = z;
+        this.f70401d = j4;
+        this.f70402e = j5;
+        this.f70403f = j6;
+        this.f70404g = kVar;
+        this.f70405h = uri;
+        this.f70406i = list == null ? Collections.emptyList() : list;
     }
 
     public final e a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f69952i.get(i2) : (e) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f70406i.get(i2) : (e) invokeI.objValue;
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69952i.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70406i.size() : invokeV.intValue;
     }
 
     public final long c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 == this.f69952i.size() - 1) {
-                long j = this.f69945b;
+            if (i2 == this.f70406i.size() - 1) {
+                long j = this.f70399b;
                 if (j == -9223372036854775807L) {
                     return -9223372036854775807L;
                 }
-                return j - this.f69952i.get(i2).f69968b;
+                return j - this.f70406i.get(i2).f70422b;
             }
-            return this.f69952i.get(i2 + 1).f69968b - this.f69952i.get(i2).f69968b;
+            return this.f70406i.get(i2 + 1).f70422b - this.f70406i.get(i2).f70422b;
         }
         return invokeI.longValue;
     }

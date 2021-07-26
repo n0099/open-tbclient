@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.c;
+import d.a.p0.s.c;
 /* loaded from: classes4.dex */
 public class NightResourceStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -60,7 +60,7 @@ public class NightResourceStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001281, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        c.f52273f = true;
+        c.f52929f = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001354));
     }
 

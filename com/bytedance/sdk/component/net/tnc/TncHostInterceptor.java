@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.net.tnc;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,6 +14,7 @@ import java.io.IOException;
 public class TncHostInterceptor implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int mAid;
 
     public TncHostInterceptor() {
         Interceptable interceptable = $ic;
@@ -35,23 +37,30 @@ public class TncHostInterceptor implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             z a2 = aVar.a();
-            if (TNCManager.getInstance().getAppConfig() != null) {
-                TNCManager.getInstance().getAppConfig().tryLodeConfigInSubThread();
+            if (TncInstanceManager.getInstance().getTNCManager(this.mAid).getAppConfig() != null) {
+                TncInstanceManager.getInstance().getTNCManager(this.mAid).getAppConfig().tryLodeConfigInSubThread();
             }
             String tVar = a2.a().toString();
-            String handleHostMapping = TNCManager.getInstance().handleHostMapping(tVar);
+            String handleHostMapping = TncInstanceManager.getInstance().getTNCManager(this.mAid).handleHostMapping(tVar);
             if (!tVar.equals(handleHostMapping)) {
                 a2 = a2.f().a(handleHostMapping).d();
             }
             try {
                 abVar = aVar.a(a2);
             } catch (Exception e2) {
-                TNCManager.getInstance().onError(a2, e2);
+                TncInstanceManager.getInstance().getTNCManager(this.mAid).onError(a2, e2);
                 abVar = null;
             }
-            TNCManager.getInstance().onResponse(a2, abVar);
+            TncInstanceManager.getInstance().getTNCManager(this.mAid).onResponse(a2, abVar);
             return abVar == null ? aVar.a(a2) : abVar;
         }
         return (ab) invokeL.objValue;
+    }
+
+    public void setAid(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.mAid = i2;
+        }
     }
 }

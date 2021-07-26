@@ -39,16 +39,16 @@ public class g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f40158a;
+        public static final a f40430a;
 
         /* renamed from: a  reason: collision with other field name */
         public static final /* synthetic */ a[] f421a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f40159b;
+        public static final a f40431b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f40160c;
+        public static final a f40432c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -67,11 +67,11 @@ public class g {
                     return;
                 }
             }
-            f40158a = new a(RomUtils.UNKNOWN, 0, 0);
-            f40159b = new a("ALLOWED", 1, 1);
+            f40430a = new a(RomUtils.UNKNOWN, 0, 0);
+            f40431b = new a("ALLOWED", 1, 1);
             a aVar = new a("NOT_ALLOWED", 2, 2);
-            f40160c = aVar;
-            f421a = new a[]{f40158a, f40159b, aVar};
+            f40432c = aVar;
+            f421a = new a[]{f40430a, f40431b, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -179,7 +179,7 @@ public class g {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, applicationInfo)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (applicationInfo == null || i2 < 24) {
-                return a.f40158a;
+                return a.f40430a;
             }
             Boolean bool = null;
             try {
@@ -192,12 +192,12 @@ public class g {
                     }
                 }
                 if (bool != null) {
-                    return bool.booleanValue() ? a.f40159b : a.f40160c;
+                    return bool.booleanValue() ? a.f40431b : a.f40432c;
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("are notifications enabled error " + e2);
             }
-            return a.f40158a;
+            return a.f40430a;
         }
         return (a) invokeLL.objValue;
     }
@@ -210,7 +210,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z)) == null) {
             if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {
-                return a.f40158a;
+                return a.f40430a;
             }
             try {
                 applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
@@ -218,12 +218,12 @@ public class g {
             } catch (Throwable th) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("get app op error " + th);
             }
-            if (a2 != a.f40158a) {
+            if (a2 != a.f40430a) {
                 return a2;
             }
             Integer num = (Integer) bh.a((Class<? extends Object>) AppOpsManager.class, NotificationManagerCompat.OP_POST_NOTIFICATION);
             if (num == null) {
-                return a.f40158a;
+                return a.f40430a;
             }
             Integer num2 = (Integer) bh.a((Object) ((AppOpsManager) context.getSystemService("appops")), NotificationManagerCompat.CHECK_OP_NO_THROW, num, Integer.valueOf(applicationInfo.uid), str);
             int i2 = (Integer) bh.a((Class<? extends Object>) AppOpsManager.class, "MODE_ALLOWED");
@@ -236,9 +236,9 @@ public class g {
                 i3 = 1;
             }
             if (num2 != null) {
-                return z ? !num2.equals(i3) ? a.f40159b : a.f40160c : num2.equals(i2) ? a.f40159b : a.f40160c;
+                return z ? !num2.equals(i3) ? a.f40431b : a.f40432c : num2.equals(i2) ? a.f40431b : a.f40432c;
             }
-            return a.f40158a;
+            return a.f40430a;
         }
         return (a) invokeLLZ.objValue;
     }

@@ -24,7 +24,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VerifyCodeType f26893a;
+    public VerifyCodeType f27051a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -110,7 +110,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
     private String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.f26893a == VerifyCodeType.VOICE ? "ebpay_get_voice_code_error_title" : "ebpay_get_sms_error_dialog_title" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.f27051a == VerifyCodeType.VOICE ? "ebpay_get_voice_code_error_title" : "ebpay_get_sms_error_dialog_title" : (String) invokeV.objValue;
     }
 
     private SpannableStringBuilder c() {
@@ -166,7 +166,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IdentifyCodeGetFailDialog f26894a;
+                public final /* synthetic */ IdentifyCodeGetFailDialog f27052a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,14 +183,14 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                             return;
                         }
                     }
-                    this.f26894a = this;
+                    this.f27052a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f26894a.dismiss();
+                        this.f27052a.dismiss();
                     }
                 }
             });
@@ -199,10 +199,10 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f26895a;
+                public final /* synthetic */ String f27053a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IdentifyCodeGetFailDialog f26896b;
+                public final /* synthetic */ IdentifyCodeGetFailDialog f27054b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -219,8 +219,8 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                             return;
                         }
                     }
-                    this.f26896b = this;
-                    this.f26895a = r7;
+                    this.f27054b = this;
+                    this.f27053a = r7;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -228,7 +228,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         try {
-                            this.f26896b.mContext.startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + this.f26895a)));
+                            this.f27054b.mContext.startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + this.f27053a)));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -256,14 +256,14 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                 return;
             }
         }
-        this.f26893a = verifyCodeType;
+        this.f27051a = verifyCodeType;
     }
 
     private SpannableStringBuilder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return this.f26893a == VerifyCodeType.VOICE ? d() : c();
+            return this.f27051a == VerifyCodeType.VOICE ? d() : c();
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }

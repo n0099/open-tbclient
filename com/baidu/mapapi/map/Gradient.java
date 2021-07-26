@@ -13,13 +13,13 @@ public class Gradient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f6923a;
+    public final int f6949a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f6924b;
+    public final int[] f6950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final float[] f6925c;
+    public final float[] f6951c;
 
     /* loaded from: classes2.dex */
     public class a {
@@ -27,16 +27,16 @@ public class Gradient {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Gradient f6926a;
+        public final /* synthetic */ Gradient f6952a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f6927b;
+        public final int f6953b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f6928c;
+        public final int f6954c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f6929d;
+        public final float f6955d;
 
         public a(Gradient gradient, int i2, int i3, float f2) {
             Interceptable interceptable = $ic;
@@ -53,10 +53,10 @@ public class Gradient {
                     return;
                 }
             }
-            this.f6926a = gradient;
-            this.f6927b = i2;
-            this.f6928c = i3;
-            this.f6929d = f2;
+            this.f6952a = gradient;
+            this.f6953b = i2;
+            this.f6954c = i3;
+            this.f6955d = f2;
         }
 
         public /* synthetic */ a(Gradient gradient, int i2, int i3, float f2, i iVar) {
@@ -114,12 +114,12 @@ public class Gradient {
                 throw new IllegalArgumentException("BDMapSDKException: startPoints should be in increasing order");
             }
         }
-        this.f6923a = i2;
+        this.f6949a = i2;
         int[] iArr2 = new int[iArr.length];
-        this.f6924b = iArr2;
-        this.f6925c = new float[fArr.length];
+        this.f6950b = iArr2;
+        this.f6951c = new float[fArr.length];
         System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-        System.arraycopy(fArr, 0, this.f6925c, 0, fArr.length);
+        System.arraycopy(fArr, 0, this.f6951c, 0, fArr.length);
     }
 
     public static int a(int i2, int i3, float f2) {
@@ -150,24 +150,24 @@ public class Gradient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             HashMap<Integer, a> hashMap = new HashMap<>();
-            if (this.f6925c[0] != 0.0f) {
-                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f6924b[0]), Color.green(this.f6924b[0]), Color.blue(this.f6924b[0])), this.f6924b[0], this.f6923a * this.f6925c[0], null));
+            if (this.f6951c[0] != 0.0f) {
+                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f6950b[0]), Color.green(this.f6950b[0]), Color.blue(this.f6950b[0])), this.f6950b[0], this.f6949a * this.f6951c[0], null));
             }
-            for (int i2 = 1; i2 < this.f6924b.length; i2++) {
+            for (int i2 = 1; i2 < this.f6950b.length; i2++) {
                 int i3 = i2 - 1;
-                Integer valueOf = Integer.valueOf((int) (this.f6923a * this.f6925c[i3]));
-                int[] iArr = this.f6924b;
+                Integer valueOf = Integer.valueOf((int) (this.f6949a * this.f6951c[i3]));
+                int[] iArr = this.f6950b;
                 int i4 = iArr[i3];
                 int i5 = iArr[i2];
-                float[] fArr = this.f6925c;
-                hashMap.put(valueOf, new a(this, i4, i5, (fArr[i2] - fArr[i3]) * this.f6923a, null));
+                float[] fArr = this.f6951c;
+                hashMap.put(valueOf, new a(this, i4, i5, (fArr[i2] - fArr[i3]) * this.f6949a, null));
             }
-            float[] fArr2 = this.f6925c;
+            float[] fArr2 = this.f6951c;
             if (fArr2[fArr2.length - 1] != 1.0f) {
                 int length = fArr2.length - 1;
-                Integer valueOf2 = Integer.valueOf((int) (this.f6923a * fArr2[length]));
-                int[] iArr2 = this.f6924b;
-                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.f6923a * (1.0f - this.f6925c[length]), null));
+                Integer valueOf2 = Integer.valueOf((int) (this.f6949a * fArr2[length]));
+                int[] iArr2 = this.f6950b;
+                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.f6949a * (1.0f - this.f6951c[length]), null));
             }
             return hashMap;
         }
@@ -179,18 +179,18 @@ public class Gradient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)})) == null) {
             HashMap<Integer, a> a2 = a();
-            int[] iArr = new int[this.f6923a];
+            int[] iArr = new int[this.f6949a];
             a aVar = a2.get(0);
             int i2 = 0;
-            for (int i3 = 0; i3 < this.f6923a; i3++) {
+            for (int i3 = 0; i3 < this.f6949a; i3++) {
                 if (a2.containsKey(Integer.valueOf(i3))) {
                     aVar = a2.get(Integer.valueOf(i3));
                     i2 = i3;
                 }
-                iArr[i3] = a(aVar.f6927b, aVar.f6928c, (i3 - i2) / aVar.f6929d);
+                iArr[i3] = a(aVar.f6953b, aVar.f6954c, (i3 - i2) / aVar.f6955d);
             }
             if (d2 != 1.0d) {
-                for (int i4 = 0; i4 < this.f6923a; i4++) {
+                for (int i4 = 0; i4 < this.f6949a; i4++) {
                     int i5 = iArr[i4];
                     iArr[i4] = Color.argb((int) (Color.alpha(i5) * d2), Color.red(i5), Color.green(i5), Color.blue(i5));
                 }

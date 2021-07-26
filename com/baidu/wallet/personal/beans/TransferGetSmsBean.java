@@ -23,7 +23,7 @@ public class TransferGetSmsBean extends BaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TransfRecvRequest f27059a;
+    public TransfRecvRequest f27217a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> TransferGetSmsBean(Context context) {
@@ -43,7 +43,7 @@ public class TransferGetSmsBean extends BaseBean<Object> {
                 return;
             }
         }
-        this.f27059a = (TransfRecvRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_TRANSFER_RECV);
+        this.f27217a = (TransfRecvRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_TRANSFER_RECV);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -60,12 +60,12 @@ public class TransferGetSmsBean extends BaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            TransfRecvRequest transfRecvRequest = this.f27059a;
+            TransfRecvRequest transfRecvRequest = this.f27217a;
             if (transfRecvRequest == null) {
                 return arrayList;
             }
             arrayList.add(new RestNameValuePair("idt", transfRecvRequest.idt));
-            arrayList.add(new RestNameValuePair("recv_card_num", this.f27059a.recv_card_num));
+            arrayList.add(new RestNameValuePair("recv_card_num", this.f27217a.recv_card_num));
             arrayList.add(new RestNameValuePair("token", AccountManager.getInstance(this.mContext).getBfbToken()));
             return arrayList;
         }

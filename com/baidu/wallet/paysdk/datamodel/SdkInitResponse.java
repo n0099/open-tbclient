@@ -47,31 +47,31 @@ public class SdkInitResponse implements IBeanResponse {
     public static final String SID_OFFLINE_CACHE_CONFIG = "offline_cache_config";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26040a = "langbridge_speed_up";
+    public static final String f26198a = "langbridge_speed_up";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f26041b = "pass_auth_url";
+    public static final String f26199b = "pass_auth_url";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f26042c = "key_paycode_url";
+    public static final String f26200c = "key_paycode_url";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f26043d = "key_balance_home_url";
+    public static final String f26201d = "key_balance_home_url";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f26044e = "key_cookies_sync_domain_list";
+    public static final String f26202e = "key_cookies_sync_domain_list";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f26045f = "white_screen_config";
+    public static final String f26203f = "white_screen_config";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f26046g = "key_loading_duration_interval";
+    public static final String f26204g = "key_loading_duration_interval";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f26047h = "key_transaction_records_url";
+    public static final String f26205h = "key_transaction_records_url";
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile boolean f26048i = true;
+    public static volatile boolean f26206i = true;
     public transient /* synthetic */ FieldHolder $fh;
     public String JSHookURL;
     public String LangbridgeSettings;
@@ -142,7 +142,7 @@ public class SdkInitResponse implements IBeanResponse {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final SdkInitResponse f26053a;
+        public static final SdkInitResponse f26211a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -158,7 +158,7 @@ public class SdkInitResponse implements IBeanResponse {
                     return;
                 }
             }
-            f26053a = new SdkInitResponse();
+            f26211a = new SdkInitResponse();
         }
 
         public a() {
@@ -258,17 +258,17 @@ public class SdkInitResponse implements IBeanResponse {
     public static SdkInitResponse getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f26053a : (SdkInitResponse) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f26211a : (SdkInitResponse) invokeV.objValue;
     }
 
     public static boolean isEnableJsNameVerify() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (TextUtils.isEmpty(a.f26053a.enableJsNameVerify)) {
+            if (TextUtils.isEmpty(a.f26211a.enableJsNameVerify)) {
                 return false;
             }
-            return "1".equals(a.f26053a.enableJsNameVerify);
+            return "1".equals(a.f26211a.enableJsNameVerify);
         }
         return invokeV.booleanValue;
     }
@@ -277,10 +277,10 @@ public class SdkInitResponse implements IBeanResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (TextUtils.isEmpty(a.f26053a.langbridgeCheckProtocol)) {
+            if (TextUtils.isEmpty(a.f26211a.langbridgeCheckProtocol)) {
                 return true;
             }
-            return "1".equals(a.f26053a.langbridgeCheckProtocol);
+            return "1".equals(a.f26211a.langbridgeCheckProtocol);
         }
         return invokeV.booleanValue;
     }
@@ -300,7 +300,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             if (TextUtils.isEmpty(this.balanceHomeUrl)) {
-                this.balanceHomeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26043d, "");
+                this.balanceHomeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26201d, "");
             }
             return this.balanceHomeUrl;
         }
@@ -312,7 +312,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             if (TextUtils.isEmpty(this.cookiesSyncDomainList)) {
-                this.cookiesSyncDomainList = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26044e, "");
+                this.cookiesSyncDomainList = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26202e, "");
             }
             return this.cookiesSyncDomainList;
         }
@@ -323,8 +323,8 @@ public class SdkInitResponse implements IBeanResponse {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (!TextUtils.isEmpty(a.f26053a.JSHookURL)) {
-                return a.f26053a.JSHookURL;
+            if (!TextUtils.isEmpty(a.f26211a.JSHookURL)) {
+                return a.f26211a.JSHookURL;
             }
             LogUtil.d("WebViewCacheManager", "cache jsHookUrl = " + ((String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, SID_JS_HOOK_URL, DEFAULT_JS_HOOK_URL)));
             return (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, SID_JS_HOOK_URL, DEFAULT_JS_HOOK_URL);
@@ -337,7 +337,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             if (TextUtils.isEmpty(this.loadingDurationInterval) && context != null) {
-                this.loadingDurationInterval = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26046g, "");
+                this.loadingDurationInterval = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26204g, "");
             }
             return this.loadingDurationInterval;
         }
@@ -366,7 +366,7 @@ public class SdkInitResponse implements IBeanResponse {
     public String getOfflineCacheConfig(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? a.f26053a.offlineCacheConfig : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? a.f26211a.offlineCacheConfig : (String) invokeL.objValue;
     }
 
     public String getPassAuthUrl(Context context) {
@@ -374,10 +374,10 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             String str = DomainConfig.getInstance().getCOHost() + "/content/resource/pass_normal/index.html";
-            if (!TextUtils.isEmpty(a.f26053a.passAuthUrl)) {
-                return a.f26053a.passAuthUrl;
+            if (!TextUtils.isEmpty(a.f26211a.passAuthUrl)) {
+                return a.f26211a.passAuthUrl;
             }
-            String str2 = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26041b, "");
+            String str2 = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26199b, "");
             return !TextUtils.isEmpty(str2) ? str2 : str;
         }
         return (String) invokeL.objValue;
@@ -388,7 +388,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
             if (TextUtils.isEmpty(this.paymentCodeUrl)) {
-                this.paymentCodeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26042c, "");
+                this.paymentCodeUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26200c, "");
             }
             return this.paymentCodeUrl;
         }
@@ -399,10 +399,10 @@ public class SdkInitResponse implements IBeanResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (TextUtils.isEmpty(a.f26053a.takePicWaitTime)) {
+            if (TextUtils.isEmpty(a.f26211a.takePicWaitTime)) {
                 return 2000;
             }
-            return Integer.valueOf(a.f26053a.takePicWaitTime).intValue();
+            return Integer.valueOf(a.f26211a.takePicWaitTime).intValue();
         }
         return invokeV.intValue;
     }
@@ -412,7 +412,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
             if (TextUtils.isEmpty(this.transactionRecordsUrl)) {
-                this.transactionRecordsUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26047h, "");
+                this.transactionRecordsUrl = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26205h, "");
             }
             return this.transactionRecordsUrl;
         }
@@ -423,10 +423,10 @@ public class SdkInitResponse implements IBeanResponse {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            if (!TextUtils.isEmpty(a.f26053a.whiteScreenConfig)) {
-                return a.f26053a.whiteScreenConfig;
+            if (!TextUtils.isEmpty(a.f26211a.whiteScreenConfig)) {
+                return a.f26211a.whiteScreenConfig;
             }
-            return (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26045f, "");
+            return (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26203f, "");
         }
         return (String) invokeL.objValue;
     }
@@ -435,10 +435,10 @@ public class SdkInitResponse implements IBeanResponse {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, context)) == null) {
-            if (!TextUtils.isEmpty(a.f26053a.langbridgeSpeedUp)) {
-                return "1".equals(a.f26053a.langbridgeSpeedUp);
+            if (!TextUtils.isEmpty(a.f26211a.langbridgeSpeedUp)) {
+                return "1".equals(a.f26211a.langbridgeSpeedUp);
             }
-            String str = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26040a, "");
+            String str = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f26198a, "");
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -452,7 +452,7 @@ public class SdkInitResponse implements IBeanResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
             if (!TextUtils.isEmpty(this.offlineCacheConfig)) {
-                a.f26053a.offlineCacheConfig = this.offlineCacheConfig;
+                a.f26211a.offlineCacheConfig = this.offlineCacheConfig;
                 SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, SID_OFFLINE_CACHE_CONFIG, this.offlineCacheConfig);
                 try {
                     PollOfflineCacheSwitch.getInstance().updateCacheConfig((OfflineCacheConfig) JsonUtils.fromJson(this.offlineCacheConfig, OfflineCacheConfig.class));
@@ -465,13 +465,13 @@ public class SdkInitResponse implements IBeanResponse {
                 PollOfflineCacheSwitch.getInstance().updateIntervalTime(this.interval_millis);
             }
             if (!TextUtils.isEmpty(this.LangbridgeSettings)) {
-                a.f26053a.LangbridgeSettings = this.LangbridgeSettings;
+                a.f26211a.LangbridgeSettings = this.LangbridgeSettings;
                 LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_updateSettings").data("config", this.LangbridgeSettings), new RouterCallback(this) { // from class: com.baidu.wallet.paysdk.datamodel.SdkInitResponse.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ SdkInitResponse f26049a;
+                    public final /* synthetic */ SdkInitResponse f26207a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -488,7 +488,7 @@ public class SdkInitResponse implements IBeanResponse {
                                 return;
                             }
                         }
-                        this.f26049a = this;
+                        this.f26207a = this;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback
@@ -500,7 +500,7 @@ public class SdkInitResponse implements IBeanResponse {
                 });
             }
             if (!TextUtils.isEmpty(this.JSHookURL)) {
-                a.f26053a.JSHookURL = this.JSHookURL;
+                a.f26211a.JSHookURL = this.JSHookURL;
                 SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, SID_JS_HOOK_URL, this.JSHookURL);
                 LogUtil.d("WebViewCacheManager", "init config JSHookURL = " + this.JSHookURL);
                 LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_getToImapctJsFiles").data("configs", new String[]{"config.json"}).data(SavedStateHandle.KEYS, new String[]{"common", "multi-webview"}), new RouterCallback(this) { // from class: com.baidu.wallet.paysdk.datamodel.SdkInitResponse.2
@@ -508,7 +508,7 @@ public class SdkInitResponse implements IBeanResponse {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ SdkInitResponse f26050a;
+                    public final /* synthetic */ SdkInitResponse f26208a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -525,7 +525,7 @@ public class SdkInitResponse implements IBeanResponse {
                                 return;
                             }
                         }
-                        this.f26050a = this;
+                        this.f26208a = this;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback
@@ -536,8 +536,8 @@ public class SdkInitResponse implements IBeanResponse {
                     }
                 });
             }
-            if (f26048i) {
-                f26048i = false;
+            if (f26206i) {
+                f26206i = false;
                 if (!TextUtils.isEmpty(this.fp)) {
                     String decrypt = SafePay.getInstance().decrypt(this.fp);
                     if (!TextUtils.isEmpty(decrypt) && !decrypt.equals(BdWalletUtils.getDeviceFP(context))) {
@@ -548,55 +548,55 @@ public class SdkInitResponse implements IBeanResponse {
                     BdWalletUtils.setKefuPhoneNumToSP(context, this.kefuPhoneNum);
                 }
                 if (!TextUtils.isEmpty(this.langbridgeSpeedUp)) {
-                    a.f26053a.langbridgeSpeedUp = this.langbridgeSpeedUp;
-                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26040a, this.langbridgeSpeedUp);
+                    a.f26211a.langbridgeSpeedUp = this.langbridgeSpeedUp;
+                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26198a, this.langbridgeSpeedUp);
                 }
                 if (!TextUtils.isEmpty(this.passAuthUrl)) {
-                    a.f26053a.passAuthUrl = this.passAuthUrl;
-                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26041b, this.passAuthUrl);
+                    a.f26211a.passAuthUrl = this.passAuthUrl;
+                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26199b, this.passAuthUrl);
                 }
-                a.f26053a.paymentCodeUrl = this.paymentCodeUrl;
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26042c, this.paymentCodeUrl);
-                a.f26053a.transactionRecordsUrl = this.transactionRecordsUrl;
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26047h, this.transactionRecordsUrl);
-                a.f26053a.balanceHomeUrl = this.balanceHomeUrl;
-                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26043d, this.balanceHomeUrl);
+                a.f26211a.paymentCodeUrl = this.paymentCodeUrl;
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26200c, this.paymentCodeUrl);
+                a.f26211a.transactionRecordsUrl = this.transactionRecordsUrl;
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26205h, this.transactionRecordsUrl);
+                a.f26211a.balanceHomeUrl = this.balanceHomeUrl;
+                SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26201d, this.balanceHomeUrl);
                 if (!TextUtils.isEmpty(this.whiteScreenConfig)) {
-                    a.f26053a.whiteScreenConfig = this.whiteScreenConfig;
-                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26045f, this.whiteScreenConfig);
+                    a.f26211a.whiteScreenConfig = this.whiteScreenConfig;
+                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26203f, this.whiteScreenConfig);
                 }
-                a.f26053a.fp = this.fp;
-                a.f26053a.kefuPhoneNum = this.kefuPhoneNum;
-                a.f26053a.enableJsNameVerify = this.enableJsNameVerify;
-                a.f26053a.loginUrl = this.loginUrl;
-                a.f26053a.certWhiteList = this.certWhiteList;
-                a.f26053a.jsipc = this.jsipc;
-                a.f26053a.publicKeyPins = this.publicKeyPins;
-                a.f26053a.langbridgeSpeedUp = this.langbridgeSpeedUp;
-                a.f26053a.langbridgeCheckProtocol = this.langbridgeCheckProtocol;
-                a.f26053a.passAuthUrl = this.passAuthUrl;
-                a.f26053a.domainSwitch = this.domainSwitch;
-                a.f26053a.domainConfig = this.domainConfig;
-                a.f26053a.paymentCodeUrl = this.paymentCodeUrl;
-                a.f26053a.balanceHomeUrl = this.balanceHomeUrl;
-                a.f26053a.transactionRecordsUrl = this.transactionRecordsUrl;
-                a.f26053a.takePicWaitTime = this.takePicWaitTime;
-                a.f26053a.cookiesSyncDomainList = this.cookiesSyncDomainList;
-                a.f26053a.sdk_permission_dialog = this.sdk_permission_dialog;
-                a.f26053a.langbridge_permission_dialog = this.langbridge_permission_dialog;
-                a.f26053a.permission_dialog_info = this.permission_dialog_info;
-                a.f26053a.permission_dialog_contacts = this.permission_dialog_contacts;
-                a.f26053a.permission_dialog_location = this.permission_dialog_location;
-                a.f26053a.permission_dialog_camera = this.permission_dialog_camera;
-                a.f26053a.permission_dialog_audio = this.permission_dialog_audio;
-                a.f26053a.permission_dialog_storage = this.permission_dialog_storage;
+                a.f26211a.fp = this.fp;
+                a.f26211a.kefuPhoneNum = this.kefuPhoneNum;
+                a.f26211a.enableJsNameVerify = this.enableJsNameVerify;
+                a.f26211a.loginUrl = this.loginUrl;
+                a.f26211a.certWhiteList = this.certWhiteList;
+                a.f26211a.jsipc = this.jsipc;
+                a.f26211a.publicKeyPins = this.publicKeyPins;
+                a.f26211a.langbridgeSpeedUp = this.langbridgeSpeedUp;
+                a.f26211a.langbridgeCheckProtocol = this.langbridgeCheckProtocol;
+                a.f26211a.passAuthUrl = this.passAuthUrl;
+                a.f26211a.domainSwitch = this.domainSwitch;
+                a.f26211a.domainConfig = this.domainConfig;
+                a.f26211a.paymentCodeUrl = this.paymentCodeUrl;
+                a.f26211a.balanceHomeUrl = this.balanceHomeUrl;
+                a.f26211a.transactionRecordsUrl = this.transactionRecordsUrl;
+                a.f26211a.takePicWaitTime = this.takePicWaitTime;
+                a.f26211a.cookiesSyncDomainList = this.cookiesSyncDomainList;
+                a.f26211a.sdk_permission_dialog = this.sdk_permission_dialog;
+                a.f26211a.langbridge_permission_dialog = this.langbridge_permission_dialog;
+                a.f26211a.permission_dialog_info = this.permission_dialog_info;
+                a.f26211a.permission_dialog_contacts = this.permission_dialog_contacts;
+                a.f26211a.permission_dialog_location = this.permission_dialog_location;
+                a.f26211a.permission_dialog_camera = this.permission_dialog_camera;
+                a.f26211a.permission_dialog_audio = this.permission_dialog_audio;
+                a.f26211a.permission_dialog_storage = this.permission_dialog_storage;
                 if (!TextUtils.isEmpty(this.cookiesSyncDomainList)) {
-                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26044e, this.cookiesSyncDomainList);
+                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26202e, this.cookiesSyncDomainList);
                 }
-                a.f26053a.needShowLoadingInterval = this.needShowLoadingInterval;
-                a.f26053a.loadingDurationInterval = this.loadingDurationInterval;
+                a.f26211a.needShowLoadingInterval = this.needShowLoadingInterval;
+                a.f26211a.loadingDurationInterval = this.loadingDurationInterval;
                 if (!TextUtils.isEmpty(this.loadingDurationInterval)) {
-                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26046g, this.loadingDurationInterval);
+                    SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f26204g, this.loadingDurationInterval);
                 }
                 try {
                     Domains.getInstance().setDomainsPermissionConfig(a(this.jsipc));
@@ -608,7 +608,7 @@ public class SdkInitResponse implements IBeanResponse {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ SdkInitResponse f26051a;
+                    public final /* synthetic */ SdkInitResponse f26209a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -625,7 +625,7 @@ public class SdkInitResponse implements IBeanResponse {
                                 return;
                             }
                         }
-                        this.f26051a = this;
+                        this.f26209a = this;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback
@@ -656,7 +656,7 @@ public class SdkInitResponse implements IBeanResponse {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SdkInitResponse f26052a;
+                public final /* synthetic */ SdkInitResponse f26210a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -673,7 +673,7 @@ public class SdkInitResponse implements IBeanResponse {
                             return;
                         }
                     }
-                    this.f26052a = this;
+                    this.f26210a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback

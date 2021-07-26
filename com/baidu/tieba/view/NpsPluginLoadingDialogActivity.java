@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.q1.e;
-import d.a.p0.q1.f;
-import d.a.p0.u1.a;
+import d.a.q0.q1.e;
+import d.a.q0.q1.f;
+import d.a.q0.u1.a;
 /* loaded from: classes4.dex */
 public class NpsPluginLoadingDialogActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;

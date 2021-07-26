@@ -29,7 +29,6 @@ import com.baidu.apollon.utils.LogUtil;
 import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.apollon.utils.ResUtils;
-import com.baidu.ar.face.algo.FAUEnum;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
@@ -111,32 +110,32 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public static final String VIEW_CALENDAR_EVENT = "viewCalendarEvent";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f25306c = 1;
+    public static int f25464c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f25307d = 2;
+    public static int f25465d = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f25308e = 1;
+    public static int f25466e = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25309a;
+    public String f25467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, ILightappInvokerCallback> f25310b;
+    public final HashMap<String, ILightappInvokerCallback> f25468b;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f25311f;
+    public final String f25469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f25312g;
+    public final String f25470g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f25313h;
+    public final String f25471h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f25314i;
+    public final String f25472i;
     public final String j;
     public com.baidu.wallet.lightapp.multipage.a k;
     public String l;
@@ -156,19 +155,19 @@ public class LightappJsNativeClient implements ILightappInvoker {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ILightappInvokerCallback f25336a;
+        public final ILightappInvokerCallback f25494a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f25337b;
+        public final String f25495b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final LocationManager f25338c;
+        public final LocationManager f25496c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final ArrayList<String> f25339d;
+        public final ArrayList<String> f25497d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final LightAppNewLocationModel f25340e;
+        public final LightAppNewLocationModel f25498e;
 
         public a(ILightappInvokerCallback iLightappInvokerCallback, String str, LocationManager locationManager, ArrayList<String> arrayList, LightAppNewLocationModel lightAppNewLocationModel) {
             Interceptable interceptable = $ic;
@@ -185,11 +184,11 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     return;
                 }
             }
-            this.f25336a = iLightappInvokerCallback;
-            this.f25337b = str;
-            this.f25338c = locationManager;
-            this.f25339d = arrayList;
-            this.f25340e = lightAppNewLocationModel;
+            this.f25494a = iLightappInvokerCallback;
+            this.f25495b = str;
+            this.f25496c = locationManager;
+            this.f25497d = arrayList;
+            this.f25498e = lightAppNewLocationModel;
         }
 
         @Override // android.location.LocationListener
@@ -197,26 +196,26 @@ public class LightappJsNativeClient implements ILightappInvoker {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
                 if (location != null) {
-                    LightAppNewLocationModel lightAppNewLocationModel = this.f25340e;
+                    LightAppNewLocationModel lightAppNewLocationModel = this.f25498e;
                     lightAppNewLocationModel.result = 0;
                     lightAppNewLocationModel.cnt.data.latitude = location.getLatitude();
-                    this.f25340e.cnt.data.longitude = location.getLongitude();
-                    String json = this.f25340e.toJson();
-                    this.f25336a.onResult(0, json);
+                    this.f25498e.cnt.data.longitude = location.getLongitude();
+                    String json = this.f25498e.toJson();
+                    this.f25494a.onResult(0, json);
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(this.f25337b);
+                    arrayList.add(this.f25495b);
                     arrayList.add(Base64Utils.encodeToString(json.getBytes()));
                     DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList);
                     PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList);
                 } else {
-                    PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25339d);
+                    PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25497d);
                     LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
                     LightAppErrorModel.Data data = lightAppErrorModel.cnt;
                     data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
                     data.des = "定位失败";
-                    this.f25336a.onResult(1, lightAppErrorModel.toJson());
+                    this.f25494a.onResult(1, lightAppErrorModel.toJson());
                 }
-                this.f25338c.removeUpdates(this);
+                this.f25496c.removeUpdates(this);
             }
         }
 
@@ -224,12 +223,12 @@ public class LightappJsNativeClient implements ILightappInvoker {
         public void onProviderDisabled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25339d);
+                PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25497d);
                 LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
                 LightAppErrorModel.Data data = lightAppErrorModel.cnt;
                 data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
                 data.des = "定位失败";
-                this.f25336a.onResult(1, lightAppErrorModel.toJson());
+                this.f25494a.onResult(1, lightAppErrorModel.toJson());
             }
         }
 
@@ -278,12 +277,12 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 return;
             }
         }
-        this.f25309a = LightappJsNativeClient.class.getSimpleName();
-        this.f25310b = new HashMap<>();
-        this.f25311f = "访问相机的权限";
-        this.f25312g = "读写存储卡的权限";
-        this.f25313h = "访问通信录的权限";
-        this.f25314i = "获取地理位置的权限";
+        this.f25467a = LightappJsNativeClient.class.getSimpleName();
+        this.f25468b = new HashMap<>();
+        this.f25469f = "访问相机的权限";
+        this.f25470g = "读写存储卡的权限";
+        this.f25471h = "访问通信录的权限";
+        this.f25472i = "获取地理位置的权限";
         this.j = "没有";
         this.m = -1;
         this.n = -1;
@@ -318,7 +317,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
         if (interceptable == null || interceptable.invokeLL(65567, this, jSONObject, str) == null) {
             String optString = jSONObject.optString("title");
             if (TextUtils.isEmpty(optString)) {
-                LightappUtils.onError(this.f25310b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "标题不能为空", "#insertCalendarEventFail");
+                LightappUtils.onError(this.f25468b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "标题不能为空", "#insertCalendarEventFail");
                 return;
             }
             Long valueOf = Long.valueOf(jSONObject.optLong("beginTime"));
@@ -330,7 +329,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     return;
                 }
                 Toast.makeText(this.k.getActivity(), ResUtils.string(this.k.getActivity(), "insert_calendar_not_available"), 1).show();
-                LightappUtils.onError(this.f25310b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "insert_calendar_not_available"), LightAppStatEvent.LIGHT_APP_INSERT_CALENDAR_NOT_AVAILABLE);
+                LightappUtils.onError(this.f25468b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "insert_calendar_not_available"), LightAppStatEvent.LIGHT_APP_INSERT_CALENDAR_NOT_AVAILABLE);
                 return;
             }
             String str2 = valueOf.longValue() < 0 ? "开始时间必须大于零" : "";
@@ -340,7 +339,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
             if (valueOf2.longValue() < valueOf.longValue()) {
                 str2 = str2 + "结束时间必须大于开始时间";
             }
-            LightappUtils.onError(this.f25310b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, str2, "#insertCalendarEventFail");
+            LightappUtils.onError(this.f25468b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, str2, "#insertCalendarEventFail");
         }
     }
 
@@ -379,7 +378,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
             long optLong = jSONObject.optLong("beginTime");
             int i2 = (optLong > 0L ? 1 : (optLong == 0L ? 0 : -1));
             if (i2 < 0) {
-                LightappUtils.onError(this.f25310b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "时间必须大于零", "#viewCalendarEventFail");
+                LightappUtils.onError(this.f25468b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "时间必须大于零", "#viewCalendarEventFail");
                 return;
             }
             if (i2 == 0) {
@@ -392,7 +391,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
             if (this.k.getActivity() != null && data.resolveActivity(this.k.getActivity().getPackageManager()) != null) {
                 this.k.getActivity().startActivity(data);
             } else {
-                LightappUtils.onError(this.f25310b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "view_calendar_not_available"), LightAppStatEvent.LIGHT_APP_VIEW_CALENDAR_NOT_AVAILABLE);
+                LightappUtils.onError(this.f25468b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "view_calendar_not_available"), LightAppStatEvent.LIGHT_APP_VIEW_CALENDAR_NOT_AVAILABLE);
             }
         }
     }
@@ -400,7 +399,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
     private void i(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65570, this, jSONObject, str) == null) {
-            ILightappInvokerCallback iLightappInvokerCallback = this.f25310b.get(ADJUST_SCREEN_BRIGHTNESS);
+            ILightappInvokerCallback iLightappInvokerCallback = this.f25468b.get(ADJUST_SCREEN_BRIGHTNESS);
             if (this.k.getActivity() == null) {
                 iLightappInvokerCallback.onResult(1, LightappUtils.assembleFailResultWithErrCode(LightappConstants.ERRCODE_INNER_ERROR, "内部错误"));
                 return;
@@ -445,13 +444,13 @@ public class LightappJsNativeClient implements ILightappInvoker {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ArrayList f25331a;
+            public final /* synthetic */ ArrayList f25489a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ILightappInvokerCallback f25332b;
+            public final /* synthetic */ ILightappInvokerCallback f25490b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ LightappJsNativeClient f25333c;
+            public final /* synthetic */ LightappJsNativeClient f25491c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -468,9 +467,9 @@ public class LightappJsNativeClient implements ILightappInvoker {
                         return;
                     }
                 }
-                this.f25333c = this;
-                this.f25331a = arrayList;
-                this.f25332b = iLightappInvokerCallback;
+                this.f25491c = this;
+                this.f25489a = arrayList;
+                this.f25490b = iLightappInvokerCallback;
             }
 
             @Override // com.baidu.wallet.api.ILightappInvokerCallback
@@ -479,11 +478,11 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str4) == null) {
                     if (1 == i2) {
                         if (!TextUtils.isEmpty(str4)) {
-                            this.f25331a.add(str4);
+                            this.f25489a.add(str4);
                         }
-                        PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_CALL_SHARE_FAIL, this.f25331a);
+                        PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_CALL_SHARE_FAIL, this.f25489a);
                     }
-                    ILightappInvokerCallback iLightappInvokerCallback2 = this.f25332b;
+                    ILightappInvokerCallback iLightappInvokerCallback2 = this.f25490b;
                     if (iLightappInvokerCallback2 != null) {
                         iLightappInvokerCallback2.onResult(i2, str4);
                     }
@@ -524,7 +523,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public void handleInsertEventDone(boolean z) {
         ILightappInvokerCallback iLightappInvokerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (iLightappInvokerCallback = this.f25310b.get(INSERT_CALENDAR_EVENT)) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (iLightappInvokerCallback = this.f25468b.get(INSERT_CALENDAR_EVENT)) == null) {
             return;
         }
         if (z) {
@@ -548,7 +547,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
             if (TextUtils.isEmpty(string)) {
                 return;
             }
-            this.f25310b.put(string, iLightappInvokerCallback);
+            this.f25468b.put(string, iLightappInvokerCallback);
             String string2 = jSONObject.getString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
             if (!JavascriptInterfaceManager.verifyPermission(new URL(string2), string)) {
                 ArrayList arrayList = new ArrayList();
@@ -602,10 +601,10 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LightAppTakePictureModel f25317a;
+                public final /* synthetic */ LightAppTakePictureModel f25475a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LightappJsNativeClient f25318b;
+                public final /* synthetic */ LightappJsNativeClient f25476b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -622,19 +621,19 @@ public class LightappJsNativeClient implements ILightappInvoker {
                             return;
                         }
                     }
-                    this.f25318b = this;
-                    this.f25317a = lightAppTakePictureModel;
+                    this.f25476b = this;
+                    this.f25475a = lightAppTakePictureModel;
                 }
 
                 @Override // com.baidu.apollon.utils.ImageBase64Utils.ImageBase64Listener
                 public void onBase64Result(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        LightAppTakePictureModel lightAppTakePictureModel2 = this.f25317a;
+                        LightAppTakePictureModel lightAppTakePictureModel2 = this.f25475a;
                         lightAppTakePictureModel2.cnt.image = str;
-                        this.f25318b.a(LightappBusinessClient.METHOD_CALL_CAMERA, 0, lightAppTakePictureModel2.toJson());
+                        this.f25476b.a(LightappBusinessClient.METHOD_CALL_CAMERA, 0, lightAppTakePictureModel2.toJson());
                         try {
-                            File file = new File(this.f25318b.l);
+                            File file = new File(this.f25476b.l);
                             if (file.exists()) {
                                 file.delete();
                             }
@@ -673,16 +672,16 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 ContactSelectModel.SelectedContact selectedContact = contactSelectModel.cnt.selected;
                 selectedContact.name = str3;
                 selectedContact.phone = str4;
-                if (this.m == f25307d) {
+                if (this.m == f25465d) {
                     PhoneContactsMananger.a(this.k.getContext()).a(new PhoneContactsMananger.d(this, contactSelectModel) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ContactSelectModel f25315a;
+                        public final /* synthetic */ ContactSelectModel f25473a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ LightappJsNativeClient f25316b;
+                        public final /* synthetic */ LightappJsNativeClient f25474b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -699,31 +698,31 @@ public class LightappJsNativeClient implements ILightappInvoker {
                                     return;
                                 }
                             }
-                            this.f25316b = this;
-                            this.f25315a = contactSelectModel;
+                            this.f25474b = this;
+                            this.f25473a = contactSelectModel;
                         }
 
                         @Override // com.baidu.wallet.lightapp.base.contacts.PhoneContactsMananger.d
                         public void a(List<ContactSelectModel.AllContact> list, int i3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLI(1048576, this, list, i3) == null) {
-                                if (this.f25316b.p != null) {
-                                    this.f25315a.cnt.abc = Base64Utils.encodeToString(Crypto.aesEncrypt(JsonUtils.toJson(list).getBytes(), this.f25316b.p));
+                                if (this.f25474b.p != null) {
+                                    this.f25473a.cnt.abc = Base64Utils.encodeToString(Crypto.aesEncrypt(JsonUtils.toJson(list).getBytes(), this.f25474b.p));
                                 } else {
-                                    this.f25315a.cnt.all = list;
+                                    this.f25473a.cnt.all = list;
                                 }
-                                if (this.f25316b.o != LightappJsNativeClient.f25308e) {
-                                    this.f25316b.a("selectPhonefromAdressBook", 0, this.f25315a.toJson());
+                                if (this.f25474b.o != LightappJsNativeClient.f25466e) {
+                                    this.f25474b.a("selectPhonefromAdressBook", 0, this.f25473a.toJson());
                                     return;
                                 }
                                 LightAppContactSelectModelBase64 lightAppContactSelectModelBase64 = new LightAppContactSelectModelBase64();
-                                ContactSelectModel contactSelectModel2 = this.f25315a;
+                                ContactSelectModel contactSelectModel2 = this.f25473a;
                                 lightAppContactSelectModelBase64.result = contactSelectModel2.result;
                                 ContactSelectModel.Data data2 = contactSelectModel2.cnt;
                                 if (data2 != null) {
                                     lightAppContactSelectModelBase64.cnt = Base64Utils.encodeToString(JsonUtils.toJson(data2).getBytes());
                                 }
-                                this.f25316b.a("selectPhonefromAdressBook", 0, lightAppContactSelectModelBase64.toJson());
+                                this.f25474b.a("selectPhonefromAdressBook", 0, lightAppContactSelectModelBase64.toJson());
                             }
                         }
                     });
@@ -732,7 +731,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     } else {
                         PhoneContactsMananger.a(this.k.getContext()).a(1000, false);
                     }
-                } else if (this.o == f25308e) {
+                } else if (this.o == f25466e) {
                     LightAppContactSelectModelBase64 lightAppContactSelectModelBase64 = new LightAppContactSelectModelBase64();
                     lightAppContactSelectModelBase64.result = contactSelectModel.result;
                     ContactSelectModel.Data data2 = contactSelectModel.cnt;
@@ -752,7 +751,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
         if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2, strArr, iArr) == null) {
             int i3 = 0;
             switch (i2) {
-                case FAUEnum.PR_TIMEOUT /* 209 */:
+                case 209:
                     if (strArr != null && iArr != null && strArr.length != 0 && iArr.length != 0) {
                         while (i3 < strArr.length) {
                             if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equalsIgnoreCase(strArr[i3]) && i3 < iArr.length) {
@@ -781,7 +780,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
                                 if (i5 == 0) {
                                     if (PermissionManager.checkCallingPermission(this.k.getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
                                         a(this.k.getActivity());
-                                    } else if (!PermissionManager.checkCallingOrSelfPermission(this.k.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, FAUEnum.PR_TIMEOUT)) {
+                                    } else if (!PermissionManager.checkCallingOrSelfPermission(this.k.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 209)) {
                                         b();
                                     }
                                 } else if (i5 == -1) {
@@ -858,7 +857,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
     private void f(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65566, this, jSONObject, str) == null) {
-            ILightappInvokerCallback iLightappInvokerCallback = this.f25310b.get(SCREEN_CAPTURE_SETTINGS);
+            ILightappInvokerCallback iLightappInvokerCallback = this.f25468b.get(SCREEN_CAPTURE_SETTINGS);
             boolean optBoolean = jSONObject.optBoolean("prevent", false);
             if (this.k.getActivity() != null) {
                 LightappUtils.runOnUiThread(new Runnable(this, optBoolean) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.7
@@ -866,10 +865,10 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f25334a;
+                    public final /* synthetic */ boolean f25492a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ LightappJsNativeClient f25335b;
+                    public final /* synthetic */ LightappJsNativeClient f25493b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -886,18 +885,18 @@ public class LightappJsNativeClient implements ILightappInvoker {
                                 return;
                             }
                         }
-                        this.f25335b = this;
-                        this.f25334a = optBoolean;
+                        this.f25493b = this;
+                        this.f25492a = optBoolean;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (this.f25334a) {
-                                BdWalletUtils.addFlagsSecure(this.f25335b.k.getActivity());
+                            if (this.f25492a) {
+                                BdWalletUtils.addFlagsSecure(this.f25493b.k.getActivity());
                             } else {
-                                BdWalletUtils.clearFlagsSecure(this.f25335b.k.getActivity());
+                                BdWalletUtils.clearFlagsSecure(this.f25493b.k.getActivity());
                             }
                         }
                     }
@@ -926,19 +925,19 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LightAppNewLocationModel f25324a;
+                public final /* synthetic */ LightAppNewLocationModel f25482a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ILightappInvokerCallback f25325b;
+                public final /* synthetic */ ILightappInvokerCallback f25483b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f25326c;
+                public final /* synthetic */ String f25484c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ ArrayList f25327d;
+                public final /* synthetic */ ArrayList f25485d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ LightappJsNativeClient f25328e;
+                public final /* synthetic */ LightappJsNativeClient f25486e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -955,11 +954,11 @@ public class LightappJsNativeClient implements ILightappInvoker {
                             return;
                         }
                     }
-                    this.f25328e = this;
-                    this.f25324a = lightAppNewLocationModel;
-                    this.f25325b = iLightappInvokerCallback;
-                    this.f25326c = str2;
-                    this.f25327d = arrayList;
+                    this.f25486e = this;
+                    this.f25482a = lightAppNewLocationModel;
+                    this.f25483b = iLightappInvokerCallback;
+                    this.f25484c = str2;
+                    this.f25485d = arrayList;
                 }
 
                 @Override // com.baidu.wallet.api.ILocationCallback
@@ -967,27 +966,27 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                         if (obj != null && (obj instanceof LightAppLocationModel)) {
-                            LightAppNewLocationModel lightAppNewLocationModel2 = this.f25324a;
+                            LightAppNewLocationModel lightAppNewLocationModel2 = this.f25482a;
                             lightAppNewLocationModel2.result = 0;
                             LightAppNewLocationModel.Loc loc = lightAppNewLocationModel2.cnt.data;
                             LightAppLocationModel.Coords coords = ((LightAppLocationModel) obj).coords;
                             loc.latitude = coords.latitude;
                             loc.longitude = coords.longitude;
                             String json = lightAppNewLocationModel2.toJson();
-                            this.f25325b.onResult(0, json);
+                            this.f25483b.onResult(0, json);
                             ArrayList arrayList2 = new ArrayList();
-                            arrayList2.add(this.f25326c);
+                            arrayList2.add(this.f25484c);
                             arrayList2.add(Base64Utils.encodeToString(json.getBytes()));
                             DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList2);
                             PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList2);
                             return;
                         }
-                        PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25327d);
+                        PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25485d);
                         LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
                         LightAppErrorModel.Data data = lightAppErrorModel.cnt;
                         data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
                         data.des = "定位失败";
-                        this.f25325b.onResult(1, lightAppErrorModel.toJson());
+                        this.f25483b.onResult(1, lightAppErrorModel.toJson());
                     }
                 }
             };
@@ -1013,10 +1012,10 @@ public class LightappJsNativeClient implements ILightappInvoker {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ILocationCallback f25329a;
+                        public final /* synthetic */ ILocationCallback f25487a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ LightappJsNativeClient f25330b;
+                        public final /* synthetic */ LightappJsNativeClient f25488b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1033,8 +1032,8 @@ public class LightappJsNativeClient implements ILightappInvoker {
                                     return;
                                 }
                             }
-                            this.f25330b = this;
-                            this.f25329a = iLocationCallback;
+                            this.f25488b = this;
+                            this.f25487a = iLocationCallback;
                         }
 
                         @Override // java.lang.reflect.InvocationHandler
@@ -1050,9 +1049,9 @@ public class LightappJsNativeClient implements ILightappInvoker {
                                     coords.accuracy = ((Float) objArr[0]).floatValue();
                                     lightAppLocationModel.coords.latitude = ((Double) objArr[1]).doubleValue();
                                     lightAppLocationModel.coords.longitude = ((Double) objArr[2]).doubleValue();
-                                    this.f25329a.onReceiveLocation(lightAppLocationModel);
+                                    this.f25487a.onReceiveLocation(lightAppLocationModel);
                                 } else {
-                                    this.f25329a.onReceiveLocation(null);
+                                    this.f25487a.onReceiveLocation(null);
                                 }
                                 return null;
                             }
@@ -1189,19 +1188,19 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f25319a;
+                public final /* synthetic */ Context f25477a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f25320b;
+                public final /* synthetic */ String f25478b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ILightappInvokerCallback f25321c;
+                public final /* synthetic */ ILightappInvokerCallback f25479c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f25322d;
+                public final /* synthetic */ String f25480d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ LightappJsNativeClient f25323e;
+                public final /* synthetic */ LightappJsNativeClient f25481e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1218,11 +1217,11 @@ public class LightappJsNativeClient implements ILightappInvoker {
                             return;
                         }
                     }
-                    this.f25323e = this;
-                    this.f25319a = context;
-                    this.f25320b = str;
-                    this.f25321c = iLightappInvokerCallback;
-                    this.f25322d = str2;
+                    this.f25481e = this;
+                    this.f25477a = context;
+                    this.f25478b = str;
+                    this.f25479c = iLightappInvokerCallback;
+                    this.f25480d = str2;
                 }
 
                 @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -1230,10 +1229,10 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                         if (!bool.booleanValue()) {
-                            this.f25323e.d(this.f25319a, this.f25320b, this.f25321c, this.f25322d);
-                        } else if (PermissionManager.checkCallingOrSelfPermission(this.f25323e.k.getActivity(), new String[]{"android.permission.ACCESS_FINE_LOCATION"}, 212)) {
+                            this.f25481e.d(this.f25477a, this.f25478b, this.f25479c, this.f25480d);
+                        } else if (PermissionManager.checkCallingOrSelfPermission(this.f25481e.k.getActivity(), new String[]{"android.permission.ACCESS_FINE_LOCATION"}, 212)) {
                         } else {
-                            this.f25323e.d(this.f25319a, this.f25320b, this.f25321c, this.f25322d);
+                            this.f25481e.d(this.f25477a, this.f25478b, this.f25479c, this.f25480d);
                         }
                     }
                 }
@@ -1292,11 +1291,11 @@ public class LightappJsNativeClient implements ILightappInvoker {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65546, this, str, i2, str2) == null) {
             try {
-                if (this.f25310b == null || (iLightappInvokerCallback = this.f25310b.get(str)) == null) {
+                if (this.f25468b == null || (iLightappInvokerCallback = this.f25468b.get(str)) == null) {
                     return;
                 }
                 iLightappInvokerCallback.onResult(i2, str2);
-                this.f25310b.remove(str);
+                this.f25468b.remove(str);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1317,7 +1316,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     this.m = LightappUtils.parseJsonInt(str, "type");
                     this.n = LightappUtils.parseJsonInt(str, "maxNum");
                     this.o = LightappUtils.parseJsonInt(str, "base64");
-                    if (this.m != f25306c && this.m != f25307d) {
+                    if (this.m != f25464c && this.m != f25465d) {
                         throw new InvalidParameterException("参数非法");
                     }
                     ArrayList arrayList = new ArrayList();

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.i.h;
 import d.l.a.d.b.c;
 /* loaded from: classes6.dex */
-public class c extends h<Long, c.C2017c> {
+public class c extends h<Long, c.C2016c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public class c extends h<Long, c.C2017c> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f38340a;
+        public static c f38515a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class c extends h<Long, c.C2017c> {
                     return;
                 }
             }
-            f38340a = new c(null);
+            f38515a = new c(null);
         }
     }
 
@@ -53,7 +53,7 @@ public class c extends h<Long, c.C2017c> {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f38340a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f38515a : (c) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,26 +75,26 @@ public class c extends h<Long, c.C2017c> {
         }
     }
 
-    public void a(c.C2017c c2017c) {
+    public void a(c.C2016c c2016c) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2017c) == null) || c2017c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2016c) == null) || c2016c == null) {
             return;
         }
-        put(Long.valueOf(c2017c.a()), c2017c);
+        put(Long.valueOf(c2016c.a()), c2016c);
     }
 
-    public c.C2017c a(long j, long j2) {
+    public c.C2016c a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             return get(get(Long.valueOf(j)) != null ? Long.valueOf(j) : Long.valueOf(j2));
         }
-        return (c.C2017c) invokeCommon.objValue;
+        return (c.C2016c) invokeCommon.objValue;
     }
 
-    public c.C2017c a(long j) {
+    public c.C2016c a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? get(Long.valueOf(j)) : (c.C2017c) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? get(Long.valueOf(j)) : (c.C2016c) invokeJ.objValue;
     }
 }

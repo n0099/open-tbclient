@@ -32,7 +32,7 @@ public final class u0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f68856i;
+    public static final String f69310i;
     public static final String j;
     @Nullable
     public static IOaidObserver k;
@@ -40,28 +40,28 @@ public final class u0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ReentrantLock f68857a;
+    public final ReentrantLock f69311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public v0 f68858b;
+    public v0 f69312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f68859c;
+    public boolean f69313c;
 
     /* renamed from: d  reason: collision with root package name */
-    public y0 f68860d;
+    public y0 f69314d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f68861e;
+    public final Context f69315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f68862f;
+    public AtomicBoolean f69316f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, String> f68863g;
+    public Map<String, String> f69317g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Long f68864h;
+    public Long f69318h;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -69,7 +69,7 @@ public final class u0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ u0 f68865e;
+        public final /* synthetic */ u0 f69319e;
 
         public a(u0 u0Var) {
             Interceptable interceptable = $ic;
@@ -86,14 +86,14 @@ public final class u0 {
                     return;
                 }
             }
-            this.f68865e = u0Var;
+            this.f69319e = u0Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f68865e.j();
+                this.f69319e.j();
             }
         }
     }
@@ -112,7 +112,7 @@ public final class u0 {
             }
         }
         String str = u0.class.getSimpleName() + "#";
-        f68856i = str;
+        f69310i = str;
         j = str;
     }
 
@@ -131,17 +131,17 @@ public final class u0 {
                 return;
             }
         }
-        this.f68857a = new ReentrantLock();
-        this.f68862f = new AtomicBoolean(false);
-        this.f68861e = context;
+        this.f69311a = new ReentrantLock();
+        this.f69316f = new AtomicBoolean(false);
+        this.f69315e = context;
         v0 a2 = w0.a(context);
-        this.f68858b = a2;
+        this.f69312b = a2;
         if (a2 != null) {
-            this.f68859c = a2.a(context);
+            this.f69313c = a2.a(context);
         } else {
-            this.f68859c = false;
+            this.f69313c = false;
         }
-        this.f68860d = new y0(context);
+        this.f69314d = new y0(context);
     }
 
     public static void d(@Nullable IOaidObserver.Oaid oaid) {
@@ -200,15 +200,15 @@ public final class u0 {
         v0.a b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            v0 v0Var = this.f68858b;
+            v0 v0Var = this.f69312b;
             String str = null;
             if (v0Var == null || (b2 = v0Var.b(context)) == null) {
                 bool = null;
             } else {
-                str = b2.f68867a;
-                bool = Boolean.valueOf(b2.f68868b);
+                str = b2.f69321a;
+                bool = Boolean.valueOf(b2.f69322b);
                 if (b2 instanceof q0.c) {
-                    this.f68864h = Long.valueOf(((q0.c) b2).f68846c);
+                    this.f69318h = Long.valueOf(((q0.c) b2).f69300c);
                 }
             }
             return new Pair<>(str, bool);
@@ -224,7 +224,7 @@ public final class u0 {
         if (r2 == false) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0067, code lost:
-        r5.f68857a.unlock();
+        r5.f69311a.unlock();
      */
     @Nullable
     @WorkerThread
@@ -235,16 +235,16 @@ public final class u0 {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            if (this.f68859c) {
+            if (this.f69313c) {
                 c();
                 String str = j;
                 o0.c(str, "Oaid#getOaid timeoutMills=" + j2);
-                if (this.f68863g == null) {
+                if (this.f69317g == null) {
                     long elapsedRealtime = SystemClock.elapsedRealtime();
                     boolean z = false;
                     try {
                         try {
-                            z = this.f68857a.tryLock(j2, TimeUnit.MILLISECONDS);
+                            z = this.f69311a.tryLock(j2, TimeUnit.MILLISECONDS);
                             String str2 = j;
                             o0.e(str2, "Oaid#getOaid locked=" + z + ", took " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
                         } catch (InterruptedException e2) {
@@ -252,14 +252,14 @@ public final class u0 {
                         }
                     } catch (Throwable th) {
                         if (z) {
-                            this.f68857a.unlock();
+                            this.f69311a.unlock();
                         }
                         throw th;
                     }
                 }
                 String str3 = j;
-                o0.c(str3, "Oaid#getOaid return apiMap=" + this.f68863g);
-                return this.f68863g;
+                o0.c(str3, "Oaid#getOaid return apiMap=" + this.f69317g);
+                return this.f69317g;
             }
             return null;
         }
@@ -268,7 +268,7 @@ public final class u0 {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f68862f.compareAndSet(false, true)) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f69316f.compareAndSet(false, true)) {
             g(new a(this));
         }
     }
@@ -278,17 +278,17 @@ public final class u0 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             o0.e(j, "Oaid#initOaid");
             try {
-                this.f68857a.lock();
+                this.f69311a.lock();
                 o0.e(j, "Oaid#initOaid exec");
-                x0 a2 = this.f68860d.a();
+                x0 a2 = this.f69314d.a();
                 String str = j;
                 o0.e(str, "Oaid#initOaid fetch=" + a2);
                 if (a2 != null) {
-                    l = a2.f68871a;
-                    this.f68863g = a2.b();
+                    l = a2.f69325a;
+                    this.f69317g = a2.b();
                 }
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                Pair<String, Boolean> a3 = a(this.f68861e);
+                Pair<String, Boolean> a3 = a(this.f69315e);
                 long elapsedRealtime2 = SystemClock.elapsedRealtime() - elapsedRealtime;
                 x0 x0Var = null;
                 String str2 = null;
@@ -296,8 +296,8 @@ public final class u0 {
                     int i2 = -1;
                     int i3 = 1;
                     if (a2 != null) {
-                        str2 = a2.f68872b;
-                        i2 = a2.f68876f.intValue() + 1;
+                        str2 = a2.f69326b;
+                        i2 = a2.f69330f.intValue() + 1;
                     }
                     if (TextUtils.isEmpty(str2)) {
                         str2 = UUID.randomUUID().toString();
@@ -306,18 +306,18 @@ public final class u0 {
                     if (i2 > 0) {
                         i3 = i2;
                     }
-                    x0 x0Var2 = new x0((String) a3.first, str3, (Boolean) a3.second, Long.valueOf(elapsedRealtime2), Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i3), this.f68864h);
-                    this.f68860d.b(x0Var2);
+                    x0 x0Var2 = new x0((String) a3.first, str3, (Boolean) a3.second, Long.valueOf(elapsedRealtime2), Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i3), this.f69318h);
+                    this.f69314d.b(x0Var2);
                     x0Var = x0Var2;
                 }
                 if (x0Var != null) {
-                    l = x0Var.f68871a;
-                    this.f68863g = x0Var.b();
+                    l = x0Var.f69325a;
+                    this.f69317g = x0Var.b();
                 }
                 String str4 = j;
                 o0.e(str4, "Oaid#initOaid oaidModel=" + x0Var);
             } finally {
-                this.f68857a.unlock();
+                this.f69311a.unlock();
                 d(new IOaidObserver.Oaid(l));
             }
         }

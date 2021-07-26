@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.b;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,6 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,7 +22,7 @@ public final class s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f28610a;
+    public final String[] f28704a;
 
     public s(a aVar) {
         Interceptable interceptable = $ic;
@@ -36,20 +39,20 @@ public final class s {
                 return;
             }
         }
-        List<String> list = aVar.f28611a;
-        this.f28610a = (String[]) list.toArray(new String[list.size()]);
+        List<String> list = aVar.f28705a;
+        this.f28704a = (String[]) list.toArray(new String[list.size()]);
     }
 
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? a(this.f28610a, str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? a(this.f28704a, str) : (String) invokeL.objValue;
     }
 
     public String b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f28610a[(i2 * 2) + 1] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f28704a[(i2 * 2) + 1] : (String) invokeI.objValue;
     }
 
     public a c() {
@@ -57,7 +60,7 @@ public final class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             a aVar = new a();
-            Collections.addAll(aVar.f28611a, this.f28610a);
+            Collections.addAll(aVar.f28705a, this.f28704a);
             return aVar;
         }
         return (a) invokeV.objValue;
@@ -66,13 +69,13 @@ public final class s {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof s) && Arrays.equals(((s) obj).f28610a, this.f28610a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof s) && Arrays.equals(((s) obj).f28704a, this.f28704a) : invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Arrays.hashCode(this.f28610a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Arrays.hashCode(this.f28704a) : invokeV.intValue;
     }
 
     public String toString() {
@@ -98,7 +101,7 @@ public final class s {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<String> f28611a;
+        public final List<String> f28705a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -113,7 +116,7 @@ public final class s {
                     return;
                 }
             }
-            this.f28611a = new ArrayList(20);
+            this.f28705a = new ArrayList(20);
         }
 
         private void d(String str, String str2) {
@@ -166,8 +169,8 @@ public final class s {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                this.f28611a.add(str);
-                this.f28611a.add(str2.trim());
+                this.f28705a.add(str);
+                this.f28705a.add(str2.trim());
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -177,7 +180,29 @@ public final class s {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-                d(str, str2);
+                try {
+                    d(str, str2);
+                } catch (Throwable unused) {
+                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                        try {
+                            StringBuilder sb = new StringBuilder();
+                            int length = str2.length();
+                            for (int i2 = 0; i2 < length; i2++) {
+                                char charAt = str2.charAt(i2);
+                                if ((charAt <= 31 && charAt != '\t') || charAt >= 127) {
+                                    sb.append(URLEncoder.encode(String.valueOf(charAt), "UTF-8"));
+                                } else {
+                                    sb.append(charAt);
+                                }
+                            }
+                            str2 = sb.toString();
+                        } catch (UnsupportedEncodingException e2) {
+                            e2.printStackTrace();
+                            return this;
+                        }
+                    }
+                    return this;
+                }
                 b(str);
                 b(str, str2);
                 return this;
@@ -190,10 +215,10 @@ public final class s {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 int i2 = 0;
-                while (i2 < this.f28611a.size()) {
-                    if (str.equalsIgnoreCase(this.f28611a.get(i2))) {
-                        this.f28611a.remove(i2);
-                        this.f28611a.remove(i2);
+                while (i2 < this.f28705a.size()) {
+                    if (str.equalsIgnoreCase(this.f28705a.get(i2))) {
+                        this.f28705a.remove(i2);
+                        this.f28705a.remove(i2);
                         i2 -= 2;
                     }
                     i2 += 2;
@@ -207,7 +232,29 @@ public final class s {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                d(str, str2);
+                try {
+                    d(str, str2);
+                } catch (Throwable unused) {
+                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                        try {
+                            StringBuilder sb = new StringBuilder();
+                            int length = str2.length();
+                            for (int i2 = 0; i2 < length; i2++) {
+                                char charAt = str2.charAt(i2);
+                                if ((charAt <= 31 && charAt != '\t') || charAt >= 127) {
+                                    sb.append(URLEncoder.encode(String.valueOf(charAt), "UTF-8"));
+                                } else {
+                                    sb.append(charAt);
+                                }
+                            }
+                            str2 = sb.toString();
+                        } catch (UnsupportedEncodingException e2) {
+                            e2.printStackTrace();
+                            return this;
+                        }
+                    }
+                    return this;
+                }
                 return b(str, str2);
             }
             return (a) invokeLL.objValue;
@@ -223,7 +270,7 @@ public final class s {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28610a.length / 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28704a.length / 2 : invokeV.intValue;
     }
 
     public Set<String> b() {
@@ -243,7 +290,7 @@ public final class s {
     public String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f28610a[i2 * 2] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f28704a[i2 * 2] : (String) invokeI.objValue;
     }
 
     public static String a(String[] strArr, String str) {

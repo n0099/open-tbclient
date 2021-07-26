@@ -11,19 +11,19 @@ public class a implements Comparable<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f24066a;
+    public int f24224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24067b;
+    public int f24225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f24068c;
+    public float f24226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f24069d;
+    public float f24227d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f24070e;
+    public boolean f24228e;
 
     public a(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class a implements Comparable<a> {
                 return;
             }
         }
-        this.f24070e = false;
-        this.f24066a = i2;
-        this.f24067b = i3;
+        this.f24228e = false;
+        this.f24224a = i2;
+        this.f24225b = i3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,15 +52,15 @@ public class a implements Comparable<a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (this.f24070e) {
-                return this.f24069d < aVar.f24069d ? -1 : 1;
+            if (this.f24228e) {
+                return this.f24227d < aVar.f24227d ? -1 : 1;
             }
-            int i2 = this.f24067b;
-            int i3 = aVar.f24067b;
+            int i2 = this.f24225b;
+            int i3 = aVar.f24225b;
             if (i2 < i3) {
                 return -1;
             }
-            return (i2 <= i3 && this.f24066a < aVar.f24066a) ? -1 : 1;
+            return (i2 <= i3 && this.f24224a < aVar.f24224a) ? -1 : 1;
         }
         return invokeL.intValue;
     }

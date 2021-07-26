@@ -9,7 +9,7 @@ public class AugmentedImageDatabase {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f32955a;
+    public long f33144a;
 
     private native int nativeAddImage(long j, long j2, String str, ByteBuffer byteBuffer, int i2, int i3, int i4);
 
@@ -28,7 +28,7 @@ public class AugmentedImageDatabase {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f32955a;
+            long j = this.f33144a;
             if (j != 0) {
                 nativeReleaseDatabase(j);
             }

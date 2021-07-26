@@ -38,17 +38,17 @@ public abstract class b extends b.a {
     public Object a(int i2, int i3, long j, String str, Object obj) throws Throwable {
         InterceptResult invokeCommon;
         boolean z;
-        Context c2;
+        Context a2;
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str, obj})) == null) {
             String[] strArr = {(String) h.a(16777217, 0, 0L, "5b541d", new byte[]{37, 110, 66, 82, 1, 122, 50, 13, 116, 97, 54, 109, 79, 83, 29, 122, 57, 77, 42, 77, 10, 84, 99, 114, 32, 86, 2})};
             try {
-                c2 = ms.bd.c.a.a().c();
+                a2 = ms.bd.c.a.c().a();
             } catch (Throwable unused) {
             }
             for (i4 = 0; i4 < 1; i4++) {
-                if (c2.checkPermission(strArr[i4], Process.myPid(), Process.myUid()) != 0) {
+                if (a2.checkPermission(strArr[i4], Process.myPid(), Process.myUid()) != 0) {
                     z = false;
                     break;
                 }

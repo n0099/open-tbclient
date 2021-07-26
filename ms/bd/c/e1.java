@@ -39,9 +39,9 @@ public final class e1 extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Context c2 = a.a().c();
+            Context a2 = a.c().a();
             JSONArray jSONArray = new JSONArray();
-            AccessibilityManager accessibilityManager = (AccessibilityManager) c2.getSystemService((String) h.a(16777217, 0, 0L, "13646b", new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 50, 70, 69, 26, 102, 59, 16, 110, 104, 41, 37, 92}));
+            AccessibilityManager accessibilityManager = (AccessibilityManager) a2.getSystemService((String) h.a(16777217, 0, 0L, "13646b", new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 50, 70, 69, 26, 102, 59, 16, 110, 104, 41, 37, 92}));
             if (accessibilityManager != null) {
                 List<AccessibilityServiceInfo> list = null;
                 try {

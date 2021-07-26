@@ -55,7 +55,7 @@ public class CommentUtils {
         }
         try {
             try {
-                randomAccessFile2 = new RandomAccessFile(file, r.f7762a);
+                randomAccessFile2 = new RandomAccessFile(file, r.f7788a);
             } catch (IOException e2) {
                 e2.printStackTrace();
                 return null;

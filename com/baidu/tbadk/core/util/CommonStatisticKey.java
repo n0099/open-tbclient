@@ -52,6 +52,10 @@ public class CommonStatisticKey {
     public static final String KEY_FRS_STAR_PIC_CLICK = "c12883";
     public static final String KEY_FRS_TRANSMIT_THREAD = "c12940";
     public static final String KEY_FUNCTION_PANEL_CLIKED = "c12612";
+    public static final String KEY_HEATING_THREAD_AGREE = "c14204";
+    public static final String KEY_HEATING_THREAD_CLICK = "c14203";
+    public static final String KEY_HEATING_THREAD_COMMENT = "c14205";
+    public static final String KEY_HEATING_THREAD_EXPOSE = "c14202";
     public static final String KEY_INTEREST_GUIDE_CLICK = "c14096";
     public static final String KEY_INTEREST_GUIDE_SHOW = "c14095";
     public static final String KEY_ITEM_CARD_BUTTON_CLICK = "c14121";

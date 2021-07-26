@@ -17,7 +17,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f4670a;
+    public static char[] f4696a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class g {
                 return;
             }
         }
-        f4670a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f4696a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static String a(File file) {
@@ -97,7 +97,7 @@ public class g {
     public static void a(byte b2, StringBuffer stringBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Byte.valueOf(b2), stringBuffer}) == null) {
-            char[] cArr = f4670a;
+            char[] cArr = f4696a;
             char c2 = cArr[(b2 & 240) >> 4];
             char c3 = cArr[b2 & 15];
             stringBuffer.append(c2);

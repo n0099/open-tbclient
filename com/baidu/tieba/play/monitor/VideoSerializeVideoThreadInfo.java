@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.b;
-import d.a.o0.r.q.b2;
+import d.a.d.e.m.b;
+import d.a.p0.s.q.b2;
 import java.io.Serializable;
 import java.util.Map;
 import tbclient.Agree;
@@ -303,36 +303,36 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.mBaijiahaoData = baijiahaoData;
         }
         VideoAggregationVideoData videoAggregationVideoData = new VideoAggregationVideoData();
-        if (b2Var.l1() != null) {
-            videoAggregationVideoData.thumbnailWidth = String.valueOf(b2Var.l1().thumbnail_width);
-            videoAggregationVideoData.thumbnailHeight = String.valueOf(b2Var.l1().thumbnail_height);
-            videoAggregationVideoData.videoMd5 = b2Var.l1().video_md5;
-            videoAggregationVideoData.videoUrl = b2Var.l1().video_url;
-            videoAggregationVideoData.videoDuration = b2Var.l1().video_duration.intValue();
-            videoAggregationVideoData.videoWidth = String.valueOf(b2Var.l1().video_width);
-            videoAggregationVideoData.videoHeight = String.valueOf(b2Var.l1().video_height);
-            videoAggregationVideoData.videoSize = b2Var.l1().video_length.intValue();
-            videoAggregationVideoData.thumbnailUrl = b2Var.l1().thumbnail_url;
-            videoAggregationVideoData.originVideoUrl = b2Var.l1().video_url;
-            videoAggregationVideoData.mcnLeadPage = b2Var.l1().mcn_lead_page;
-            this.playCount = b2Var.l1().play_count.intValue();
+        if (b2Var.m1() != null) {
+            videoAggregationVideoData.thumbnailWidth = String.valueOf(b2Var.m1().thumbnail_width);
+            videoAggregationVideoData.thumbnailHeight = String.valueOf(b2Var.m1().thumbnail_height);
+            videoAggregationVideoData.videoMd5 = b2Var.m1().video_md5;
+            videoAggregationVideoData.videoUrl = b2Var.m1().video_url;
+            videoAggregationVideoData.videoDuration = b2Var.m1().video_duration.intValue();
+            videoAggregationVideoData.videoWidth = String.valueOf(b2Var.m1().video_width);
+            videoAggregationVideoData.videoHeight = String.valueOf(b2Var.m1().video_height);
+            videoAggregationVideoData.videoSize = b2Var.m1().video_length.intValue();
+            videoAggregationVideoData.thumbnailUrl = b2Var.m1().thumbnail_url;
+            videoAggregationVideoData.originVideoUrl = b2Var.m1().video_url;
+            videoAggregationVideoData.mcnLeadPage = b2Var.m1().mcn_lead_page;
+            this.playCount = b2Var.m1().play_count.intValue();
         }
         this.video = videoAggregationVideoData;
-        this.forumId = String.valueOf(b2Var.Q());
-        this.threadId = b2Var.c0();
+        this.forumId = String.valueOf(b2Var.R());
+        this.threadId = b2Var.d0();
         OriginalForumInfo originalForumInfo = b2Var.F1;
         if (originalForumInfo != null) {
             this.forumId = originalForumInfo.id;
         }
-        this.firstPostId = b2Var.U();
+        this.firstPostId = b2Var.V();
         this.createTime = String.valueOf(b2Var.N());
-        this.postNum = b2Var.P0();
+        this.postNum = b2Var.Q0();
         this.agreeNum = b2Var.A();
         this.disAgreeNum = b2Var.O();
         this.agreeType = b2Var.B();
-        this.shareNum = b2Var.W0();
-        this.hasAgree = b2Var.a0() == 1;
-        this.source = b2Var.M0();
+        this.shareNum = b2Var.X0();
+        this.hasAgree = b2Var.b0() == 1;
+        this.source = b2Var.N0();
         this.title = b2Var.getTitle();
         if (b2Var.z() != null) {
             AgreeData agreeData = new AgreeData();
@@ -412,8 +412,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.forumId = originalForumInfo.id;
         }
         if (originalThreadInfo != null) {
-            this.threadId = originalThreadInfo.f12252f;
-            this.title = originalThreadInfo.f12248b;
+            this.threadId = originalThreadInfo.f12282f;
+            this.title = originalThreadInfo.f12278b;
             this.postNum = originalThreadInfo.x.intValue();
         }
         if (originalThreadInfo != null && (agree = originalThreadInfo.w) != null) {

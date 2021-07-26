@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BottomSheetDialog extends AppCompatDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

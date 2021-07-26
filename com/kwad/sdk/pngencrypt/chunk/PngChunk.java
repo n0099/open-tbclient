@@ -16,28 +16,28 @@ public abstract class PngChunk {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f35766a;
+    public final String f35955a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f35767b;
+    public final boolean f35956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f35768c;
+    public final boolean f35957c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f35769d;
+    public final boolean f35958d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.k f35770e;
+    public final com.kwad.sdk.pngencrypt.k f35959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f35771f;
+    public d f35960f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35772g;
+    public int f35961g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f35773h;
+    public boolean f35962h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -175,22 +175,22 @@ public abstract class PngChunk {
                 return;
             }
         }
-        this.f35773h = false;
-        this.f35772g = -1;
-        this.f35766a = str;
-        this.f35770e = kVar;
-        this.f35767b = b.b(str);
-        this.f35768c = b.c(str);
-        this.f35769d = b.d(str);
+        this.f35962h = false;
+        this.f35961g = -1;
+        this.f35955a = str;
+        this.f35959e = kVar;
+        this.f35956b = b.b(str);
+        this.f35957c = b.c(str);
+        this.f35958d = b.d(str);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d dVar = this.f35771f;
+            d dVar = this.f35960f;
             if (dVar != null) {
-                return dVar.f35789a;
+                return dVar.f35978a;
             }
             return -1;
         }
@@ -200,7 +200,7 @@ public abstract class PngChunk {
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f35772g = i2;
+            this.f35961g = i2;
         }
     }
 
@@ -210,7 +210,7 @@ public abstract class PngChunk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d dVar = this.f35771f;
+            d dVar = this.f35960f;
             if (dVar != null) {
                 return dVar.c();
             }
@@ -222,7 +222,7 @@ public abstract class PngChunk {
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f35771f = dVar;
+            this.f35960f = dVar;
         }
     }
 
@@ -230,7 +230,7 @@ public abstract class PngChunk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "chunk id= " + this.f35766a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
+            return "chunk id= " + this.f35955a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

@@ -16,7 +16,6 @@ import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.TTDislikeDialogAbstract;
 import com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
-import com.bytedance.sdk.openadsdk.r.q;
 import com.bytedance.sdk.openadsdk.theme.ThemeStatusBroadcastReceiver;
 /* loaded from: classes5.dex */
 public abstract class BackupView extends FrameLayout implements com.bytedance.sdk.openadsdk.theme.a {
@@ -24,31 +23,31 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30379a;
+    public Context f30478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f30380b;
+    public com.bytedance.sdk.openadsdk.core.e.m f30479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.ui.a f30381c;
+    public com.bytedance.sdk.openadsdk.dislike.ui.a f30480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTDislikeDialogAbstract f30382d;
+    public TTDislikeDialogAbstract f30481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30383e;
+    public String f30482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30384f;
+    public int f30483f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30385g;
+    public int f30484g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30386h;
+    public int f30485h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f30387i;
+    public boolean f30486i;
     public boolean j;
     public String k;
 
@@ -70,8 +69,8 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
                 return;
             }
         }
-        this.f30383e = "embeded_ad";
-        this.f30387i = true;
+        this.f30482e = "embeded_ad";
+        this.f30486i = true;
         this.j = true;
         b();
     }
@@ -87,7 +86,7 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            com.bytedance.sdk.openadsdk.core.e.m mVar = this.f30380b;
+            com.bytedance.sdk.openadsdk.core.e.m mVar = this.f30479b;
             return mVar != null && com.bytedance.sdk.openadsdk.core.e.m.b(mVar);
         }
         return invokeV.booleanValue;
@@ -96,36 +95,36 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f30382d;
+            TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f30481d;
             if (tTDislikeDialogAbstract != null) {
                 tTDislikeDialogAbstract.show();
                 return;
             }
-            com.bytedance.sdk.openadsdk.dislike.ui.a aVar = this.f30381c;
+            com.bytedance.sdk.openadsdk.dislike.ui.a aVar = this.f30480c;
             if (aVar != null) {
                 aVar.showDislikeDialog();
             } else {
-                TTDelegateActivity.a(getContext(), this.f30380b);
+                TTDelegateActivity.a(getContext(), this.f30479b);
             }
+        }
+    }
+
+    public void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
         }
     }
 
     public abstract void a(int i2, com.bytedance.sdk.openadsdk.core.e.k kVar);
 
-    public void a_(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-        }
-    }
-
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (TextUtils.isEmpty(this.f30380b.ah())) {
-                return !TextUtils.isEmpty(this.f30380b.ai()) ? this.f30380b.ai() : "";
+            if (TextUtils.isEmpty(this.f30479b.ah())) {
+                return !TextUtils.isEmpty(this.f30479b.ai()) ? this.f30479b.ai() : "";
             }
-            return this.f30380b.ah();
+            return this.f30479b.ah();
         }
         return (String) invokeV.objValue;
     }
@@ -134,14 +133,14 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            com.bytedance.sdk.openadsdk.core.e.m mVar = this.f30380b;
+            com.bytedance.sdk.openadsdk.core.e.m mVar = this.f30479b;
             if (mVar == null) {
                 return "";
             }
-            if (mVar.al() == null || TextUtils.isEmpty(this.f30380b.al().c())) {
-                return !TextUtils.isEmpty(this.f30380b.W()) ? this.f30380b.W() : "";
+            if (mVar.al() == null || TextUtils.isEmpty(this.f30479b.al().c())) {
+                return !TextUtils.isEmpty(this.f30479b.W()) ? this.f30479b.W() : "";
             }
-            return this.f30380b.al().c();
+            return this.f30479b.al().c();
         }
         return (String) invokeV.objValue;
     }
@@ -149,13 +148,13 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
     public float getRealHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? q.c(this.f30379a, this.f30385g) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? com.bytedance.sdk.openadsdk.q.s.c(this.f30478a, this.f30484g) : invokeV.floatValue;
     }
 
     public float getRealWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? q.c(this.f30379a, this.f30384f) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? com.bytedance.sdk.openadsdk.q.s.c(this.f30478a, this.f30483f) : invokeV.floatValue;
     }
 
     @Override // android.view.View
@@ -169,13 +168,13 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f30380b.al() != null && !TextUtils.isEmpty(this.f30380b.al().c())) {
-                return this.f30380b.al().c();
+            if (this.f30479b.al() != null && !TextUtils.isEmpty(this.f30479b.al().c())) {
+                return this.f30479b.al().c();
             }
-            if (TextUtils.isEmpty(this.f30380b.W())) {
-                return !TextUtils.isEmpty(this.f30380b.ah()) ? this.f30380b.ah() : "";
+            if (TextUtils.isEmpty(this.f30479b.W())) {
+                return !TextUtils.isEmpty(this.f30479b.ah()) ? this.f30479b.ah() : "";
             }
-            return this.f30380b.W();
+            return this.f30479b.W();
         }
         return (String) invokeV.objValue;
     }
@@ -185,17 +184,17 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
         NativeVideoTsView a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f30380b != null && this.f30379a != null) {
+            if (this.f30479b != null && this.f30478a != null) {
                 if (c()) {
                     try {
-                        a2 = a(this.f30379a, this.f30380b, this.f30383e, true, false);
+                        a2 = a(this.f30478a, this.f30479b, this.f30482e, true, false);
                         a2.setVideoCacheUrl(this.k);
                         a2.setControllerStatusCallBack(new NativeVideoTsView.a(this) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.BackupView.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ BackupView f30389a;
+                            public final /* synthetic */ BackupView f30488a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -212,7 +211,7 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
                                         return;
                                     }
                                 }
-                                this.f30389a = this;
+                                this.f30488a = this;
                             }
 
                             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
@@ -222,7 +221,7 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
                                 }
                             }
                         });
-                        a2.setIsAutoPlay(this.f30387i);
+                        a2.setIsAutoPlay(this.f30486i);
                         a2.setIsQuiet(this.j);
                     } catch (Throwable unused) {
                     }
@@ -242,7 +241,7 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
     public void setDislikeInner(TTAdDislike tTAdDislike) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, tTAdDislike) == null) && (tTAdDislike instanceof com.bytedance.sdk.openadsdk.dislike.ui.a)) {
-            this.f30381c = (com.bytedance.sdk.openadsdk.dislike.ui.a) tTAdDislike;
+            this.f30480c = (com.bytedance.sdk.openadsdk.dislike.ui.a) tTAdDislike;
         }
     }
 
@@ -250,10 +249,10 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
         com.bytedance.sdk.openadsdk.core.e.m mVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, tTDislikeDialogAbstract) == null) {
-            if (tTDislikeDialogAbstract != null && (mVar = this.f30380b) != null) {
+            if (tTDislikeDialogAbstract != null && (mVar = this.f30479b) != null) {
                 tTDislikeDialogAbstract.setDislikeModel(mVar.aG());
             }
-            this.f30382d = tTDislikeDialogAbstract;
+            this.f30481d = tTDislikeDialogAbstract;
         }
     }
 
@@ -276,19 +275,19 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.j = com.bytedance.sdk.openadsdk.core.o.h().b(this.f30386h);
+            this.j = com.bytedance.sdk.openadsdk.core.o.h().b(this.f30485h);
             int d2 = com.bytedance.sdk.openadsdk.core.o.h().d(i2);
             if (3 == d2) {
-                this.f30387i = false;
-            } else if (1 == d2 && com.bytedance.sdk.component.utils.m.d(this.f30379a)) {
-                this.f30387i = true;
+                this.f30486i = false;
+            } else if (1 == d2 && com.bytedance.sdk.component.utils.n.d(this.f30478a)) {
+                this.f30486i = true;
             } else if (2 == d2) {
-                if (com.bytedance.sdk.component.utils.m.e(this.f30379a) || com.bytedance.sdk.component.utils.m.d(this.f30379a) || com.bytedance.sdk.component.utils.m.f(this.f30379a)) {
-                    this.f30387i = true;
+                if (com.bytedance.sdk.component.utils.n.e(this.f30478a) || com.bytedance.sdk.component.utils.n.d(this.f30478a) || com.bytedance.sdk.component.utils.n.f(this.f30478a)) {
+                    this.f30486i = true;
                 }
             } else if (5 == d2) {
-                if (com.bytedance.sdk.component.utils.m.d(this.f30379a) || com.bytedance.sdk.component.utils.m.f(this.f30379a)) {
-                    this.f30387i = true;
+                if (com.bytedance.sdk.component.utils.n.d(this.f30478a) || com.bytedance.sdk.component.utils.n.f(this.f30478a)) {
+                    this.f30486i = true;
                 }
             }
         }
@@ -312,8 +311,8 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
                 return;
             }
         }
-        this.f30383e = "embeded_ad";
-        this.f30387i = true;
+        this.f30482e = "embeded_ad";
+        this.f30486i = true;
         this.j = true;
         this.k = str;
         setTag("tt_express_backup_fl_tag_26");
@@ -322,19 +321,19 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
     public void a(View view, boolean z) {
         com.bytedance.sdk.openadsdk.core.b.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, view, z) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, view, z) == null) || view == null) {
             return;
         }
         if (z) {
-            Context context = this.f30379a;
-            com.bytedance.sdk.openadsdk.core.e.m mVar = this.f30380b;
-            String str = this.f30383e;
-            bVar = new com.bytedance.sdk.openadsdk.core.b.a(context, mVar, str, com.bytedance.sdk.openadsdk.r.o.a(str));
+            Context context = this.f30478a;
+            com.bytedance.sdk.openadsdk.core.e.m mVar = this.f30479b;
+            String str = this.f30482e;
+            bVar = new com.bytedance.sdk.openadsdk.core.b.a(context, mVar, str, com.bytedance.sdk.openadsdk.q.q.a(str));
         } else {
-            Context context2 = this.f30379a;
-            com.bytedance.sdk.openadsdk.core.e.m mVar2 = this.f30380b;
-            String str2 = this.f30383e;
-            bVar = new com.bytedance.sdk.openadsdk.core.b.b(context2, mVar2, str2, com.bytedance.sdk.openadsdk.r.o.a(str2));
+            Context context2 = this.f30478a;
+            com.bytedance.sdk.openadsdk.core.e.m mVar2 = this.f30479b;
+            String str2 = this.f30482e;
+            bVar = new com.bytedance.sdk.openadsdk.core.b.b(context2, mVar2, str2, com.bytedance.sdk.openadsdk.q.q.a(str2));
         }
         view.setOnTouchListener(bVar);
         view.setOnClickListener(bVar);
@@ -343,7 +342,7 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BackupView f30388a;
+            public final /* synthetic */ BackupView f30487a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -360,14 +359,14 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
                         return;
                     }
                 }
-                this.f30388a = this;
+                this.f30487a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.a
             public void a(int i2, com.bytedance.sdk.openadsdk.core.e.k kVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, kVar) == null) {
-                    this.f30388a.a(i2, kVar);
+                    this.f30487a.a(i2, kVar);
                 }
             }
         });
@@ -382,10 +381,10 @@ public abstract class BackupView extends FrameLayout implements com.bytedance.sd
     public void a(View view) {
         com.bytedance.sdk.openadsdk.core.e.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (mVar = this.f30380b) == null || mVar.V() == null || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (mVar = this.f30479b) == null || mVar.V() == null || view == null) {
             return;
         }
-        if (this.f30380b.h() == 1 && this.f30387i) {
+        if (this.f30479b.h() == 1 && this.f30486i) {
             a(view, true);
         } else {
             a(view, false);

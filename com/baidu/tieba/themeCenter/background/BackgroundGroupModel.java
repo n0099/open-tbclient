@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.p0.n3.h.e;
+import d.a.d.a.f;
+import d.a.q0.n3.h.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
@@ -26,29 +26,29 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BackgroundGroupActivity f21423e;
+    public BackgroundGroupActivity f21541e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21424f;
+    public e f21542f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.a.p0.n3.e.b> f21425g;
+    public List<d.a.q0.n3.e.b> f21543g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f21426h;
+    public c f21544h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f21427i;
-    public d.a.c.c.g.a j;
-    public d.a.c.c.g.a k;
+    public boolean f21545i;
+    public d.a.d.c.g.a j;
+    public d.a.d.c.g.a k;
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.c.c.g.a {
+    public class a extends d.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundGroupModel f21428a;
+        public final /* synthetic */ BackgroundGroupModel f21546a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BackgroundGroupModel backgroundGroupModel, int i2, int i3) {
@@ -69,10 +69,10 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                     return;
                 }
             }
-            this.f21428a = backgroundGroupModel;
+            this.f21546a = backgroundGroupModel;
         }
 
-        @Override // d.a.c.c.g.a
+        @Override // d.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -81,35 +81,35 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
             boolean z = responsedMessage instanceof BackgroundGroupHttpResponseMessage;
             if (z || (responsedMessage instanceof BackgroundGroupSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (this.f21428a.f21426h != null) {
-                        this.f21428a.f21426h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f21428a.f21424f, this.f21428a.f21425g);
+                    if (this.f21546a.f21544h != null) {
+                        this.f21546a.f21544h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f21546a.f21542f, this.f21546a.f21543g);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     BackgroundGroupHttpResponseMessage backgroundGroupHttpResponseMessage = (BackgroundGroupHttpResponseMessage) responsedMessage;
-                    this.f21428a.f21424f = backgroundGroupHttpResponseMessage.getRecommand();
-                    this.f21428a.f21425g = backgroundGroupHttpResponseMessage.getGroupList();
+                    this.f21546a.f21542f = backgroundGroupHttpResponseMessage.getRecommand();
+                    this.f21546a.f21543g = backgroundGroupHttpResponseMessage.getGroupList();
                 } else if (responsedMessage instanceof BackgroundGroupSocketResponseMessage) {
                     BackgroundGroupSocketResponseMessage backgroundGroupSocketResponseMessage = (BackgroundGroupSocketResponseMessage) responsedMessage;
-                    this.f21428a.f21424f = backgroundGroupSocketResponseMessage.getRecommand();
-                    this.f21428a.f21425g = backgroundGroupSocketResponseMessage.getGroupList();
+                    this.f21546a.f21542f = backgroundGroupSocketResponseMessage.getRecommand();
+                    this.f21546a.f21543g = backgroundGroupSocketResponseMessage.getGroupList();
                 }
-                if (this.f21428a.f21426h != null) {
-                    this.f21428a.f21426h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f21428a.f21424f, this.f21428a.f21425g);
+                if (this.f21546a.f21544h != null) {
+                    this.f21546a.f21544h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f21546a.f21542f, this.f21546a.f21543g);
                 }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends d.a.c.c.g.a {
+    public class b extends d.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundGroupModel f21429a;
+        public final /* synthetic */ BackgroundGroupModel f21547a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(BackgroundGroupModel backgroundGroupModel, int i2, int i3) {
@@ -130,10 +130,10 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                     return;
                 }
             }
-            this.f21429a = backgroundGroupModel;
+            this.f21547a = backgroundGroupModel;
         }
 
-        @Override // d.a.c.c.g.a
+        @Override // d.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             DressItemData E;
             DressItemData E2;
@@ -145,25 +145,25 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                 BackgroundSetRequestMessage backgroundSetRequestMessage = (BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra();
                 int propId = backgroundSetRequestMessage.getPropId();
                 if (responsedMessage.getError() == 0) {
-                    if (propId == this.f21429a.f21423e.getPropId() && (E = this.f21429a.E(propId)) != null) {
+                    if (propId == this.f21547a.f21541e.getPropId() && (E = this.f21547a.E(propId)) != null) {
                         TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", E.getFreeUserLevel()));
                     }
-                    d.a.o0.r.d0.b j = d.a.o0.r.d0.b.j();
+                    d.a.p0.s.d0.b j = d.a.p0.s.d0.b.j();
                     j.v("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
-                    this.f21429a.K(propId);
-                    this.f21429a.f21426h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f21429a.f21424f, this.f21429a.f21425g);
+                    this.f21547a.K(propId);
+                    this.f21547a.f21544h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f21547a.f21542f, this.f21547a.f21543g);
                 } else if (responsedMessage.getError() == 2270014) {
                 } else {
-                    int i2 = d.a.p0.n3.c.f60869b;
-                    if (responsedMessage.getError() == d.a.p0.n3.c.f60870c) {
-                        i2 = d.a.p0.n3.c.f60868a;
+                    int i2 = d.a.q0.n3.c.f61483b;
+                    if (responsedMessage.getError() == d.a.q0.n3.c.f61484c) {
+                        i2 = d.a.q0.n3.c.f61482a;
                     }
                     boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                     if (fromDetail) {
                         return;
                     }
-                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.f21429a.getUniqueId()) && propId == this.f21429a.f21423e.getPropId() && (E2 = this.f21429a.E(propId)) != null) {
-                        this.f21429a.J(i2, responsedMessage.getErrorString(), E2, fromDetail);
+                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.f21547a.getUniqueId()) && propId == this.f21547a.f21541e.getPropId() && (E2 = this.f21547a.E(propId)) != null) {
+                        this.f21547a.J(i2, responsedMessage.getErrorString(), E2, fromDetail);
                     }
                 }
             }
@@ -172,7 +172,7 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a(int i2, String str, e eVar, List<d.a.p0.n3.e.b> list);
+        void a(int i2, String str, e eVar, List<d.a.q0.n3.e.b> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -195,8 +195,8 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         }
         this.j = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, 309020);
         this.k = new b(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
-        this.f21423e = backgroundGroupActivity;
-        this.f21427i = backgroundGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.f21541e = backgroundGroupActivity;
+        this.f21545i = backgroundGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         G();
         registerListener(this.j);
         H();
@@ -207,9 +207,9 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<d.a.p0.n3.e.b> list = this.f21425g;
+            List<d.a.q0.n3.e.b> list = this.f21543g;
             if (list != null && list.size() > 0) {
-                for (d.a.p0.n3.e.b bVar : this.f21425g) {
+                for (d.a.q0.n3.e.b bVar : this.f21543g) {
                     if (bVar != null && bVar.a() != null) {
                         for (DressItemData dressItemData : bVar.a()) {
                             if (dressItemData != null && dressItemData.getPropsId() == i2) {
@@ -228,29 +228,29 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21427i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21545i : invokeV.booleanValue;
     }
 
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d.a.p0.h3.d0.a.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
-            d.a.p0.h3.d0.a.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
+            d.a.q0.h3.d0.a.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
+            d.a.q0.h3.d0.a.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d.a.p0.h3.d0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            d.a.p0.h3.d0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            d.a.q0.h3.d0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            d.a.q0.h3.d0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
     public void I(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f21426h = cVar;
+            this.f21544h = cVar;
         }
     }
 
@@ -261,21 +261,21 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i2 == d.a.p0.n3.c.f60868a) {
-                d.a.p0.n3.b.d(this.f21423e.getPageContext(), z ? 4 : 2, str, i3, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-            } else if (i2 == d.a.p0.n3.c.f60869b) {
-                d.a.p0.n3.b.c(this.f21423e.getPageContext(), z ? 4 : 2, str, i3);
+            if (i2 == d.a.q0.n3.c.f61482a) {
+                d.a.q0.n3.b.d(this.f21541e.getPageContext(), z ? 4 : 2, str, i3, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+            } else if (i2 == d.a.q0.n3.c.f61483b) {
+                d.a.q0.n3.b.c(this.f21541e.getPageContext(), z ? 4 : 2, str, i3);
             }
         }
     }
 
     public final void K(int i2) {
-        List<d.a.p0.n3.e.b> list;
+        List<d.a.q0.n3.e.b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (list = this.f21425g) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (list = this.f21543g) == null || list.size() <= 0) {
             return;
         }
-        for (d.a.p0.n3.e.b bVar : this.f21425g) {
+        for (d.a.q0.n3.e.b bVar : this.f21543g) {
             if (bVar != null && bVar.a() != null) {
                 for (DressItemData dressItemData : bVar.a()) {
                     if (dressItemData != null) {

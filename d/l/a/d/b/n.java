@@ -19,7 +19,7 @@ public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.l.a.d.b.a.c f71394a;
+    public static d.l.a.d.b.a.c f71848a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -28,13 +28,13 @@ public class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f71395a;
+        public final /* synthetic */ int f71849a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.b.a.c.b f71396b;
+        public final /* synthetic */ d.l.a.b.a.c.b f71850b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f.i f71397c;
+        public final /* synthetic */ f.i f71851c;
 
         public a(int i2, d.l.a.b.a.c.b bVar, f.i iVar) {
             Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public class n {
                     return;
                 }
             }
-            this.f71395a = i2;
-            this.f71396b = bVar;
-            this.f71397c = iVar;
+            this.f71849a = i2;
+            this.f71850b = bVar;
+            this.f71851c = iVar;
         }
 
         @Override // d.l.a.d.b.a.c
@@ -61,13 +61,13 @@ public class n {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 n.b(null);
-                DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f71395a);
+                DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f71849a);
                 if (f2 != null) {
                     f2.startPauseReserveOnWifi();
                     q.d().k(f2);
-                    e.c.a().v("pause_reserve_wifi_confirm", this.f71396b);
+                    e.c.a().v("pause_reserve_wifi_confirm", this.f71850b);
                 }
-                this.f71397c.a(this.f71396b);
+                this.f71851c.a(this.f71850b);
             }
         }
 
@@ -76,12 +76,12 @@ public class n {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 n.b(null);
-                DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f71395a);
+                DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f71849a);
                 if (f2 != null) {
                     f2.stopPauseReserveOnWifi();
                 }
-                e.c.a().v("pause_reserve_wifi_cancel", this.f71396b);
-                this.f71397c.a(this.f71396b);
+                e.c.a().v("pause_reserve_wifi_cancel", this.f71850b);
+                this.f71851c.a(this.f71850b);
             }
         }
     }
@@ -89,13 +89,13 @@ public class n {
     public static d.l.a.d.b.a.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f71394a : (d.l.a.d.b.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f71848a : (d.l.a.d.b.a.c) invokeV.objValue;
     }
 
     public static void b(d.l.a.d.b.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, cVar) == null) {
-            f71394a = cVar;
+            f71848a = cVar;
         }
     }
 

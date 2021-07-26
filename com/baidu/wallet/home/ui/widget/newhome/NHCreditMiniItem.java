@@ -22,16 +22,16 @@ public class NHCreditMiniItem extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25200a;
+    public NetImageView f25358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f25201b;
+    public MaskTextView f25359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f25202c;
+    public MaskTextView f25360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f25203d;
+    public MaskTextView f25361d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditMiniItem(Context context) {
@@ -67,10 +67,10 @@ public class NHCreditMiniItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_mini_item"), this);
-            this.f25200a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
-            this.f25201b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_top"));
-            this.f25202c = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_mid"));
-            this.f25203d = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_bottom"));
+            this.f25358a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
+            this.f25359b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_top"));
+            this.f25360c = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_mid"));
+            this.f25361d = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_bottom"));
         }
     }
 
@@ -82,14 +82,14 @@ public class NHCreditMiniItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f25200a, getData().logo);
-        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f25201b) != null) {
+        setNetImageViewUrl(this.f25358a, getData().logo);
+        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f25359b) != null) {
             maskTextView3.setMaskText(getData().name);
         }
-        if (!TextUtils.isEmpty(getData().value1) && (maskTextView2 = this.f25202c) != null) {
+        if (!TextUtils.isEmpty(getData().value1) && (maskTextView2 = this.f25360c) != null) {
             maskTextView2.setMaskText(getData().value1);
         }
-        if (TextUtils.isEmpty(getData().value2) || (maskTextView = this.f25203d) == null) {
+        if (TextUtils.isEmpty(getData().value2) || (maskTextView = this.f25361d) == null) {
             return;
         }
         maskTextView.setMaskText(getData().value2);

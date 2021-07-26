@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e<T> extends j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.e<T> f72714e;
+    public final h.e<T> f73168e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(j<? super T> jVar) {
@@ -39,7 +39,7 @@ public class e<T> extends j<T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f72714e.onCompleted();
+            this.f73168e.onCompleted();
         }
     }
 
@@ -47,7 +47,7 @@ public class e<T> extends j<T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f72714e.onError(th);
+            this.f73168e.onError(th);
         }
     }
 
@@ -55,7 +55,7 @@ public class e<T> extends j<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f72714e.onNext(t);
+            this.f73168e.onNext(t);
         }
     }
 
@@ -78,6 +78,6 @@ public class e<T> extends j<T> {
                 return;
             }
         }
-        this.f72714e = new d(jVar);
+        this.f73168e = new d(jVar);
     }
 }

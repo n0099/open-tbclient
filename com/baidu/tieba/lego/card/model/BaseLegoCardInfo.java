@@ -4,13 +4,12 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a;
+import d.a.q0.a;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -99,7 +98,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             return;
         }
         this.cardType = jSONObject.optInt("card_type");
-        this.itemId = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
+        this.itemId = jSONObject.optString("item_id");
         this.flipId = jSONObject.optString("flip_id");
         this.scheme = jSONObject.optString("scheme");
         this.title = jSONObject.optString("title");
@@ -241,7 +240,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.statistics : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lego.card.model.ICardInfo, d.a.c.k.e.n
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo, d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

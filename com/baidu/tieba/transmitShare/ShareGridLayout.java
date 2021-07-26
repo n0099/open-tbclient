@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes4.dex */
 public class ShareGridLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
@@ -22,19 +22,19 @@ public class ShareGridLayout extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21514e;
+    public Context f21632e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21515f;
+    public int f21633f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21516g;
+    public int f21634g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21517h;
+    public int f21635h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21518i;
+    public int f21636i;
 
     static {
         InterceptResult invokeClinit;
@@ -76,7 +76,7 @@ public class ShareGridLayout extends ViewGroup {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f21514e = context;
+            this.f21632e = context;
             b(0, l.k(context) - (j * 2));
         }
     }
@@ -85,20 +85,20 @@ public class ShareGridLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             int i4 = i3 - i2;
-            if (l.k(TbadkCoreApplication.getInst()) > 800 && this.f21515f * 5 <= i4) {
-                this.f21517h = 5;
+            if (l.k(TbadkCoreApplication.getInst()) > 800 && this.f21633f * 5 <= i4) {
+                this.f21635h = 5;
             } else {
-                this.f21517h = 4;
+                this.f21635h = 4;
             }
-            int i5 = this.f21515f;
-            int i6 = this.f21517h;
+            int i5 = this.f21633f;
+            int i6 = this.f21635h;
             double d2 = i4 - (i5 * i6);
             if (d2 <= 0.0d) {
-                this.f21518i = 0;
+                this.f21636i = 0;
             } else if (i6 == 5) {
-                this.f21518i = (int) Math.floor(d2 / 10.0d);
+                this.f21636i = (int) Math.floor(d2 / 10.0d);
             } else {
-                this.f21518i = (int) Math.floor(d2 / 8.0d);
+                this.f21636i = (int) Math.floor(d2 / 8.0d);
             }
         }
     }
@@ -108,23 +108,23 @@ public class ShareGridLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             b(i2, i4);
-            int i6 = this.f21518i;
+            int i6 = this.f21636i;
             int childCount = getChildCount();
             int i7 = 0;
             int i8 = 0;
             int i9 = 0;
             while (i7 < childCount) {
-                getChildAt(i7).layout(i6, i8, this.f21515f + i6, this.f21516g + i8);
+                getChildAt(i7).layout(i6, i8, this.f21633f + i6, this.f21634g + i8);
                 i9++;
-                int i10 = i6 + this.f21515f;
-                int i11 = this.f21518i;
+                int i10 = i6 + this.f21633f;
+                int i11 = this.f21636i;
                 i6 = i10 + (i11 * 2);
-                if (i9 >= this.f21517h) {
+                if (i9 >= this.f21635h) {
                     i6 = i11;
                     i9 = 0;
                 }
                 i7++;
-                i8 = (i7 / this.f21517h) * this.f21516g;
+                i8 = (i7 / this.f21635h) * this.f21634g;
             }
         }
     }
@@ -133,32 +133,32 @@ public class ShareGridLayout extends ViewGroup {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f21515f, Integer.MIN_VALUE);
-            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.f21516g, Integer.MIN_VALUE);
+            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f21633f, Integer.MIN_VALUE);
+            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.f21634g, Integer.MIN_VALUE);
             int childCount = getChildCount();
             for (int i4 = 0; i4 < childCount; i4++) {
                 getChildAt(i4).measure(makeMeasureSpec, makeMeasureSpec2);
             }
-            int i5 = this.f21517h;
+            int i5 = this.f21635h;
             if (childCount <= i5) {
-                setMeasuredDimension(ViewGroup.resolveSize((this.f21515f * i5) + (this.f21518i * 2 * i5), i2), ViewGroup.resolveSize(this.f21516g, i3));
+                setMeasuredDimension(ViewGroup.resolveSize((this.f21633f * i5) + (this.f21636i * 2 * i5), i2), ViewGroup.resolveSize(this.f21634g, i3));
                 return;
             }
             int i6 = childCount / i5;
             if (childCount % i5 > 0) {
                 i6++;
             }
-            int i7 = this.f21515f;
-            int i8 = this.f21517h;
-            setMeasuredDimension(ViewGroup.resolveSize((i7 * i8) + (this.f21518i * 2 * i8), i2), ViewGroup.resolveSize(this.f21516g * i6, i3));
+            int i7 = this.f21633f;
+            int i8 = this.f21635h;
+            setMeasuredDimension(ViewGroup.resolveSize((i7 * i8) + (this.f21636i * 2 * i8), i2), ViewGroup.resolveSize(this.f21634g * i6, i3));
         }
     }
 
     public void setItemParams(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f21515f = i2;
-            this.f21516g = i3;
+            this.f21633f = i2;
+            this.f21634g = i3;
             requestLayout();
         }
     }

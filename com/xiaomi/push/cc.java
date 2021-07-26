@@ -12,7 +12,7 @@ public class cc extends cg.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39919a;
+    public String f40191a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cc(String str, String str2, String[] strArr, String str3) {
@@ -33,8 +33,8 @@ public class cc extends cg.d {
                 return;
             }
         }
-        this.f39919a = "MessageDeleteJob";
-        this.f39919a = str3;
+        this.f40191a = "MessageDeleteJob";
+        this.f40191a = str3;
     }
 
     public static cc a(String str) {

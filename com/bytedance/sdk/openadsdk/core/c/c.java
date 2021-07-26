@@ -11,9 +11,9 @@ import com.bytedance.sdk.component.net.NetResponse;
 import com.bytedance.sdk.component.net.callback.NetCallback;
 import com.bytedance.sdk.component.net.executor.NetExecutor;
 import com.bytedance.sdk.component.net.executor.PostExecutor;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.openadsdk.l.e;
-import com.bytedance.sdk.openadsdk.r.n;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.openadsdk.k.d;
+import com.bytedance.sdk.openadsdk.q.q;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,8 +26,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
             JSONObject a2 = a(str, j);
-            PostExecutor postExecutor = e.b().c().getPostExecutor();
-            postExecutor.setUrl(n.b("https://i.snssdk.com/api/ad/union/sdk/stats/"));
+            PostExecutor postExecutor = d.b().c().getPostExecutor();
+            postExecutor.setUrl(q.l("/api/ad/union/sdk/stats/"));
             postExecutor.setJson(a2.toString());
             postExecutor.enqueue(new NetCallback() { // from class: com.bytedance.sdk.openadsdk.core.c.c.1
                 public static /* synthetic */ Interceptable $ic;
@@ -51,7 +51,7 @@ public class c {
                 public void onFailure(NetExecutor netExecutor, IOException iOException) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
-                        j.c("FrequentCallEventHelper", iOException.getMessage());
+                        k.c("FrequentCallEventHelper", iOException.getMessage());
                     }
                 }
 
@@ -60,9 +60,9 @@ public class c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
                         if (netResponse != null) {
-                            j.b("FrequentCallEventHelper", Boolean.valueOf(netResponse.isSuccess()), netResponse.getBody());
+                            k.b("FrequentCallEventHelper", Boolean.valueOf(netResponse.isSuccess()), netResponse.getBody());
                         } else {
-                            j.c("FrequentCallEventHelper", "NetResponse is null");
+                            k.c("FrequentCallEventHelper", "NetResponse is null");
                         }
                     }
                 }
@@ -78,7 +78,7 @@ public class c {
             try {
                 jSONObject.put("type", "over_freq");
                 jSONObject.put("rit", str);
-                jSONObject.put("ad_sdk_version", "3.6.1.3");
+                jSONObject.put("ad_sdk_version", "3.7.0.3");
                 jSONObject.put("timestamp", j);
             } catch (JSONException unused) {
             }

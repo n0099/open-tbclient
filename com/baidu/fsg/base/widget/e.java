@@ -13,7 +13,7 @@ public class e implements View.OnKeyListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardEditText f5540a;
+    public final /* synthetic */ SafeKeyBoardEditText f5566a;
 
     public e(SafeKeyBoardEditText safeKeyBoardEditText) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class e implements View.OnKeyListener {
                 return;
             }
         }
-        this.f5540a = safeKeyBoardEditText;
+        this.f5566a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnKeyListener
@@ -43,14 +43,14 @@ public class e implements View.OnKeyListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
             if (keyEvent.getAction() == 0 && i2 == 4) {
-                z = this.f5540a.l;
+                z = this.f5566a.l;
                 if (z) {
-                    safeScrollView = this.f5540a.f5502d;
+                    safeScrollView = this.f5566a.f5528d;
                     if (safeScrollView != null) {
-                        safeScrollView2 = this.f5540a.f5502d;
+                        safeScrollView2 = this.f5566a.f5528d;
                         if (safeScrollView2.isPopupWindowShowing()) {
-                            safeScrollView3 = this.f5540a.f5502d;
-                            safeScrollView3.dismissKeyBoard(this.f5540a);
+                            safeScrollView3 = this.f5566a.f5528d;
+                            safeScrollView3.dismissKeyBoard(this.f5566a);
                             return true;
                         }
                     }

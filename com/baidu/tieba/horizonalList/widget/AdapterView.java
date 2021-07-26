@@ -80,7 +80,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f17022a;
+        public View f17078a;
 
         public b(View view, int i2, long j) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f17022a = view;
+            this.f17078a = view;
         }
     }
 
@@ -107,10 +107,10 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Parcelable f17023a;
+        public Parcelable f17079a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AdapterView f17024b;
+        public final /* synthetic */ AdapterView f17080b;
 
         public c(AdapterView adapterView) {
             Interceptable interceptable = $ic;
@@ -127,8 +127,8 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f17024b = adapterView;
-            this.f17023a = null;
+            this.f17080b = adapterView;
+            this.f17079a = null;
         }
 
         @Override // android.database.DataSetObserver
@@ -136,22 +136,22 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             Parcelable parcelable;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AdapterView adapterView = this.f17024b;
+                AdapterView adapterView = this.f17080b;
                 adapterView.mDataChanged = true;
                 adapterView.mOldItemCount = adapterView.mItemCount;
                 adapterView.mItemCount = adapterView.getAdapter().getCount();
-                if (this.f17024b.getAdapter().hasStableIds() && (parcelable = this.f17023a) != null) {
-                    AdapterView adapterView2 = this.f17024b;
+                if (this.f17080b.getAdapter().hasStableIds() && (parcelable = this.f17079a) != null) {
+                    AdapterView adapterView2 = this.f17080b;
                     if (adapterView2.mOldItemCount == 0 && adapterView2.mItemCount > 0) {
                         adapterView2.onRestoreInstanceState(parcelable);
-                        this.f17023a = null;
-                        this.f17024b.checkFocus();
-                        this.f17024b.requestLayout();
+                        this.f17079a = null;
+                        this.f17080b.checkFocus();
+                        this.f17080b.requestLayout();
                     }
                 }
-                this.f17024b.rememberSyncState();
-                this.f17024b.checkFocus();
-                this.f17024b.requestLayout();
+                this.f17080b.rememberSyncState();
+                this.f17080b.checkFocus();
+                this.f17080b.requestLayout();
             }
         }
 
@@ -159,12 +159,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                AdapterView adapterView = this.f17024b;
+                AdapterView adapterView = this.f17080b;
                 adapterView.mDataChanged = true;
                 if (adapterView.getAdapter().hasStableIds()) {
-                    this.f17023a = this.f17024b.onSaveInstanceState();
+                    this.f17079a = this.f17080b.onSaveInstanceState();
                 }
-                AdapterView adapterView2 = this.f17024b;
+                AdapterView adapterView2 = this.f17080b;
                 adapterView2.mOldItemCount = adapterView2.mItemCount;
                 adapterView2.mItemCount = 0;
                 adapterView2.mSelectedPosition = -1;
@@ -173,7 +173,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                 adapterView2.mNextSelectedColId = Long.MIN_VALUE;
                 adapterView2.mNeedSync = false;
                 adapterView2.checkFocus();
-                this.f17024b.requestLayout();
+                this.f17080b.requestLayout();
             }
         }
     }
@@ -201,7 +201,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdapterView f17025e;
+        public final /* synthetic */ AdapterView f17081e;
 
         public g(AdapterView adapterView) {
             Interceptable interceptable = $ic;
@@ -218,19 +218,19 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f17025e = adapterView;
+            this.f17081e = adapterView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AdapterView adapterView = this.f17025e;
+                AdapterView adapterView = this.f17081e;
                 if (!adapterView.mDataChanged) {
                     adapterView.fireOnSelected();
-                    this.f17025e.performAccessibilityActionsOnSelected();
+                    this.f17081e.performAccessibilityActionsOnSelected();
                 } else if (adapterView.getAdapter() != null) {
-                    this.f17025e.post(this);
+                    this.f17081e.post(this);
                 }
             }
         }

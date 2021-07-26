@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.h.f.a;
-import d.a.c.h.f.b;
+import d.a.d.h.f.a;
+import d.a.d.h.f.b;
 /* loaded from: classes.dex */
 public class PluginBaseFragmentActivity extends PluginBaseActivity {
     public static /* synthetic */ Interceptable $ic;

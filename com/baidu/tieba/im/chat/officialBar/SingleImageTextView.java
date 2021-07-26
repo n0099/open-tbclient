@@ -36,11 +36,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.b1.m.f;
-import d.a.p0.i1.g.d;
-import d.a.p0.i1.l.c.a;
-import d.a.p0.z3.i;
+import d.a.d.e.p.l;
+import d.a.p0.d1.m.f;
+import d.a.q0.i1.g.d;
+import d.a.q0.i1.l.c.a;
+import d.a.q0.z3.i;
 import java.net.URISyntaxException;
 /* loaded from: classes4.dex */
 public class SingleImageTextView extends RelativeLayout {
@@ -48,23 +48,23 @@ public class SingleImageTextView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17439e;
+    public Context f17495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f17440f;
+    public TextView f17496f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17441g;
+    public TextView f17497g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f17442h;
+    public TbImageView f17498h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f17443i;
+    public View f17499i;
     public TextView j;
     public ImageView k;
     public TextView l;
-    public d.a.c.e.h.b m;
+    public d.a.d.e.h.b m;
     public int n;
 
     /* loaded from: classes4.dex */
@@ -73,7 +73,7 @@ public class SingleImageTextView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleImageTextView f17444e;
+        public final /* synthetic */ SingleImageTextView f17500e;
 
         public a(SingleImageTextView singleImageTextView) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class SingleImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f17444e = singleImageTextView;
+            this.f17500e = singleImageTextView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -98,8 +98,8 @@ public class SingleImageTextView extends RelativeLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f17444e.m != null) {
-                    this.f17444e.m.onItemViewLongClick(view, 9, this.f17444e.n, 0L);
+                if (this.f17500e.m != null) {
+                    this.f17500e.m.onItemViewLongClick(view, 9, this.f17500e.n, 0L);
                     return false;
                 }
                 return false;
@@ -112,17 +112,17 @@ public class SingleImageTextView extends RelativeLayout {
     public class b extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.C1468a l;
+        public final /* synthetic */ a.C1473a l;
         public final /* synthetic */ SingleImageTextView m;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(SingleImageTextView singleImageTextView, int i2, String str, a.C1468a c1468a) {
+        public b(SingleImageTextView singleImageTextView, int i2, String str, a.C1473a c1473a) {
             super(i2, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleImageTextView, Integer.valueOf(i2), str, c1468a};
+                Object[] objArr = {singleImageTextView, Integer.valueOf(i2), str, c1473a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -135,18 +135,18 @@ public class SingleImageTextView extends RelativeLayout {
                 }
             }
             this.m = singleImageTextView;
-            this.l = c1468a;
+            this.l = c1473a;
         }
 
-        @Override // d.a.o0.b1.m.f, android.text.style.ClickableSpan
+        @Override // d.a.p0.d1.m.f, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.m.f17439e, this.m.g(this.l.f58532d), ForumRulesShowActivityConfig.FORUM_RULE_SHOW_FROM_MESSAGE)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.m.f17495e, this.m.g(this.l.f59146d), ForumRulesShowActivityConfig.FORUM_RULE_SHOW_FROM_MESSAGE)));
             }
         }
 
-        @Override // d.a.o0.b1.m.f, android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        @Override // d.a.p0.d1.m.f, android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
@@ -162,23 +162,23 @@ public class SingleImageTextView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.C1468a f17445e;
+        public final /* synthetic */ a.C1473a f17501e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f17446f;
+        public final /* synthetic */ TbPageContext f17502f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f17447g;
+        public final /* synthetic */ int f17503g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SingleImageTextView f17448h;
+        public final /* synthetic */ SingleImageTextView f17504h;
 
-        public c(SingleImageTextView singleImageTextView, a.C1468a c1468a, TbPageContext tbPageContext, int i2) {
+        public c(SingleImageTextView singleImageTextView, a.C1473a c1473a, TbPageContext tbPageContext, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleImageTextView, c1468a, tbPageContext, Integer.valueOf(i2)};
+                Object[] objArr = {singleImageTextView, c1473a, tbPageContext, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -188,10 +188,10 @@ public class SingleImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f17448h = singleImageTextView;
-            this.f17445e = c1468a;
-            this.f17446f = tbPageContext;
-            this.f17447g = i2;
+            this.f17504h = singleImageTextView;
+            this.f17501e = c1473a;
+            this.f17502f = tbPageContext;
+            this.f17503g = i2;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:77:0x0248  */
@@ -206,20 +206,20 @@ public class SingleImageTextView extends RelativeLayout {
             String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                a.C1468a c1468a = this.f17445e;
-                if (c1468a != null && (str3 = c1468a.f58532d) != null && str3.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+                a.C1473a c1473a = this.f17501e;
+                if (c1473a != null && (str3 = c1473a.f59146d) != null && str3.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                     try {
-                        this.f17448h.f17439e.startActivity(Intent.parseUri(this.f17445e.f58532d, 1));
+                        this.f17504h.f17495e.startActivity(Intent.parseUri(this.f17501e.f59146d, 1));
                     } catch (URISyntaxException e2) {
                         e2.printStackTrace();
                     }
                 }
-                UrlManager.getInstance().dealOneLink(this.f17446f, new String[]{this.f17445e.f58532d});
-                String str4 = this.f17445e.f58532d;
+                UrlManager.getInstance().dealOneLink(this.f17502f, new String[]{this.f17501e.f59146d});
+                String str4 = this.f17501e.f59146d;
                 if (str4 != null && str4.contains("ForumGradePage")) {
                     StatisticItem param = new StatisticItem("c13783").param("uid", TbadkCoreApplication.getCurrentAccountId());
                     try {
-                        Uri parse = Uri.parse(this.f17445e.f58532d);
+                        Uri parse = Uri.parse(this.f17501e.f59146d);
                         String queryParameter = parse.getQueryParameter("forum_id");
                         String queryParameter2 = parse.getQueryParameter("obj_type");
                         param.param("fid", queryParameter);
@@ -229,42 +229,42 @@ public class SingleImageTextView extends RelativeLayout {
                     }
                     TiebaStatic.log(param);
                 }
-                String str5 = this.f17445e.f58532d;
+                String str5 = this.f17501e.f59146d;
                 if (str5 != null && str5.contains("weeklygodview")) {
                     TiebaStatic.log(new StatisticItem("c13691").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", 1));
                 }
-                String str6 = this.f17445e.f58532d;
+                String str6 = this.f17501e.f59146d;
                 if (str6 != null && str6.contains("unidispatch/hotuserrank")) {
                     TiebaStatic.log(new StatisticItem("c13665").param("uid", TbadkCoreApplication.getCurrentAccountId()));
                 }
-                if (this.f17447g == 1) {
-                    TiebaStatic.eventStat(this.f17448h.f17439e, "official_msg_ck", PrefetchEvent.STATE_CLICK, 1, "fid", this.f17445e.f58533e);
-                    d j = d.a.p0.i1.w.c.j(this.f17445e.f58534f);
+                if (this.f17503g == 1) {
+                    TiebaStatic.eventStat(this.f17504h.f17495e, "official_msg_ck", PrefetchEvent.STATE_CLICK, 1, "fid", this.f17501e.f59147e);
+                    d j = d.a.q0.i1.w.c.j(this.f17501e.f59148f);
                     if (j != null) {
-                        TiebaStatic.eventStat(this.f17448h.f17439e, "message_open_detail", PrefetchEvent.STATE_CLICK, 1, "task_type", j.f58388a, "task_id", j.f58389b, "loc", "0");
-                        int i3 = this.f17445e.f58535g;
-                        if ((i3 == 1 || i3 == 3) && !"0".equals(j.f58389b)) {
-                            d.a.p0.i1.u.a.c().a(j.f58389b);
+                        TiebaStatic.eventStat(this.f17504h.f17495e, "message_open_detail", PrefetchEvent.STATE_CLICK, 1, "task_type", j.f59002a, "task_id", j.f59003b, "loc", "0");
+                        int i3 = this.f17501e.f59149g;
+                        if ((i3 == 1 || i3 == 3) && !"0".equals(j.f59003b)) {
+                            d.a.q0.i1.u.a.c().a(j.f59003b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
-                    statisticItem.param("msg_id", this.f17445e.f58536h / 100);
-                    statisticItem.param("official_id", this.f17445e.f58537i);
-                    statisticItem.param("official_type", this.f17445e.j);
+                    statisticItem.param("msg_id", this.f17501e.f59150h / 100);
+                    statisticItem.param("official_id", this.f17501e.f59151i);
+                    statisticItem.param("official_type", this.f17501e.j);
                     statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
-                    statisticItem.param("task_id", this.f17445e.k);
-                    statisticItem.param("obj_params1", this.f17445e.f58532d);
+                    statisticItem.param("task_id", this.f17501e.k);
+                    statisticItem.param("obj_params1", this.f17501e.f59146d);
                     TiebaStatic.log(statisticItem);
                 }
                 StatisticItem statisticItem2 = new StatisticItem("c13784");
-                statisticItem2.param("service_id", this.f17445e.l);
-                statisticItem2.param("task_id", this.f17445e.k);
+                statisticItem2.param("service_id", this.f17501e.l);
+                statisticItem2.param("task_id", this.f17501e.k);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("fid", this.f17445e.f58533e);
-                if (!TextUtils.isEmpty(this.f17445e.f58529a)) {
-                    if (!TextUtils.isEmpty(this.f17445e.f58532d)) {
+                statisticItem2.param("fid", this.f17501e.f59147e);
+                if (!TextUtils.isEmpty(this.f17501e.f59143a)) {
+                    if (!TextUtils.isEmpty(this.f17501e.f59146d)) {
                         String str7 = null;
-                        String[] split = this.f17445e.f58532d.split("tid=");
+                        String[] split = this.f17501e.f59146d.split("tid=");
                         if (split.length > 1) {
                             int indexOf = split[1].indexOf("&");
                             if (indexOf != -1) {
@@ -275,34 +275,34 @@ public class SingleImageTextView extends RelativeLayout {
                         }
                         statisticItem2.param("tid", str7);
                     }
-                    if (this.f17445e.f58529a.contains("互动量")) {
+                    if (this.f17501e.f59143a.contains("互动量")) {
                         statisticItem2.param("obj_source", 2);
                         statisticItem2.param("obj_type", 9);
-                    } else if (this.f17445e.f58529a.contains("被加精")) {
+                    } else if (this.f17501e.f59143a.contains("被加精")) {
                         statisticItem2.param("obj_source", 1);
                         statisticItem2.param("obj_type", 9);
-                    } else if (this.f17445e.f58529a.contains("热贴榜")) {
+                    } else if (this.f17501e.f59143a.contains("热贴榜")) {
                         statisticItem2.param("obj_type", 8);
                     } else {
-                        int i4 = this.f17445e.f58535g;
+                        int i4 = this.f17501e.f59149g;
                         if (i4 == 4) {
                             statisticItem2.param("obj_type", 10);
                         } else if (i4 == 3) {
                             statisticItem2.param("obj_type", 5);
-                            str = this.f17445e.f58537i;
+                            str = this.f17501e.f59151i;
                             if (str != null && str.equals("4754917018")) {
                                 statisticItem2.delete("obj_type");
                                 statisticItem2.param("obj_type", 9);
-                                str2 = this.f17445e.f58532d;
+                                str2 = this.f17501e.f59146d;
                                 if (str2 != null) {
                                     if (str2.contains("type=interaction")) {
                                         i2 = 2;
-                                    } else if (this.f17445e.f58532d.contains("type=recommend")) {
+                                    } else if (this.f17501e.f59146d.contains("type=recommend")) {
                                         i2 = 3;
-                                    } else if (this.f17445e.f58532d.contains("type=attention-bazhu")) {
+                                    } else if (this.f17501e.f59146d.contains("type=attention-bazhu")) {
                                         i2 = 4;
                                     } else {
-                                        i2 = this.f17445e.f58532d.contains("type=attention-common") ? 5 : -1;
+                                        i2 = this.f17501e.f59146d.contains("type=attention-common") ? 5 : -1;
                                     }
                                     if (i2 != -1) {
                                         statisticItem2.delete("obj_source");
@@ -314,11 +314,11 @@ public class SingleImageTextView extends RelativeLayout {
                         }
                     }
                 }
-                str = this.f17445e.f58537i;
+                str = this.f17501e.f59151i;
                 if (str != null) {
                     statisticItem2.delete("obj_type");
                     statisticItem2.param("obj_type", 9);
-                    str2 = this.f17445e.f58532d;
+                    str2 = this.f17501e.f59146d;
                     if (str2 != null) {
                     }
                 }
@@ -351,21 +351,21 @@ public class SingleImageTextView extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f17439e).inflate(R.layout.msg_single_pic_text_view, (ViewGroup) this, true);
-            this.f17440f = (TextView) findViewById(R.id.single_title);
-            this.f17441g = (TextView) findViewById(R.id.single_abstract);
+            LayoutInflater.from(this.f17495e).inflate(R.layout.msg_single_pic_text_view, (ViewGroup) this, true);
+            this.f17496f = (TextView) findViewById(R.id.single_title);
+            this.f17497g = (TextView) findViewById(R.id.single_abstract);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.single_content_pic);
-            this.f17442h = tbImageView;
+            this.f17498h = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.f17442h.setRadius(l.g(getContext(), R.dimen.tbds20));
-            this.f17442h.setConrers(15);
+            this.f17498h.setRadius(l.g(getContext(), R.dimen.tbds20));
+            this.f17498h.setConrers(15);
             this.j = (TextView) findViewById(R.id.read_all);
             this.k = (ImageView) findViewById(R.id.arrow);
-            this.f17443i = findViewById(R.id.single_divider);
+            this.f17499i = findViewById(R.id.single_divider);
             this.l = (TextView) findViewById(R.id.show_time_single);
             setOnLongClickListener(new a(this));
-            int dimension = (int) this.f17439e.getResources().getDimension(R.dimen.tbds38);
-            int dimension2 = (int) this.f17439e.getResources().getDimension(R.dimen.tbds10);
+            int dimension = (int) this.f17495e.getResources().getDimension(R.dimen.tbds38);
+            int dimension2 = (int) this.f17495e.getResources().getDimension(R.dimen.tbds10);
             setPadding(dimension, dimension2, dimension, dimension2);
         }
     }
@@ -377,13 +377,13 @@ public class SingleImageTextView extends RelativeLayout {
             if (!z) {
                 skinType = 0;
             }
-            this.f17442h.setAutoChangeStyle(z);
-            SkinManager.setViewTextColor(this.f17440f, R.color.CAM_X0105, 1, skinType);
-            SkinManager.setViewTextColor(this.f17441g, R.color.CAM_X0109, 1, skinType);
+            this.f17498h.setAutoChangeStyle(z);
+            SkinManager.setViewTextColor(this.f17496f, R.color.CAM_X0105, 1, skinType);
+            SkinManager.setViewTextColor(this.f17497g, R.color.CAM_X0109, 1, skinType);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0107, 1, skinType);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0109, null);
             SkinManager.setViewTextColor(this.l, R.color.common_color_10067, 1, skinType);
-            SkinManager.setBackgroundResource(this.f17443i, R.drawable.multi_single_divider_selector, skinType);
+            SkinManager.setBackgroundResource(this.f17499i, R.drawable.multi_single_divider_selector, skinType);
         }
     }
 
@@ -404,54 +404,54 @@ public class SingleImageTextView extends RelativeLayout {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f17440f.setText("");
-            this.f17441g.setText("");
-            this.f17442h.setBackgroundDrawable(null);
-            this.f17442h.setImageDrawable(null);
+            this.f17496f.setText("");
+            this.f17497g.setText("");
+            this.f17498h.setBackgroundDrawable(null);
+            this.f17498h.setImageDrawable(null);
             this.l.setText("");
             this.l.setVisibility(8);
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, a.C1468a c1468a, View view, int i2) {
+    public void setData(TbPageContext<?> tbPageContext, a.C1473a c1473a, View view, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048580, this, tbPageContext, c1468a, view, i2) == null) || c1468a == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048580, this, tbPageContext, c1473a, view, i2) == null) || c1473a == null) {
             return;
         }
-        this.f17440f.setText(!TextUtils.isEmpty(c1468a.f58529a) ? c1468a.f58529a : "");
-        String str = TextUtils.isEmpty(c1468a.f58530b) ? "" : c1468a.f58530b;
-        if (!TextUtils.isEmpty(c1468a.f58530b) && c1468a.f58530b.contains(this.f17439e.getResources().getString(R.string.inconformity_forum_rules))) {
-            b bVar = new b(this, 2, c1468a.f58532d, c1468a);
-            int indexOf = c1468a.f58530b.indexOf(this.f17439e.getResources().getString(R.string.inconformity_forum_rules));
-            SpannableString spannableString = new SpannableString(c1468a.f58530b);
+        this.f17496f.setText(!TextUtils.isEmpty(c1473a.f59143a) ? c1473a.f59143a : "");
+        String str = TextUtils.isEmpty(c1473a.f59144b) ? "" : c1473a.f59144b;
+        if (!TextUtils.isEmpty(c1473a.f59144b) && c1473a.f59144b.contains(this.f17495e.getResources().getString(R.string.inconformity_forum_rules))) {
+            b bVar = new b(this, 2, c1473a.f59146d, c1473a);
+            int indexOf = c1473a.f59144b.indexOf(this.f17495e.getResources().getString(R.string.inconformity_forum_rules));
+            SpannableString spannableString = new SpannableString(c1473a.f59144b);
             spannableString.setSpan(bVar, indexOf - 1, indexOf + 6, 33);
-            this.f17441g.setOnTouchListener(new i(spannableString));
-            this.f17441g.setText(spannableString);
+            this.f17497g.setOnTouchListener(new i(spannableString));
+            this.f17497g.setText(spannableString);
             this.j.setText(R.string.bar_tie_complain);
         } else {
-            this.f17441g.setText(str);
+            this.f17497g.setText(str);
         }
-        if (!TextUtils.isEmpty(c1468a.f58532d)) {
-            if (NewUrlSchemaHelper.SCHEME.equals(c1468a.f58532d)) {
+        if (!TextUtils.isEmpty(c1473a.f59146d)) {
+            if (NewUrlSchemaHelper.SCHEME.equals(c1473a.f59146d)) {
                 setEnabled(false);
             } else {
                 setEnabled(true);
             }
-            setOnClickListener(new c(this, c1468a, tbPageContext, i2));
+            setOnClickListener(new c(this, c1473a, tbPageContext, i2));
         }
-        if (!TextUtils.isEmpty(c1468a.f58531c)) {
-            this.f17442h.setTag(c1468a.f58531c);
-            this.f17442h.M(c1468a.f58531c, 10, false);
+        if (!TextUtils.isEmpty(c1473a.f59145c)) {
+            this.f17498h.setTag(c1473a.f59145c);
+            this.f17498h.M(c1473a.f59145c, 10, false);
         }
-        ViewGroup.LayoutParams layoutParams = this.f17441g.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f17497g.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.bottomMargin = 0;
-            this.f17441g.setLayoutParams(marginLayoutParams);
+            this.f17497g.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void setOnItemViewLongClickListener(d.a.c.e.h.b bVar) {
+    public void setOnItemViewLongClickListener(d.a.d.e.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.m = bVar;
@@ -519,7 +519,7 @@ public class SingleImageTextView extends RelativeLayout {
             }
         }
         this.m = null;
-        this.f17439e = context;
+        this.f17495e = context;
         e();
     }
 }

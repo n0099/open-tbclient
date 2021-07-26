@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class k<E> extends m<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final long k;
@@ -54,7 +54,7 @@ public abstract class k<E> extends m<E> {
     public final boolean j(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f0.f72701a.c(this, k, j, j2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f0.f73155a.c(this, k, j, j2) : invokeCommon.booleanValue;
     }
 
     public final long k() {

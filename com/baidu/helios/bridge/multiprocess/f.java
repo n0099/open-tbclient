@@ -19,13 +19,13 @@ public interface f extends IInterface {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f6263a = 1;
+        public static final int f6289a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f6264b = 2;
+        public static final int f6290b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f6265c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
+        public static final String f6291c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.f$a$a  reason: collision with other inner class name */
@@ -35,7 +35,7 @@ public interface f extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f6266a;
+            public IBinder f6292a;
 
             public C0105a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -52,13 +52,13 @@ public interface f extends IInterface {
                         return;
                     }
                 }
-                this.f6266a = iBinder;
+                this.f6292a = iBinder;
             }
 
             public String a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f6265c : (String) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f6291c : (String) invokeV.objValue;
             }
 
             @Override // com.baidu.helios.bridge.multiprocess.f
@@ -68,7 +68,7 @@ public interface f extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(a.f6265c);
+                        obtain.writeInterfaceToken(a.f6291c);
                         obtain.writeInt(i2);
                         if (bundle != null) {
                             obtain.writeInt(1);
@@ -76,7 +76,7 @@ public interface f extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f6266a.transact(2, obtain, obtain2, 0);
+                        this.f6292a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -92,7 +92,7 @@ public interface f extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(a.f6265c);
+                        obtain.writeInterfaceToken(a.f6291c);
                         obtain.writeString(str);
                         if (bundle != null) {
                             obtain.writeInt(1);
@@ -100,7 +100,7 @@ public interface f extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f6266a.transact(1, obtain, obtain2, 0);
+                        this.f6292a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -113,7 +113,7 @@ public interface f extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6266a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6292a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -130,7 +130,7 @@ public interface f extends IInterface {
                     return;
                 }
             }
-            attachInterface(this, f6265c);
+            attachInterface(this, f6291c);
         }
 
         public static f a(IBinder iBinder) {
@@ -140,7 +140,7 @@ public interface f extends IInterface {
                 if (iBinder == null) {
                     return null;
                 }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface(f6265c);
+                IInterface queryLocalInterface = iBinder.queryLocalInterface(f6291c);
                 return (queryLocalInterface == null || !(queryLocalInterface instanceof f)) ? new C0105a(iBinder) : (f) queryLocalInterface;
             }
             return (f) invokeL.objValue;
@@ -159,16 +159,16 @@ public interface f extends IInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
                 if (i2 == 1) {
-                    parcel.enforceInterface(f6265c);
+                    parcel.enforceInterface(f6291c);
                     a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                 } else if (i2 != 2) {
                     if (i2 != 1598968902) {
                         return super.onTransact(i2, parcel, parcel2, i3);
                     }
-                    parcel2.writeString(f6265c);
+                    parcel2.writeString(f6291c);
                     return true;
                 } else {
-                    parcel.enforceInterface(f6265c);
+                    parcel.enforceInterface(f6291c);
                     a(parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                 }
                 parcel2.writeNoException();

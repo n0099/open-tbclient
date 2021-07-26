@@ -12,7 +12,7 @@ public final class dn implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ dl f23571a;
+    public final /* synthetic */ dl f23729a;
 
     public dn(dl dlVar) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class dn implements Runnable {
                 return;
             }
         }
-        this.f23571a = dlVar;
+        this.f23729a = dlVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context applicationContext = this.f23571a.f23569a.getApplicationContext();
+            Context applicationContext = this.f23729a.f23727a.getApplicationContext();
             String str = UfoSDK.clientid;
             com.baidu.ufosdk.e.a.b(applicationContext);
         }

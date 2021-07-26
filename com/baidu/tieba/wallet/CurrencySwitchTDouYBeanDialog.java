@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.c.e.p.l;
-import d.a.o0.r.s.a;
+import d.a.d.e.p.k;
+import d.a.d.e.p.l;
+import d.a.p0.s.s.a;
 /* loaded from: classes4.dex */
 public class CurrencySwitchTDouYBeanDialog {
     public static /* synthetic */ Interceptable $ic = null;
@@ -167,7 +167,7 @@ public class CurrencySwitchTDouYBeanDialog {
                     this.this$0 = this;
                 }
 
-                @Override // d.a.o0.r.s.a.e
+                @Override // d.a.p0.s.s.a.e
                 public void onClick(a aVar3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) {

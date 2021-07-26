@@ -124,7 +124,7 @@ public class RequsetNetworkUtils {
                     case 14:
                     case 15:
                     case 17:
-                        str = g.f3986b;
+                        str = g.f4012b;
                         break;
                     case 13:
                     case 18:

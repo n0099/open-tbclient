@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.l.a.e.a.d;
-import d.l.a.e.b.f.i;
+import d.l.a.e.b.f.j;
 import d.l.a.e.b.g.e;
 import d.l.a.e.b.l.f;
 import java.io.File;
@@ -32,7 +32,7 @@ public class DownloadHandlerService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38354a;
+    public static final String f38529a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -41,7 +41,7 @@ public class DownloadHandlerService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadHandlerService f38355e;
+        public final /* synthetic */ DownloadHandlerService f38530e;
 
         public a(DownloadHandlerService downloadHandlerService) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class DownloadHandlerService extends Service {
                     return;
                 }
             }
-            this.f38355e = downloadHandlerService;
+            this.f38530e = downloadHandlerService;
         }
 
         @Override // java.lang.Runnable
@@ -83,20 +83,20 @@ public class DownloadHandlerService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f38356e;
+        public final /* synthetic */ DownloadInfo f38531e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.f f38357f;
+        public final /* synthetic */ d.f f38532f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.e.b.f.d f38358g;
+        public final /* synthetic */ d.l.a.e.b.f.e f38533g;
 
-        public b(DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.d dVar) {
+        public b(DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {downloadInfo, fVar, dVar};
+                Object[] objArr = {downloadInfo, fVar, eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -106,9 +106,9 @@ public class DownloadHandlerService extends Service {
                     return;
                 }
             }
-            this.f38356e = downloadInfo;
-            this.f38357f = fVar;
-            this.f38358g = dVar;
+            this.f38531e = downloadInfo;
+            this.f38532f = fVar;
+            this.f38533g = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -117,15 +117,15 @@ public class DownloadHandlerService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    File file = new File(this.f38356e.getSavePath(), this.f38356e.getName());
+                    File file = new File(this.f38531e.getSavePath(), this.f38531e.getName());
                     if (file.exists()) {
                         try {
-                            String str = (e.n() == null || (i2 = d.i(this.f38356e, file)) == null) ? "" : i2.packageName;
-                            if (this.f38357f != null) {
-                                this.f38357f.b(this.f38356e.getId(), 3, str, -3, this.f38356e.getDownloadTime());
+                            String str = (e.n() == null || (i2 = d.i(this.f38531e, file)) == null) ? "" : i2.packageName;
+                            if (this.f38532f != null) {
+                                this.f38532f.b(this.f38531e.getId(), 3, str, -3, this.f38531e.getDownloadTime());
                             }
-                            if (this.f38358g != null) {
-                                this.f38358g.a(3, this.f38356e, str, "");
+                            if (this.f38533g != null) {
+                                this.f38533g.a(3, this.f38531e, str, "");
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -151,7 +151,7 @@ public class DownloadHandlerService extends Service {
                 return;
             }
         }
-        f38354a = DownloadHandlerService.class.getSimpleName();
+        f38529a = DownloadHandlerService.class.getSimpleName();
     }
 
     public DownloadHandlerService() {
@@ -182,7 +182,7 @@ public class DownloadHandlerService extends Service {
             int intExtra = intent.getIntExtra("extra_click_download_ids", 0);
             intent.getIntExtra("extra_click_download_type", 0);
             d.f u = d.l.a.e.a.e.G().u();
-            d.l.a.e.b.f.d i2 = d.l.a.e.b.g.a.H(this).i(intExtra);
+            d.l.a.e.b.f.e i2 = d.l.a.e.b.g.a.H(this).i(intExtra);
             boolean z = true;
             if (intent.getBooleanExtra("extra_from_notification", false) && d.l.a.e.b.j.a.d(intExtra).m("notification_opt_2") == 1) {
                 d.l.a.e.b.p.b.a().m(intExtra);
@@ -219,9 +219,9 @@ public class DownloadHandlerService extends Service {
         return invokeL.booleanValue;
     }
 
-    private void b(@NonNull DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.d dVar) {
+    private void b(@NonNull DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, this, downloadInfo, fVar, dVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65544, this, downloadInfo, fVar, eVar) == null) {
             int id = downloadInfo.getId();
             Intent intent = new Intent(this, DownloadTaskDeleteActivity.class);
             intent.putExtra("extra_click_download_ids", id);
@@ -232,8 +232,8 @@ public class DownloadHandlerService extends Service {
             if (fVar != null) {
                 fVar.b(id, 7, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
             }
-            if (dVar != null) {
-                dVar.a(7, downloadInfo, "", "");
+            if (eVar != null) {
+                eVar.a(7, downloadInfo, "", "");
             }
         }
     }
@@ -264,7 +264,7 @@ public class DownloadHandlerService extends Service {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
             super.onStartCommand(intent, i2, i3);
             if (d.l.a.e.b.c.a.e()) {
-                d.l.a.e.b.c.a.g(f38354a, "onStartCommand");
+                d.l.a.e.b.c.a.g(f38529a, "onStartCommand");
             }
             a(intent);
             stopSelf();
@@ -285,7 +285,7 @@ public class DownloadHandlerService extends Service {
         if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, fVar, downloadInfo) == null) || downloadInfo == null) {
             return;
         }
-        d.l.a.e.b.f.d i2 = d.l.a.e.b.g.a.H(context).i(downloadInfo.getId());
+        d.l.a.e.b.f.e i2 = d.l.a.e.b.g.a.H(context).i(downloadInfo.getId());
         if (fVar == null && i2 == null) {
             return;
         }
@@ -297,14 +297,14 @@ public class DownloadHandlerService extends Service {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(@NonNull DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.d dVar) {
+    private void a(@NonNull DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.e eVar) {
         boolean a2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, downloadInfo, fVar, dVar) != null) {
+        if (interceptable != null && interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, downloadInfo, fVar, eVar) != null) {
             return;
         }
         int id = downloadInfo.getId();
-        i I = d.l.a.e.b.g.f.c().I(id);
+        j I = d.l.a.e.b.g.f.c().I(id);
         if (I != null) {
             try {
                 a2 = I.a(downloadInfo);
@@ -321,8 +321,8 @@ public class DownloadHandlerService extends Service {
                 if (fVar != null) {
                     fVar.b(id, 7, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
                 }
-                if (dVar != null) {
-                    dVar.a(7, downloadInfo, "", "");
+                if (eVar != null) {
+                    eVar.a(7, downloadInfo, "", "");
                     return;
                 }
                 return;
@@ -336,7 +336,7 @@ public class DownloadHandlerService extends Service {
 
     public static void a(Context context, int i2, boolean z) {
         boolean z2;
-        i I;
+        j I;
         DownloadInfo f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
@@ -362,12 +362,12 @@ public class DownloadHandlerService extends Service {
         }
     }
 
-    public static void a(Context context, DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.d dVar) {
+    public static void a(Context context, DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.e eVar) {
         d.l.a.e.b.p.a l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, downloadInfo, fVar, dVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, downloadInfo, fVar, eVar) == null) {
             int id = downloadInfo.getId();
-            i I = d.l.a.e.b.g.f.c().I(id);
+            j I = d.l.a.e.b.g.f.c().I(id);
             if ("application/vnd.android.package-archive".equals(downloadInfo.getMimeType()) && I != null && d.v(context, downloadInfo) && I.c(downloadInfo)) {
                 return;
             }
@@ -403,8 +403,8 @@ public class DownloadHandlerService extends Service {
                     if (fVar != null) {
                         fVar.b(id, 6, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
                     }
-                    if (dVar != null) {
-                        dVar.a(6, downloadInfo, "", "");
+                    if (eVar != null) {
+                        eVar.a(6, downloadInfo, "", "");
                         return;
                     }
                     return;
@@ -421,8 +421,8 @@ public class DownloadHandlerService extends Service {
                     if (fVar != null) {
                         fVar.b(id, 5, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
                     }
-                    if (dVar != null) {
-                        dVar.a(5, downloadInfo, "", "");
+                    if (eVar != null) {
+                        eVar.a(5, downloadInfo, "", "");
                         return;
                     }
                     return;

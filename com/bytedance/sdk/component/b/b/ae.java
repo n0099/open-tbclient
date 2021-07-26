@@ -18,26 +18,26 @@ public final class ae {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ae f28515a;
+    public static final ae f28609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ae f28516b;
+    public static final ae f28610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ae f28517c;
+    public static final ae f28611c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ae f28518d;
+    public static final ae f28612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ae f28519e;
+    public static final ae f28613e;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ ae[] f28520g;
+    public static final /* synthetic */ ae[] f28614g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f28521f;
+    public final String f28615f;
 
     static {
         InterceptResult invokeClinit;
@@ -52,13 +52,13 @@ public final class ae {
                 return;
             }
         }
-        f28515a = new ae("TLS_1_3", 0, "TLSv1.3");
-        f28516b = new ae("TLS_1_2", 1, "TLSv1.2");
-        f28517c = new ae("TLS_1_1", 2, "TLSv1.1");
-        f28518d = new ae("TLS_1_0", 3, "TLSv1");
+        f28609a = new ae("TLS_1_3", 0, "TLSv1.3");
+        f28610b = new ae("TLS_1_2", 1, "TLSv1.2");
+        f28611c = new ae("TLS_1_1", 2, "TLSv1.1");
+        f28612d = new ae("TLS_1_0", 3, "TLSv1");
         ae aeVar = new ae("SSL_3_0", 4, "SSLv3");
-        f28519e = aeVar;
-        f28520g = new ae[]{f28515a, f28516b, f28517c, f28518d, aeVar};
+        f28613e = aeVar;
+        f28614g = new ae[]{f28609a, f28610b, f28611c, f28612d, aeVar};
     }
 
     public ae(String str, int i2, String str2) {
@@ -79,7 +79,7 @@ public final class ae {
                 return;
             }
         }
-        this.f28521f = str2;
+        this.f28615f = str2;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -132,17 +132,17 @@ public final class ae {
                     if (c2 != 2) {
                         if (c2 != 3) {
                             if (c2 == 4) {
-                                return f28519e;
+                                return f28613e;
                             }
                             throw new IllegalArgumentException("Unexpected TLS version: " + str);
                         }
-                        return f28518d;
+                        return f28612d;
                     }
-                    return f28517c;
+                    return f28611c;
                 }
-                return f28516b;
+                return f28610b;
             }
-            return f28515a;
+            return f28609a;
         }
         return (ae) invokeL.objValue;
     }
@@ -156,7 +156,7 @@ public final class ae {
     public static ae[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ae[]) f28520g.clone() : (ae[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ae[]) f28614g.clone() : (ae[]) invokeV.objValue;
     }
 
     public static List<ae> a(String... strArr) {

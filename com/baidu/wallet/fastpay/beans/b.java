@@ -20,16 +20,16 @@ public class b extends BaseBean<GetOrderResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24809a;
+    public String f24967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24810b;
+    public String f24968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24811c;
+    public String f24969c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24812d;
+    public String f24970d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> b(Context context) {
@@ -49,19 +49,19 @@ public class b extends BaseBean<GetOrderResponse> {
                 return;
             }
         }
-        this.f24809a = "";
-        this.f24810b = "";
-        this.f24811c = "";
-        this.f24812d = "";
+        this.f24967a = "";
+        this.f24968b = "";
+        this.f24969c = "";
+        this.f24970d = "";
     }
 
     public void a(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
-            this.f24809a = str2;
-            this.f24810b = str;
-            this.f24811c = str3;
-            this.f24812d = str4;
+            this.f24967a = str2;
+            this.f24968b = str;
+            this.f24969c = str3;
+            this.f24970d = str4;
         }
     }
 
@@ -79,10 +79,10 @@ public class b extends BaseBean<GetOrderResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f24810b)));
-            arrayList.add(new RestNameValuePair("price", this.f24809a));
-            arrayList.add(new RestNameValuePair("is_huodong_price", this.f24811c));
-            arrayList.add(new RestNameValuePair("device_token", this.f24812d));
+            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f24968b)));
+            arrayList.add(new RestNameValuePair("price", this.f24967a));
+            arrayList.add(new RestNameValuePair("is_huodong_price", this.f24969c));
+            arrayList.add(new RestNameValuePair("device_token", this.f24970d));
             return arrayList;
         }
         return (List) invokeV.objValue;

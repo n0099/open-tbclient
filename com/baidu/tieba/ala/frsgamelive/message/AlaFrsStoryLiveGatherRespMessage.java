@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
+import d.a.p0.s.q.b2;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -61,7 +61,7 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
                         b2 b2Var = new b2();
-                        b2Var.H2(optJSONObject2);
+                        b2Var.J2(optJSONObject2);
                         this.liveList.add(b2Var);
                     }
                 }
@@ -73,7 +73,7 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
                     if (optJSONObject3 != null) {
                         b2 b2Var2 = new b2();
-                        b2Var2.H2(optJSONObject3);
+                        b2Var2.J2(optJSONObject3);
                         this.recommandList.add(b2Var2);
                     }
                 }

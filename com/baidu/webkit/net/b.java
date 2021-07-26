@@ -15,17 +15,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f27568b = "b";
+    public static final String f27726b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdNetTask f27569a;
+    public BdNetTask f27727a;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdNet f27570c;
+    public BdNet f27728c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdNetEngine f27571d;
+    public BdNetEngine f27729d;
 
     static {
         InterceptResult invokeClinit;
@@ -57,21 +57,21 @@ public class b {
                 return;
             }
         }
-        this.f27570c = bdNet;
+        this.f27728c = bdNet;
     }
 
     public final void a(BdNetEngine bdNetEngine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bdNetEngine) == null) {
-            this.f27571d = bdNetEngine;
-            bdNetEngine.setEventListener(this.f27570c);
+            this.f27729d = bdNetEngine;
+            bdNetEngine.setEventListener(this.f27728c);
         }
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27569a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27727a != null : invokeV.booleanValue;
     }
 
     public final boolean a(BdNetTask bdNetTask) {
@@ -86,35 +86,35 @@ public class b {
                 return false;
             }
             try {
-                this.f27569a = bdNetTask;
-                bdNetTask.setNet(this.f27570c);
-                this.f27569a.setWorker(this);
-                if (a.a().f27567c == null) {
-                    a.a().f27567c = this.f27570c.getContext();
+                this.f27727a = bdNetTask;
+                bdNetTask.setNet(this.f27728c);
+                this.f27727a.setWorker(this);
+                if (a.a().f27725c == null) {
+                    a.a().f27725c = this.f27728c.getContext();
                 }
                 BdNetEngine e2 = a.a().e();
-                this.f27571d = e2;
+                this.f27729d = e2;
                 if (e2 != null) {
-                    e2.setEventListener(this.f27570c);
+                    e2.setEventListener(this.f27728c);
                     a.a();
                     if (!a.b()) {
-                        bdNetEngine = this.f27571d;
-                        bdNetTask2 = this.f27569a;
-                    } else if (!this.f27569a.isHigherPriority()) {
+                        bdNetEngine = this.f27729d;
+                        bdNetTask2 = this.f27727a;
+                    } else if (!this.f27727a.isHigherPriority()) {
                         return true;
                     } else {
-                        bdNetEngine = this.f27571d;
-                        bdNetTask2 = this.f27569a;
+                        bdNetEngine = this.f27729d;
+                        bdNetTask2 = this.f27727a;
                     }
                     bdNetEngine.startDownload(bdNetTask2);
                     return true;
                 }
                 a.a();
-                if (!a.b() || this.f27569a.isHigherPriority()) {
-                    BdNetTask bdNetTask3 = this.f27569a;
+                if (!a.b() || this.f27727a.isHigherPriority()) {
+                    BdNetTask bdNetTask3 = this.f27727a;
                     if (bdNetTask3.getTaskPriority() == null) {
                         a2 = a.a();
-                        ordinal = BdNetTask.b.f27557b.ordinal();
+                        ordinal = BdNetTask.b.f27715b.ordinal();
                     } else {
                         a2 = a.a();
                         ordinal = bdNetTask3.getTaskPriority().ordinal();
@@ -124,11 +124,11 @@ public class b {
                 }
                 return true;
             } catch (Exception unused) {
-                BdNetEngine bdNetEngine2 = this.f27571d;
+                BdNetEngine bdNetEngine2 = this.f27729d;
                 if (bdNetEngine2 != null) {
                     bdNetEngine2.recycle();
                 }
-                BdNet bdNet = this.f27570c;
+                BdNet bdNet = this.f27728c;
                 if (bdNet != null) {
                     bdNet.startError(bdNetTask);
                 }
@@ -142,13 +142,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (this.f27569a != null) {
-                    this.f27569a.setWorker(null);
-                    this.f27569a.stop();
-                    this.f27569a = null;
+                if (this.f27727a != null) {
+                    this.f27727a.setWorker(null);
+                    this.f27727a.stop();
+                    this.f27727a = null;
                 }
             } catch (Exception e2) {
-                Log.d(f27568b, "stop Exception", e2);
+                Log.d(f27726b, "stop Exception", e2);
             }
         }
     }

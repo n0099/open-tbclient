@@ -32,8 +32,8 @@ public final class a1 extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Context c2 = a.a().c();
-            ApplicationInfo applicationInfo = c2.getPackageManager().getApplicationInfo(c2.getPackageName(), 0);
+            Context a2 = a.c().a();
+            ApplicationInfo applicationInfo = a2.getPackageManager().getApplicationInfo(a2.getPackageName(), 0);
             String str2 = applicationInfo.sourceDir;
             return str2 != null ? str2 : applicationInfo.publicSourceDir;
         }

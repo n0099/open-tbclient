@@ -118,7 +118,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
             int h2 = h(context);
-            return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : com.baidu.apollon.statistics.g.f3986b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+            return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : com.baidu.apollon.statistics.g.f4012b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
         }
         return (String) invokeL.objValue;
     }
@@ -142,7 +142,7 @@ public class f {
                 if (f2.equals("2G")) {
                     return "10";
                 }
-                if (f2.equals(com.baidu.apollon.statistics.g.f3986b)) {
+                if (f2.equals(com.baidu.apollon.statistics.g.f4012b)) {
                     return "11";
                 }
                 if (f2.equals("4G")) {

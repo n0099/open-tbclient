@@ -15,7 +15,7 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<MemberPayFragment> f18619a;
+    public List<MemberPayFragment> f18704a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MemberPayListAdapter(FragmentManager fragmentManager) {
@@ -44,8 +44,8 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f18619a.size() > i2) {
-                return this.f18619a.get(i2);
+            if (this.f18704a.size() > i2) {
+                return this.f18704a.get(i2);
             }
             return null;
         }
@@ -55,7 +55,7 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
     public void c(List<MemberPayFragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f18619a = list;
+            this.f18704a = list;
         }
     }
 
@@ -64,7 +64,7 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<MemberPayFragment> list = this.f18619a;
+            List<MemberPayFragment> list = this.f18704a;
             if (list != null) {
                 return list.size();
             }

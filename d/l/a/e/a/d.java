@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.l.a.e.b.f.v;
+import d.l.a.e.b.f.w;
 import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -46,10 +46,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f71598a;
+    public static int f72052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f71599b;
+    public static NotificationChannel f72053b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -58,13 +58,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f71600a;
+        public final /* synthetic */ Context f72054a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f71601b;
+        public final /* synthetic */ int f72055b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f71602c;
+        public final /* synthetic */ boolean f72056c;
 
         public a(Context context, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -81,16 +81,16 @@ public class d {
                     return;
                 }
             }
-            this.f71600a = context;
-            this.f71601b = i2;
-            this.f71602c = z;
+            this.f72054a = context;
+            this.f72055b = i2;
+            this.f72056c = z;
         }
 
         @Override // d.l.a.e.a.d.k
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int unused = d.f71598a = d.P(this.f71600a, this.f71601b, this.f71602c);
+                int unused = d.f72052a = d.P(this.f72054a, this.f72055b, this.f72056c);
             }
         }
     }
@@ -101,19 +101,19 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f71603e;
+        public final /* synthetic */ Context f72057e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f71604f;
+        public final /* synthetic */ int f72058f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f71605g;
+        public final /* synthetic */ boolean f72059g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f71606h;
+        public final /* synthetic */ DownloadInfo f72060h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ File f71607i;
+        public final /* synthetic */ File f72061i;
 
         public b(Context context, int i2, boolean z, DownloadInfo downloadInfo, File file) {
             Interceptable interceptable = $ic;
@@ -130,22 +130,22 @@ public class d {
                     return;
                 }
             }
-            this.f71603e = context;
-            this.f71604f = i2;
-            this.f71605g = z;
-            this.f71606h = downloadInfo;
-            this.f71607i = file;
+            this.f72057e = context;
+            this.f72058f = i2;
+            this.f72059g = z;
+            this.f72060h = downloadInfo;
+            this.f72061i = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int e2 = d.e(this.f71603e, this.f71604f, this.f71605g, this.f71606h, this.f71607i);
+                int e2 = d.e(this.f72057e, this.f72058f, this.f72059g, this.f72060h, this.f72061i);
                 if (e2 == 1 && d.l.a.e.a.e.G().L() != null) {
-                    d.l.a.e.a.e.G().L().a(this.f71606h, null);
+                    d.l.a.e.a.e.G().L().a(this.f72060h, null);
                 }
-                d.I(this.f71606h, this.f71605g, e2);
+                d.I(this.f72060h, this.f72059g, e2);
             }
         }
     }
@@ -201,11 +201,11 @@ public class d {
 
     /* renamed from: d.l.a.e.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public abstract class AbstractC2036d implements n {
+    public abstract class AbstractC2035d implements n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractC2036d() {
+        public AbstractC2035d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -450,12 +450,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
-                if (f71599b == null) {
+                if (f72053b == null) {
                     NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                    f71599b = notificationChannel;
+                    f72053b = notificationChannel;
                     notificationChannel.setSound(null, null);
-                    f71599b.setShowBadge(false);
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f71599b);
+                    f72053b.setShowBadge(false);
+                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f72053b);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -614,9 +614,9 @@ public class d {
                 return P(context, i2, z);
             }
             DownloadInfo f2 = d.l.a.e.b.g.a.H(context).f(i2);
-            f71598a = 1;
+            f72052a = 1;
             D.a(f2, new a(context, i2, z));
-            return f71598a;
+            return f72052a;
         }
         return invokeCommon.intValue;
     }
@@ -745,7 +745,7 @@ public class d {
             intent.setDataAndType(j2, "application/vnd.android.package-archive");
             f u = d.l.a.e.a.e.G().u();
             boolean a2 = u != null ? u.a(downloadInfo.getId(), z) : 0;
-            d.l.a.e.b.f.d i2 = d.l.a.e.b.g.a.H(context).i(downloadInfo.getId());
+            d.l.a.e.b.f.e i2 = d.l.a.e.b.g.a.H(context).i(downloadInfo.getId());
             int i3 = a2;
             if (i2 != null) {
                 i3 = i2.a(z);
@@ -798,13 +798,13 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Uri j(int i2, v vVar, Context context, String str, File file) {
+    public static Uri j(int i2, w wVar, Context context, String str, File file) {
         Uri uri;
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, null, new Object[]{Integer.valueOf(i2), vVar, context, str, file})) == null) {
-            if (vVar != null) {
-                uri = vVar.a(str, file.getAbsolutePath());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, null, new Object[]{Integer.valueOf(i2), wVar, context, str, file})) == null) {
+            if (wVar != null) {
+                uri = wVar.a(str, file.getAbsolutePath());
             } else {
                 h B = d.l.a.e.a.e.G().B();
                 if (B != null) {
@@ -1094,7 +1094,7 @@ public class d {
                     return true;
                 }
             }
-            d.l.a.e.b.f.d i2 = d.l.a.e.b.g.a.H(context).i(downloadInfo.getId());
+            d.l.a.e.b.f.e i2 = d.l.a.e.b.g.a.H(context).i(downloadInfo.getId());
             if (i2 != null) {
                 i2.a(8, downloadInfo, packageInfo.packageName, "");
                 e b2 = d.l.a.e.a.e.G().b();

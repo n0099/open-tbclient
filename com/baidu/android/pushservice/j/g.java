@@ -23,10 +23,10 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConnectivityManager f3486a;
+    public static ConnectivityManager f3512a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f3487b;
+    public static TelephonyManager f3513b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -153,7 +153,7 @@ public class g {
                     case 14:
                     case 15:
                     case 17:
-                        str = com.baidu.apollon.statistics.g.f3986b;
+                        str = com.baidu.apollon.statistics.g.f4012b;
                         break;
                     case 13:
                     case 18:
@@ -232,12 +232,12 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (context == null) {
-                return f3486a;
+                return f3512a;
             }
-            if (f3486a == null) {
-                f3486a = (ConnectivityManager) context.getSystemService("connectivity");
+            if (f3512a == null) {
+                f3512a = (ConnectivityManager) context.getSystemService("connectivity");
             }
-            return f3486a;
+            return f3512a;
         }
         return (ConnectivityManager) invokeL.objValue;
     }
@@ -248,13 +248,13 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
                 if (context == null) {
-                    return f3487b;
+                    return f3513b;
                 }
-                if (f3487b == null) {
-                    f3487b = (TelephonyManager) context.getSystemService("phone");
+                if (f3513b == null) {
+                    f3513b = (TelephonyManager) context.getSystemService("phone");
                 }
             }
-            return f3487b;
+            return f3513b;
         }
         return (TelephonyManager) invokeL.objValue;
     }

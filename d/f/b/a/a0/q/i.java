@@ -14,7 +14,7 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f69397a;
+    public static final int[] f69851a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class i {
                 return;
             }
         }
-        f69397a = new int[]{v.q("isom"), v.q("iso2"), v.q("iso3"), v.q("iso4"), v.q("iso5"), v.q("iso6"), v.q(VisualSampleEntry.TYPE3), v.q("hvc1"), v.q("hev1"), v.q("mp41"), v.q("mp42"), v.q("3g2a"), v.q("3g2b"), v.q("3gr6"), v.q("3gs6"), v.q("3ge6"), v.q("3gg6"), v.q("M4V "), v.q("M4A "), v.q("f4v "), v.q("kddi"), v.q("M4VP"), v.q("qt  "), v.q("MSNV")};
+        f69851a = new int[]{v.q("isom"), v.q("iso2"), v.q("iso3"), v.q("iso4"), v.q("iso5"), v.q("iso6"), v.q(VisualSampleEntry.TYPE3), v.q("hvc1"), v.q("hev1"), v.q("mp41"), v.q("mp42"), v.q("3g2a"), v.q("3g2b"), v.q("3gr6"), v.q("3gs6"), v.q("3ge6"), v.q("3gg6"), v.q("M4V "), v.q("M4A "), v.q("f4v "), v.q("kddi"), v.q("M4VP"), v.q("qt  "), v.q("MSNV")};
     }
 
     public static boolean a(int i2) {
@@ -40,7 +40,7 @@ public final class i {
             if ((i2 >>> 8) == v.q("3gp")) {
                 return true;
             }
-            for (int i3 : f69397a) {
+            for (int i3 : f69851a) {
                 if (i3 == i2) {
                     return true;
                 }
@@ -72,12 +72,12 @@ public final class i {
             boolean z3 = false;
             while (i3 < i2) {
                 lVar.G(8);
-                fVar.c(lVar.f70489a, 0, 8);
+                fVar.c(lVar.f70943a, 0, 8);
                 long z4 = lVar.z();
                 int i4 = lVar.i();
                 int i5 = 16;
                 if (z4 == 1) {
-                    fVar.c(lVar.f70489a, 8, 8);
+                    fVar.c(lVar.f70943a, 8, 8);
                     lVar.I(16);
                     z4 = lVar.C();
                 } else {
@@ -103,12 +103,12 @@ public final class i {
                     } else {
                         int i6 = (int) (z4 - j2);
                         i3 += i6;
-                        if (i4 == a.f69307b) {
+                        if (i4 == a.f69761b) {
                             if (i6 < 8) {
                                 return false;
                             }
                             lVar.G(i6);
-                            fVar.c(lVar.f70489a, 0, i6);
+                            fVar.c(lVar.f70943a, 0, i6);
                             int i7 = i6 / 4;
                             int i8 = 0;
                             while (true) {

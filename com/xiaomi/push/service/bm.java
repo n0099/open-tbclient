@@ -25,7 +25,7 @@ public class bm {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40651a;
+    public static String f40923a;
 
     /* renamed from: a  reason: collision with other field name */
     public static SimpleDateFormat f940a;
@@ -50,7 +50,7 @@ public class bm {
         f941a = new AtomicLong(0L);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         f940a = simpleDateFormat;
-        f40651a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        f40923a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static ie a(String str, String str2, hi hiVar) {
@@ -66,9 +66,9 @@ public class bm {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (bm.class) {
                 String format = f940a.format(Long.valueOf(System.currentTimeMillis()));
-                if (!TextUtils.equals(f40651a, format)) {
+                if (!TextUtils.equals(f40923a, format)) {
                     f941a.set(0L);
-                    f40651a = format;
+                    f40923a = format;
                 }
                 str = format + "-" + f941a.incrementAndGet();
             }

@@ -30,7 +30,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Type[] f31915a;
+    public static final Type[] f32116a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -39,7 +39,7 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Type f31916a;
+        public final Type f32117a;
 
         public a(Type type) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public final class b {
                     return;
                 }
             }
-            this.f31916a = b.d(type);
+            this.f32117a = b.d(type);
         }
 
         public boolean equals(Object obj) {
@@ -69,20 +69,20 @@ public final class b {
         public Type getGenericComponentType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31916a : (Type) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32117a : (Type) invokeV.objValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31916a.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32117a.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return b.f(this.f31916a) + "[]";
+                return b.f(this.f32117a) + "[]";
             }
             return (String) invokeV.objValue;
         }
@@ -90,20 +90,20 @@ public final class b {
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0361b implements Serializable, ParameterizedType {
+    public static final class C0364b implements Serializable, ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Type f31917a;
+        public final Type f32118a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Type f31918b;
+        public final Type f32119b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Type[] f31919c;
+        public final Type[] f32120c;
 
-        public C0361b(Type type, Type type2, Type... typeArr) {
+        public C0364b(Type type, Type type2, Type... typeArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,15 +127,15 @@ public final class b {
                 }
                 com.bytedance.sdk.openadsdk.preload.a.b.a.a(z);
             }
-            this.f31917a = type == null ? null : b.d(type);
-            this.f31918b = b.d(type2);
+            this.f32118a = type == null ? null : b.d(type);
+            this.f32119b = b.d(type2);
             Type[] typeArr2 = (Type[]) typeArr.clone();
-            this.f31919c = typeArr2;
+            this.f32120c = typeArr2;
             int length = typeArr2.length;
             for (int i4 = 0; i4 < length; i4++) {
-                com.bytedance.sdk.openadsdk.preload.a.b.a.a(this.f31919c[i4]);
-                b.h(this.f31919c[i4]);
-                Type[] typeArr3 = this.f31919c;
+                com.bytedance.sdk.openadsdk.preload.a.b.a.a(this.f32120c[i4]);
+                b.h(this.f32120c[i4]);
+                Type[] typeArr3 = this.f32120c;
                 typeArr3[i4] = b.d(typeArr3[i4]);
             }
         }
@@ -150,44 +150,44 @@ public final class b {
         public Type[] getActualTypeArguments() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (Type[]) this.f31919c.clone() : (Type[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (Type[]) this.f32120c.clone() : (Type[]) invokeV.objValue;
         }
 
         @Override // java.lang.reflect.ParameterizedType
         public Type getOwnerType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31917a : (Type) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32118a : (Type) invokeV.objValue;
         }
 
         @Override // java.lang.reflect.ParameterizedType
         public Type getRawType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31918b : (Type) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32119b : (Type) invokeV.objValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (Arrays.hashCode(this.f31919c) ^ this.f31918b.hashCode()) ^ b.a((Object) this.f31917a) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (Arrays.hashCode(this.f32120c) ^ this.f32119b.hashCode()) ^ b.a((Object) this.f32118a) : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int length = this.f31919c.length;
+                int length = this.f32120c.length;
                 if (length == 0) {
-                    return b.f(this.f31918b);
+                    return b.f(this.f32119b);
                 }
                 StringBuilder sb = new StringBuilder((length + 1) * 30);
-                sb.append(b.f(this.f31918b));
+                sb.append(b.f(this.f32119b));
                 sb.append("<");
-                sb.append(b.f(this.f31919c[0]));
+                sb.append(b.f(this.f32120c[0]));
                 for (int i2 = 1; i2 < length; i2++) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(b.f(this.f31919c[i2]));
+                    sb.append(b.f(this.f32120c[i2]));
                 }
                 sb.append(">");
                 return sb.toString();
@@ -202,10 +202,10 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Type f31921a;
+        public final Type f32122a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Type f31922b;
+        public final Type f32123b;
 
         public c(Type[] typeArr, Type[] typeArr2) {
             Interceptable interceptable = $ic;
@@ -228,14 +228,14 @@ public final class b {
                 com.bytedance.sdk.openadsdk.preload.a.b.a.a(typeArr2[0]);
                 b.h(typeArr2[0]);
                 com.bytedance.sdk.openadsdk.preload.a.b.a.a(typeArr[0] == Object.class);
-                this.f31922b = b.d(typeArr2[0]);
-                this.f31921a = Object.class;
+                this.f32123b = b.d(typeArr2[0]);
+                this.f32122a = Object.class;
                 return;
             }
             com.bytedance.sdk.openadsdk.preload.a.b.a.a(typeArr[0]);
             b.h(typeArr[0]);
-            this.f31922b = null;
-            this.f31921a = b.d(typeArr[0]);
+            this.f32123b = null;
+            this.f32122a = b.d(typeArr[0]);
         }
 
         public boolean equals(Object obj) {
@@ -249,8 +249,8 @@ public final class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Type type = this.f31922b;
-                return type != null ? new Type[]{type} : b.f31915a;
+                Type type = this.f32123b;
+                return type != null ? new Type[]{type} : b.f32116a;
             }
             return (Type[]) invokeV.objValue;
         }
@@ -259,15 +259,15 @@ public final class b {
         public Type[] getUpperBounds() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Type[]{this.f31921a} : (Type[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Type[]{this.f32122a} : (Type[]) invokeV.objValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                Type type = this.f31922b;
-                return (type != null ? type.hashCode() + 31 : 1) ^ (this.f31921a.hashCode() + 31);
+                Type type = this.f32123b;
+                return (type != null ? type.hashCode() + 31 : 1) ^ (this.f32122a.hashCode() + 31);
             }
             return invokeV.intValue;
         }
@@ -276,12 +276,12 @@ public final class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.f31922b != null) {
-                    return "? super " + b.f(this.f31922b);
-                } else if (this.f31921a == Object.class) {
+                if (this.f32123b != null) {
+                    return "? super " + b.f(this.f32123b);
+                } else if (this.f32122a == Object.class) {
                     return "?";
                 } else {
-                    return "? extends " + b.f(this.f31921a);
+                    return "? extends " + b.f(this.f32122a);
                 }
             }
             return (String) invokeV.objValue;
@@ -301,20 +301,20 @@ public final class b {
                 return;
             }
         }
-        f31915a = new Type[0];
+        f32116a = new Type[0];
     }
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, type, type2, typeArr)) == null) ? new C0361b(type, type2, typeArr) : (ParameterizedType) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, type, type2, typeArr)) == null) ? new C0364b(type, type2, typeArr) : (ParameterizedType) invokeLLL.objValue;
     }
 
     public static WildcardType b(Type type) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, type)) == null) {
-            return new c(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f31915a);
+            return new c(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f32116a);
         }
         return (WildcardType) invokeL.objValue;
     }
@@ -337,7 +337,7 @@ public final class b {
                 return cls.isArray() ? new a(d(cls.getComponentType())) : cls;
             } else if (type instanceof ParameterizedType) {
                 ParameterizedType parameterizedType = (ParameterizedType) type;
-                return new C0361b(parameterizedType.getOwnerType(), parameterizedType.getRawType(), parameterizedType.getActualTypeArguments());
+                return new C0364b(parameterizedType.getOwnerType(), parameterizedType.getRawType(), parameterizedType.getActualTypeArguments());
             } else if (type instanceof GenericArrayType) {
                 return new a(((GenericArrayType) type).getGenericComponentType());
             } else {

@@ -19,13 +19,13 @@ public final class aa implements TextWatcher {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ EditText f23433a;
+    public final /* synthetic */ EditText f23591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f23434b;
+    public final /* synthetic */ String f23592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23435c;
+    public final /* synthetic */ FeedbackEditActivity f23593c;
 
     public aa(FeedbackEditActivity feedbackEditActivity, EditText editText, String str) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public final class aa implements TextWatcher {
                 return;
             }
         }
-        this.f23435c = feedbackEditActivity;
-        this.f23433a = editText;
-        this.f23434b = str;
+        this.f23593c = feedbackEditActivity;
+        this.f23591a = editText;
+        this.f23592b = str;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:11:0x004f */
@@ -66,30 +66,30 @@ public final class aa implements TextWatcher {
         List list4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            this.f23435c.ad = this.f23433a.getText().toString();
-            str = this.f23435c.ad;
+            this.f23593c.ad = this.f23591a.getText().toString();
+            str = this.f23593c.ad;
             Log.d("editcontent", str);
-            FeedbackEditActivity feedbackEditActivity = this.f23435c;
-            Map map = feedbackEditActivity.f23371a;
-            String str5 = this.f23434b;
+            FeedbackEditActivity feedbackEditActivity = this.f23593c;
+            Map map = feedbackEditActivity.f23529a;
+            String str5 = this.f23592b;
             str2 = feedbackEditActivity.ad;
             map.put(str5, str2);
-            str3 = this.f23435c.ad;
+            str3 = this.f23593c.ad;
             if (str3 != null) {
-                str4 = this.f23435c.ad;
+                str4 = this.f23593c.ad;
                 if (str4.trim().length() != 0) {
                     for (int i2 = 0; i2 < list.size(); i2++) {
-                        list2 = this.f23435c.z;
+                        list2 = this.f23593c.z;
                         if (list2.get(i2) != null) {
-                            list4 = this.f23435c.z;
+                            list4 = this.f23593c.z;
                             if (((TextView) list4.get(i2)).getText().toString().trim().length() == 0) {
                             }
                         }
-                        list3 = this.f23435c.z;
+                        list3 = this.f23593c.z;
                         if (i2 == list3.size() - 1) {
-                            editText = this.f23435c.m;
+                            editText = this.f23593c.m;
                             if (editText.getText().toString().trim().length() >= 4) {
-                                button2 = this.f23435c.V;
+                                button2 = this.f23593c.V;
                                 int i3 = com.baidu.ufosdk.b.v;
                                 int i4 = com.baidu.ufosdk.b.y;
                                 int i5 = com.baidu.ufosdk.b.v;
@@ -100,7 +100,7 @@ public final class aa implements TextWatcher {
                     return;
                 }
             }
-            button = this.f23435c.V;
+            button = this.f23593c.V;
             button.setTextColor(com.baidu.ufosdk.b.y);
         }
     }

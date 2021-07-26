@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.o0.l0.d;
+import d.a.d.a.f;
+import d.a.p0.n0.d;
 import tbclient.GetClientConfig.CPayType;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes3.dex */
@@ -28,18 +28,18 @@ public class PayConfigModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.o0.l0.a f13147e;
+    public d.a.p0.n0.a f13196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.c.c.g.a f13148f;
+    public final d.a.d.c.g.a f13197f;
 
     /* loaded from: classes3.dex */
-    public class a extends d.a.c.c.g.a {
+    public class a extends d.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PayConfigModel f13149a;
+        public final /* synthetic */ PayConfigModel f13198a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PayConfigModel payConfigModel, int i2, int i3) {
@@ -60,19 +60,19 @@ public class PayConfigModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f13149a = payConfigModel;
+            this.f13198a = payConfigModel;
         }
 
-        @Override // d.a.c.c.g.a
+        @Override // d.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.f13149a.z(responsedMessage)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.f13198a.z(responsedMessage)) {
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
-                        this.f13149a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                        this.f13198a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                         return;
                     } else if (responsedMessage instanceof ClientConfigSocketResponse) {
-                        this.f13149a.A(((ClientConfigSocketResponse) responsedMessage).getData());
+                        this.f13198a.A(((ClientConfigSocketResponse) responsedMessage).getData());
                         return;
                     } else {
                         return;
@@ -83,15 +83,15 @@ public class PayConfigModel extends BdBaseModel {
                 if (StringUtils.isNull(errorString)) {
                     errorString = string;
                 }
-                if (this.f13149a.f13147e != null) {
-                    this.f13149a.f13147e.onError(errorString);
+                if (this.f13198a.f13196e != null) {
+                    this.f13198a.f13196e.onError(errorString);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PayConfigModel(BaseActivity<?> baseActivity, d.a.o0.l0.a aVar) {
+    public PayConfigModel(BaseActivity<?> baseActivity, d.a.p0.n0.a aVar) {
         super(baseActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -109,8 +109,8 @@ public class PayConfigModel extends BdBaseModel {
             }
         }
         a aVar2 = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f13148f = aVar2;
-        this.f13147e = aVar;
+        this.f13197f = aVar2;
+        this.f13196e = aVar;
         registerListener(aVar2);
     }
 
@@ -120,23 +120,23 @@ public class PayConfigModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    d.a.o0.l0.a aVar = this.f13147e;
+                    d.a.p0.n0.a aVar = this.f13196e;
                     if (aVar != null) {
                         aVar.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    d.a.o0.l0.a aVar2 = this.f13147e;
+                    d.a.p0.n0.a aVar2 = this.f13196e;
                     if (aVar2 != null) {
                         aVar2.a();
                     }
                 } else {
-                    d.a.o0.l0.a aVar3 = this.f13147e;
+                    d.a.p0.n0.a aVar3 = this.f13196e;
                     if (aVar3 != null) {
                         aVar3.onError("");
                     }
                 }
-            } else if (this.f13147e != null) {
-                this.f13147e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+            } else if (this.f13196e != null) {
+                this.f13196e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
             }
         }
     }
@@ -145,12 +145,12 @@ public class PayConfigModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!d.c().g()) {
-                d.a.o0.l0.a aVar = this.f13147e;
+                d.a.p0.n0.a aVar = this.f13196e;
                 if (aVar != null) {
                     aVar.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                d.a.o0.l0.a aVar2 = this.f13147e;
+                d.a.p0.n0.a aVar2 = this.f13196e;
                 if (aVar2 != null) {
                     aVar2.b();
                 }
@@ -185,7 +185,7 @@ public class PayConfigModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f13148f);
+            MessageManager.getInstance().unRegisterListener(this.f13197f);
         }
     }
 
@@ -196,7 +196,7 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PayConfigModel(TbPageContext tbPageContext, d.a.o0.l0.a aVar) {
+    public PayConfigModel(TbPageContext tbPageContext, d.a.p0.n0.a aVar) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -214,8 +214,8 @@ public class PayConfigModel extends BdBaseModel {
             }
         }
         a aVar2 = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f13148f = aVar2;
-        this.f13147e = aVar;
+        this.f13197f = aVar2;
+        this.f13196e = aVar;
         registerListener(aVar2);
     }
 }

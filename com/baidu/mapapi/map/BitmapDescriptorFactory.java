@@ -26,10 +26,10 @@ public class BitmapDescriptorFactory {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f6900a;
+    public static final /* synthetic */ boolean f6926a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6901b;
+    public static final String f6927b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +45,8 @@ public class BitmapDescriptorFactory {
                 return;
             }
         }
-        f6900a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        f6901b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        f6926a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f6927b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
     public BitmapDescriptorFactory() {
@@ -74,7 +74,7 @@ public class BitmapDescriptorFactory {
             try {
                 Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
                 BitmapDescriptor fromBitmap = fromBitmap(a2);
-                if (!f6900a && a2 == null) {
+                if (!f6926a && a2 == null) {
                     throw new AssertionError();
                 }
                 a2.recycle();
@@ -170,13 +170,13 @@ public class BitmapDescriptorFactory {
                 }
             } catch (FileNotFoundException e2) {
                 e = e2;
-                str2 = f6901b;
+                str2 = f6927b;
                 str3 = "FileNotFoundException happened";
                 Log.e(str2, str3, e);
                 return null;
             } catch (IOException e3) {
                 e = e3;
-                str2 = f6901b;
+                str2 = f6927b;
                 str3 = "IOException happened";
                 Log.e(str2, str3, e);
                 return null;
@@ -211,13 +211,13 @@ public class BitmapDescriptorFactory {
                 }
             } catch (FileNotFoundException e2) {
                 e = e2;
-                str2 = f6901b;
+                str2 = f6927b;
                 str3 = "FileNotFoundException happened";
                 Log.e(str2, str3, e);
                 return null;
             } catch (IOException e3) {
                 e = e3;
-                str2 = f6901b;
+                str2 = f6927b;
                 str3 = "IOException happened";
                 Log.e(str2, str3, e);
                 return null;
@@ -330,7 +330,7 @@ public class BitmapDescriptorFactory {
             view.buildDrawingCache();
             Bitmap drawingCache = view.getDrawingCache();
             if (drawingCache == null) {
-                Log.e(f6901b, "Get bitmap failed");
+                Log.e(f6927b, "Get bitmap failed");
                 return null;
             }
             if (i2 <= 0) {

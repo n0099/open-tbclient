@@ -3,15 +3,13 @@ package com.bytedance.sdk.openadsdk.component.reward;
 import android.content.Context;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiOptions;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.e.m;
-import com.bytedance.sdk.openadsdk.r.o;
-import java.util.Map;
+import com.bytedance.sdk.openadsdk.e.b.o;
 /* loaded from: classes5.dex */
 public class g extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +34,7 @@ public class g extends com.bytedance.sdk.openadsdk.core.video.b.a {
                 return;
             }
         }
-        b(false);
+        a(false);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
@@ -52,27 +50,28 @@ public class g extends com.bytedance.sdk.openadsdk.core.video.b.a {
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f30594b == null) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f30767b == null) {
             return;
         }
-        String str = this.f30600h ? "play_error" : "play_start_error";
-        Map<String, Object> a2 = o.a(this.f30594b, i2, i3, u());
-        a2.put("play_type", Integer.valueOf(o.a(this, this.f30599g)));
-        if (this.f30600h) {
-            a2.put("duration", Long.valueOf(p()));
-            a2.put(SapiOptions.KEY_CACHE_PERCENT, Integer.valueOf(r()));
-            a2.put("buffers_time", Long.valueOf(o()));
-        }
-        com.bytedance.sdk.openadsdk.e.d.d(this.f30593a.get(), this.f30594b, "rewarded_video", str, a2);
+        o.a aVar = new o.a();
+        aVar.b(o());
+        aVar.c(q());
+        aVar.a(n());
+        aVar.a(i2);
+        aVar.b(i3);
+        com.bytedance.sdk.openadsdk.e.a.a.d(this.f30767b.get(), w(), aVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Map<String, Object> C = C();
-            C.put("play_type", Integer.valueOf(o.a(this, this.f30599g)));
-            com.bytedance.sdk.openadsdk.e.d.a(this.f30593a.get(), this.f30594b, "rewarded_video", "feed_over", this.f30595c, 100, C);
+            o.a aVar = new o.a();
+            aVar.a(n());
+            aVar.c(q());
+            aVar.b(o());
+            aVar.f(p());
+            com.bytedance.sdk.openadsdk.e.a.a.g(this.f30767b.get(), this.f30766a, aVar);
         }
     }
 
@@ -80,9 +79,11 @@ public class g extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Map<String, Object> C = C();
-            C.put("play_type", Integer.valueOf(o.a(this, this.f30599g)));
-            com.bytedance.sdk.openadsdk.e.d.a(this.f30593a.get(), this.f30594b, "rewarded_video", "play_pause", p(), r(), C);
+            o.a aVar = new o.a();
+            aVar.a(n());
+            aVar.c(q());
+            aVar.b(o());
+            com.bytedance.sdk.openadsdk.e.a.a.b(this.f30767b.get(), this.f30766a, aVar);
         }
     }
 
@@ -90,9 +91,11 @@ public class g extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Map<String, Object> C = C();
-            C.put("play_type", Integer.valueOf(o.a(this, this.f30599g)));
-            com.bytedance.sdk.openadsdk.e.d.a(this.f30593a.get(), this.f30594b, "rewarded_video", "continue_play", this.f30601i, r(), C);
+            o.a aVar = new o.a();
+            aVar.a(n());
+            aVar.c(q());
+            aVar.b(o());
+            com.bytedance.sdk.openadsdk.e.a.a.c(this.f30767b.get(), w(), aVar);
         }
     }
 
@@ -100,9 +103,9 @@ public class g extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Map<String, Object> B = B();
-            B.put("play_type", Integer.valueOf(o.a(this, this.f30599g)));
-            com.bytedance.sdk.openadsdk.e.d.c(this.f30593a.get(), this.f30594b, "rewarded_video", "feed_play", B);
+            o.a aVar = new o.a();
+            aVar.b(true);
+            com.bytedance.sdk.openadsdk.e.a.a.a(this.f30767b.get(), this.f30766a, aVar);
         }
     }
 
@@ -110,9 +113,7 @@ public class g extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Map<String, Object> B = B();
-            B.put("play_type", Integer.valueOf(o.a(this, this.f30599g)));
-            com.bytedance.sdk.openadsdk.e.d.c(this.f30593a.get(), this.f30594b, "rewarded_video", "play_start", B);
+            com.bytedance.sdk.openadsdk.e.a.a.a(this.f30767b.get(), this.f30768c, this.f30766a, this.j);
         }
     }
 
@@ -120,9 +121,9 @@ public class g extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Map<String, Object> B = B();
-            B.put("play_type", Integer.valueOf(o.a(this, this.f30599g)));
-            com.bytedance.sdk.openadsdk.e.d.c(this.f30593a.get(), this.f30594b, "rewarded_video", "feed_play", B);
+            o.a aVar = new o.a();
+            aVar.b(true);
+            com.bytedance.sdk.openadsdk.e.a.a.a(this.f30767b.get(), this.f30766a, aVar);
         }
     }
 }

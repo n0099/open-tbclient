@@ -28,36 +28,36 @@ public class av {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f36535a;
+    public static int f36724a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f36536b;
+    public static long f36725b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            int i2 = f36535a;
+            int i2 = f36724a;
             if (i2 <= 0 && context != null) {
                 int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
                 if (identifier > 0) {
-                    f36535a = context.getResources().getDimensionPixelSize(identifier);
+                    f36724a = context.getResources().getDimensionPixelSize(identifier);
                 } else {
                     try {
                         Class<?> cls = Class.forName("com.android.internal.R$dimen");
                         Object newInstance = cls.newInstance();
                         Field field = cls.getField("status_bar_height");
                         field.setAccessible(true);
-                        f36535a = context.getResources().getDimensionPixelSize(Integer.parseInt(field.get(newInstance).toString()));
+                        f36724a = context.getResources().getDimensionPixelSize(Integer.parseInt(field.get(newInstance).toString()));
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
                 }
-                if (f36535a <= 0) {
-                    f36535a = a(context, 25.0f);
+                if (f36724a <= 0) {
+                    f36724a = a(context, 25.0f);
                 }
-                return f36535a;
+                return f36724a;
             }
             return i2;
         }
@@ -140,8 +140,8 @@ public class av {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();
-            int i2 = (Math.abs(uptimeMillis - f36536b) > 500L ? 1 : (Math.abs(uptimeMillis - f36536b) == 500L ? 0 : -1));
-            f36536b = uptimeMillis;
+            int i2 = (Math.abs(uptimeMillis - f36725b) > 500L ? 1 : (Math.abs(uptimeMillis - f36725b) == 500L ? 0 : -1));
+            f36725b = uptimeMillis;
             return i2 < 0;
         }
         return invokeV.booleanValue;

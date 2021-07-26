@@ -32,8 +32,8 @@ public final class c extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
             try {
-                Context c2 = a.a().c();
-                return c2.getPackageManager().getPackageInfo(c2.getPackageName(), 0).versionName;
+                Context a2 = a.c().a();
+                return a2.getPackageManager().getPackageInfo(a2.getPackageName(), 0).versionName;
             } catch (Throwable unused) {
                 String str2 = (String) h.a(16777217, 0, 0L, "25a45a", new byte[]{42, 62});
                 return "";

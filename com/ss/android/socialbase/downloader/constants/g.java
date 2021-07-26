@@ -13,16 +13,19 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f38474a;
+    public static final g f38650a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f38475b;
+    public static final g f38651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f38476c;
+    public static final g f38652c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ g[] f38477d;
+    public static final g f38653d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final /* synthetic */ g[] f38654e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,11 +41,12 @@ public final class g {
                 return;
             }
         }
-        f38474a = new g("MAIN", 0);
-        f38475b = new g("SUB", 1);
-        g gVar = new g("NOTIFICATION", 2);
-        f38476c = gVar;
-        f38477d = new g[]{f38474a, f38475b, gVar};
+        f38650a = new g("DELAY_RETRY_NONE", 0);
+        f38651b = new g("DELAY_RETRY_WAITING", 1);
+        f38652c = new g("DELAY_RETRY_DOWNLOADING", 2);
+        g gVar = new g("DELAY_RETRY_DOWNLOADED", 3);
+        f38653d = gVar;
+        f38654e = new g[]{f38650a, f38651b, f38652c, gVar};
     }
 
     public g(String str, int i2) {
@@ -73,6 +77,6 @@ public final class g {
     public static g[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f38477d.clone() : (g[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f38654e.clone() : (g[]) invokeV.objValue;
     }
 }

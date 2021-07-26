@@ -289,11 +289,11 @@ public class Config {
         public static final EventViewType EDIT;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ EventViewType[] f8508b;
+        public static final /* synthetic */ EventViewType[] f8534b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f8509a;
+        public int f8535a;
 
         static {
             InterceptResult invokeClinit;
@@ -311,7 +311,7 @@ public class Config {
             EDIT = new EventViewType("EDIT", 0, 0);
             EventViewType eventViewType = new EventViewType("BUTTON", 1, 1);
             BUTTON = eventViewType;
-            f8508b = new EventViewType[]{EDIT, eventViewType};
+            f8534b = new EventViewType[]{EDIT, eventViewType};
         }
 
         public EventViewType(String str, int i2, int i3) {
@@ -332,7 +332,7 @@ public class Config {
                     return;
                 }
             }
-            this.f8509a = i3;
+            this.f8535a = i3;
         }
 
         public static EventViewType valueOf(String str) {
@@ -344,20 +344,20 @@ public class Config {
         public static EventViewType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EventViewType[]) f8508b.clone() : (EventViewType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EventViewType[]) f8534b.clone() : (EventViewType[]) invokeV.objValue;
         }
 
         public int getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8509a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8535a : invokeV.intValue;
         }
 
         @Override // java.lang.Enum
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f8509a) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f8535a) : (String) invokeV.objValue;
         }
     }
 

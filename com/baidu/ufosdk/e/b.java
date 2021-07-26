@@ -16,7 +16,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f23318a;
+    public static String f23476a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:70:0x015c */
@@ -67,10 +67,10 @@ public final class b {
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setInstanceFollowRedirects(true);
-                if (f23318a == null) {
-                    f23318a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + SmallTailInfo.EMOTION_SUFFIX;
+                if (f23476a == null) {
+                    f23476a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + SmallTailInfo.EMOTION_SUFFIX;
                 }
-                httpURLConnection.setRequestProperty("User-Agent", f23318a);
+                httpURLConnection.setRequestProperty("User-Agent", f23476a);
                 httpURLConnection.setConnectTimeout(5000);
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setChunkedStreamingMode(0);

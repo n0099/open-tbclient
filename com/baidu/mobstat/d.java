@@ -29,7 +29,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f8948a;
+    public static d f8974a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -38,16 +38,16 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8949a;
+        public String f8975a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8950b;
+        public String f8976b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8951c;
+        public String f8977c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f8952d;
+        public String f8978d;
 
         public a(String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -68,10 +68,10 @@ public class d {
             str2 = str2 == null ? "" : str2;
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
-            this.f8949a = str;
-            this.f8950b = str2;
-            this.f8951c = str3;
-            this.f8952d = str4;
+            this.f8975a = str;
+            this.f8976b = str2;
+            this.f8977c = str3;
+            this.f8978d = str4;
         }
 
         public JSONObject a() {
@@ -80,10 +80,10 @@ public class d {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("n", this.f8949a);
-                    jSONObject.put("v", this.f8950b);
-                    jSONObject.put("c", this.f8951c);
-                    jSONObject.put("a", this.f8952d);
+                    jSONObject.put("n", this.f8975a);
+                    jSONObject.put("v", this.f8976b);
+                    jSONObject.put("c", this.f8977c);
+                    jSONObject.put("a", this.f8978d);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -107,7 +107,7 @@ public class d {
                 return;
             }
         }
-        f8948a = new d();
+        f8974a = new d();
     }
 
     public d() {
@@ -216,7 +216,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f8994e.a(System.currentTimeMillis(), str);
+            k.f9020e.a(System.currentTimeMillis(), str);
         }
     }
 }

@@ -20,26 +20,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes4.dex */
 public class FrsHeaderBannerView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f15901e;
+    public TbImageView f15949e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15902f;
+    public TextView f15950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15903g;
+    public TextView f15951g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f15904h;
+    public View f15952h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f15905i;
+    public View f15953i;
     public String j;
     public TbPageContext k;
 
@@ -87,19 +87,19 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.frs_header_banner, (ViewGroup) this, true);
-            this.f15904h = inflate.findViewById(R.id.frs_header_title_container);
-            this.f15901e = (TbImageView) inflate.findViewById(R.id.frs_head_image);
-            this.f15902f = (TextView) inflate.findViewById(R.id.frs_header_title);
-            this.f15903g = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
-            this.f15905i = inflate.findViewById(R.id.frs_image_header_contianer);
-            this.f15901e.setOnClickListener(this);
-            this.f15904h.setOnClickListener(this);
-            this.f15905i.setOnClickListener(this);
-            this.f15901e.setDefaultResource(0);
-            this.f15901e.setRadius(l.g(getContext(), R.dimen.tbds20));
-            this.f15901e.setConrers(15);
-            this.f15901e.setPlaceHolder(2);
-            this.f15903g.setText(getContext().getString(R.string.frs_header_image_lable));
+            this.f15952h = inflate.findViewById(R.id.frs_header_title_container);
+            this.f15949e = (TbImageView) inflate.findViewById(R.id.frs_head_image);
+            this.f15950f = (TextView) inflate.findViewById(R.id.frs_header_title);
+            this.f15951g = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
+            this.f15953i = inflate.findViewById(R.id.frs_image_header_contianer);
+            this.f15949e.setOnClickListener(this);
+            this.f15952h.setOnClickListener(this);
+            this.f15953i.setOnClickListener(this);
+            this.f15949e.setDefaultResource(0);
+            this.f15949e.setRadius(l.g(getContext(), R.dimen.tbds20));
+            this.f15949e.setConrers(15);
+            this.f15949e.setPlaceHolder(2);
+            this.f15951g.setText(getContext().getString(R.string.frs_header_image_lable));
             this.k = getTbPageContext();
         }
     }
@@ -125,17 +125,17 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f15902f == null || this.f15903g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f15950f == null || this.f15951g == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f15902f.setText(str);
-            this.f15903g.setVisibility(0);
-            this.f15902f.setVisibility(0);
+            this.f15950f.setText(str);
+            this.f15951g.setVisibility(0);
+            this.f15950f.setVisibility(0);
             return;
         }
-        this.f15903g.setVisibility(8);
-        this.f15902f.setVisibility(8);
+        this.f15951g.setVisibility(8);
+        this.f15950f.setVisibility(8);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

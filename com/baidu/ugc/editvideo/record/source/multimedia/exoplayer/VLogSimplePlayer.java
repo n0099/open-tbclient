@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import d.a.v0.i.c;
-import d.a.v0.i.f.b;
+import d.a.w0.i.c;
+import d.a.w0.i.f.b;
 /* loaded from: classes5.dex */
 public class VLogSimplePlayer {
     public static /* synthetic */ Interceptable $ic = null;

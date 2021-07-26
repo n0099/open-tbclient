@@ -1,0 +1,7 @@
+package d.a.w0.p.g;
+/* loaded from: classes8.dex */
+public interface c {
+    void a(double d2);
+
+    void a(String str, boolean z);
+}

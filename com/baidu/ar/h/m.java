@@ -97,7 +97,7 @@ public final class m {
                 return "wifi";
             }
             int w = w(context);
-            return w == 2 ? "2G" : w == 3 ? com.baidu.apollon.statistics.g.f3986b : w == 4 ? "4G" : "other_network";
+            return w == 2 ? "2G" : w == 3 ? com.baidu.apollon.statistics.g.f4012b : w == 4 ? "4G" : "other_network";
         }
         return (String) invokeL.objValue;
     }

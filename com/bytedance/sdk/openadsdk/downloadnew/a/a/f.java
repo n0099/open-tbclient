@@ -28,7 +28,7 @@ public class f implements d.l.a.e.b.o.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f31118a;
+    public final WeakReference<Context> f31300a;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class f implements d.l.a.e.b.o.a {
                 return;
             }
         }
-        this.f31118a = new WeakReference<>(context);
+        this.f31300a = new WeakReference<>(context);
     }
 
     @Nullable
@@ -99,19 +99,19 @@ public class f implements d.l.a.e.b.o.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ InputStream f31119a;
+                    public final /* synthetic */ InputStream f31301a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Map f31120b;
+                    public final /* synthetic */ Map f31302b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ int f31121c;
+                    public final /* synthetic */ int f31303c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ HttpURLConnection f31122d;
+                    public final /* synthetic */ HttpURLConnection f31304d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ f f31123e;
+                    public final /* synthetic */ f f31305e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -128,25 +128,25 @@ public class f implements d.l.a.e.b.o.a {
                                 return;
                             }
                         }
-                        this.f31123e = this;
-                        this.f31119a = r7;
-                        this.f31120b = a3;
-                        this.f31121c = responseCode;
-                        this.f31122d = a2;
+                        this.f31305e = this;
+                        this.f31301a = r7;
+                        this.f31302b = a3;
+                        this.f31303c = responseCode;
+                        this.f31304d = a2;
                     }
 
                     @Override // d.l.a.e.b.o.k
                     public InputStream a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f31119a : (InputStream) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f31301a : (InputStream) invokeV.objValue;
                     }
 
                     @Override // d.l.a.e.b.o.i
                     public int b() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31121c : invokeV.intValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31303c : invokeV.intValue;
                     }
 
                     @Override // d.l.a.e.b.o.i
@@ -161,7 +161,7 @@ public class f implements d.l.a.e.b.o.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
                             try {
-                                this.f31122d.disconnect();
+                                this.f31304d.disconnect();
                             } catch (Exception unused) {
                             }
                         }
@@ -171,7 +171,7 @@ public class f implements d.l.a.e.b.o.a {
                     public String a(String str2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) ? (String) this.f31120b.get(str2) : (String) invokeL.objValue;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) ? (String) this.f31302b.get(str2) : (String) invokeL.objValue;
                     }
                 };
             }

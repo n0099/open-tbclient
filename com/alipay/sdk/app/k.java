@@ -17,33 +17,33 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final k f1810a;
+    public static final k f1843a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k f1811b;
+    public static final k f1844b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f1812c;
+    public static final k f1845c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final k f1813d;
+    public static final k f1846d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final k f1814e;
+    public static final k f1847e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final k f1815f;
+    public static final k f1848f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final k f1816g;
+    public static final k f1849g;
     public static final /* synthetic */ k[] j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1817h;
+    public int f1850h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f1818i;
+    public String f1851i;
 
     static {
         InterceptResult invokeClinit;
@@ -58,15 +58,15 @@ public final class k {
                 return;
             }
         }
-        f1810a = new k("SUCCEEDED", 0, 9000, "处理成功");
-        f1811b = new k("FAILED", 1, 4000, "系统繁忙，请稍后再试");
-        f1812c = new k("CANCELED", 2, ARPMessageType.MSG_TYPE_MODEL_LOAD_PROGRESS, "用户取消");
-        f1813d = new k("NETWORK_ERROR", 3, 6002, "网络连接异常");
-        f1814e = new k("PARAMS_ERROR", 4, 4001, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
-        f1815f = new k("DOUBLE_REQUEST", 5, 5000, "重复请求");
+        f1843a = new k("SUCCEEDED", 0, 9000, "处理成功");
+        f1844b = new k("FAILED", 1, 4000, "系统繁忙，请稍后再试");
+        f1845c = new k("CANCELED", 2, ARPMessageType.MSG_TYPE_MODEL_LOAD_PROGRESS, "用户取消");
+        f1846d = new k("NETWORK_ERROR", 3, 6002, "网络连接异常");
+        f1847e = new k("PARAMS_ERROR", 4, 4001, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+        f1848f = new k("DOUBLE_REQUEST", 5, 5000, "重复请求");
         k kVar = new k("PAY_WAITTING", 6, 8000, "支付结果确认中");
-        f1816g = kVar;
-        j = new k[]{f1810a, f1811b, f1812c, f1813d, f1814e, f1815f, kVar};
+        f1849g = kVar;
+        j = new k[]{f1843a, f1844b, f1845c, f1846d, f1847e, f1848f, kVar};
     }
 
     public k(String str, int i2, int i3, String str2) {
@@ -87,8 +87,8 @@ public final class k {
                 return;
             }
         }
-        this.f1817h = i3;
-        this.f1818i = str2;
+        this.f1850h = i3;
+        this.f1851i = str2;
     }
 
     public static k valueOf(String str) {
@@ -106,14 +106,14 @@ public final class k {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f1817h = i2;
+            this.f1850h = i2;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1818i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1851i : (String) invokeV.objValue;
     }
 
     public static k b(int i2) {
@@ -126,19 +126,19 @@ public final class k {
                         if (i2 != 9000) {
                             if (i2 != 6001) {
                                 if (i2 != 6002) {
-                                    return f1811b;
+                                    return f1844b;
                                 }
-                                return f1813d;
+                                return f1846d;
                             }
-                            return f1812c;
+                            return f1845c;
                         }
-                        return f1810a;
+                        return f1843a;
                     }
-                    return f1816g;
+                    return f1849g;
                 }
-                return f1815f;
+                return f1848f;
             }
-            return f1814e;
+            return f1847e;
         }
         return (k) invokeI.objValue;
     }
@@ -146,13 +146,13 @@ public final class k {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1817h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1850h : invokeV.intValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f1818i = str;
+            this.f1851i = str;
         }
     }
 }

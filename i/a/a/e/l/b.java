@@ -11,21 +11,21 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
 import i.a.a.e.g;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.model.ThemeColorConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PaysSettingInfo f72885a = null;
+    public static PaysSettingInfo f73339a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f72886b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+    public static String f73340b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f72887c = "https://web.yy.com/yy_wallet/wallet.html?";
+    public static String f73341c = "https://web.yy.com/yy_wallet/wallet.html?";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f72888d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+    public static String f73342d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -79,9 +79,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(f72888d, payUIKitConfig);
+                return a(f73342d, payUIKitConfig);
             }
-            return f72888d;
+            return f73342d;
         }
         return (String) invokeL.objValue;
     }
@@ -91,9 +91,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(f72887c, payUIKitConfig);
+                return a(f73341c, payUIKitConfig);
             }
-            return f72887c;
+            return f73341c;
         }
         return (String) invokeL.objValue;
     }
@@ -103,9 +103,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, payUIKitConfig)) == null) {
             if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
-                return f72886b;
+                return f73340b;
             }
-            return a(f72886b, payUIKitConfig);
+            return a(f73340b, payUIKitConfig);
         }
         return (String) invokeL.objValue;
     }
@@ -114,14 +114,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
             if (z) {
-                f72886b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
-                f72887c = "https://webtest.yy.com/yy_wallet/wallet.html?";
-                f72888d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+                f73340b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+                f73341c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+                f73342d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
                 return;
             }
-            f72886b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-            f72887c = "https://web.yy.com/yy_wallet/wallet.html?";
-            f72888d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+            f73340b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+            f73341c = "https://web.yy.com/yy_wallet/wallet.html?";
+            f73342d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
         }
     }
 }

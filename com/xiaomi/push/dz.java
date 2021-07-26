@@ -13,19 +13,19 @@ public class dz {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40047a;
+    public int f40319a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f310a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40048b;
+    public String f40320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40049c;
+    public String f40321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40050d;
+    public String f40322d;
 
     public dz() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class dz {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40047a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40319a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -57,7 +57,7 @@ public class dz {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f40047a = i2;
+            this.f40319a = i2;
         }
     }
 
@@ -71,39 +71,39 @@ public class dz {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40048b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40320b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f40048b = str;
+            this.f40320b = str;
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40049c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40321c : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f40049c = str;
+            this.f40321c = str;
         }
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40050d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40322d : (String) invokeV.objValue;
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f40050d = str;
+            this.f40322d = str;
         }
     }
 }

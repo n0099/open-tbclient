@@ -1,7 +1,5 @@
 package d.l.a.e.b.f;
-
-import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
-public interface u extends b {
-    void a(DownloadInfo downloadInfo);
+public interface u {
+    boolean a(long j, long j2, t tVar);
 }

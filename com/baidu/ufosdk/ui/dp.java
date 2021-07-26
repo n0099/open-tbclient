@@ -15,7 +15,7 @@ public final class dp implements AdapterView.OnItemClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f23573a;
+    public final /* synthetic */ FeedbackListActivity f23731a;
 
     public dp(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class dp implements AdapterView.OnItemClickListener {
                 return;
             }
         }
-        this.f23573a = feedbackListActivity;
+        this.f23731a = feedbackListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -43,22 +43,22 @@ public final class dp implements AdapterView.OnItemClickListener {
         List list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            list = this.f23573a.f23413e;
+            list = this.f23731a.f23571e;
             ((Map) list.get(i2)).put("newmsg", "0");
-            duVar = this.f23573a.u;
+            duVar = this.f23731a.u;
             duVar.notifyDataSetChanged();
             Intent intent = new Intent();
-            intent.setClass(this.f23573a, FeedbackInputActivity.class);
-            list2 = this.f23573a.f23413e;
+            intent.setClass(this.f23731a, FeedbackInputActivity.class);
+            list2 = this.f23731a.f23571e;
             intent.putExtra("msgid", (String) ((Map) list2.get(i2)).get("id"));
-            list3 = this.f23573a.f23413e;
+            list3 = this.f23731a.f23571e;
             intent.putExtra("appid", (String) ((Map) list3.get(i2)).get("appid"));
             intent.putExtra("fromList", true);
             intent.putExtra("fromEdit", false);
             if (com.baidu.ufosdk.f.h.a()) {
                 return;
             }
-            this.f23573a.startActivity(intent);
+            this.f23731a.startActivity(intent);
         }
     }
 }

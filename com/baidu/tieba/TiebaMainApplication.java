@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.m0.l;
-import d.a.o0.q0.a;
+import d.a.p0.o0.l;
+import d.a.p0.s0.a;
 /* loaded from: classes3.dex */
 public class TiebaMainApplication extends TbadkApplication {
     public static /* synthetic */ Interceptable $ic;

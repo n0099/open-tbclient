@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -52,7 +52,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebViewCardView f18287a;
+        public final /* synthetic */ WebViewCardView f18343a;
 
         public a(WebViewCardView webViewCardView) {
             Interceptable interceptable = $ic;
@@ -69,14 +69,14 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                     return;
                 }
             }
-            this.f18287a = webViewCardView;
+            this.f18343a = webViewCardView;
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.f18287a.N(str2, jsPromptResult) : invokeLLLLL.booleanValue;
+            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.f18343a.N(str2, jsPromptResult) : invokeLLLLL.booleanValue;
         }
     }
 
@@ -86,7 +86,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewCardView f18288e;
+        public final /* synthetic */ WebViewCardView f18344e;
 
         public b(WebViewCardView webViewCardView) {
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                     return;
                 }
             }
-            this.f18288e = webViewCardView;
+            this.f18344e = webViewCardView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -111,7 +111,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (!this.f18288e.r && !WebViewCardView.w) {
+                if (!this.f18344e.r && !WebViewCardView.w) {
                     ((WebView) view).requestDisallowInterceptTouchEvent(true);
                 }
                 return false;
@@ -126,7 +126,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewCardView f18289e;
+        public final /* synthetic */ WebViewCardView f18345e;
 
         public c(WebViewCardView webViewCardView) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                     return;
                 }
             }
-            this.f18289e = webViewCardView;
+            this.f18345e = webViewCardView;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
@@ -151,7 +151,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                UrlManager.getInstance().dealOneLink(this.f18289e.m, new String[]{str}, true);
+                UrlManager.getInstance().dealOneLink(this.f18345e.m, new String[]{str}, true);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -164,7 +164,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebViewCardView f18290a;
+        public final /* synthetic */ WebViewCardView f18346a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(WebViewCardView webViewCardView, int i2) {
@@ -184,7 +184,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                     return;
                 }
             }
-            this.f18290a = webViewCardView;
+            this.f18346a = webViewCardView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -321,7 +321,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         CompatibleUtile.getInstance().loadUrl(this.t, webViewCard.getPageUrl());
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.a.p0.n1.o.l.e
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.a.q0.n1.o.l.e
     public void e(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {

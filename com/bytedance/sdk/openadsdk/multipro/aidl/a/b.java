@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.ITTAppDownloadListener;
 import java.util.Collections;
 import java.util.HashMap;
@@ -21,10 +21,10 @@ public class b extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f31533a;
+    public static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f31720a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f31534b;
+    public static volatile b f31721b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class b extends a {
                 return;
             }
         }
-        f31533a = Collections.synchronizedMap(new HashMap());
+        f31720a = Collections.synchronizedMap(new HashMap());
     }
 
     public b() {
@@ -61,14 +61,14 @@ public class b extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31534b == null) {
+            if (f31721b == null) {
                 synchronized (b.class) {
-                    if (f31534b == null) {
-                        f31534b = new b();
+                    if (f31721b == null) {
+                        f31721b = new b();
                     }
                 }
             }
-            return f31534b;
+            return f31721b;
         }
         return (b) invokeV.objValue;
     }
@@ -85,14 +85,14 @@ public class b extends a {
     public void registerTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iTTAppDownloadListener) == null) {
-            RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f31533a.get(str);
+            RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f31720a.get(str);
             if (remoteCallbackList == null) {
                 remoteCallbackList = new RemoteCallbackList<>();
             }
             remoteCallbackList.register(iTTAppDownloadListener);
-            f31533a.put(str, remoteCallbackList);
-            j.f("DMLibManager", "aidl registerTTAppDownloadListener, materialMd5:" + str);
-            j.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f31533a.size());
+            f31720a.put(str, remoteCallbackList);
+            k.f("DMLibManager", "aidl registerTTAppDownloadListener, materialMd5:" + str);
+            k.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f31720a.size());
         }
     }
 
@@ -100,19 +100,19 @@ public class b extends a {
     public void unregisterTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iTTAppDownloadListener) == null) {
-            Map<String, RemoteCallbackList<ITTAppDownloadListener>> map = f31533a;
+            Map<String, RemoteCallbackList<ITTAppDownloadListener>> map = f31720a;
             if (map == null) {
-                j.f("DMLibManager", "aidl unregisterTTAppDownloadListener mListenerMap = null, materialMd5:" + str);
+                k.f("DMLibManager", "aidl unregisterTTAppDownloadListener mListenerMap = null, materialMd5:" + str);
                 return;
             }
             RemoteCallbackList<ITTAppDownloadListener> remove = map.remove(str);
             if (remove == null) {
-                j.f("DMLibManager", "aidl unregisterTTAppDownloadListener cbs = null, materialMd5:" + str);
+                k.f("DMLibManager", "aidl unregisterTTAppDownloadListener cbs = null, materialMd5:" + str);
                 return;
             }
             a(remove);
-            j.f("DMLibManager", "aidl unregisterTTAppDownloadListener, materialMd5:" + str);
-            j.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f31533a.size());
+            k.f("DMLibManager", "aidl unregisterTTAppDownloadListener, materialMd5:" + str);
+            k.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f31720a.size());
         }
     }
 
@@ -123,18 +123,18 @@ public class b extends a {
             synchronized (this) {
                 try {
                 } catch (Throwable th) {
-                    j.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess2: " + str2 + " throws Exception :", th);
+                    k.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess2: " + str2 + " throws Exception :", th);
                 }
-                if (f31533a == null) {
+                if (f31720a == null) {
                     return;
                 }
                 if ("recycleRes".equals(str2)) {
-                    a(f31533a.remove(str));
-                    j.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, materialMd5:" + str);
-                    j.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f31533a.size());
+                    a(f31720a.remove(str));
+                    k.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, materialMd5:" + str);
+                    k.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f31720a.size());
                     return;
                 }
-                RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f31533a.get(str);
+                RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f31720a.get(str);
                 if (remoteCallbackList != null) {
                     int beginBroadcast = remoteCallbackList.beginBroadcast();
                     for (int i2 = 0; i2 < beginBroadcast; i2++) {
@@ -158,7 +158,7 @@ public class b extends a {
                                         broadcastItem.onDownloadFinished(j, str3, str4);
                                     } catch (Throwable th3) {
                                         th = th3;
-                                        j.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess1: " + str2 + " throws Exception :", th);
+                                        k.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess1: " + str2 + " throws Exception :", th);
                                     }
                                 } else if ("onInstalled".equals(str2)) {
                                     broadcastItem.onInstalled(str3, str4);
@@ -188,7 +188,7 @@ public class b extends a {
             remoteCallbackList.finishBroadcast();
             remoteCallbackList.kill();
         } catch (Throwable th) {
-            j.c("MultiProcess", "recycleRes2 throw Exception : ", th);
+            k.c("MultiProcess", "recycleRes2 throw Exception : ", th);
         }
     }
 }

@@ -27,32 +27,32 @@ public final class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f28612d;
+    public static final char[] f28706d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f28613a;
+    public final String f28707a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28614b;
+    public final String f28708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f28615c;
+    public final int f28709c;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f28616e;
+    public final String f28710e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f28617f;
+    public final String f28711f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<String> f28618g;
+    public final List<String> f28712g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<String> f28619h;
+    public final List<String> f28713h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f28620i;
+    public final String f28714i;
     public final String j;
 
     static {
@@ -68,7 +68,7 @@ public final class t {
                 return;
             }
         }
-        f28612d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f28706d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public t(a aVar) {
@@ -86,16 +86,16 @@ public final class t {
                 return;
             }
         }
-        this.f28613a = aVar.f28621a;
-        this.f28616e = a(aVar.f28622b, false);
-        this.f28617f = a(aVar.f28623c, false);
-        this.f28614b = aVar.f28624d;
-        this.f28615c = aVar.a();
-        this.f28618g = a(aVar.f28626f, false);
-        List<String> list = aVar.f28627g;
-        this.f28619h = list != null ? a(list, true) : null;
-        String str = aVar.f28628h;
-        this.f28620i = str != null ? a(str, false) : null;
+        this.f28707a = aVar.f28715a;
+        this.f28710e = a(aVar.f28716b, false);
+        this.f28711f = a(aVar.f28717c, false);
+        this.f28708b = aVar.f28718d;
+        this.f28709c = aVar.a();
+        this.f28712g = a(aVar.f28720f, false);
+        List<String> list = aVar.f28721g;
+        this.f28713h = list != null ? a(list, true) : null;
+        String str = aVar.f28722h;
+        this.f28714i = str != null ? a(str, false) : null;
         this.j = aVar.toString();
     }
 
@@ -133,23 +133,23 @@ public final class t {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28613a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28707a : (String) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28613a.equals("https") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28707a.equals("https") : invokeV.booleanValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f28616e.isEmpty()) {
+            if (this.f28710e.isEmpty()) {
                 return "";
             }
-            int length = this.f28613a.length() + 3;
+            int length = this.f28707a.length() + 3;
             String str = this.j;
             return this.j.substring(length, com.bytedance.sdk.component.b.b.a.c.a(str, length, str.length(), ":@"));
         }
@@ -166,10 +166,10 @@ public final class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f28617f.isEmpty()) {
+            if (this.f28711f.isEmpty()) {
                 return "";
             }
-            return this.j.substring(this.j.indexOf(58, this.f28613a.length() + 3) + 1, this.j.indexOf(64));
+            return this.j.substring(this.j.indexOf(58, this.f28707a.length() + 3) + 1, this.j.indexOf(64));
         }
         return (String) invokeV.objValue;
     }
@@ -177,13 +177,13 @@ public final class t {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28614b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28708b : (String) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f28615c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f28709c : invokeV.intValue;
     }
 
     public int hashCode() {
@@ -196,7 +196,7 @@ public final class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int indexOf = this.j.indexOf(47, this.f28613a.length() + 3);
+            int indexOf = this.j.indexOf(47, this.f28707a.length() + 3);
             String str = this.j;
             return this.j.substring(indexOf, com.bytedance.sdk.component.b.b.a.c.a(str, indexOf, str.length(), "?#"));
         }
@@ -207,7 +207,7 @@ public final class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            int indexOf = this.j.indexOf(47, this.f28613a.length() + 3);
+            int indexOf = this.j.indexOf(47, this.f28707a.length() + 3);
             String str = this.j;
             int a2 = com.bytedance.sdk.component.b.b.a.c.a(str, indexOf, str.length(), "?#");
             ArrayList arrayList = new ArrayList();
@@ -226,7 +226,7 @@ public final class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.f28619h == null) {
+            if (this.f28713h == null) {
                 return null;
             }
             int indexOf = this.j.indexOf(63) + 1;
@@ -240,11 +240,11 @@ public final class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.f28619h == null) {
+            if (this.f28713h == null) {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
-            b(sb, this.f28619h);
+            b(sb, this.f28713h);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -254,7 +254,7 @@ public final class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.f28620i == null) {
+            if (this.f28714i == null) {
                 return null;
             }
             return this.j.substring(this.j.indexOf(35) + 1);
@@ -273,15 +273,15 @@ public final class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             a aVar = new a();
-            aVar.f28621a = this.f28613a;
-            aVar.f28622b = e();
-            aVar.f28623c = f();
-            aVar.f28624d = this.f28614b;
-            aVar.f28625e = this.f28615c != a(this.f28613a) ? this.f28615c : -1;
-            aVar.f28626f.clear();
-            aVar.f28626f.addAll(j());
+            aVar.f28715a = this.f28707a;
+            aVar.f28716b = e();
+            aVar.f28717c = f();
+            aVar.f28718d = this.f28708b;
+            aVar.f28719e = this.f28709c != a(this.f28707a) ? this.f28709c : -1;
+            aVar.f28720f.clear();
+            aVar.f28720f.addAll(j());
             aVar.f(k());
-            aVar.f28628h = m();
+            aVar.f28722h = m();
             return aVar;
         }
         return (a) invokeV.objValue;
@@ -299,52 +299,52 @@ public final class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f28621a;
+        public String f28715a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28622b;
+        public String f28716b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f28623c;
+        public String f28717c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f28624d;
+        public String f28718d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f28625e;
+        public int f28719e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<String> f28626f;
+        public final List<String> f28720f;
 
         /* renamed from: g  reason: collision with root package name */
-        public List<String> f28627g;
+        public List<String> f28721g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f28628h;
+        public String f28722h;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* renamed from: com.bytedance.sdk.component.b.b.t$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static final class EnumC0320a {
+        public static final class EnumC0322a {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final EnumC0320a f28629a;
+            public static final EnumC0322a f28723a;
 
             /* renamed from: b  reason: collision with root package name */
-            public static final EnumC0320a f28630b;
+            public static final EnumC0322a f28724b;
 
             /* renamed from: c  reason: collision with root package name */
-            public static final EnumC0320a f28631c;
+            public static final EnumC0322a f28725c;
 
             /* renamed from: d  reason: collision with root package name */
-            public static final EnumC0320a f28632d;
+            public static final EnumC0322a f28726d;
 
             /* renamed from: e  reason: collision with root package name */
-            public static final EnumC0320a f28633e;
+            public static final EnumC0322a f28727e;
 
             /* renamed from: f  reason: collision with root package name */
-            public static final /* synthetic */ EnumC0320a[] f28634f;
+            public static final /* synthetic */ EnumC0322a[] f28728f;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -360,16 +360,16 @@ public final class t {
                         return;
                     }
                 }
-                f28629a = new EnumC0320a(com.alipay.security.mobile.module.http.model.c.f2103g, 0);
-                f28630b = new EnumC0320a("MISSING_SCHEME", 1);
-                f28631c = new EnumC0320a("UNSUPPORTED_SCHEME", 2);
-                f28632d = new EnumC0320a("INVALID_PORT", 3);
-                EnumC0320a enumC0320a = new EnumC0320a("INVALID_HOST", 4);
-                f28633e = enumC0320a;
-                f28634f = new EnumC0320a[]{f28629a, f28630b, f28631c, f28632d, enumC0320a};
+                f28723a = new EnumC0322a(com.alipay.security.mobile.module.http.model.c.f2136g, 0);
+                f28724b = new EnumC0322a("MISSING_SCHEME", 1);
+                f28725c = new EnumC0322a("UNSUPPORTED_SCHEME", 2);
+                f28726d = new EnumC0322a("INVALID_PORT", 3);
+                EnumC0322a enumC0322a = new EnumC0322a("INVALID_HOST", 4);
+                f28727e = enumC0322a;
+                f28728f = new EnumC0322a[]{f28723a, f28724b, f28725c, f28726d, enumC0322a};
             }
 
-            public EnumC0320a(String str, int i2) {
+            public EnumC0322a(String str, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -388,16 +388,16 @@ public final class t {
                 }
             }
 
-            public static EnumC0320a valueOf(String str) {
+            public static EnumC0322a valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0320a) Enum.valueOf(EnumC0320a.class, str) : (EnumC0320a) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0322a) Enum.valueOf(EnumC0322a.class, str) : (EnumC0322a) invokeL.objValue;
             }
 
-            public static EnumC0320a[] values() {
+            public static EnumC0322a[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0320a[]) f28634f.clone() : (EnumC0320a[]) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0322a[]) f28728f.clone() : (EnumC0322a[]) invokeV.objValue;
             }
         }
 
@@ -414,11 +414,11 @@ public final class t {
                     return;
                 }
             }
-            this.f28622b = "";
-            this.f28623c = "";
-            this.f28625e = -1;
+            this.f28716b = "";
+            this.f28717c = "";
+            this.f28719e = -1;
             ArrayList arrayList = new ArrayList();
-            this.f28626f = arrayList;
+            this.f28720f = arrayList;
             arrayList.add("");
         }
 
@@ -440,9 +440,9 @@ public final class t {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 if (str != null) {
                     if (str.equalsIgnoreCase("http")) {
-                        this.f28621a = "http";
+                        this.f28715a = "http";
                     } else if (str.equalsIgnoreCase("https")) {
-                        this.f28621a = "https";
+                        this.f28715a = "https";
                     } else {
                         throw new IllegalArgumentException("unexpected scheme: " + str);
                     }
@@ -458,7 +458,7 @@ public final class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
                 if (str != null) {
-                    this.f28622b = t.a(str, " \"':;<=>@[]^`{}|/\\?#", false, false, false, true);
+                    this.f28716b = t.a(str, " \"':;<=>@[]^`{}|/\\?#", false, false, false, true);
                     return this;
                 }
                 throw new NullPointerException("username == null");
@@ -471,7 +471,7 @@ public final class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
                 if (str != null) {
-                    this.f28623c = t.a(str, " \"':;<=>@[]^`{}|/\\?#", false, false, false, true);
+                    this.f28717c = t.a(str, " \"':;<=>@[]^`{}|/\\?#", false, false, false, true);
                     return this;
                 }
                 throw new NullPointerException("password == null");
@@ -486,7 +486,7 @@ public final class t {
                 if (str != null) {
                     String e2 = e(str, 0, str.length());
                     if (e2 != null) {
-                        this.f28624d = e2;
+                        this.f28718d = e2;
                         return this;
                     }
                     throw new IllegalArgumentException("unexpected host: " + str);
@@ -512,7 +512,7 @@ public final class t {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-                this.f28627g = str != null ? t.b(t.a(str, " \"'<>#", true, false, true, true)) : null;
+                this.f28721g = str != null ? t.b(t.a(str, " \"'<>#", true, false, true, true)) : null;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -523,36 +523,36 @@ public final class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f28621a);
+                sb.append(this.f28715a);
                 sb.append("://");
-                if (!this.f28622b.isEmpty() || !this.f28623c.isEmpty()) {
-                    sb.append(this.f28622b);
-                    if (!this.f28623c.isEmpty()) {
+                if (!this.f28716b.isEmpty() || !this.f28717c.isEmpty()) {
+                    sb.append(this.f28716b);
+                    if (!this.f28717c.isEmpty()) {
                         sb.append(':');
-                        sb.append(this.f28623c);
+                        sb.append(this.f28717c);
                     }
                     sb.append('@');
                 }
-                if (this.f28624d.indexOf(58) != -1) {
+                if (this.f28718d.indexOf(58) != -1) {
                     sb.append('[');
-                    sb.append(this.f28624d);
+                    sb.append(this.f28718d);
                     sb.append(']');
                 } else {
-                    sb.append(this.f28624d);
+                    sb.append(this.f28718d);
                 }
                 int a2 = a();
-                if (a2 != t.a(this.f28621a)) {
+                if (a2 != t.a(this.f28715a)) {
                     sb.append(':');
                     sb.append(a2);
                 }
-                t.a(sb, this.f28626f);
-                if (this.f28627g != null) {
+                t.a(sb, this.f28720f);
+                if (this.f28721g != null) {
                     sb.append('?');
-                    t.b(sb, this.f28627g);
+                    t.b(sb, this.f28721g);
                 }
-                if (this.f28628h != null) {
+                if (this.f28722h != null) {
                     sb.append('#');
-                    sb.append(this.f28628h);
+                    sb.append(this.f28722h);
                 }
                 return sb.toString();
             }
@@ -586,23 +586,23 @@ public final class t {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int size = this.f28626f.size();
+                int size = this.f28720f.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f28626f.set(i2, t.a(this.f28626f.get(i2), "[]", true, true, false, true));
+                    this.f28720f.set(i2, t.a(this.f28720f.get(i2), "[]", true, true, false, true));
                 }
-                List<String> list = this.f28627g;
+                List<String> list = this.f28721g;
                 if (list != null) {
                     int size2 = list.size();
                     for (int i3 = 0; i3 < size2; i3++) {
-                        String str = this.f28627g.get(i3);
+                        String str = this.f28721g.get(i3);
                         if (str != null) {
-                            this.f28627g.set(i3, t.a(str, "\\^`{|}", true, true, true, true));
+                            this.f28721g.set(i3, t.a(str, "\\^`{|}", true, true, true, true));
                         }
                     }
                 }
-                String str2 = this.f28628h;
+                String str2 = this.f28722h;
                 if (str2 != null) {
-                    this.f28628h = t.a(str2, " \"#<>\\^`{|}", true, true, false, false);
+                    this.f28722h = t.a(str2, " \"#<>\\^`{|}", true, true, false, false);
                 }
                 return this;
             }
@@ -613,8 +613,8 @@ public final class t {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                if (this.f28621a != null) {
-                    if (this.f28624d != null) {
+                if (this.f28715a != null) {
+                    if (this.f28718d != null) {
                         return new t(this);
                     }
                     throw new IllegalStateException("host == null");
@@ -627,13 +627,13 @@ public final class t {
         private void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-                List<String> list = this.f28626f;
-                if (list.remove(list.size() - 1).isEmpty() && !this.f28626f.isEmpty()) {
-                    List<String> list2 = this.f28626f;
+                List<String> list = this.f28720f;
+                if (list.remove(list.size() - 1).isEmpty() && !this.f28720f.isEmpty()) {
+                    List<String> list2 = this.f28720f;
                     list2.set(list2.size() - 1, "");
                     return;
                 }
-                this.f28626f.add("");
+                this.f28720f.add("");
             }
         }
 
@@ -642,7 +642,7 @@ public final class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 if (i2 > 0 && i2 <= 65535) {
-                    this.f28625e = i2;
+                    this.f28719e = i2;
                     return this;
                 }
                 throw new IllegalArgumentException("unexpected port: " + i2);
@@ -695,8 +695,8 @@ public final class t {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f28625e;
-                return i2 != -1 ? i2 : t.a(this.f28621a);
+                int i2 = this.f28719e;
+                return i2 != -1 ? i2 : t.a(this.f28715a);
             }
             return invokeV.intValue;
         }
@@ -721,11 +721,11 @@ public final class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
                 if (str != null) {
-                    if (this.f28627g == null) {
-                        this.f28627g = new ArrayList();
+                    if (this.f28721g == null) {
+                        this.f28721g = new ArrayList();
                     }
-                    this.f28627g.add(t.a(str, " \"'<>#&=", true, false, true, true));
-                    this.f28627g.add(str2 != null ? t.a(str2, " \"'<>#&=", true, false, true, true) : null);
+                    this.f28721g.add(t.a(str, " \"'<>#&=", true, false, true, true));
+                    this.f28721g.add(str2 != null ? t.a(str2, " \"'<>#&=", true, false, true, true) : null);
                     return this;
                 }
                 throw new NullPointerException("encodedName == null");
@@ -766,7 +766,7 @@ public final class t {
             return invokeLII.intValue;
         }
 
-        public EnumC0320a a(t tVar, String str) {
+        public EnumC0322a a(t tVar, String str) {
             InterceptResult invokeLL;
             int a2;
             int i2;
@@ -776,29 +776,29 @@ public final class t {
                 int b2 = com.bytedance.sdk.component.b.b.a.c.b(str, a3, str.length());
                 if (b(str, a3, b2) != -1) {
                     if (str.regionMatches(true, a3, UrlSchemaHelper.SCHEMA_TYPE_HTTPS, 0, 6)) {
-                        this.f28621a = "https";
+                        this.f28715a = "https";
                         a3 += 6;
                     } else if (str.regionMatches(true, a3, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                        this.f28621a = "http";
+                        this.f28715a = "http";
                         a3 += 5;
                     } else {
-                        return EnumC0320a.f28631c;
+                        return EnumC0322a.f28725c;
                     }
                 } else if (tVar != null) {
-                    this.f28621a = tVar.f28613a;
+                    this.f28715a = tVar.f28707a;
                 } else {
-                    return EnumC0320a.f28630b;
+                    return EnumC0322a.f28724b;
                 }
                 int c2 = c(str, a3, b2);
                 char c3 = '?';
                 char c4 = '#';
-                if (c2 < 2 && tVar != null && tVar.f28613a.equals(this.f28621a)) {
-                    this.f28622b = tVar.e();
-                    this.f28623c = tVar.f();
-                    this.f28624d = tVar.f28614b;
-                    this.f28625e = tVar.f28615c;
-                    this.f28626f.clear();
-                    this.f28626f.addAll(tVar.j());
+                if (c2 < 2 && tVar != null && tVar.f28707a.equals(this.f28715a)) {
+                    this.f28716b = tVar.e();
+                    this.f28717c = tVar.f();
+                    this.f28718d = tVar.f28708b;
+                    this.f28719e = tVar.f28709c;
+                    this.f28720f.clear();
+                    this.f28720f.addAll(tVar.j());
                     if (a3 == b2 || str.charAt(a3) == '#') {
                         f(tVar.k());
                     }
@@ -818,17 +818,17 @@ public final class t {
                                 i2 = a2;
                                 String a5 = t.a(str, i3, a4, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
                                 if (z2) {
-                                    a5 = this.f28622b + "%40" + a5;
+                                    a5 = this.f28716b + "%40" + a5;
                                 }
-                                this.f28622b = a5;
+                                this.f28716b = a5;
                                 if (a4 != i2) {
-                                    this.f28623c = t.a(str, a4 + 1, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                                    this.f28717c = t.a(str, a4 + 1, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
                                     z = true;
                                 }
                                 z2 = true;
                             } else {
                                 i2 = a2;
-                                this.f28623c += "%40" + t.a(str, i3, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                                this.f28717c += "%40" + t.a(str, i3, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
                             }
                             i3 = i2 + 1;
                         }
@@ -838,18 +838,18 @@ public final class t {
                     int d2 = d(str, i3, a2);
                     int i4 = d2 + 1;
                     if (i4 < a2) {
-                        this.f28624d = e(str, i3, d2);
+                        this.f28718d = e(str, i3, d2);
                         int f2 = f(str, i4, a2);
-                        this.f28625e = f2;
+                        this.f28719e = f2;
                         if (f2 == -1) {
-                            return EnumC0320a.f28632d;
+                            return EnumC0322a.f28726d;
                         }
                     } else {
-                        this.f28624d = e(str, i3, d2);
-                        this.f28625e = t.a(this.f28621a);
+                        this.f28718d = e(str, i3, d2);
+                        this.f28719e = t.a(this.f28715a);
                     }
-                    if (this.f28624d == null) {
-                        return EnumC0320a.f28633e;
+                    if (this.f28718d == null) {
+                        return EnumC0322a.f28727e;
                     }
                     a3 = a2;
                 }
@@ -857,15 +857,15 @@ public final class t {
                 a(str, a3, a6);
                 if (a6 < b2 && str.charAt(a6) == '?') {
                     int a7 = com.bytedance.sdk.component.b.b.a.c.a(str, a6, b2, '#');
-                    this.f28627g = t.b(t.a(str, a6 + 1, a7, " \"'<>#", true, false, true, true, null));
+                    this.f28721g = t.b(t.a(str, a6 + 1, a7, " \"'<>#", true, false, true, true, null));
                     a6 = a7;
                 }
                 if (a6 < b2 && str.charAt(a6) == '#') {
-                    this.f28628h = t.a(str, 1 + a6, b2, "", true, false, false, false, null);
+                    this.f28722h = t.a(str, 1 + a6, b2, "", true, false, false, false, null);
                 }
-                return EnumC0320a.f28629a;
+                return EnumC0322a.f28723a;
             }
-            return (EnumC0320a) invokeLL.objValue;
+            return (EnumC0322a) invokeLL.objValue;
         }
 
         /*  JADX ERROR: JadxOverflowException in pass: RegionMakerVisitor
@@ -898,15 +898,15 @@ public final class t {
                 if (r0 != r1) goto L17
                 goto L22
             L17:
-                java.util.List<java.lang.String> r0 = r10.f28626f
+                java.util.List<java.lang.String> r0 = r10.f28720f
                 int r1 = r0.size()
                 int r1 = r1 - r3
                 r0.set(r1, r2)
                 goto L2d
             L22:
-                java.util.List<java.lang.String> r0 = r10.f28626f
+                java.util.List<java.lang.String> r0 = r10.f28720f
                 r0.clear()
-                java.util.List<java.lang.String> r0 = r10.f28626f
+                java.util.List<java.lang.String> r0 = r10.f28720f
                 r0.add(r2)
                 goto L45
             L2d:
@@ -953,15 +953,15 @@ public final class t {
                     d();
                     return;
                 }
-                List<String> list = this.f28626f;
+                List<String> list = this.f28720f;
                 if (list.get(list.size() - 1).isEmpty()) {
-                    List<String> list2 = this.f28626f;
+                    List<String> list2 = this.f28720f;
                     list2.set(list2.size() - 1, a2);
                 } else {
-                    this.f28626f.add(a2);
+                    this.f28720f.add(a2);
                 }
                 if (z) {
-                    this.f28626f.add("");
+                    this.f28720f.add("");
                 }
             }
         }
@@ -985,7 +985,7 @@ public final class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             a aVar = new a();
-            if (aVar.a(this, str) == a.EnumC0320a.f28629a) {
+            if (aVar.a(this, str) == a.EnumC0322a.f28723a) {
                 return aVar;
             }
             return null;
@@ -1024,7 +1024,7 @@ public final class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             a aVar = new a();
-            if (aVar.a((t) null, str) == a.EnumC0320a.f28629a) {
+            if (aVar.a((t) null, str) == a.EnumC0322a.f28723a) {
                 return aVar.c();
             }
             return null;
@@ -1044,7 +1044,7 @@ public final class t {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(com.alipay.sdk.encrypt.a.f1890h);
+                    sb.append(com.alipay.sdk.encrypt.a.f1923h);
                     sb.append(str2);
                 }
             }
@@ -1194,7 +1194,7 @@ public final class t {
                         if (cVar2 == null) {
                             cVar2 = new com.bytedance.sdk.component.b.a.c();
                         }
-                        if (charset != null && !charset.equals(com.bytedance.sdk.component.b.b.a.c.f28225e)) {
+                        if (charset != null && !charset.equals(com.bytedance.sdk.component.b.b.a.c.f28319e)) {
                             cVar2.a(str, i2, Character.charCount(codePointAt) + i2, charset);
                         } else {
                             cVar2.a(codePointAt);
@@ -1202,8 +1202,8 @@ public final class t {
                         while (!cVar2.e()) {
                             int h2 = cVar2.h() & 255;
                             cVar.i(37);
-                            cVar.i((int) f28612d[(h2 >> 4) & 15]);
-                            cVar.i((int) f28612d[h2 & 15]);
+                            cVar.i((int) f28706d[(h2 >> 4) & 15]);
+                            cVar.i((int) f28706d[h2 & 15]);
                         }
                     }
                 }

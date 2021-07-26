@@ -13,13 +13,13 @@ public class n implements r.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f5347a;
+    public final /* synthetic */ String f5373a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h[] f5348b;
+    public final /* synthetic */ h[] f5374b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ l f5349c;
+    public final /* synthetic */ l f5375c;
 
     public n(l lVar, String str, h[] hVarArr) {
         Interceptable interceptable = $ic;
@@ -36,20 +36,20 @@ public class n implements r.a {
                 return;
             }
         }
-        this.f5349c = lVar;
-        this.f5347a = str;
-        this.f5348b = hVarArr;
+        this.f5375c = lVar;
+        this.f5373a = str;
+        this.f5374b = hVarArr;
     }
 
     @Override // com.baidu.fsg.base.statistics.r.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogUtil.d(l.f5341a, "====send-success==");
-            if (b.o.equals(this.f5347a)) {
-                f.a().a(this.f5347a);
+            LogUtil.d(l.f5367a, "====send-success==");
+            if (b.o.equals(this.f5373a)) {
+                f.a().a(this.f5373a);
             } else {
-                i.a(RimStatisticsUtil.getAppContext()).a(this.f5348b);
+                i.a(RimStatisticsUtil.getAppContext()).a(this.f5374b);
             }
         }
     }
@@ -58,7 +58,7 @@ public class n implements r.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogUtil.d(l.f5341a, "====send-fail=====");
+            LogUtil.d(l.f5367a, "====send-fail=====");
         }
     }
 }

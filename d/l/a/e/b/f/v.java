@@ -1,7 +1,7 @@
 package d.l.a.e.b.f;
 
-import android.net.Uri;
+import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
-public interface v {
-    Uri a(String str, String str2);
+public interface v extends c {
+    void a(DownloadInfo downloadInfo);
 }

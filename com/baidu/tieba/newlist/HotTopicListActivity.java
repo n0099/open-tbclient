@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.n;
-import d.a.p0.e2.b;
+import d.a.d.k.e.n;
+import d.a.q0.e2.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
@@ -54,14 +54,14 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.o0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a078" : (String) invokeV.objValue;
     }
 
-    @Override // d.a.p0.e2.b
+    @Override // d.a.q0.e2.b
     public void loadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -82,7 +82,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // d.a.p0.e2.b
+    @Override // d.a.q0.e2.b
     public void netCallback(int i2, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, list) == null) {

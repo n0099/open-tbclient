@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.h0.u.g;
-import d.a.n0.a.k;
-import d.a.n0.a.n1.m;
-import d.a.n0.a.v2.q0;
+import d.a.o0.a.h0.u.g;
+import d.a.o0.a.k;
+import d.a.o0.a.n1.m;
+import d.a.o0.a.v2.q0;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
@@ -32,7 +32,7 @@ public class SwanAppNetworkUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11206a;
+    public static final boolean f11232a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -109,12 +109,12 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends d.a.n0.a.v1.a.b.c.b {
+    public static class a extends d.a.o0.a.v1.a.b.c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f11207c;
+        public final /* synthetic */ b f11233c;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -131,16 +131,16 @@ public class SwanAppNetworkUtils {
                     return;
                 }
             }
-            this.f11207c = bVar;
+            this.f11233c = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.n0.a.v1.a.b.c.b, d.a.n0.a.v1.a.b.c.c, d.a.n0.a.v1.a.b.c.a
-        public void onEvent(@NonNull d.a.n0.a.v1.a.b.a.b bVar) {
+        @Override // d.a.o0.a.v1.a.b.c.b, d.a.o0.a.v1.a.b.c.c, d.a.o0.a.v1.a.b.c.a
+        public void onEvent(@NonNull d.a.o0.a.v1.a.b.a.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 int i2 = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-                b bVar2 = this.f11207c;
+                b bVar2 = this.f11233c;
                 if (bVar2 != null) {
                     bVar2.onResult(i2);
                 }
@@ -166,7 +166,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        f11206a = k.f45831a;
+        f11232a = k.f46335a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -196,7 +196,7 @@ public class SwanAppNetworkUtils {
     public static void b(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            d.a.n0.a.v1.c.e.a.E().L(null, m.class, new a(bVar));
+            d.a.o0.a.v1.c.e.a.E().L(null, m.class, new a(bVar));
         }
     }
 
@@ -218,7 +218,7 @@ public class SwanAppNetworkUtils {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, str)) == null) {
-            if (f11206a) {
+            if (f11232a) {
                 Log.d("NetWorkUtils", "——> getNetworkType: netType " + i2 + " subTypeName " + str);
             }
             switch (i2) {
@@ -379,16 +379,16 @@ public class SwanAppNetworkUtils {
                 e2 = "none";
             }
             jSONObject.put("networkType", e2);
-            if (f11206a) {
+            if (f11232a) {
                 Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
             }
         } catch (JSONException e3) {
-            if (f11206a) {
+            if (f11232a) {
                 e3.printStackTrace();
             }
         }
         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        if (f11206a) {
+        if (f11232a) {
             Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: post success ");
         }
     }

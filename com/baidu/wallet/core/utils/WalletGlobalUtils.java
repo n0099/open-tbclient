@@ -22,7 +22,7 @@ public final class WalletGlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Dialog f24767a = null;
+    public static Dialog f24925a = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public final class WalletGlobalUtils {
     public static void DismissLoadingDialog() {
         Dialog dialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = f24767a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = f24925a) == null) {
             return;
         }
         Context context = dialog.getContext();
@@ -69,11 +69,11 @@ public final class WalletGlobalUtils {
             return;
         }
         try {
-            f24767a.dismiss();
+            f24925a.dismiss();
         } catch (Throwable th) {
             LogUtil.e("globalUtils", "dialog Exception", th);
         }
-        f24767a = null;
+        f24925a = null;
     }
 
     public static void safeDismissDialog(BaseActivity baseActivity, int i2) {
@@ -106,10 +106,10 @@ public final class WalletGlobalUtils {
     public static void showLoadingDialog(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
-            if (f24767a == null) {
-                f24767a = new LoadingDialog(context);
+            if (f24925a == null) {
+                f24925a = new LoadingDialog(context);
             }
-            f24767a.show();
+            f24925a.show();
         }
     }
 }

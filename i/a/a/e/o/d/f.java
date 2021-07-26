@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.a.a.e.n.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f72969e;
+    public Context f73423e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context, int i2) {
@@ -34,13 +34,13 @@ public class f extends Dialog {
                 return;
             }
         }
-        this.f72969e = context;
+        this.f73423e = context;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && h.f72898a.a(this.f72969e)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && h.f73352a.a(this.f73423e)) {
             super.dismiss();
         }
     }

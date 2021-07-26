@@ -38,8 +38,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.h3.h0.m;
+import d.a.d.e.p.l;
+import d.a.q0.h3.h0.m;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -64,19 +64,19 @@ public class GuidePopupWindow extends Dialog {
     public GuideScrollView.a P;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f22097e;
+    public Context f22255e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f22098f;
+    public View f22256f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadPendantView f22099g;
+    public HeadPendantView f22257g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f22100h;
+    public ImageView f22258h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f22101i;
+    public TextView f22259i;
     public TextView j;
     public TextView k;
     public View l;
@@ -101,10 +101,10 @@ public class GuidePopupWindow extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Paint f22102e;
+        public Paint f22260e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f22103f;
+        public int f22261f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public HeadBorder(Context context) {
@@ -131,28 +131,28 @@ public class GuidePopupWindow extends Dialog {
         public void onDraw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-                canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.f22103f, this.f22102e);
+                canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.f22261f, this.f22260e);
             }
         }
 
         public void setBorderColor(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f22102e.setColor(i2);
+                this.f22260e.setColor(i2);
             }
         }
 
         public void setBorderWidth(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-                this.f22102e.setStrokeWidth(f2);
+                this.f22260e.setStrokeWidth(f2);
             }
         }
 
         public void setRedio(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.f22103f = i2;
+                this.f22261f = i2;
             }
         }
 
@@ -197,9 +197,9 @@ public class GuidePopupWindow extends Dialog {
                 }
             }
             Paint paint = new Paint();
-            this.f22102e = paint;
+            this.f22260e = paint;
             paint.setAntiAlias(true);
-            this.f22102e.setStyle(Paint.Style.STROKE);
+            this.f22260e.setStyle(Paint.Style.STROKE);
         }
     }
 
@@ -209,7 +209,7 @@ public class GuidePopupWindow extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuidePopupWindow f22104e;
+        public final /* synthetic */ GuidePopupWindow f22262e;
 
         public a(GuidePopupWindow guidePopupWindow) {
             Interceptable interceptable = $ic;
@@ -226,7 +226,7 @@ public class GuidePopupWindow extends Dialog {
                     return;
                 }
             }
-            this.f22104e = guidePopupWindow;
+            this.f22262e = guidePopupWindow;
         }
 
         @Override // android.view.View.OnClickListener
@@ -234,16 +234,16 @@ public class GuidePopupWindow extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put(ForumBroadcastHelper.KEY_PARMARS_FORUM_ID, this.f22104e.G);
-                hashMap.put("forumName", this.f22104e.H);
+                hashMap.put(ForumBroadcastHelper.KEY_PARMARS_FORUM_ID, this.f22262e.G);
+                hashMap.put("forumName", this.f22262e.H);
                 hashMap.put("obj_source", "5");
                 hashMap.put("swipeback", Boolean.FALSE);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22104e.f22097e, "BarBroadcastEdit", hashMap)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22262e.f22255e, "BarBroadcastEdit", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (d.a.o0.z.b.a() != null && d.a.o0.z.b.a().b() != null) {
-                    statisticItem.param("uid", d.a.o0.z.b.a().b().getUserId());
+                if (d.a.p0.a0.b.a() != null && d.a.p0.a0.b.a().b() != null) {
+                    statisticItem.param("uid", d.a.p0.a0.b.a().b().getUserId());
                 }
-                statisticItem.param("fid", this.f22104e.G);
+                statisticItem.param("fid", this.f22262e.G);
                 statisticItem.param("obj_locate", 1);
                 TiebaStatic.log(statisticItem);
             }
@@ -256,7 +256,7 @@ public class GuidePopupWindow extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuidePopupWindow f22105e;
+        public final /* synthetic */ GuidePopupWindow f22263e;
 
         public b(GuidePopupWindow guidePopupWindow) {
             Interceptable interceptable = $ic;
@@ -273,7 +273,7 @@ public class GuidePopupWindow extends Dialog {
                     return;
                 }
             }
-            this.f22105e = guidePopupWindow;
+            this.f22263e = guidePopupWindow;
         }
 
         @Override // android.view.View.OnClickListener
@@ -281,13 +281,13 @@ public class GuidePopupWindow extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("forum_id", this.f22105e.G);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22105e.f22097e, "RecommendHistoryPage", hashMap)));
+                hashMap.put("forum_id", this.f22263e.G);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22263e.f22255e, "RecommendHistoryPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (d.a.o0.z.b.a() != null && d.a.o0.z.b.a().b() != null) {
-                    statisticItem.param("uid", d.a.o0.z.b.a().b().getUserId());
+                if (d.a.p0.a0.b.a() != null && d.a.p0.a0.b.a().b() != null) {
+                    statisticItem.param("uid", d.a.p0.a0.b.a().b().getUserId());
                 }
-                statisticItem.param("fid", this.f22105e.G);
+                statisticItem.param("fid", this.f22263e.G);
                 statisticItem.param("obj_locate", 4);
                 TiebaStatic.log(statisticItem);
             }
@@ -300,7 +300,7 @@ public class GuidePopupWindow extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuidePopupWindow f22106e;
+        public final /* synthetic */ GuidePopupWindow f22264e;
 
         public c(GuidePopupWindow guidePopupWindow) {
             Interceptable interceptable = $ic;
@@ -317,7 +317,7 @@ public class GuidePopupWindow extends Dialog {
                     return;
                 }
             }
-            this.f22106e = guidePopupWindow;
+            this.f22264e = guidePopupWindow;
         }
 
         @Override // android.view.View.OnClickListener
@@ -325,13 +325,13 @@ public class GuidePopupWindow extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("forum_id", this.f22106e.G);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22106e.f22097e, "DataCenterPage", hashMap)));
+                hashMap.put("forum_id", this.f22264e.G);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22264e.f22255e, "DataCenterPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (d.a.o0.z.b.a() != null && d.a.o0.z.b.a().b() != null) {
-                    statisticItem.param("uid", d.a.o0.z.b.a().b().getUserId());
+                if (d.a.p0.a0.b.a() != null && d.a.p0.a0.b.a().b() != null) {
+                    statisticItem.param("uid", d.a.p0.a0.b.a().b().getUserId());
                 }
-                statisticItem.param("fid", this.f22106e.G);
+                statisticItem.param("fid", this.f22264e.G);
                 statisticItem.param("obj_locate", 3);
                 TiebaStatic.log(statisticItem);
             }
@@ -344,7 +344,7 @@ public class GuidePopupWindow extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuidePopupWindow f22107e;
+        public final /* synthetic */ GuidePopupWindow f22265e;
 
         public d(GuidePopupWindow guidePopupWindow) {
             Interceptable interceptable = $ic;
@@ -361,7 +361,7 @@ public class GuidePopupWindow extends Dialog {
                     return;
                 }
             }
-            this.f22107e = guidePopupWindow;
+            this.f22265e = guidePopupWindow;
         }
 
         @Override // android.view.View.OnClickListener
@@ -369,13 +369,13 @@ public class GuidePopupWindow extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("forum_id", this.f22107e.G);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22107e.f22097e, "ForumSectionPage", hashMap)));
+                hashMap.put("forum_id", this.f22265e.G);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22265e.f22255e, "ForumSectionPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (d.a.o0.z.b.a() != null && d.a.o0.z.b.a().b() != null) {
-                    statisticItem.param("uid", d.a.o0.z.b.a().b().getUserId());
+                if (d.a.p0.a0.b.a() != null && d.a.p0.a0.b.a().b() != null) {
+                    statisticItem.param("uid", d.a.p0.a0.b.a().b().getUserId());
                 }
-                statisticItem.param("fid", this.f22107e.G);
+                statisticItem.param("fid", this.f22265e.G);
                 statisticItem.param("obj_locate", 2);
                 TiebaStatic.log(statisticItem);
             }
@@ -388,7 +388,7 @@ public class GuidePopupWindow extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuidePopupWindow f22108e;
+        public final /* synthetic */ GuidePopupWindow f22266e;
 
         public e(GuidePopupWindow guidePopupWindow) {
             Interceptable interceptable = $ic;
@@ -405,7 +405,7 @@ public class GuidePopupWindow extends Dialog {
                     return;
                 }
             }
-            this.f22108e = guidePopupWindow;
+            this.f22266e = guidePopupWindow;
         }
 
         @Override // android.view.View.OnClickListener
@@ -413,13 +413,13 @@ public class GuidePopupWindow extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("forum_id", this.f22108e.G);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22108e.f22097e, OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
+                hashMap.put("forum_id", this.f22266e.G);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.f22266e.f22255e, OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (d.a.o0.z.b.a() != null && d.a.o0.z.b.a().b() != null) {
-                    statisticItem.param("uid", d.a.o0.z.b.a().b().getUserId());
+                if (d.a.p0.a0.b.a() != null && d.a.p0.a0.b.a().b() != null) {
+                    statisticItem.param("uid", d.a.p0.a0.b.a().b().getUserId());
                 }
-                statisticItem.param("fid", this.f22108e.G);
+                statisticItem.param("fid", this.f22266e.G);
                 statisticItem.param("obj_locate", 6);
                 TiebaStatic.log(statisticItem);
             }
@@ -432,7 +432,7 @@ public class GuidePopupWindow extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuidePopupWindow f22109e;
+        public final /* synthetic */ GuidePopupWindow f22267e;
 
         public f(GuidePopupWindow guidePopupWindow) {
             Interceptable interceptable = $ic;
@@ -449,19 +449,19 @@ public class GuidePopupWindow extends Dialog {
                     return;
                 }
             }
-            this.f22109e = guidePopupWindow;
+            this.f22267e = guidePopupWindow;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22109e.dismiss();
+                this.f22267e.dismiss();
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (d.a.o0.z.b.a() != null && d.a.o0.z.b.a().b() != null) {
-                    statisticItem.param("uid", d.a.o0.z.b.a().b().getUserId());
+                if (d.a.p0.a0.b.a() != null && d.a.p0.a0.b.a().b() != null) {
+                    statisticItem.param("uid", d.a.p0.a0.b.a().b().getUserId());
                 }
-                statisticItem.param("fid", this.f22109e.G);
+                statisticItem.param("fid", this.f22267e.G);
                 statisticItem.param("obj_locate", 5);
                 TiebaStatic.log(statisticItem);
             }
@@ -474,10 +474,10 @@ public class GuidePopupWindow extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f22110e;
+        public final /* synthetic */ List f22268e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GuidePopupWindow f22111f;
+        public final /* synthetic */ GuidePopupWindow f22269f;
 
         public g(GuidePopupWindow guidePopupWindow, List list) {
             Interceptable interceptable = $ic;
@@ -494,15 +494,15 @@ public class GuidePopupWindow extends Dialog {
                     return;
                 }
             }
-            this.f22111f = guidePopupWindow;
-            this.f22110e = list;
+            this.f22269f = guidePopupWindow;
+            this.f22268e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f22111f.j.setText(this.f22111f.h(this.f22110e));
+                this.f22269f.j.setText(this.f22269f.h(this.f22268e));
             }
         }
     }
@@ -513,7 +513,7 @@ public class GuidePopupWindow extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GuidePopupWindow f22112a;
+        public final /* synthetic */ GuidePopupWindow f22270a;
 
         public h(GuidePopupWindow guidePopupWindow) {
             Interceptable interceptable = $ic;
@@ -530,14 +530,14 @@ public class GuidePopupWindow extends Dialog {
                     return;
                 }
             }
-            this.f22112a = guidePopupWindow;
+            this.f22270a = guidePopupWindow;
         }
 
         @Override // com.baidu.tieba.view.GuideScrollView.a
         public void onScrollChanged(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
-                this.f22112a.C.setAlpha(this.f22112a.B.getScrollY() / 150.0f);
+                this.f22270a.C.setAlpha(this.f22270a.B.getScrollY() / 150.0f);
             }
         }
     }
@@ -568,9 +568,9 @@ public class GuidePopupWindow extends Dialog {
         this.N = new e(this);
         this.O = new f(this);
         this.P = new h(this);
-        this.f22097e = context;
+        this.f22255e = context;
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.guide_popup_window, (ViewGroup) null);
-        this.f22098f = inflate;
+        this.f22256f = inflate;
         inflate.setSystemUiVisibility(1028);
         getWindow().setDimAmount(0.0f);
         i();
@@ -599,59 +599,59 @@ public class GuidePopupWindow extends Dialog {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            GuideScrollView guideScrollView = (GuideScrollView) this.f22098f.findViewById(R.id.guid_popup_window_container);
+            GuideScrollView guideScrollView = (GuideScrollView) this.f22256f.findViewById(R.id.guid_popup_window_container);
             this.B = guideScrollView;
             guideScrollView.setScrollChangedListener(this.P);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(1000L);
-            this.f22098f.startAnimation(alphaAnimation);
-            HeadPendantView headPendantView = (HeadPendantView) this.f22098f.findViewById(R.id.user_head);
-            this.f22099g = headPendantView;
+            this.f22256f.startAnimation(alphaAnimation);
+            HeadPendantView headPendantView = (HeadPendantView) this.f22256f.findViewById(R.id.user_head);
+            this.f22257g = headPendantView;
             headPendantView.setHasPendantStyle();
-            this.f22099g.setDefalutResid(R.drawable.default_head);
-            this.f22099g.getHeadView().setIsRound(true);
-            this.f22099g.getHeadView().setDrawBorder(true);
-            this.f22099g.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f22099g.setShowSimpleIcon(true);
-            this.f22100h = (ImageView) this.f22098f.findViewById(R.id.user_leavel);
-            this.f22101i = (TextView) this.f22098f.findViewById(R.id.user_name);
-            this.j = (TextView) this.f22098f.findViewById(R.id.user_tb_list);
-            this.k = (TextView) this.f22098f.findViewById(R.id.user_tb_concern_info);
-            this.l = this.f22098f.findViewById(R.id.guid_popup_window_line);
-            this.m = (TextView) this.f22098f.findViewById(R.id.function_desc);
-            this.v = (RelativeLayout) this.f22098f.findViewById(R.id.personalba_broadcast);
-            this.n = (TextView) this.f22098f.findViewById(R.id.personalba_broadcast_name);
-            this.o = (TextView) this.f22098f.findViewById(R.id.personalba_broadcast_digest);
-            this.w = (RelativeLayout) this.f22098f.findViewById(R.id.personalba_recommend);
-            this.p = (TextView) this.f22098f.findViewById(R.id.personalba_recommend_name);
-            this.q = (TextView) this.f22098f.findViewById(R.id.personalba_recommend_digest);
-            this.x = (RelativeLayout) this.f22098f.findViewById(R.id.personalba_data);
-            this.r = (TextView) this.f22098f.findViewById(R.id.personalba_data_name);
-            this.s = (TextView) this.f22098f.findViewById(R.id.personalba_data_digest);
-            this.y = (RelativeLayout) this.f22098f.findViewById(R.id.personalba_partition);
-            this.t = (TextView) this.f22098f.findViewById(R.id.personalba_partition_name);
-            this.u = (TextView) this.f22098f.findViewById(R.id.personalba_partition_digest);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f22098f.findViewById(R.id.btn_go_away);
+            this.f22257g.setDefalutResid(R.drawable.default_head);
+            this.f22257g.getHeadView().setIsRound(true);
+            this.f22257g.getHeadView().setDrawBorder(true);
+            this.f22257g.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f22257g.setShowSimpleIcon(true);
+            this.f22258h = (ImageView) this.f22256f.findViewById(R.id.user_leavel);
+            this.f22259i = (TextView) this.f22256f.findViewById(R.id.user_name);
+            this.j = (TextView) this.f22256f.findViewById(R.id.user_tb_list);
+            this.k = (TextView) this.f22256f.findViewById(R.id.user_tb_concern_info);
+            this.l = this.f22256f.findViewById(R.id.guid_popup_window_line);
+            this.m = (TextView) this.f22256f.findViewById(R.id.function_desc);
+            this.v = (RelativeLayout) this.f22256f.findViewById(R.id.personalba_broadcast);
+            this.n = (TextView) this.f22256f.findViewById(R.id.personalba_broadcast_name);
+            this.o = (TextView) this.f22256f.findViewById(R.id.personalba_broadcast_digest);
+            this.w = (RelativeLayout) this.f22256f.findViewById(R.id.personalba_recommend);
+            this.p = (TextView) this.f22256f.findViewById(R.id.personalba_recommend_name);
+            this.q = (TextView) this.f22256f.findViewById(R.id.personalba_recommend_digest);
+            this.x = (RelativeLayout) this.f22256f.findViewById(R.id.personalba_data);
+            this.r = (TextView) this.f22256f.findViewById(R.id.personalba_data_name);
+            this.s = (TextView) this.f22256f.findViewById(R.id.personalba_data_digest);
+            this.y = (RelativeLayout) this.f22256f.findViewById(R.id.personalba_partition);
+            this.t = (TextView) this.f22256f.findViewById(R.id.personalba_partition_name);
+            this.u = (TextView) this.f22256f.findViewById(R.id.personalba_partition_digest);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f22256f.findViewById(R.id.btn_go_away);
             this.z = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds42);
-            d.a.o0.r.f0.n.c cVar = new d.a.o0.r.f0.n.c();
+            d.a.p0.s.f0.n.c cVar = new d.a.p0.s.f0.n.c();
             cVar.o(R.color.CAM_X0302);
             this.z.setConfig(cVar);
-            this.z.setText(this.f22097e.getResources().getString(R.string.guide_popup_window_go_away));
-            this.A = (TBSpecificationBtn) this.f22098f.findViewById(R.id.btn_known);
-            d.a.o0.r.f0.n.c cVar2 = new d.a.o0.r.f0.n.c();
+            this.z.setText(this.f22255e.getResources().getString(R.string.guide_popup_window_go_away));
+            this.A = (TBSpecificationBtn) this.f22256f.findViewById(R.id.btn_known);
+            d.a.p0.s.f0.n.c cVar2 = new d.a.p0.s.f0.n.c();
             cVar2.o(R.color.CAM_X0618);
             this.A.setConfig(cVar2);
             this.A.setTextSize(R.dimen.tbds42);
-            this.A.setText(this.f22097e.getResources().getString(R.string.guide_popup_window_known));
-            View findViewById = this.f22098f.findViewById(R.id.shadow_top);
+            this.A.setText(this.f22255e.getResources().getString(R.string.guide_popup_window_known));
+            View findViewById = this.f22256f.findViewById(R.id.shadow_top);
             this.C = findViewById;
             findViewById.setAlpha(0.0f);
-            HeadBorder headBorder = (HeadBorder) this.f22098f.findViewById(R.id.head_border);
+            HeadBorder headBorder = (HeadBorder) this.f22256f.findViewById(R.id.head_border);
             this.D = headBorder;
             headBorder.setBorderColor(SkinManager.getColor(R.color.CAM_X0614));
-            this.D.setBorderWidth(this.f22097e.getResources().getDimensionPixelSize(R.dimen.tbds10));
-            this.D.setRedio(l.g(this.f22097e, R.dimen.tbds119));
+            this.D.setBorderWidth(this.f22255e.getResources().getDimensionPixelSize(R.dimen.tbds10));
+            this.D.setRedio(l.g(this.f22255e, R.dimen.tbds119));
             n();
         }
     }
@@ -661,8 +661,8 @@ public class GuidePopupWindow extends Dialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.E = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302));
             this.F = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302));
-            SkinManager.setBackgroundResource(this.f22098f, R.color.CAM_X0609);
-            SkinManager.setViewTextColor(this.f22101i, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f22256f, R.color.CAM_X0609);
+            SkinManager.setViewTextColor(this.f22259i, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0101);
             SkinManager.setBackgroundResource(this.l, R.color.CAM_X0616);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0108);
@@ -676,7 +676,7 @@ public class GuidePopupWindow extends Dialog {
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.A, R.color.cp_cont_a_alpha20);
-            int g2 = l.g(this.f22097e, R.dimen.tbds60);
+            int g2 = l.g(this.f22255e, R.dimen.tbds60);
             TBSpecificationBtn tBSpecificationBtn = this.z;
             int i2 = R.color.CAM_X0611;
             int i3 = R.color.CAM_X0302;
@@ -743,9 +743,9 @@ public class GuidePopupWindow extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(this.f22098f);
+            setContentView(this.f22256f);
             getWindow().setLayout(-1, -1);
-            d.a.p0.t3.c.b(1, getWindow().getAttributes(), getWindow());
+            d.a.q0.t3.c.b(1, getWindow().getAttributes(), getWindow());
         }
     }
 
@@ -753,13 +753,13 @@ public class GuidePopupWindow extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) this.f22097e.getResources().getString(R.string.guide_popup_window_concern_desc1));
+            spannableStringBuilder.append((CharSequence) this.f22255e.getResources().getString(R.string.guide_popup_window_concern_desc1));
             int length = StringHelper.numberUniformFormatExtraWithRoundFloat(j).length();
             spannableStringBuilder.append((CharSequence) StringHelper.numberUniformFormatExtraWithRoundFloat(j));
-            spannableStringBuilder.append((CharSequence) this.f22097e.getResources().getString(R.string.guide_popup_window_concern_desc2));
+            spannableStringBuilder.append((CharSequence) this.f22255e.getResources().getString(R.string.guide_popup_window_concern_desc2));
             int length2 = StringHelper.numberUniformFormatExtraWithRoundFloat(j2).length();
             spannableStringBuilder.append((CharSequence) StringHelper.numberUniformFormatExtraWithRoundFloat(j2));
-            spannableStringBuilder.append((CharSequence) this.f22097e.getResources().getString(R.string.guide_popup_window_concern_desc3));
+            spannableStringBuilder.append((CharSequence) this.f22255e.getResources().getString(R.string.guide_popup_window_concern_desc3));
             int i2 = length + 14;
             spannableStringBuilder.setSpan(this.E, 14, i2, 18);
             spannableStringBuilder.setSpan(this.F, i2 + 8, length + 22 + length2, 18);
@@ -769,10 +769,10 @@ public class GuidePopupWindow extends Dialog {
 
     public void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || d.a.o0.z.b.a() == null || d.a.o0.z.b.a().b() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || d.a.p0.a0.b.a() == null || d.a.p0.a0.b.a().b() == null) {
             return;
         }
-        this.f22099g.m(d.a.o0.z.b.a().b());
+        this.f22257g.m(d.a.p0.a0.b.a().b());
     }
 
     public void r(UserData userData) {
@@ -780,23 +780,23 @@ public class GuidePopupWindow extends Dialog {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, userData) == null) || userData == null) {
             return;
         }
-        this.f22099g.m(userData);
+        this.f22257g.m(userData);
     }
 
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f22099g.setIsclearmode(true);
-            this.f22100h.setImageResource(UtilHelper.getBazhuIconId(str, false));
+            this.f22257g.setIsclearmode(true);
+            this.f22258h.setImageResource(UtilHelper.getBazhuIconId(str, false));
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || d.a.o0.z.b.a() == null || d.a.o0.z.b.a().b() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || d.a.p0.a0.b.a() == null || d.a.p0.a0.b.a().b() == null) {
             return;
         }
-        this.f22101i.setText(d.a.o0.z.b.a().b().getName_show());
+        this.f22259i.setText(d.a.p0.a0.b.a().b().getName_show());
     }
 
     public void u(String str) {

@@ -14,10 +14,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f29270a;
+    public Bitmap f29370a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f29271b;
+    public m f29371b;
 
     public a(Bitmap bitmap, m mVar) {
         Interceptable interceptable = $ic;
@@ -34,19 +34,19 @@ public class a {
                 return;
             }
         }
-        this.f29270a = bitmap;
-        this.f29271b = mVar;
+        this.f29370a = bitmap;
+        this.f29371b = mVar;
     }
 
     public Bitmap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29270a : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29370a : (Bitmap) invokeV.objValue;
     }
 
     public m b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29271b : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29371b : (m) invokeV.objValue;
     }
 }

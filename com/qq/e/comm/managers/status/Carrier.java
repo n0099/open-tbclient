@@ -19,11 +19,11 @@ public final class Carrier {
     public static final Carrier UNKNOWN;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ Carrier[] f38015b;
+    public static final /* synthetic */ Carrier[] f38209b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38016a;
+    public int f38210a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public final class Carrier {
         UNICOM = new Carrier("UNICOM", 2, 2);
         Carrier carrier = new Carrier("TELECOM", 3, 3);
         TELECOM = carrier;
-        f38015b = new Carrier[]{UNKNOWN, CMCC, UNICOM, carrier};
+        f38209b = new Carrier[]{UNKNOWN, CMCC, UNICOM, carrier};
     }
 
     public Carrier(String str, int i2, int i3) {
@@ -64,7 +64,7 @@ public final class Carrier {
                 return;
             }
         }
-        this.f38016a = i3;
+        this.f38210a = i3;
     }
 
     public static Carrier valueOf(String str) {
@@ -76,12 +76,12 @@ public final class Carrier {
     public static Carrier[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Carrier[]) f38015b.clone() : (Carrier[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Carrier[]) f38209b.clone() : (Carrier[]) invokeV.objValue;
     }
 
     public final int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38016a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38210a : invokeV.intValue;
     }
 }

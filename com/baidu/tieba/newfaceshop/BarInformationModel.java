@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
+import d.a.d.a.f;
 /* loaded from: classes4.dex */
 public class BarInformationModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f18839e;
+    public final HttpMessageListener f18924e;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -94,11 +94,11 @@ public class BarInformationModel extends BdBaseModel {
                 return;
             }
         }
-        this.f18839e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
+        this.f18924e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
         registerTask();
-        this.f18839e.setTag(getUniqueId());
-        this.f18839e.setSelfListener(true);
-        registerListener(this.f18839e);
+        this.f18924e.setTag(getUniqueId());
+        this.f18924e.setSelfListener(true);
+        registerListener(this.f18924e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

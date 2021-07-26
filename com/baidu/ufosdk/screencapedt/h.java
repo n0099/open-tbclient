@@ -13,10 +13,10 @@ public final class h implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f23368a;
+    public final /* synthetic */ int f23526a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f23369b;
+    public final /* synthetic */ ScreenCapEditActivity f23527b;
 
     public h(ScreenCapEditActivity screenCapEditActivity, int i2) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class h implements Runnable {
                 return;
             }
         }
-        this.f23369b = screenCapEditActivity;
-        this.f23368a = i2;
+        this.f23527b = screenCapEditActivity;
+        this.f23526a = i2;
     }
 
     @Override // java.lang.Runnable
@@ -43,13 +43,13 @@ public final class h implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Intent intent = new Intent();
-            intent.setClass(this.f23369b, FeedbackEditActivity.class);
-            byteArrayOutputStream = this.f23369b.J;
+            intent.setClass(this.f23527b, FeedbackEditActivity.class);
+            byteArrayOutputStream = this.f23527b.J;
             intent.putExtra("shot", byteArrayOutputStream.toByteArray());
-            intent.putExtra("extend_feedback_channel", this.f23368a);
-            intent.putExtra("feedback_channel", this.f23368a);
-            this.f23369b.startActivity(intent);
-            this.f23369b.finish();
+            intent.putExtra("extend_feedback_channel", this.f23526a);
+            intent.putExtra("feedback_channel", this.f23526a);
+            this.f23527b.startActivity(intent);
+            this.f23527b.finish();
         }
     }
 }

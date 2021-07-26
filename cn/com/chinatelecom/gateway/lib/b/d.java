@@ -23,10 +23,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1547a = "d";
+    public static final String f1580a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f1548b;
+    public static final byte[] f1581b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class d {
                 return;
             }
         }
-        f1548b = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
+        f1581b = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
     }
 
     public d() {
@@ -154,7 +154,7 @@ public class d {
             String jSONArray3 = jSONArray.toString();
             if (!TextUtils.isEmpty(jSONArray3)) {
                 try {
-                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f1548b)));
+                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f1581b)));
                 } catch (Exception e3) {
                     e = e3;
                 }
@@ -180,13 +180,13 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f1549a;
+                public final /* synthetic */ Context f1582a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ List f1550b;
+                public final /* synthetic */ List f1583b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f1551c;
+                public final /* synthetic */ int f1584c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -203,9 +203,9 @@ public class d {
                             return;
                         }
                     }
-                    this.f1549a = context;
-                    this.f1550b = list;
-                    this.f1551c = i2;
+                    this.f1582a = context;
+                    this.f1583b = list;
+                    this.f1584c = i2;
                 }
 
                 @Override // java.lang.Runnable
@@ -213,11 +213,11 @@ public class d {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            Queue c2 = d.c(this.f1549a, this.f1550b, this.f1551c);
+                            Queue c2 = d.c(this.f1582a, this.f1583b, this.f1584c);
                             if (c2.isEmpty()) {
                                 return;
                             }
-                            String b2 = d.b(this.f1549a, c2);
+                            String b2 = d.b(this.f1582a, c2);
                             JSONObject jSONObject = null;
                             int i3 = -1;
                             try {
@@ -232,7 +232,7 @@ public class d {
                                         e.printStackTrace();
                                         if (jSONObject != null) {
                                         }
-                                        d.b(this.f1549a, c2, this.f1551c);
+                                        d.b(this.f1582a, c2, this.f1584c);
                                         return;
                                     }
                                 }
@@ -240,10 +240,10 @@ public class d {
                                 e = e3;
                             }
                             if (jSONObject != null || i3 != 0) {
-                                d.b(this.f1549a, c2, this.f1551c);
+                                d.b(this.f1582a, c2, this.f1584c);
                                 return;
                             }
-                            d.c(this.f1549a);
+                            d.c(this.f1582a);
                             c2.clear();
                         } catch (Throwable th) {
                             th.printStackTrace();
@@ -279,7 +279,7 @@ public class d {
             }
             if (jSONArray.length() > 0) {
                 try {
-                    str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f1548b));
+                    str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f1581b));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                     str = null;
@@ -304,7 +304,7 @@ public class d {
                 String a2 = c.a(context);
                 if (!TextUtils.isEmpty(a2)) {
                     try {
-                        JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f1548b)));
+                        JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f1581b)));
                         int length = jSONArray.length();
                         for (int i3 = 0; i3 < length && i3 <= 10; i3++) {
                             JSONObject jSONObject = jSONArray.getJSONObject(i3);

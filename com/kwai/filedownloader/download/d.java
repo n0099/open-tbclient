@@ -27,31 +27,31 @@ public class d implements Handler.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwai.filedownloader.d.c f36798a;
+    public final com.kwai.filedownloader.d.c f36987a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwai.filedownloader.b.a f36799b;
+    public final com.kwai.filedownloader.b.a f36988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f36800c;
+    public final a f36989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f36801d;
+    public final int f36990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f36802e;
+    public final int f36991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f36803f;
+    public final int f36992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f36804g;
+    public long f36993g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f36805h;
+    public Handler f36994h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HandlerThread f36806i;
+    public HandlerThread f36995i;
     public volatile boolean j;
     public volatile Thread k;
     public volatile long l;
@@ -65,13 +65,13 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f36807a;
+        public boolean f36996a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Exception f36808b;
+        public Exception f36997b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f36809c;
+        public int f36998c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -90,40 +90,40 @@ public class d implements Handler.Callback {
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f36809c = i2;
+                this.f36998c = i2;
             }
         }
 
         public void a(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                this.f36808b = exc;
+                this.f36997b = exc;
             }
         }
 
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f36807a = z;
+                this.f36996a = z;
             }
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36807a : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36996a : invokeV.booleanValue;
         }
 
         public Exception b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36808b : (Exception) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36997b : (Exception) invokeV.objValue;
         }
 
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36809c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36998c : invokeV.intValue;
         }
     }
 
@@ -146,12 +146,12 @@ public class d implements Handler.Callback {
         this.l = 0L;
         this.m = new AtomicLong();
         this.o = true;
-        this.f36798a = cVar;
-        this.f36799b = b.a().c();
-        this.f36802e = i3 < 5 ? 5 : i3;
-        this.f36803f = i4;
-        this.f36800c = new a();
-        this.f36801d = i2;
+        this.f36987a = cVar;
+        this.f36988b = b.a().c();
+        this.f36991e = i3 < 5 ? 5 : i3;
+        this.f36992f = i4;
+        this.f36989c = new a();
+        this.f36990d = i2;
     }
 
     public static long a(long j, long j2) {
@@ -177,9 +177,9 @@ public class d implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(65538, this, b2) == null) {
             if (b2 != -2) {
-                com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(b2, this.f36798a, this.f36800c));
-            } else if (com.kwai.filedownloader.f.d.f36845a) {
-                com.kwai.filedownloader.f.d.c(this, "High concurrent cause, Already paused and we don't need to call-back to Task in here, %d", Integer.valueOf(this.f36798a.a()));
+                com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(b2, this.f36987a, this.f36989c));
+            } else if (com.kwai.filedownloader.f.d.f37034a) {
+                com.kwai.filedownloader.f.d.c(this, "High concurrent cause, Already paused and we don't need to call-back to Task in here, %d", Integer.valueOf(this.f36987a.a()));
             }
         }
     }
@@ -187,13 +187,13 @@ public class d implements Handler.Callback {
     private void a(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            if (this.f36798a.g() == this.f36798a.h()) {
-                this.f36799b.a(this.f36798a.a(), this.f36798a.g());
+            if (this.f36987a.g() == this.f36987a.h()) {
+                this.f36988b.a(this.f36987a.a(), this.f36987a.g());
                 return;
             }
             if (this.n) {
                 this.n = false;
-                this.f36798a.a((byte) 3);
+                this.f36987a.a((byte) 3);
             }
             if (z) {
                 this.l = j;
@@ -206,14 +206,14 @@ public class d implements Handler.Callback {
     private void a(SQLiteFullException sQLiteFullException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, sQLiteFullException) == null) {
-            int a2 = this.f36798a.a();
-            if (com.kwai.filedownloader.f.d.f36845a) {
+            int a2 = this.f36987a.a();
+            if (com.kwai.filedownloader.f.d.f37034a) {
                 com.kwai.filedownloader.f.d.c(this, "the data of the task[%d] is dirty, because the SQLite full exception[%s], so remove it from the database directly.", Integer.valueOf(a2), sQLiteFullException.toString());
             }
-            this.f36798a.c(sQLiteFullException.toString());
-            this.f36798a.a((byte) -1);
-            this.f36799b.e(a2);
-            this.f36799b.d(a2);
+            this.f36987a.c(sQLiteFullException.toString());
+            this.f36987a.a((byte) -1);
+            this.f36988b.e(a2);
+            this.f36988b.d(a2);
         }
     }
 
@@ -221,19 +221,19 @@ public class d implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, message) == null) {
             synchronized (this) {
-                if (!this.f36806i.isAlive()) {
-                    if (com.kwai.filedownloader.f.d.f36845a) {
+                if (!this.f36995i.isAlive()) {
+                    if (com.kwai.filedownloader.f.d.f37034a) {
                         com.kwai.filedownloader.f.d.c(this, "require callback %d but the host thread of the flow has already dead, what is occurred because of there are several reason can final this flow on different thread.", Integer.valueOf(message.what));
                     }
                     return;
                 }
                 try {
-                    this.f36805h.sendMessage(message);
+                    this.f36994h.sendMessage(message);
                 } catch (IllegalStateException e2) {
-                    if (this.f36806i.isAlive()) {
+                    if (this.f36995i.isAlive()) {
                         throw e2;
                     }
-                    if (com.kwai.filedownloader.f.d.f36845a) {
+                    if (com.kwai.filedownloader.f.d.f37034a) {
                         com.kwai.filedownloader.f.d.c(this, "require callback %d but the host thread of the flow has already dead, what is occurred because of there are several reason can final this flow on different thread.", Integer.valueOf(message.what));
                     }
                 }
@@ -245,11 +245,11 @@ public class d implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, exc, i2) == null) {
             Exception b2 = b(exc);
-            this.f36800c.a(b2);
-            this.f36800c.a(this.f36801d - i2);
-            this.f36798a.a((byte) 5);
-            this.f36798a.c(b2.toString());
-            this.f36799b.a(this.f36798a.a(), b2);
+            this.f36989c.a(b2);
+            this.f36989c.a(this.f36990d - i2);
+            this.f36987a.a((byte) 5);
+            this.f36987a.c(b2.toString());
+            this.f36988b.a(this.f36987a.a(), b2);
             a((byte) 5);
         }
     }
@@ -259,8 +259,8 @@ public class d implements Handler.Callback {
         long length;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, exc)) == null) {
-            String e2 = this.f36798a.e();
-            if ((this.f36798a.i() || com.kwai.filedownloader.f.e.a().f36851f) && (exc instanceof IOException) && new File(e2).exists()) {
+            String e2 = this.f36987a.e();
+            if ((this.f36987a.i() || com.kwai.filedownloader.f.e.a().f37040f) && (exc instanceof IOException) && new File(e2).exists()) {
                 long f2 = com.kwai.filedownloader.f.f.f(e2);
                 if (f2 <= 4096) {
                     File file = new File(e2);
@@ -284,7 +284,7 @@ public class d implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, this, j)) == null) {
             if (!this.o) {
-                return this.f36804g != -1 && this.m.get() >= this.f36804g && j - this.l >= ((long) this.f36802e);
+                return this.f36993g != -1 && this.m.get() >= this.f36993g && j - this.l >= ((long) this.f36991e);
             }
             this.o = false;
             return true;
@@ -302,9 +302,9 @@ public class d implements Handler.Callback {
                 exc2 = b2;
             } else {
                 try {
-                    this.f36798a.a((byte) -1);
-                    this.f36798a.c(exc.toString());
-                    this.f36799b.a(this.f36798a.a(), b2, this.f36798a.g());
+                    this.f36987a.a((byte) -1);
+                    this.f36987a.c(exc.toString());
+                    this.f36988b.a(this.f36987a.a(), b2, this.f36987a.g());
                     exc2 = b2;
                 } catch (SQLiteFullException e2) {
                     SQLiteFullException sQLiteFullException = e2;
@@ -312,7 +312,7 @@ public class d implements Handler.Callback {
                     exc2 = sQLiteFullException;
                 }
             }
-            this.f36800c.a(exc2);
+            this.f36989c.a(exc2);
             a((byte) -1);
         }
     }
@@ -320,8 +320,8 @@ public class d implements Handler.Callback {
     private void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            String e2 = this.f36798a.e();
-            String d2 = this.f36798a.d();
+            String e2 = this.f36987a.e();
+            String d2 = this.f36987a.d();
             File file = new File(e2);
             try {
                 File file2 = new File(d2);
@@ -352,12 +352,12 @@ public class d implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             h();
-            this.f36798a.a((byte) -3);
-            this.f36799b.b(this.f36798a.a(), this.f36798a.h());
-            this.f36799b.d(this.f36798a.a());
+            this.f36987a.a((byte) -3);
+            this.f36988b.b(this.f36987a.a(), this.f36987a.h());
+            this.f36988b.d(this.f36987a.a());
             a((byte) -3);
-            if (com.kwai.filedownloader.f.e.a().f36852g) {
-                com.kwai.filedownloader.services.f.a(this.f36798a);
+            if (com.kwai.filedownloader.f.e.a().f37041g) {
+                com.kwai.filedownloader.services.f.a(this.f36987a);
             }
         }
     }
@@ -366,11 +366,11 @@ public class d implements Handler.Callback {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            if (this.f36798a.i()) {
-                com.kwai.filedownloader.d.c cVar = this.f36798a;
+            if (this.f36987a.i()) {
+                com.kwai.filedownloader.d.c cVar = this.f36987a;
                 cVar.c(cVar.g());
-            } else if (this.f36798a.g() != this.f36798a.h()) {
-                a(new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("sofar[%d] not equal total[%d]", Long.valueOf(this.f36798a.g()), Long.valueOf(this.f36798a.h()))));
+            } else if (this.f36987a.g() != this.f36987a.h()) {
+                a(new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("sofar[%d] not equal total[%d]", Long.valueOf(this.f36987a.g()), Long.valueOf(this.f36987a.h()))));
                 return true;
             }
             return false;
@@ -381,8 +381,8 @@ public class d implements Handler.Callback {
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            this.f36798a.a((byte) -2);
-            this.f36799b.c(this.f36798a.a(), this.f36798a.g());
+            this.f36987a.a((byte) -2);
+            this.f36988b.c(this.f36987a.a(), this.f36987a.g());
             a((byte) -2);
         }
     }
@@ -391,10 +391,10 @@ public class d implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             this.m.addAndGet(j);
-            this.f36798a.b(j);
+            this.f36987a.b(j);
             long elapsedRealtime = SystemClock.elapsedRealtime();
             boolean b2 = b(elapsedRealtime);
-            Handler handler = this.f36805h;
+            Handler handler = this.f36994h;
             if (handler == null) {
                 a(elapsedRealtime, b2);
             } else if (b2) {
@@ -414,8 +414,8 @@ public class d implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{exc, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             this.m.set(0L);
-            this.f36798a.b(-j);
-            Handler handler = this.f36805h;
+            this.f36987a.b(-j);
+            Handler handler = this.f36994h;
             if (handler == null) {
                 a(exc, i2);
             } else {
@@ -427,18 +427,18 @@ public class d implements Handler.Callback {
     public void a(boolean z, long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), str, str2}) == null) {
-            String j2 = this.f36798a.j();
+            String j2 = this.f36987a.j();
             if (j2 != null && !j2.equals(str)) {
                 throw new IllegalArgumentException(com.kwai.filedownloader.f.f.a("callback onConnected must with precondition succeed, but the etag is changes(%s != %s)", str, j2));
             }
-            this.f36800c.a(z);
-            this.f36798a.a((byte) 2);
-            this.f36798a.c(j);
-            this.f36798a.b(str);
-            this.f36798a.d(str2);
-            this.f36799b.a(this.f36798a.a(), j, str, str2);
+            this.f36989c.a(z);
+            this.f36987a.a((byte) 2);
+            this.f36987a.c(j);
+            this.f36987a.b(str);
+            this.f36987a.d(str2);
+            this.f36988b.a(this.f36987a.a(), j, str, str2);
             a((byte) 2);
-            this.f36804g = a(j, this.f36803f);
+            this.f36993g = a(j, this.f36992f);
             this.n = true;
         }
     }
@@ -447,7 +447,7 @@ public class d implements Handler.Callback {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HandlerThread handlerThread = this.f36806i;
+            HandlerThread handlerThread = this.f36995i;
             return handlerThread != null && handlerThread.isAlive();
         }
         return invokeV.booleanValue;
@@ -456,11 +456,11 @@ public class d implements Handler.Callback {
     public void b() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (handler = this.f36805h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (handler = this.f36994h) == null) {
             return;
         }
         handler.removeCallbacksAndMessages(null);
-        this.f36806i.quit();
+        this.f36995i.quit();
         this.k = Thread.currentThread();
         while (this.j) {
             LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos(100L));
@@ -471,8 +471,8 @@ public class d implements Handler.Callback {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f36798a.a((byte) 1);
-            this.f36799b.f(this.f36798a.a());
+            this.f36987a.a((byte) 1);
+            this.f36988b.f(this.f36987a.a());
             a((byte) 1);
         }
     }
@@ -480,9 +480,9 @@ public class d implements Handler.Callback {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f36798a.a((byte) 6);
+            this.f36987a.a((byte) 6);
             a((byte) 6);
-            this.f36799b.a(this.f36798a.a());
+            this.f36988b.a(this.f36987a.a());
         }
     }
 
@@ -490,9 +490,9 @@ public class d implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             HandlerThread handlerThread = new HandlerThread("source-status-callback", 10);
-            this.f36806i = handlerThread;
+            this.f36995i = handlerThread;
             handlerThread.start();
-            this.f36805h = new Handler(this.f36806i.getLooper(), this);
+            this.f36994h = new Handler(this.f36995i.getLooper(), this);
         }
     }
 

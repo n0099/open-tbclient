@@ -12,23 +12,23 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23265a;
+    public static final String f23423a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23266b;
+    public static final String f23424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f23267c;
+    public static final String f23425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f23268d;
+    public static int f23426d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class EnumC0249a {
+    public static final class EnumC0251a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
         public static final int aW = 2;
@@ -65,17 +65,17 @@ public final class a {
                 return;
             }
         }
-        f23265a = Environment.getExternalStorageDirectory().getPath();
-        f23266b = f23265a + "/baidu/ab/crash/";
-        f23267c = f23265a + "/baidu/ab/sdklog/";
-        String str = f23265a + "/baidu/ab/sdkupdata/" + b() + "/";
-        f23268d = EnumC0249a.aV;
+        f23423a = Environment.getExternalStorageDirectory().getPath();
+        f23424b = f23423a + "/baidu/ab/crash/";
+        f23425c = f23423a + "/baidu/ab/sdklog/";
+        String str = f23423a + "/baidu/ab/sdkupdata/" + b() + "/";
+        f23426d = EnumC0251a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f23268d == EnumC0249a.aV : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f23426d == EnumC0251a.aV : invokeV.booleanValue;
     }
 
     public static int b() {

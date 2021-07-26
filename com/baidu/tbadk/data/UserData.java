@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.n;
-import d.a.o0.r.q.h2;
-import d.a.o0.t.o;
+import d.a.d.k.e.n;
+import d.a.p0.s.q.h2;
+import d.a.p0.u.m;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -548,20 +548,20 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        o oVar = new o();
-        oVar.e(getPortraitH());
-        oVar.i(getPortrait());
-        oVar.h(true);
-        this.mPhotoAlbum.add(oVar);
+        m mVar = new m();
+        mVar.e(getPortraitH());
+        mVar.i(getPortrait());
+        mVar.h(true);
+        this.mPhotoAlbum.add(mVar);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    o oVar2 = new o();
-                    oVar2.e(userPics.big);
-                    oVar2.i(userPics.small);
-                    oVar2.h(false);
-                    this.mPhotoAlbum.add(oVar2);
+                    m mVar2 = new m();
+                    mVar2.e(userPics.big);
+                    mVar2.i(userPics.small);
+                    mVar2.h(false);
+                    this.mPhotoAlbum.add(mVar2);
                 }
             }
         }
@@ -672,7 +672,7 @@ public class UserData extends MetaData {
             this.liveId = Long.toString(user.ala_info.live_id.longValue());
             AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
             this.alaUserData = alaUserInfoData;
-            alaUserInfoData.w(user.ala_info);
+            alaUserInfoData.parserProtobuf(user.ala_info);
             if (StringUtils.isNull(this.alaUserData.sex)) {
                 this.alaUserData.sex = StringHelper.getUserDescByGender(this.sex);
             }
@@ -822,7 +822,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, d.a.o0.r.f0.t.a
+    @Override // com.baidu.tbadk.data.MetaData, d.a.p0.s.f0.t.a
     public void setLikeStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
@@ -1001,22 +1001,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                o oVar = new o();
-                oVar.e(getPortraitH());
-                oVar.i(getPortrait());
-                oVar.h(true);
-                this.mPhotoAlbum.add(oVar);
+                m mVar = new m();
+                mVar.e(getPortraitH());
+                mVar.i(getPortrait());
+                mVar.h(true);
+                this.mPhotoAlbum.add(mVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i2 = 0; i2 < length; i2++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         if (jSONObject2 != null) {
-                            o oVar2 = new o();
-                            oVar2.e(jSONObject2.optString("big"));
-                            oVar2.i(jSONObject2.optString("small"));
-                            oVar2.h(false);
-                            this.mPhotoAlbum.add(oVar2);
+                            m mVar2 = new m();
+                            mVar2.e(jSONObject2.optString("big"));
+                            mVar2.i(jSONObject2.optString("small"));
+                            mVar2.h(false);
+                            this.mPhotoAlbum.add(mVar2);
                         }
                     }
                 }

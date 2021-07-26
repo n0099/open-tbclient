@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.j;
-import d.a.c.e.p.l;
-import d.a.o0.r.q.w0;
-import d.a.p0.h.c;
+import d.a.d.a.j;
+import d.a.d.e.p.l;
+import d.a.p0.s.q.w0;
+import d.a.q0.h.c;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NEGFeedBackView extends AppCompatImageView {
@@ -31,19 +31,19 @@ public class NEGFeedBackView extends AppCompatImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13657e;
+    public Context f13705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f13658f;
+    public long f13706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13659g;
+    public int f13707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13660h;
+    public int f13708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13661i;
+    public int f13709i;
     public int j;
     public int k;
     public c l;
@@ -55,7 +55,7 @@ public class NEGFeedBackView extends AppCompatImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NEGFeedBackView f13662e;
+        public final /* synthetic */ NEGFeedBackView f13710e;
 
         public a(NEGFeedBackView nEGFeedBackView) {
             Interceptable interceptable = $ic;
@@ -72,21 +72,21 @@ public class NEGFeedBackView extends AppCompatImageView {
                     return;
                 }
             }
-            this.f13662e = nEGFeedBackView;
+            this.f13710e = nEGFeedBackView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(j.a(this.f13662e.getContext()), null)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(j.a(this.f13710e.getContext()), null)) {
                 return;
             }
-            this.f13662e.o();
+            this.f13710e.o();
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f13662e.f13658f > 500) {
-                this.f13662e.r(view);
+            if (currentTimeMillis - this.f13710e.f13706f > 500) {
+                this.f13710e.r(view);
             }
-            this.f13662e.f13658f = currentTimeMillis;
+            this.f13710e.f13706f = currentTimeMillis;
         }
     }
 
@@ -117,11 +117,11 @@ public class NEGFeedBackView extends AppCompatImageView {
                 return;
             }
         }
-        this.f13658f = 0L;
+        this.f13706f = 0L;
         this.j = R.drawable.icon_pure_card_more22;
         this.k = R.color.CAM_X0111;
         this.m = new a(this);
-        this.f13657e = tbPageContext.getPageActivity();
+        this.f13705e = tbPageContext.getPageActivity();
         p(tbPageContext);
     }
 
@@ -145,7 +145,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void n(ViewGroup viewGroup, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2, i3) == null) {
-            int g2 = l.g(this.f13657e, R.dimen.tbds24);
+            int g2 = l.g(this.f13705e, R.dimen.tbds24);
             setPadding(i3, 0, i3, 0);
             if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i2);
@@ -272,24 +272,24 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void setLeftPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f13659g = i2;
-            setPadding(i2, this.f13661i, this.f13660h, 0);
+            this.f13707g = i2;
+            setPadding(i2, this.f13709i, this.f13708h, 0);
         }
     }
 
     public void setRightPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f13660h = i2;
-            setPadding(this.f13659g, this.f13661i, i2, 0);
+            this.f13708h = i2;
+            setPadding(this.f13707g, this.f13709i, i2, 0);
         }
     }
 
     public void setTopPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f13661i = i2;
-            setPadding(this.f13659g, i2, this.f13660h, 0);
+            this.f13709i = i2;
+            setPadding(this.f13707g, i2, this.f13708h, 0);
         }
     }
 

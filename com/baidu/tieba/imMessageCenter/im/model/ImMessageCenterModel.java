@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.p0.i1.t.b;
-import d.a.p0.i1.t.e;
+import d.a.d.a.f;
+import d.a.q0.i1.t.b;
+import d.a.q0.i1.t.e;
 /* loaded from: classes4.dex */
 public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     public static /* synthetic */ Interceptable $ic = null;

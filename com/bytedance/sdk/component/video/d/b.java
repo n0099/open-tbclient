@@ -12,10 +12,27 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static File a(String str, String str2) {
+    public static long a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            File c2 = c(str, str2);
+            if (c2.exists()) {
+                return c2.length();
+            }
+            File b2 = b(str, str2);
+            if (b2.exists()) {
+                return b2.length();
+            }
+            return 0L;
+        }
+        return invokeLL.longValue;
+    }
+
+    public static File b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             File file = new File(str);
             if (file.isFile()) {
                 file.delete();
@@ -28,10 +45,10 @@ public class b {
         return (File) invokeLL.objValue;
     }
 
-    public static File b(String str, String str2) {
+    public static File c(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             File file = new File(str);
             if (file.isFile()) {
                 file.delete();

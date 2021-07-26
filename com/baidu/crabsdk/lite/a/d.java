@@ -14,7 +14,7 @@ public final class d {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4705a.get(str);
+            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4731a.get(str);
             return (hashMap == null || (obj = hashMap.get("sdk_channel")) == null) ? "N/A" : (String) obj;
         }
         return (String) invokeL.objValue;

@@ -13,28 +13,28 @@ public class ac {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1418a;
+    public String f1451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1419b;
+    public String f1452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1420c;
+    public String f1453c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1421d;
+    public String f1454d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1422e;
+    public int f1455e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1423f;
+    public String f1456f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f1424g;
+    public int f1457g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f1425h;
+    public String f1458h;
 
     public ac() {
         Interceptable interceptable = $ic;
@@ -49,12 +49,12 @@ public class ac {
                 return;
             }
         }
-        this.f1418a = "";
-        this.f1419b = "";
-        this.f1420c = "";
-        this.f1421d = "";
-        this.f1423f = "";
-        this.f1424g = 0;
+        this.f1451a = "";
+        this.f1452b = "";
+        this.f1453c = "";
+        this.f1454d = "";
+        this.f1456f = "";
+        this.f1457g = 0;
     }
 
     public JSONObject a() {
@@ -63,14 +63,14 @@ public class ac {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("name", this.f1418a);
-                jSONObject.put("id", this.f1419b);
-                jSONObject.put("image", this.f1420c);
-                jSONObject.put("url", this.f1421d);
-                jSONObject.put("progress", this.f1422e);
-                jSONObject.put("downloadPerSize", this.f1423f);
-                jSONObject.put("status", this.f1424g);
-                jSONObject.put("savePath", this.f1425h);
+                jSONObject.put("name", this.f1451a);
+                jSONObject.put("id", this.f1452b);
+                jSONObject.put("image", this.f1453c);
+                jSONObject.put("url", this.f1454d);
+                jSONObject.put("progress", this.f1455e);
+                jSONObject.put("downloadPerSize", this.f1456f);
+                jSONObject.put("status", this.f1457g);
+                jSONObject.put("savePath", this.f1458h);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

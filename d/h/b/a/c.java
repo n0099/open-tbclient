@@ -11,13 +11,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70969a;
+    public String f71423a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f70970b;
+    public int f71424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f70971c;
+    public long f71425c;
 
     public c(String str, int i2) {
         Interceptable interceptable = $ic;
@@ -34,16 +34,16 @@ public class c {
                 return;
             }
         }
-        this.f70969a = str;
-        this.f70970b = i2;
-        this.f70971c = System.currentTimeMillis() + 86400000;
+        this.f71423a = str;
+        this.f71424b = i2;
+        this.f71425c = System.currentTimeMillis() + 86400000;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ValueData{value='" + this.f70969a + "', code=" + this.f70970b + ", expired=" + this.f70971c + '}';
+            return "ValueData{value='" + this.f71423a + "', code=" + this.f71424b + ", expired=" + this.f71425c + '}';
         }
         return (String) invokeV.objValue;
     }

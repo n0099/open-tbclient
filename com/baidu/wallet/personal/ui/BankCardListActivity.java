@@ -53,31 +53,31 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f27100a;
+    public RelativeLayout f27258a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f27101b;
+    public TextView f27259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f27102c;
+    public String[] f27260c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<ICustomTabEntity> f27103d;
+    public ArrayList<ICustomTabEntity> f27261d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CommonTabLayout f27104e;
+    public CommonTabLayout f27262e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f27105f;
+    public f f27263f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoScrollViewPager f27106g;
+    public NoScrollViewPager f27264g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27107h;
+    public boolean f27265h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f27108i;
+    public boolean f27266i;
     public boolean j;
     public List<CardListBaseFragment> k;
     public boolean l;
@@ -97,10 +97,10 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
                 return;
             }
         }
-        this.f27102c = new String[]{"银行卡", "电子卡"};
-        this.f27103d = new ArrayList<>();
-        this.f27107h = false;
-        this.f27108i = false;
+        this.f27260c = new String[]{"银行卡", "电子卡"};
+        this.f27261d = new ArrayList<>();
+        this.f27265h = false;
+        this.f27266i = false;
         this.j = false;
         this.l = false;
         this.m = false;
@@ -109,7 +109,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BankCardListActivity f27109a;
+            public final /* synthetic */ BankCardListActivity f27267a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -126,7 +126,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
                         return;
                     }
                 }
-                this.f27109a = this;
+                this.f27267a = this;
             }
 
             @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
@@ -140,8 +140,8 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
             public void onChangeSucceed(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    if (this.f27109a.f27108i && this.f27109a.f27100a != null && this.f27109a.f27100a.getVisibility() == 0) {
-                        this.f27109a.f27100a.setVisibility(8);
+                    if (this.f27267a.f27266i && this.f27267a.f27258a != null && this.f27267a.f27258a.getVisibility() == 0) {
+                        this.f27267a.f27258a.setVisibility(8);
                     }
                     EventBus eventBus = EventBus.getInstance();
                     eventBus.getClass();
@@ -154,11 +154,11 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            if (this.f27105f == null) {
-                this.f27105f = (f) PayBeanFactory.getInstance().getBean((Context) getActivity(), 606, BEAN_TAG);
+            if (this.f27263f == null) {
+                this.f27263f = (f) PayBeanFactory.getInstance().getBean((Context) getActivity(), 606, BEAN_TAG);
             }
-            this.f27105f.setResponseCallback(this);
-            this.f27105f.execBean();
+            this.f27263f.setResponseCallback(this);
+            this.f27263f.execBean();
         }
     }
 
@@ -169,11 +169,11 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f27102c;
+            String[] strArr = this.f27260c;
             if (i2 >= strArr.length) {
                 return;
             }
-            this.f27103d.add(new BankCardTabEntity(i2, strArr[i2]));
+            this.f27261d.add(new BankCardTabEntity(i2, strArr[i2]));
             i2++;
         }
     }
@@ -204,10 +204,10 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
                     Activity activity8 = getActivity();
                     a.c(activity8, "key_card_eem_msg" + CardListCache.getInstance().getUserId(), "");
                 }
-                this.f27104e.setTabTitleTipMsg(1, true, d2);
+                this.f27262e.setTabTitleTipMsg(1, true, d2);
                 return;
             }
-            this.f27104e.setTabTitleTipMsg(1, false, "");
+            this.f27262e.setTabTitleTipMsg(1, false, "");
         }
     }
 
@@ -216,7 +216,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Bundle bundle = new Bundle();
-            bundle.putBoolean(com.baidu.wallet.api.Constants.BDL_KEY_BANKINFO_EXTRA, !this.f27107h);
+            bundle.putBoolean(com.baidu.wallet.api.Constants.BDL_KEY_BANKINFO_EXTRA, !this.f27265h);
             BaiduPay.getInstance().bindCard(this.mAct, this.n, PayRequestCache.BindCategory.Initiative, 1, "", null, bundle, null, true, BeanConstants.FROM_BIND);
         }
     }
@@ -254,7 +254,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
                 a.a(activity4, "key_card_eem_msg_code" + CardListCache.getInstance().getUserId(), "");
             }
             if (!b2.equals(cardRedEemMasResp.msgCode)) {
-                this.f27104e.setTabTitleTipMsg(1, true, cardRedEemMasResp.notice_msg);
+                this.f27262e.setTabTitleTipMsg(1, true, cardRedEemMasResp.notice_msg);
                 if (TextUtils.isEmpty(CardListCache.getInstance().getUserIdV2())) {
                     return;
                 }
@@ -275,7 +275,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view == this.f27101b) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view == this.f27259b) {
             this.m = true;
             BaiduWalletDelegate baiduWalletDelegate = BaiduWalletDelegate.getInstance();
             Activity activity = getActivity();
@@ -288,7 +288,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            CommonTabLayout commonTabLayout = this.f27104e;
+            CommonTabLayout commonTabLayout = this.f27262e;
             if (commonTabLayout != null) {
                 commonTabLayout.setIsFirstDraw(true);
             }
@@ -307,15 +307,15 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
             getBdActionBar().setTitleSize(DisplayUtils.dip2px(getActivity(), 18.0f));
             ((ImageView) findViewById(ResUtils.id(this.mAct, "title_bottom_seperator"))).setVisibility(8);
             CommonTabLayout commonTabLayout = (CommonTabLayout) findViewById(ResUtils.id(getActivity(), "bank_card_list_tab_layout"));
-            this.f27104e = commonTabLayout;
-            commonTabLayout.setTabData(this.f27103d);
-            this.f27104e.setOnTabSelectListener(this);
+            this.f27262e = commonTabLayout;
+            commonTabLayout.setTabData(this.f27261d);
+            this.f27262e.setOnTabSelectListener(this);
             NoScrollViewPager noScrollViewPager = (NoScrollViewPager) findViewById(ResUtils.id(getActivity(), "bank_card_list_view_pager"));
-            this.f27106g = noScrollViewPager;
+            this.f27264g = noScrollViewPager;
             noScrollViewPager.setScanScroll(false);
-            this.f27100a = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "bd_wallet_pwd_set_layout"));
+            this.f27258a = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "bd_wallet_pwd_set_layout"));
             TextView textView = (TextView) findViewById(ResUtils.id(this.mAct, "bd_wallet_setpwd_img"));
-            this.f27101b = textView;
+            this.f27259b = textView;
             textView.setOnClickListener(this);
             c();
             a();
@@ -365,12 +365,12 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
         CommonTabLayout commonTabLayout;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            NoScrollViewPager noScrollViewPager = this.f27106g;
+            NoScrollViewPager noScrollViewPager = this.f27264g;
             if (noScrollViewPager != null) {
                 noScrollViewPager.setCurrentItem(i2);
             }
-            if (i2 == 1 && (commonTabLayout = this.f27104e) != null && commonTabLayout.isMsgTipsShowing(i2)) {
-                this.f27104e.setTabTitleTipMsg(i2, false, "");
+            if (i2 == 1 && (commonTabLayout = this.f27262e) != null && commonTabLayout.isMsgTipsShowing(i2)) {
+                this.f27262e.setTabTitleTipMsg(i2, false, "");
                 Activity activity = getActivity();
                 a.a(activity, "key_user_click_card_eem_msg" + CardListCache.getInstance().getUserIdV2(), Boolean.TRUE);
             }
@@ -381,7 +381,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     public void setBankCardDetectEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f27107h = z;
+            this.f27265h = z;
         }
     }
 
@@ -389,7 +389,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     public void setNoBankCardAndPwdFlag(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f27108i = z;
+            this.f27266i = z;
         }
     }
 
@@ -397,7 +397,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     public void showPwdLayout(boolean z) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (relativeLayout = this.f27100a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (relativeLayout = this.f27258a) == null) {
             return;
         }
         relativeLayout.setVisibility(z ? 0 : 8);
@@ -406,7 +406,7 @@ public class BankCardListActivity extends PayBaseBeanActivity implements View.On
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f27106g.setAdapter(new CardListFragmentPageAdapter(getSupportFragmentManager(), this.k));
+            this.f27264g.setAdapter(new CardListFragmentPageAdapter(getSupportFragmentManager(), this.k));
         }
     }
 

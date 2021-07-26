@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.p0.h3.d0.a;
+import d.a.d.a.f;
+import d.a.q0.h3.d0.a;
 /* loaded from: classes4.dex */
 public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
     public static /* synthetic */ Interceptable $ic;

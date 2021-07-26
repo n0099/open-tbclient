@@ -111,9 +111,7 @@ public class GetExecutor extends NetExecutor {
                 for (Map.Entry<String, String> entry : this.paramsMap.entrySet()) {
                     aVar2.a(entry.getKey(), entry.getValue());
                 }
-                for (Map.Entry<String, String> entry2 : this.requestHeadsMap.entrySet()) {
-                    aVar.b(entry2.getKey(), entry2.getValue());
-                }
+                traverseHeadMapToRequestBuilder(aVar);
                 aVar.a(this.cacheControl);
                 aVar.a((Object) getTag());
                 this.okHttpClient.a(aVar.a(aVar2.c()).a().d()).a(new f(this, netCallback) { // from class: com.bytedance.sdk.component.net.executor.GetExecutor.1
@@ -203,9 +201,7 @@ public class GetExecutor extends NetExecutor {
                 for (Map.Entry<String, String> entry : this.paramsMap.entrySet()) {
                     aVar2.a(entry.getKey(), entry.getValue());
                 }
-                for (Map.Entry<String, String> entry2 : this.requestHeadsMap.entrySet()) {
-                    aVar.b(entry2.getKey(), entry2.getValue());
-                }
+                traverseHeadMapToRequestBuilder(aVar);
                 aVar.a(this.cacheControl);
                 aVar.a((Object) getTag());
                 try {

@@ -15,7 +15,7 @@ public final class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f32070a;
+    public List<a> f32271a;
 
     public b(a... aVarArr) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class b extends a {
             }
         }
         CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
-        this.f32070a = copyOnWriteArrayList;
+        this.f32271a = copyOnWriteArrayList;
         if (aVarArr == null) {
             return;
         }
@@ -45,14 +45,14 @@ public final class b extends a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f32070a.add(aVar);
+        this.f32271a.add(aVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
     public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, bVar, dVar) == null) {
-            for (a aVar : this.f32070a) {
+            for (a aVar : this.f32271a) {
                 if (aVar != null) {
                     aVar.b(bVar, dVar);
                 }
@@ -64,7 +64,7 @@ public final class b extends a {
     public <T> void c(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, bVar, dVar) == null) {
-            for (a aVar : this.f32070a) {
+            for (a aVar : this.f32271a) {
                 if (aVar != null) {
                     aVar.c(bVar, dVar);
                 }
@@ -76,7 +76,7 @@ public final class b extends a {
     public <T> void f(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, d dVar, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, bVar, dVar, th) == null) {
-            for (a aVar : this.f32070a) {
+            for (a aVar : this.f32271a) {
                 if (aVar != null) {
                     aVar.f(bVar, dVar, th);
                 }
@@ -88,7 +88,7 @@ public final class b extends a {
     public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, dVar) == null) {
-            for (a aVar : this.f32070a) {
+            for (a aVar : this.f32271a) {
                 if (aVar != null) {
                     aVar.a(bVar, dVar);
                 }
@@ -100,7 +100,7 @@ public final class b extends a {
     public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, d dVar, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, bVar, dVar, th) == null) {
-            for (a aVar : this.f32070a) {
+            for (a aVar : this.f32271a) {
                 if (aVar != null) {
                     aVar.b(bVar, dVar, th);
                 }
@@ -112,7 +112,7 @@ public final class b extends a {
     public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, d dVar, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bVar, dVar, th) == null) {
-            for (a aVar : this.f32070a) {
+            for (a aVar : this.f32271a) {
                 if (aVar != null) {
                     aVar.a(bVar, dVar, th);
                 }

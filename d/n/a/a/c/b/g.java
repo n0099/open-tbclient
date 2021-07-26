@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f72188c;
+    public static Context f72642c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class f72189a;
+    public final Class f72643a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f72190b;
+    public i f72644b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class g {
                 return;
             }
         }
-        this.f72189a = g();
-        this.f72190b = new i(this);
+        this.f72643a = g();
+        this.f72644b = new i(this);
     }
 
     public /* synthetic */ g(byte b2) {
@@ -52,8 +52,8 @@ public final class g {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            f72188c = context;
-            gVar = h.f72191a;
+            f72642c = context;
+            gVar = h.f72645a;
             return gVar;
         }
         return (g) invokeL.objValue;
@@ -82,7 +82,7 @@ public final class g {
             String f2 = f(str);
             if (f2 != null && str2 != null) {
                 try {
-                    obj = this.f72189a.getDeclaredMethod("getService", String.class).invoke(null, str);
+                    obj = this.f72643a.getDeclaredMethod("getService", String.class).invoke(null, str);
                     try {
                         Field declaredField = Class.forName(f2 + "$Stub").getDeclaredField(str2);
                         declaredField.setAccessible(true);
@@ -124,7 +124,7 @@ public final class g {
             Parcel obtain2 = Parcel.obtain();
             String str2 = null;
             try {
-                ((IBinder) this.f72189a.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
+                ((IBinder) this.f72643a.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
                 str2 = obtain2.readString();
             } finally {
                 try {

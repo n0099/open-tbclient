@@ -23,22 +23,22 @@ public class VideoInfo implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6033a;
+    public String f6059a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6034b;
+    public int f6060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6035c;
+    public int f6061c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6036d;
+    public int f6062d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f6037e;
+    public long f6063e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6038f;
+    public int f6064f;
 
     static {
         InterceptResult invokeClinit;
@@ -108,25 +108,25 @@ public class VideoInfo implements Parcelable {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6033a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6059a : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6034b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6060b : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6035c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6061c : invokeV.intValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f6037e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f6063e : invokeV.longValue;
     }
 
     @Override // android.os.Parcelable
@@ -142,13 +142,13 @@ public class VideoInfo implements Parcelable {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f6036d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f6062d : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f6038f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f6064f : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -158,12 +158,12 @@ public class VideoInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             VideoInfo videoInfo = new VideoInfo();
-            videoInfo.f6038f = this.f6038f;
-            videoInfo.f6036d = this.f6036d;
-            videoInfo.f6037e = this.f6037e;
-            videoInfo.f6035c = this.f6035c;
-            videoInfo.f6034b = this.f6034b;
-            videoInfo.f6033a = this.f6033a;
+            videoInfo.f6064f = this.f6064f;
+            videoInfo.f6062d = this.f6062d;
+            videoInfo.f6063e = this.f6063e;
+            videoInfo.f6061c = this.f6061c;
+            videoInfo.f6060b = this.f6060b;
+            videoInfo.f6059a = this.f6059a;
             return videoInfo;
         }
         return (VideoInfo) invokeV.objValue;
@@ -173,7 +173,7 @@ public class VideoInfo implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return "VideoInfo{videoPath='" + this.f6033a + "', videoWidth=" + this.f6034b + ", videoHeight=" + this.f6035c + ", frameRate=" + this.f6036d + ", duration=" + this.f6037e + ", videoRotation=" + this.f6038f + '}';
+            return "VideoInfo{videoPath='" + this.f6059a + "', videoWidth=" + this.f6060b + ", videoHeight=" + this.f6061c + ", frameRate=" + this.f6062d + ", duration=" + this.f6063e + ", videoRotation=" + this.f6064f + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -182,12 +182,12 @@ public class VideoInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, parcel, i2) == null) {
-            parcel.writeString(this.f6033a);
-            parcel.writeInt(this.f6034b);
-            parcel.writeInt(this.f6035c);
-            parcel.writeLong(this.f6037e);
-            parcel.writeFloat(this.f6036d);
-            parcel.writeInt(this.f6038f);
+            parcel.writeString(this.f6059a);
+            parcel.writeInt(this.f6060b);
+            parcel.writeInt(this.f6061c);
+            parcel.writeLong(this.f6063e);
+            parcel.writeFloat(this.f6062d);
+            parcel.writeInt(this.f6064f);
         }
     }
 
@@ -206,53 +206,53 @@ public class VideoInfo implements Parcelable {
                 return;
             }
         }
-        this.f6033a = parcel.readString();
-        this.f6034b = parcel.readInt();
-        this.f6035c = parcel.readInt();
-        this.f6037e = parcel.readLong();
-        this.f6036d = parcel.readInt();
-        this.f6038f = parcel.readInt();
+        this.f6059a = parcel.readString();
+        this.f6060b = parcel.readInt();
+        this.f6061c = parcel.readInt();
+        this.f6063e = parcel.readLong();
+        this.f6062d = parcel.readInt();
+        this.f6064f = parcel.readInt();
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f6033a = str;
+            this.f6059a = str;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f6035c = i2;
+            this.f6061c = i2;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f6036d = i2;
+            this.f6062d = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f6038f = i2;
+            this.f6064f = i2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f6034b = i2;
+            this.f6060b = i2;
         }
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f6037e = j;
+            this.f6063e = j;
         }
     }
 

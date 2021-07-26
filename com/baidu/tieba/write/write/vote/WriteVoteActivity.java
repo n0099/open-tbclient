@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.t0.a;
-import d.a.p0.a4.u.p.b;
+import d.a.p0.v0.a;
+import d.a.q0.a4.u.p.b;
 /* loaded from: classes4.dex */
 public class WriteVoteActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;

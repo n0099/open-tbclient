@@ -17,13 +17,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7832a;
+    public int f7858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7833b;
+    public int f7859b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f7834c;
+    public ExecutorService f7860c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -91,9 +91,9 @@ public class a {
                 return;
             }
         }
-        this.f7832a = 4000;
-        this.f7833b = 4000;
-        this.f7834c = Executors.newCachedThreadPool();
+        this.f7858a = 4000;
+        this.f7859b = 4000;
+        this.f7860c = Executors.newCachedThreadPool();
     }
 
     public void a(String str, e eVar) {
@@ -102,7 +102,7 @@ public class a {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("Request URL cannot be null");
             }
-            this.f7834c.submit(new b(this, eVar, str));
+            this.f7860c.submit(new b(this, eVar, str));
         }
     }
 }

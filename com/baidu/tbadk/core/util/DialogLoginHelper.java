@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.b.d;
-import d.a.o0.r.q.s0;
+import d.a.p0.b.d;
+import d.a.p0.s.q.s0;
 /* loaded from: classes3.dex */
 public class DialogLoginHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -72,7 +72,7 @@ public class DialogLoginHelper {
     public static String getOneKeyLoginActivityLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.u() ? "new_start_1" : d.v() ? "new_start_2" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.v() ? "new_start_1" : d.w() ? "new_start_2" : "" : (String) invokeV.objValue;
     }
 
     public static void skipToLoginDialogActivity(s0 s0Var) {

@@ -41,7 +41,7 @@ public class GradientFillParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", r.f7762a, "hd");
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", r.f7788a, "hd");
         GRADIENT_NAMES = JsonReader.Options.of("p", Config.APP_KEY);
     }
 

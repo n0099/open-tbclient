@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.c1.a;
-import d.a.n0.g.c.i.c;
+import d.a.o0.a.c1.a;
+import d.a.o0.g.c.i.c;
 /* loaded from: classes3.dex */
 public class InstallNotifyReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -105,7 +105,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            d.a.n0.g.c.a.n().q(stringExtra, this.mOpportunity);
+            d.a.o0.g.c.a.n().q(stringExtra, this.mOpportunity);
         }
     }
 
@@ -153,8 +153,8 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             startInstallPage(intent);
         } else if (c2 != 2) {
         } else {
-            d.a.n0.g.c.h.a.f().l();
-            d.a.n0.g.c.h.a.f().n("todayfirst");
+            d.a.o0.g.c.h.a.f().l();
+            d.a.o0.g.c.h.a.f().n("todayfirst");
         }
     }
 

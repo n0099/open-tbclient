@@ -1,9 +1,160 @@
 package com.win.opensdk;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.BufferUnderflowException;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public interface r0 {
-    void a();
+public class r0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(int i2, String str);
+    /* renamed from: a  reason: collision with root package name */
+    public final byte[] f39923a;
 
-    void a(Object obj);
+    /* renamed from: b  reason: collision with root package name */
+    public ByteBuffer f39924b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public q0 f39925c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f39926d;
+
+    public r0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f39923a = new byte[256];
+        this.f39926d = 0;
+    }
+
+    public r0 a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null) {
+                ByteBuffer wrap = ByteBuffer.wrap(bArr);
+                this.f39924b = null;
+                Arrays.fill(this.f39923a, (byte) 0);
+                this.f39925c = new q0();
+                this.f39926d = 0;
+                ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
+                this.f39924b = asReadOnlyBuffer;
+                asReadOnlyBuffer.position(0);
+                this.f39924b.order(ByteOrder.LITTLE_ENDIAN);
+            } else {
+                this.f39924b = null;
+                this.f39925c.f39914b = 2;
+            }
+            return this;
+        }
+        return (r0) invokeL.objValue;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39925c.f39914b != 0 : invokeV.booleanValue;
+    }
+
+    public final int[] a(int i2) {
+        InterceptResult invokeI;
+        int[] iArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            byte[] bArr = new byte[i2 * 3];
+            try {
+                this.f39924b.get(bArr);
+                iArr = new int[256];
+                int i3 = 0;
+                int i4 = 0;
+                while (i3 < i2) {
+                    int i5 = i4 + 1;
+                    try {
+                        int i6 = i5 + 1;
+                        int i7 = i6 + 1;
+                        int i8 = i3 + 1;
+                        iArr[i3] = ((bArr[i4] & 255) << 16) | (-16777216) | ((bArr[i5] & 255) << 8) | (bArr[i6] & 255);
+                        i4 = i7;
+                        i3 = i8;
+                    } catch (BufferUnderflowException unused) {
+                        this.f39925c.f39914b = 1;
+                        return iArr;
+                    }
+                }
+            } catch (BufferUnderflowException unused2) {
+                iArr = null;
+            }
+            return iArr;
+        }
+        return (int[]) invokeI.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                return this.f39924b.get() & 255;
+            } catch (Exception unused) {
+                this.f39925c.f39914b = 1;
+                return 0;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int b2 = b();
+            this.f39926d = b2;
+            int i2 = 0;
+            if (b2 > 0) {
+                while (i2 < this.f39926d) {
+                    try {
+                        int i3 = this.f39926d - i2;
+                        this.f39924b.get(this.f39923a, i2, i3);
+                        i2 += i3;
+                    } catch (Exception unused) {
+                        this.f39925c.f39914b = 1;
+                    }
+                }
+            }
+            return i2;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void d() {
+        int b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            do {
+                try {
+                    b2 = b();
+                    this.f39924b.position(this.f39924b.position() + b2);
+                } catch (IllegalArgumentException unused) {
+                    return;
+                }
+            } while (b2 > 0);
+        }
+    }
 }

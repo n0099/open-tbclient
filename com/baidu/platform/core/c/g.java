@@ -34,14 +34,14 @@ public class g extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9433b = "g";
+    public static final String f9459b = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9434c;
+    public int f9460c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9435d;
+    public int f9461d;
 
     static {
         InterceptResult invokeClinit;
@@ -73,8 +73,8 @@ public class g extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f9434c = i2;
-        this.f9435d = i3;
+        this.f9460c = i2;
+        this.f9461d = i3;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -105,7 +105,7 @@ public class g extends com.baidu.platform.base.d {
                     poiResult.error = optInt != 1 ? optInt != 2 ? SearchResult.ERRORNO.RESULT_NOT_FOUND : SearchResult.ERRORNO.SEARCH_OPTION_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
                     return false;
                 } catch (JSONException e2) {
-                    Log.e(f9433b, "Parse poi search failed", e2);
+                    Log.e(f9459b, "Parse poi search failed", e2);
                     poiResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 }
             }
@@ -126,9 +126,9 @@ public class g extends com.baidu.platform.base.d {
                     poiResult.setTotalPoiNum(optInt);
                     int length = optJSONArray.length();
                     poiResult.setCurrentPageCapacity(length);
-                    poiResult.setCurrentPageNum(this.f9434c);
+                    poiResult.setCurrentPageNum(this.f9460c);
                     if (length != 0) {
-                        int i2 = this.f9435d;
+                        int i2 = this.f9461d;
                         poiResult.setTotalPageNum((optInt / i2) + (optInt % i2 > 0 ? 1 : 0));
                     }
                     ArrayList arrayList = new ArrayList();
@@ -194,12 +194,12 @@ public class g extends com.baidu.platform.base.d {
                 poiDetailInfo.setShopHours(jSONObject.optString("shop_hours"));
                 poiDetailInfo.naviLocation = a(jSONObject.optJSONObject("navi_location"));
                 SearchType a2 = a();
-                if (SearchType.f9386b == a2 || SearchType.f9385a == a2) {
+                if (SearchType.f9412b == a2 || SearchType.f9411a == a2) {
                     poiDetailInfo.setPoiChildrenInfoList(b(jSONObject));
                 }
                 return poiDetailInfo;
             } catch (JSONException e2) {
-                Log.e(f9433b, "Parse poi search detail info failed", e2);
+                Log.e(f9459b, "Parse poi search detail info failed", e2);
                 return null;
             }
         }
@@ -253,7 +253,7 @@ public class g extends com.baidu.platform.base.d {
                     jSONObject = new JSONObject(str);
                     c2 = 0;
                 } catch (JSONException e2) {
-                    Log.e(f9433b, "Parse poi search error", e2);
+                    Log.e(f9459b, "Parse poi search error", e2);
                 }
                 if (jSONObject.has("SDK_InnerError")) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
@@ -291,7 +291,7 @@ public class g extends com.baidu.platform.base.d {
     public void a(SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
-            int i2 = h.f9436a[a().ordinal()];
+            int i2 = h.f9462a[a().ordinal()];
             if (i2 == 1 || i2 == 2 || i2 == 3) {
                 ((OnGetPoiSearchResultListener) obj).onGetPoiResult((PoiResult) searchResult);
             }

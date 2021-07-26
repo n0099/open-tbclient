@@ -14,7 +14,7 @@ public class e extends f {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f29996a;
+    public static volatile e f30096a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,14 +41,14 @@ public class e extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f29996a == null) {
+            if (f30096a == null) {
                 synchronized (e.class) {
-                    if (f29996a == null) {
-                        f29996a = new e(context);
+                    if (f30096a == null) {
+                        f30096a = new e(context);
                     }
                 }
             }
-            return f29996a;
+            return f30096a;
         }
         return (e) invokeL.objValue;
     }

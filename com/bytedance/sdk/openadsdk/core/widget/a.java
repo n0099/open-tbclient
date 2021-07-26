@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.o;
 /* loaded from: classes5.dex */
 public class a extends AlertDialog {
@@ -17,14 +17,14 @@ public class a extends AlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30800a;
+    public Context f30983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30801b;
+    public String f30984b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str) {
-        super(context, r.g(context, "tt_custom_dialog"));
+        super(context, t.g(context, "tt_custom_dialog"));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,23 +41,23 @@ public class a extends AlertDialog {
                 return;
             }
         }
-        this.f30800a = context;
+        this.f30983a = context;
         if (context == null) {
-            this.f30800a = o.a();
+            this.f30983a = o.a();
         }
-        this.f30801b = str;
+        this.f30984b = str;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            ((TextView) findViewById(r.e(this.f30800a, "tt_dialog_content"))).setText(this.f30801b);
-            findViewById(r.e(this.f30800a, "tt_button_ok")).setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
+            ((TextView) findViewById(t.e(this.f30983a, "tt_dialog_content"))).setText(this.f30984b);
+            findViewById(t.e(this.f30983a, "tt_button_ok")).setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f30802a;
+                public final /* synthetic */ a f30985a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -74,14 +74,14 @@ public class a extends AlertDialog {
                             return;
                         }
                     }
-                    this.f30802a = this;
+                    this.f30985a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f30802a.dismiss();
+                        this.f30985a.dismiss();
                     }
                 }
             });
@@ -93,7 +93,7 @@ public class a extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(r.f(this.f30800a, "tt_adinfo_dialog_layout"));
+            setContentView(t.f(this.f30983a, "tt_adinfo_dialog_layout"));
             a();
         }
     }

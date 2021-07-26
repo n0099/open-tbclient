@@ -27,12 +27,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd;
-import d.a.o0.b.d;
-import d.a.o0.r.f0.h;
-import d.a.o0.r.u.c;
-import d.a.p0.f1.a.a;
-import d.a.p0.h3.h0.n;
-import d.a.p0.v0.a;
+import d.a.p0.b.d;
+import d.a.p0.s.f0.h;
+import d.a.p0.s.u.c;
+import d.a.q0.f1.a.a;
+import d.a.q0.h3.h0.n;
+import d.a.q0.v0.a;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -103,7 +103,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
                 agreeData.agreeNum = a.a(25, 1000);
                 nVar.h(agreeData);
             }
-            this.y.setText(this.f16263e);
+            this.y.setText(this.f16319e);
             AgreeData a2 = nVar.a();
             this.z.setAgreeAlone(true);
             this.z.setData(a2);
@@ -129,11 +129,11 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             this.C = (TextView) findViewById(R.id.share_num);
             this.G = (ViewGroup) findViewById(R.id.layout_card_top);
             this.H = (ImageView) findViewById(R.id.fun_ad_feedback);
-            this.f16296g.setVisibility(8);
+            this.f16352g.setVisibility(8);
             m(this.w);
             l();
-            RelativeLayout relativeLayout = this.f16295f;
-            relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16295f.getPaddingTop(), this.f16295f.getPaddingRight(), 0);
+            RelativeLayout relativeLayout = this.f16351f;
+            relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16351f.getPaddingTop(), this.f16351f.getPaddingRight(), 0);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
             marginLayoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
             setLayoutParams(marginLayoutParams);
@@ -144,7 +144,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     public List<View> getClickViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Arrays.asList(this, this.f16295f, this.k, this.n, this.t, this.s, this.G) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Arrays.asList(this, this.f16351f, this.k, this.n, this.t, this.s, this.G) : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -162,13 +162,13 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public a.e getLogItem() {
+    public a.f getLogItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return d.a.p0.v0.a.a("frs", d.w() ? "1" : "0");
+            return d.a.q0.v0.a.b("frs", d.x() ? "1" : "0");
         }
-        return (a.e) invokeV.objValue;
+        return (a.f) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -190,10 +190,10 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             c.d(this.x).t(R.color.CAM_X0109);
             c.d(this.y).t(R.color.CAM_X0105);
             WebPManager.setPureDrawable(this.H, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            this.B.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_share22, d.a.p0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
-            this.E.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_comment22, d.a.p0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
-            this.C.setTextColor(d.a.p0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
-            this.F.setTextColor(d.a.p0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.B.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_share22, d.a.q0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.E.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_comment22, d.a.q0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.C.setTextColor(d.a.q0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.F.setTextColor(d.a.q0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.w.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.z.m(TbadkCoreApplication.getInst().getSkinType());
             h.a(this.B, R.drawable.icon_pure_card_share20);

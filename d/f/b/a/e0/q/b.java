@@ -16,11 +16,11 @@ public final class b implements e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f70264f;
+    public static final b f70718f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<d.f.b.a.e0.b> f70265e;
+    public final List<d.f.b.a.e0.b> f70719e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public final class b implements e {
                 return;
             }
         }
-        f70264f = new b();
+        f70718f = new b();
     }
 
     public b(d.f.b.a.e0.b bVar) {
@@ -53,7 +53,7 @@ public final class b implements e {
                 return;
             }
         }
-        this.f70265e = Collections.singletonList(bVar);
+        this.f70719e = Collections.singletonList(bVar);
     }
 
     @Override // d.f.b.a.e0.e
@@ -88,7 +88,7 @@ public final class b implements e {
     public List<d.f.b.a.e0.b> d(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? j >= 0 ? this.f70265e : Collections.emptyList() : (List) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? j >= 0 ? this.f70719e : Collections.emptyList() : (List) invokeJ.objValue;
     }
 
     public b() {
@@ -104,6 +104,6 @@ public final class b implements e {
                 return;
             }
         }
-        this.f70265e = Collections.emptyList();
+        this.f70719e = Collections.emptyList();
     }
 }

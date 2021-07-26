@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.i0.a.e.a;
+import d.a.j0.a.e.a;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

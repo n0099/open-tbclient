@@ -28,19 +28,19 @@ public class g implements Handler.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f68997e;
+    public Handler f69451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f68998f;
+    public int f69452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f68999g;
+    public long f69453g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<List<Runnable>> f69000h;
+    public final SparseArray<List<Runnable>> f69454h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<Printer> f69001i;
+    public final List<Printer> f69455i;
     public final List<Printer> j;
     public boolean k;
     public boolean l;
@@ -111,12 +111,12 @@ public class g implements Handler.Callback {
                 return;
             }
         }
-        this.f68998f = 0;
-        this.f69000h = new SparseArray<>();
-        this.f69001i = new LinkedList();
+        this.f69452f = 0;
+        this.f69454h = new SparseArray<>();
+        this.f69455i = new LinkedList();
         this.j = new LinkedList();
         this.k = false;
-        this.f68997e = new Handler(i.a().getLooper(), this);
+        this.f69451e = new Handler(i.a().getLooper(), this);
         h();
     }
 
@@ -164,13 +164,13 @@ public class g implements Handler.Callback {
         }
         for (int i3 = 0; i3 < i2; i3++) {
             int i4 = (int) j;
-            List<Runnable> list = this.f69000h.get(i4);
+            List<Runnable> list = this.f69454h.get(i4);
             if (list == null) {
-                synchronized (this.f69000h) {
-                    list = this.f69000h.get(i4);
+                synchronized (this.f69454h) {
+                    list = this.f69454h.get(i4);
                     if (list == null) {
                         list = new LinkedList<>();
-                        this.f69000h.put(i4, list);
+                        this.f69454h.put(i4, list);
                     }
                 }
             }
@@ -193,10 +193,10 @@ public class g implements Handler.Callback {
                 h.a(32L);
                 this.l = true;
             }
-            this.f68999g = SystemClock.uptimeMillis();
+            this.f69453g = SystemClock.uptimeMillis();
             try {
-                g(this.f69001i, str);
-                this.f68997e.sendEmptyMessage(0);
+                g(this.f69455i, str);
+                this.f69451e.sendEmptyMessage(0);
             } catch (Exception e2) {
                 l.k.b(e2);
             }
@@ -241,35 +241,35 @@ public class g implements Handler.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, message)) == null) {
-            if (this.f68997e.hasMessages(0)) {
+            if (this.f69451e.hasMessages(0)) {
                 return true;
             }
             int i2 = message.what;
             if (i2 == 0) {
-                this.f68998f = 0;
-                if (this.f69000h.size() != 0 && this.f69000h.keyAt(0) == 0) {
-                    f(this.f69000h.valueAt(0));
-                    this.f68998f++;
+                this.f69452f = 0;
+                if (this.f69454h.size() != 0 && this.f69454h.keyAt(0) == 0) {
+                    f(this.f69454h.valueAt(0));
+                    this.f69452f++;
                 }
             } else if (i2 == 1) {
-                this.f68997e.removeMessages(2);
-                if (this.f69000h.size() != 0) {
-                    SparseArray<List<Runnable>> sparseArray = this.f69000h;
+                this.f69451e.removeMessages(2);
+                if (this.f69454h.size() != 0) {
+                    SparseArray<List<Runnable>> sparseArray = this.f69454h;
                     if (sparseArray.keyAt(sparseArray.size() - 1) == 0) {
-                        f(this.f69000h.get(Integer.MAX_VALUE));
+                        f(this.f69454h.get(Integer.MAX_VALUE));
                     }
                 }
                 return true;
             } else if (i2 == 2) {
-                f(this.f69000h.valueAt(this.f68998f));
-                this.f68998f++;
+                f(this.f69454h.valueAt(this.f69452f));
+                this.f69452f++;
             }
-            if (this.f68998f >= this.f69000h.size()) {
+            if (this.f69452f >= this.f69454h.size()) {
                 return true;
             }
-            long keyAt = this.f69000h.keyAt(this.f68998f);
+            long keyAt = this.f69454h.keyAt(this.f69452f);
             if (keyAt != 2147483647L) {
-                this.f68997e.sendEmptyMessageAtTime(2, this.f68999g + keyAt);
+                this.f69451e.sendEmptyMessageAtTime(2, this.f69453g + keyAt);
             }
             return true;
         }
@@ -280,7 +280,7 @@ public class g implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, printer) == null) {
             synchronized (this) {
-                this.f69001i.add(printer);
+                this.f69455i.add(printer);
             }
         }
     }
@@ -290,9 +290,9 @@ public class g implements Handler.Callback {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             SystemClock.uptimeMillis();
             try {
-                this.f68997e.removeMessages(2);
+                this.f69451e.removeMessages(2);
                 g(this.j, str);
-                this.f68997e.sendEmptyMessage(1);
+                this.f69451e.sendEmptyMessage(1);
             } catch (Exception e2) {
                 l.k.c(e2);
             }

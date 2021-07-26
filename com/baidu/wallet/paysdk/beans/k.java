@@ -21,7 +21,7 @@ public class k extends BaseBean<CardListResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SourceFlag f25994a;
+    public SourceFlag f26152a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(Context context) {
@@ -41,7 +41,7 @@ public class k extends BaseBean<CardListResponse> {
                 return;
             }
         }
-        this.f25994a = SourceFlag.SDK;
+        this.f26152a = SourceFlag.SDK;
     }
 
     public void a(SourceFlag sourceFlag) {
@@ -50,7 +50,7 @@ public class k extends BaseBean<CardListResponse> {
             if (sourceFlag == null) {
                 sourceFlag = SourceFlag.SDK;
             }
-            this.f25994a = sourceFlag;
+            this.f26152a = sourceFlag;
         }
     }
 
@@ -68,7 +68,7 @@ public class k extends BaseBean<CardListResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("source_flag", this.f25994a.value()));
+            arrayList.add(new RestNameValuePair("source_flag", this.f26152a.value()));
             arrayList.add(new RestNameValuePair("is_from_sdk", "1"));
             arrayList.add(new RestNameValuePair("ea_bank_code", "0"));
             arrayList.add(new RestNameValuePair("need_balance", "1"));

@@ -14,10 +14,10 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1808a;
+    public static boolean f1841a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1809b;
+    public static String f1842b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,21 +52,21 @@ public class j {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f1809b = str;
+            f1842b = str;
         }
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f1808a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f1841a : invokeV.booleanValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            k b2 = k.b(k.f1812c.a());
+            k b2 = k.b(k.f1845c.a());
             return a(b2.a(), b2.b(), "");
         }
         return (String) invokeV.objValue;
@@ -76,7 +76,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            k b2 = k.b(k.f1815f.a());
+            k b2 = k.b(k.f1848f.a());
             return a(b2.a(), b2.b(), "");
         }
         return (String) invokeV.objValue;
@@ -86,7 +86,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            k b2 = k.b(k.f1814e.a());
+            k b2 = k.b(k.f1847e.a());
             return a(b2.a(), b2.b(), "");
         }
         return (String) invokeV.objValue;
@@ -95,13 +95,13 @@ public class j {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1809b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1842b : (String) invokeV.objValue;
     }
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
-            f1808a = z;
+            f1841a = z;
         }
     }
 

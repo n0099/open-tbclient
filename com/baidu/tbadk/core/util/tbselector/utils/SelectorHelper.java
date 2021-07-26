@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h3.c;
+import d.a.q0.h3.c;
 /* loaded from: classes3.dex */
 public class SelectorHelper {
     public static /* synthetic */ Interceptable $ic;

@@ -12,10 +12,10 @@ public class ADEvent {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f37935a;
+    public final int f38129a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object[] f37936b;
+    public final Object[] f38130b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ADEvent(int i2) {
@@ -53,15 +53,15 @@ public class ADEvent {
                 return;
             }
         }
-        this.f37935a = i2;
-        this.f37936b = objArr;
+        this.f38129a = i2;
+        this.f38130b = objArr;
     }
 
     public Object[] getParas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Object[] objArr = this.f37936b;
+            Object[] objArr = this.f38130b;
             return objArr == null ? new Object[0] : objArr;
         }
         return (Object[]) invokeV.objValue;
@@ -70,6 +70,6 @@ public class ADEvent {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37935a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38129a : invokeV.intValue;
     }
 }

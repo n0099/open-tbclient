@@ -13,31 +13,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f72096f = "KWE_NS";
+    public static String f72550f = "KWE_NS";
 
     /* renamed from: g  reason: collision with root package name */
-    public static AtomicBoolean f72097g;
+    public static AtomicBoolean f72551g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f72098a;
+    public a f72552a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CountDownLatch f72099b;
+    public CountDownLatch f72553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.n.a.a.a.b.b f72100c;
+    public d.n.a.a.a.b.b f72554c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f72101d;
+    public Context f72555d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.n.a.a.c.a.e f72102e;
+    public d.n.a.a.c.a.e f72556e;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public final class b implements a {
                 return;
             }
         }
-        f72097g = new AtomicBoolean(false);
+        f72551g = new AtomicBoolean(false);
     }
 
     public b() {
@@ -68,8 +68,8 @@ public final class b implements a {
                 return;
             }
         }
-        this.f72099b = null;
-        this.f72100c = null;
+        this.f72553b = null;
+        this.f72554c = null;
     }
 
     public /* synthetic */ b(byte b2) {
@@ -81,7 +81,7 @@ public final class b implements a {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            bVar = e.f72107a;
+            bVar = e.f72561a;
             return bVar;
         }
         return (b) invokeV.objValue;
@@ -92,8 +92,8 @@ public final class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, bVar) == null) {
             try {
-                if (this.f72098a != null) {
-                    this.f72098a.a(z, bVar);
+                if (this.f72552a != null) {
+                    this.f72552a.a(z, bVar);
                 }
             } catch (Throwable th) {
                 d.n.a.a.c.b.c.c(th);
@@ -106,14 +106,14 @@ public final class b implements a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             try {
                 d dVar = new d(this);
-                if (!f72097g.compareAndSet(false, true)) {
+                if (!f72551g.compareAndSet(false, true)) {
                     d.n.a.a.c.b.c.b("OaHelper has been initialized,return");
                     return;
                 }
-                if (this.f72101d == null) {
-                    this.f72101d = context;
+                if (this.f72555d == null) {
+                    this.f72555d = context;
                 }
-                this.f72102e = new d.n.a.a.c.a.e(this.f72101d);
+                this.f72556e = new d.n.a.a.c.a.e(this.f72555d);
                 Thread thread = new Thread(new c(this, context, dVar));
                 thread.setName("adsence-dfp");
                 thread.start();
@@ -126,7 +126,7 @@ public final class b implements a {
     public final void i() {
         CountDownLatch countDownLatch;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (countDownLatch = this.f72099b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (countDownLatch = this.f72553b) == null) {
             return;
         }
         countDownLatch.countDown();
@@ -136,11 +136,11 @@ public final class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (this.f72099b == null || this.f72099b.getCount() <= 0) {
+                if (this.f72553b == null || this.f72553b.getCount() <= 0) {
                     return;
                 }
                 d.n.a.a.c.b.c.b("awaitCdOaid");
-                this.f72099b.await(2000L, TimeUnit.MILLISECONDS);
+                this.f72553b.await(2000L, TimeUnit.MILLISECONDS);
             } catch (InterruptedException e2) {
                 d.n.a.a.c.b.c.c(e2);
                 Thread.currentThread().interrupt();

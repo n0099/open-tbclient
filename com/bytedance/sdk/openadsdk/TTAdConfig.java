@@ -17,31 +17,31 @@ public final class TTAdConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29020a;
+    public String f29119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29021b;
+    public String f29120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29022c;
+    public boolean f29121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29023d;
+    public String f29122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29024e;
+    public String f29123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29025f;
+    public int f29124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29026g;
+    public boolean f29125g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29027h;
+    public boolean f29126h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f29028i;
+    public boolean f29127i;
     public int[] j;
     public boolean k;
     public boolean l;
@@ -66,31 +66,31 @@ public final class TTAdConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f29029a;
+        public String f29128a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f29030b;
+        public String f29129b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f29031c;
+        public boolean f29130c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f29032d;
+        public String f29131d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29033e;
+        public String f29132e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f29034f;
+        public int f29133f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f29035g;
+        public boolean f29134g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f29036h;
+        public boolean f29135h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f29037i;
+        public boolean f29136i;
         public int[] j;
         public boolean k;
         public boolean l;
@@ -115,11 +115,11 @@ public final class TTAdConfig {
                     return;
                 }
             }
-            this.f29031c = false;
-            this.f29034f = 0;
-            this.f29035g = true;
-            this.f29036h = false;
-            this.f29037i = false;
+            this.f29130c = false;
+            this.f29133f = 0;
+            this.f29134g = true;
+            this.f29135h = false;
+            this.f29136i = false;
             this.k = false;
             this.l = false;
             this.q = false;
@@ -129,7 +129,7 @@ public final class TTAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                this.f29035g = z;
+                this.f29134g = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -140,7 +140,7 @@ public final class TTAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f29037i = z;
+                this.f29136i = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -150,7 +150,7 @@ public final class TTAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f29029a = str;
+                this.f29128a = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -160,7 +160,7 @@ public final class TTAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f29030b = str;
+                this.f29129b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -181,15 +181,15 @@ public final class TTAdConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 TTAdConfig tTAdConfig = new TTAdConfig(null);
-                tTAdConfig.setAppId(this.f29029a);
-                tTAdConfig.setAppName(this.f29030b);
-                tTAdConfig.setPaid(this.f29031c);
-                tTAdConfig.setKeywords(this.f29032d);
-                tTAdConfig.setData(this.f29033e);
-                tTAdConfig.setTitleBarTheme(this.f29034f);
-                tTAdConfig.setAllowShowNotify(this.f29035g);
-                tTAdConfig.setDebug(this.f29036h);
-                tTAdConfig.setAllowShowPageWhenScreenLock(this.f29037i);
+                tTAdConfig.setAppId(this.f29128a);
+                tTAdConfig.setAppName(this.f29129b);
+                tTAdConfig.setPaid(this.f29130c);
+                tTAdConfig.setKeywords(this.f29131d);
+                tTAdConfig.setData(this.f29132e);
+                tTAdConfig.setTitleBarTheme(this.f29133f);
+                tTAdConfig.setAllowShowNotify(this.f29134g);
+                tTAdConfig.setDebug(this.f29135h);
+                tTAdConfig.setAllowShowPageWhenScreenLock(this.f29136i);
                 tTAdConfig.setDirectDownloadNetworkType(this.j);
                 tTAdConfig.setUseTextureView(this.k);
                 tTAdConfig.setSupportMultiProcess(this.l);
@@ -219,7 +219,7 @@ public final class TTAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f29033e = str;
+                this.f29132e = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -229,7 +229,7 @@ public final class TTAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.f29036h = z;
+                this.f29135h = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -266,7 +266,7 @@ public final class TTAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f29032d = str;
+                this.f29131d = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -286,7 +286,7 @@ public final class TTAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
-                this.f29031c = z;
+                this.f29130c = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -316,7 +316,7 @@ public final class TTAdConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-                this.f29034f = i2;
+                this.f29133f = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -374,18 +374,18 @@ public final class TTAdConfig {
     public String getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29020a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29119a : (String) invokeV.objValue;
     }
 
     public String getAppName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f29021b;
+            String str = this.f29120b;
             if (str == null || str.isEmpty()) {
-                this.f29021b = a(o.a());
+                this.f29120b = a(o.a());
             }
-            return this.f29021b;
+            return this.f29120b;
         }
         return (String) invokeV.objValue;
     }
@@ -399,7 +399,7 @@ public final class TTAdConfig {
     public String getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29024e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29123e : (String) invokeV.objValue;
     }
 
     public int[] getDirectDownloadNetworkType() {
@@ -417,7 +417,7 @@ public final class TTAdConfig {
     public String getKeywords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29023d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29122d : (String) invokeV.objValue;
     }
 
     public String[] getNeedClearTaskReset() {
@@ -447,19 +447,19 @@ public final class TTAdConfig {
     public int getTitleBarTheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29025f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29124f : invokeV.intValue;
     }
 
     public boolean isAllowShowNotify() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f29026g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f29125g : invokeV.booleanValue;
     }
 
     public boolean isAllowShowPageWhenScreenLock() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f29028i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f29127i : invokeV.booleanValue;
     }
 
     public boolean isAsyncInit() {
@@ -471,13 +471,13 @@ public final class TTAdConfig {
     public boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f29027h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f29126h : invokeV.booleanValue;
     }
 
     public boolean isPaid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f29022c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f29121c : invokeV.booleanValue;
     }
 
     public boolean isSupportMultiProcess() {
@@ -495,28 +495,28 @@ public final class TTAdConfig {
     public void setAllowShowNotify(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f29026g = z;
+            this.f29125g = z;
         }
     }
 
     public void setAllowShowPageWhenScreenLock(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f29028i = z;
+            this.f29127i = z;
         }
     }
 
     public void setAppId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f29020a = str;
+            this.f29119a = str;
         }
     }
 
     public void setAppName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f29021b = str;
+            this.f29120b = str;
         }
     }
 
@@ -537,14 +537,14 @@ public final class TTAdConfig {
     public void setData(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.f29024e = str;
+            this.f29123e = str;
         }
     }
 
     public void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            this.f29027h = z;
+            this.f29126h = z;
         }
     }
 
@@ -565,7 +565,7 @@ public final class TTAdConfig {
     public void setKeywords(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.f29023d = str;
+            this.f29122d = str;
         }
     }
 
@@ -579,7 +579,7 @@ public final class TTAdConfig {
     public void setPaid(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.f29022c = z;
+            this.f29121c = z;
         }
     }
 
@@ -614,7 +614,7 @@ public final class TTAdConfig {
     public void setTitleBarTheme(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.f29025f = i2;
+            this.f29124f = i2;
         }
     }
 
@@ -638,11 +638,11 @@ public final class TTAdConfig {
                 return;
             }
         }
-        this.f29022c = false;
-        this.f29025f = 0;
-        this.f29026g = true;
-        this.f29027h = false;
-        this.f29028i = false;
+        this.f29121c = false;
+        this.f29124f = 0;
+        this.f29125g = true;
+        this.f29126h = false;
+        this.f29127i = false;
         this.k = false;
         this.l = false;
         this.q = false;

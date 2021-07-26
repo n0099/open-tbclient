@@ -28,16 +28,16 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IRemoteServiceCallback f27300a;
+    public IRemoteServiceCallback f27458a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f27301b;
+    public Map<String, String> f27459b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f27302c;
+    public Map<String, String> f27460c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27303d;
+    public String f27461d;
 
     public RemotePayEnterActivity() {
         Interceptable interceptable = $ic;
@@ -69,16 +69,16 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
         if (bundle == null) {
             return;
         }
-        this.f27303d = bundle.getString("order_info");
+        this.f27461d = bundle.getString("order_info");
         String str = "";
         if (Build.VERSION.SDK_INT < 18) {
             try {
                 iBinder = (IBinder) bundle.getClass().getDeclaredMethod("getIBinder", String.class).invoke(bundle, "callback");
             } catch (Exception e2) {
-                String str2 = this.f27303d;
+                String str2 = this.f27461d;
                 String[] strArr = new String[2];
-                Map<String, String> map = this.f27302c;
-                strArr[0] = (map == null || map.isEmpty()) ? "" : this.f27302c.get(Constants.KEY_REMOTE_PKG_NAME);
+                Map<String, String> map = this.f27460c;
+                strArr[0] = (map == null || map.isEmpty()) ? "" : this.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
                 strArr[1] = e2.getMessage();
                 PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_BINDER_CATCH, a.a(str2, strArr));
                 e2.printStackTrace();
@@ -88,13 +88,13 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
             iBinder = bundle.getBinder("callback");
         }
         try {
-            this.f27300a = IRemoteServiceCallback.Stub.asInterface(iBinder);
+            this.f27458a = IRemoteServiceCallback.Stub.asInterface(iBinder);
         } catch (Exception e3) {
-            String str3 = this.f27303d;
+            String str3 = this.f27461d;
             String[] strArr2 = new String[2];
-            Map<String, String> map2 = this.f27302c;
+            Map<String, String> map2 = this.f27460c;
             if (map2 != null && !map2.isEmpty()) {
-                str = this.f27302c.get(Constants.KEY_REMOTE_PKG_NAME);
+                str = this.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
             }
             strArr2[0] = str;
             strArr2[1] = e3.getMessage();
@@ -106,8 +106,8 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
         if (parcelableArrayList == null || parcelableArrayList.size() <= 0 || (arrayList = (ArrayList) parcelableArrayList.get(0)) == null || arrayList.size() <= 0) {
             return;
         }
-        this.f27301b = (Map) arrayList.get(0);
-        this.f27302c = (Map) arrayList.get(1);
+        this.f27459b = (Map) arrayList.get(0);
+        this.f27460c = (Map) arrayList.get(1);
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
@@ -123,18 +123,18 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             getBundleData(getIntent());
-            String str = this.f27303d;
+            String str = this.f27461d;
             String[] strArr = new String[2];
-            Map<String, String> map = this.f27302c;
-            strArr[0] = (map == null || map.isEmpty()) ? "" : this.f27302c.get(Constants.KEY_REMOTE_PKG_NAME);
+            Map<String, String> map = this.f27460c;
+            strArr[0] = (map == null || map.isEmpty()) ? "" : this.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
             strArr[1] = "activity";
             PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY, a.a(str, strArr));
-            BaiduPayDelegate.getInstance().doRemotePay(this, this.f27303d, new PayCallBack(this) { // from class: com.baidu.wallet.remotepay.RemotePayEnterActivity.1
+            BaiduPayDelegate.getInstance().doRemotePay(this, this.f27461d, new PayCallBack(this) { // from class: com.baidu.wallet.remotepay.RemotePayEnterActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RemotePayEnterActivity f27304a;
+                public final /* synthetic */ RemotePayEnterActivity f27462a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -151,7 +151,7 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                             return;
                         }
                     }
-                    this.f27304a = this;
+                    this.f27462a = this;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
@@ -159,20 +159,20 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        if (this.f27304a.f27300a != null) {
+                        if (this.f27462a.f27458a != null) {
                             try {
                                 try {
-                                    this.f27304a.f27300a.isHideLoadingDialog();
+                                    this.f27462a.f27458a.isHideLoadingDialog();
                                 } catch (RemoteException e2) {
-                                    String str2 = this.f27304a.f27303d;
+                                    String str2 = this.f27462a.f27461d;
                                     String[] strArr2 = new String[2];
-                                    strArr2[0] = (this.f27304a.f27302c == null || this.f27304a.f27302c.isEmpty()) ? "" : (String) this.f27304a.f27302c.get(Constants.KEY_REMOTE_PKG_NAME);
+                                    strArr2[0] = (this.f27462a.f27460c == null || this.f27462a.f27460c.isEmpty()) ? "" : (String) this.f27462a.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
                                     strArr2[1] = e2.getMessage();
                                     PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_CATCH, a.a(str2, strArr2));
                                     e2.printStackTrace();
                                 }
                             } finally {
-                                this.f27304a.finish();
+                                this.f27462a.finish();
                             }
                         }
                         return false;
@@ -187,13 +187,13 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                         if (1000 == i2) {
                         }
                         try {
-                            if (this.f27304a.f27300a != null) {
+                            if (this.f27462a.f27458a != null) {
                                 try {
-                                    this.f27304a.f27300a.onPayEnd(i2, str2);
+                                    this.f27462a.f27458a.onPayEnd(i2, str2);
                                 } catch (RemoteException e2) {
-                                    String str3 = this.f27304a.f27303d;
+                                    String str3 = this.f27462a.f27461d;
                                     String[] strArr2 = new String[2];
-                                    strArr2[0] = (this.f27304a.f27302c == null || this.f27304a.f27302c.isEmpty()) ? "" : (String) this.f27304a.f27302c.get(Constants.KEY_REMOTE_PKG_NAME);
+                                    strArr2[0] = (this.f27462a.f27460c == null || this.f27462a.f27460c.isEmpty()) ? "" : (String) this.f27462a.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
                                     strArr2[1] = e2.getMessage();
                                     PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_CATCH, a.a(str3, strArr2));
                                     PayCallBackManager.isClientDead = true;
@@ -201,11 +201,11 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                                 }
                             }
                         } finally {
-                            this.f27304a.finish();
+                            this.f27462a.finish();
                         }
                     }
                 }
-            }, this.f27302c);
+            }, this.f27460c);
         }
     }
 
@@ -215,18 +215,18 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
             super.onNewIntent(intent);
             getBundleData(intent);
-            String str = this.f27303d;
+            String str = this.f27461d;
             String[] strArr = new String[2];
-            Map<String, String> map = this.f27302c;
-            strArr[0] = (map == null || map.isEmpty()) ? "" : this.f27302c.get(Constants.KEY_REMOTE_PKG_NAME);
+            Map<String, String> map = this.f27460c;
+            strArr[0] = (map == null || map.isEmpty()) ? "" : this.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
             strArr[1] = "activity";
             PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY, a.a(str, strArr));
-            BaiduPayDelegate.getInstance().doRemotePay(this, this.f27303d, new PayCallBack(this) { // from class: com.baidu.wallet.remotepay.RemotePayEnterActivity.2
+            BaiduPayDelegate.getInstance().doRemotePay(this, this.f27461d, new PayCallBack(this) { // from class: com.baidu.wallet.remotepay.RemotePayEnterActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RemotePayEnterActivity f27305a;
+                public final /* synthetic */ RemotePayEnterActivity f27463a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -243,7 +243,7 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                             return;
                         }
                     }
-                    this.f27305a = this;
+                    this.f27463a = this;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
@@ -251,20 +251,20 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        if (this.f27305a.f27300a != null) {
+                        if (this.f27463a.f27458a != null) {
                             try {
                                 try {
-                                    this.f27305a.f27300a.isHideLoadingDialog();
+                                    this.f27463a.f27458a.isHideLoadingDialog();
                                 } catch (RemoteException e2) {
-                                    String str2 = this.f27305a.f27303d;
+                                    String str2 = this.f27463a.f27461d;
                                     String[] strArr2 = new String[2];
-                                    strArr2[0] = (this.f27305a.f27302c == null || this.f27305a.f27302c.isEmpty()) ? "" : (String) this.f27305a.f27302c.get(Constants.KEY_REMOTE_PKG_NAME);
+                                    strArr2[0] = (this.f27463a.f27460c == null || this.f27463a.f27460c.isEmpty()) ? "" : (String) this.f27463a.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
                                     strArr2[1] = e2.getMessage();
                                     PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_CATCH, a.a(str2, strArr2));
                                     e2.printStackTrace();
                                 }
                             } finally {
-                                this.f27305a.finish();
+                                this.f27463a.finish();
                             }
                         }
                         return false;
@@ -279,24 +279,24 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                         if (1000 == i2) {
                         }
                         try {
-                            if (this.f27305a.f27300a != null) {
+                            if (this.f27463a.f27458a != null) {
                                 try {
-                                    this.f27305a.f27300a.onPayEnd(i2, str2);
+                                    this.f27463a.f27458a.onPayEnd(i2, str2);
                                 } catch (Exception e2) {
-                                    String str3 = this.f27305a.f27303d;
+                                    String str3 = this.f27463a.f27461d;
                                     String[] strArr2 = new String[2];
-                                    strArr2[0] = (this.f27305a.f27302c == null || this.f27305a.f27302c.isEmpty()) ? "" : (String) this.f27305a.f27302c.get(Constants.KEY_REMOTE_PKG_NAME);
+                                    strArr2[0] = (this.f27463a.f27460c == null || this.f27463a.f27460c.isEmpty()) ? "" : (String) this.f27463a.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
                                     strArr2[1] = e2.getMessage();
                                     PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_CATCH, a.a(str3, strArr2));
                                     PayCallBackManager.isClientDead = true;
                                 }
                             }
                         } finally {
-                            this.f27305a.finish();
+                            this.f27463a.finish();
                         }
                     }
                 }
-            }, this.f27302c);
+            }, this.f27460c);
         }
     }
 

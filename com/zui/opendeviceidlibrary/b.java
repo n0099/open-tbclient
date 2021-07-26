@@ -17,17 +17,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40770b = "OpenDeviceId library";
+    public static String f41042b = "OpenDeviceId library";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f40771c;
+    public static boolean f41043c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.zui.deviceidservice.a f40772a;
+    public com.zui.deviceidservice.a f41044a;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f40773d;
+    public a f41045d;
 
     /* renamed from: com.zui.opendeviceidlibrary.b$1  reason: invalid class name */
     /* loaded from: classes6.dex */
@@ -36,18 +36,18 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f40774a;
+        public final /* synthetic */ b f41046a;
 
         @Override // android.content.ServiceConnection
         public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 synchronized (this) {
-                    this.f40774a.f40772a = a.AbstractBinderC0537a.a(iBinder);
-                    if (this.f40774a.f40773d != null) {
-                        this.f40774a.f40773d.a(this.f40774a);
+                    this.f41046a.f41044a = a.AbstractBinderC0539a.a(iBinder);
+                    if (this.f41046a.f41045d != null) {
+                        this.f41046a.f41045d.a(this.f41046a);
                     }
-                    this.f40774a.a("Service onServiceConnected");
+                    this.f41046a.a("Service onServiceConnected");
                 }
             }
         }
@@ -56,8 +56,8 @@ public class b {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f40774a.f40772a = null;
-                this.f40774a.a("Service onServiceDisconnected");
+                this.f41046a.f41044a = null;
+                this.f41046a.a("Service onServiceDisconnected");
             }
         }
     }
@@ -85,8 +85,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) && f40771c) {
-            Log.i(f40770b, str);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) && f41043c) {
+            Log.i(f41042b, str);
         }
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-import d.a.q0.a.a;
+import d.a.r0.a.a;
 /* loaded from: classes4.dex */
 public class BuildInfo {
     public static /* synthetic */ Interceptable $ic;

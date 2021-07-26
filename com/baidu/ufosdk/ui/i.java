@@ -16,10 +16,10 @@ public final class i extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f23668a;
+    public Paint f23826a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f23669b;
+    public Path f23827b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context) {
@@ -40,22 +40,22 @@ public final class i extends View {
             }
         }
         Paint paint = new Paint(1);
-        this.f23668a = paint;
+        this.f23826a = paint;
         paint.setColor(-3355444);
-        this.f23668a.setStyle(Paint.Style.STROKE);
-        this.f23668a.setStrokeWidth(3.0f);
-        this.f23669b = new Path();
-        this.f23668a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
+        this.f23826a.setStyle(Paint.Style.STROKE);
+        this.f23826a.setStrokeWidth(3.0f);
+        this.f23827b = new Path();
+        this.f23826a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
     }
 
     @Override // android.view.View
     public final void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f23669b.reset();
-            this.f23669b.moveTo(0.0f, 0.0f);
-            this.f23669b.lineTo(getWidth(), 0.0f);
-            canvas.drawPath(this.f23669b, this.f23668a);
+            this.f23827b.reset();
+            this.f23827b.moveTo(0.0f, 0.0f);
+            this.f23827b.lineTo(getWidth(), 0.0f);
+            canvas.drawPath(this.f23827b, this.f23826a);
         }
     }
 }

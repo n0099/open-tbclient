@@ -21,7 +21,7 @@ public final class HeadPose {
     public static final HeadPose UP;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ HeadPose[] f9261a;
+    public static final /* synthetic */ HeadPose[] f9287a;
     public transient /* synthetic */ FieldHolder $fh;
     public int index;
     public int value;
@@ -46,7 +46,7 @@ public final class HeadPose {
         TURN_RIGHT = new HeadPose("TURN_RIGHT", 4, 4, 16);
         HeadPose headPose = new HeadPose("MOUTH_OPEN", 5, 5, 32);
         MOUTH_OPEN = headPose;
-        f9261a = new HeadPose[]{EYES_BLINK, DOWN, UP, TURN_LEFT, TURN_RIGHT, headPose};
+        f9287a = new HeadPose[]{EYES_BLINK, DOWN, UP, TURN_LEFT, TURN_RIGHT, headPose};
     }
 
     public HeadPose(String str, int i2, int i3, int i4) {
@@ -110,6 +110,6 @@ public final class HeadPose {
     public static HeadPose[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (HeadPose[]) f9261a.clone() : (HeadPose[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (HeadPose[]) f9287a.clone() : (HeadPose[]) invokeV.objValue;
     }
 }

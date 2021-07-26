@@ -21,13 +21,13 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<WalkingRouteLine> f7434a;
+    public List<WalkingRouteLine> f7460a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TaxiInfo f7435b;
+    public TaxiInfo f7461b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SuggestAddrInfo f7436c;
+    public SuggestAddrInfo f7462c;
 
     static {
         InterceptResult invokeClinit;
@@ -75,10 +75,10 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f7434a = arrayList;
+        this.f7460a = arrayList;
         parcel.readList(arrayList, WalkingRouteLine.class.getClassLoader());
-        this.f7435b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
-        this.f7436c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f7461b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f7462c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -94,39 +94,39 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     public List<WalkingRouteLine> getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7434a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7460a : (List) invokeV.objValue;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7436c : (SuggestAddrInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7462c : (SuggestAddrInfo) invokeV.objValue;
     }
 
     public TaxiInfo getTaxiInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7435b : (TaxiInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7461b : (TaxiInfo) invokeV.objValue;
     }
 
     public void setRouteLines(List<WalkingRouteLine> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f7434a = list;
+            this.f7460a = list;
         }
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, suggestAddrInfo) == null) {
-            this.f7436c = suggestAddrInfo;
+            this.f7462c = suggestAddrInfo;
         }
     }
 
     public void setTaxiInfo(TaxiInfo taxiInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, taxiInfo) == null) {
-            this.f7435b = taxiInfo;
+            this.f7461b = taxiInfo;
         }
     }
 
@@ -134,9 +134,9 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
-            parcel.writeList(this.f7434a);
-            parcel.writeParcelable(this.f7435b, 1);
-            parcel.writeParcelable(this.f7436c, 1);
+            parcel.writeList(this.f7460a);
+            parcel.writeParcelable(this.f7461b, 1);
+            parcel.writeParcelable(this.f7462c, 1);
         }
     }
 }

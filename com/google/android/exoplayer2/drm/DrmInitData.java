@@ -169,7 +169,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         public boolean matches(UUID uuid) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uuid)) == null) ? b.f69704b.equals(this.uuid) || uuid.equals(this.uuid) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uuid)) == null) ? b.f70158b.equals(this.uuid) || uuid.equals(this.uuid) : invokeL.booleanValue;
         }
 
         @Override // android.os.Parcelable
@@ -402,8 +402,8 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, schemeData, schemeData2)) == null) {
-            if (b.f69704b.equals(schemeData.uuid)) {
-                return b.f69704b.equals(schemeData2.uuid) ? 0 : 1;
+            if (b.f70158b.equals(schemeData.uuid)) {
+                return b.f70158b.equals(schemeData2.uuid) ? 0 : 1;
             }
             return schemeData.uuid.compareTo(schemeData2.uuid);
         }

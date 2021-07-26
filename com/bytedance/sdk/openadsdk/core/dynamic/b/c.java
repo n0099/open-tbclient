@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.core.dynamic.b;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
@@ -22,20 +23,23 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f29945a;
+    public static final Map<String, Integer> f30042a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29946b;
+    public String f30043b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29947c;
+    public String f30044c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f29948d;
+    public d f30045d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f29949e;
+    public d f30046e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f30047f;
 
     static {
         InterceptResult invokeClinit;
@@ -51,39 +55,41 @@ public class c {
             }
         }
         HashMap hashMap = new HashMap();
-        f29945a = hashMap;
-        hashMap.put("title", 0);
-        f29945a.put(SubtitleLog.TAG, 0);
-        f29945a.put("source", 0);
-        f29945a.put("score-count", 0);
-        f29945a.put("text_star", 0);
-        f29945a.put("image", 1);
-        f29945a.put("image-wide", 1);
-        f29945a.put("image-square", 1);
-        f29945a.put("image-long", 1);
-        f29945a.put("image-splash", 1);
-        f29945a.put("image-cover", 1);
-        f29945a.put("app-icon", 1);
-        f29945a.put("icon-download", 1);
-        f29945a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
-        f29945a.put("logoad", 4);
-        f29945a.put("logounion", 5);
-        f29945a.put("logo-union", 6);
-        f29945a.put("dislike", 3);
-        f29945a.put(IntentConfig.CLOSE, 3);
-        f29945a.put("close-fill", 3);
-        f29945a.put("text", 2);
-        f29945a.put("button", 2);
-        f29945a.put("downloadWithIcon", 2);
-        f29945a.put("downloadButton", 2);
-        f29945a.put("fillButton", 2);
-        f29945a.put("laceButton", 2);
-        f29945a.put("cardButton", 2);
-        f29945a.put("colourMixtureButton", 2);
-        f29945a.put("arrowButton", 2);
-        f29945a.put("vessel", 6);
-        f29945a.put("video-hd", 7);
-        f29945a.put("video-vd", 7);
+        f30042a = hashMap;
+        hashMap.put(PrefetchEvent.EVENT_DATA_ROOT_PATH, 8);
+        f30042a.put("title", 0);
+        f30042a.put(SubtitleLog.TAG, 0);
+        f30042a.put("source", 0);
+        f30042a.put("score-count", 0);
+        f30042a.put("text_star", 0);
+        f30042a.put("image", 1);
+        f30042a.put("image-wide", 1);
+        f30042a.put("image-square", 1);
+        f30042a.put("image-long", 1);
+        f30042a.put("image-splash", 1);
+        f30042a.put("image-cover", 1);
+        f30042a.put("app-icon", 1);
+        f30042a.put("icon-download", 1);
+        f30042a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
+        f30042a.put("logoad", 4);
+        f30042a.put("logounion", 5);
+        f30042a.put("logo-union", 6);
+        f30042a.put("dislike", 3);
+        f30042a.put(IntentConfig.CLOSE, 3);
+        f30042a.put("close-fill", 3);
+        f30042a.put("text", 2);
+        f30042a.put("button", 2);
+        f30042a.put("downloadWithIcon", 2);
+        f30042a.put("downloadButton", 2);
+        f30042a.put("fillButton", 2);
+        f30042a.put("laceButton", 2);
+        f30042a.put("cardButton", 2);
+        f30042a.put("colourMixtureButton", 2);
+        f30042a.put("arrowButton", 2);
+        f30042a.put("vessel", 6);
+        f30042a.put("video-hd", 7);
+        f30042a.put("video", 7);
+        f30042a.put("video-vd", 7);
     }
 
     public c() {
@@ -104,14 +110,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f29946b)) {
+            if (TextUtils.isEmpty(this.f30043b)) {
                 return 0;
             }
-            if (this.f29946b.equals("logo")) {
-                this.f29946b += this.f29947c;
+            if (this.f30043b.equals("logo")) {
+                this.f30043b += this.f30044c;
             }
-            if (f29945a.get(this.f29946b) != null) {
-                return f29945a.get(this.f29946b).intValue();
+            if (f30042a.get(this.f30043b) != null) {
+                return f30042a.get(this.f30043b).intValue();
             }
             return 0;
         }
@@ -121,46 +127,59 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29947c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30044c : (String) invokeV.objValue;
     }
 
-    public d c() {
-        InterceptResult invokeV;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29948d : (d) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f30047f = str;
+        }
     }
 
     public d d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29949e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30045d : (d) invokeV.objValue;
+    }
+
+    public d e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30046e : (d) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f29947c = str;
+            this.f30044c = str;
         }
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30047f : (String) invokeV.objValue;
     }
 
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f29949e = dVar;
+            this.f30046e = dVar;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f29946b = str;
+            this.f30043b = str;
         }
     }
 
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            this.f29948d = dVar;
+            this.f30045d = dVar;
         }
     }
 
@@ -171,6 +190,7 @@ public class c {
         }
         cVar.a(jSONObject.optString("type", PrefetchEvent.EVENT_DATA_ROOT_PATH));
         cVar.b(jSONObject.optString("data"));
+        cVar.c(jSONObject.optString("dataExtraInfo"));
         d a2 = d.a(jSONObject.optJSONObject(SavedStateHandle.VALUES));
         d a3 = d.a(jSONObject.optJSONObject("nightThemeValues"));
         cVar.a(a2);

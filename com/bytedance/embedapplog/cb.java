@@ -21,14 +21,14 @@ public interface cb extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.cb$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0309a implements cb {
+        public static class C0311a implements cb {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f27690a;
+            public IBinder f27848a;
 
-            public C0309a(IBinder iBinder) {
+            public C0311a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public interface cb extends IInterface {
                         return;
                     }
                 }
-                this.f27690a = iBinder;
+                this.f27848a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.cb
@@ -55,7 +55,7 @@ public interface cb extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f27690a.transact(1, obtain, obtain2, 0);
+                        this.f27848a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -70,7 +70,7 @@ public interface cb extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27690a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27848a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.embedapplog.cb
@@ -82,7 +82,7 @@ public interface cb extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f27690a.transact(2, obtain, obtain2, 0);
+                        this.f27848a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -105,7 +105,7 @@ public interface cb extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof cb)) {
                     return (cb) queryLocalInterface;
                 }
-                return new C0309a(iBinder);
+                return new C0311a(iBinder);
             }
             return (cb) invokeL.objValue;
         }

@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
-import d.a.o0.r.q.w0;
+import d.a.p0.s.q.b2;
+import d.a.p0.s.q.w0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
 /* loaded from: classes4.dex */
-public class SpecialColumnListData extends d.a.o0.r.q.a implements Parcelable {
+public class SpecialColumnListData extends d.a.p0.s.q.a implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -118,7 +118,7 @@ public class SpecialColumnListData extends d.a.o0.r.q.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mListData : (List) invokeV.objValue;
     }
 
-    @Override // d.a.o0.r.q.a
+    @Override // d.a.p0.s.q.a
     public w0 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class SpecialColumnListData extends d.a.o0.r.q.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mResultListData : (List) invokeV.objValue;
     }
 
-    @Override // d.a.o0.r.q.a
+    @Override // d.a.p0.s.q.a
     public b2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class SpecialColumnListData extends d.a.o0.r.q.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -18,24 +18,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.r.f0.n.a;
+import d.a.d.e.p.l;
+import d.a.p0.s.f0.n.a;
 /* loaded from: classes4.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f16522e;
+    public Context f16578e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16523f;
+    public ImageView f16579f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16524g;
+    public TextView f16580g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f16525h;
+    public TBSpecificationBtn f16581h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernNotLoginLayout(Context context) {
@@ -62,27 +62,27 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.concern_not_login_layout, (ViewGroup) this, true);
-            this.f16522e = context;
-            this.f16523f = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
+            this.f16578e = context;
+            this.f16579f = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
             TextView textView = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
-            this.f16524g = textView;
+            this.f16580g = textView;
             textView.setTextSize(0, l.g(context, R.dimen.T_X06));
-            this.f16525h = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
+            this.f16581h = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
             a aVar = new a();
-            this.f16525h.setText(context.getResources().getString(R.string.concern_login_and_see_more));
-            this.f16525h.setTextSize(R.dimen.T_X05);
-            this.f16525h.setTextHorizontalCenter(true);
-            this.f16525h.setConfig(aVar);
-            this.f16525h.setOnClickListener(this);
+            this.f16581h.setText(context.getResources().getString(R.string.concern_login_and_see_more));
+            this.f16581h.setTextSize(R.dimen.T_X05);
+            this.f16581h.setTextHorizontalCenter(true);
+            this.f16581h.setConfig(aVar);
+            this.f16581h.setOnClickListener(this);
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setImageResource(this.f16523f, R.drawable.new_pic_emotion_09);
-            SkinManager.setViewTextColor(this.f16524g, R.color.CAM_X0107);
-            TBSpecificationBtn tBSpecificationBtn = this.f16525h;
+            SkinManager.setImageResource(this.f16579f, R.drawable.new_pic_emotion_09);
+            SkinManager.setViewTextColor(this.f16580g, R.color.CAM_X0107);
+            TBSpecificationBtn tBSpecificationBtn = this.f16581h;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.k();
             }
@@ -93,8 +93,8 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view.getId() == R.id.tv_concern_login_and_see_more) {
-            ViewHelper.checkUpIsLogin(this.f16522e);
-            HomePageStatic.f16439a = true;
+            ViewHelper.checkUpIsLogin(this.f16578e);
+            HomePageStatic.f16495a = true;
         }
     }
 

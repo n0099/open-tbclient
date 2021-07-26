@@ -34,14 +34,14 @@ public class ab implements com.kwad.sdk.core.d<n.a> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f34897a = jSONObject.optInt("photoPlaySecond");
-        aVar.f34898b = jSONObject.optInt("itemClickType");
-        aVar.f34899c = jSONObject.optInt("itemCloseType");
-        aVar.f34900d = jSONObject.optInt("elementType");
-        aVar.f34902f = jSONObject.optString("payload");
-        aVar.f34903g = jSONObject.optInt("deeplinkType");
-        aVar.f34904h = jSONObject.optInt("downloadSource");
-        aVar.f34905i = jSONObject.optInt("isPackageChanged");
+        aVar.f35086a = jSONObject.optInt("photoPlaySecond");
+        aVar.f35087b = jSONObject.optInt("itemClickType");
+        aVar.f35088c = jSONObject.optInt("itemCloseType");
+        aVar.f35089d = jSONObject.optInt("elementType");
+        aVar.f35091f = jSONObject.optString("payload");
+        aVar.f35092g = jSONObject.optInt("deeplinkType");
+        aVar.f35093h = jSONObject.optInt("downloadSource");
+        aVar.f35094i = jSONObject.optInt("isPackageChanged");
         aVar.j = jSONObject.optString("installedFrom");
         aVar.k = jSONObject.optString("downloadFailedReason");
         aVar.l = jSONObject.optInt("isChangedEndcard");
@@ -65,14 +65,14 @@ public class ab implements com.kwad.sdk.core.d<n.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "photoPlaySecond", aVar.f34897a);
-            com.kwad.sdk.utils.q.a(jSONObject, "itemClickType", aVar.f34898b);
-            com.kwad.sdk.utils.q.a(jSONObject, "itemCloseType", aVar.f34899c);
-            com.kwad.sdk.utils.q.a(jSONObject, "elementType", aVar.f34900d);
-            com.kwad.sdk.utils.q.a(jSONObject, "payload", aVar.f34902f);
-            com.kwad.sdk.utils.q.a(jSONObject, "deeplinkType", aVar.f34903g);
-            com.kwad.sdk.utils.q.a(jSONObject, "downloadSource", aVar.f34904h);
-            com.kwad.sdk.utils.q.a(jSONObject, "isPackageChanged", aVar.f34905i);
+            com.kwad.sdk.utils.q.a(jSONObject, "photoPlaySecond", aVar.f35086a);
+            com.kwad.sdk.utils.q.a(jSONObject, "itemClickType", aVar.f35087b);
+            com.kwad.sdk.utils.q.a(jSONObject, "itemCloseType", aVar.f35088c);
+            com.kwad.sdk.utils.q.a(jSONObject, "elementType", aVar.f35089d);
+            com.kwad.sdk.utils.q.a(jSONObject, "payload", aVar.f35091f);
+            com.kwad.sdk.utils.q.a(jSONObject, "deeplinkType", aVar.f35092g);
+            com.kwad.sdk.utils.q.a(jSONObject, "downloadSource", aVar.f35093h);
+            com.kwad.sdk.utils.q.a(jSONObject, "isPackageChanged", aVar.f35094i);
             com.kwad.sdk.utils.q.a(jSONObject, "installedFrom", aVar.j);
             com.kwad.sdk.utils.q.a(jSONObject, "downloadFailedReason", aVar.k);
             com.kwad.sdk.utils.q.a(jSONObject, "isChangedEndcard", aVar.l);

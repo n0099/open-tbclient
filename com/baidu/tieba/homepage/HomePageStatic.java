@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.v0.b;
+import d.a.p0.x0.b;
 /* loaded from: classes4.dex */
 public class HomePageStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f16439a;
+    public static boolean f16495a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

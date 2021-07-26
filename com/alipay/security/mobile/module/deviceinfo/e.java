@@ -32,32 +32,32 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f2077a = 300000;
+    public static final long f2110a = 300000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f2078b;
+    public Context f2111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2079c;
+    public String f2112c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2080d;
+    public String f2113d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2081e;
+    public String f2114e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2082f;
+    public String f2115f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2083g;
+    public String f2116g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2084h;
+    public String f2117h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2085i;
+    public String f2118i;
     public String j;
     public String k;
     public String l;
@@ -110,7 +110,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             e eVar = new e();
-            eVar.f2078b = context;
+            eVar.f2111b = context;
             boolean z = false;
             if (!b.a(context, "android.permission.ACCESS_COARSE_LOCATION")) {
                 try {
@@ -339,7 +339,7 @@ public class e {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f2079c = str;
+            this.f2112c = str;
         }
     }
 
@@ -376,7 +376,7 @@ public class e {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f2080d = str;
+            this.f2113d = str;
         }
     }
 
@@ -388,7 +388,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            Context context = this.f2078b;
+            Context context = this.f2111b;
             if (context == null || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null || (scanResults = wifiManager.getScanResults()) == null) {
                 return arrayList;
             }
@@ -413,14 +413,14 @@ public class e {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f2081e = str;
+            this.f2114e = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f2082f = str;
+            this.f2115f = str;
         }
     }
 
@@ -429,7 +429,7 @@ public class e {
         LocationManager locationManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Context context = this.f2078b;
+            Context context = this.f2111b;
             if (context == null || (locationManager = (LocationManager) context.getSystemService("location")) == null) {
                 return false;
             }
@@ -441,7 +441,7 @@ public class e {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f2083g = str;
+            this.f2116g = str;
         }
     }
 
@@ -453,11 +453,11 @@ public class e {
         List<WifiConfiguration> configuredNetworks;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            Context context = this.f2078b;
+            Context context = this.f2111b;
             if (context == null || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
                 return false;
             }
-            Context context2 = this.f2078b;
+            Context context2 = this.f2111b;
             String ssid = connectionInfo.getSSID();
             WifiConfiguration wifiConfiguration = null;
             if (context2 != null && ssid != null && (wifiManager2 = (WifiManager) context2.getSystemService("wifi")) != null && (configuredNetworks = wifiManager2.getConfiguredNetworks()) != null) {
@@ -490,33 +490,33 @@ public class e {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f2079c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f2112c : (String) invokeV.objValue;
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f2084h = str;
+            this.f2117h = str;
         }
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2080d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2113d : (String) invokeV.objValue;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f2085i = str;
+            this.f2118i = str;
         }
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f2081e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f2114e : (String) invokeV.objValue;
     }
 
     public void h(String str) {
@@ -529,7 +529,7 @@ public class e {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f2082f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f2115f : (String) invokeV.objValue;
     }
 
     public void i(String str) {
@@ -542,7 +542,7 @@ public class e {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f2083g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f2116g : (String) invokeV.objValue;
     }
 
     public void j(String str) {
@@ -555,13 +555,13 @@ public class e {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f2084h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f2117h : (String) invokeV.objValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f2085i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f2118i : (String) invokeV.objValue;
     }
 
     public String m() {

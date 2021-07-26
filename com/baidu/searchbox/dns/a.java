@@ -22,26 +22,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f10191a = 5000;
+    public static long f10217a = 5000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f10192b = null;
+    public static volatile a f10218b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f10193c = "android.net.conn.CONNECTIVITY_CHANGE";
+    public static String f10219c = "android.net.conn.CONNECTIVITY_CHANGE";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f10194d;
+    public boolean f10220d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConnectivityManager f10195e;
+    public ConnectivityManager f10221e;
 
     /* renamed from: f  reason: collision with root package name */
-    public C0153a f10196f;
+    public C0153a f10222f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10197g;
+    public boolean f10223g;
     public Context mContext;
 
     /* renamed from: com.baidu.searchbox.dns.a$1  reason: invalid class name */
@@ -58,7 +58,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f10198h;
+        public final /* synthetic */ a f10224h;
 
         public C0153a(a aVar) {
             Interceptable interceptable = $ic;
@@ -75,19 +75,19 @@ public class a {
                     return;
                 }
             }
-            this.f10198h = aVar;
+            this.f10224h = aVar;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                a aVar = this.f10198h;
-                aVar.f10194d = aVar.c();
+                a aVar = this.f10224h;
+                aVar.f10220d = aVar.c();
                 if (DnsUtil.DEBUG) {
-                    Log.d(DnsUtil.TAG, " action: " + intent.getAction() + " isConnected: " + this.f10198h.f10194d + " isSticky: " + isInitialStickyBroadcast());
+                    Log.d(DnsUtil.TAG, " action: " + intent.getAction() + " isConnected: " + this.f10224h.f10220d + " isSticky: " + isInitialStickyBroadcast());
                 }
-                if (!this.f10198h.f10194d || isInitialStickyBroadcast()) {
+                if (!this.f10224h.f10220d || isInitialStickyBroadcast()) {
                     return;
                 }
                 if (DnsUtil.DEBUG) {
@@ -134,7 +134,7 @@ public class a {
             }
         }
         this.mContext = context.getApplicationContext();
-        this.f10197g = false;
+        this.f10223g = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -142,7 +142,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            NetworkInfo activeNetworkInfo = this.f10195e.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = this.f10221e.getActiveNetworkInfo();
             return activeNetworkInfo != null && activeNetworkInfo.isConnected();
         }
         return invokeV.booleanValue;
@@ -152,9 +152,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (this.f10197g) {
-                    this.mContext.unregisterReceiver(this.f10196f);
-                    this.f10197g = false;
+                if (this.f10223g) {
+                    this.mContext.unregisterReceiver(this.f10222f);
+                    this.f10223g = false;
                 }
             }
         }
@@ -163,21 +163,21 @@ public class a {
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f10192b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f10218b : (a) invokeV.objValue;
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f10192b == null) {
+            if (f10218b == null) {
                 synchronized (a.class) {
-                    if (f10192b == null) {
-                        f10192b = new a(context);
+                    if (f10218b == null) {
+                        f10218b = new a(context);
                     }
                 }
             }
-            return f10192b;
+            return f10218b;
         }
         return (a) invokeL.objValue;
     }
@@ -186,14 +186,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (!this.f10197g) {
-                    this.f10195e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
+                if (!this.f10223g) {
+                    this.f10221e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
                     IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction(f10193c);
+                    intentFilter.addAction(f10219c);
                     C0153a c0153a = new C0153a(this, null);
-                    this.f10196f = c0153a;
+                    this.f10222f = c0153a;
                     this.mContext.registerReceiver(c0153a, intentFilter);
-                    this.f10197g = true;
+                    this.f10223g = true;
                 }
             }
         }

@@ -19,7 +19,7 @@ public class e implements ArCoreApk.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f70776a;
+    public final /* synthetic */ f f71230a;
 
     public e(f fVar) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class e implements ArCoreApk.a {
                 return;
             }
         }
-        this.f70776a = fVar;
+        this.f71230a = fVar;
     }
 
     public static Uri b(String str) {
@@ -104,9 +104,9 @@ public class e implements ArCoreApk.a {
     public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.f70776a) {
-                f.c(this.f70776a, availability);
-                f.f(this.f70776a, false);
+            synchronized (this.f71230a) {
+                f.c(this.f71230a, availability);
+                f.f(this.f71230a, false);
             }
         }
     }

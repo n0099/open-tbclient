@@ -31,8 +31,8 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            b.f33579b = c.b.f33586a.a(b.a(context));
-            b.f33578a = true;
+            b.f33768b = c.b.f33775a.a(b.a(context));
+            b.f33767a = true;
         }
     }
 
@@ -40,8 +40,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b.f33578a) {
-                return b.f33579b;
+            if (b.f33767a) {
+                return b.f33768b;
             }
             throw new RuntimeException("SDK Need Init First!");
         }
@@ -52,8 +52,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (b.f33578a) {
-                return c.b.f33586a.a(b.a(context), "OUID");
+            if (b.f33767a) {
+                return c.b.f33775a.a(b.a(context), "OUID");
             }
             throw new RuntimeException("SDK Need Init First!");
         }
@@ -64,8 +64,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (b.f33578a) {
-                return c.b.f33586a.a(b.a(context), "DUID");
+            if (b.f33767a) {
+                return c.b.f33775a.a(b.a(context), "DUID");
             }
             throw new RuntimeException("SDK Need Init First!");
         }
@@ -76,8 +76,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (b.f33578a) {
-                return c.b.f33586a.a(b.a(context), "AUID");
+            if (b.f33767a) {
+                return c.b.f33775a.a(b.a(context), "AUID");
             }
             throw new RuntimeException("SDK Need Init First!");
         }

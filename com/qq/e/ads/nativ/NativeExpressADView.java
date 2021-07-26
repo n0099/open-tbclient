@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.nativ.NativeExpressAD;
+import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import com.qq.e.comm.compliance.DownloadConfirmCallBack;
 import com.qq.e.comm.compliance.DownloadConfirmListener;
@@ -32,32 +33,32 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NEADVI f37808a;
+    public NEADVI f37997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37809b;
+    public boolean f37998b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f37810c;
+    public volatile boolean f37999c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f37811d;
+    public volatile boolean f38000d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NativeExpressMediaListener f37812e;
+    public NativeExpressMediaListener f38001e;
     public Map<String, String> ext;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdData f37813f;
+    public AdData f38002f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f37814g;
+    public volatile boolean f38003g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewBindStatusListener f37815h;
+    public ViewBindStatusListener f38004h;
 
     /* renamed from: i  reason: collision with root package name */
-    public DownloadConfirmListener f37816i;
+    public DownloadConfirmListener f38005i;
 
     /* loaded from: classes6.dex */
     public interface ViewBindStatusListener {
@@ -71,13 +72,13 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NativeExpressADView(NEADI neadi, Context context, ADSize aDSize, String str, String str2, JSONObject jSONObject, HashMap<String, Object> hashMap) {
+    public NativeExpressADView(NEADI neadi, NEADVI neadvi, NativeExpressADData2 nativeExpressADData2, Context context, ADSize aDSize, String str, String str2, JSONObject jSONObject, HashMap<String, Object> hashMap) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {neadi, context, aDSize, str, str2, jSONObject, hashMap};
+            Object[] objArr = {neadi, neadvi, nativeExpressADData2, context, aDSize, str, str2, jSONObject, hashMap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -88,46 +89,50 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
                 return;
             }
         }
-        this.f37809b = false;
-        this.f37810c = false;
-        this.f37811d = false;
+        this.f37998b = false;
+        this.f37999c = false;
+        this.f38000d = false;
         this.ext = new HashMap();
-        this.f37814g = false;
-        this.f37813f = a(hashMap);
-        GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, context, str, neadi, aDSize, str2, jSONObject, hashMap) { // from class: com.qq.e.ads.nativ.NativeExpressADView.1
+        this.f38003g = false;
+        this.f38002f = a(hashMap);
+        GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, context, str, neadi, neadvi, nativeExpressADData2, aDSize, str2, jSONObject, hashMap) { // from class: com.qq.e.ads.nativ.NativeExpressADView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f37817a;
+            public final /* synthetic */ Context f38006a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f37818b;
+            public final /* synthetic */ String f38007b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ NEADI f37819c;
+            public final /* synthetic */ NEADI f38008c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ ADSize f37820d;
+            public final /* synthetic */ NEADVI f38009d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f37821e;
+            public final /* synthetic */ NativeExpressADData2 f38010e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f37822f;
+            public final /* synthetic */ ADSize f38011f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ HashMap f37823g;
+            public final /* synthetic */ String f38012g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ NativeExpressADView f37824h;
+            public final /* synthetic */ JSONObject f38013h;
+
+            /* renamed from: i  reason: collision with root package name */
+            public final /* synthetic */ HashMap f38014i;
+            public final /* synthetic */ NativeExpressADView j;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext2 = TitanRuntime.newInitContext();
                     newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this, context, str, neadi, aDSize, str2, jSONObject, hashMap};
+                    Object[] objArr2 = {this, context, str, neadi, neadvi, nativeExpressADData2, aDSize, str2, jSONObject, hashMap};
                     interceptable2.invokeUnInit(65536, newInitContext2);
                     int i4 = newInitContext2.flag;
                     if ((i4 & 1) != 0) {
@@ -137,21 +142,23 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
                         return;
                     }
                 }
-                this.f37824h = this;
-                this.f37817a = context;
-                this.f37818b = str;
-                this.f37819c = neadi;
-                this.f37820d = aDSize;
-                this.f37821e = str2;
-                this.f37822f = jSONObject;
-                this.f37823g = hashMap;
+                this.j = this;
+                this.f38006a = context;
+                this.f38007b = str;
+                this.f38008c = neadi;
+                this.f38009d = neadvi;
+                this.f38010e = nativeExpressADData2;
+                this.f38011f = aDSize;
+                this.f38012g = str2;
+                this.f38013h = jSONObject;
+                this.f38014i = hashMap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (!GDTADManager.getInstance().initWith(this.f37817a, this.f37818b)) {
+                    if (!GDTADManager.getInstance().initWith(this.f38006a, this.f38007b)) {
                         GDTLogger.e("Fail to init ADManager");
                         return;
                     }
@@ -161,10 +168,10 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public /* synthetic */ POFactory f37825a;
+                            public /* synthetic */ POFactory f38015a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public /* synthetic */ AnonymousClass1 f37826b;
+                            public /* synthetic */ AnonymousClass1 f38016b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -181,8 +188,8 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
                                         return;
                                     }
                                 }
-                                this.f37826b = this;
-                                this.f37825a = r7;
+                                this.f38016b = this;
+                                this.f38015a = r7;
                             }
 
                             /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, IGET, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, IGET, IGET, INVOKE, MOVE_EXCEPTION] complete} */
@@ -191,20 +198,20 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     try {
-                                        if (this.f37825a != null) {
-                                            this.f37826b.f37824h.f37808a = this.f37825a.getNativeExpressADView(this.f37826b.f37819c, this.f37826b.f37817a, this.f37826b.f37824h, this.f37826b.f37820d, this.f37826b.f37818b, this.f37826b.f37821e, this.f37826b.f37822f, this.f37826b.f37823g);
-                                            this.f37826b.f37824h.f37809b = true;
-                                            if (this.f37826b.f37824h.f37812e != null) {
-                                                this.f37826b.f37824h.setMediaListener(this.f37826b.f37824h.f37812e);
+                                        if (this.f38015a != null) {
+                                            this.f38016b.j.f37997a = this.f38015a.getNativeExpressADView(this.f38016b.f38008c, this.f38016b.f38009d, this.f38016b.f38010e, this.f38016b.f38006a, this.f38016b.j, this.f38016b.f38011f, this.f38016b.f38007b, this.f38016b.f38012g, this.f38016b.f38013h, this.f38016b.f38014i);
+                                            this.f38016b.j.f37998b = true;
+                                            if (this.f38016b.j.f38001e != null) {
+                                                this.f38016b.j.setMediaListener(this.f38016b.j.f38001e);
                                             }
-                                            if (this.f37826b.f37824h.f37810c) {
-                                                this.f37826b.f37824h.preloadVideo();
+                                            if (this.f38016b.j.f37999c) {
+                                                this.f38016b.j.preloadVideo();
                                             }
-                                            if (this.f37826b.f37824h.f37811d) {
-                                                this.f37826b.f37824h.render();
+                                            if (this.f38016b.j.f38000d) {
+                                                this.f38016b.j.render();
                                             }
-                                            if (this.f37826b.f37824h.f37814g) {
-                                                this.f37826b.f37824h.negativeFeedback();
+                                            if (this.f38016b.j.f38003g) {
+                                                this.f38016b.j.negativeFeedback();
                                             }
                                         }
                                     } finally {
@@ -259,7 +266,7 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     public void destroy() {
         NEADVI neadvi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (neadvi = this.f37808a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (neadvi = this.f37997a) == null) {
             return;
         }
         neadvi.destroy();
@@ -270,7 +277,7 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NEADVI neadvi = this.f37808a;
+            NEADVI neadvi = this.f37997a;
             if (neadvi != null) {
                 return neadvi.getApkInfoUrl();
             }
@@ -282,32 +289,55 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     public AdData getBoundData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37813f : (AdData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38002f : (AdData) invokeV.objValue;
+    }
+
+    public int getECPM() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            NEADVI neadvi = this.f37997a;
+            if (neadvi != null) {
+                return neadvi.getECPM();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getECPMLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            NEADVI neadvi = this.f37997a;
+            return neadvi != null ? neadvi.getECPMLevel() : "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public void negativeFeedback() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.f37809b) {
-                this.f37814g = true;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (!this.f37998b) {
+                this.f38003g = true;
                 return;
             }
-            NEADVI neadvi = this.f37808a;
+            NEADVI neadvi = this.f37997a;
             if (neadvi == null) {
                 GDTLogger.e("Native Express negativeFeedback  core is null");
                 return;
             }
             neadvi.reportAdNegative();
-            this.f37814g = false;
+            this.f38003g = false;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            ViewBindStatusListener viewBindStatusListener = this.f37815h;
+            ViewBindStatusListener viewBindStatusListener = this.f38004h;
             if (viewBindStatusListener != null) {
                 viewBindStatusListener.onAttachedToWindow();
             }
@@ -317,9 +347,9 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
-            ViewBindStatusListener viewBindStatusListener = this.f37815h;
+            ViewBindStatusListener viewBindStatusListener = this.f38004h;
             if (viewBindStatusListener != null) {
                 viewBindStatusListener.onDetachedFromWindow();
             }
@@ -330,7 +360,7 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     public void onDownloadConfirm(Activity activity, int i2, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
         DownloadConfirmListener downloadConfirmListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048582, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f37816i) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f38005i) == null) {
             return;
         }
         downloadConfirmListener.onDownloadConfirm(activity, i2, str, downloadConfirmCallBack);
@@ -339,9 +369,9 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onFinishTemporaryDetach();
-            ViewBindStatusListener viewBindStatusListener = this.f37815h;
+            ViewBindStatusListener viewBindStatusListener = this.f38004h;
             if (viewBindStatusListener != null) {
                 viewBindStatusListener.onFinishTemporaryDetach();
             }
@@ -351,9 +381,9 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onStartTemporaryDetach();
-            ViewBindStatusListener viewBindStatusListener = this.f37815h;
+            ViewBindStatusListener viewBindStatusListener = this.f38004h;
             if (viewBindStatusListener != null) {
                 viewBindStatusListener.onStartTemporaryDetach();
             }
@@ -362,12 +392,12 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
 
     public void preloadVideo() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (!this.f37809b) {
-                this.f37810c = true;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            if (!this.f37998b) {
+                this.f37999c = true;
                 return;
             }
-            NEADVI neadvi = this.f37808a;
+            NEADVI neadvi = this.f37997a;
             if (neadvi != null) {
                 neadvi.preloadVideo();
             } else {
@@ -378,12 +408,12 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
 
     public void render() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (!this.f37809b) {
-                this.f37811d = true;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            if (!this.f37998b) {
+                this.f38000d = true;
                 return;
             }
-            NEADVI neadvi = this.f37808a;
+            NEADVI neadvi = this.f37997a;
             if (neadvi != null) {
                 neadvi.render();
             } else {
@@ -392,10 +422,11 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
         }
     }
 
+    @Deprecated
     public void setAdSize(ADSize aDSize) {
         NEADVI neadvi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, aDSize) == null) || (neadvi = this.f37808a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, aDSize) == null) || (neadvi = this.f37997a) == null) {
             return;
         }
         neadvi.setAdSize(aDSize);
@@ -404,9 +435,9 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, downloadConfirmListener) == null) {
-            this.f37816i = downloadConfirmListener;
-            NEADVI neadvi = this.f37808a;
+        if (interceptable == null || interceptable.invokeL(1048590, this, downloadConfirmListener) == null) {
+            this.f38005i = downloadConfirmListener;
+            NEADVI neadvi = this.f37997a;
             if (neadvi != null) {
                 neadvi.setDownloadConfirmListener(this);
             }
@@ -415,9 +446,9 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
 
     public void setMediaListener(NativeExpressMediaListener nativeExpressMediaListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, nativeExpressMediaListener) == null) {
-            this.f37812e = nativeExpressMediaListener;
-            NEADVI neadvi = this.f37808a;
+        if (interceptable == null || interceptable.invokeL(1048591, this, nativeExpressMediaListener) == null) {
+            this.f38001e = nativeExpressMediaListener;
+            NEADVI neadvi = this.f37997a;
             if (neadvi == null || nativeExpressMediaListener == null) {
                 return;
             }
@@ -427,8 +458,8 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
 
     public void setViewBindStatusListener(ViewBindStatusListener viewBindStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, viewBindStatusListener) == null) {
-            this.f37815h = viewBindStatusListener;
+        if (interceptable == null || interceptable.invokeL(1048592, this, viewBindStatusListener) == null) {
+            this.f38004h = viewBindStatusListener;
         }
     }
 }

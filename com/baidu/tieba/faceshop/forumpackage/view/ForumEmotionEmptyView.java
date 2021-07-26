@@ -23,19 +23,19 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15172e;
+    public TbPageContext f15220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f15173f;
+    public NoDataView f15221f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f15174g;
+    public LinearLayout f15222g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15175h;
+    public TextView f15223h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f15176i;
+    public ViewGroup f15224i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,7 +56,7 @@ public class ForumEmotionEmptyView extends RelativeLayout {
                 return;
             }
         }
-        this.f15172e = tbPageContext;
+        this.f15220e = tbPageContext;
         a();
     }
 
@@ -64,12 +64,12 @@ public class ForumEmotionEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_empty_layout, this);
-            this.f15175h = (TextView) findViewById(R.id.forum_emotion_filter);
-            this.f15176i = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
+            this.f15223h = (TextView) findViewById(R.id.forum_emotion_filter);
+            this.f15224i = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
             this.j = (TextView) findViewById(R.id.forum_emotion_board_title);
-            this.f15174g = (LinearLayout) findViewById(R.id.forum_emotion_no_data_container);
-            NoDataView b2 = NoDataViewFactory.b(this.f15172e.getPageActivity(), this.f15174g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, true);
-            this.f15173f = b2;
+            this.f15222g = (LinearLayout) findViewById(R.id.forum_emotion_no_data_container);
+            NoDataView b2 = NoDataViewFactory.b(this.f15220e.getPageActivity(), this.f15222g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, true);
+            this.f15221f = b2;
             b2.setVisibility(0);
         }
     }
@@ -77,16 +77,16 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            NoDataView noDataView = this.f15173f;
+            NoDataView noDataView = this.f15221f;
             if (noDataView != null) {
-                noDataView.f(this.f15172e, i2);
+                noDataView.f(this.f15220e, i2);
             }
-            SkinManager.setViewTextColor(this.f15176i.getChildAt(0), R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f15176i.getChildAt(0), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f15176i.getChildAt(1), R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f15176i.getChildAt(1), R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f15224i.getChildAt(0), R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f15224i.getChildAt(0), R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f15224i.getChildAt(1), R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f15224i.getChildAt(1), R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f15175h, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f15223h, R.color.CAM_X0107);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
         }
     }
@@ -94,12 +94,12 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public ViewGroup getFilterDropDownView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15176i : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15224i : (ViewGroup) invokeV.objValue;
     }
 
     public TextView getFilterView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15175h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15223h : (TextView) invokeV.objValue;
     }
 }

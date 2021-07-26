@@ -28,31 +28,31 @@ public final class ResUtils {
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5414a = "id";
+    public static final String f5440a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5415b = "string";
+    public static final String f5441b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5416c = "layout";
+    public static final String f5442c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5417d = "style";
+    public static final String f5443d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5418e = "drawable";
+    public static final String f5444e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5419f = "color";
+    public static final String f5445f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5420g = "array";
+    public static final String f5446g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5421h = "attr";
+    public static final String f5447h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5422i = "dimen";
+    public static final String f5448i = "dimen";
     public static final String j = "xml";
     public static final String k = "integer";
     public static final String l = "raw";

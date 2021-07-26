@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.g0.c.a;
-import d.a.p0.b0.a.b;
-import d.a.p0.b0.a.c.d;
+import d.a.p0.i0.c.a;
+import d.a.q0.b0.a.b;
+import d.a.q0.b0.a.c.d;
 /* loaded from: classes4.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements a {
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,10 +44,10 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         }
     }
 
-    private void handlePictureClick(d.a.o0.g0.c.b bVar) {
+    private void handlePictureClick(d.a.p0.i0.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bVar) == null) {
-            d.a.o0.g0.b.a a2 = bVar.a();
+            d.a.p0.i0.b.a a2 = bVar.a();
             if (a2 instanceof d) {
                 sendMessage(((d) a2).a(getPageContext().getPageActivity()));
             }
@@ -90,7 +90,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         return (b) invokeV.objValue;
     }
 
-    @Override // d.a.o0.g0.c.a
+    @Override // d.a.p0.i0.c.a
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,8 +131,8 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         }
     }
 
-    @Override // d.a.o0.g0.c.a
-    public boolean onEventDispatch(d.a.o0.g0.c.b bVar) {
+    @Override // d.a.p0.i0.c.a
+    public boolean onEventDispatch(d.a.p0.i0.c.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {

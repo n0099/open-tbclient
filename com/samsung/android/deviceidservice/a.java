@@ -15,20 +15,20 @@ public interface a extends IInterface {
 
     /* renamed from: com.samsung.android.deviceidservice.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static abstract class AbstractBinderC0481a extends Binder implements a {
+    public static abstract class AbstractBinderC0483a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.samsung.android.deviceidservice.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0482a implements a {
+        public static class C0484a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f38087a;
+            public IBinder f38262a;
 
-            public C0482a(IBinder iBinder) {
+            public C0484a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f38087a = iBinder;
+                this.f38262a = iBinder;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                        this.f38087a.transact(1, obtain, obtain2, 0);
+                        this.f38262a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -76,7 +76,7 @@ public interface a extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                         obtain.writeString(str);
-                        this.f38087a.transact(2, obtain, obtain2, 0);
+                        this.f38262a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -91,7 +91,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38087a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38262a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -104,7 +104,7 @@ public interface a extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                         obtain.writeString(str);
-                        this.f38087a.transact(3, obtain, obtain2, 0);
+                        this.f38262a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -116,7 +116,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0481a() {
+        public AbstractBinderC0483a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +140,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.samsung.android.deviceidservice.IDeviceIdService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0482a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0484a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }

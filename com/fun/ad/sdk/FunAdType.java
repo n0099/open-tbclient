@@ -12,6 +12,7 @@ public final class FunAdType {
     public static final String BAIDU_SPLASH = "baiduSplash";
     public static final String CSJ_BANNER_EXPRESS = "csjBannerExpress";
     public static final String CSJ_BANNER_NATIVE = "csjBannerNative";
+    public static final String CSJ_DRAW_NATIVE = "csjDrawNative";
     public static final String CSJ_DRAW_VIDEO = "csjDrawVideo";
     public static final String CSJ_FULLSCREEN_VIDEO = "csjFullscreenVideo";
     public static final String CSJ_INTERACTION_EXPRESS = "csjInterstitialExpress";
@@ -29,6 +30,7 @@ public final class FunAdType {
     public static final String GDT_SPLASH = "gdtSplash";
     public static final String GDT_UNIFIED_BANNER = "gdtUnifiedBanner";
     public static final String GDT_UNIFIED_INTERSTITIAL = "gdtUnifiedInterstitial";
+    public static final String JY_DRAW_VIDEO = "jyDrawVideo";
     public static final String JY_INTERSTITIAL = "jyInterstitial";
     public static final String JY_NATIVE = "jyNative";
     public static final String JY_REWARD_VIDEO = "jyRewardVideo";

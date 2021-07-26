@@ -22,7 +22,7 @@ public class ay implements ar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f39866a;
+    public static boolean f40138a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -46,19 +46,19 @@ public class ay implements ar {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ay f39867a;
+        public final /* synthetic */ ay f40139a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f144a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39868b;
+        public String f40140b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f39869c;
+        public String f40141c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f39870d;
+        public String f40142d;
 
         public a(ay ayVar) {
             Interceptable interceptable = $ic;
@@ -75,11 +75,11 @@ public class ay implements ar {
                     return;
                 }
             }
-            this.f39867a = ayVar;
+            this.f40139a = ayVar;
             this.f144a = null;
-            this.f39868b = null;
-            this.f39869c = null;
-            this.f39870d = null;
+            this.f40140b = null;
+            this.f40141c = null;
+            this.f40142d = null;
         }
 
         public /* synthetic */ a(ay ayVar, az azVar) {
@@ -93,7 +93,7 @@ public class ay implements ar {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ay f39871a;
+        public final /* synthetic */ ay f40143a;
 
         public b(ay ayVar) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class ay implements ar {
                     return;
                 }
             }
-            this.f39871a = ayVar;
+            this.f40143a = ayVar;
         }
 
         public /* synthetic */ b(ay ayVar, az azVar) {
@@ -120,7 +120,7 @@ public class ay implements ar {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) && this.f39871a.f142a == null) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) && this.f40143a.f142a == null) {
                 new Thread(new ba(this, iBinder)).start();
             }
         }
@@ -222,7 +222,7 @@ public class ay implements ar {
                 if (packageInfo != null) {
                     long longVersionCode = Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
                     boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
-                    f39866a = longVersionCode >= 1;
+                    f40138a = longVersionCode >= 1;
                     if (z) {
                         return true;
                     }
@@ -285,7 +285,7 @@ public class ay implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f39866a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f40138a : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
@@ -298,7 +298,7 @@ public class ay implements ar {
             if (this.f142a == null) {
                 return null;
             }
-            return this.f142a.f39868b;
+            return this.f142a.f40140b;
         }
         return (String) invokeV.objValue;
     }
@@ -312,7 +312,7 @@ public class ay implements ar {
             if (this.f142a == null) {
                 return null;
             }
-            return this.f142a.f39869c;
+            return this.f142a.f40141c;
         }
         return (String) invokeV.objValue;
     }
@@ -326,7 +326,7 @@ public class ay implements ar {
             if (this.f142a == null) {
                 return null;
             }
-            return this.f142a.f39870d;
+            return this.f142a.f40142d;
         }
         return (String) invokeV.objValue;
     }

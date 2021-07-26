@@ -13,17 +13,17 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f10294c;
+    public static String f10320c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f10295d;
+    public static b f10321d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10296a;
+    public Context f10322a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f10297b;
+    public a f10323b;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class b {
                 return;
             }
         }
-        this.f10296a = context;
+        this.f10322a = context;
     }
 
     public static synchronized b a(Context context) {
@@ -49,12 +49,12 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (b.class) {
                 if (context == null) {
-                    return f10295d;
+                    return f10321d;
                 }
-                if (f10295d == null) {
-                    f10295d = new b(context);
+                if (f10321d == null) {
+                    f10321d = new b(context);
                 }
-                return f10295d;
+                return f10321d;
             }
         }
         return (b) invokeL.objValue;
@@ -66,7 +66,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                bVar = f10295d;
+                bVar = f10321d;
             }
             return bVar;
         }
@@ -83,13 +83,13 @@ public final class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ FaceProcessCallback f10298a;
+            public final /* synthetic */ FaceProcessCallback f10324a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f10299b;
+            public final /* synthetic */ int f10325b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f10300c;
+            public final /* synthetic */ b f10326c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -106,16 +106,16 @@ public final class b {
                         return;
                     }
                 }
-                this.f10300c = this;
-                this.f10298a = faceProcessCallback;
-                this.f10299b = i2;
+                this.f10326c = this;
+                this.f10324a = faceProcessCallback;
+                this.f10325b = i2;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f10298a.onEnd(this.f10299b, null);
+                    this.f10324a.onEnd(this.f10325b, null);
                 }
             }
         });

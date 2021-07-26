@@ -44,7 +44,7 @@ public class bb implements ee {
             ieVar.c(hp.I.f509a);
             ieVar.a(at.a());
             ieVar.f650a = hashMap;
-            byte[] a2 = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.f40258i));
+            byte[] a2 = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.f40530i));
             if (!(context instanceof XMPushService)) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("MoleInfo : context is not correct in pushLayer " + ieVar.m465a());
                 return;

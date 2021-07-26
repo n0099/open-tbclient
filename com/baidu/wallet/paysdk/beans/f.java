@@ -20,7 +20,7 @@ public class f extends BaseBean<CardRedEemMasResp> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SourceFlag f25986a;
+    public SourceFlag f26144a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context) {
@@ -40,7 +40,7 @@ public class f extends BaseBean<CardRedEemMasResp> {
                 return;
             }
         }
-        this.f25986a = SourceFlag.SDK;
+        this.f26144a = SourceFlag.SDK;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -57,7 +57,7 @@ public class f extends BaseBean<CardRedEemMasResp> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("source_flag", this.f25986a.value()));
+            arrayList.add(new RestNameValuePair("source_flag", this.f26144a.value()));
             arrayList.add(new RestNameValuePair("is_from_sdk", "1"));
             return arrayList;
         }

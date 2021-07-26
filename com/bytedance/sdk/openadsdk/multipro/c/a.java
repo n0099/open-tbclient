@@ -18,16 +18,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.m;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.n;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.e.f;
 import com.bytedance.sdk.openadsdk.e.g;
 import com.bytedance.sdk.openadsdk.e.l;
-import com.bytedance.sdk.openadsdk.e.n;
-import com.bytedance.sdk.openadsdk.k.c.c;
+import com.bytedance.sdk.openadsdk.j.c.c;
 import com.bytedance.sdk.openadsdk.multipro.e;
-import com.bytedance.sdk.openadsdk.q.g;
+import com.bytedance.sdk.openadsdk.p.g;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
@@ -37,18 +36,18 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f31608a;
+    public Context f31795a;
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0356a implements com.bytedance.sdk.openadsdk.k.a.a {
+    public static class C0358a implements com.bytedance.sdk.openadsdk.j.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public JSONObject f31609a;
+        public JSONObject f31796a;
 
-        public C0356a(String str) {
+        public C0358a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,22 +63,22 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
                 }
             }
             try {
-                this.f31609a = new JSONObject(str);
+                this.f31796a = new JSONObject(str);
             } catch (Throwable unused) {
             }
         }
 
-        public static C0356a b(String str) {
+        public static C0358a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new C0356a(str) : (C0356a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new C0358a(str) : (C0358a) invokeL.objValue;
         }
 
-        @Override // com.bytedance.sdk.openadsdk.k.a.a
+        @Override // com.bytedance.sdk.openadsdk.j.a.a
         public JSONObject a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31609a : (JSONObject) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31796a : (JSONObject) invokeV.objValue;
         }
     }
 
@@ -88,23 +87,23 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.k.c.c f31613a;
+        public static volatile com.bytedance.sdk.openadsdk.j.c.c f31800a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static com.bytedance.sdk.openadsdk.k.c.c a() {
+        public static com.bytedance.sdk.openadsdk.j.c.c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (f31613a == null) {
-                    synchronized (com.bytedance.sdk.openadsdk.k.c.c.class) {
-                        if (f31613a == null) {
-                            f31613a = new com.bytedance.sdk.openadsdk.k.c.c();
+                if (f31800a == null) {
+                    synchronized (com.bytedance.sdk.openadsdk.j.c.c.class) {
+                        if (f31800a == null) {
+                            f31800a = new com.bytedance.sdk.openadsdk.j.c.c();
                         }
                     }
                 }
-                return f31613a;
+                return f31800a;
             }
-            return (com.bytedance.sdk.openadsdk.k.c.c) invokeV.objValue;
+            return (com.bytedance.sdk.openadsdk.j.c.c) invokeV.objValue;
         }
     }
 
@@ -113,23 +112,23 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.q.a f31614a;
+        public static volatile com.bytedance.sdk.openadsdk.p.a f31801a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static com.bytedance.sdk.openadsdk.q.a a() {
+        public static com.bytedance.sdk.openadsdk.p.a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (f31614a == null) {
-                    synchronized (com.bytedance.sdk.openadsdk.q.a.class) {
-                        if (f31614a == null) {
-                            f31614a = new com.bytedance.sdk.openadsdk.q.b(o.a(), new g(o.a()));
+                if (f31801a == null) {
+                    synchronized (com.bytedance.sdk.openadsdk.p.a.class) {
+                        if (f31801a == null) {
+                            f31801a = new com.bytedance.sdk.openadsdk.p.b(o.a(), new g(o.a()));
                         }
                     }
                 }
-                return f31614a;
+                return f31801a;
             }
-            return (com.bytedance.sdk.openadsdk.q.a) invokeV.objValue;
+            return (com.bytedance.sdk.openadsdk.p.a) invokeV.objValue;
         }
     }
 
@@ -222,7 +221,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return e.f31620b + "/t_event_ad_event/";
+            return e.f31807b + "/t_event_ad_event/";
         }
         return (String) invokeV.objValue;
     }
@@ -302,7 +301,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        j.b("AdEventProviderImpl", "dispatch event");
+        k.b("AdEventProviderImpl", "dispatch event");
         try {
             ContentResolver e2 = e();
             if (e2 != null) {
@@ -310,7 +309,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
                 e2.getType(Uri.parse(f() + "adEventDispatch?event=" + a2));
             }
         } catch (Throwable th) {
-            j.f("AdEventProviderImpl", "dispatch event Throwable:" + th.toString());
+            k.f("AdEventProviderImpl", "dispatch event Throwable:" + th.toString());
         }
     }
 
@@ -319,27 +318,27 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.e.b<com.bytedance.sdk.openadsdk.e.a> f31610a;
+        public static volatile com.bytedance.sdk.openadsdk.e.b<com.bytedance.sdk.openadsdk.e.a> f31797a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.e.b<c.a> f31611b;
+        public static volatile com.bytedance.sdk.openadsdk.e.b<c.a> f31798b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.e.b<c.a> f31612c;
+        public static volatile com.bytedance.sdk.openadsdk.e.b<c.a> f31799c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public static com.bytedance.sdk.openadsdk.e.b<com.bytedance.sdk.openadsdk.e.a> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (f31610a == null) {
+                if (f31797a == null) {
                     synchronized (o.class) {
-                        if (f31610a == null) {
-                            f31610a = new com.bytedance.sdk.openadsdk.e.b<>(new f(o.a()), o.f(), g.b.a(), d());
+                        if (f31797a == null) {
+                            f31797a = new com.bytedance.sdk.openadsdk.e.b<>(new f(o.a()), o.f(), g.b.a(), d());
                         }
                     }
                 }
-                return f31610a;
+                return f31797a;
             }
             return (com.bytedance.sdk.openadsdk.e.b) invokeV.objValue;
         }
@@ -348,14 +347,14 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (f31612c == null) {
+                if (f31799c == null) {
                     synchronized (o.class) {
-                        if (f31612c == null) {
-                            f31612c = a("ttad_bk_batch_stats", "AdStatsEventBatchThread", false);
+                        if (f31799c == null) {
+                            f31799c = a("ttad_bk_batch_stats", "AdStatsEventBatchThread", false);
                         }
                     }
                 }
-                return f31612c;
+                return f31799c;
             }
             return (com.bytedance.sdk.openadsdk.e.b) invokeV.objValue;
         }
@@ -364,14 +363,14 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (f31611b == null) {
+                if (f31798b == null) {
                     synchronized (o.class) {
-                        if (f31611b == null) {
-                            f31611b = a("ttad_bk_stats", "AdStatsEventThread", true);
+                        if (f31798b == null) {
+                            f31798b = a("ttad_bk_stats", "AdStatsEventThread", true);
                         }
                     }
                 }
-                return f31611b;
+                return f31798b;
             }
             return (com.bytedance.sdk.openadsdk.e.b) invokeV.objValue;
         }
@@ -401,7 +400,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
                 public boolean a() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? m.a(o.a()) : invokeV2.booleanValue;
+                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? n.a(o.a()) : invokeV2.booleanValue;
                 }
             } : (g.a) invokeV.objValue;
         }
@@ -413,7 +412,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, str, str2, z)) == null) {
                 if (z) {
-                    lVar = new n(o.a());
+                    lVar = new com.bytedance.sdk.openadsdk.e.n(o.a());
                     b2 = g.b.a();
                 } else {
                     b2 = g.b.b();
@@ -465,7 +464,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.f31608a = context;
+            this.f31795a = context;
         }
     }
 
@@ -477,17 +476,17 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
             String str = uri.getPath().split("/")[2];
             if ("adEventStart".equals(str)) {
-                j.b("AdEventProviderImpl", "====ad event function will be start====");
+                k.b("AdEventProviderImpl", "====ad event function will be start====");
                 b.a().a();
             } else if ("logStatusStart".equals(str)) {
-                j.b("AdEventProviderImpl", "====log stats function will be start====");
+                k.b("AdEventProviderImpl", "====log stats function will be start====");
                 if (Boolean.valueOf(uri.getQueryParameter("isRealTime")).booleanValue()) {
                     b.c().a();
                 } else {
                     b.b().a();
                 }
             } else if ("adEventDispatch".equals(str)) {
-                j.b("AdEventProviderImpl", "dispatch FUN_AD_EVENT_DISPATCH");
+                k.b("AdEventProviderImpl", "dispatch FUN_AD_EVENT_DISPATCH");
                 com.bytedance.sdk.openadsdk.e.a a2 = com.bytedance.sdk.openadsdk.e.a.a(com.bytedance.sdk.openadsdk.multipro.c.b(uri.getQueryParameter("event")));
                 if (a2 != null) {
                     b.a().a(a2);
@@ -522,13 +521,13 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
                 }
             } else if ("trackFailed".equals(str)) {
                 d.a().a(uri.getQueryParameter("did"));
-                j.b("AdEventProviderImpl", "track failed: " + String.valueOf(queryParameter));
+                k.b("AdEventProviderImpl", "track failed: " + String.valueOf(queryParameter));
             } else if ("logStatusInit".equals(str)) {
                 c.a().a();
             } else if ("logStatusUpload".equals(str)) {
                 String b3 = com.bytedance.sdk.openadsdk.multipro.c.b(uri.getQueryParameter("event"));
                 if (!TextUtils.isEmpty(b3)) {
-                    c.a().a(C0356a.b(b3));
+                    c.a().a(C0358a.b(b3));
                 }
             }
             return null;

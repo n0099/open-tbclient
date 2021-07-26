@@ -15,7 +15,7 @@ public class f implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f1976a;
+    public final /* synthetic */ e f2009a;
 
     public f(e eVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class f implements ServiceConnection {
                 return;
             }
         }
-        this.f1976a = eVar;
+        this.f2009a = eVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -41,10 +41,10 @@ public class f implements ServiceConnection {
         Object obj2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            obj = this.f1976a.f1971e;
+            obj = this.f2009a.f2004e;
             synchronized (obj) {
-                this.f1976a.f1970d = IAlixPay.Stub.asInterface(iBinder);
-                obj2 = this.f1976a.f1971e;
+                this.f2009a.f2003d = IAlixPay.Stub.asInterface(iBinder);
+                obj2 = this.f2009a.f2004e;
                 obj2.notify();
             }
         }
@@ -54,7 +54,7 @@ public class f implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f1976a.f1970d = null;
+            this.f2009a.f2003d = null;
         }
     }
 }

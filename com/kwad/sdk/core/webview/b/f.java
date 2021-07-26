@@ -39,7 +39,7 @@ public class f implements com.kwad.sdk.core.webview.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             com.kwad.sdk.core.webview.b.a.a aVar = new com.kwad.sdk.core.webview.b.a.a();
-            aVar.f35122a = com.kwad.sdk.core.config.c.v();
+            aVar.f35311a = com.kwad.sdk.core.config.c.v();
             cVar.a(aVar);
         }
     }

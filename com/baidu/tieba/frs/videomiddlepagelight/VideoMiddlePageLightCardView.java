@@ -52,21 +52,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.r.q.b2;
-import d.a.o0.r.q.x1;
-import d.a.p0.h3.h0.p;
-import d.a.p0.n2.c;
-import d.a.p0.n2.o;
-import d.a.p0.u0.h1.g;
+import d.a.d.e.p.l;
+import d.a.p0.s.q.b2;
+import d.a.p0.s.q.x1;
+import d.a.q0.h3.h0.p;
+import d.a.q0.n2.c;
+import d.a.q0.n2.o;
+import d.a.q0.u0.h1.g;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000æ\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0013\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000 Ø\u00012\u00020\u0001:\u0002Ø\u0001B\u001f\u0012\n\u0010\u001b\u001a\u0006\u0012\u0002\b\u00030\u001a\u0012\b\u0010Ò\u0001\u001a\u00030Ñ\u0001¢\u0006\u0006\bÖ\u0001\u0010×\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J!\u0010\n\u001a\u00020\t2\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u0007H\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0017\u0010\f\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\f\u0010\u0006J\u001f\u0010\u000f\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0011\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0011\u0010\u0006J\u000f\u0010\u0012\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0015\u001a\u00020\u00042\u0006\u0010\u0014\u001a\u00020\rH\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0017\u0010\u0013J\u000f\u0010\u0018\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0018\u0010\u0013J\u000f\u0010\u0019\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0019\u0010\u0013J\u001b\u0010\u001c\u001a\u00020\u00042\n\u0010\u001b\u001a\u0006\u0012\u0002\b\u00030\u001aH\u0002¢\u0006\u0004\b\u001c\u0010\u001dJ\u001b\u0010\u001e\u001a\u00020\u00042\n\u0010\u001b\u001a\u0006\u0012\u0002\b\u00030\u001aH\u0002¢\u0006\u0004\b\u001e\u0010\u001dJ\u0017\u0010 \u001a\u00020\u001f2\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b \u0010!J\u000f\u0010\"\u001a\u00020\rH\u0016¢\u0006\u0004\b\"\u0010#J\u001f\u0010(\u001a\u00020'2\u000e\u0010&\u001a\n\u0012\u0004\u0012\u00020%\u0018\u00010$H\u0002¢\u0006\u0004\b(\u0010)J\u0019\u0010*\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b*\u0010\u0006J\u001f\u0010*\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b*\u0010+J#\u0010-\u001a\u00020\u00042\n\u0010\u001b\u001a\u0006\u0012\u0002\b\u00030\u001a2\u0006\u0010,\u001a\u00020\rH\u0016¢\u0006\u0004\b-\u0010.J\u0019\u00101\u001a\u00020\u00042\b\u00100\u001a\u0004\u0018\u00010/H\u0016¢\u0006\u0004\b1\u00102J\u000f\u00103\u001a\u00020\u0004H\u0016¢\u0006\u0004\b3\u0010\u0013J\u0017\u00105\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u000204H\u0002¢\u0006\u0004\b5\u00106R\u0019\u00108\u001a\u0002078\u0006@\u0006¢\u0006\f\n\u0004\b8\u00109\u001a\u0004\b:\u0010;R$\u0010<\u001a\u0004\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b<\u0010=\u001a\u0004\b>\u0010?\"\u0004\b@\u0010\u0006R\"\u0010A\u001a\u00020\r8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bA\u0010B\u001a\u0004\bC\u0010#\"\u0004\bD\u0010\u0016R\"\u0010E\u001a\u00020\r8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bE\u0010B\u001a\u0004\bF\u0010#\"\u0004\bG\u0010\u0016R\"\u0010H\u001a\u00020\r8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bH\u0010B\u001a\u0004\bI\u0010#\"\u0004\bJ\u0010\u0016R\u0019\u0010L\u001a\u00020K8\u0006@\u0006¢\u0006\f\n\u0004\bL\u0010M\u001a\u0004\bN\u0010OR\u0019\u0010Q\u001a\u00020P8\u0006@\u0006¢\u0006\f\n\u0004\bQ\u0010R\u001a\u0004\bS\u0010TR\u0019\u0010V\u001a\u00020U8\u0006@\u0006¢\u0006\f\n\u0004\bV\u0010W\u001a\u0004\bX\u0010YR\u0019\u0010Z\u001a\u0002078\u0006@\u0006¢\u0006\f\n\u0004\bZ\u00109\u001a\u0004\b[\u0010;R\u0019\u0010]\u001a\u00020\\8\u0006@\u0006¢\u0006\f\n\u0004\b]\u0010^\u001a\u0004\b_\u0010`R\u0019\u0010b\u001a\u00020a8\u0006@\u0006¢\u0006\f\n\u0004\bb\u0010c\u001a\u0004\bd\u0010eR\u0019\u0010f\u001a\u00020P8\u0006@\u0006¢\u0006\f\n\u0004\bf\u0010R\u001a\u0004\bg\u0010TR\u0019\u0010i\u001a\u00020h8\u0006@\u0006¢\u0006\f\n\u0004\bi\u0010j\u001a\u0004\bk\u0010lR$\u0010m\u001a\u0004\u0018\u00010\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bm\u0010n\u001a\u0004\bo\u0010p\"\u0004\bq\u0010rR\u0019\u0010s\u001a\u00020\r8\u0006@\u0006¢\u0006\f\n\u0004\bs\u0010B\u001a\u0004\bt\u0010#R\"\u0010u\u001a\u00020\t8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bu\u0010v\u001a\u0004\bu\u0010w\"\u0004\bx\u0010yR\u0019\u0010{\u001a\u00020z8\u0006@\u0006¢\u0006\f\n\u0004\b{\u0010|\u001a\u0004\b}\u0010~R'\u0010\u007f\u001a\u00020'8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0005\b\u007f\u0010\u0080\u0001\u001a\u0006\b\u0081\u0001\u0010\u0082\u0001\"\u0006\b\u0083\u0001\u0010\u0084\u0001R(\u0010\u0085\u0001\u001a\u00020'8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0006\b\u0085\u0001\u0010\u0080\u0001\u001a\u0005\b(\u0010\u0082\u0001\"\u0006\b\u0086\u0001\u0010\u0084\u0001R\u001c\u0010\u0087\u0001\u001a\u0002078\u0006@\u0006¢\u0006\u000e\n\u0005\b\u0087\u0001\u00109\u001a\u0005\b\u0088\u0001\u0010;R\u001c\u0010\u0089\u0001\u001a\u00020P8\u0006@\u0006¢\u0006\u000e\n\u0005\b\u0089\u0001\u0010R\u001a\u0005\b\u008a\u0001\u0010TR\u001f\u0010\u008c\u0001\u001a\u00030\u008b\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b\u008c\u0001\u0010\u008d\u0001\u001a\u0006\b\u008e\u0001\u0010\u008f\u0001R,\u0010\u0091\u0001\u001a\u0005\u0018\u00010\u0090\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b\u0091\u0001\u0010\u0092\u0001\u001a\u0006\b\u0093\u0001\u0010\u0094\u0001\"\u0006\b\u0095\u0001\u0010\u0096\u0001R\u001c\u0010\u0097\u0001\u001a\u0002078\u0006@\u0006¢\u0006\u000e\n\u0005\b\u0097\u0001\u00109\u001a\u0005\b\u0098\u0001\u0010;R\u001f\u0010\u009a\u0001\u001a\u00030\u0099\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b\u009a\u0001\u0010\u009b\u0001\u001a\u0006\b\u009c\u0001\u0010\u009d\u0001R\u001c\u0010\u009e\u0001\u001a\u0002078\u0006@\u0006¢\u0006\u000e\n\u0005\b\u009e\u0001\u00109\u001a\u0005\b\u009f\u0001\u0010;R\u001c\u0010 \u0001\u001a\u00020a8\u0006@\u0006¢\u0006\u000e\n\u0005\b \u0001\u0010c\u001a\u0005\b¡\u0001\u0010eR\u001f\u0010£\u0001\u001a\u00030¢\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b£\u0001\u0010¤\u0001\u001a\u0006\b¥\u0001\u0010¦\u0001R\u001c\u0010§\u0001\u001a\u00020P8\u0006@\u0006¢\u0006\u000e\n\u0005\b§\u0001\u0010R\u001a\u0005\b¨\u0001\u0010TR\u001c\u0010©\u0001\u001a\u00020\r8\u0006@\u0006¢\u0006\u000e\n\u0005\b©\u0001\u0010B\u001a\u0005\bª\u0001\u0010#R\u001f\u0010«\u0001\u001a\u00030\u008b\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b«\u0001\u0010\u008d\u0001\u001a\u0006\b¬\u0001\u0010\u008f\u0001R\u001f\u0010®\u0001\u001a\u00030\u00ad\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b®\u0001\u0010¯\u0001\u001a\u0006\b°\u0001\u0010±\u0001R\u001f\u0010³\u0001\u001a\u00030²\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b³\u0001\u0010´\u0001\u001a\u0006\bµ\u0001\u0010¶\u0001R\u001c\u0010·\u0001\u001a\u00020a8\u0006@\u0006¢\u0006\u000e\n\u0005\b·\u0001\u0010c\u001a\u0005\b¸\u0001\u0010eR\u001c\u0010¹\u0001\u001a\u00020a8\u0006@\u0006¢\u0006\u000e\n\u0005\b¹\u0001\u0010c\u001a\u0005\bº\u0001\u0010eR\u001c\u0010»\u0001\u001a\u00020P8\u0006@\u0006¢\u0006\u000e\n\u0005\b»\u0001\u0010R\u001a\u0005\b¼\u0001\u0010TR\u001c\u0010½\u0001\u001a\u00020P8\u0006@\u0006¢\u0006\u000e\n\u0005\b½\u0001\u0010R\u001a\u0005\b¾\u0001\u0010TR\u001c\u0010¿\u0001\u001a\u00020\r8\u0006@\u0006¢\u0006\u000e\n\u0005\b¿\u0001\u0010B\u001a\u0005\bÀ\u0001\u0010#R\u001f\u0010Á\u0001\u001a\u00030\u008b\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\bÁ\u0001\u0010\u008d\u0001\u001a\u0006\bÂ\u0001\u0010\u008f\u0001R\u001f\u0010Ä\u0001\u001a\u00030Ã\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\bÄ\u0001\u0010Å\u0001\u001a\u0006\bÆ\u0001\u0010Ç\u0001R\u001f\u0010É\u0001\u001a\u00030È\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\bÉ\u0001\u0010Ê\u0001\u001a\u0006\bË\u0001\u0010Ì\u0001R\u001f\u0010Í\u0001\u001a\u00020\r8\u0006@\u0006X\u0086D¢\u0006\u000e\n\u0005\bÍ\u0001\u0010B\u001a\u0005\bÎ\u0001\u0010#R\u001f\u0010Ï\u0001\u001a\u00020\r8\u0006@\u0006X\u0086D¢\u0006\u000e\n\u0005\bÏ\u0001\u0010B\u001a\u0005\bÐ\u0001\u0010#R\u001f\u0010Ò\u0001\u001a\u00030Ñ\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\bÒ\u0001\u0010Ó\u0001\u001a\u0006\bÔ\u0001\u0010Õ\u0001¨\u0006Ù\u0001"}, d2 = {"Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightCardView;", "Ld/a/p0/a0/b;", "Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;", "data", "", "bindHeadData", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;)V", "Lcom/baidu/tbadk/core/data/ThreadData;", "threadData", "", "bindOpData", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;Lcom/baidu/tbadk/core/data/ThreadData;)Z", "bindReplyData", "", "position", "bindVideoData", "(ILcom/baidu/tieba/frs/aggregation/VideoAggregationData;)V", "bindVideoInfoData", "changeReplyContentColor", "()V", "videoTitleStatus", "changeVideoTitleStatus", "(I)V", "changeVideoTitleStyleExpandBtnArrowDown", "changeVideoTitleStyleExpandBtnArrowUp", "changeVideoTitleStyleNoExpandBtn", "Lcom/baidu/tbadk/TbPageContext;", "pageContext", "enterFullScreen", "(Lcom/baidu/tbadk/TbPageContext;)V", "exitFullScreen", "Lcom/baidu/tieba/play/VideoStatsData;", "generateVideoStatsData", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;)Lcom/baidu/tieba/play/VideoStatsData;", "getLayout", "()I", "", "Lcom/baidu/tbadk/core/data/AbstractData;", "abstractDataList", "", "getPostContent", "(Ljava/util/List;)Ljava/lang/String;", "onBindDataToView", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;I)V", WriteMulitImageActivityConfig.SKIN_TYPE, "onChangeSkinType", "(Lcom/baidu/tbadk/TbPageContext;I)V", "Landroid/view/View;", "v", "onClick", "(Landroid/view/View;)V", MissionEvent.MESSAGE_DESTROY, "Lcom/baidu/tieba/frs/aggregation/VideoAggregationData$VideoAggregationAuthorData;", "setUserAvatar", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData$VideoAggregationAuthorData;)V", "Landroid/view/View$OnClickListener;", "cardClickListener", "Landroid/view/View$OnClickListener;", "getCardClickListener", "()Landroid/view/View$OnClickListener;", "curData", "Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;", "getCurData", "()Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;", "setCurData", "curPos", "I", "getCurPos", "setCurPos", "curScreenOrientation", "getCurScreenOrientation", "setCurScreenOrientation", "curVideoTitleStatus", "getCurVideoTitleStatus", "setCurVideoTitleStatus", "Lcom/baidu/tieba/play/FloatVideoContainer;", "floatVideoContainer", "Lcom/baidu/tieba/play/FloatVideoContainer;", "getFloatVideoContainer", "()Lcom/baidu/tieba/play/FloatVideoContainer;", "Landroid/widget/TextView;", "forumInfoAuthor", "Landroid/widget/TextView;", "getForumInfoAuthor", "()Landroid/widget/TextView;", "Lcom/baidu/tbadk/core/view/SingleLineEllipsizeTextView;", "forumInfoBarname", "Lcom/baidu/tbadk/core/view/SingleLineEllipsizeTextView;", "getForumInfoBarname", "()Lcom/baidu/tbadk/core/view/SingleLineEllipsizeTextView;", "forumInfoClickListener", "getForumInfoClickListener", "Lcom/baidu/tbadk/core/view/BarImageView;", "forumInfoImage", "Lcom/baidu/tbadk/core/view/BarImageView;", "getForumInfoImage", "()Lcom/baidu/tbadk/core/view/BarImageView;", "Landroid/widget/RelativeLayout;", "forumInfoLayout", "Landroid/widget/RelativeLayout;", "getForumInfoLayout", "()Landroid/widget/RelativeLayout;", "forumInfoReplyTime", "getForumInfoReplyTime", "Lcom/baidu/tieba/play/FloatVideoContainer$OnFullScreenStateListener;", "fullScreenStateListener", "Lcom/baidu/tieba/play/FloatVideoContainer$OnFullScreenStateListener;", "getFullScreenStateListener", "()Lcom/baidu/tieba/play/FloatVideoContainer$OnFullScreenStateListener;", "generateThreadData", "Lcom/baidu/tbadk/core/data/ThreadData;", "getGenerateThreadData", "()Lcom/baidu/tbadk/core/data/ThreadData;", "setGenerateThreadData", "(Lcom/baidu/tbadk/core/data/ThreadData;)V", "horizontalVideoHeight", "getHorizontalVideoHeight", "isVerticalVideo", "Z", "()Z", "setVerticalVideo", "(Z)V", "Lcom/baidu/tbadk/core/view/ThreadCardBottomOpSegmentLayout;", "opLayout", "Lcom/baidu/tbadk/core/view/ThreadCardBottomOpSegmentLayout;", "getOpLayout", "()Lcom/baidu/tbadk/core/view/ThreadCardBottomOpSegmentLayout;", "postAuthorName", "Ljava/lang/String;", "getPostAuthorName", "()Ljava/lang/String;", "setPostAuthorName", "(Ljava/lang/String;)V", "postContent", "setPostContent", "replyAreaClickListener", "getReplyAreaClickListener", "replyContent", "getReplyContent", "Landroid/widget/FrameLayout;", "replyLayout", "Landroid/widget/FrameLayout;", "getReplyLayout", "()Landroid/widget/FrameLayout;", "Landroid/text/SpannableString;", "showContent", "Landroid/text/SpannableString;", "getShowContent", "()Landroid/text/SpannableString;", "setShowContent", "(Landroid/text/SpannableString;)V", "titleAreaExpandClickListener", "getTitleAreaExpandClickListener", "Lcom/baidu/tbadk/core/view/HeadImageView;", "userInfoAvatar", "Lcom/baidu/tbadk/core/view/HeadImageView;", "getUserInfoAvatar", "()Lcom/baidu/tbadk/core/view/HeadImageView;", "userInfoClickListener", "getUserInfoClickListener", "userInfoLayout", "getUserInfoLayout", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "userInfoName", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "getUserInfoName", "()Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "userInfoReplyTime", "getUserInfoReplyTime", "verticalVideoHeight", "getVerticalVideoHeight", "videoContainer", "getVideoContainer", "Lcom/baidu/tieba/play/FloatVideoContainer$VideoEvent;", "videoEventCallback", "Lcom/baidu/tieba/play/FloatVideoContainer$VideoEvent;", "getVideoEventCallback", "()Lcom/baidu/tieba/play/FloatVideoContainer$VideoEvent;", "Landroid/widget/ImageView;", "videoInfoExpandTitleBtn", "Landroid/widget/ImageView;", "getVideoInfoExpandTitleBtn", "()Landroid/widget/ImageView;", "videoInfoExpandTitleBtnWrapper", "getVideoInfoExpandTitleBtnWrapper", "videoInfoLayout", "getVideoInfoLayout", "videoInfoPlayCount", "getVideoInfoPlayCount", "videoInfoTitle", "getVideoInfoTitle", "videoInfoTitleMaxLength", "getVideoInfoTitleMaxLength", "videoLayout", "getVideoLayout", "Lcom/baidu/tieba/play/operableVideoView/OperableVideoNetworkStateTipView;", "videoNetworkStateTip", "Lcom/baidu/tieba/play/operableVideoView/OperableVideoNetworkStateTipView;", "getVideoNetworkStateTip", "()Lcom/baidu/tieba/play/operableVideoView/OperableVideoNetworkStateTipView;", "Lcom/baidu/tieba/play/FloatVideoContainer$VideoStatisticCallback;", "videoStatisticCallback", "Lcom/baidu/tieba/play/FloatVideoContainer$VideoStatisticCallback;", "getVideoStatisticCallback", "()Lcom/baidu/tieba/play/FloatVideoContainer$VideoStatisticCallback;", "videoTitleExpandMaxLines", "getVideoTitleExpandMaxLines", "videoTitleFoldMaxLines", "getVideoTitleFoldMaxLines", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "viewModel", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "getViewModel", "()Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "<init>", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;)V", "Companion", "frsExtra_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000æ\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0013\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000 Ø\u00012\u00020\u0001:\u0002Ø\u0001B\u001f\u0012\n\u0010\u001b\u001a\u0006\u0012\u0002\b\u00030\u001a\u0012\b\u0010Ò\u0001\u001a\u00030Ñ\u0001¢\u0006\u0006\bÖ\u0001\u0010×\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J!\u0010\n\u001a\u00020\t2\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u0007H\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0017\u0010\f\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\f\u0010\u0006J\u001f\u0010\u000f\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0011\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0011\u0010\u0006J\u000f\u0010\u0012\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0015\u001a\u00020\u00042\u0006\u0010\u0014\u001a\u00020\rH\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0017\u0010\u0013J\u000f\u0010\u0018\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0018\u0010\u0013J\u000f\u0010\u0019\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0019\u0010\u0013J\u001b\u0010\u001c\u001a\u00020\u00042\n\u0010\u001b\u001a\u0006\u0012\u0002\b\u00030\u001aH\u0002¢\u0006\u0004\b\u001c\u0010\u001dJ\u001b\u0010\u001e\u001a\u00020\u00042\n\u0010\u001b\u001a\u0006\u0012\u0002\b\u00030\u001aH\u0002¢\u0006\u0004\b\u001e\u0010\u001dJ\u0017\u0010 \u001a\u00020\u001f2\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b \u0010!J\u000f\u0010\"\u001a\u00020\rH\u0016¢\u0006\u0004\b\"\u0010#J\u001f\u0010(\u001a\u00020'2\u000e\u0010&\u001a\n\u0012\u0004\u0012\u00020%\u0018\u00010$H\u0002¢\u0006\u0004\b(\u0010)J\u0019\u0010*\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b*\u0010\u0006J\u001f\u0010*\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b*\u0010+J#\u0010-\u001a\u00020\u00042\n\u0010\u001b\u001a\u0006\u0012\u0002\b\u00030\u001a2\u0006\u0010,\u001a\u00020\rH\u0016¢\u0006\u0004\b-\u0010.J\u0019\u00101\u001a\u00020\u00042\b\u00100\u001a\u0004\u0018\u00010/H\u0016¢\u0006\u0004\b1\u00102J\u000f\u00103\u001a\u00020\u0004H\u0016¢\u0006\u0004\b3\u0010\u0013J\u0017\u00105\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u000204H\u0002¢\u0006\u0004\b5\u00106R\u0019\u00108\u001a\u0002078\u0006@\u0006¢\u0006\f\n\u0004\b8\u00109\u001a\u0004\b:\u0010;R$\u0010<\u001a\u0004\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b<\u0010=\u001a\u0004\b>\u0010?\"\u0004\b@\u0010\u0006R\"\u0010A\u001a\u00020\r8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bA\u0010B\u001a\u0004\bC\u0010#\"\u0004\bD\u0010\u0016R\"\u0010E\u001a\u00020\r8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bE\u0010B\u001a\u0004\bF\u0010#\"\u0004\bG\u0010\u0016R\"\u0010H\u001a\u00020\r8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bH\u0010B\u001a\u0004\bI\u0010#\"\u0004\bJ\u0010\u0016R\u0019\u0010L\u001a\u00020K8\u0006@\u0006¢\u0006\f\n\u0004\bL\u0010M\u001a\u0004\bN\u0010OR\u0019\u0010Q\u001a\u00020P8\u0006@\u0006¢\u0006\f\n\u0004\bQ\u0010R\u001a\u0004\bS\u0010TR\u0019\u0010V\u001a\u00020U8\u0006@\u0006¢\u0006\f\n\u0004\bV\u0010W\u001a\u0004\bX\u0010YR\u0019\u0010Z\u001a\u0002078\u0006@\u0006¢\u0006\f\n\u0004\bZ\u00109\u001a\u0004\b[\u0010;R\u0019\u0010]\u001a\u00020\\8\u0006@\u0006¢\u0006\f\n\u0004\b]\u0010^\u001a\u0004\b_\u0010`R\u0019\u0010b\u001a\u00020a8\u0006@\u0006¢\u0006\f\n\u0004\bb\u0010c\u001a\u0004\bd\u0010eR\u0019\u0010f\u001a\u00020P8\u0006@\u0006¢\u0006\f\n\u0004\bf\u0010R\u001a\u0004\bg\u0010TR\u0019\u0010i\u001a\u00020h8\u0006@\u0006¢\u0006\f\n\u0004\bi\u0010j\u001a\u0004\bk\u0010lR$\u0010m\u001a\u0004\u0018\u00010\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bm\u0010n\u001a\u0004\bo\u0010p\"\u0004\bq\u0010rR\u0019\u0010s\u001a\u00020\r8\u0006@\u0006¢\u0006\f\n\u0004\bs\u0010B\u001a\u0004\bt\u0010#R\"\u0010u\u001a\u00020\t8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bu\u0010v\u001a\u0004\bu\u0010w\"\u0004\bx\u0010yR\u0019\u0010{\u001a\u00020z8\u0006@\u0006¢\u0006\f\n\u0004\b{\u0010|\u001a\u0004\b}\u0010~R'\u0010\u007f\u001a\u00020'8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0005\b\u007f\u0010\u0080\u0001\u001a\u0006\b\u0081\u0001\u0010\u0082\u0001\"\u0006\b\u0083\u0001\u0010\u0084\u0001R(\u0010\u0085\u0001\u001a\u00020'8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0006\b\u0085\u0001\u0010\u0080\u0001\u001a\u0005\b(\u0010\u0082\u0001\"\u0006\b\u0086\u0001\u0010\u0084\u0001R\u001c\u0010\u0087\u0001\u001a\u0002078\u0006@\u0006¢\u0006\u000e\n\u0005\b\u0087\u0001\u00109\u001a\u0005\b\u0088\u0001\u0010;R\u001c\u0010\u0089\u0001\u001a\u00020P8\u0006@\u0006¢\u0006\u000e\n\u0005\b\u0089\u0001\u0010R\u001a\u0005\b\u008a\u0001\u0010TR\u001f\u0010\u008c\u0001\u001a\u00030\u008b\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b\u008c\u0001\u0010\u008d\u0001\u001a\u0006\b\u008e\u0001\u0010\u008f\u0001R,\u0010\u0091\u0001\u001a\u0005\u0018\u00010\u0090\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b\u0091\u0001\u0010\u0092\u0001\u001a\u0006\b\u0093\u0001\u0010\u0094\u0001\"\u0006\b\u0095\u0001\u0010\u0096\u0001R\u001c\u0010\u0097\u0001\u001a\u0002078\u0006@\u0006¢\u0006\u000e\n\u0005\b\u0097\u0001\u00109\u001a\u0005\b\u0098\u0001\u0010;R\u001f\u0010\u009a\u0001\u001a\u00030\u0099\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b\u009a\u0001\u0010\u009b\u0001\u001a\u0006\b\u009c\u0001\u0010\u009d\u0001R\u001c\u0010\u009e\u0001\u001a\u0002078\u0006@\u0006¢\u0006\u000e\n\u0005\b\u009e\u0001\u00109\u001a\u0005\b\u009f\u0001\u0010;R\u001c\u0010 \u0001\u001a\u00020a8\u0006@\u0006¢\u0006\u000e\n\u0005\b \u0001\u0010c\u001a\u0005\b¡\u0001\u0010eR\u001f\u0010£\u0001\u001a\u00030¢\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b£\u0001\u0010¤\u0001\u001a\u0006\b¥\u0001\u0010¦\u0001R\u001c\u0010§\u0001\u001a\u00020P8\u0006@\u0006¢\u0006\u000e\n\u0005\b§\u0001\u0010R\u001a\u0005\b¨\u0001\u0010TR\u001c\u0010©\u0001\u001a\u00020\r8\u0006@\u0006¢\u0006\u000e\n\u0005\b©\u0001\u0010B\u001a\u0005\bª\u0001\u0010#R\u001f\u0010«\u0001\u001a\u00030\u008b\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b«\u0001\u0010\u008d\u0001\u001a\u0006\b¬\u0001\u0010\u008f\u0001R\u001f\u0010®\u0001\u001a\u00030\u00ad\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b®\u0001\u0010¯\u0001\u001a\u0006\b°\u0001\u0010±\u0001R\u001f\u0010³\u0001\u001a\u00030²\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\b³\u0001\u0010´\u0001\u001a\u0006\bµ\u0001\u0010¶\u0001R\u001c\u0010·\u0001\u001a\u00020a8\u0006@\u0006¢\u0006\u000e\n\u0005\b·\u0001\u0010c\u001a\u0005\b¸\u0001\u0010eR\u001c\u0010¹\u0001\u001a\u00020a8\u0006@\u0006¢\u0006\u000e\n\u0005\b¹\u0001\u0010c\u001a\u0005\bº\u0001\u0010eR\u001c\u0010»\u0001\u001a\u00020P8\u0006@\u0006¢\u0006\u000e\n\u0005\b»\u0001\u0010R\u001a\u0005\b¼\u0001\u0010TR\u001c\u0010½\u0001\u001a\u00020P8\u0006@\u0006¢\u0006\u000e\n\u0005\b½\u0001\u0010R\u001a\u0005\b¾\u0001\u0010TR\u001c\u0010¿\u0001\u001a\u00020\r8\u0006@\u0006¢\u0006\u000e\n\u0005\b¿\u0001\u0010B\u001a\u0005\bÀ\u0001\u0010#R\u001f\u0010Á\u0001\u001a\u00030\u008b\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\bÁ\u0001\u0010\u008d\u0001\u001a\u0006\bÂ\u0001\u0010\u008f\u0001R\u001f\u0010Ä\u0001\u001a\u00030Ã\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\bÄ\u0001\u0010Å\u0001\u001a\u0006\bÆ\u0001\u0010Ç\u0001R\u001f\u0010É\u0001\u001a\u00030È\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\bÉ\u0001\u0010Ê\u0001\u001a\u0006\bË\u0001\u0010Ì\u0001R\u001f\u0010Í\u0001\u001a\u00020\r8\u0006@\u0006X\u0086D¢\u0006\u000e\n\u0005\bÍ\u0001\u0010B\u001a\u0005\bÎ\u0001\u0010#R\u001f\u0010Ï\u0001\u001a\u00020\r8\u0006@\u0006X\u0086D¢\u0006\u000e\n\u0005\bÏ\u0001\u0010B\u001a\u0005\bÐ\u0001\u0010#R\u001f\u0010Ò\u0001\u001a\u00030Ñ\u00018\u0006@\u0006¢\u0006\u0010\n\u0006\bÒ\u0001\u0010Ó\u0001\u001a\u0006\bÔ\u0001\u0010Õ\u0001¨\u0006Ù\u0001"}, d2 = {"Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightCardView;", "Ld/a/q0/a0/b;", "Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;", "data", "", "bindHeadData", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;)V", "Lcom/baidu/tbadk/core/data/ThreadData;", "threadData", "", "bindOpData", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;Lcom/baidu/tbadk/core/data/ThreadData;)Z", "bindReplyData", "", "position", "bindVideoData", "(ILcom/baidu/tieba/frs/aggregation/VideoAggregationData;)V", "bindVideoInfoData", "changeReplyContentColor", "()V", "videoTitleStatus", "changeVideoTitleStatus", "(I)V", "changeVideoTitleStyleExpandBtnArrowDown", "changeVideoTitleStyleExpandBtnArrowUp", "changeVideoTitleStyleNoExpandBtn", "Lcom/baidu/tbadk/TbPageContext;", "pageContext", "enterFullScreen", "(Lcom/baidu/tbadk/TbPageContext;)V", "exitFullScreen", "Lcom/baidu/tieba/play/VideoStatsData;", "generateVideoStatsData", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;)Lcom/baidu/tieba/play/VideoStatsData;", "getLayout", "()I", "", "Lcom/baidu/tbadk/core/data/AbstractData;", "abstractDataList", "", "getPostContent", "(Ljava/util/List;)Ljava/lang/String;", "onBindDataToView", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;I)V", WriteMulitImageActivityConfig.SKIN_TYPE, "onChangeSkinType", "(Lcom/baidu/tbadk/TbPageContext;I)V", "Landroid/view/View;", "v", "onClick", "(Landroid/view/View;)V", MissionEvent.MESSAGE_DESTROY, "Lcom/baidu/tieba/frs/aggregation/VideoAggregationData$VideoAggregationAuthorData;", "setUserAvatar", "(Lcom/baidu/tieba/frs/aggregation/VideoAggregationData$VideoAggregationAuthorData;)V", "Landroid/view/View$OnClickListener;", "cardClickListener", "Landroid/view/View$OnClickListener;", "getCardClickListener", "()Landroid/view/View$OnClickListener;", "curData", "Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;", "getCurData", "()Lcom/baidu/tieba/frs/aggregation/VideoAggregationData;", "setCurData", "curPos", "I", "getCurPos", "setCurPos", "curScreenOrientation", "getCurScreenOrientation", "setCurScreenOrientation", "curVideoTitleStatus", "getCurVideoTitleStatus", "setCurVideoTitleStatus", "Lcom/baidu/tieba/play/FloatVideoContainer;", "floatVideoContainer", "Lcom/baidu/tieba/play/FloatVideoContainer;", "getFloatVideoContainer", "()Lcom/baidu/tieba/play/FloatVideoContainer;", "Landroid/widget/TextView;", "forumInfoAuthor", "Landroid/widget/TextView;", "getForumInfoAuthor", "()Landroid/widget/TextView;", "Lcom/baidu/tbadk/core/view/SingleLineEllipsizeTextView;", "forumInfoBarname", "Lcom/baidu/tbadk/core/view/SingleLineEllipsizeTextView;", "getForumInfoBarname", "()Lcom/baidu/tbadk/core/view/SingleLineEllipsizeTextView;", "forumInfoClickListener", "getForumInfoClickListener", "Lcom/baidu/tbadk/core/view/BarImageView;", "forumInfoImage", "Lcom/baidu/tbadk/core/view/BarImageView;", "getForumInfoImage", "()Lcom/baidu/tbadk/core/view/BarImageView;", "Landroid/widget/RelativeLayout;", "forumInfoLayout", "Landroid/widget/RelativeLayout;", "getForumInfoLayout", "()Landroid/widget/RelativeLayout;", "forumInfoReplyTime", "getForumInfoReplyTime", "Lcom/baidu/tieba/play/FloatVideoContainer$OnFullScreenStateListener;", "fullScreenStateListener", "Lcom/baidu/tieba/play/FloatVideoContainer$OnFullScreenStateListener;", "getFullScreenStateListener", "()Lcom/baidu/tieba/play/FloatVideoContainer$OnFullScreenStateListener;", "generateThreadData", "Lcom/baidu/tbadk/core/data/ThreadData;", "getGenerateThreadData", "()Lcom/baidu/tbadk/core/data/ThreadData;", "setGenerateThreadData", "(Lcom/baidu/tbadk/core/data/ThreadData;)V", "horizontalVideoHeight", "getHorizontalVideoHeight", "isVerticalVideo", "Z", "()Z", "setVerticalVideo", "(Z)V", "Lcom/baidu/tbadk/core/view/ThreadCardBottomOpSegmentLayout;", "opLayout", "Lcom/baidu/tbadk/core/view/ThreadCardBottomOpSegmentLayout;", "getOpLayout", "()Lcom/baidu/tbadk/core/view/ThreadCardBottomOpSegmentLayout;", "postAuthorName", "Ljava/lang/String;", "getPostAuthorName", "()Ljava/lang/String;", "setPostAuthorName", "(Ljava/lang/String;)V", "postContent", "setPostContent", "replyAreaClickListener", "getReplyAreaClickListener", "replyContent", "getReplyContent", "Landroid/widget/FrameLayout;", "replyLayout", "Landroid/widget/FrameLayout;", "getReplyLayout", "()Landroid/widget/FrameLayout;", "Landroid/text/SpannableString;", "showContent", "Landroid/text/SpannableString;", "getShowContent", "()Landroid/text/SpannableString;", "setShowContent", "(Landroid/text/SpannableString;)V", "titleAreaExpandClickListener", "getTitleAreaExpandClickListener", "Lcom/baidu/tbadk/core/view/HeadImageView;", "userInfoAvatar", "Lcom/baidu/tbadk/core/view/HeadImageView;", "getUserInfoAvatar", "()Lcom/baidu/tbadk/core/view/HeadImageView;", "userInfoClickListener", "getUserInfoClickListener", "userInfoLayout", "getUserInfoLayout", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "userInfoName", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "getUserInfoName", "()Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "userInfoReplyTime", "getUserInfoReplyTime", "verticalVideoHeight", "getVerticalVideoHeight", "videoContainer", "getVideoContainer", "Lcom/baidu/tieba/play/FloatVideoContainer$VideoEvent;", "videoEventCallback", "Lcom/baidu/tieba/play/FloatVideoContainer$VideoEvent;", "getVideoEventCallback", "()Lcom/baidu/tieba/play/FloatVideoContainer$VideoEvent;", "Landroid/widget/ImageView;", "videoInfoExpandTitleBtn", "Landroid/widget/ImageView;", "getVideoInfoExpandTitleBtn", "()Landroid/widget/ImageView;", "videoInfoExpandTitleBtnWrapper", "getVideoInfoExpandTitleBtnWrapper", "videoInfoLayout", "getVideoInfoLayout", "videoInfoPlayCount", "getVideoInfoPlayCount", "videoInfoTitle", "getVideoInfoTitle", "videoInfoTitleMaxLength", "getVideoInfoTitleMaxLength", "videoLayout", "getVideoLayout", "Lcom/baidu/tieba/play/operableVideoView/OperableVideoNetworkStateTipView;", "videoNetworkStateTip", "Lcom/baidu/tieba/play/operableVideoView/OperableVideoNetworkStateTipView;", "getVideoNetworkStateTip", "()Lcom/baidu/tieba/play/operableVideoView/OperableVideoNetworkStateTipView;", "Lcom/baidu/tieba/play/FloatVideoContainer$VideoStatisticCallback;", "videoStatisticCallback", "Lcom/baidu/tieba/play/FloatVideoContainer$VideoStatisticCallback;", "getVideoStatisticCallback", "()Lcom/baidu/tieba/play/FloatVideoContainer$VideoStatisticCallback;", "videoTitleExpandMaxLines", "getVideoTitleExpandMaxLines", "videoTitleFoldMaxLines", "getVideoTitleFoldMaxLines", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "viewModel", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "getViewModel", "()Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "<init>", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;)V", "Companion", "frsExtra_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
-public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1.g> {
+public final class VideoMiddlePageLightCardView extends d.a.q0.a0.b<d.a.q0.u0.h1.g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final RelativeLayout A;
@@ -76,7 +76,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
     public final View.OnClickListener E;
     public final FrameLayout F;
     public final FrameLayout G;
-    public final d.a.p0.n2.c H;
+    public final d.a.q0.n2.c H;
     public final OperableVideoNetworkStateTipView I;
     public final RelativeLayout J;
     public final TextView K;
@@ -101,7 +101,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
     public final VideoMiddlePageViewModel i0;
     public final int m;
     public final int n;
-    public d.a.p0.u0.h1.g o;
+    public d.a.q0.u0.h1.g o;
     public b2 p;
     public int q;
     public int r;
@@ -120,7 +120,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16124e;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16179e;
 
         public a(VideoMiddlePageLightCardView videoMiddlePageLightCardView) {
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16124e = videoMiddlePageLightCardView;
+            this.f16179e = videoMiddlePageLightCardView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -145,17 +145,17 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
             g.c cVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16124e.R().setVisibility(8);
-                this.f16124e.R().setHasAgreeToPlay(true);
-                this.f16124e.O().k2();
-                this.f16124e.O().n1(false);
-                d.a.p0.u0.h1.g K = this.f16124e.K();
+                this.f16179e.R().setVisibility(8);
+                this.f16179e.R().setHasAgreeToPlay(true);
+                this.f16179e.O().k2();
+                this.f16179e.O().n1(false);
+                d.a.q0.u0.h1.g K = this.f16179e.K();
                 if ((K != null ? K.z : null) != null) {
-                    d.a.p0.n2.c O = this.f16124e.O();
-                    d.a.p0.u0.h1.g K2 = this.f16124e.K();
-                    String str = (K2 == null || (cVar = K2.z) == null) ? null : cVar.f62876d;
-                    d.a.p0.u0.h1.g K3 = this.f16124e.K();
-                    O.d2(str, K3 != null ? K3.f62849f : null);
+                    d.a.q0.n2.c O = this.f16179e.O();
+                    d.a.q0.u0.h1.g K2 = this.f16179e.K();
+                    String str = (K2 == null || (cVar = K2.z) == null) ? null : cVar.f63519d;
+                    d.a.q0.u0.h1.g K3 = this.f16179e.K();
+                    O.d2(str, K3 != null ? K3.f63492f : null);
                 }
             }
         }
@@ -167,10 +167,10 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16125e;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16180e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16126f;
+        public final /* synthetic */ TbPageContext f16181f;
 
         public b(VideoMiddlePageLightCardView videoMiddlePageLightCardView, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -187,8 +187,8 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16125e = videoMiddlePageLightCardView;
-            this.f16126f = tbPageContext;
+            this.f16180e = videoMiddlePageLightCardView;
+            this.f16181f = tbPageContext;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -197,19 +197,19 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public final void onChanged(Configuration configuration) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) {
-                Integer value = this.f16125e.S().c().getValue();
-                int L = this.f16125e.L();
+                Integer value = this.f16180e.S().c().getValue();
+                int L = this.f16180e.L();
                 if (value != null && value.intValue() == L) {
-                    int M = this.f16125e.M();
+                    int M = this.f16180e.M();
                     int i2 = configuration.orientation;
                     if (M != i2) {
                         if (i2 == 2) {
-                            this.f16125e.H(this.f16126f);
+                            this.f16180e.H(this.f16181f);
                         } else {
-                            this.f16125e.I(this.f16126f);
+                            this.f16180e.I(this.f16181f);
                         }
-                        this.f16125e.O().V0(this.f16126f, configuration);
-                        this.f16125e.X(configuration.orientation);
+                        this.f16180e.O().V0(this.f16181f, configuration);
+                        this.f16180e.X(configuration.orientation);
                     }
                 }
             }
@@ -222,10 +222,10 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16127e;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16182e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16128f;
+        public final /* synthetic */ TbPageContext f16183f;
 
         public c(VideoMiddlePageLightCardView videoMiddlePageLightCardView, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -242,26 +242,26 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16127e = videoMiddlePageLightCardView;
-            this.f16128f = tbPageContext;
+            this.f16182e = videoMiddlePageLightCardView;
+            this.f16183f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16127e.K() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16182e.K() == null) {
                 return;
             }
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f16127e.f53778g);
-            d.a.p0.u0.h1.g K = this.f16127e.K();
-            pbActivityConfig.createNormalCfg(K != null ? K.f62849f : null, null, null);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f16182e.f54321g);
+            d.a.q0.u0.h1.g K = this.f16182e.K();
+            pbActivityConfig.createNormalCfg(K != null ? K.f63492f : null, null, null);
             pbActivityConfig.setVideo_source("auto_midpage");
-            d.a.p0.u0.h1.g K2 = this.f16127e.K();
+            d.a.q0.u0.h1.g K2 = this.f16182e.K();
             pbActivityConfig.setBjhData(K2 != null ? K2.A : null);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
-            b2 P = this.f16127e.P();
-            d.a.p0.u0.h1.g K3 = this.f16127e.K();
-            d.a.p0.g3.c.g().c(this.f16128f.getUniqueId(), d.a.p0.g3.a.d(P, "a023", "common_click", 1, K3 != null ? K3.I : 0, false, null, null));
+            b2 P = this.f16182e.P();
+            d.a.q0.u0.h1.g K3 = this.f16182e.K();
+            d.a.q0.g3.c.g().c(this.f16183f.getUniqueId(), d.a.q0.g3.a.d(P, "a023", "common_click", 1, K3 != null ? K3.I : 0, false, null, null));
         }
     }
 
@@ -271,10 +271,10 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16129e;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16184e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16130f;
+        public final /* synthetic */ TbPageContext f16185f;
 
         public d(VideoMiddlePageLightCardView videoMiddlePageLightCardView, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -291,29 +291,29 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16129e = videoMiddlePageLightCardView;
-            this.f16130f = tbPageContext;
+            this.f16184e = videoMiddlePageLightCardView;
+            this.f16185f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            d.a.p0.u0.h1.g K;
+            d.a.q0.u0.h1.g K;
             x1 x1Var;
             String str;
             x1 x1Var2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (K = this.f16129e.K()) == null || (x1Var = K.B) == null || (str = x1Var.f52815b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (K = this.f16184e.K()) == null || (x1Var = K.B) == null || (str = x1Var.f53479b) == null) {
                 return;
             }
             if (str.length() > 0) {
-                FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.f16129e.b());
-                d.a.p0.u0.h1.g K2 = this.f16129e.K();
-                FrsActivityConfig createNormalCfg = frsActivityConfig.createNormalCfg((K2 == null || (x1Var2 = K2.B) == null) ? null : x1Var2.f52815b, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.f16184e.b());
+                d.a.q0.u0.h1.g K2 = this.f16184e.K();
+                FrsActivityConfig createNormalCfg = frsActivityConfig.createNormalCfg((K2 == null || (x1Var2 = K2.B) == null) ? null : x1Var2.f53479b, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
-                b2 P = this.f16129e.P();
-                d.a.p0.u0.h1.g K3 = this.f16129e.K();
-                d.a.p0.g3.c.g().c(this.f16130f.getUniqueId(), d.a.p0.g3.a.d(P, "a023", "common_click", 9, K3 != null ? K3.I : 0, false, null, null));
+                b2 P = this.f16184e.P();
+                d.a.q0.u0.h1.g K3 = this.f16184e.K();
+                d.a.q0.g3.c.g().c(this.f16185f.getUniqueId(), d.a.q0.g3.a.d(P, "a023", "common_click", 9, K3 != null ? K3.I : 0, false, null, null));
             }
         }
     }
@@ -324,10 +324,10 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16131a;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16186a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16132b;
+        public final /* synthetic */ TbPageContext f16187b;
 
         public e(VideoMiddlePageLightCardView videoMiddlePageLightCardView, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -344,23 +344,23 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16131a = videoMiddlePageLightCardView;
-            this.f16132b = tbPageContext;
+            this.f16186a = videoMiddlePageLightCardView;
+            this.f16187b = tbPageContext;
         }
 
-        @Override // d.a.p0.n2.c.x
+        @Override // d.a.q0.n2.c.x
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f16131a.T()) {
-                this.f16131a.H(this.f16132b);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f16186a.T()) {
+                this.f16186a.H(this.f16187b);
             }
         }
 
-        @Override // d.a.p0.n2.c.x
+        @Override // d.a.q0.n2.c.x
         public void b() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f16131a.T()) {
-                this.f16131a.I(this.f16132b);
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f16186a.T()) {
+                this.f16186a.I(this.f16187b);
             }
         }
     }
@@ -371,10 +371,10 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16133e;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16188e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16134f;
+        public final /* synthetic */ TbPageContext f16189f;
 
         public f(VideoMiddlePageLightCardView videoMiddlePageLightCardView, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -391,8 +391,8 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16133e = videoMiddlePageLightCardView;
-            this.f16134f = tbPageContext;
+            this.f16188e = videoMiddlePageLightCardView;
+            this.f16189f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -403,30 +403,30 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
             List<p> list2;
             p pVar2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16133e.K() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16188e.K() == null) {
                 return;
             }
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f16133e.f53778g);
-            d.a.p0.u0.h1.g K = this.f16133e.K();
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f16188e.f54321g);
+            d.a.q0.u0.h1.g K = this.f16188e.K();
             String str = null;
-            String str2 = K != null ? K.f62849f : null;
-            d.a.p0.u0.h1.g K2 = this.f16133e.K();
-            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(str2, (K2 == null || (list2 = K2.D) == null || (pVar2 = list2.get(0)) == null || (r2 = pVar2.f58008a) == null) ? "" : "", null);
+            String str2 = K != null ? K.f63492f : null;
+            d.a.q0.u0.h1.g K2 = this.f16188e.K();
+            PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(str2, (K2 == null || (list2 = K2.D) == null || (pVar2 = list2.get(0)) == null || (r2 = pVar2.f58583a) == null) ? "" : "", null);
             createNormalCfg.setStartFrom(24);
-            d.a.p0.u0.h1.g K3 = this.f16133e.K();
-            createNormalCfg.setForumId(K3 != null ? K3.f62848e : null);
-            d.a.p0.u0.h1.g K4 = this.f16133e.K();
-            createNormalCfg.setForumName((K4 == null || (x1Var = K4.B) == null) ? null : x1Var.f52815b);
-            d.a.p0.u0.h1.g K5 = this.f16133e.K();
+            d.a.q0.u0.h1.g K3 = this.f16188e.K();
+            createNormalCfg.setForumId(K3 != null ? K3.f63491e : null);
+            d.a.q0.u0.h1.g K4 = this.f16188e.K();
+            createNormalCfg.setForumName((K4 == null || (x1Var = K4.B) == null) ? null : x1Var.f53479b);
+            d.a.q0.u0.h1.g K5 = this.f16188e.K();
             if (K5 != null && (list = K5.D) != null && (pVar = list.get(0)) != null) {
-                str = pVar.f58008a;
+                str = pVar.f58583a;
             }
             createNormalCfg.setHighLightPostId(str);
             createNormalCfg.setJumpToCommentArea(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            b2 P = this.f16133e.P();
-            d.a.p0.u0.h1.g K6 = this.f16133e.K();
-            d.a.p0.g3.c.g().c(this.f16134f.getUniqueId(), d.a.p0.g3.a.d(P, "a023", "common_click", 5, K6 != null ? K6.I : 0, false, null, null));
+            b2 P = this.f16188e.P();
+            d.a.q0.u0.h1.g K6 = this.f16188e.K();
+            d.a.q0.g3.c.g().c(this.f16189f.getUniqueId(), d.a.q0.g3.a.d(P, "a023", "common_click", 5, K6 != null ? K6.I : 0, false, null, null));
         }
     }
 
@@ -436,7 +436,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16135e;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16190e;
 
         public g(VideoMiddlePageLightCardView videoMiddlePageLightCardView) {
             Interceptable interceptable = $ic;
@@ -453,17 +453,17 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16135e = videoMiddlePageLightCardView;
+            this.f16190e = videoMiddlePageLightCardView;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f16135e.N() == 1) {
-                    this.f16135e.A(2);
-                } else if (this.f16135e.N() == 2) {
-                    this.f16135e.A(1);
+                if (this.f16190e.N() == 1) {
+                    this.f16190e.A(2);
+                } else if (this.f16190e.N() == 2) {
+                    this.f16190e.A(1);
                 }
             }
         }
@@ -475,10 +475,10 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16136e;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16191e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16137f;
+        public final /* synthetic */ TbPageContext f16192f;
 
         public h(VideoMiddlePageLightCardView videoMiddlePageLightCardView, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -495,8 +495,8 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16136e = videoMiddlePageLightCardView;
-            this.f16137f = tbPageContext;
+            this.f16191e = videoMiddlePageLightCardView;
+            this.f16192f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -506,24 +506,24 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
             g.b bVar3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d.a.p0.u0.h1.g K = this.f16136e.K();
+                d.a.q0.u0.h1.g K = this.f16191e.K();
                 String str = null;
-                String str2 = (K == null || (bVar3 = K.y) == null) ? null : bVar3.f62859a;
-                d.a.p0.u0.h1.g K2 = this.f16136e.K();
-                String str3 = (K2 == null || (bVar2 = K2.y) == null) ? null : bVar2.f62861c;
+                String str2 = (K == null || (bVar3 = K.y) == null) ? null : bVar3.f63502a;
+                d.a.q0.u0.h1.g K2 = this.f16191e.K();
+                String str3 = (K2 == null || (bVar2 = K2.y) == null) ? null : bVar2.f63504c;
                 if (str3 == null || StringsKt__StringsJVMKt.isBlank(str3)) {
-                    d.a.p0.u0.h1.g K3 = this.f16136e.K();
+                    d.a.q0.u0.h1.g K3 = this.f16191e.K();
                     if (K3 != null && (bVar = K3.y) != null) {
-                        str = bVar.f62860b;
+                        str = bVar.f63503b;
                     }
                     str3 = str;
                 }
                 if (str2 != null && (!StringsKt__StringsJVMKt.isBlank(str2)) && str3 != null && (!StringsKt__StringsJVMKt.isBlank(str3))) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f16136e.b(), str2, str3)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f16191e.b(), str2, str3)));
                 }
-                b2 P = this.f16136e.P();
-                d.a.p0.u0.h1.g K4 = this.f16136e.K();
-                d.a.p0.g3.c.g().c(this.f16137f.getUniqueId(), d.a.p0.g3.a.d(P, "a023", "common_click", 2, K4 != null ? K4.I : 0, false, null, null));
+                b2 P = this.f16191e.P();
+                d.a.q0.u0.h1.g K4 = this.f16191e.K();
+                d.a.q0.g3.c.g().c(this.f16192f.getUniqueId(), d.a.q0.g3.a.d(P, "a023", "common_click", 2, K4 != null ? K4.I : 0, false, null, null));
             }
         }
     }
@@ -534,7 +534,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16138a;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16193a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public i(VideoMiddlePageLightCardView videoMiddlePageLightCardView) {
@@ -552,53 +552,53 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16138a = videoMiddlePageLightCardView;
+            this.f16193a = videoMiddlePageLightCardView;
         }
 
-        @Override // d.a.p0.n2.c.j0
+        @Override // d.a.q0.n2.c.j0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // d.a.p0.n2.c.j0
+        @Override // d.a.q0.n2.c.j0
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             }
         }
 
-        @Override // d.a.p0.n2.c.j0
+        @Override // d.a.q0.n2.c.j0
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // d.a.p0.n2.c.j0
+        @Override // d.a.q0.n2.c.j0
         public void onPaused() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             }
         }
 
-        @Override // d.a.p0.n2.c.j0
+        @Override // d.a.q0.n2.c.j0
         public void onPlayEnd() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f16138a.M() == 1 && !this.f16138a.O().R0()) {
-                this.f16138a.S().n();
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f16193a.M() == 1 && !this.f16193a.O().R0()) {
+                this.f16193a.S().n();
             }
         }
 
-        @Override // d.a.p0.n2.c.j0
+        @Override // d.a.q0.n2.c.j0
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             }
         }
 
-        @Override // d.a.p0.n2.c.j0
+        @Override // d.a.q0.n2.c.j0
         public void onStarted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -612,7 +612,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightCardView f16139a;
+        public final /* synthetic */ VideoMiddlePageLightCardView f16194a;
 
         public j(VideoMiddlePageLightCardView videoMiddlePageLightCardView) {
             Interceptable interceptable = $ic;
@@ -629,19 +629,19 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                     return;
                 }
             }
-            this.f16139a = videoMiddlePageLightCardView;
+            this.f16194a = videoMiddlePageLightCardView;
         }
 
-        @Override // d.a.p0.n2.c.k0
+        @Override // d.a.q0.n2.c.k0
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int L = this.f16139a.L();
-                Integer value = this.f16139a.S().c().getValue();
+                int L = this.f16194a.L();
+                Integer value = this.f16194a.S().c().getValue();
                 if (value != null && L == value.intValue()) {
                     return;
                 }
-                this.f16139a.S().o(this.f16139a.L());
+                this.f16194a.S().o(this.f16194a.L());
             }
         }
     }
@@ -720,7 +720,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         Intrinsics.checkExpressionValueIsNotNull(findViewById11, "view.findViewById(R.id.video_container)");
         FrameLayout frameLayout = (FrameLayout) findViewById11;
         this.G = frameLayout;
-        this.H = new d.a.p0.n2.c(tbPageContext, frameLayout, false);
+        this.H = new d.a.q0.n2.c(tbPageContext, frameLayout, false);
         View findViewById12 = k().findViewById(R.id.video_network_state_tip);
         Intrinsics.checkExpressionValueIsNotNull(findViewById12, "view.findViewById(R.id.video_network_state_tip)");
         this.I = (OperableVideoNetworkStateTipView) findViewById12;
@@ -939,19 +939,19 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         }
     }
 
-    public final o J(d.a.p0.u0.h1.g gVar) {
+    public final o J(d.a.q0.u0.h1.g gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, gVar)) == null) {
             o oVar = new o();
-            oVar.f60811c = gVar.f62849f;
-            oVar.t = gVar.f62850g;
-            oVar.f60812d = gVar.f62848e;
-            oVar.f60813e = TbadkCoreApplication.getCurrentAccount();
-            oVar.f60809a = "13";
-            oVar.f60814f = gVar.q;
-            oVar.f60815g = gVar.r;
-            oVar.f60817i = this.i0.d();
+            oVar.f61425c = gVar.f63492f;
+            oVar.t = gVar.f63493g;
+            oVar.f61426d = gVar.f63491e;
+            oVar.f61427e = TbadkCoreApplication.getCurrentAccount();
+            oVar.f61423a = "13";
+            oVar.f61428f = gVar.q;
+            oVar.f61429g = gVar.r;
+            oVar.f61431i = this.i0.d();
             oVar.l = gVar.t;
             oVar.k = this.i0.e();
             oVar.o = gVar.s;
@@ -962,10 +962,10 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         return (o) invokeL.objValue;
     }
 
-    public final d.a.p0.u0.h1.g K() {
+    public final d.a.q0.u0.h1.g K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.o : (d.a.p0.u0.h1.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.o : (d.a.q0.u0.h1.g) invokeV.objValue;
     }
 
     public final int L() {
@@ -986,10 +986,10 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.L : invokeV.intValue;
     }
 
-    public final d.a.p0.n2.c O() {
+    public final d.a.q0.n2.c O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.H : (d.a.p0.n2.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.H : (d.a.q0.n2.c) invokeV.objValue;
     }
 
     public final b2 P() {
@@ -1036,21 +1036,21 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     /* renamed from: U */
-    public void l(d.a.p0.u0.h1.g gVar) {
+    public void l(d.a.q0.u0.h1.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, gVar) == null) {
         }
     }
 
-    public final void W(d.a.p0.u0.h1.g gVar, int i2) {
+    public final void V(d.a.q0.u0.h1.g gVar, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048594, this, gVar, i2) == null) || gVar == null) {
             return;
         }
         this.o = gVar;
-        this.p = d.a.p0.u0.h1.g.c(gVar);
+        this.p = d.a.q0.u0.h1.g.c(gVar);
         this.q = i2;
         this.s = gVar.j();
         u(gVar);
@@ -1072,22 +1072,22 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         if (!(interceptable == null || interceptable.invokeL(1048596, this, bVar) == null) || bVar == null) {
             return;
         }
-        g.b.a aVar = bVar.f62866h;
-        if (aVar != null && !TextUtils.isEmpty(aVar.f62868b)) {
-            this.B.M(bVar.f62866h.f62868b, 12, false);
+        g.b.a aVar = bVar.f63509h;
+        if (aVar != null && !TextUtils.isEmpty(aVar.f63511b)) {
+            this.B.M(bVar.f63509h.f63511b, 12, false);
         } else {
-            if (!StringUtils.isNull(bVar.f62862d)) {
-                String str = bVar.f62862d;
+            if (!StringUtils.isNull(bVar.f63505d)) {
+                String str = bVar.f63505d;
                 Intrinsics.checkExpressionValueIsNotNull(str, "data.portrait");
                 if (StringsKt__StringsJVMKt.startsWith$default(str, "http", false, 2, null)) {
-                    this.B.M(bVar.f62862d, 10, false);
+                    this.B.M(bVar.f63505d, 10, false);
                 }
             }
-            this.B.M(bVar.f62862d, 12, false);
+            this.B.M(bVar.f63505d, 12, false);
         }
-        g.b.a aVar2 = bVar.f62866h;
-        if (aVar2 != null && Intrinsics.compare(aVar2.f62871e.intValue(), 0) > 0) {
-            Integer num = bVar.f62866h.f62871e;
+        g.b.a aVar2 = bVar.f63509h;
+        if (aVar2 != null && Intrinsics.compare(aVar2.f63514e.intValue(), 0) > 0) {
+            Integer num = bVar.f63509h.f63514e;
             Intrinsics.checkExpressionValueIsNotNull(num, "data.baijiahaoData.auth_id");
             this.B.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(num.intValue(), 1));
             this.B.setShowV(true);
@@ -1095,31 +1095,31 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
             return;
         }
         this.B.setBjhAuthIconRes(0);
-        boolean z = bVar.f62865g;
+        boolean z = bVar.f63508g;
         if (z) {
             this.B.setShowV(z);
-            this.B.setIsBigV(bVar.f62865g);
+            this.B.setIsBigV(bVar.f63508g);
         } else {
-            boolean z2 = bVar.f62864f;
+            boolean z2 = bVar.f63507f;
             if (z2) {
                 this.B.setShowV(z2);
-                this.B.setIsBigV(bVar.f62864f);
+                this.B.setIsBigV(bVar.f63507f);
             } else {
                 this.B.setShowV(z2);
-                this.B.setIsBigV(bVar.f62864f);
+                this.B.setIsBigV(bVar.f63507f);
             }
         }
         this.B.setGodIconWidth(R.dimen.tbds31);
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? R.layout.card_video_middle_page_light_layout : invokeV.intValue;
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public void m(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048599, this, tbPageContext, i2) == null) {
@@ -1137,7 +1137,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
             this.K.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             A(this.L);
             this.R.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            d.a.o0.r.u.c d2 = d.a.o0.r.u.c.d(this.T);
+            d.a.p0.s.u.c d2 = d.a.p0.s.u.c.d(this.T);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
             z();
@@ -1159,36 +1159,36 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         }
     }
 
-    public final void u(d.a.p0.u0.h1.g gVar) {
+    public final void u(d.a.q0.u0.h1.g gVar) {
         x1 x1Var;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, gVar) == null) {
             String str2 = null;
-            if (gVar.h() == 1 && (x1Var = gVar.B) != null && (str = x1Var.f52815b) != null && (!StringsKt__StringsJVMKt.isBlank(str))) {
+            if (gVar.h() == 1 && (x1Var = gVar.B) != null && (str = x1Var.f53479b) != null && (!StringsKt__StringsJVMKt.isBlank(str))) {
                 this.u.setVisibility(0);
                 this.A.setVisibility(8);
                 BarImageView barImageView = this.v;
                 x1 x1Var2 = gVar.B;
-                barImageView.M(x1Var2 != null ? x1Var2.f52816c : null, 10, false);
+                barImageView.M(x1Var2 != null ? x1Var2.f53480c : null, 10, false);
                 SingleLineEllipsizeTextView singleLineEllipsizeTextView = this.w;
                 String string = b().getString(R.string.chosen_pb_original_bar);
                 Object[] objArr = new Object[1];
                 x1 x1Var3 = gVar.B;
-                objArr[0] = x1Var3 != null ? x1Var3.f52815b : null;
+                objArr[0] = x1Var3 != null ? x1Var3.f53479b : null;
                 singleLineEllipsizeTextView.setText(String.format(string, objArr));
                 TextView textView = this.x;
                 StringBuilder sb = new StringBuilder();
                 g.b bVar = gVar.y;
-                if (TextUtils.isEmpty(bVar != null ? bVar.f62861c : null)) {
+                if (TextUtils.isEmpty(bVar != null ? bVar.f63504c : null)) {
                     g.b bVar2 = gVar.y;
                     if (bVar2 != null) {
-                        str2 = bVar2.f62860b;
+                        str2 = bVar2.f63503b;
                     }
                 } else {
                     g.b bVar3 = gVar.y;
                     if (bVar3 != null) {
-                        str2 = bVar3.f62861c;
+                        str2 = bVar3.f63504c;
                     }
                 }
                 sb.append(str2);
@@ -1210,15 +1210,15 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
             Y(bVar4);
             EMTextView eMTextView = this.C;
             g.b bVar5 = gVar.y;
-            if (TextUtils.isEmpty(bVar5 != null ? bVar5.f62861c : null)) {
+            if (TextUtils.isEmpty(bVar5 != null ? bVar5.f63504c : null)) {
                 g.b bVar6 = gVar.y;
                 if (bVar6 != null) {
-                    str2 = bVar6.f62860b;
+                    str2 = bVar6.f63503b;
                 }
             } else {
                 g.b bVar7 = gVar.y;
                 if (bVar7 != null) {
-                    str2 = bVar7.f62861c;
+                    str2 = bVar7.f63504c;
                 }
             }
             eMTextView.setText(str2);
@@ -1232,13 +1232,13 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         }
     }
 
-    public final boolean v(d.a.p0.u0.h1.g gVar, b2 b2Var) {
+    public final boolean v(d.a.q0.u0.h1.g gVar, b2 b2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, gVar, b2Var)) == null) ? this.Z.setData(b2Var) : invokeLL.booleanValue;
     }
 
-    public final void w(d.a.p0.u0.h1.g gVar) {
+    public final void w(d.a.q0.u0.h1.g gVar) {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, gVar) == null) {
@@ -1246,13 +1246,13 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
             if (list != null && !list.isEmpty()) {
                 this.T.setVisibility(0);
                 p pVar = gVar.D.get(0);
-                MetaData metaData = pVar.f58009b;
+                MetaData metaData = pVar.f58584b;
                 if (metaData == null || (string = metaData.getName_show()) == null) {
                     string = TbadkCoreApplication.getInst().getString(R.string.user_name_default_txt);
                     Intrinsics.checkExpressionValueIsNotNull(string, "TbadkCoreApplication.get…ng.user_name_default_txt)");
                 }
                 this.V = string;
-                this.W = (char) 65306 + Q(pVar.f58010c);
+                this.W = (char) 65306 + Q(pVar.f58585c);
                 this.X = new SpannableString(this.V + this.W);
                 z();
                 return;
@@ -1261,7 +1261,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         }
     }
 
-    public final void x(int i2, d.a.p0.u0.h1.g gVar) {
+    public final void x(int i2, d.a.q0.u0.h1.g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(1048605, this, i2, gVar) == null) || gVar.z == null) {
             return;
@@ -1274,15 +1274,15 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
             this.H.L1(i2);
             this.H.S1(gVar.z.j);
             this.H.W1(3);
-            this.H.T1(gVar.z.f62877e);
-            this.H.Y1(gVar.z.f62876d, gVar.f62849f);
-            this.H.m1(gVar.f62848e);
+            this.H.T1(gVar.z.f63520e);
+            this.H.Y1(gVar.z.f63519d, gVar.f63492f);
+            this.H.m1(gVar.f63491e);
             this.H.I0().setVideoStatData(J(gVar));
             this.H.a1();
             this.H.a2();
-            this.I.setVideoLength(gVar.z.f62880h);
-            this.I.setVideoDuration(gVar.z.f62877e);
-            this.I.setTid(gVar.f62849f);
+            this.I.setVideoLength(gVar.z.f63523h);
+            this.I.setVideoDuration(gVar.z.f63520e);
+            this.I.setTid(gVar.f63492f);
             if (gVar.F) {
                 this.H.c2(false);
                 if (this.I.d()) {
@@ -1293,7 +1293,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
                 }
                 this.I.setVisibility(8);
                 this.H.n1(false);
-                this.H.d2(gVar.z.f62876d, gVar.f62849f);
+                this.H.d2(gVar.z.f63519d, gVar.f63492f);
                 return;
             }
             this.I.setVisibility(8);
@@ -1304,7 +1304,7 @@ public final class VideoMiddlePageLightCardView extends d.a.p0.a0.b<d.a.p0.u0.h1
         throw new TypeCastException("null cannot be cast to non-null type android.widget.LinearLayout.LayoutParams");
     }
 
-    public final void y(d.a.p0.u0.h1.g gVar) {
+    public final void y(d.a.q0.u0.h1.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, gVar) == null) {
             String str = gVar.x;

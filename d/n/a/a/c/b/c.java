@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f72183a;
+    public static boolean f72637a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
             try {
-                if (f72183a) {
+                if (f72637a) {
                     th.printStackTrace();
                 }
             } catch (Exception unused) {

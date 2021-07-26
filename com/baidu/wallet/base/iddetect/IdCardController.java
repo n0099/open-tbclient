@@ -20,7 +20,7 @@ public class IdCardController {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IIdCardRecognizeListener f24046a;
+    public IIdCardRecognizeListener f24204a;
 
     /* renamed from: com.baidu.wallet.base.iddetect.IdCardController$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -41,7 +41,7 @@ public class IdCardController {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static IdCardController f24047a;
+        public static IdCardController f24205a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -57,7 +57,7 @@ public class IdCardController {
                     return;
                 }
             }
-            f24047a = new IdCardController(null);
+            f24205a = new IdCardController(null);
         }
     }
 
@@ -68,24 +68,24 @@ public class IdCardController {
     public static IdCardController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24047a : (IdCardController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24205a : (IdCardController) invokeV.objValue;
     }
 
     public void fail(int i2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bundle) == null) {
-            IIdCardRecognizeListener iIdCardRecognizeListener = this.f24046a;
+            IIdCardRecognizeListener iIdCardRecognizeListener = this.f24204a;
             if (iIdCardRecognizeListener != null) {
                 iIdCardRecognizeListener.onFail(i2, bundle);
             }
-            this.f24046a = null;
+            this.f24204a = null;
         }
     }
 
     public void startIdcarddetect(Context context, IIdCardRecognizeListener iIdCardRecognizeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iIdCardRecognizeListener) == null) {
-            this.f24046a = iIdCardRecognizeListener;
+            this.f24204a = iIdCardRecognizeListener;
             Intent intent = new Intent(context, IdCardActivity.class);
             if (!(context instanceof Activity)) {
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -97,11 +97,11 @@ public class IdCardController {
     public void success(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            IIdCardRecognizeListener iIdCardRecognizeListener = this.f24046a;
+            IIdCardRecognizeListener iIdCardRecognizeListener = this.f24204a;
             if (iIdCardRecognizeListener != null) {
                 iIdCardRecognizeListener.onSuccess(bundle);
             }
-            this.f24046a = null;
+            this.f24204a = null;
         }
     }
 

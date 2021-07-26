@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.j;
-import d.a.o0.c0.a;
+import d.a.d.e.p.j;
+import d.a.p0.e0.a;
 import org.apache.http.conn.params.ConnRoutePNames;
 /* loaded from: classes3.dex */
 public class SocketStatic {

@@ -17,7 +17,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f71179a;
+    public static final char[] f71633a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -32,19 +32,19 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f71180a;
+        public int f71634a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f71181b;
+        public int f71635b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f71182c;
+        public int f71636c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f71183d;
+        public long f71637d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f71184e;
+        public String f71638e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class c {
                 return;
             }
         }
-        f71179a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f71633a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static int a(String str, File file) {
@@ -96,22 +96,22 @@ public class c {
                         try {
                             b b2 = b(str);
                             if (b2 != null) {
-                                if (b2.f71180a > 1) {
+                                if (b2.f71634a > 1) {
                                     return 3;
                                 }
-                                i2 = b2.f71182c;
-                                j = b2.f71183d;
+                                i2 = b2.f71636c;
+                                j = b2.f71637d;
                             }
                             b bVar = null;
                             String k = k(file, i2, j);
                             if (k != null && k.length() != 0) {
-                                if (b2 != null && (b2.f71180a != 1 || b2.f71181b != 1)) {
-                                    if (b2.f71184e != null) {
+                                if (b2 != null && (b2.f71634a != 1 || b2.f71635b != 1)) {
+                                    if (b2.f71638e != null) {
                                         try {
                                             bVar = b(k);
                                         } catch (Throwable unused) {
                                         }
-                                        if (bVar != null && b2.f71182c == bVar.f71182c && b2.f71183d == bVar.f71183d && b2.f71184e.equals(bVar.f71184e)) {
+                                        if (bVar != null && b2.f71636c == bVar.f71636c && b2.f71637d == bVar.f71637d && b2.f71638e.equals(bVar.f71638e)) {
                                             return 0;
                                         }
                                     }
@@ -141,15 +141,15 @@ public class c {
                 String[] split = str.split(";");
                 String[] split2 = split[0].split(":");
                 b bVar = new b(null);
-                bVar.f71180a = Integer.parseInt(split2[1]);
-                if (bVar.f71180a > 1) {
+                bVar.f71634a = Integer.parseInt(split2[1]);
+                if (bVar.f71634a > 1) {
                     return bVar;
                 }
-                bVar.f71181b = Integer.parseInt(split2[2]);
+                bVar.f71635b = Integer.parseInt(split2[2]);
                 String[] split3 = split2[3].split("g");
-                bVar.f71182c = (int) j(split3[0]);
-                bVar.f71183d = j(split3[1]);
-                bVar.f71184e = split[1];
+                bVar.f71636c = (int) j(split3[0]);
+                bVar.f71637d = j(split3[1]);
+                bVar.f71638e = split[1];
                 return bVar;
             }
             return null;
@@ -281,7 +281,7 @@ public class c {
                 for (int i4 = 0; i4 < length; i4++) {
                     int i5 = bArr[i4 + 0] & 255;
                     int i6 = i3 + 1;
-                    char[] cArr2 = f71179a;
+                    char[] cArr2 = f71633a;
                     cArr[i3] = cArr2[i5 >> 4];
                     i3 = i6 + 1;
                     cArr[i6] = cArr2[i5 & 15];

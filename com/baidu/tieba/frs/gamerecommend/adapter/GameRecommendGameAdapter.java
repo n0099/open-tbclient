@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.k.b;
-import d.a.c.e.k.c;
-import d.a.c.e.p.l;
-import d.a.p0.g0.f;
-import d.a.p0.u0.k;
+import d.a.d.e.k.b;
+import d.a.d.e.k.c;
+import d.a.d.e.p.l;
+import d.a.q0.g0.f;
+import d.a.q0.u0.k;
 /* loaded from: classes4.dex */
 public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -38,22 +38,22 @@ public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolde
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f15748a;
+        public LinearLayout f15796a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f15749b;
+        public TextView f15797b;
 
         /* renamed from: c  reason: collision with root package name */
-        public FlexibleHorizontalScrollView f15750c;
+        public FlexibleHorizontalScrollView f15798c;
 
         /* renamed from: d  reason: collision with root package name */
-        public CardFrsGameRecommendGameLayout f15751d;
+        public CardFrsGameRecommendGameLayout f15799d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f15752e;
+        public View f15800e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f15753f;
+        public View f15801f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public CardFrsGameRecommendGameHolder(GameRecommendGameAdapter gameRecommendGameAdapter, View view) {
@@ -73,15 +73,15 @@ public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolde
                     return;
                 }
             }
-            this.f15748a = (LinearLayout) view.findViewById(R.id.card_game_recommend_content);
-            this.f15749b = (TextView) view.findViewById(R.id.game_recommend_title);
-            this.f15750c = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_recommend_scroll_container);
+            this.f15796a = (LinearLayout) view.findViewById(R.id.card_game_recommend_content);
+            this.f15797b = (TextView) view.findViewById(R.id.game_recommend_title);
+            this.f15798c = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_recommend_scroll_container);
             CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view.findViewById(R.id.game_recommend_container);
-            this.f15751d = cardFrsGameRecommendGameLayout;
+            this.f15799d = cardFrsGameRecommendGameLayout;
             cardFrsGameRecommendGameLayout.setItemSpace(l.g(view.getContext(), R.dimen.tbds27));
-            this.f15751d.setItemWidth(l.g(view.getContext(), R.dimen.tbds192));
-            this.f15752e = view.findViewById(R.id.divider_line_1);
-            this.f15753f = view.findViewById(R.id.divider_line_2);
+            this.f15799d.setItemWidth(l.g(view.getContext(), R.dimen.tbds192));
+            this.f15800e = view.findViewById(R.id.divider_line_1);
+            this.f15801f = view.findViewById(R.id.divider_line_2);
         }
     }
 
@@ -91,7 +91,7 @@ public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolde
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameRecommendGameAdapter f15754a;
+        public final /* synthetic */ GameRecommendGameAdapter f15802a;
 
         public a(GameRecommendGameAdapter gameRecommendGameAdapter) {
             Interceptable interceptable = $ic;
@@ -108,12 +108,12 @@ public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolde
                     return;
                 }
             }
-            this.f15754a = gameRecommendGameAdapter;
+            this.f15802a = gameRecommendGameAdapter;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.a.c.e.k.c
+        @Override // d.a.d.e.k.c
         public /* bridge */ /* synthetic */ CardFrsGameRecommendGameItemView a(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
             CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView2 = cardFrsGameRecommendGameItemView;
             e(cardFrsGameRecommendGameItemView2);
@@ -122,7 +122,7 @@ public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolde
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.a.c.e.k.c
+        @Override // d.a.d.e.k.c
         public /* bridge */ /* synthetic */ CardFrsGameRecommendGameItemView c(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
             CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView2 = cardFrsGameRecommendGameItemView;
             h(cardFrsGameRecommendGameItemView2);
@@ -136,7 +136,7 @@ public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolde
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.c.e.k.c
+        @Override // d.a.d.e.k.c
         /* renamed from: f */
         public void b(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
             Interceptable interceptable = $ic;
@@ -145,14 +145,14 @@ public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolde
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.c.e.k.c
+        @Override // d.a.d.e.k.c
         /* renamed from: g */
         public CardFrsGameRecommendGameItemView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = new CardFrsGameRecommendGameItemView(this.f15754a.f41837e);
-                cardFrsGameRecommendGameItemView.setForumId(this.f15754a.x);
+                CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = new CardFrsGameRecommendGameItemView(this.f15802a.f42341e);
+                cardFrsGameRecommendGameItemView.setForumId(this.f15802a.x);
                 return cardFrsGameRecommendGameItemView;
             }
             return (CardFrsGameRecommendGameItemView) invokeV.objValue;
@@ -189,36 +189,36 @@ public class GameRecommendGameAdapter extends k<f, CardFrsGameRecommendGameHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: x0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: w0 */
     public CardFrsGameRecommendGameHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.f41837e).inflate(R.layout.card_frs_game_recommend_game_layout, viewGroup, false));
-            cardFrsGameRecommendGameHolder.f15751d.setViewPool(this.y);
+            CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.f42341e).inflate(R.layout.card_frs_game_recommend_game_layout, viewGroup, false));
+            cardFrsGameRecommendGameHolder.f15799d.setViewPool(this.y);
             return cardFrsGameRecommendGameHolder;
         }
         return (CardFrsGameRecommendGameHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.p0.u0.k, d.a.c.k.e.a
-    /* renamed from: y0 */
+    @Override // d.a.q0.u0.k, d.a.d.k.e.a
+    /* renamed from: x0 */
     public View X(int i2, View view, ViewGroup viewGroup, f fVar, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, fVar, cardFrsGameRecommendGameHolder})) == null) {
             if (fVar != null && fVar.b() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameRecommendGameHolder.f15749b.setText(fVar.b().title);
-                cardFrsGameRecommendGameHolder.f15749b.setTextColor(SkinManager.getColor(skinType, R.color.CAM_X0105));
-                cardFrsGameRecommendGameHolder.f15751d.setPageContext(this.o);
-                cardFrsGameRecommendGameHolder.f15751d.setData(fVar.b().sub_nodes);
-                cardFrsGameRecommendGameHolder.f15750c.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.f15751d.getChildItemWidth());
-                cardFrsGameRecommendGameHolder.f15748a.setBackgroundColor(SkinManager.getColor(skinType, R.color.CAM_X0201));
-                SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.f15752e, R.color.CAM_X0205);
-                SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.f15753f, R.color.CAM_X0205);
+                cardFrsGameRecommendGameHolder.f15797b.setText(fVar.b().title);
+                cardFrsGameRecommendGameHolder.f15797b.setTextColor(SkinManager.getColor(skinType, R.color.CAM_X0105));
+                cardFrsGameRecommendGameHolder.f15799d.setPageContext(this.o);
+                cardFrsGameRecommendGameHolder.f15799d.setData(fVar.b().sub_nodes);
+                cardFrsGameRecommendGameHolder.f15798c.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.f15799d.getChildItemWidth());
+                cardFrsGameRecommendGameHolder.f15796a.setBackgroundColor(SkinManager.getColor(skinType, R.color.CAM_X0201));
+                SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.f15800e, R.color.CAM_X0205);
+                SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.f15801f, R.color.CAM_X0205);
             }
             return cardFrsGameRecommendGameHolder.a();
         }

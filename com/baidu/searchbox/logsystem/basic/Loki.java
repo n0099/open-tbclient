@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.g0.b.a.a;
-import d.a.o.a.b;
+import d.a.h0.b.a.a;
+import d.a.p.a.b;
 /* loaded from: classes2.dex */
 public class Loki {
     public static /* synthetic */ Interceptable $ic = null;

@@ -30,7 +30,7 @@ public final class IDDetectBeanFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static IDDetectBeanFactory f24071a;
+        public static IDDetectBeanFactory f24229a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public final class IDDetectBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f24071a = new IDDetectBeanFactory(null);
+            f24229a = new IDDetectBeanFactory(null);
         }
     }
 
@@ -57,7 +57,7 @@ public final class IDDetectBeanFactory implements IBeanFactory {
     public static IDDetectBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24071a : (IDDetectBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24229a : (IDDetectBeanFactory) invokeV.objValue;
     }
 
     public IDDetectBeanFactory() {

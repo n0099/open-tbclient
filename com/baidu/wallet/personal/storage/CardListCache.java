@@ -34,23 +34,23 @@ public class CardListCache extends MyDb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f27090f;
+    public static final String[] f27248f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CardListResponse f27091a;
+    public CardListResponse f27249a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CardListResponse f27092b;
+    public CardListResponse f27250b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b<CardListResponse> f27093c;
+    public b<CardListResponse> f27251c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a<CardListResponse> f27094d;
+    public a<CardListResponse> f27252d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f27095e;
+    public Handler f27253e;
 
     /* loaded from: classes5.dex */
     public interface a<Value extends Serializable> {
@@ -67,10 +67,10 @@ public class CardListCache extends MyDb {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f27097a = 2;
+        public static int f27255a = 2;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final CardListCache f27098b;
+        public static final CardListCache f27256b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -86,7 +86,7 @@ public class CardListCache extends MyDb {
                     return;
                 }
             }
-            f27098b = new CardListCache(BaiduWalletDelegate.getInstance().getAppContext(), "wallet_sdk.db", f27097a);
+            f27256b = new CardListCache(BaiduWalletDelegate.getInstance().getAppContext(), "wallet_sdk.db", f27255a);
         }
     }
 
@@ -103,34 +103,34 @@ public class CardListCache extends MyDb {
                 return;
             }
         }
-        f27090f = new String[]{"user_id TEXT not null", "card_list TEXT NOT null default ''", "primary key (user_id)"};
+        f27248f = new String[]{"user_id TEXT not null", "card_list TEXT NOT null default ''", "primary key (user_id)"};
     }
 
     public static CardListCache getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? c.f27098b : (CardListCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? c.f27256b : (CardListCache) invokeV.objValue;
     }
 
     public void getCardList(b<CardListResponse> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f27093c = bVar;
+            this.f27251c = bVar;
             if (bVar == null) {
                 return;
             }
-            this.f27095e.obtainMessage(10001).sendToTarget();
+            this.f27253e.obtainMessage(10001).sendToTarget();
         }
     }
 
     public void getEemCardList(a<CardListResponse> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f27094d = aVar;
+            this.f27252d = aVar;
             if (aVar == null) {
                 return;
             }
-            this.f27095e.obtainMessage(10002).sendToTarget();
+            this.f27253e.obtainMessage(10002).sendToTarget();
         }
     }
 
@@ -179,8 +179,8 @@ public class CardListCache extends MyDb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
             this.mDb = sQLiteDatabase;
-            MyDb.createTable(sQLiteDatabase, "tb_card_list", f27090f);
-            MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f27090f);
+            MyDb.createTable(sQLiteDatabase, "tb_card_list", f27248f);
+            MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f27248f);
         }
     }
 
@@ -198,7 +198,7 @@ public class CardListCache extends MyDb {
         if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i2, i3) == null) {
             this.mDb = sQLiteDatabase;
             if (i3 > i2) {
-                MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f27090f);
+                MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f27248f);
             }
         }
     }
@@ -213,9 +213,9 @@ public class CardListCache extends MyDb {
             return;
         }
         if (i2 == 599) {
-            this.f27095e.obtainMessage(10000, a2).sendToTarget();
+            this.f27253e.obtainMessage(10000, a2).sendToTarget();
         } else if (i2 == 607) {
-            this.f27095e.obtainMessage(10003, a2).sendToTarget();
+            this.f27253e.obtainMessage(10003, a2).sendToTarget();
         }
     }
 
@@ -240,12 +240,12 @@ public class CardListCache extends MyDb {
         }
         HandlerThread handlerThread = new HandlerThread("sdk_db_thread");
         handlerThread.start();
-        this.f27095e = new Handler(this, handlerThread.getLooper()) { // from class: com.baidu.wallet.personal.storage.CardListCache.1
+        this.f27253e = new Handler(this, handlerThread.getLooper()) { // from class: com.baidu.wallet.personal.storage.CardListCache.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CardListCache f27096a;
+            public final /* synthetic */ CardListCache f27254a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -265,7 +265,7 @@ public class CardListCache extends MyDb {
                         return;
                     }
                 }
-                this.f27096a = this;
+                this.f27254a = this;
             }
 
             @Override // android.os.Handler
@@ -276,20 +276,20 @@ public class CardListCache extends MyDb {
                 }
                 int i5 = message.what;
                 if (10000 == i5) {
-                    this.f27096a.a((String) message.obj, "tb_card_list");
+                    this.f27254a.a((String) message.obj, "tb_card_list");
                 } else if (10001 == i5) {
-                    CardListCache cardListCache = this.f27096a;
-                    cardListCache.f27091a = cardListCache.a("tb_card_list");
-                    if (this.f27096a.f27093c != null) {
-                        this.f27096a.f27093c.a(this.f27096a.f27091a);
+                    CardListCache cardListCache = this.f27254a;
+                    cardListCache.f27249a = cardListCache.a("tb_card_list");
+                    if (this.f27254a.f27251c != null) {
+                        this.f27254a.f27251c.a(this.f27254a.f27249a);
                     }
                 } else if (10003 == i5) {
-                    this.f27096a.a((String) message.obj, "tb_eem_card_list");
+                    this.f27254a.a((String) message.obj, "tb_eem_card_list");
                 } else if (10002 == i5) {
-                    CardListCache cardListCache2 = this.f27096a;
-                    cardListCache2.f27092b = cardListCache2.a("tb_eem_card_list");
-                    if (this.f27096a.f27094d != null) {
-                        this.f27096a.f27094d.a(this.f27096a.f27092b);
+                    CardListCache cardListCache2 = this.f27254a;
+                    cardListCache2.f27250b = cardListCache2.a("tb_eem_card_list");
+                    if (this.f27254a.f27252d != null) {
+                        this.f27254a.f27252d.a(this.f27254a.f27250b);
                     }
                 }
             }

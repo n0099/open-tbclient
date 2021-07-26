@@ -41,20 +41,20 @@ public final class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                String str = new String(this.f1618b);
+                String str = new String(this.f1651b);
                 StringBuilder sb = new StringBuilder("threadid = ");
                 sb.append(Thread.currentThread().getId());
                 sb.append("; rpc response:  ");
                 sb.append(str);
                 JSONObject jSONObject = new JSONObject(str);
-                int i2 = jSONObject.getInt(l.f1991a);
+                int i2 = jSONObject.getInt(l.f2024a);
                 if (i2 == 1000) {
-                    return this.f1617a == String.class ? jSONObject.optString("result") : com.alipay.a.a.e.a(jSONObject.optString("result"), this.f1617a);
+                    return this.f1650a == String.class ? jSONObject.optString("result") : com.alipay.a.a.e.a(jSONObject.optString("result"), this.f1650a);
                 }
                 throw new RpcException(Integer.valueOf(i2), jSONObject.optString("tips"));
             } catch (Exception e2) {
                 StringBuilder sb2 = new StringBuilder("response  =");
-                sb2.append(new String(this.f1618b));
+                sb2.append(new String(this.f1651b));
                 sb2.append(":");
                 sb2.append(e2);
                 throw new RpcException((Integer) 10, sb2.toString() == null ? "" : e2.getMessage());

@@ -22,7 +22,7 @@ public class TransferSmsVerifyBean extends BaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TransfRecvRequest f27060a;
+    public TransfRecvRequest f27218a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TransferSmsVerifyBean(Context context) {
@@ -42,7 +42,7 @@ public class TransferSmsVerifyBean extends BaseBean<Object> {
                 return;
             }
         }
-        this.f27060a = (TransfRecvRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_TRANSFER_RECV);
+        this.f27218a = (TransfRecvRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_TRANSFER_RECV);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -59,13 +59,13 @@ public class TransferSmsVerifyBean extends BaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            TransfRecvRequest transfRecvRequest = this.f27060a;
+            TransfRecvRequest transfRecvRequest = this.f27218a;
             if (transfRecvRequest == null) {
                 return arrayList;
             }
             arrayList.add(new RestNameValuePair("idt", transfRecvRequest.idt));
-            arrayList.add(new RestNameValuePair("recv_card_num", this.f27060a.recv_card_num));
-            arrayList.add(new RestNameValuePair("sms_code", this.f27060a.sms_code));
+            arrayList.add(new RestNameValuePair("recv_card_num", this.f27218a.recv_card_num));
+            arrayList.add(new RestNameValuePair("sms_code", this.f27218a.sms_code));
             arrayList.add(new RestNameValuePair("token", AccountManager.getInstance(this.mContext).getBfbToken()));
             return arrayList;
         }

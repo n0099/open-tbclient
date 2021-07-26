@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.e1.j.h.a;
+import d.a.q0.e1.j.h.a;
 import tbclient.ActivityPage.ActivityPageResIdl;
 import tbclient.Error;
 /* loaded from: classes4.dex */

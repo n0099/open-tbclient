@@ -25,7 +25,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f21536e;
+    public HttpMessageListener f21654e;
 
     /* loaded from: classes4.dex */
     public static class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
@@ -68,9 +68,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
                 String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
                 String optString3 = jSONObject.optString("video_id");
                 OriginalThreadInfo originalThreadInfo = this.threadInfo;
-                originalThreadInfo.f12249c = optString2;
-                originalThreadInfo.f12247a = 3;
-                originalThreadInfo.f12248b = optString;
+                originalThreadInfo.f12279c = optString2;
+                originalThreadInfo.f12277a = 3;
+                originalThreadInfo.f12278b = optString;
                 originalThreadInfo.l = optString3;
             }
         }
@@ -88,7 +88,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SendVideoSuccessShareModel f21537a;
+        public final /* synthetic */ SendVideoSuccessShareModel f21655a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SendVideoSuccessShareModel sendVideoSuccessShareModel, int i2) {
@@ -108,7 +108,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f21537a = sendVideoSuccessShareModel;
+            this.f21655a = sendVideoSuccessShareModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,10 +117,10 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003384 && (httpResponsedMessage instanceof SendVideoSuccessShareOriginalThreadInfoResponse)) {
                 SendVideoSuccessShareOriginalThreadInfoResponse sendVideoSuccessShareOriginalThreadInfoResponse = (SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage;
-                if (sendVideoSuccessShareOriginalThreadInfoResponse.threadInfo == null || this.f21537a.mLoadDataCallBack == null) {
+                if (sendVideoSuccessShareOriginalThreadInfoResponse.threadInfo == null || this.f21655a.mLoadDataCallBack == null) {
                     return;
                 }
-                this.f21537a.mLoadDataCallBack.c(sendVideoSuccessShareOriginalThreadInfoResponse.getThreadInfo());
+                this.f21655a.mLoadDataCallBack.c(sendVideoSuccessShareOriginalThreadInfoResponse.getThreadInfo());
             }
         }
     }
@@ -138,12 +138,12 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
                 return;
             }
         }
-        this.f21536e = new a(this, CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
+        this.f21654e = new a(this, CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f21536e.setTag(getUniqueId());
-        this.f21536e.setSelfListener(true);
-        registerListener(this.f21536e);
+        this.f21654e.setTag(getUniqueId());
+        this.f21654e.setSelfListener(true);
+        registerListener(this.f21654e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -161,7 +161,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f21536e);
+            MessageManager.getInstance().unRegisterListener(this.f21654e);
             return false;
         }
         return invokeV.booleanValue;

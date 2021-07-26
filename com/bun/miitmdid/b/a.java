@@ -11,19 +11,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f27578a;
+    public static String f27736a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(f27578a)) {
+            if (TextUtils.isEmpty(f27736a)) {
                 String str = "miitmdid(sdkv_" + sysParamters.a().c() + SmallTailInfo.EMOTION_SUFFIX;
-                f27578a = str;
+                f27736a = str;
                 return str;
             }
-            return f27578a;
+            return f27736a;
         }
         return (String) invokeV.objValue;
     }

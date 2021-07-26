@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.b;
-import d.a.c.e.m.e;
-import d.a.c.e.p.l;
+import d.a.d.e.m.b;
+import d.a.d.e.m.e;
+import d.a.d.e.p.l;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
@@ -130,7 +130,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("server", this.flutterNetModel.getHttpUrl());
                     hashMap.put(RetrieveTaskManager.KEY, this.flutterNetModel.getHttpUrl());
-                    hashMap.put("state", this.httpNetContext.getStat().stat.f41209h);
+                    hashMap.put("state", this.httpNetContext.getStat().stat.f41713h);
                     if (this.httpNetContext.getPerformance() != null && this.flutterNetModel.getStartRequestTime() > 0 && this.httpNetContext.getPerformance().containsKey("startTime")) {
                         long f2 = b.f(this.httpNetContext.getPerformance().get("startTime"), 0L) - this.flutterNetModel.getStartRequestTime();
                         if (f2 > 0) {

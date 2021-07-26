@@ -17,31 +17,31 @@ public abstract class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f69458a;
+    public final d f69912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f69459b;
+    public m f69913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.f.b.a.a0.g f69460c;
+    public d.f.b.a.a0.g f69914c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f69461d;
+    public f f69915d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f69462e;
+    public long f69916e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f69463f;
+    public long f69917f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f69464g;
+    public long f69918g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f69465h;
+    public int f69919h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f69466i;
+    public int f69920i;
     public b j;
     public long k;
     public boolean l;
@@ -59,10 +59,10 @@ public abstract class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Format f69467a;
+        public Format f69921a;
 
         /* renamed from: b  reason: collision with root package name */
-        public f f69468b;
+        public f f69922b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -143,26 +143,26 @@ public abstract class h {
                 return;
             }
         }
-        this.f69458a = new d();
+        this.f69912a = new d();
     }
 
     public long a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? (j * 1000000) / this.f69466i : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? (j * 1000000) / this.f69920i : invokeJ.longValue;
     }
 
     public long b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? (this.f69466i * j) / 1000000 : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? (this.f69920i * j) / 1000000 : invokeJ.longValue;
     }
 
     public void c(d.f.b.a.a0.g gVar, m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gVar, mVar) == null) {
-            this.f69460c = gVar;
-            this.f69459b = mVar;
+            this.f69914c = gVar;
+            this.f69913b = mVar;
             j(true);
         }
     }
@@ -170,7 +170,7 @@ public abstract class h {
     public void d(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f69464g = j;
+            this.f69918g = j;
         }
     }
 
@@ -180,7 +180,7 @@ public abstract class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, fVar, kVar)) == null) {
-            int i2 = this.f69465h;
+            int i2 = this.f69919h;
             if (i2 != 0) {
                 if (i2 != 1) {
                     if (i2 == 2) {
@@ -188,8 +188,8 @@ public abstract class h {
                     }
                     throw new IllegalStateException();
                 }
-                fVar.h((int) this.f69463f);
-                this.f69465h = 2;
+                fVar.h((int) this.f69917f);
+                this.f69919h = 2;
                 return 0;
             }
             return g(fVar);
@@ -203,34 +203,34 @@ public abstract class h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fVar)) == null) {
             boolean z = true;
             while (z) {
-                if (!this.f69458a.d(fVar)) {
-                    this.f69465h = 3;
+                if (!this.f69912a.d(fVar)) {
+                    this.f69919h = 3;
                     return -1;
                 }
-                this.k = fVar.getPosition() - this.f69463f;
-                z = h(this.f69458a.c(), this.f69463f, this.j);
+                this.k = fVar.getPosition() - this.f69917f;
+                z = h(this.f69912a.c(), this.f69917f, this.j);
                 if (z) {
-                    this.f69463f = fVar.getPosition();
+                    this.f69917f = fVar.getPosition();
                 }
             }
-            Format format = this.j.f69467a;
-            this.f69466i = format.sampleRate;
+            Format format = this.j.f69921a;
+            this.f69920i = format.sampleRate;
             if (!this.m) {
-                this.f69459b.b(format);
+                this.f69913b.b(format);
                 this.m = true;
             }
-            f fVar2 = this.j.f69468b;
+            f fVar2 = this.j.f69922b;
             if (fVar2 != null) {
-                this.f69461d = fVar2;
+                this.f69915d = fVar2;
             } else if (fVar.getLength() == -1) {
-                this.f69461d = new c(null);
+                this.f69915d = new c(null);
             } else {
-                e b2 = this.f69458a.b();
-                this.f69461d = new d.f.b.a.a0.r.a(this.f69463f, fVar.getLength(), this, b2.f69454e + b2.f69455f, b2.f69452c);
+                e b2 = this.f69912a.b();
+                this.f69915d = new d.f.b.a.a0.r.a(this.f69917f, fVar.getLength(), this, b2.f69908e + b2.f69909f, b2.f69906c);
             }
             this.j = null;
-            this.f69465h = 2;
-            this.f69458a.f();
+            this.f69919h = 2;
+            this.f69912a.f();
             return 0;
         }
         return invokeL.intValue;
@@ -242,35 +242,35 @@ public abstract class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar, kVar)) == null) {
-            long a2 = this.f69461d.a(fVar);
+            long a2 = this.f69915d.a(fVar);
             if (a2 >= 0) {
-                kVar.f69227a = a2;
+                kVar.f69681a = a2;
                 return 1;
             }
             if (a2 < -1) {
                 d(-(a2 + 2));
             }
             if (!this.l) {
-                this.f69460c.p(this.f69461d.d());
+                this.f69914c.p(this.f69915d.d());
                 this.l = true;
             }
-            if (this.k <= 0 && !this.f69458a.d(fVar)) {
-                this.f69465h = 3;
+            if (this.k <= 0 && !this.f69912a.d(fVar)) {
+                this.f69919h = 3;
                 return -1;
             }
             this.k = 0L;
-            d.f.b.a.i0.l c2 = this.f69458a.c();
+            d.f.b.a.i0.l c2 = this.f69912a.c();
             long e2 = e(c2);
             if (e2 >= 0) {
-                long j = this.f69464g;
-                if (j + e2 >= this.f69462e) {
+                long j = this.f69918g;
+                if (j + e2 >= this.f69916e) {
                     long a3 = a(j);
-                    this.f69459b.a(c2, c2.d());
-                    this.f69459b.c(a3, 1, c2.d(), 0, null);
-                    this.f69462e = -1L;
+                    this.f69913b.a(c2, c2.d());
+                    this.f69913b.c(a3, 1, c2.d(), 0, null);
+                    this.f69916e = -1L;
                 }
             }
-            this.f69464g += e2;
+            this.f69918g += e2;
             return 0;
         }
         return invokeLL.intValue;
@@ -281,25 +281,25 @@ public abstract class h {
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
                 this.j = new b();
-                this.f69463f = 0L;
-                this.f69465h = 0;
+                this.f69917f = 0L;
+                this.f69919h = 0;
             } else {
-                this.f69465h = 1;
+                this.f69919h = 1;
             }
-            this.f69462e = -1L;
-            this.f69464g = 0L;
+            this.f69916e = -1L;
+            this.f69918g = 0L;
         }
     }
 
     public final void k(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f69458a.e();
+            this.f69912a.e();
             if (j == 0) {
                 j(!this.l);
-            } else if (this.f69465h != 0) {
-                this.f69462e = this.f69461d.e(j2);
-                this.f69465h = 2;
+            } else if (this.f69919h != 0) {
+                this.f69916e = this.f69915d.e(j2);
+                this.f69919h = 2;
             }
         }
     }

@@ -32,7 +32,7 @@ public abstract class c<K, V> implements q0<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f70853e;
+        public final /* synthetic */ c f71307e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -49,21 +49,21 @@ public abstract class c<K, V> implements q0<K, V> {
                     return;
                 }
             }
-            this.f70853e = cVar;
+            this.f71307e = cVar;
         }
 
         @Override // com.google.common.collect.Multimaps.b
         public q0<K, V> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70853e : (q0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71307e : (q0) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
         public Iterator<Map.Entry<K, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70853e.entryIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71307e.entryIterator() : (Iterator) invokeV.objValue;
         }
     }
 
@@ -109,14 +109,14 @@ public abstract class c<K, V> implements q0<K, V> {
 
     /* renamed from: d.f.d.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1999c extends AbstractCollection<V> {
+    public class C1998c extends AbstractCollection<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f70854e;
+        public final /* synthetic */ c f71308e;
 
-        public C1999c(c cVar) {
+        public C1998c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,14 +131,14 @@ public abstract class c<K, V> implements q0<K, V> {
                     return;
                 }
             }
-            this.f70854e = cVar;
+            this.f71308e = cVar;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f70854e.clear();
+                this.f71308e.clear();
             }
         }
 
@@ -146,21 +146,21 @@ public abstract class c<K, V> implements q0<K, V> {
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f70854e.containsValue(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f71308e.containsValue(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
         public Iterator<V> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70854e.valueIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71308e.valueIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70854e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71308e.size() : invokeV.intValue;
         }
     }
 

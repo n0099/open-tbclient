@@ -12,10 +12,10 @@ public final class c implements com.sdk.base.framework.b.a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ String f38283a;
+    public /* synthetic */ String f38458a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f38284b;
+    public /* synthetic */ a f38459b;
 
     public c(a aVar, String str) {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public final class c implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f38284b = aVar;
-        this.f38283a = str;
+        this.f38459b = aVar;
+        this.f38458a = str;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            this.f38284b.a(i2, i3, str);
+            this.f38459b.a(i2, i3, str);
         }
     }
 
@@ -50,18 +50,18 @@ public final class c implements com.sdk.base.framework.b.a<T> {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
-            if (i2 == 0 && com.sdk.base.framework.a.a.c.a(this.f38283a).booleanValue()) {
-                context = this.f38284b.f38277d;
+            if (i2 == 0 && com.sdk.base.framework.a.a.c.a(this.f38458a).booleanValue()) {
+                context = this.f38459b.f38452d;
                 String a2 = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
                 if (a2 == null) {
-                    this.f38284b.a(1, "SDK解密异常", 302001, a2, str2);
+                    this.f38459b.a(1, "SDK解密异常", 302001, a2, str2);
                     return;
                 }
                 str3 = a2;
             } else {
                 str3 = t;
             }
-            this.f38284b.a(i2, str, i3, str3, str2);
+            this.f38459b.a(i2, str, i3, str3, str2);
         }
     }
 }

@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.i1.f.e;
+import d.a.d.e.p.l;
+import d.a.q0.i1.f.e;
 /* loaded from: classes4.dex */
 public class MsgrightView extends e {
     public static /* synthetic */ Interceptable $ic = null;
@@ -40,7 +40,7 @@ public class MsgrightView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f17310e;
+        public final /* synthetic */ MsgrightView f17366e;
 
         public a(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -57,15 +57,15 @@ public class MsgrightView extends e {
                     return;
                 }
             }
-            this.f17310e = msgrightView;
+            this.f17366e = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f17310e;
-                msgrightView.f58260b.onItemViewClick(view, 6, msgrightView.f58264f, 0L);
+                MsgrightView msgrightView = this.f17366e;
+                msgrightView.f58874b.onItemViewClick(view, 6, msgrightView.f58878f, 0L);
             }
         }
     }
@@ -76,7 +76,7 @@ public class MsgrightView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f17311e;
+        public final /* synthetic */ MsgrightView f17367e;
 
         public b(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -93,15 +93,15 @@ public class MsgrightView extends e {
                     return;
                 }
             }
-            this.f17311e = msgrightView;
+            this.f17367e = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f17311e;
-                msgrightView.f58260b.onItemViewClick(view, 1, msgrightView.f58264f, 0L);
+                MsgrightView msgrightView = this.f17367e;
+                msgrightView.f58874b.onItemViewClick(view, 1, msgrightView.f58878f, 0L);
             }
         }
     }
@@ -161,19 +161,19 @@ public class MsgrightView extends e {
         this.n.setIsLeft(false);
     }
 
-    @Override // d.a.p0.i1.f.e
+    @Override // d.a.q0.i1.f.e
     public void k(View view, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, chatMessage) == null) {
             super.k(view, chatMessage);
             if (chatMessage == null) {
-                this.f58266h.setVisibility(8);
+                this.f58880h.setVisibility(8);
                 this.t.setVisibility(8);
                 this.u.setVisibility(8);
                 this.x.setVisibility(8);
                 this.y.setVisibility(8);
-                this.f58267i.setVisibility(0);
-                this.f58267i.setText(null);
+                this.f58881i.setVisibility(0);
+                this.f58881i.setText(null);
                 l(8);
                 this.p.getImage().setTag(null);
                 this.j.setVisibility(8);
@@ -220,7 +220,7 @@ public class MsgrightView extends e {
                 if (this.u.getVisibility() == 0) {
                     this.u.setOnClickListener(new b(this));
                 }
-                this.f58267i.setVisibility(8);
+                this.f58881i.setVisibility(8);
                 l(8);
                 this.j.setVisibility(8);
                 this.k.setVisibility(8);
@@ -246,7 +246,7 @@ public class MsgrightView extends e {
         }
     }
 
-    @Override // d.a.p0.i1.f.e
+    @Override // d.a.q0.i1.f.e
     public void s(View view, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, chatMessage) == null) {

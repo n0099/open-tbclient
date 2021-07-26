@@ -17,16 +17,16 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f73160a;
+    public int f73614a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Reader f73161b;
+    public Reader f73615b;
 
     /* renamed from: c  reason: collision with root package name */
-    public char f73162c;
+    public char f73616c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f73163d;
+    public boolean f73617d;
 
     public c(Reader reader) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public final class c {
                 return;
             }
         }
-        this.f73161b = reader.markSupported() ? reader : new BufferedReader(reader);
-        this.f73163d = false;
-        this.f73160a = 0;
+        this.f73615b = reader.markSupported() ? reader : new BufferedReader(reader);
+        this.f73617d = false;
+        this.f73614a = 0;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -77,14 +77,14 @@ public final class c {
             }
             char[] cArr = new char[i2];
             int i3 = 0;
-            if (this.f73163d) {
-                this.f73163d = false;
-                cArr[0] = this.f73162c;
+            if (this.f73617d) {
+                this.f73617d = false;
+                cArr[0] = this.f73616c;
                 i3 = 1;
             }
             while (i3 < i2) {
                 try {
-                    int read = this.f73161b.read(cArr, i3, i2 - i3);
+                    int read = this.f73615b.read(cArr, i3, i2 - i3);
                     if (read == -1) {
                         break;
                     }
@@ -93,9 +93,9 @@ public final class c {
                     throw new JSONException(e2);
                 }
             }
-            this.f73160a += i3;
+            this.f73614a += i3;
             if (i3 >= i2) {
-                this.f73162c = cArr[i2 - 1];
+                this.f73616c = cArr[i2 - 1];
                 return new String(cArr);
             }
             throw a("Substring bounds error");
@@ -116,11 +116,11 @@ public final class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f73163d || (i2 = this.f73160a) <= 0) {
+            if (this.f73617d || (i2 = this.f73614a) <= 0) {
                 throw new JSONException("Stepping back two steps is not supported");
             }
-            this.f73160a = i2 - 1;
-            this.f73163d = true;
+            this.f73614a = i2 - 1;
+            this.f73617d = true;
         }
     }
 
@@ -128,22 +128,22 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f73163d) {
-                this.f73163d = false;
-                if (this.f73162c != 0) {
-                    this.f73160a++;
+            if (this.f73617d) {
+                this.f73617d = false;
+                if (this.f73616c != 0) {
+                    this.f73614a++;
                 }
-                return this.f73162c;
+                return this.f73616c;
             }
             try {
-                int read = this.f73161b.read();
+                int read = this.f73615b.read();
                 if (read <= 0) {
-                    this.f73162c = (char) 0;
+                    this.f73616c = (char) 0;
                     return (char) 0;
                 }
-                this.f73160a++;
+                this.f73614a++;
                 char c2 = (char) read;
-                this.f73162c = c2;
+                this.f73616c = c2;
                 return c2;
             } catch (IOException e2) {
                 throw new JSONException(e2);
@@ -243,7 +243,7 @@ public final class c {
                             return Boolean.FALSE;
                         }
                         if (trim.equalsIgnoreCase(StringUtil.NULL_STRING)) {
-                            return b.f73158a;
+                            return b.f73612a;
                         }
                         if ((c2 >= '0' && c2 <= '9') || c2 == '.' || c2 == '-' || c2 == '+') {
                             if (c2 == '0') {
@@ -310,7 +310,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return " at character " + this.f73160a;
+            return " at character " + this.f73614a;
         }
         return (String) invokeV.objValue;
     }

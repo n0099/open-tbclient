@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
-import d.a.v0.t.c;
-import d.a.v0.t.h;
-import d.a.v0.t.q;
-import d.a.v0.t.w;
+import d.a.w0.t.c;
+import d.a.w0.t.h;
+import d.a.w0.t.q;
+import d.a.w0.t.w;
 import java.io.Closeable;
 import java.util.List;
 /* loaded from: classes5.dex */

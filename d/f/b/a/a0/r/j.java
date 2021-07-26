@@ -30,16 +30,16 @@ public final class j extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final k.d f69473a;
+        public final k.d f69927a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f69474b;
+        public final byte[] f69928b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final k.c[] f69475c;
+        public final k.c[] f69929c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f69476d;
+        public final int f69930d;
 
         public a(k.d dVar, k.b bVar, byte[] bArr, k.c[] cVarArr, int i2) {
             Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public final class j extends h {
                     return;
                 }
             }
-            this.f69473a = dVar;
-            this.f69474b = bArr;
-            this.f69475c = cVarArr;
-            this.f69476d = i2;
+            this.f69927a = dVar;
+            this.f69928b = bArr;
+            this.f69929c = cVarArr;
+            this.f69930d = i2;
         }
     }
 
@@ -81,10 +81,10 @@ public final class j extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65537, null, lVar, j) == null) {
             lVar.I(lVar.d() + 4);
-            lVar.f70489a[lVar.d() - 4] = (byte) (j & 255);
-            lVar.f70489a[lVar.d() - 3] = (byte) ((j >>> 8) & 255);
-            lVar.f70489a[lVar.d() - 2] = (byte) ((j >>> 16) & 255);
-            lVar.f70489a[lVar.d() - 1] = (byte) ((j >>> 24) & 255);
+            lVar.f70943a[lVar.d() - 4] = (byte) (j & 255);
+            lVar.f70943a[lVar.d() - 3] = (byte) ((j >>> 8) & 255);
+            lVar.f70943a[lVar.d() - 2] = (byte) ((j >>> 16) & 255);
+            lVar.f70943a[lVar.d() - 1] = (byte) ((j >>> 24) & 255);
         }
     }
 
@@ -92,10 +92,10 @@ public final class j extends h {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b2), aVar})) == null) {
-            if (!aVar.f69475c[n(b2, aVar.f69476d, 1)].f69477a) {
-                return aVar.f69473a.f69481d;
+            if (!aVar.f69929c[n(b2, aVar.f69930d, 1)].f69931a) {
+                return aVar.f69927a.f69935d;
             }
-            return aVar.f69473a.f69482e;
+            return aVar.f69927a.f69936e;
         }
         return invokeCommon.intValue;
     }
@@ -126,7 +126,7 @@ public final class j extends h {
             super.d(j);
             this.p = j != 0;
             k.d dVar = this.q;
-            this.o = dVar != null ? dVar.f69481d : 0;
+            this.o = dVar != null ? dVar.f69935d : 0;
         }
     }
 
@@ -135,7 +135,7 @@ public final class j extends h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
-            byte[] bArr = lVar.f70489a;
+            byte[] bArr = lVar.f70943a;
             if ((bArr[0] & 1) == 1) {
                 return -1L;
             }
@@ -163,10 +163,10 @@ public final class j extends h {
                 return true;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.n.f69473a.f69483f);
-            arrayList.add(this.n.f69474b);
-            k.d dVar = this.n.f69473a;
-            bVar.f69467a = Format.createAudioSampleFormat(null, "audio/vorbis", null, dVar.f69480c, -1, dVar.f69478a, (int) dVar.f69479b, arrayList, null, 0, null);
+            arrayList.add(this.n.f69927a.f69937f);
+            arrayList.add(this.n.f69928b);
+            k.d dVar = this.n.f69927a;
+            bVar.f69921a = Format.createAudioSampleFormat(null, "audio/vorbis", null, dVar.f69934c, -1, dVar.f69932a, (int) dVar.f69933b, arrayList, null, 0, null);
             return true;
         }
         return invokeCommon.booleanValue;
@@ -199,8 +199,8 @@ public final class j extends h {
                 return null;
             } else {
                 byte[] bArr = new byte[lVar.d()];
-                System.arraycopy(lVar.f70489a, 0, bArr, 0, lVar.d());
-                k.c[] j = k.j(lVar, this.q.f69478a);
+                System.arraycopy(lVar.f70943a, 0, bArr, 0, lVar.d());
+                k.c[] j = k.j(lVar, this.q.f69932a);
                 return new a(this.q, this.r, bArr, j, k.a(j.length - 1));
             }
         }

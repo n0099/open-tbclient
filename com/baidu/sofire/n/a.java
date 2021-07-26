@@ -14,22 +14,22 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f10469a;
+    public Object f10495a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f10470b;
+    public Class<?> f10496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f10471c;
+    public Method f10497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f10472d;
+    public Method f10498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f10473e;
+    public Method f10499e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10474f;
+    public String f10500f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
-            Object obj = this.f10469a;
+            Object obj = this.f10495a;
             if (obj == null || method == null) {
                 return null;
             }

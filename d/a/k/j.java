@@ -1,41 +1,37 @@
 package d.a.k;
 
-import android.text.TextUtils;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.card.view.FollowUserDecorView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.FollowUserButton;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.k.d.a.g;
-import d.a.k.f;
-import java.io.UnsupportedEncodingException;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+import d.a.p0.s.q.b2;
 /* loaded from: classes7.dex */
-public class j {
+public class j extends c implements p<b2>, q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f42860a;
+    /* renamed from: i  reason: collision with root package name */
+    public FollowUserDecorView f43151i;
+    public boolean j;
+    public int k;
+    public int l;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f42861b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f42862c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f42863d;
-
-    public j() {
+    public j(TbPageContext tbPageContext, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,182 +41,110 @@ public class j {
                 return;
             }
         }
-        this.f42862c = 2;
-        this.f42863d = 0;
+        this.j = true;
+        this.k = d.a.d.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
+        this.l = d.a.d.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
+        FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
+        this.f43151i = followUserDecorView;
+        followUserDecorView.setUseNewStyle(z);
+        h(-1);
+        m(z);
     }
 
-    public static j a(String str, String str2) {
-        InterceptResult invokeLL;
+    public void k(d.a.p0.s.q.a aVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            j jVar = new j();
-            jVar.f42860a = str;
-            int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-            jVar.f42863d = length;
-            if (length < 14) {
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = "0";
-                }
-                jVar.f42861b = str2;
-            }
-            return jVar;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, z) == null) {
+            this.j = z;
+            s(0);
+            o(true);
         }
-        return (j) invokeLL.objValue;
     }
 
-    public static boolean c(int i2) {
+    public final int l(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 >= 14 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? d.a.d.e.p.l.g(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
     }
 
-    public static boolean d(String str) {
-        InterceptResult invokeL;
+    public final void m(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
-    }
-
-    public static j e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? g(j(str)) : (j) invokeL.objValue;
-    }
-
-    public static j g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (z) {
+                this.k = d.a.d.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds177);
+                this.l = d.a.d.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds76);
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                Iterator<String> keys = jSONObject.keys();
-                String str2 = "0";
-                String str3 = "0";
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!i("ZGV2aWNlaWQ=").equals(next) && !i("dmVy").equals(next)) {
-                        str3 = jSONObject.optString(next, "0");
-                    }
-                }
-                String string = jSONObject.getString(i("ZGV2aWNlaWQ="));
-                int i2 = jSONObject.getInt(i("dmVy"));
-                int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
-                if (!TextUtils.isEmpty(string)) {
-                    j jVar = new j();
-                    jVar.f42860a = string;
-                    jVar.f42862c = i2;
-                    jVar.f42863d = length;
-                    if (length < 14) {
-                        if (!TextUtils.isEmpty(str3)) {
-                            str2 = str3;
-                        }
-                        jVar.f42861b = str2;
-                    }
-                    jVar.k();
-                    return jVar;
-                }
-            } catch (JSONException e2) {
-                d.a.k.i.c.c(e2);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.k, this.l);
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.topMargin = l(R.dimen.tbds50);
+            if (z) {
+                layoutParams.topMargin = l(R.dimen.tbds52);
             }
-            return null;
+            i(layoutParams);
+            g(this.f43151i);
         }
-        return (j) invokeL.objValue;
     }
 
-    public static String i(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.k.p
+    /* renamed from: n */
+    public void a(b2 b2Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? new String(f.b.b(str.getBytes())) : (String) invokeL.objValue;
-    }
-
-    public static String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048580, this, b2Var) == null) {
+            if (b2Var != null && b2Var.H() != null) {
+                p(l(this.j ? R.dimen.tbds120 : R.dimen.tbds44));
+                this.f43151i.setVisibility(0);
+                this.f43151i.setData(b2Var);
+                this.f43151i.setTag(b2Var);
+                return;
             }
-            try {
-                byte[] a2 = g.a();
-                return new String(d.a.k.d.a.c.d(a2, a2, f.b.b(str.getBytes())));
-            } catch (Exception e2) {
-                d.a.k.i.c.c(e2);
-                return "";
-            }
+            this.f43151i.setVisibility(8);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String m(String str) {
-        InterceptResult invokeL;
+    public void o(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                byte[] a2 = g.a();
-                return f.b.a(d.a.k.d.a.c.c(a2, a2, str.getBytes()), "utf-8");
-            } catch (UnsupportedEncodingException | Exception e2) {
-                d.a.k.i.c.c(e2);
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f43151i.setClickableUnLike(z);
         }
-        return (String) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // d.a.k.q
+    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d(this.f42861b) : invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f42863d) : invokeV.booleanValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m(l()) : (String) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f()) {
-                str = "O";
-            } else if (!b()) {
-                return false;
-            } else {
-                str = "0";
-            }
-            this.f42861b = str;
-            return true;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i2) == null) {
+            this.f43151i.r(i2);
         }
-        return invokeV.booleanValue;
     }
 
-    public final String l() {
-        InterceptResult invokeV;
+    public void p(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f42860a).put(i("aW1laQ=="), this.f42861b).put(i("dmVy"), this.f42862c).toString();
-            } catch (JSONException e2) {
-                d.a.k.i.c.c(e2);
-                return null;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            if (d() != null) {
+                d().rightMargin = i2;
             }
+            this.f43151i.setLayoutParams(d());
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void q(FollowUserButton.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            this.f43151i.setOnClickEvent(aVar);
+        }
+    }
+
+    public void r(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
+            this.f43151i.setPageUniqueId(bdUniqueId);
+        }
+    }
+
+    public void s(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f43151i.setSvgIconResId(i2);
+        }
     }
 }

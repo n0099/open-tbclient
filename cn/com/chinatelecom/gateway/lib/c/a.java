@@ -34,7 +34,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1557a = "a";
+    public static final String f1590a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -79,10 +79,10 @@ public final class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{context, str, str2, str3, network, str4})) == null) {
             String b2 = b();
             String a2 = g.a(context, str, str2, str3, b2);
-            String str5 = f1557a;
+            String str5 = f1590a;
             CtAuth.info(str5, "request params : " + a2);
             String a3 = d.a(context, "https://id6.me/auth/preauth.do", a2, network, str4);
-            String str6 = f1557a;
+            String str6 = f1590a;
             CtAuth.info(str6, "request result : " + a3);
             String b3 = b(context, a3, b2, network);
             if (TextUtils.isEmpty(b3)) {
@@ -143,25 +143,25 @@ public final class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Future f1581a;
+                public final /* synthetic */ Future f1614a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f1582b;
+                public final /* synthetic */ int f1615b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ i.a f1583c;
+                public final /* synthetic */ i.a f1616c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f1584d;
+                public final /* synthetic */ String f1617d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Context f1585e;
+                public final /* synthetic */ Context f1618e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ PreCodeListener f1586f;
+                public final /* synthetic */ PreCodeListener f1619f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ a f1587g;
+                public final /* synthetic */ a f1620g;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -178,13 +178,13 @@ public final class a {
                             return;
                         }
                     }
-                    this.f1587g = this;
-                    this.f1581a = r7;
-                    this.f1582b = i2;
-                    this.f1583c = aVar;
-                    this.f1584d = str;
-                    this.f1585e = context;
-                    this.f1586f = preCodeListener;
+                    this.f1620g = this;
+                    this.f1614a = r7;
+                    this.f1615b = i2;
+                    this.f1616c = aVar;
+                    this.f1617d = str;
+                    this.f1618e = context;
+                    this.f1619f = preCodeListener;
                 }
 
                 /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF, INVOKE, IF] complete} */
@@ -197,31 +197,31 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f1581a.get(this.f1582b, TimeUnit.MILLISECONDS);
-                            Future future2 = this.f1581a;
+                            this.f1614a.get(this.f1615b, TimeUnit.MILLISECONDS);
+                            Future future2 = this.f1614a;
                             if (future2 == null || future2.isDone()) {
                             }
                         } catch (Throwable th) {
                             try {
-                                this.f1583c.a(true);
+                                this.f1616c.a(true);
                                 String str3 = "{\"result\":80000,\"msg\":\"请求超时\"}";
                                 if (th instanceof TimeoutException) {
-                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f1584d, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
-                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f1584d).h("submitOnTimeoutInterrupted()");
-                                    context2 = this.f1585e;
-                                    str2 = this.f1584d;
-                                    preCodeListener2 = this.f1586f;
+                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f1617d, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
+                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f1617d).h("submitOnTimeoutInterrupted()");
+                                    context2 = this.f1618e;
+                                    str2 = this.f1617d;
+                                    preCodeListener2 = this.f1619f;
                                 } else {
-                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f1584d, "{\"result\":80001,\"msg\":\"请求异常\"}", "");
-                                    cn.com.chinatelecom.gateway.lib.b.b a2 = cn.com.chinatelecom.gateway.lib.b.e.a(this.f1584d);
+                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f1617d, "{\"result\":80001,\"msg\":\"请求异常\"}", "");
+                                    cn.com.chinatelecom.gateway.lib.b.b a2 = cn.com.chinatelecom.gateway.lib.b.e.a(this.f1617d);
                                     StringBuilder sb = new StringBuilder();
                                     sb.append("submitOnTimeoutInterrupted other exception : ");
                                     sb.append(th.getMessage());
                                     a2.h(sb.toString());
-                                    CtAuth.warn(a.f1557a, "submitOnTimeoutInterrupted other exception", th);
-                                    context2 = this.f1585e;
-                                    str2 = this.f1584d;
-                                    preCodeListener2 = this.f1586f;
+                                    CtAuth.warn(a.f1590a, "submitOnTimeoutInterrupted other exception", th);
+                                    context2 = this.f1618e;
+                                    str2 = this.f1617d;
+                                    preCodeListener2 = this.f1619f;
                                     str3 = "{\"result\":80001,\"msg\":\"请求异常\"}";
                                 }
                                 CtAuth.postResultOnMainThread(context2, str3, str2, preCodeListener2);
@@ -229,9 +229,9 @@ public final class a {
                                     return;
                                 }
                             } finally {
-                                future = this.f1581a;
+                                future = this.f1614a;
                                 if (future != null && !future.isDone()) {
-                                    this.f1581a.cancel(true);
+                                    this.f1614a.cancel(true);
                                 }
                             }
                         }
@@ -253,7 +253,7 @@ public final class a {
                 String replace = uuid.replace("-", "");
                 return replace.length() >= 16 ? replace.substring(0, 16) : replace;
             } catch (Throwable th) {
-                CtAuth.warn(f1557a, "generateAesKey error", th);
+                CtAuth.warn(f1590a, "generateAesKey error", th);
                 return "";
             }
         }
@@ -299,7 +299,7 @@ public final class a {
                 }
                 return jSONObject.toString();
             } catch (Throwable th) {
-                CtAuth.warn(f1557a, "decryptResult error", th);
+                CtAuth.warn(f1590a, "decryptResult error", th);
                 return null;
             }
         }
@@ -330,7 +330,7 @@ public final class a {
                 }
                 return jSONObject.toString();
             } catch (Throwable th) {
-                CtAuth.warn(f1557a, "decryptResult error", th);
+                CtAuth.warn(f1590a, "decryptResult error", th);
                 return null;
             }
         }
@@ -349,25 +349,25 @@ public final class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f1558a;
+                public final /* synthetic */ Context f1591a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f1559b;
+                public final /* synthetic */ String f1592b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f1560c;
+                public final /* synthetic */ String f1593c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f1561d;
+                public final /* synthetic */ String f1594d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f1562e;
+                public final /* synthetic */ String f1595e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ PreCodeListener f1563f;
+                public final /* synthetic */ PreCodeListener f1596f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ a f1564g;
+                public final /* synthetic */ a f1597g;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -384,24 +384,24 @@ public final class a {
                             return;
                         }
                     }
-                    this.f1564g = this;
-                    this.f1558a = context;
-                    this.f1559b = str;
-                    this.f1560c = str2;
-                    this.f1561d = str3;
-                    this.f1562e = a2;
-                    this.f1563f = preCodeListener;
+                    this.f1597g = this;
+                    this.f1591a = context;
+                    this.f1592b = str;
+                    this.f1593c = str2;
+                    this.f1594d = str3;
+                    this.f1595e = a2;
+                    this.f1596f = preCodeListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String a3 = this.f1564g.a(this.f1558a, this.f1559b, this.f1560c, this.f1561d, null, this.f1562e);
+                        String a3 = this.f1597g.a(this.f1591a, this.f1592b, this.f1593c, this.f1594d, null, this.f1595e);
                         if (a()) {
                             return;
                         }
-                        CtAuth.postResultOnMainThread(this.f1558a, a3, this.f1562e, this.f1563f);
+                        CtAuth.postResultOnMainThread(this.f1591a, a3, this.f1595e, this.f1596f);
                     }
                 }
             }, i3, preCodeListener);
@@ -421,25 +421,25 @@ public final class a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f1574a;
+                    public final /* synthetic */ Context f1607a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f1575b;
+                    public final /* synthetic */ String f1608b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f1576c;
+                    public final /* synthetic */ String f1609c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f1577d;
+                    public final /* synthetic */ String f1610d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f1578e;
+                    public final /* synthetic */ String f1611e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ PreCodeListener f1579f;
+                    public final /* synthetic */ PreCodeListener f1612f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ a f1580g;
+                    public final /* synthetic */ a f1613g;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -456,31 +456,31 @@ public final class a {
                                 return;
                             }
                         }
-                        this.f1580g = this;
-                        this.f1574a = context;
-                        this.f1575b = str;
-                        this.f1576c = str2;
-                        this.f1577d = str3;
-                        this.f1578e = a2;
-                        this.f1579f = preCodeListener;
+                        this.f1613g = this;
+                        this.f1607a = context;
+                        this.f1608b = str;
+                        this.f1609c = str2;
+                        this.f1610d = str3;
+                        this.f1611e = a2;
+                        this.f1612f = preCodeListener;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (!new e().a(this.f1574a, "https://id6.me/auth/preauth.do")) {
+                            if (!new e().a(this.f1607a, "https://id6.me/auth/preauth.do")) {
                                 if (a()) {
                                     return;
                                 }
-                                CtAuth.postResultOnMainThread(this.f1574a, h.a(80800, "WIFI切换超时"), this.f1578e, this.f1579f);
+                                CtAuth.postResultOnMainThread(this.f1607a, h.a(80800, "WIFI切换超时"), this.f1611e, this.f1612f);
                             } else if (a()) {
                             } else {
-                                String a3 = this.f1580g.a(this.f1574a, this.f1575b, this.f1576c, this.f1577d, null, this.f1578e);
+                                String a3 = this.f1613g.a(this.f1607a, this.f1608b, this.f1609c, this.f1610d, null, this.f1611e);
                                 if (a()) {
                                     return;
                                 }
-                                CtAuth.postResultOnMainThread(this.f1574a, a3, this.f1578e, this.f1579f);
+                                CtAuth.postResultOnMainThread(this.f1607a, a3, this.f1611e, this.f1612f);
                             }
                         }
                     }
@@ -493,31 +493,31 @@ public final class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f1565a;
+                public final /* synthetic */ String f1598a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f1566b;
+                public final /* synthetic */ Context f1599b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f1567c;
+                public final /* synthetic */ String f1600c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f1568d;
+                public final /* synthetic */ String f1601d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f1569e;
+                public final /* synthetic */ String f1602e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ PreCodeListener f1570f;
+                public final /* synthetic */ PreCodeListener f1603f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ a f1571g;
+                public final /* synthetic */ a f1604g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public boolean f1572h;
+                public boolean f1605h;
 
                 /* renamed from: i  reason: collision with root package name */
-                public boolean f1573i;
+                public boolean f1606i;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -534,15 +534,15 @@ public final class a {
                             return;
                         }
                     }
-                    this.f1571g = this;
-                    this.f1565a = a2;
-                    this.f1566b = context;
-                    this.f1567c = str;
-                    this.f1568d = str2;
-                    this.f1569e = str3;
-                    this.f1570f = preCodeListener;
-                    this.f1572h = false;
-                    this.f1573i = false;
+                    this.f1604g = this;
+                    this.f1598a = a2;
+                    this.f1599b = context;
+                    this.f1600c = str;
+                    this.f1601d = str2;
+                    this.f1602e = str3;
+                    this.f1603f = preCodeListener;
+                    this.f1605h = false;
+                    this.f1606i = false;
                 }
 
                 @Override // cn.com.chinatelecom.gateway.lib.c.e.a
@@ -550,10 +550,10 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         synchronized (this) {
-                            this.f1572h = true;
-                            if (!this.f1573i) {
-                                cn.com.chinatelecom.gateway.lib.b.e.a(this.f1565a, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
-                                CtAuth.postResultOnMainThread(this.f1566b, "{\"result\":80000,\"msg\":\"请求超时\"}", this.f1565a, this.f1570f);
+                            this.f1605h = true;
+                            if (!this.f1606i) {
+                                cn.com.chinatelecom.gateway.lib.b.e.a(this.f1598a, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
+                                CtAuth.postResultOnMainThread(this.f1599b, "{\"result\":80000,\"msg\":\"请求超时\"}", this.f1598a, this.f1603f);
                             }
                         }
                     }
@@ -564,12 +564,12 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i4), str4, Long.valueOf(j)}) == null) {
                         synchronized (this) {
-                            if (!this.f1572h && !this.f1573i) {
-                                this.f1573i = true;
-                                cn.com.chinatelecom.gateway.lib.b.b a3 = cn.com.chinatelecom.gateway.lib.b.e.a(this.f1565a);
+                            if (!this.f1605h && !this.f1606i) {
+                                this.f1606i = true;
+                                cn.com.chinatelecom.gateway.lib.b.b a3 = cn.com.chinatelecom.gateway.lib.b.e.a(this.f1598a);
                                 a3.h("switchToMobile_L  onFail()  expendTime : " + j).a(i4).f(str4).b(j);
-                                CtAuth.postResultOnMainThread(this.f1566b, h.a(i4, str4), this.f1565a, this.f1570f);
-                                String str5 = a.f1557a;
+                                CtAuth.postResultOnMainThread(this.f1599b, h.a(i4, str4), this.f1598a, this.f1603f);
+                                String str5 = a.f1590a;
                                 CtAuth.info(str5, "Switching network failed (L), errorMsg :" + str4 + " , expendTime ：" + j);
                             }
                         }
@@ -580,17 +580,17 @@ public final class a {
                 public void a(Network network, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, network, j) == null) {
-                        String str4 = a.f1557a;
+                        String str4 = a.f1590a;
                         CtAuth.info(str4, "Switching network successfully (L) , expendTime ：" + j);
-                        if (this.f1572h || this.f1573i) {
+                        if (this.f1605h || this.f1606i) {
                             return;
                         }
-                        cn.com.chinatelecom.gateway.lib.b.e.a(this.f1565a).b(j);
-                        String a3 = this.f1571g.a(this.f1566b, this.f1567c, this.f1568d, this.f1569e, network, this.f1565a);
+                        cn.com.chinatelecom.gateway.lib.b.e.a(this.f1598a).b(j);
+                        String a3 = this.f1604g.a(this.f1599b, this.f1600c, this.f1601d, this.f1602e, network, this.f1598a);
                         synchronized (this) {
-                            if (!this.f1572h && !this.f1573i) {
-                                this.f1573i = true;
-                                CtAuth.postResultOnMainThread(this.f1566b, a3, this.f1565a, this.f1570f);
+                            if (!this.f1605h && !this.f1606i) {
+                                this.f1606i = true;
+                                CtAuth.postResultOnMainThread(this.f1599b, a3, this.f1598a, this.f1603f);
                             }
                         }
                     }

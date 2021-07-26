@@ -18,10 +18,10 @@ public final class x extends com.google.a.b.a.a.a.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AtomicBoolean f32995a;
+    public final /* synthetic */ AtomicBoolean f33184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ q f32996b;
+    public final /* synthetic */ q f33185b;
 
     public x(q qVar, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public final class x extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.f32996b = qVar;
-        this.f32995a = atomicBoolean;
+        this.f33185b = qVar;
+        this.f33184a = atomicBoolean;
     }
 
     @Override // com.google.a.b.a.a.a.d
@@ -52,44 +52,44 @@ public final class x extends com.google.a.b.a.a.a.e {
     @Override // com.google.a.b.a.a.a.d
     public final void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.f32995a.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.f33184a.getAndSet(true)) {
             return;
         }
         int i2 = bundle.getInt("error.code", -100);
         int i3 = bundle.getInt("install.status", 0);
         if (i3 == 4) {
-            this.f32996b.f70810f.a(p.f32992c);
+            this.f33185b.f71264f.a(p.f33181c);
         } else if (i2 != 0) {
             StringBuilder sb = new StringBuilder(51);
             sb.append("requestInstall = ");
             sb.append(i2);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            q qVar = this.f32996b;
-            l lVar = qVar.f70811g;
-            l.n(qVar.f70809e, qVar.f70810f);
+            q qVar = this.f33185b;
+            l lVar = qVar.f71265g;
+            l.n(qVar.f71263e, qVar.f71264f);
         } else if (bundle.containsKey("resolution.intent")) {
-            q qVar2 = this.f32996b;
-            l lVar2 = qVar2.f70811g;
-            l.b(qVar2.f70809e, bundle, qVar2.f70810f);
+            q qVar2 = this.f33185b;
+            l lVar2 = qVar2.f71265g;
+            l.b(qVar2.f71263e, bundle, qVar2.f71264f);
         } else if (i3 != 10) {
             switch (i3) {
                 case 1:
                 case 2:
                 case 3:
-                    this.f32996b.f70810f.a(p.f32990a);
+                    this.f33185b.f71264f.a(p.f33179a);
                     return;
                 case 4:
-                    this.f32996b.f70810f.a(p.f32992c);
+                    this.f33185b.f71264f.a(p.f33181c);
                     return;
                 case 5:
-                    this.f32996b.f70810f.b(new FatalException("Unexpected FAILED install status without error."));
+                    this.f33185b.f71264f.b(new FatalException("Unexpected FAILED install status without error."));
                     return;
                 case 6:
-                    this.f32996b.f70810f.a(p.f32991b);
+                    this.f33185b.f71264f.a(p.f33180b);
                     return;
                 default:
-                    m mVar = this.f32996b.f70810f;
+                    m mVar = this.f33185b.f71264f;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i3);
@@ -97,7 +97,7 @@ public final class x extends com.google.a.b.a.a.a.e {
                     return;
             }
         } else {
-            this.f32996b.f70810f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+            this.f33185b.f71264f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
         }
     }
 

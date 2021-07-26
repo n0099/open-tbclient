@@ -11,10 +11,10 @@ public class r implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f2052a;
+    public final /* synthetic */ View f2085a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ q f2053b;
+    public final /* synthetic */ q f2086b;
 
     public r(q qVar, View view) {
         Interceptable interceptable = $ic;
@@ -31,15 +31,15 @@ public class r implements Runnable {
                 return;
             }
         }
-        this.f2053b = qVar;
-        this.f2052a = view;
+        this.f2086b = qVar;
+        this.f2085a = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f2052a.setEnabled(true);
+            this.f2085a.setEnabled(true);
         }
     }
 }

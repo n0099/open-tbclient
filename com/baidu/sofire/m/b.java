@@ -15,7 +15,7 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10456a;
+    public Context f10482a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public final class b {
                 return;
             }
         }
-        this.f10456a = context;
+        this.f10482a = context;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor query = this.f10456a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+            Cursor query = this.f10482a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
             if (query != null) {
                 r1 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                 query.close();

@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.b0.a.b;
+import d.a.c0.a.b;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class VoiceSinWaveView extends View implements VoiceWaveInterface {

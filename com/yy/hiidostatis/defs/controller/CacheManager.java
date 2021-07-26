@@ -16,7 +16,7 @@ public class CacheManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f40758c;
+    public Context f41030c;
     public String mCacheKey;
     public String mCacheValue;
     public String mPrefCacheKey;
@@ -37,7 +37,7 @@ public class CacheManager {
                 return;
             }
         }
-        this.f40758c = context;
+        this.f41030c = context;
         this.mPrefCacheKey = str;
         this.mPrefCacheValue = str2;
         String cacheKey = getCacheKey();
@@ -92,7 +92,7 @@ public class CacheManager {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            saveCacheValue(this.f40758c, this.mCacheKey, this.mCacheValue);
+            saveCacheValue(this.f41030c, this.mCacheKey, this.mCacheValue);
             this.mCacheValue = null;
         }
     }
