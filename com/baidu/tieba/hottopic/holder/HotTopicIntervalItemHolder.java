@@ -14,13 +14,13 @@ public class HotTopicIntervalItemHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17113a;
+    public int f17169a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17114b;
+    public View f17170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f17115c;
+    public TextView f17171c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicIntervalItemHolder(View view) {
@@ -40,9 +40,9 @@ public class HotTopicIntervalItemHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f17113a = 3;
-        this.f17114b = null;
-        this.f17115c = null;
+        this.f17169a = 3;
+        this.f17170b = null;
+        this.f17171c = null;
         b(view);
     }
 
@@ -51,7 +51,7 @@ public class HotTopicIntervalItemHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.f17114b = view.findViewById(R.id.top_divider_line);
-        this.f17115c = (TextView) view.findViewById(R.id.item_theme_title);
+        this.f17170b = view.findViewById(R.id.top_divider_line);
+        this.f17171c = (TextView) view.findViewById(R.id.item_theme_title);
     }
 }

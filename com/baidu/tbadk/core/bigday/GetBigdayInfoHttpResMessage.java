@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.c.e.d.l;
-import d.a.o0.r.n.a;
+import d.a.d.e.d.l;
+import d.a.p0.s.n.a;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
@@ -48,7 +48,7 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            l<byte[]> d2 = d.a.o0.r.r.a.f().d("tb.bigday_datas");
+            l<byte[]> d2 = d.a.p0.s.r.a.f().d("tb.bigday_datas");
             d2.remove("tb.bigday_datas");
             d2.g("tb.bigday_datas", bArr);
         }

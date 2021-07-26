@@ -10,13 +10,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f31024a;
+    public static volatile boolean f31206a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f31025b;
+    public static b f31207b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f31026c;
+    public static c f31208c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,23 +36,23 @@ public class a {
 
     public static void a(b bVar, c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, bVar, cVar) == null) || f31024a) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, bVar, cVar) == null) || f31206a) {
             return;
         }
-        f31024a = true;
-        f31025b = bVar;
-        f31026c = cVar;
+        f31206a = true;
+        f31207b = bVar;
+        f31208c = cVar;
     }
 
     public static c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f31026c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f31208c : (c) invokeV.objValue;
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f31025b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f31207b : (b) invokeV.objValue;
     }
 }

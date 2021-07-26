@@ -18,19 +18,19 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23170e;
+    public boolean f23328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f23171f;
+    public volatile boolean f23329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23172g;
+    public boolean f23330g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Thread f23173h;
+    public Thread f23331h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Thread f23174i;
+    public Thread f23332i;
     public byte[] j;
     public int k;
     public int l;
@@ -64,9 +64,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
                 return;
             }
         }
-        this.f23170e = false;
-        this.f23171f = false;
-        this.f23172g = false;
+        this.f23328e = false;
+        this.f23329f = false;
+        this.f23330g = false;
         this.k = -1;
         this.l = 0;
         p(i2);
@@ -98,7 +98,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f23171f = true;
+            this.f23329f = true;
             synchronized (this) {
                 this.k = -1;
             }
@@ -124,9 +124,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public final void n() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f23172g) {
-                if (!this.f23170e && !this.f23171f) {
-                    Thread thread = this.f23173h;
+            if (this.f23330g) {
+                if (!this.f23328e && !this.f23329f) {
+                    Thread thread = this.f23331h;
                     if (thread != null && !thread.isAlive()) {
                         throw new IOException("Read end dead");
                     }
@@ -161,7 +161,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             synchronized (this) {
                 n();
-                this.f23174i = Thread.currentThread();
+                this.f23332i = Thread.currentThread();
                 if (this.k == this.l) {
                     g();
                 }
@@ -196,7 +196,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i2, i3) == null) {
             synchronized (this) {
                 n();
-                this.f23174i = Thread.currentThread();
+                this.f23332i = Thread.currentThread();
                 while (i3 > 0) {
                     if (this.k == this.l) {
                         g();
@@ -248,18 +248,18 @@ public class PipedInputStreamAndroid25 extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
-                if (this.f23172g) {
-                    if (!this.f23171f) {
-                        if (this.f23174i != null && !this.f23174i.isAlive() && !this.f23170e && this.k < 0) {
+                if (this.f23330g) {
+                    if (!this.f23329f) {
+                        if (this.f23332i != null && !this.f23332i.isAlive() && !this.f23328e && this.k < 0) {
                             throw new IOException("Write end dead");
                         }
-                        this.f23173h = Thread.currentThread();
+                        this.f23331h = Thread.currentThread();
                         int i2 = 2;
                         while (this.k < 0) {
-                            if (this.f23170e) {
+                            if (this.f23328e) {
                                 return -1;
                             }
-                            if (this.f23174i != null && !this.f23174i.isAlive() && i2 - 1 < 0) {
+                            if (this.f23332i != null && !this.f23332i.isAlive() && i2 - 1 < 0) {
                                 throw new IOException("Pipe broken");
                             }
                             notifyAll();
@@ -295,7 +295,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this) {
-                this.f23170e = true;
+                this.f23328e = true;
                 notifyAll();
             }
         }
@@ -314,9 +314,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
                 return;
             }
         }
-        this.f23170e = false;
-        this.f23171f = false;
-        this.f23172g = false;
+        this.f23328e = false;
+        this.f23329f = false;
+        this.f23330g = false;
         this.k = -1;
         this.l = 0;
         p(1024);

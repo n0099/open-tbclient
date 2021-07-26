@@ -252,7 +252,7 @@ public class FileProvider extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (r.f7762a.equals(str)) {
+            if (r.f7788a.equals(str)) {
                 return Label.FORWARD_REFERENCE_TYPE_SHORT;
             }
             if ("w".equals(str) || "wt".equals(str)) {

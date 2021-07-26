@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
+import d.a.d.a.f;
 import tbclient.GetUserBlackInfo.DataRes;
 /* loaded from: classes4.dex */
 public class UserBlockInfoModel extends BdBaseModel {
@@ -26,21 +26,21 @@ public class UserBlockInfoModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21523e;
+    public long f21641e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.o0.m.a f21524f;
+    public d.a.p0.n.a f21642f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f21525g;
+    public d.a.d.c.g.a f21643g;
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.c.c.g.a {
+    public class a extends d.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserBlockInfoModel f21526a;
+        public final /* synthetic */ UserBlockInfoModel f21644a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(UserBlockInfoModel userBlockInfoModel, int i2, int i3) {
@@ -61,14 +61,14 @@ public class UserBlockInfoModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f21526a = userBlockInfoModel;
+            this.f21644a = userBlockInfoModel;
         }
 
-        @Override // d.a.c.c.g.a
+        @Override // d.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UserBlockInfoRequestMessage userBlockInfoRequestMessage;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.f21526a.f21524f == null || responsedMessage == null || (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockInfoRequestMessage.getBlockUserId() != this.f21526a.f21523e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.f21644a.f21642f == null || responsedMessage == null || (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockInfoRequestMessage.getBlockUserId() != this.f21644a.f21641e) {
                 return;
             }
             int error = responsedMessage.getError();
@@ -78,14 +78,14 @@ public class UserBlockInfoModel extends BdBaseModel {
                 if (responsedMessage instanceof UserBlockInfoHttpResponseMessage) {
                     data = ((UserBlockInfoHttpResponseMessage) responsedMessage).getData();
                 }
-                this.f21526a.f21524f.onSuccess(data);
-                this.f21526a.f21523e = -1L;
+                this.f21644a.f21642f.onSuccess(data);
+                this.f21644a.f21641e = -1L;
                 return;
             }
             if (StringUtils.isNull(errorString)) {
-                errorString = this.f21526a.A(R.string.error_unkown_try_again);
+                errorString = this.f21644a.A(R.string.error_unkown_try_again);
             }
-            this.f21526a.f21524f.onError(error, errorString);
+            this.f21644a.f21642f.onError(error, errorString);
         }
     }
 
@@ -107,7 +107,7 @@ public class UserBlockInfoModel extends BdBaseModel {
                 return;
             }
         }
-        this.f21525g = new a(this, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, 309698);
+        this.f21643g = new a(this, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, 309698);
         setUniqueId(bdUniqueId);
         B();
     }
@@ -121,28 +121,28 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d.a.p0.h3.d0.a.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
-            d.a.p0.h3.d0.a.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
-            this.f21525g.getHttpMessageListener().setSelfListener(true);
-            this.f21525g.getSocketMessageListener().setSelfListener(true);
-            registerListener(this.f21525g);
+            d.a.q0.h3.d0.a.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
+            d.a.q0.h3.d0.a.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
+            this.f21643g.getHttpMessageListener().setSelfListener(true);
+            this.f21643g.getSocketMessageListener().setSelfListener(true);
+            registerListener(this.f21643g);
         }
     }
 
     public void C(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f21523e = j;
+            this.f21641e = j;
             UserBlockInfoRequestMessage userBlockInfoRequestMessage = new UserBlockInfoRequestMessage();
             userBlockInfoRequestMessage.setBlockUserId(j);
             sendMessage(userBlockInfoRequestMessage);
         }
     }
 
-    public void D(d.a.o0.m.a aVar) {
+    public void D(d.a.p0.n.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f21524f = aVar;
+            this.f21642f = aVar;
         }
     }
 
@@ -169,8 +169,8 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f21523e = -1L;
-            MessageManager.getInstance().unRegisterListener(this.f21525g);
+            this.f21641e = -1L;
+            MessageManager.getInstance().unRegisterListener(this.f21643g);
         }
     }
 }

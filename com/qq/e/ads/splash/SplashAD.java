@@ -47,31 +47,31 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile NSPVI f37903a;
+    public volatile NSPVI f38093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile ViewGroup f37904b;
+    public volatile ViewGroup f38094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile SplashADListener f37905c;
+    public volatile SplashADListener f38095c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile LoadAdParams f37906d;
+    public volatile LoadAdParams f38096d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f37907e;
+    public volatile boolean f38097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f37908f;
+    public volatile boolean f38098f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f37909g;
+    public volatile boolean f38099g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f37910h;
+    public volatile int f38100h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile byte[] f37911i;
+    public volatile byte[] f38101i;
     public DownloadConfirmListener j;
 
     /* loaded from: classes6.dex */
@@ -80,7 +80,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public /* synthetic */ SplashAD f37926a;
+        public /* synthetic */ SplashAD f38116a;
 
         public ADListenerAdapter(SplashAD splashAD) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
                     return;
                 }
             }
-            this.f37926a = splashAD;
+            this.f38116a = splashAD;
         }
 
         public /* synthetic */ ADListenerAdapter(SplashAD splashAD, byte b2) {
@@ -108,57 +108,57 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
         public void onADEvent(ADEvent aDEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) {
-                if (this.f37926a.f37905c == null) {
+                if (this.f38116a.f38095c == null) {
                     GDTLogger.e("SplashADListener == null");
                     return;
                 }
                 Object[] paras = aDEvent.getParas();
                 switch (aDEvent.getType()) {
                     case 1:
-                        this.f37926a.f37905c.onADDismissed();
+                        this.f38116a.f38095c.onADDismissed();
                         return;
                     case 2:
                         if (paras.length <= 0 || !(paras[0] instanceof Integer)) {
                             GDTLogger.e("Splash onNoAD event get params error.");
                             return;
                         } else {
-                            this.f37926a.f37905c.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) paras[0]).intValue()));
+                            this.f38116a.f38095c.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) paras[0]).intValue()));
                             return;
                         }
                     case 3:
-                        this.f37926a.f37905c.onADPresent();
+                        this.f38116a.f38095c.onADPresent();
                         return;
                     case 4:
-                        this.f37926a.f37905c.onADClicked();
+                        this.f38116a.f38095c.onADClicked();
                         return;
                     case 5:
                         if (paras.length == 1 && (paras[0] instanceof Long)) {
-                            this.f37926a.f37905c.onADTick(((Long) paras[0]).longValue());
+                            this.f38116a.f38095c.onADTick(((Long) paras[0]).longValue());
                             return;
                         } else {
                             GDTLogger.e("Splash onADTick event get param error.");
                             return;
                         }
                     case 6:
-                        this.f37926a.f37905c.onADExposure();
+                        this.f38116a.f38095c.onADExposure();
                         return;
                     case 7:
                         if (paras.length == 1 && (paras[0] instanceof Long)) {
-                            this.f37926a.f37905c.onADLoaded(((Long) paras[0]).longValue());
+                            this.f38116a.f38095c.onADLoaded(((Long) paras[0]).longValue());
                             return;
                         } else {
                             GDTLogger.e("Splash onADLoaded event get param error.");
                             return;
                         }
                     case 8:
-                        if (this.f37926a.f37905c instanceof SplashADZoomOutListener) {
-                            ((SplashADZoomOutListener) this.f37926a.f37905c).onZoomOut();
+                        if (this.f38116a.f38095c instanceof SplashADZoomOutListener) {
+                            ((SplashADZoomOutListener) this.f38116a.f38095c).onZoomOut();
                             return;
                         }
                         return;
                     case 9:
-                        if (this.f37926a.f37905c instanceof SplashADZoomOutListener) {
-                            ((SplashADZoomOutListener) this.f37926a.f37905c).onZoomOutPlayFinish();
+                        if (this.f38116a.f38095c instanceof SplashADZoomOutListener) {
+                            ((SplashADZoomOutListener) this.f38116a.f38095c).onZoomOutPlayFinish();
                             return;
                         }
                         return;
@@ -170,6 +170,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Deprecated
     public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i2) {
         this(context, view, str, splashADListener, i2, (View) null);
         Interceptable interceptable = $ic;
@@ -191,6 +192,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Deprecated
     public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i2, View view2) {
         this(context, view, str, splashADListener, i2, (Map) null, view2);
         Interceptable interceptable = $ic;
@@ -211,6 +213,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
         }
     }
 
+    @Deprecated
     public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i2, Map map, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -226,7 +229,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
                 return;
             }
         }
-        this.f37907e = false;
+        this.f38097e = false;
         if (GDTADManager.getInstance().isInitialized()) {
             a(context, view, GDTADManager.getInstance().getAppStatus().getAPPID(), str, splashADListener, i2, map, view2);
             return;
@@ -295,7 +298,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
                 return;
             }
         }
-        this.f37907e = false;
+        this.f38097e = false;
         GDTLogger.w("此构造方法即将废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo");
         a(context, view, str, str2, splashADListener, i2, map, view2);
     }
@@ -343,6 +346,48 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public SplashAD(Context context, String str, SplashADListener splashADListener, int i2, View view) {
+        this(context, (View) null, str, splashADListener, i2, (Map) null, view);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i2), view};
+            interceptable.invokeUnInit(65544, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue(), (Map) objArr2[5], (View) objArr2[6]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65544, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public SplashAD(Context context, String str, SplashADListener splashADListener, int i2, Map map, View view) {
+        this(context, (View) null, str, splashADListener, i2, map, view);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i2), map, view};
+            interceptable.invokeUnInit(65545, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue(), (Map) objArr2[5], (View) objArr2[6]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65545, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
     public SplashAD(Context context, String str, String str2, SplashADListener splashADListener) {
         this(context, str, str2, splashADListener, 0);
@@ -351,14 +396,14 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, splashADListener};
-            interceptable.invokeUnInit(65544, newInitContext);
+            interceptable.invokeUnInit(65546, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65544, newInitContext);
+                interceptable.invokeInitBody(65546, newInitContext);
                 return;
             }
         }
@@ -373,14 +418,14 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, splashADListener, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65545, newInitContext);
+            interceptable.invokeUnInit(65547, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (String) objArr2[3], (SplashADListener) objArr2[4], ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65545, newInitContext);
+                interceptable.invokeInitBody(65547, newInitContext);
                 return;
             }
         }
@@ -388,8 +433,8 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
 
     private void a(Context context, View view, String str, String str2, SplashADListener splashADListener, int i2, Map map, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{context, view, str, str2, splashADListener, Integer.valueOf(i2), map, view2}) == null) {
-            this.f37905c = splashADListener;
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{context, view, str, str2, splashADListener, Integer.valueOf(i2), map, view2}) == null) {
+            this.f38095c = splashADListener;
             if (StringUtil.isEmpty(str) || StringUtil.isEmpty(str2) || context == null) {
                 GDTLogger.e(String.format("SplashAD Constructor params error, appid=%s,posId=%s,context=%s", str, str2, context));
                 a(splashADListener, 2001);
@@ -399,31 +444,31 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f37912a;
+                    public final /* synthetic */ Context f38102a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f37913b;
+                    public final /* synthetic */ String f38103b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f37914c;
+                    public final /* synthetic */ String f38104c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ Map f37915d;
+                    public final /* synthetic */ Map f38105d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ int f37916e;
+                    public final /* synthetic */ int f38106e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ View f37917f;
+                    public final /* synthetic */ View f38107f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ View f37918g;
+                    public final /* synthetic */ View f38108g;
 
                     /* renamed from: h  reason: collision with root package name */
-                    public final /* synthetic */ SplashADListener f37919h;
+                    public final /* synthetic */ SplashADListener f38109h;
 
                     /* renamed from: i  reason: collision with root package name */
-                    public final /* synthetic */ SplashAD f37920i;
+                    public final /* synthetic */ SplashAD f38110i;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -440,31 +485,31 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
                                 return;
                             }
                         }
-                        this.f37920i = this;
-                        this.f37912a = context;
-                        this.f37913b = str;
-                        this.f37914c = str2;
-                        this.f37915d = map;
-                        this.f37916e = i2;
-                        this.f37917f = view;
-                        this.f37918g = view2;
-                        this.f37919h = splashADListener;
+                        this.f38110i = this;
+                        this.f38102a = context;
+                        this.f38103b = str;
+                        this.f38104c = str2;
+                        this.f38105d = map;
+                        this.f38106e = i2;
+                        this.f38107f = view;
+                        this.f38108g = view2;
+                        this.f38109h = splashADListener;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && GDTADManager.getInstance().initWith(this.f37912a, this.f37913b)) {
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && GDTADManager.getInstance().initWith(this.f38102a, this.f38103b)) {
                             try {
                                 new Handler(Looper.getMainLooper()).post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.splash.SplashAD.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public /* synthetic */ POFactory f37921a;
+                                    public /* synthetic */ POFactory f38111a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public /* synthetic */ AnonymousClass1 f37922b;
+                                    public /* synthetic */ AnonymousClass1 f38112b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -481,8 +526,8 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
                                                 return;
                                             }
                                         }
-                                        this.f37922b = this;
-                                        this.f37921a = r7;
+                                        this.f38112b = this;
+                                        this.f38111a = r7;
                                     }
 
                                     @Override // java.lang.Runnable
@@ -490,67 +535,67 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                             try {
-                                                if (this.f37921a == null) {
+                                                if (this.f38111a == null) {
                                                     GDTLogger.e("factory return null");
-                                                    this.f37922b.f37920i.a(this.f37922b.f37919h, (int) ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
+                                                    this.f38112b.f38110i.a(this.f38112b.f38109h, (int) ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
                                                     return;
                                                 }
-                                                this.f37922b.f37920i.f37903a = this.f37921a.getNativeSplashAdView(this.f37922b.f37912a, this.f37922b.f37913b, this.f37922b.f37914c);
-                                                if (this.f37922b.f37920i.f37903a == null) {
+                                                this.f38112b.f38110i.f38093a = this.f38111a.getNativeSplashAdView(this.f38112b.f38102a, this.f38112b.f38103b, this.f38112b.f38104c);
+                                                if (this.f38112b.f38110i.f38093a == null) {
                                                     GDTLogger.e("SplashAdView created by factory return null");
-                                                    this.f37922b.f37920i.a(this.f37922b.f37919h, (int) ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
+                                                    this.f38112b.f38110i.a(this.f38112b.f38109h, (int) ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
                                                     return;
                                                 }
-                                                if (this.f37922b.f37920i.f37906d != null) {
-                                                    this.f37922b.f37920i.f37903a.setLoadAdParams(this.f37922b.f37920i.f37906d);
+                                                if (this.f38112b.f38110i.f38096d != null) {
+                                                    this.f38112b.f38110i.f38093a.setLoadAdParams(this.f38112b.f38110i.f38096d);
                                                 }
-                                                if (this.f37922b.f37920i.f37910h != 0) {
-                                                    this.f37922b.f37920i.f37903a.setDeveloperLogo(this.f37922b.f37920i.f37910h);
+                                                if (this.f38112b.f38110i.f38100h != 0) {
+                                                    this.f38112b.f38110i.f38093a.setDeveloperLogo(this.f38112b.f38110i.f38100h);
                                                 }
-                                                if (this.f37922b.f37920i.f37911i != null) {
-                                                    this.f37922b.f37920i.f37903a.setDeveloperLogo(this.f37922b.f37920i.f37911i);
+                                                if (this.f38112b.f38110i.f38101i != null) {
+                                                    this.f38112b.f38110i.f38093a.setDeveloperLogo(this.f38112b.f38110i.f38101i);
                                                 }
-                                                SplashAD.a(this.f37922b.f37920i, this.f37922b.f37915d, this.f37922b.f37914c);
-                                                this.f37922b.f37920i.f37903a.setFetchDelay(this.f37922b.f37916e);
-                                                this.f37922b.f37920i.f37903a.setAdListener(new ADListenerAdapter(this.f37922b.f37920i, (byte) 0));
-                                                this.f37922b.f37920i.f37903a.setSkipView(this.f37922b.f37917f);
-                                                this.f37922b.f37920i.f37903a.setFloatView(this.f37922b.f37918g);
-                                                if ((this.f37922b.f37919h instanceof SplashADZoomOutListener) && ((SplashADZoomOutListener) this.f37922b.f37919h).isSupportZoomOut()) {
-                                                    this.f37922b.f37920i.f37903a.setSupportZoomOut(true);
+                                                SplashAD.a(this.f38112b.f38110i, this.f38112b.f38105d, this.f38112b.f38104c);
+                                                this.f38112b.f38110i.f38093a.setFetchDelay(this.f38112b.f38106e);
+                                                this.f38112b.f38110i.f38093a.setAdListener(new ADListenerAdapter(this.f38112b.f38110i, (byte) 0));
+                                                this.f38112b.f38110i.f38093a.setSkipView(this.f38112b.f38107f);
+                                                this.f38112b.f38110i.f38093a.setFloatView(this.f38112b.f38108g);
+                                                if ((this.f38112b.f38109h instanceof SplashADZoomOutListener) && ((SplashADZoomOutListener) this.f38112b.f38109h).isSupportZoomOut()) {
+                                                    this.f38112b.f38110i.f38093a.setSupportZoomOut(true);
                                                 }
-                                                if (this.f37922b.f37920i.f37904b != null) {
-                                                    if (this.f37922b.f37920i.f37909g) {
-                                                        this.f37922b.f37920i.fetchFullScreenAndShowIn(this.f37922b.f37920i.f37904b);
+                                                if (this.f38112b.f38110i.f38094b != null) {
+                                                    if (this.f38112b.f38110i.f38099g) {
+                                                        this.f38112b.f38110i.fetchFullScreenAndShowIn(this.f38112b.f38110i.f38094b);
                                                     } else {
-                                                        this.f37922b.f37920i.fetchAndShowIn(this.f37922b.f37920i.f37904b);
+                                                        this.f38112b.f38110i.fetchAndShowIn(this.f38112b.f38110i.f38094b);
                                                     }
                                                 }
-                                                if (this.f37922b.f37920i.f37907e) {
-                                                    this.f37922b.f37920i.f37903a.preload();
-                                                    this.f37922b.f37920i.f37907e = false;
+                                                if (this.f38112b.f38110i.f38097e) {
+                                                    this.f38112b.f38110i.f38093a.preload();
+                                                    this.f38112b.f38110i.f38097e = false;
                                                 }
-                                                if (this.f37922b.f37920i.f37908f) {
-                                                    if (this.f37922b.f37920i.f37909g) {
-                                                        this.f37922b.f37920i.f37903a.fetchFullScreenAdOnly();
+                                                if (this.f38112b.f38110i.f38098f) {
+                                                    if (this.f38112b.f38110i.f38099g) {
+                                                        this.f38112b.f38110i.f38093a.fetchFullScreenAdOnly();
                                                     } else {
-                                                        this.f37922b.f37920i.f37903a.fetchAdOnly();
+                                                        this.f38112b.f38110i.f38093a.fetchAdOnly();
                                                     }
-                                                    this.f37922b.f37920i.f37908f = false;
+                                                    this.f38112b.f38110i.f38098f = false;
                                                 }
                                             } catch (Throwable th) {
                                                 GDTLogger.e("Unknown Exception", th);
-                                                AnonymousClass1 anonymousClass1 = this.f37922b;
-                                                anonymousClass1.f37920i.a(anonymousClass1.f37919h, 6000);
+                                                AnonymousClass1 anonymousClass1 = this.f38112b;
+                                                anonymousClass1.f38110i.a(anonymousClass1.f38109h, 6000);
                                             }
                                         }
                                     }
                                 });
                             } catch (c e2) {
                                 GDTLogger.e("Fail to init splash plugin", e2);
-                                this.f37920i.a(this.f37919h, 200102);
+                                this.f38110i.a(this.f38109h, 200102);
                             } catch (Throwable th) {
                                 GDTLogger.e("Unknown Exception", th);
-                                this.f37920i.a(this.f37919h, 6000);
+                                this.f38110i.a(this.f38109h, 6000);
                             }
                         }
                     }
@@ -564,17 +609,17 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
 
     private void a(ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65549, this, viewGroup, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65551, this, viewGroup, z) == null) {
             if (viewGroup == null) {
                 GDTLogger.e("SplashAD fetchFullScreenAndShowIn params null ");
-                a(this.f37905c, 2001);
-            } else if (this.f37903a == null) {
-                this.f37909g = z;
-                this.f37904b = viewGroup;
+                a(this.f38095c, 2001);
+            } else if (this.f38093a == null) {
+                this.f38099g = z;
+                this.f38094b = viewGroup;
             } else if (z) {
-                this.f37903a.fetchFullScreenAndShowIn(viewGroup);
+                this.f38093a.fetchFullScreenAndShowIn(viewGroup);
             } else {
-                this.f37903a.fetchAndShowIn(viewGroup);
+                this.f38093a.fetchAndShowIn(viewGroup);
             }
         }
     }
@@ -594,7 +639,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     /* JADX INFO: Access modifiers changed from: private */
     public void a(SplashADListener splashADListener, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65552, this, splashADListener, i2) == null) || splashADListener == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65554, this, splashADListener, i2) == null) || splashADListener == null) {
             return;
         }
         new Handler(Looper.getMainLooper()).post(new Runnable(this, splashADListener, i2) { // from class: com.qq.e.ads.splash.SplashAD.2
@@ -602,13 +647,13 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public /* synthetic */ SplashADListener f37923a;
+            public /* synthetic */ SplashADListener f38113a;
 
             /* renamed from: b  reason: collision with root package name */
-            public /* synthetic */ int f37924b;
+            public /* synthetic */ int f38114b;
 
             /* renamed from: c  reason: collision with root package name */
-            public /* synthetic */ SplashAD f37925c;
+            public /* synthetic */ SplashAD f38115c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -625,16 +670,16 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
                         return;
                     }
                 }
-                this.f37925c = this;
-                this.f37923a = splashADListener;
-                this.f37924b = i2;
+                this.f38115c = this;
+                this.f38113a = splashADListener;
+                this.f38114b = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f37923a.onNoAD(AdErrorConvertor.formatErrorCode(this.f37924b));
+                    this.f38113a.onNoAD(AdErrorConvertor.formatErrorCode(this.f38114b));
                 }
             }
         });
@@ -642,30 +687,30 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
 
     private void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65553, this, z) == null) {
-            if (this.f37903a == null) {
-                this.f37909g = z;
-                this.f37908f = true;
+        if (interceptable == null || interceptable.invokeZ(65555, this, z) == null) {
+            if (this.f38093a == null) {
+                this.f38099g = z;
+                this.f38098f = true;
             } else if (z) {
-                this.f37903a.fetchFullScreenAdOnly();
+                this.f38093a.fetchFullScreenAdOnly();
             } else {
-                this.f37903a.fetchAdOnly();
+                this.f38093a.fetchAdOnly();
             }
         }
     }
 
     private void b(ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65556, this, viewGroup, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65558, this, viewGroup, z) == null) {
             if (viewGroup == null) {
                 GDTLogger.e("Splash Ad show container is null");
-                a(this.f37905c, 2001);
-            } else if (this.f37903a == null) {
-                this.f37904b = viewGroup;
+                a(this.f38095c, 2001);
+            } else if (this.f38093a == null) {
+                this.f38094b = viewGroup;
             } else if (z) {
-                this.f37903a.showFullScreenAd(viewGroup);
+                this.f38093a.showFullScreenAd(viewGroup);
             } else {
-                this.f37903a.showAd(viewGroup);
+                this.f38093a.showAd(viewGroup);
             }
         }
     }
@@ -702,8 +747,8 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f37903a != null) {
-                return this.f37903a.getAdNetWorkName();
+            if (this.f38093a != null) {
+                return this.f38093a.getAdNetWorkName();
             }
             GDTLogger.e("The ad does not support \"getAdNetWorkName\" or you should call this method after \"onAdPresent\"");
             return null;
@@ -716,20 +761,33 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f37903a != null) {
-                return this.f37903a.getApkInfoUrl();
+            if (this.f38093a != null) {
+                return this.f38093a.getApkInfoUrl();
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String getECPMLevel() {
+    public final int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f37903a != null) {
-                return this.f37903a.getECPMLevel();
+            if (this.f38093a != null) {
+                return this.f38093a.getECPM();
+            }
+            GDTLogger.e("The ad does not support \"getECPM\" or you should call this method after \"onAdPresent\"");
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String getECPMLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.f38093a != null) {
+                return this.f38093a.getECPMLevel();
             }
             GDTLogger.e("The ad does not support \"getECPMLevel\" or you should call this method after \"onAdPresent\"");
             return null;
@@ -740,7 +798,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     public final Map getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             try {
                 return NSPVI.ext;
             } catch (Exception e2) {
@@ -755,9 +813,9 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     public final Bitmap getZoomOutBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f37903a != null) {
-                return this.f37903a.getZoomOutBitmap();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.f38093a != null) {
+                return this.f38093a.getZoomOutBitmap();
             }
             return null;
         }
@@ -768,7 +826,7 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     public final void onDownloadConfirm(Activity activity, int i2, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
         DownloadConfirmListener downloadConfirmListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048585, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048586, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.j) == null) {
             return;
         }
         downloadConfirmListener.onDownloadConfirm(activity, i2, str, downloadConfirmCallBack);
@@ -776,11 +834,11 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
 
     public final void preLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.f37903a != null) {
-                this.f37903a.preload();
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            if (this.f38093a != null) {
+                this.f38093a.preload();
             } else {
-                this.f37907e = true;
+                this.f38097e = true;
             }
         }
     }
@@ -788,28 +846,28 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     @Deprecated
     public final void setAdLogoMargin(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
         }
     }
 
     public final void setDeveloperLogo(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            if (this.f37903a == null) {
-                this.f37910h = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            if (this.f38093a == null) {
+                this.f38100h = i2;
             } else {
-                this.f37903a.setDeveloperLogo(i2);
+                this.f38093a.setDeveloperLogo(i2);
             }
         }
     }
 
     public final void setDeveloperLogo(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bArr) == null) {
-            if (this.f37903a == null) {
-                this.f37911i = bArr;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bArr) == null) {
+            if (this.f38093a == null) {
+                this.f38101i = bArr;
             } else {
-                this.f37903a.setDeveloperLogo(bArr);
+                this.f38093a.setDeveloperLogo(bArr);
             }
         }
     }
@@ -817,21 +875,21 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public final void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, downloadConfirmListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, downloadConfirmListener) == null) {
             this.j = downloadConfirmListener;
-            if (this.f37903a != null) {
-                this.f37903a.setDownloadConfirmListener(this);
+            if (this.f38093a != null) {
+                this.f38093a.setDownloadConfirmListener(this);
             }
         }
     }
 
     public final void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, loadAdParams) == null) {
-            if (this.f37903a != null) {
-                this.f37903a.setLoadAdParams(loadAdParams);
+        if (interceptable == null || interceptable.invokeL(1048592, this, loadAdParams) == null) {
+            if (this.f38093a != null) {
+                this.f38093a.setLoadAdParams(loadAdParams);
             } else {
-                this.f37906d = loadAdParams;
+                this.f38096d = loadAdParams;
             }
         }
     }
@@ -839,29 +897,29 @@ public final class SplashAD implements ApkDownloadComplianceInterface, DownloadC
     @Deprecated
     public final void setPreloadView(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, view) == null) {
         }
     }
 
     public final void showAd(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, viewGroup) == null) {
             b(viewGroup, false);
         }
     }
 
     public final void showFullScreenAd(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, viewGroup) == null) {
             b(viewGroup, true);
         }
     }
 
     public final void zoomOutAnimationFinish() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.f37903a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f38093a == null) {
             return;
         }
-        this.f37903a.zoomOutAnimationFinish();
+        this.f38093a.zoomOutAnimationFinish();
     }
 }

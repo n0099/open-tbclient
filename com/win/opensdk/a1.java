@@ -4,21 +4,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.top.PProvider;
+import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class a1 implements Runnable {
+public class a1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PProvider f39532a;
+    public String f39726a;
 
-    public a1(PProvider pProvider) {
+    /* renamed from: b  reason: collision with root package name */
+    public Info f39727b;
+
+    public a1(Info info) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pProvider};
+            Object[] objArr = {info};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,20 +31,9 @@ public class a1 implements Runnable {
                 return;
             }
         }
-        this.f39532a = pProvider;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PProvider pProvider = this.f39532a;
-            pProvider.f39664a = pProvider.getContext();
-            PProvider pProvider2 = this.f39532a;
-            if (pProvider2.f39664a == null) {
-                return;
-            }
-            pProvider2.a();
+        this.f39727b = info;
+        if (info != null) {
+            this.f39726a = info.getPid();
         }
     }
 }

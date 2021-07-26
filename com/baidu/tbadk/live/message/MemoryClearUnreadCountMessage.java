@@ -16,10 +16,10 @@ public class MemoryClearUnreadCountMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13103a;
+        public String f13152a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13104b;
+        public int f13153b;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class MemoryClearUnreadCountMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f13103a = str;
-            this.f13104b = i2;
+            this.f13152a = str;
+            this.f13153b = i2;
         }
     }
 

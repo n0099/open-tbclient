@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.g0.b.g;
-import d.a.o0.g0.b.h;
+import d.a.p0.i0.b.g;
+import d.a.p0.i0.b.h;
 /* loaded from: classes3.dex */
 public class MvcNetMessage<T extends g, D extends h> extends NetMessage {
     public static /* synthetic */ Interceptable $ic;

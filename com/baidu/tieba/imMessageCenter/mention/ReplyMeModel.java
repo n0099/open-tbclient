@@ -16,28 +16,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
+import d.a.d.a.f;
 /* loaded from: classes4.dex */
 public class ReplyMeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f17910e;
+    public TbPageContext f17966e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f17911f;
+    public b f17967f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f17912g;
+    public d.a.d.c.g.a f17968g;
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.c.c.g.a {
+    public class a extends d.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ReplyMeModel f17913a;
+        public final /* synthetic */ ReplyMeModel f17969a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ReplyMeModel replyMeModel, int i2, int i3) {
@@ -58,12 +58,12 @@ public class ReplyMeModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f17913a = replyMeModel;
+            this.f17969a = replyMeModel;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:37:0x00d0  */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00e2  */
-        @Override // d.a.c.c.g.a
+        @Override // d.a.d.c.g.a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -81,12 +81,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.f17913a.f17910e.showToast(R.string.neterror);
+                this.f17969a.f17966e.showToast(R.string.neterror);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                    this.f17913a.f17910e.showToast(responsedMessage.getErrorString());
+                    this.f17969a.f17966e.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.f17913a.f17910e.showToast(R.string.neterror);
+                    this.f17969a.f17966e.showToast(R.string.neterror);
                 }
             } else {
                 if (z) {
@@ -111,16 +111,16 @@ public class ReplyMeModel extends BdBaseModel {
                         long j4 = repostId;
                         String str = forumName;
                         if (postState != 1) {
-                            if (this.f17913a.f17911f != null) {
-                                this.f17913a.f17911f.a(j2, j3, j4, str, j);
+                            if (this.f17969a.f17967f != null) {
+                                this.f17969a.f17967f.a(j2, j3, j4, str, j);
                                 return;
                             }
                             return;
                         } else if (postState == 0) {
-                            this.f17913a.f17910e.showToast(R.string.thread_delete_tip);
+                            this.f17969a.f17966e.showToast(R.string.thread_delete_tip);
                             return;
                         } else if (postState == -1) {
-                            this.f17913a.f17910e.showToast(R.string.thread_shield_tip);
+                            this.f17969a.f17966e.showToast(R.string.thread_shield_tip);
                             return;
                         } else {
                             return;
@@ -157,8 +157,8 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        d.a.p0.h3.d0.a.f(303010, CheckPostResponseMessage.class, false);
-        d.a.p0.h3.d0.a.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        d.a.q0.h3.d0.a.f(303010, CheckPostResponseMessage.class, false);
+        d.a.q0.h3.d0.a.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -179,14 +179,14 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f17910e = tbPageContext;
+        this.f17966e = tbPageContext;
         y();
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f17911f = bVar;
+            this.f17967f = bVar;
         }
     }
 
@@ -212,21 +212,21 @@ public class ReplyMeModel extends BdBaseModel {
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f17912g == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f17968g == null) {
             return;
         }
-        MessageManager.getInstance().unRegisterListener(this.f17912g);
+        MessageManager.getInstance().unRegisterListener(this.f17968g);
     }
 
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a aVar = new a(this, CmdConfigHttp.CMD_CHECK_POST, 303010);
-            this.f17912g = aVar;
-            aVar.setTag(this.f17910e.getUniqueId());
-            this.f17912g.getHttpMessageListener().setSelfListener(true);
-            this.f17912g.getSocketMessageListener().setSelfListener(true);
-            this.f17910e.registerListener(this.f17912g);
+            this.f17968g = aVar;
+            aVar.setTag(this.f17966e.getUniqueId());
+            this.f17968g.getHttpMessageListener().setSelfListener(true);
+            this.f17968g.getSocketMessageListener().setSelfListener(true);
+            this.f17966e.registerListener(this.f17968g);
         }
     }
 
@@ -237,8 +237,8 @@ public class ReplyMeModel extends BdBaseModel {
             checkPostRequestMessage.setPid(j);
             checkPostRequestMessage.setPostType(i2);
             checkPostRequestMessage.setForumName(str);
-            checkPostRequestMessage.setTid(d.a.c.e.m.b.f(str2, 0L));
-            checkPostRequestMessage.setTag(this.f17910e.getUniqueId());
+            checkPostRequestMessage.setTid(d.a.d.e.m.b.f(str2, 0L));
+            checkPostRequestMessage.setTag(this.f17966e.getUniqueId());
             if (baijiahaoData != null) {
                 checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;
                 checkPostRequestMessage.ori_ugc_tid = baijiahaoData.oriUgcTid;

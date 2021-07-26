@@ -19,20 +19,20 @@ public class m {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7921a = "m";
+    public static final String f7947a = "m";
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f7922e = true;
+    public static boolean f7948e = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f7923b;
+    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f7949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7924c;
+    public boolean f7950c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7925d;
+    public boolean f7951d;
 
     static {
         InterceptResult invokeClinit;
@@ -64,26 +64,26 @@ public class m {
                 return;
             }
         }
-        this.f7923b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
-        this.f7924c = true;
-        this.f7925d = true;
+        this.f7949b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
+        this.f7950c = true;
+        this.f7951d = true;
         a(fVar);
     }
 
     private void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, fVar) == null) {
-            this.f7923b.a("order_id", b(fVar));
-            this.f7923b.a("company", fVar.c());
-            this.f7923b.a("order_attr", fVar.b());
-            this.f7923b.a("status", String.valueOf(fVar.h()));
-            this.f7923b.a("pull_type", String.valueOf(fVar.i()));
-            this.f7923b.a("route_finger", fVar.d());
-            this.f7923b.a("traffic_finger", fVar.e());
-            this.f7923b.a("pos_num", String.valueOf(fVar.j()));
+            this.f7949b.a("order_id", b(fVar));
+            this.f7949b.a("company", fVar.c());
+            this.f7949b.a("order_attr", fVar.b());
+            this.f7949b.a("status", String.valueOf(fVar.h()));
+            this.f7949b.a("pull_type", String.valueOf(fVar.i()));
+            this.f7949b.a("route_finger", fVar.d());
+            this.f7949b.a("traffic_finger", fVar.e());
+            this.f7949b.a("pos_num", String.valueOf(fVar.j()));
             c(fVar);
             d(fVar);
-            if (this.f7924c) {
+            if (this.f7950c) {
                 b();
             }
         }
@@ -100,7 +100,7 @@ public class m {
             stringBuffer.append("-");
             stringBuffer.append("9sc87244121ip32590fq234mn6641tx7".toLowerCase());
             String a2 = com.baidu.mapsdkplatform.comapi.synchronization.d.c.a(stringBuffer.toString());
-            String str = f7921a;
+            String str = f7947a;
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(str, "The orderId = " + stringBuffer.toString() + "; result = " + a2);
             return a2;
         }
@@ -112,32 +112,32 @@ public class m {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             String authToken = SyncSysInfo.getAuthToken();
             if (authToken == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7921a, "Token is null, permission check again");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7947a, "Token is null, permission check again");
                 int permissionCheck = PermissionCheck.permissionCheck();
                 if (permissionCheck != 0) {
-                    String str = f7921a;
+                    String str = f7947a;
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "Permission check result is: " + permissionCheck);
                 }
                 authToken = SyncSysInfo.getAuthToken();
             }
-            this.f7923b.a("token", authToken);
+            this.f7949b.a("token", authToken);
         }
     }
 
     private String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? f7922e ? com.baidu.mapsdkplatform.comapi.synchronization.c.f.a() : com.baidu.mapsdkplatform.comapi.synchronization.c.f.b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? f7948e ? com.baidu.mapsdkplatform.comapi.synchronization.c.f.a() : com.baidu.mapsdkplatform.comapi.synchronization.c.f.b() : (String) invokeV.objValue;
     }
 
     private void c(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, fVar) == null) {
             f.b g2 = fVar.g();
-            if (f.b.f7904a != g2 && f.b.f7905b == g2) {
-                this.f7923b.a("trip_mode", "riding");
+            if (f.b.f7930a != g2 && f.b.f7931b == g2) {
+                this.f7949b.a("trip_mode", "riding");
             } else {
-                this.f7923b.a("trip_mode", "driving");
+                this.f7949b.a("trip_mode", "driving");
             }
         }
     }
@@ -148,21 +148,21 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, fVar) == null) {
             f.a f2 = fVar.f();
-            if (f.a.f7901c != f2) {
-                if (f.a.f7902d == f2) {
-                    dVar = this.f7923b;
+            if (f.a.f7927c != f2) {
+                if (f.a.f7928d == f2) {
+                    dVar = this.f7949b;
                     str = CoordinateType.BD09MC;
-                } else if (f.a.f7899a == f2) {
-                    dVar = this.f7923b;
+                } else if (f.a.f7925a == f2) {
+                    dVar = this.f7949b;
                     str = CoordinateType.WGS84;
-                } else if (f.a.f7900b == f2) {
-                    dVar = this.f7923b;
+                } else if (f.a.f7926b == f2) {
+                    dVar = this.f7949b;
                     str = "gcj02";
                 }
                 dVar.a("coord_type", str);
                 return;
             }
-            this.f7923b.a("coord_type", "bd09ll");
+            this.f7949b.a("coord_type", "bd09ll");
         }
     }
 
@@ -170,9 +170,9 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuffer stringBuffer = new StringBuffer(this.f7923b.a());
+            StringBuffer stringBuffer = new StringBuffer(this.f7949b.a());
             stringBuffer.append(SyncSysInfo.getPhoneInfo());
-            if (this.f7925d) {
+            if (this.f7951d) {
                 String signMD5String = AppMD5.getSignMD5String(stringBuffer.toString());
                 stringBuffer.append("&sign=");
                 stringBuffer.append(signMD5String);

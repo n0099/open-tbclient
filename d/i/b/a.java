@@ -15,17 +15,17 @@ public class a {
 
     /* renamed from: d.i.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C2007a {
+    public static class C2006a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static Object f70986a;
+        public static Object f71440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static Class<?> f70987b;
+        public static Class<?> f71441b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static Method f70988c;
+        public static Method f71442c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,12 +43,12 @@ public class a {
             }
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                f70987b = cls;
-                f70986a = cls.newInstance();
-                f70987b.getMethod("getUDID", Context.class);
-                f70988c = f70987b.getMethod("getOAID", Context.class);
-                f70987b.getMethod("getVAID", Context.class);
-                f70987b.getMethod("getAAID", Context.class);
+                f71441b = cls;
+                f71440a = cls.newInstance();
+                f71441b.getMethod("getUDID", Context.class);
+                f71442c = f71441b.getMethod("getOAID", Context.class);
+                f71441b.getMethod("getVAID", Context.class);
+                f71441b.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
@@ -57,14 +57,14 @@ public class a {
         public static String a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, f70988c) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, f71442c) : (String) invokeL.objValue;
         }
 
         public static String b(Context context, Method method) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-                Object obj = f70986a;
+                Object obj = f71440a;
                 if (obj == null || method == null) {
                     return null;
                 }
@@ -85,19 +85,19 @@ public class a {
         public static boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f70987b == null || f70986a == null) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f71441b == null || f71440a == null) ? false : true : invokeV.booleanValue;
         }
     }
 
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? C2007a.a(context.getApplicationContext()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? C2006a.a(context.getApplicationContext()) : (String) invokeL.objValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2007a.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2006a.c() : invokeV.booleanValue;
     }
 }

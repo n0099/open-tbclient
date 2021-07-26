@@ -12,8 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
-import com.bytedance.sdk.openadsdk.r.q;
 /* loaded from: classes5.dex */
 public class FullRewardExpressBackupView extends BackupView {
     public static /* synthetic */ Interceptable $ic;
@@ -40,25 +38,25 @@ public class FullRewardExpressBackupView extends BackupView {
                 return;
             }
         }
-        this.f30379a = context;
+        this.f30478a = context;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f30384f = q.d(this.f30379a, this.m.getExpectExpressWidth());
-            this.f30385g = q.d(this.f30379a, this.m.getExpectExpressWidth());
+            this.f30483f = com.bytedance.sdk.openadsdk.q.s.d(this.f30478a, this.m.getExpectExpressWidth());
+            this.f30484g = com.bytedance.sdk.openadsdk.q.s.d(this.f30478a, this.m.getExpectExpressWidth());
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(this.f30384f, this.f30385g);
+                layoutParams = new ViewGroup.LayoutParams(this.f30483f, this.f30484g);
             }
-            layoutParams.width = this.f30384f;
-            layoutParams.height = this.f30385g;
+            layoutParams.width = this.f30483f;
+            layoutParams.height = this.f30484g;
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
             }
             setLayoutParams(layoutParams);
-            this.f30380b.k();
+            this.f30479b.k();
             c();
         }
     }
@@ -66,9 +64,9 @@ public class FullRewardExpressBackupView extends BackupView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_backup_full_reward"), (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.f30478a).inflate(com.bytedance.sdk.component.utils.t.f(this.f30478a, "tt_backup_full_reward"), (ViewGroup) this, true);
             this.l = inflate;
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(r.e(this.f30379a, "tt_bu_video_container"));
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(com.bytedance.sdk.component.utils.t.e(this.f30478a, "tt_bu_video_container"));
             this.n = frameLayout;
             frameLayout.removeAllViews();
         }
@@ -77,14 +75,14 @@ public class FullRewardExpressBackupView extends BackupView {
     public void a(com.bytedance.sdk.openadsdk.core.e.m mVar, NativeExpressView nativeExpressView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, nativeExpressView) == null) {
-            com.bytedance.sdk.component.utils.j.b("FullRewardExpressBackupView", "show backup view");
+            com.bytedance.sdk.component.utils.k.b("FullRewardExpressBackupView", "show backup view");
             setBackgroundColor(-1);
-            this.f30380b = mVar;
+            this.f30479b = mVar;
             this.m = nativeExpressView;
-            if (com.bytedance.sdk.openadsdk.r.o.c(mVar.ao()) == 7) {
-                this.f30383e = "rewarded_video";
+            if (com.bytedance.sdk.openadsdk.q.q.c(mVar.ao()) == 7) {
+                this.f30482e = "rewarded_video";
             } else {
-                this.f30383e = "fullscreen_interstitial_ad";
+                this.f30482e = "fullscreen_interstitial_ad";
             }
             b();
             this.m.addView(this, new ViewGroup.LayoutParams(-2, -2));

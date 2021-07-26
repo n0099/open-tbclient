@@ -15,28 +15,28 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SQLiteDatabase f71720a;
+    public final SQLiteDatabase f72174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f71721b;
+    public final String f72175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String[] f71722c;
+    public final String[] f72176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String[] f71723d;
+    public final String[] f72177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SQLiteStatement f71724e;
+    public SQLiteStatement f72178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SQLiteStatement f71725f;
+    public SQLiteStatement f72179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SQLiteStatement f71726g;
+    public SQLiteStatement f72180g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SQLiteStatement f71727h;
+    public SQLiteStatement f72181h;
 
     public c(SQLiteDatabase sQLiteDatabase, String str, String[] strArr, String[] strArr2) {
         Interceptable interceptable = $ic;
@@ -53,28 +53,28 @@ public class c {
                 return;
             }
         }
-        this.f71720a = sQLiteDatabase;
-        this.f71721b = str;
-        this.f71722c = strArr;
-        this.f71723d = strArr2;
+        this.f72174a = sQLiteDatabase;
+        this.f72175b = str;
+        this.f72176c = strArr;
+        this.f72177d = strArr2;
     }
 
     public SQLiteStatement a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f71724e == null) {
-                SQLiteStatement compileStatement = this.f71720a.compileStatement(g.a("INSERT INTO ", this.f71721b, this.f71722c));
+            if (this.f72178e == null) {
+                SQLiteStatement compileStatement = this.f72174a.compileStatement(g.a("INSERT INTO ", this.f72175b, this.f72176c));
                 synchronized (this) {
-                    if (this.f71724e == null) {
-                        this.f71724e = compileStatement;
+                    if (this.f72178e == null) {
+                        this.f72178e = compileStatement;
                     }
                 }
-                if (this.f71724e != compileStatement) {
+                if (this.f72178e != compileStatement) {
                     compileStatement.close();
                 }
             }
-            return this.f71724e;
+            return this.f72178e;
         }
         return (SQLiteStatement) invokeV.objValue;
     }
@@ -83,18 +83,18 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f71726g == null) {
-                SQLiteStatement compileStatement = this.f71720a.compileStatement(g.b(this.f71721b, this.f71723d));
+            if (this.f72180g == null) {
+                SQLiteStatement compileStatement = this.f72174a.compileStatement(g.b(this.f72175b, this.f72177d));
                 synchronized (this) {
-                    if (this.f71726g == null) {
-                        this.f71726g = compileStatement;
+                    if (this.f72180g == null) {
+                        this.f72180g = compileStatement;
                     }
                 }
-                if (this.f71726g != compileStatement) {
+                if (this.f72180g != compileStatement) {
                     compileStatement.close();
                 }
             }
-            return this.f71726g;
+            return this.f72180g;
         }
         return (SQLiteStatement) invokeV.objValue;
     }
@@ -103,18 +103,18 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f71725f == null) {
-                SQLiteStatement compileStatement = this.f71720a.compileStatement(g.c(this.f71721b, this.f71722c, this.f71723d));
+            if (this.f72179f == null) {
+                SQLiteStatement compileStatement = this.f72174a.compileStatement(g.c(this.f72175b, this.f72176c, this.f72177d));
                 synchronized (this) {
-                    if (this.f71725f == null) {
-                        this.f71725f = compileStatement;
+                    if (this.f72179f == null) {
+                        this.f72179f = compileStatement;
                     }
                 }
-                if (this.f71725f != compileStatement) {
+                if (this.f72179f != compileStatement) {
                     compileStatement.close();
                 }
             }
-            return this.f71725f;
+            return this.f72179f;
         }
         return (SQLiteStatement) invokeV.objValue;
     }
@@ -123,18 +123,18 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f71727h == null) {
-                SQLiteStatement compileStatement = this.f71720a.compileStatement(g.i(this.f71721b, this.f71722c, this.f71723d));
+            if (this.f72181h == null) {
+                SQLiteStatement compileStatement = this.f72174a.compileStatement(g.i(this.f72175b, this.f72176c, this.f72177d));
                 synchronized (this) {
-                    if (this.f71727h == null) {
-                        this.f71727h = compileStatement;
+                    if (this.f72181h == null) {
+                        this.f72181h = compileStatement;
                     }
                 }
-                if (this.f71727h != compileStatement) {
+                if (this.f72181h != compileStatement) {
                     compileStatement.close();
                 }
             }
-            return this.f71727h;
+            return this.f72181h;
         }
         return (SQLiteStatement) invokeV.objValue;
     }

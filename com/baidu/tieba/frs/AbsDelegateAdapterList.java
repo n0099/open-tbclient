@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.a;
+import d.a.d.k.e.a;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class AbsDelegateAdapterList extends LinkedList<a<?, ?>> {

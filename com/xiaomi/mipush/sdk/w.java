@@ -12,7 +12,7 @@ public class w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39822a;
+    public int f40094a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f98a;
@@ -30,7 +30,7 @@ public class w {
                 return;
             }
         }
-        this.f39822a = 0;
+        this.f40094a = 0;
         this.f98a = "";
     }
 

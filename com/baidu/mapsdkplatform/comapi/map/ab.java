@@ -20,31 +20,31 @@ public class ab {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f7661a;
+    public float f7687a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7662b;
+    public int f7688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7663c;
+    public int f7689c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f7664d;
+    public double f7690d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f7665e;
+    public double f7691e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7666f;
+    public int f7692f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7667g;
+    public int f7693g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f7668h;
+    public long f7694h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f7669i;
+    public long f7695i;
     public WinRound j;
     public a k;
     public boolean l;
@@ -62,31 +62,31 @@ public class ab {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f7670a;
+        public long f7696a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f7671b;
+        public long f7697b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f7672c;
+        public long f7698c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f7673d;
+        public long f7699d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Point f7674e;
+        public Point f7700e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Point f7675f;
+        public Point f7701f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Point f7676g;
+        public Point f7702g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Point f7677h;
+        public Point f7703h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ ab f7678i;
+        public final /* synthetic */ ab f7704i;
 
         public a(ab abVar) {
             Interceptable interceptable = $ic;
@@ -103,15 +103,15 @@ public class ab {
                     return;
                 }
             }
-            this.f7678i = abVar;
-            this.f7670a = 0L;
-            this.f7671b = 0L;
-            this.f7672c = 0L;
-            this.f7673d = 0L;
-            this.f7674e = new Point(0, 0);
-            this.f7675f = new Point(0, 0);
-            this.f7676g = new Point(0, 0);
-            this.f7677h = new Point(0, 0);
+            this.f7704i = abVar;
+            this.f7696a = 0L;
+            this.f7697b = 0L;
+            this.f7698c = 0L;
+            this.f7699d = 0L;
+            this.f7700e = new Point(0, 0);
+            this.f7701f = new Point(0, 0);
+            this.f7702g = new Point(0, 0);
+            this.f7703h = new Point(0, 0);
         }
     }
 
@@ -143,15 +143,15 @@ public class ab {
                 return;
             }
         }
-        this.f7661a = 12.0f;
-        this.f7662b = 0;
-        this.f7663c = 0;
-        this.f7664d = 1.2958162E7d;
-        this.f7665e = 4825907.0d;
-        this.f7668h = 0L;
-        this.f7669i = 0L;
-        this.f7666f = -1;
-        this.f7667g = -1;
+        this.f7687a = 12.0f;
+        this.f7688b = 0;
+        this.f7689c = 0;
+        this.f7690d = 1.2958162E7d;
+        this.f7691e = 4825907.0d;
+        this.f7694h = 0L;
+        this.f7695i = 0L;
+        this.f7692f = -1;
+        this.f7693g = -1;
         this.j = new WinRound();
         this.k = new a(this);
         this.l = false;
@@ -166,61 +166,61 @@ public class ab {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
-            float f2 = this.f7661a;
-            float f3 = eVar.f7709b;
+            float f2 = this.f7687a;
+            float f3 = eVar.f7735b;
             if (f2 < f3) {
-                this.f7661a = f3;
+                this.f7687a = f3;
             }
-            float f4 = this.f7661a;
-            float f5 = eVar.f7708a;
+            float f4 = this.f7687a;
+            float f5 = eVar.f7734a;
             if (f4 > f5) {
-                if (f4 == 1096.0f || e.f7707d == 26.0f) {
-                    this.f7661a = 26.0f;
-                    e.f7707d = 26.0f;
+                if (f4 == 1096.0f || e.f7733d == 26.0f) {
+                    this.f7687a = 26.0f;
+                    e.f7733d = 26.0f;
                 } else {
-                    this.f7661a = f5;
+                    this.f7687a = f5;
                 }
             }
             while (true) {
-                i2 = this.f7662b;
+                i2 = this.f7688b;
                 if (i2 >= 0) {
                     break;
                 }
-                this.f7662b = i2 + 360;
+                this.f7688b = i2 + 360;
             }
-            this.f7662b = i2 % 360;
-            if (this.f7663c > 0) {
-                this.f7663c = 0;
+            this.f7688b = i2 % 360;
+            if (this.f7689c > 0) {
+                this.f7689c = 0;
             }
-            if (this.f7663c < -45) {
-                this.f7663c = -45;
+            if (this.f7689c < -45) {
+                this.f7689c = -45;
             }
             Bundle bundle = new Bundle();
-            bundle.putDouble("level", this.f7661a);
-            bundle.putDouble("rotation", this.f7662b);
-            bundle.putDouble("overlooking", this.f7663c);
-            bundle.putDouble("centerptx", this.f7664d);
-            bundle.putDouble("centerpty", this.f7665e);
+            bundle.putDouble("level", this.f7687a);
+            bundle.putDouble("rotation", this.f7688b);
+            bundle.putDouble("overlooking", this.f7689c);
+            bundle.putDouble("centerptx", this.f7690d);
+            bundle.putDouble("centerpty", this.f7691e);
             bundle.putInt(CustomDialogData.POS_LEFT, this.j.left);
             bundle.putInt("right", this.j.right);
             bundle.putInt("top", this.j.top);
             bundle.putInt(TipsConfigItem.TipConfigData.BOTTOM, this.j.bottom);
-            int i6 = this.f7666f;
-            if (i6 >= 0 && (i3 = this.f7667g) >= 0 && i6 <= (i4 = (winRound = this.j).right) && i3 <= (i5 = winRound.bottom) && i4 > 0 && i5 > 0) {
+            int i6 = this.f7692f;
+            if (i6 >= 0 && (i3 = this.f7693g) >= 0 && i6 <= (i4 = (winRound = this.j).right) && i3 <= (i5 = winRound.bottom) && i4 > 0 && i5 > 0) {
                 long j = i6 - ((i4 - winRound.left) / 2);
-                this.f7668h = j;
-                this.f7669i = -(i3 - ((i5 - winRound.top) / 2));
+                this.f7694h = j;
+                this.f7695i = -(i3 - ((i5 - winRound.top) / 2));
                 bundle.putLong("xoffset", j);
-                bundle.putLong("yoffset", this.f7669i);
+                bundle.putLong("yoffset", this.f7695i);
             }
-            bundle.putInt("lbx", this.k.f7674e.x);
-            bundle.putInt("lby", this.k.f7674e.y);
-            bundle.putInt("ltx", this.k.f7675f.x);
-            bundle.putInt("lty", this.k.f7675f.y);
-            bundle.putInt("rtx", this.k.f7676g.x);
-            bundle.putInt("rty", this.k.f7676g.y);
-            bundle.putInt("rbx", this.k.f7677h.x);
-            bundle.putInt("rby", this.k.f7677h.y);
+            bundle.putInt("lbx", this.k.f7700e.x);
+            bundle.putInt("lby", this.k.f7700e.y);
+            bundle.putInt("ltx", this.k.f7701f.x);
+            bundle.putInt("lty", this.k.f7701f.y);
+            bundle.putInt("rtx", this.k.f7702g.x);
+            bundle.putInt("rty", this.k.f7702g.y);
+            bundle.putInt("rbx", this.k.f7703h.x);
+            bundle.putInt("rby", this.k.f7703h.y);
             bundle.putInt("bfpp", this.l ? 1 : 0);
             bundle.putInt("animation", 1);
             bundle.putInt("animatime", this.o);
@@ -238,52 +238,52 @@ public class ab {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.f7661a = (float) bundle.getDouble("level");
-            this.f7662b = (int) bundle.getDouble("rotation");
-            this.f7663c = (int) bundle.getDouble("overlooking");
-            this.f7664d = bundle.getDouble("centerptx");
-            this.f7665e = bundle.getDouble("centerpty");
+            this.f7687a = (float) bundle.getDouble("level");
+            this.f7688b = (int) bundle.getDouble("rotation");
+            this.f7689c = (int) bundle.getDouble("overlooking");
+            this.f7690d = bundle.getDouble("centerptx");
+            this.f7691e = bundle.getDouble("centerpty");
             this.j.left = bundle.getInt(CustomDialogData.POS_LEFT);
             this.j.right = bundle.getInt("right");
             this.j.top = bundle.getInt("top");
             this.j.bottom = bundle.getInt(TipsConfigItem.TipConfigData.BOTTOM);
-            this.f7668h = bundle.getLong("xoffset");
+            this.f7694h = bundle.getLong("xoffset");
             long j = bundle.getLong("yoffset");
-            this.f7669i = j;
+            this.f7695i = j;
             WinRound winRound = this.j;
             int i3 = winRound.right;
             if (i3 != 0 && (i2 = winRound.bottom) != 0) {
-                this.f7666f = ((int) this.f7668h) + ((i3 - winRound.left) / 2);
-                this.f7667g = ((int) (-j)) + ((i2 - winRound.top) / 2);
+                this.f7692f = ((int) this.f7694h) + ((i3 - winRound.left) / 2);
+                this.f7693g = ((int) (-j)) + ((i2 - winRound.top) / 2);
             }
-            this.k.f7670a = bundle.getLong("gleft");
-            this.k.f7671b = bundle.getLong("gright");
-            this.k.f7672c = bundle.getLong("gtop");
-            this.k.f7673d = bundle.getLong("gbottom");
+            this.k.f7696a = bundle.getLong("gleft");
+            this.k.f7697b = bundle.getLong("gright");
+            this.k.f7698c = bundle.getLong("gtop");
+            this.k.f7699d = bundle.getLong("gbottom");
             a aVar = this.k;
-            if (aVar.f7670a <= -20037508) {
-                aVar.f7670a = -20037508L;
+            if (aVar.f7696a <= -20037508) {
+                aVar.f7696a = -20037508L;
             }
             a aVar2 = this.k;
-            if (aVar2.f7671b >= 20037508) {
-                aVar2.f7671b = 20037508L;
+            if (aVar2.f7697b >= 20037508) {
+                aVar2.f7697b = 20037508L;
             }
             a aVar3 = this.k;
-            if (aVar3.f7672c >= 20037508) {
-                aVar3.f7672c = 20037508L;
+            if (aVar3.f7698c >= 20037508) {
+                aVar3.f7698c = 20037508L;
             }
             a aVar4 = this.k;
-            if (aVar4.f7673d <= -20037508) {
-                aVar4.f7673d = -20037508L;
+            if (aVar4.f7699d <= -20037508) {
+                aVar4.f7699d = -20037508L;
             }
-            this.k.f7674e.x = bundle.getInt("lbx");
-            this.k.f7674e.y = bundle.getInt("lby");
-            this.k.f7675f.x = bundle.getInt("ltx");
-            this.k.f7675f.y = bundle.getInt("lty");
-            this.k.f7676g.x = bundle.getInt("rtx");
-            this.k.f7676g.y = bundle.getInt("rty");
-            this.k.f7677h.x = bundle.getInt("rbx");
-            this.k.f7677h.y = bundle.getInt("rby");
+            this.k.f7700e.x = bundle.getInt("lbx");
+            this.k.f7700e.y = bundle.getInt("lby");
+            this.k.f7701f.x = bundle.getInt("ltx");
+            this.k.f7701f.y = bundle.getInt("lty");
+            this.k.f7702g.x = bundle.getInt("rtx");
+            this.k.f7702g.y = bundle.getInt("rty");
+            this.k.f7703h.x = bundle.getInt("rbx");
+            this.k.f7703h.y = bundle.getInt("rby");
             this.l = bundle.getInt("bfpp") == 1;
             this.m = bundle.getDouble("adapterzoomunit");
             this.n = bundle.getDouble("zoomunit");

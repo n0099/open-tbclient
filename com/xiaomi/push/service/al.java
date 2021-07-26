@@ -30,7 +30,7 @@ public class al {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static al f40586a;
+    public static al f40858a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -39,13 +39,13 @@ public class al {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ al f40587a;
+        public final /* synthetic */ al f40859a;
 
         /* renamed from: a  reason: collision with other field name */
         public List<b> f888a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<b> f40588b;
+        public List<b> f40860b;
 
         public a(al alVar) {
             Interceptable interceptable = $ic;
@@ -62,9 +62,9 @@ public class al {
                     return;
                 }
             }
-            this.f40587a = alVar;
+            this.f40859a = alVar;
             this.f888a = new ArrayList();
-            this.f40588b = new ArrayList();
+            this.f40860b = new ArrayList();
         }
 
         public /* synthetic */ a(al alVar, am amVar) {
@@ -78,7 +78,7 @@ public class al {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40589a;
+        public int f40861a;
 
         /* renamed from: a  reason: collision with other field name */
         public Notification f889a;
@@ -102,7 +102,7 @@ public class al {
                 }
             }
             this.f890a = alVar;
-            this.f40589a = i2;
+            this.f40861a = i2;
             this.f889a = notification;
         }
 
@@ -110,7 +110,7 @@ public class al {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "id:" + this.f40589a;
+                return "id:" + this.f40861a;
             }
             return (String) invokeV.objValue;
         }
@@ -129,7 +129,7 @@ public class al {
                 return;
             }
         }
-        f40586a = new al();
+        f40858a = new al();
     }
 
     public al() {
@@ -158,7 +158,7 @@ public class al {
     public static al a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f40586a : (al) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f40858a : (al) invokeV.objValue;
     }
 
     private String a(Notification notification) {
@@ -209,10 +209,10 @@ public class al {
                         if (!TextUtils.isEmpty(key)) {
                             a value = entry.getValue();
                             if (z && key.equals(b2) && !m587b(notification)) {
-                                (m586a(notification) ? value.f40588b : value.f888a).add(new b(this, i2, notification));
+                                (m586a(notification) ? value.f40860b : value.f888a).add(new b(this, i2, notification));
                             }
                             int size = value.f888a.size();
-                            if (value.f40588b.size() <= 0) {
+                            if (value.f40860b.size() <= 0) {
                                 if (z && size >= 2) {
                                     a(context, a2, key, value.f888a.get(0).f889a);
                                 }
@@ -285,7 +285,7 @@ public class al {
                 aVar = new a(this, null);
                 map.put(b2, aVar);
             }
-            (m586a(statusBarNotification.getNotification()) ? aVar.f40588b : aVar.f888a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
+            (m586a(statusBarNotification.getNotification()) ? aVar.f40860b : aVar.f888a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
         }
     }
 

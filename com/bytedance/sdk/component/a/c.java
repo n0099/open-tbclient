@@ -11,7 +11,7 @@ public abstract class c extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public w f27731a;
+    public x f27889a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -26,8 +26,8 @@ public abstract class c extends b {
                 return;
             }
         }
-        this.f27731a = super.b();
+        this.f27889a = super.b();
     }
 
-    public abstract void a(@NonNull p pVar, @NonNull s sVar) throws Exception;
+    public abstract void a(@NonNull q qVar, @NonNull t tVar) throws Exception;
 }

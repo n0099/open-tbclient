@@ -18,10 +18,10 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1644a;
+    public static final Pattern f1677a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f1645b;
+    public static final Pattern f1678b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -30,13 +30,13 @@ public final class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1646a;
+        public int f1679a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1647b;
+        public int f1680b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f1648c;
+        public int f1681c;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public final class k {
                     return;
                 }
             }
-            this.f1646a = i2;
-            this.f1647b = i3;
-            this.f1648c = i4;
+            this.f1679a = i2;
+            this.f1680b = i3;
+            this.f1681c = i4;
         }
     }
 
@@ -72,8 +72,8 @@ public final class k {
                 return;
             }
         }
-        f1644a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        f1645b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+        f1677a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
+        f1678b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
     }
 
     public static long a(String str) {
@@ -87,14 +87,14 @@ public final class k {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Matcher matcher = f1644a.matcher(str);
+            Matcher matcher = f1677a.matcher(str);
             if (matcher.find()) {
                 i2 = b(matcher.group(1));
                 c2 = c(matcher.group(2));
                 d2 = d(matcher.group(3));
                 aVar = e(matcher.group(4));
             } else {
-                Matcher matcher2 = f1645b.matcher(str);
+                Matcher matcher2 = f1678b.matcher(str);
                 if (!matcher2.find()) {
                     throw new IllegalArgumentException();
                 }
@@ -115,7 +115,7 @@ public final class k {
                 i5 = d2;
             }
             Time time = new Time("UTC");
-            time.set(aVar.f1648c, aVar.f1647b, aVar.f1646a, i3, i4, i5);
+            time.set(aVar.f1681c, aVar.f1680b, aVar.f1679a, i3, i4, i5);
             return time.toMillis(false);
         }
         return invokeL.longValue;

@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.g0.a.a;
-import d.a.g0.a.b.d;
-import d.a.p.b.b;
-import d.a.p0.c3.p;
+import d.a.h0.a.a;
+import d.a.h0.a.b.d;
+import d.a.q.b.b;
+import d.a.q0.c3.p;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -47,7 +47,7 @@ public class PerfSampleManager {
             }
         }
 
-        @Override // d.a.g0.a.a
+        @Override // d.a.h0.a.a
         public Object get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class PerfSampleManager {
     public void initmCallbackList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d.a.g0.a.b.b b2 = d.a.g0.a.b.b.b();
+            d.a.h0.a.b.b b2 = d.a.h0.a.b.b.b();
             this.mCallbackList = b2;
             b2.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
         }

@@ -1376,7 +1376,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, obj)) == null) ? AccessibilityBridge.a(AccessibilityBridge.SemanticsNode.this, (AccessibilityBridge.SemanticsNode) obj) : invokeL2.booleanValue;
             }
-        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f72297a)) : invokeL.booleanValue;
+        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f72751a)) : invokeL.booleanValue;
     }
 
     private void willRemoveSemanticsNode(SemanticsNode semanticsNode) {

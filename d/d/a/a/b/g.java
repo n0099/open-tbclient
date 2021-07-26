@@ -14,7 +14,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f69113a;
+    public HandlerThread f69567a;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -27,7 +27,7 @@ public class g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f69114a;
+        public static g f69568a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class g {
                     return;
                 }
             }
-            f69114a = new g(null);
+            f69568a = new g(null);
         }
     }
 
@@ -54,13 +54,13 @@ public class g {
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f69114a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f69568a : (g) invokeV.objValue;
     }
 
     public HandlerThread b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69113a : (HandlerThread) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69567a : (HandlerThread) invokeV.objValue;
     }
 
     public g() {
@@ -77,8 +77,8 @@ public class g {
             }
         }
         HandlerThread handlerThread = new HandlerThread("SensorCacheThread");
-        this.f69113a = handlerThread;
+        this.f69567a = handlerThread;
         handlerThread.start();
-        this.f69113a.setPriority(10);
+        this.f69567a.setPriority(10);
     }
 }

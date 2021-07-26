@@ -19,13 +19,13 @@ public class GDTAD {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f37715a;
+    public static boolean f37904a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static InitListener f37716b;
+    public static InitListener f37905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PM.a.InterfaceC0478a f37717c;
+    public static PM.a.InterfaceC0480a f37906c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -46,7 +46,7 @@ public class GDTAD {
                 return;
             }
         }
-        f37717c = new PM.a.InterfaceC0478a() { // from class: com.qq.e.ads.cfg.GDTAD.1
+        f37906c = new PM.a.InterfaceC0480a() { // from class: com.qq.e.ads.cfg.GDTAD.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +64,7 @@ public class GDTAD {
                 }
             }
 
-            @Override // com.qq.e.comm.managers.plugin.PM.a.InterfaceC0478a
+            @Override // com.qq.e.comm.managers.plugin.PM.a.InterfaceC0480a
             public final void onLoadFail() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -72,13 +72,13 @@ public class GDTAD {
                 }
             }
 
-            @Override // com.qq.e.comm.managers.plugin.PM.a.InterfaceC0478a
+            @Override // com.qq.e.comm.managers.plugin.PM.a.InterfaceC0480a
             public final void onLoadSuccess() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    boolean unused = GDTAD.f37715a = true;
-                    if (GDTAD.f37716b != null) {
-                        GDTAD.f37716b.onSuccess();
+                    boolean unused = GDTAD.f37904a = true;
+                    if (GDTAD.f37905b != null) {
+                        GDTAD.f37905b.onSuccess();
                     }
                 }
             }
@@ -102,16 +102,16 @@ public class GDTAD {
     public static void initSDK(Context context, String str, InitListener initListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, initListener) == null) {
-            if (f37715a) {
+            if (f37904a) {
                 GDTLogger.w("SDK已经被初始化过", null);
             } else if (context == null) {
                 GDTLogger.e("Context参数不能为null");
             } else if (StringUtil.isEmpty(str)) {
                 GDTLogger.e("AppId参数不能为空");
             } else {
-                f37716b = initListener;
+                f37905b = initListener;
                 GDTADManager gDTADManager = GDTADManager.getInstance();
-                gDTADManager.setPluginLoadListener(f37717c);
+                gDTADManager.setPluginLoadListener(f37906c);
                 gDTADManager.initWith(context.getApplicationContext(), str);
             }
         }

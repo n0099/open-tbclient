@@ -15,19 +15,19 @@ public class g implements Printer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f69159a;
+    public long f69613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f69160b;
+    public long f69614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f69161c;
+    public long f69615c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f69162d;
+    public b f69616d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f69163e;
+    public final boolean f69617e;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -35,19 +35,19 @@ public class g implements Printer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f69164e;
+        public final /* synthetic */ long f69618e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f69165f;
+        public final /* synthetic */ long f69619f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f69166g;
+        public final /* synthetic */ long f69620g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f69167h;
+        public final /* synthetic */ long f69621h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f69168i;
+        public final /* synthetic */ g f69622i;
 
         public a(g gVar, long j, long j2, long j3, long j4) {
             Interceptable interceptable = $ic;
@@ -64,18 +64,18 @@ public class g implements Printer {
                     return;
                 }
             }
-            this.f69168i = gVar;
-            this.f69164e = j;
-            this.f69165f = j2;
-            this.f69166g = j3;
-            this.f69167h = j4;
+            this.f69622i = gVar;
+            this.f69618e = j;
+            this.f69619f = j2;
+            this.f69620g = j3;
+            this.f69621h = j4;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f69168i.f69162d.a(this.f69164e, this.f69165f, this.f69166g, this.f69167h);
+                this.f69622i.f69616d.a(this.f69618e, this.f69619f, this.f69620g, this.f69621h);
             }
         }
     }
@@ -100,14 +100,14 @@ public class g implements Printer {
                 return;
             }
         }
-        this.f69159a = 3000L;
-        this.f69160b = 0L;
-        this.f69161c = 0L;
-        this.f69162d = null;
+        this.f69613a = 3000L;
+        this.f69614b = 0L;
+        this.f69615c = 0L;
+        this.f69616d = null;
         if (bVar != null) {
-            this.f69162d = bVar;
-            this.f69159a = j;
-            this.f69163e = z;
+            this.f69616d = bVar;
+            this.f69613a = j;
+            this.f69617e = z;
             return;
         }
         throw new IllegalArgumentException("blockListener should not be null.");
@@ -116,24 +116,24 @@ public class g implements Printer {
     public final boolean b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j - this.f69160b > this.f69159a : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j - this.f69614b > this.f69613a : invokeJ.booleanValue;
     }
 
     public final void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            e.b().post(new a(this, this.f69160b, j, this.f69161c, SystemClock.currentThreadTimeMillis()));
+            e.b().post(new a(this, this.f69614b, j, this.f69615c, SystemClock.currentThreadTimeMillis()));
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (c.f().f69148b != null) {
-                c.f().f69148b.c();
+            if (c.f().f69602b != null) {
+                c.f().f69602b.c();
             }
-            if (c.f().f69149c != null) {
-                c.f().f69149c.c();
+            if (c.f().f69603c != null) {
+                c.f().f69603c.c();
             }
         }
     }
@@ -141,11 +141,11 @@ public class g implements Printer {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.f().f69148b != null) {
-                c.f().f69148b.d();
+            if (c.f().f69602b != null) {
+                c.f().f69602b.d();
             }
-            if (c.f().f69149c != null) {
-                c.f().f69149c.d();
+            if (c.f().f69603c != null) {
+                c.f().f69603c.d();
             }
         }
     }
@@ -154,12 +154,12 @@ public class g implements Printer {
     public void println(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.f69163e && Debug.isDebuggerConnected()) {
+            if (this.f69617e && Debug.isDebuggerConnected()) {
                 return;
             }
             if (str.charAt(0) == '>') {
-                this.f69160b = System.currentTimeMillis();
-                this.f69161c = SystemClock.currentThreadTimeMillis();
+                this.f69614b = System.currentTimeMillis();
+                this.f69615c = SystemClock.currentThreadTimeMillis();
                 d();
                 return;
             }

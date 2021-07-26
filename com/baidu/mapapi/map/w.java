@@ -12,19 +12,19 @@ public class w implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f7199a;
+    public final /* synthetic */ int f7225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f7200b;
+    public final /* synthetic */ int f7226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f7201c;
+    public final /* synthetic */ int f7227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f7202d;
+    public final /* synthetic */ String f7228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TileOverlay f7203e;
+    public final /* synthetic */ TileOverlay f7229e;
 
     public w(TileOverlay tileOverlay, int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
@@ -41,11 +41,11 @@ public class w implements Runnable {
                 return;
             }
         }
-        this.f7203e = tileOverlay;
-        this.f7199a = i2;
-        this.f7200b = i3;
-        this.f7201c = i4;
-        this.f7202d = str;
+        this.f7229e = tileOverlay;
+        this.f7225a = i2;
+        this.f7226b = i3;
+        this.f7227c = i4;
+        this.f7228d = str;
     }
 
     @Override // java.lang.Runnable
@@ -56,22 +56,22 @@ public class w implements Runnable {
         HashSet hashSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tileProvider = this.f7203e.f7134g;
-            Tile tile = ((FileTileProvider) tileProvider).getTile(this.f7199a, this.f7200b, this.f7201c);
+            tileProvider = this.f7229e.f7160g;
+            Tile tile = ((FileTileProvider) tileProvider).getTile(this.f7225a, this.f7226b, this.f7227c);
             if (tile == null) {
-                str = TileOverlay.f7128b;
+                str = TileOverlay.f7154b;
                 str2 = "FileTile pic is null";
             } else if (tile.width == 256 && tile.height == 256) {
-                this.f7203e.a(this.f7199a + "_" + this.f7200b + "_" + this.f7201c, tile);
-                hashSet = this.f7203e.f7133e;
-                hashSet.remove(this.f7202d);
+                this.f7229e.a(this.f7225a + "_" + this.f7226b + "_" + this.f7227c, tile);
+                hashSet = this.f7229e.f7159e;
+                hashSet.remove(this.f7228d);
             } else {
-                str = TileOverlay.f7128b;
+                str = TileOverlay.f7154b;
                 str2 = "FileTile pic must be 256 * 256";
             }
             Log.e(str, str2);
-            hashSet = this.f7203e.f7133e;
-            hashSet.remove(this.f7202d);
+            hashSet = this.f7229e.f7159e;
+            hashSet.remove(this.f7228d);
         }
     }
 }

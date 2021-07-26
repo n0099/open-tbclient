@@ -14,13 +14,13 @@ public class d implements Callable<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f1880a;
+    public final /* synthetic */ Context f1913a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ HashMap f1881b;
+    public final /* synthetic */ HashMap f1914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ c f1882c;
+    public final /* synthetic */ c f1915c;
 
     public d(c cVar, Context context, HashMap hashMap) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class d implements Callable<String> {
                 return;
             }
         }
-        this.f1882c = cVar;
-        this.f1880a = context;
-        this.f1881b = hashMap;
+        this.f1915c = cVar;
+        this.f1913a = context;
+        this.f1914b = hashMap;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public class d implements Callable<String> {
         String a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a2 = this.f1882c.a(this.f1880a, this.f1881b);
+            a2 = this.f1915c.a(this.f1913a, this.f1914b);
             return a2;
         }
         return (String) invokeV.objValue;

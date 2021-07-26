@@ -15,7 +15,7 @@ public class bw extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f39912a;
+    public final /* synthetic */ bu f40184a;
 
     public bw(bu buVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class bw extends ai.a {
                 return;
             }
         }
-        this.f39912a = buVar;
+        this.f40184a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -51,12 +51,12 @@ public class bw extends ai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
-            c2 = this.f39912a.c();
-            context = this.f39912a.f160a;
+            c2 = this.f40184a.c();
+            context = this.f40184a.f160a;
             bz bzVar = new bz(c2, new WeakReference(context));
-            context2 = this.f39912a.f160a;
+            context2 = this.f40184a.f160a;
             cg.a(context2).a(bzVar);
-            this.f39912a.b("check_time");
+            this.f40184a.b("check_time");
         }
     }
 }

@@ -28,7 +28,7 @@ public final class e implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f28486a;
+    public static final e f28580a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public final class e implements HostnameVerifier {
                 return;
             }
         }
-        f28486a = new e();
+        f28580a = new e();
     }
 
     public e() {

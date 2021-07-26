@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.n.a.a.c.b.c;
 import d.n.a.a.c.b.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements d.n.a.a.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f72152e;
+    public Context f72606e;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class b implements d.n.a.a.a.b.b {
                 return;
             }
         }
-        this.f72152e = context;
+        this.f72606e = context;
     }
 
     @Override // d.n.a.a.a.b.b
@@ -69,7 +69,7 @@ public final class b implements d.n.a.a.a.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String f2 = a.a(this.f72152e).f();
+            String f2 = a.a(this.f72606e).f();
             return TextUtils.isEmpty(f2) ? "" : f2;
         }
         return (String) invokeV.objValue;
@@ -85,7 +85,7 @@ public final class b implements d.n.a.a.a.b.b {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.a(this.f72152e).e() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.a(this.f72606e).e() : invokeV.booleanValue;
     }
 
     @Override // d.n.a.a.a.b.b

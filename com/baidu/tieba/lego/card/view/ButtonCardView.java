@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.r.s.a;
-import d.a.p0.w2.w;
+import d.a.d.e.p.l;
+import d.a.p0.s.s.a;
+import d.a.q0.w2.w;
 /* loaded from: classes4.dex */
 public class ButtonCardView extends BaseCardView<ButtonCard> {
     public static /* synthetic */ Interceptable $ic;
@@ -39,10 +39,10 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18235e;
+        public final /* synthetic */ ButtonCard f18291e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ButtonCardView f18236f;
+        public final /* synthetic */ ButtonCardView f18292f;
 
         public a(ButtonCardView buttonCardView, ButtonCard buttonCard) {
             Interceptable interceptable = $ic;
@@ -59,16 +59,16 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
                     return;
                 }
             }
-            this.f18236f = buttonCardView;
-            this.f18235e = buttonCard;
+            this.f18292f = buttonCardView;
+            this.f18291e = buttonCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18236f.setDialog(this.f18235e);
-                w.o().l().c(this.f18235e.getsExtras(), this.f18236f.f18230e);
+                this.f18292f.setDialog(this.f18291e);
+                w.o().l().c(this.f18291e.getsExtras(), this.f18292f.f18286e);
             }
         }
     }
@@ -79,10 +79,10 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18237e;
+        public final /* synthetic */ ButtonCard f18293e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ButtonCardView f18238f;
+        public final /* synthetic */ ButtonCardView f18294f;
 
         public b(ButtonCardView buttonCardView, ButtonCard buttonCard) {
             Interceptable interceptable = $ic;
@@ -99,16 +99,16 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
                     return;
                 }
             }
-            this.f18238f = buttonCardView;
-            this.f18237e = buttonCard;
+            this.f18294f = buttonCardView;
+            this.f18293e = buttonCard;
         }
 
-        @Override // d.a.o0.r.s.a.e
-        public void onClick(d.a.o0.r.s.a aVar) {
+        @Override // d.a.p0.s.s.a.e
+        public void onClick(d.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                UrlManager.getInstance().dealOneLink(this.f18238f.m, new String[]{this.f18237e.getBtnScheme()});
-                w.o().l().e(this.f18238f.f18230e, "yes", this.f18237e.getsExtras());
+                UrlManager.getInstance().dealOneLink(this.f18294f.m, new String[]{this.f18293e.getBtnScheme()});
+                w.o().l().e(this.f18294f.f18286e, "yes", this.f18293e.getsExtras());
                 aVar.dismiss();
             }
         }
@@ -120,10 +120,10 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18239e;
+        public final /* synthetic */ ButtonCard f18295e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ButtonCardView f18240f;
+        public final /* synthetic */ ButtonCardView f18296f;
 
         public c(ButtonCardView buttonCardView, ButtonCard buttonCard) {
             Interceptable interceptable = $ic;
@@ -140,15 +140,15 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
                     return;
                 }
             }
-            this.f18240f = buttonCardView;
-            this.f18239e = buttonCard;
+            this.f18296f = buttonCardView;
+            this.f18295e = buttonCard;
         }
 
-        @Override // d.a.o0.r.s.a.e
-        public void onClick(d.a.o0.r.s.a aVar) {
+        @Override // d.a.p0.s.s.a.e
+        public void onClick(d.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                w.o().l().e(this.f18240f.f18230e, "no", this.f18239e.getsExtras());
+                w.o().l().e(this.f18296f.f18286e, "no", this.f18295e.getsExtras());
                 aVar.dismiss();
             }
         }
@@ -180,7 +180,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public void setDialog(ButtonCard buttonCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, buttonCard) == null) {
-            d.a.o0.r.s.a aVar = new d.a.o0.r.s.a(this.m.getPageActivity());
+            d.a.p0.s.s.a aVar = new d.a.p0.s.s.a(this.m.getPageActivity());
             aVar.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
             aVar.setPositiveButton(R.string.call, new b(this, buttonCard));
             aVar.setNegativeButton(R.string.cancel, new c(this, buttonCard));
@@ -215,7 +215,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.s.setDefaultBgResource(R.color.transparent);
         if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
             this.s.M(buttonCard.getPicUrl(), 17, false);
-        } else if (!d.a.p0.n1.o.k.b.a(bgColor)) {
+        } else if (!d.a.q0.n1.o.k.b.a(bgColor)) {
             this.s.setBackgroundColor(bgColor);
         } else {
             this.s.setDefaultBgResource(R.color.transparent);
@@ -227,7 +227,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.t.setText(buttonCard.getText());
         this.t.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
         int textColor = buttonCard.getTextColor();
-        if (!d.a.p0.n1.o.k.b.a(textColor)) {
+        if (!d.a.q0.n1.o.k.b.a(textColor)) {
             this.t.setTextColor(textColor);
         }
         this.t.setOnClickListener(new a(this, buttonCard));
@@ -237,14 +237,14 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         if (i2 == 1) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            if (!d.a.p0.n1.o.k.b.a(buttonColor)) {
+            if (!d.a.q0.n1.o.k.b.a(buttonColor)) {
                 gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds3), buttonColor);
             }
             gradientDrawable.setColor(0);
             this.t.setBackgroundDrawable(gradientDrawable);
         } else if (i2 != 2) {
             this.t.setBackgroundColor(0);
-        } else if (!d.a.p0.n1.o.k.b.a(buttonColor)) {
+        } else if (!d.a.q0.n1.o.k.b.a(buttonColor)) {
             this.t.setBackgroundColor(buttonColor);
         } else {
             this.t.setBackgroundColor(0);
@@ -253,7 +253,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             return;
         }
         LegoListFragment.V.add(buttonCard.toString());
-        w.o().l().d(buttonCard.getShowExtra(), this.f18230e);
+        w.o().l().d(buttonCard.getShowExtra(), this.f18286e);
     }
 
     public void K() {

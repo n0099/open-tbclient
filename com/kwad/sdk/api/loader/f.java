@@ -15,16 +15,16 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f33809a = "newversion";
+    public static String f33998a = "newversion";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f33810b = "curversion";
+    public static String f33999b = "curversion";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f33811c = "apiversion";
+    public static String f34000c = "apiversion";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f33812d = "_enable";
+    public static String f34001d = "_enable";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class f {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? a(context, f33811c) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? a(context, f34000c) : (String) invokeL.objValue;
     }
 
     public static String a(Context context, String str) {
@@ -97,7 +97,7 @@ public class f {
     public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
-            a(context, f33811c, str);
+            a(context, f34000c, str);
         }
     }
 }

@@ -118,7 +118,7 @@ public final class VivoIdentifier {
                 }
             }
             v0.a aVar = new v0.a();
-            aVar.f68867a = this.oaid;
+            aVar.f69321a = this.oaid;
             return aVar;
         }
         return (v0.a) invokeL.objValue;

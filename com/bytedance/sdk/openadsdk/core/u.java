@@ -30,10 +30,10 @@ public class u implements TTAdManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30542a;
+    public String f30715a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30543b;
+    public String f30716b;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class u implements TTAdManager {
                 return;
             }
         }
-        this.f30542a = "com.union_test.toutiao";
-        this.f30543b = "5001121";
+        this.f30715a = "com.union_test.toutiao";
+        this.f30716b = "5001121";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -138,7 +138,7 @@ public class u implements TTAdManager {
     public String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "3.6.1.3" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "3.7.0.3" : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
@@ -164,14 +164,14 @@ public class u implements TTAdManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, Integer.valueOf(i2), str2, str3, str4})) == null) {
-            if (this.f30542a.equals(o.a().getPackageName()) && this.f30543b.equals(h.d().h()) && !TextUtils.isEmpty(str)) {
+            if (this.f30715a.equals(o.a().getPackageName()) && this.f30716b.equals(h.d().h()) && !TextUtils.isEmpty(str)) {
                 try {
-                    Method a2 = com.bytedance.sdk.component.utils.t.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "verityPlayable", String.class, Integer.TYPE, String.class, String.class, String.class);
+                    Method a2 = com.bytedance.sdk.component.utils.v.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "verityPlayable", String.class, Integer.TYPE, String.class, String.class, String.class);
                     if (a2 != null) {
                         a2.invoke(null, str, Integer.valueOf(i2), str2, str3, str4);
                     }
                 } catch (Throwable th) {
-                    com.bytedance.sdk.component.utils.j.b("TTAdManagerImpl", "reward component maybe not exist, pls check", th);
+                    com.bytedance.sdk.component.utils.k.b("TTAdManagerImpl", "reward component maybe not exist, pls check", th);
                 }
                 return true;
             }
@@ -185,9 +185,9 @@ public class u implements TTAdManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            com.bytedance.sdk.component.utils.j.b();
+            com.bytedance.sdk.component.utils.k.b();
             NetClient.openDeubg();
-            com.bytedance.sdk.openadsdk.p.a.b();
+            com.bytedance.sdk.openadsdk.o.a.b();
             return this;
         }
         return (TTAdManager) invokeV.objValue;
@@ -314,7 +314,8 @@ public class u implements TTAdManager {
         Intent intent = new Intent();
         intent.setAction("com.bytedance.openadsdk.themeTypeChangeReceiver");
         intent.putExtra("theme_status_change", i2);
-        o.a().sendBroadcast(intent);
+        Context a2 = o.a();
+        a2.sendBroadcast(intent, com.bytedance.sdk.openadsdk.q.q.d() + ".openadsdk.permission.TT_PANGOLIN");
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager

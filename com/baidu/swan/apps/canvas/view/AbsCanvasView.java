@@ -15,7 +15,7 @@ public abstract class AbsCanvasView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f10897e;
+    public boolean f10923e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AbsCanvasView(Context context) {
@@ -41,7 +41,7 @@ public abstract class AbsCanvasView extends View {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10897e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10923e : invokeV.booleanValue;
     }
 
     public void setGesture(boolean z) {
@@ -59,7 +59,7 @@ public abstract class AbsCanvasView extends View {
     public void setInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f10897e = z;
+            this.f10923e = z;
         }
     }
 
@@ -103,6 +103,6 @@ public abstract class AbsCanvasView extends View {
                 return;
             }
         }
-        this.f10897e = false;
+        this.f10923e = false;
     }
 }

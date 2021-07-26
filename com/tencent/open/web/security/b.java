@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.a;
-import com.tencent.open.a.f;
+import com.tencent.open.log.SLog;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -36,10 +36,10 @@ public class b extends com.tencent.open.a {
     }
 
     @Override // com.tencent.open.a
-    public void a(String str, String str2, List<String> list, a.C0524a c0524a) {
+    public void a(String str, String str2, List<String> list, a.C0527a c0527a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c0524a) == null) {
-            f.a("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c0527a) == null) {
+            SLog.v("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 try {
@@ -48,15 +48,15 @@ public class b extends com.tencent.open.a {
                     e2.printStackTrace();
                 }
             }
-            a.b bVar = this.f38875a.get(str);
+            a.b bVar = this.f39095a.get(str);
             if (bVar != null) {
-                f.b("openSDK_LOG.SecureJsBridge", "-->handler != null");
-                bVar.call(str2, list, c0524a);
+                SLog.d("openSDK_LOG.SecureJsBridge", "-->handler != null");
+                bVar.call(str2, list, c0527a);
                 return;
             }
-            f.b("openSDK_LOG.SecureJsBridge", "-->handler == null");
-            if (c0524a != null) {
-                c0524a.a();
+            SLog.e("openSDK_LOG.SecureJsBridge", "-->handler == null objName: " + str);
+            if (c0527a != null) {
+                c0527a.a();
             }
         }
     }
@@ -66,7 +66,7 @@ public class b extends com.tencent.open.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            f.a("openSDK_LOG.SecureJsBridge", "-->canHandleUrl---url = " + str);
+            SLog.i("openSDK_LOG.SecureJsBridge", "-->canHandleUrl---url = " + str);
             if (str != null && Uri.parse(str).getScheme().equals("jsbridge")) {
                 ArrayList arrayList = new ArrayList(Arrays.asList((str + "/#").split("/")));
                 if (arrayList.size() < 7) {
@@ -76,7 +76,7 @@ public class b extends com.tencent.open.a {
                 String str3 = (String) arrayList.get(3);
                 String str4 = (String) arrayList.get(4);
                 String str5 = (String) arrayList.get(5);
-                f.a("openSDK_LOG.SecureJsBridge", "-->canHandleUrl, objectName: " + str2 + " | methodName: " + str3 + " | snStr: " + str4);
+                SLog.i("openSDK_LOG.SecureJsBridge", "-->canHandleUrl, objectName: " + str2 + " | methodName: " + str3 + " | snStr: " + str4);
                 if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
                     try {
                         a(str2, str3, arrayList.subList(6, arrayList.size() - 1), new c(webView, Long.parseLong(str4), str, str5));

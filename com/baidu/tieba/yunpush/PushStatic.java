@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.d0.b;
+import d.a.p0.s.d0.b;
 /* loaded from: classes4.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f22998a;
+    public static CustomMessageListener f23156a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -35,11 +35,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0246a implements Runnable {
+        public class RunnableC0248a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0246a(a aVar) {
+            public RunnableC0248a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +89,7 @@ public class PushStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                new Thread(new RunnableC0246a(this)).start();
+                new Thread(new RunnableC0248a(this)).start();
             }
         }
     }
@@ -107,8 +107,8 @@ public class PushStatic {
                 return;
             }
         }
-        f22998a = new a(0);
-        MessageManager.getInstance().registerListener(2007015, f22998a);
+        f23156a = new a(0);
+        MessageManager.getInstance().registerListener(2007015, f23156a);
     }
 
     public PushStatic() {
@@ -160,7 +160,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, d.a.p0.b4.a.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, d.a.q0.b4.a.a(context, Constants.API_KEY));
         }
     }
 

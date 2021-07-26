@@ -21,26 +21,26 @@ public final class d implements w, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f31951a;
+    public static final d f32152a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f31952b;
+    public double f32153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31953c;
+    public int f32154c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31954d;
+    public boolean f32155d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f31955e;
+    public boolean f32156e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<com.bytedance.sdk.openadsdk.preload.a.b> f31956f;
+    public List<com.bytedance.sdk.openadsdk.preload.a.b> f32157f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<com.bytedance.sdk.openadsdk.preload.a.b> f31957g;
+    public List<com.bytedance.sdk.openadsdk.preload.a.b> f32158g;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public final class d implements w, Cloneable {
                 return;
             }
         }
-        f31951a = new d();
+        f32152a = new d();
     }
 
     public d() {
@@ -71,18 +71,18 @@ public final class d implements w, Cloneable {
                 return;
             }
         }
-        this.f31952b = -1.0d;
-        this.f31953c = 136;
-        this.f31954d = true;
-        this.f31956f = Collections.emptyList();
-        this.f31957g = Collections.emptyList();
+        this.f32153b = -1.0d;
+        this.f32154c = 136;
+        this.f32155d = true;
+        this.f32157f = Collections.emptyList();
+        this.f32158g = Collections.emptyList();
     }
 
     private boolean b(Class<?> cls, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, this, cls, z)) == null) {
-            for (com.bytedance.sdk.openadsdk.preload.a.b bVar : z ? this.f31956f : this.f31957g) {
+            for (com.bytedance.sdk.openadsdk.preload.a.b bVar : z ? this.f32157f : this.f32158g) {
                 if (bVar.a(cls)) {
                     return true;
                 }
@@ -134,22 +134,22 @@ public final class d implements w, Cloneable {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f31958a;
+                    public final /* synthetic */ boolean f32159a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ boolean f31959b;
+                    public final /* synthetic */ boolean f32160b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.f f31960c;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.f f32161c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.c.a f31961d;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.c.a f32162d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ d f31962e;
+                    public final /* synthetic */ d f32163e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public v<T> f31963f;
+                    public v<T> f32164f;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -166,18 +166,18 @@ public final class d implements w, Cloneable {
                                 return;
                             }
                         }
-                        this.f31962e = this;
-                        this.f31958a = z2;
-                        this.f31959b = z;
-                        this.f31960c = fVar;
-                        this.f31961d = aVar;
+                        this.f32163e = this;
+                        this.f32159a = z2;
+                        this.f32160b = z;
+                        this.f32161c = fVar;
+                        this.f32162d = aVar;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.preload.a.v
                     public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, cVar, t) == null) {
-                            if (this.f31959b) {
+                            if (this.f32160b) {
                                 cVar.f();
                             } else {
                                 b().a(cVar, t);
@@ -192,7 +192,7 @@ public final class d implements w, Cloneable {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar2)) == null) {
-                            if (this.f31958a) {
+                            if (this.f32159a) {
                                 aVar2.n();
                                 return null;
                             }
@@ -205,12 +205,12 @@ public final class d implements w, Cloneable {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(65537, this)) == null) {
-                            v<T> vVar = this.f31963f;
+                            v<T> vVar = this.f32164f;
                             if (vVar != 0) {
                                 return vVar;
                             }
-                            v<T> a4 = this.f31960c.a(this.f31962e, this.f31961d);
-                            this.f31963f = a4;
+                            v<T> a4 = this.f32161c.a(this.f32163e, this.f32162d);
+                            this.f32164f = a4;
                             return a4;
                         }
                         return (v) invokeV.objValue;
@@ -233,13 +233,13 @@ public final class d implements w, Cloneable {
         com.bytedance.sdk.openadsdk.preload.a.a.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, field, z)) == null) {
-            if ((this.f31953c & field.getModifiers()) != 0) {
+            if ((this.f32154c & field.getModifiers()) != 0) {
                 return true;
             }
-            if ((this.f31952b == -1.0d || a((com.bytedance.sdk.openadsdk.preload.a.a.d) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.d.class), (com.bytedance.sdk.openadsdk.preload.a.a.e) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.e.class))) && !field.isSynthetic()) {
-                if (!this.f31955e || ((aVar = (com.bytedance.sdk.openadsdk.preload.a.a.a) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.a.class)) != null && (!z ? !aVar.b() : !aVar.a()))) {
-                    if ((this.f31954d || !c(field.getType())) && !b(field.getType())) {
-                        List<com.bytedance.sdk.openadsdk.preload.a.b> list = z ? this.f31956f : this.f31957g;
+            if ((this.f32153b == -1.0d || a((com.bytedance.sdk.openadsdk.preload.a.a.d) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.d.class), (com.bytedance.sdk.openadsdk.preload.a.a.e) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.e.class))) && !field.isSynthetic()) {
+                if (!this.f32156e || ((aVar = (com.bytedance.sdk.openadsdk.preload.a.a.a) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.a.class)) != null && (!z ? !aVar.b() : !aVar.a()))) {
+                    if ((this.f32155d || !c(field.getType())) && !b(field.getType())) {
+                        List<com.bytedance.sdk.openadsdk.preload.a.b> list = z ? this.f32157f : this.f32158g;
                         if (list.isEmpty()) {
                             return false;
                         }
@@ -264,8 +264,8 @@ public final class d implements w, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, cls)) == null) {
-            if (this.f31952b == -1.0d || a((com.bytedance.sdk.openadsdk.preload.a.a.d) cls.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.d.class), (com.bytedance.sdk.openadsdk.preload.a.a.e) cls.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.e.class))) {
-                return (!this.f31954d && c(cls)) || b(cls);
+            if (this.f32153b == -1.0d || a((com.bytedance.sdk.openadsdk.preload.a.a.d) cls.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.d.class), (com.bytedance.sdk.openadsdk.preload.a.a.e) cls.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.e.class))) {
+                return (!this.f32155d && c(cls)) || b(cls);
             }
             return true;
         }
@@ -287,12 +287,12 @@ public final class d implements w, Cloneable {
     private boolean a(com.bytedance.sdk.openadsdk.preload.a.a.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, dVar)) == null) ? dVar == null || dVar.a() <= this.f31952b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, dVar)) == null) ? dVar == null || dVar.a() <= this.f32153b : invokeL.booleanValue;
     }
 
     private boolean a(com.bytedance.sdk.openadsdk.preload.a.a.e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, eVar)) == null) ? eVar == null || eVar.a() > this.f31952b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, eVar)) == null) ? eVar == null || eVar.a() > this.f32153b : invokeL.booleanValue;
     }
 }

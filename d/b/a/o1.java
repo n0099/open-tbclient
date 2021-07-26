@@ -16,14 +16,14 @@ public class o1 extends h1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long[] f68820f;
+    public static final long[] f69274f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f68821d;
+    public long f69275d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f68822e;
+    public long f69276e;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class o1 extends h1 {
                 return;
             }
         }
-        f68820f = new long[]{60000};
+        f69274f = new long[]{60000};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,12 +76,12 @@ public class o1 extends h1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long Z = this.f68781a.i().Z();
+            long Z = this.f69235a.i().Z();
             if (Z > 60000 || Z <= 0) {
                 Z = 60000;
             }
-            f68820f[0] = Z;
-            return this.f68821d + Z;
+            f69274f[0] = Z;
+            return this.f69275d + Z;
         }
         return invokeV.longValue;
     }
@@ -90,7 +90,7 @@ public class o1 extends h1 {
     public long[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f68820f : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f69274f : (long[]) invokeV.objValue;
     }
 
     @Override // d.b.a.h1
@@ -99,23 +99,23 @@ public class o1 extends h1 {
         u c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (System.currentTimeMillis() > this.f68822e + this.f68781a.i().Z()) {
-                JSONObject j = this.f68781a.j().j();
-                p1 m = this.f68781a.m();
+            if (System.currentTimeMillis() > this.f69276e + this.f69235a.i().Z()) {
+                JSONObject j = this.f69235a.j().j();
+                p1 m = this.f69235a.m();
                 if (m != null && j != null && (c2 = m.c()) != null) {
-                    this.f68781a.h().n(j, c2, m.h());
-                    this.f68822e = System.currentTimeMillis();
+                    this.f69235a.h().n(j, c2, m.h());
+                    this.f69276e = System.currentTimeMillis();
                 }
             }
-            ArrayList<v> e2 = this.f68781a.h().e();
+            ArrayList<v> e2 = this.f69235a.h().e();
             ArrayList<v> arrayList = new ArrayList<>(e2.size());
             ArrayList<v> arrayList2 = new ArrayList<>(e2.size());
-            j1 j1Var = this.f68781a;
-            String[] b2 = o.b(j1Var, j1Var.f(), this.f68781a.j().c());
+            j1 j1Var = this.f69235a;
+            String[] b2 = o.b(j1Var, j1Var.f(), this.f69235a.j().c());
             Iterator<v> it = e2.iterator();
             while (it.hasNext()) {
                 v next = it.next();
-                int a2 = n.a(b2, next.m, this.f68781a.i());
+                int a2 = n.a(b2, next.m, this.f69235a.i());
                 if (a2 == 200) {
                     arrayList.add(next);
                 } else {
@@ -124,11 +124,11 @@ public class o1 extends h1 {
                 }
             }
             if (arrayList.size() > 0 || arrayList2.size() > 0) {
-                this.f68781a.h().k(arrayList, arrayList2);
+                this.f69235a.h().k(arrayList, arrayList2);
             }
             h0.e(e() + arrayList.size() + " " + e2.size(), null);
             if (arrayList.size() == e2.size()) {
-                this.f68821d = System.currentTimeMillis();
+                this.f69275d = System.currentTimeMillis();
                 return true;
             }
             return false;

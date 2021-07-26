@@ -25,19 +25,19 @@ public final class j implements d.f.b.a.d0.l, HlsPlaylistTracker.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f70027e;
+    public final f f70481e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Uri f70028f;
+    public final Uri f70482f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final e f70029g;
+    public final e f70483g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f70030h;
+    public final int f70484h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final b.a f70031i;
+    public final b.a f70485i;
     public final o.a<d.f.b.a.d0.w.o.c> j;
     public HlsPlaylistTracker k;
     public l.a l;
@@ -84,7 +84,7 @@ public final class j implements d.f.b.a.d0.l, HlsPlaylistTracker.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{gVar, Boolean.valueOf(z), aVar}) == null) {
             d.f.b.a.i0.a.f(this.k == null);
-            HlsPlaylistTracker hlsPlaylistTracker = new HlsPlaylistTracker(this.f70028f, this.f70029g, this.f70031i, this.f70030h, this, this.j);
+            HlsPlaylistTracker hlsPlaylistTracker = new HlsPlaylistTracker(this.f70482f, this.f70483g, this.f70485i, this.f70484h, this, this.j);
             this.k = hlsPlaylistTracker;
             this.l = aVar;
             hlsPlaylistTracker.K();
@@ -106,20 +106,20 @@ public final class j implements d.f.b.a.d0.l, HlsPlaylistTracker.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             long j2 = bVar.m ? 0L : -9223372036854775807L;
-            long b2 = bVar.m ? d.f.b.a.b.b(bVar.f70058e) : -9223372036854775807L;
-            long j3 = bVar.f70057d;
+            long b2 = bVar.m ? d.f.b.a.b.b(bVar.f70512e) : -9223372036854775807L;
+            long j3 = bVar.f70511d;
             if (this.k.w()) {
-                long j4 = bVar.l ? bVar.f70058e + bVar.q : -9223372036854775807L;
+                long j4 = bVar.l ? bVar.f70512e + bVar.q : -9223372036854775807L;
                 List<b.a> list = bVar.p;
                 if (j3 == -9223372036854775807L) {
-                    j = list.isEmpty() ? 0L : list.get(Math.max(0, list.size() - 3)).f70066h;
+                    j = list.isEmpty() ? 0L : list.get(Math.max(0, list.size() - 3)).f70520h;
                 } else {
                     j = j3;
                 }
-                rVar = new r(j2, b2, j4, bVar.q, bVar.f70058e, j, true, !bVar.l);
+                rVar = new r(j2, b2, j4, bVar.q, bVar.f70512e, j, true, !bVar.l);
             } else {
                 long j5 = j3 == -9223372036854775807L ? 0L : j3;
-                long j6 = bVar.f70058e;
+                long j6 = bVar.f70512e;
                 long j7 = bVar.q;
                 rVar = new r(j2, b2, j6 + j7, j7, j6, j5, true, false);
             }
@@ -132,8 +132,8 @@ public final class j implements d.f.b.a.d0.l, HlsPlaylistTracker.d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bVar, bVar2)) == null) {
-            d.f.b.a.i0.a.a(bVar.f69812a == 0);
-            return new i(this.f70027e, this.k, this.f70029g, this.f70030h, this.f70031i, bVar2);
+            d.f.b.a.i0.a.a(bVar.f70266a == 0);
+            return new i(this.f70481e, this.k, this.f70483g, this.f70484h, this.f70485i, bVar2);
         }
         return (d.f.b.a.d0.k) invokeLL.objValue;
     }
@@ -161,7 +161,7 @@ public final class j implements d.f.b.a.d0.l, HlsPlaylistTracker.d {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public j(Uri uri, e.a aVar, int i2, Handler handler, d.f.b.a.d0.b bVar) {
-        this(uri, new b(aVar), f.f70021a, i2, handler, bVar, new d.f.b.a.d0.w.o.d());
+        this(uri, new b(aVar), f.f70475a, i2, handler, bVar, new d.f.b.a.d0.w.o.d());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,11 +195,11 @@ public final class j implements d.f.b.a.d0.l, HlsPlaylistTracker.d {
                 return;
             }
         }
-        this.f70028f = uri;
-        this.f70029g = eVar;
-        this.f70027e = fVar;
-        this.f70030h = i2;
+        this.f70482f = uri;
+        this.f70483g = eVar;
+        this.f70481e = fVar;
+        this.f70484h = i2;
         this.j = aVar;
-        this.f70031i = new b.a(handler, bVar);
+        this.f70485i = new b.a(handler, bVar);
     }
 }

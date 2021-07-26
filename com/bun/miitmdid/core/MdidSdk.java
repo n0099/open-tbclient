@@ -32,7 +32,7 @@ public class MdidSdk implements SupplierListener {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f27596a;
+        public static final /* synthetic */ int[] f27754a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,49 +49,49 @@ public class MdidSdk implements SupplierListener {
                 }
             }
             int[] iArr = new int[b.a.values().length];
-            f27596a = iArr;
+            f27754a = iArr;
             try {
-                iArr[b.a.f27614c.ordinal()] = 1;
+                iArr[b.a.f27772c.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f27596a[b.a.f27615d.ordinal()] = 2;
+                f27754a[b.a.f27773d.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f27596a[b.a.f27613b.ordinal()] = 3;
+                f27754a[b.a.f27771b.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f27596a[b.a.f27616e.ordinal()] = 4;
+                f27754a[b.a.f27774e.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f27596a[b.a.f27617f.ordinal()] = 5;
+                f27754a[b.a.f27775f.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f27596a[b.a.f27618g.ordinal()] = 6;
+                f27754a[b.a.f27776g.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f27596a[b.a.f27619h.ordinal()] = 7;
+                f27754a[b.a.f27777h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f27596a[b.a.f27620i.ordinal()] = 8;
+                f27754a[b.a.f27778i.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f27596a[b.a.j.ordinal()] = 9;
+                f27754a[b.a.j.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f27596a[b.a.k.ordinal()] = 10;
+                f27754a[b.a.k.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f27596a[b.a.l.ordinal()] = 11;
+                f27754a[b.a.l.ordinal()] = 11;
             } catch (NoSuchFieldError unused11) {
             }
         }
@@ -161,7 +161,7 @@ public class MdidSdk implements SupplierListener {
             this._InnerListener = iIdentifierListener;
             com.bun.miitmdid.utils.b.a(context);
             b.a a2 = b.a.a(Build.MANUFACTURER);
-            if (a2 == b.a.f27612a) {
+            if (a2 == b.a.f27770a) {
                 return _InnerFailed(ErrorCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, new com.bun.miitmdid.supplier.a());
             }
             com.bun.miitmdid.a.a a3 = com.bun.miitmdid.a.a.a(context);
@@ -170,7 +170,7 @@ public class MdidSdk implements SupplierListener {
             }
             this._setting = a3;
             com.bun.miitmdid.supplier.f.b bVar = null;
-            switch (AnonymousClass1.f27596a[a2.ordinal()]) {
+            switch (AnonymousClass1.f27754a[a2.ordinal()]) {
                 case 1:
                     bVar = new com.bun.miitmdid.supplier.i.b(context);
                     break;

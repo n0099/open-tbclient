@@ -14,41 +14,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.t2.b.a.c;
+import d.a.q0.t2.b.a.c;
 /* loaded from: classes4.dex */
 public abstract class QRCodeView extends RelativeLayout implements Camera.PreviewCallback, c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Camera f20462e;
+    public Camera f20580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CameraPreview f20463f;
+    public CameraPreview f20581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ScanBoxView f20464g;
+    public ScanBoxView f20582g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f20465h;
+    public c f20583h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f20466i;
+    public Handler f20584i;
     public boolean j;
-    public d.a.p0.t2.b.a.c k;
+    public d.a.q0.t2.b.a.c k;
     public int l;
     public Runnable m;
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.p0.t2.b.a.c {
+    public class a extends d.a.q0.t2.b.a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Camera f20467e;
+        public final /* synthetic */ Camera f20585e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ QRCodeView f20468f;
+        public final /* synthetic */ QRCodeView f20586f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(QRCodeView qRCodeView, Camera camera, byte[] bArr, c.a aVar, int i2, Camera camera2) {
@@ -69,8 +69,8 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
                     return;
                 }
             }
-            this.f20468f = qRCodeView;
-            this.f20467e = camera2;
+            this.f20586f = qRCodeView;
+            this.f20585e = camera2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -79,13 +79,13 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                QRCodeView qRCodeView = this.f20468f;
+                QRCodeView qRCodeView = this.f20586f;
                 if (qRCodeView.j) {
                     try {
-                        if (qRCodeView.f20465h != null && !TextUtils.isEmpty(str)) {
-                            this.f20468f.f20465h.b(str);
+                        if (qRCodeView.f20583h != null && !TextUtils.isEmpty(str)) {
+                            this.f20586f.f20583h.b(str);
                         } else {
-                            this.f20467e.setOneShotPreviewCallback(this.f20468f);
+                            this.f20585e.setOneShotPreviewCallback(this.f20586f);
                         }
                     } catch (Exception unused) {
                     }
@@ -100,7 +100,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ QRCodeView f20469e;
+        public final /* synthetic */ QRCodeView f20587e;
 
         public b(QRCodeView qRCodeView) {
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
                     return;
                 }
             }
-            this.f20469e = qRCodeView;
+            this.f20587e = qRCodeView;
         }
 
         @Override // java.lang.Runnable
@@ -125,7 +125,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
             QRCodeView qRCodeView;
             Camera camera;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (camera = (qRCodeView = this.f20469e).f20462e) != null && qRCodeView.j) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (camera = (qRCodeView = this.f20587e).f20580e) != null && qRCodeView.j) {
                 try {
                     camera.setOneShotPreviewCallback(qRCodeView);
                 } catch (Exception e2) {
@@ -164,7 +164,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     }
 
     public void b() {
-        d.a.p0.t2.b.a.c cVar;
+        d.a.q0.t2.b.a.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.k) == null) {
             return;
@@ -176,7 +176,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     public void c() {
         ScanBoxView scanBoxView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (scanBoxView = this.f20464g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (scanBoxView = this.f20582g) == null) {
             return;
         }
         scanBoxView.setVisibility(8);
@@ -185,17 +185,17 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            this.f20463f = new CameraPreview(getContext());
+            this.f20581f = new CameraPreview(getContext());
             ScanBoxView scanBoxView = new ScanBoxView(getContext());
-            this.f20464g = scanBoxView;
+            this.f20582g = scanBoxView;
             scanBoxView.k(context, attributeSet);
-            this.f20463f.setId(R.id.bgaqrcode_camera_preview);
-            addView(this.f20463f);
+            this.f20581f.setId(R.id.bgaqrcode_camera_preview);
+            addView(this.f20581f);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(context, attributeSet);
-            layoutParams.addRule(6, this.f20463f.getId());
-            layoutParams.addRule(8, this.f20463f.getId());
-            addView(this.f20464g, layoutParams);
-            this.l = d.a.p0.t2.b.a.a.c(context);
+            layoutParams.addRule(6, this.f20581f.getId());
+            layoutParams.addRule(8, this.f20581f.getId());
+            addView(this.f20582g, layoutParams);
+            this.l = d.a.q0.t2.b.a.a.c(context);
         }
     }
 
@@ -203,8 +203,8 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             l();
-            this.f20466i = null;
-            this.f20465h = null;
+            this.f20584i = null;
+            this.f20583h = null;
             this.m = null;
         }
     }
@@ -212,7 +212,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     public void f() {
         ScanBoxView scanBoxView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (scanBoxView = this.f20464g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (scanBoxView = this.f20582g) == null) {
             return;
         }
         scanBoxView.setVisibility(0);
@@ -228,18 +228,18 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     public boolean getIsScanBarcodeStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20464g.getIsBarcode() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20582g.getIsBarcode() : invokeV.booleanValue;
     }
 
     public ScanBoxView getScanBoxView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20464g : (ScanBoxView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20582g : (ScanBoxView) invokeV.objValue;
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && this.f20462e == null) {
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && this.f20580e == null) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             for (int i3 = 0; i3 < Camera.getNumberOfCameras(); i3++) {
                 Camera.getCameraInfo(i3, cameraInfo);
@@ -256,10 +256,10 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             try {
                 Camera open = Camera.open(i2);
-                this.f20462e = open;
-                this.f20463f.setCamera(open);
+                this.f20580e = open;
+                this.f20581f.setCamera(open);
             } catch (Exception unused) {
-                c cVar = this.f20465h;
+                c cVar = this.f20583h;
                 if (cVar != null) {
                     cVar.a();
                 }
@@ -278,8 +278,8 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             this.j = true;
-            this.f20466i.removeCallbacks(this.m);
-            this.f20466i.postDelayed(this.m, i2);
+            this.f20584i.removeCallbacks(this.m);
+            this.f20584i.postDelayed(this.m, i2);
         }
     }
 
@@ -288,11 +288,11 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             try {
                 n();
-                if (this.f20462e != null) {
-                    this.f20463f.g();
-                    this.f20463f.setCamera(null);
-                    this.f20462e.release();
-                    this.f20462e = null;
+                if (this.f20580e != null) {
+                    this.f20581f.g();
+                    this.f20581f.setCamera(null);
+                    this.f20580e.release();
+                    this.f20580e = null;
                 }
             } catch (Exception unused) {
             }
@@ -304,14 +304,14 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             b();
             this.j = false;
-            Camera camera = this.f20462e;
+            Camera camera = this.f20580e;
             if (camera != null) {
                 try {
                     camera.setOneShotPreviewCallback(null);
                 } catch (Exception unused) {
                 }
             }
-            Handler handler = this.f20466i;
+            Handler handler = this.f20584i;
             if (handler != null) {
                 handler.removeCallbacks(this.m);
             }
@@ -340,7 +340,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     public void setDelegate(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, cVar) == null) {
-            this.f20465h = cVar;
+            this.f20583h = cVar;
         }
     }
 
@@ -365,7 +365,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         }
         this.j = false;
         this.m = new b(this);
-        this.f20466i = new Handler();
+        this.f20584i = new Handler();
         d(context, attributeSet);
     }
 }

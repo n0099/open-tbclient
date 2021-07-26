@@ -22,25 +22,25 @@ public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30521a;
+    public static String f30691a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f30522b;
+    public static String f30692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f30523c;
+    public static String f30693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f30524d;
+    public static volatile boolean f30694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f30525e;
+    public static volatile boolean f30695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f30526f;
+    public static b f30696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f30527g;
+    public static long f30697g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -61,23 +61,23 @@ public class r {
                 return;
             }
         }
-        f30521a = Environment.DIRECTORY_DCIM;
-        f30522b = Environment.DIRECTORY_PICTURES;
-        f30523c = "Screenshots";
-        f30524d = false;
-        f30525e = false;
-        f30527g = 0L;
+        f30691a = Environment.DIRECTORY_DCIM;
+        f30692b = Environment.DIRECTORY_PICTURES;
+        f30693c = "Screenshots";
+        f30694d = false;
+        f30695e = false;
+        f30697g = 0L;
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f30525e = true;
-            if (f30524d) {
+            f30695e = true;
+            if (f30694d) {
                 return;
             }
             if (Build.VERSION.SDK_INT < 23 || o.a().checkSelfPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION) == 0) {
-                com.bytedance.sdk.component.e.e.c(new com.bytedance.sdk.component.e.g(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO) { // from class: com.bytedance.sdk.openadsdk.core.r.1
+                com.bytedance.sdk.component.d.e.c(new com.bytedance.sdk.component.d.g(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO) { // from class: com.bytedance.sdk.openadsdk.core.r.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -116,20 +116,20 @@ public class r {
     public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f30527g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f30697g : invokeV.longValue;
     }
 
     public static void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f30524d) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f30694d) {
             return;
         }
-        com.bytedance.sdk.component.utils.j.a("SSO start");
+        com.bytedance.sdk.component.utils.k.a("SSO start");
         File f2 = f();
         if (f2 == null) {
             return;
         }
-        f30526f = b.a(f2, new a() { // from class: com.bytedance.sdk.openadsdk.core.r.2
+        f30696f = b.a(f2, new a() { // from class: com.bytedance.sdk.openadsdk.core.r.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -151,19 +151,19 @@ public class r {
             public void a(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                    long unused = r.f30527g = System.currentTimeMillis();
-                    com.bytedance.sdk.component.utils.j.a("Update sso");
+                    long unused = r.f30697g = System.currentTimeMillis();
+                    com.bytedance.sdk.component.utils.k.a("Update sso");
                 }
             }
         });
-        f30524d = true;
+        f30694d = true;
         StringBuilder sb = new StringBuilder();
         sb.append("SSO File exist: ");
-        sb.append(f2 != null ? Boolean.valueOf(f2.exists()) : "false");
+        sb.append(f2.exists());
         sb.append(", has started: ");
-        sb.append(f30526f != null);
-        com.bytedance.sdk.component.utils.j.a(sb.toString());
-        b bVar = f30526f;
+        sb.append(f30696f != null);
+        com.bytedance.sdk.component.utils.k.a(sb.toString());
+        b bVar = f30696f;
         if (bVar != null) {
             bVar.startWatching();
         }
@@ -179,20 +179,20 @@ public class r {
                 if (externalStorageDirectory == null) {
                     return null;
                 }
-                file = new File(externalStorageDirectory, f30522b + File.separator + f30523c);
+                file = new File(externalStorageDirectory, f30692b + File.separator + f30693c);
                 if (file.exists()) {
-                    com.bytedance.sdk.component.utils.j.a("SSO use pic");
+                    com.bytedance.sdk.component.utils.k.a("SSO use pic");
                     return file;
                 }
-                File file2 = new File(externalStorageDirectory, f30521a + File.separator + f30523c);
+                File file2 = new File(externalStorageDirectory, f30691a + File.separator + f30693c);
                 if (file2.exists()) {
-                    com.bytedance.sdk.component.utils.j.a("SSO use dc");
+                    com.bytedance.sdk.component.utils.k.a("SSO use dc");
                     return file2;
-                } else if (!com.bytedance.sdk.openadsdk.r.j.b() && !com.bytedance.sdk.openadsdk.r.j.t()) {
-                    com.bytedance.sdk.component.utils.j.a("SSO use rom dc");
+                } else if (!com.bytedance.sdk.openadsdk.q.l.b() && !com.bytedance.sdk.openadsdk.q.l.t()) {
+                    com.bytedance.sdk.component.utils.k.a("SSO use rom dc");
                     return file2;
                 } else {
-                    com.bytedance.sdk.component.utils.j.a("SSO use rom pic");
+                    com.bytedance.sdk.component.utils.k.a("SSO use rom pic");
                 }
             }
             return file;
@@ -206,7 +206,7 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f30528a;
+        public a f30698a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, int i2, a aVar) {
@@ -227,7 +227,7 @@ public class r {
                     return;
                 }
             }
-            this.f30528a = aVar;
+            this.f30698a = aVar;
         }
 
         public static b a(@NonNull File file, a aVar) {
@@ -249,7 +249,7 @@ public class r {
         public void onEvent(int i2, @Nullable String str) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || (aVar = this.f30528a) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || (aVar = this.f30698a) == null) {
                 return;
             }
             aVar.a(str);
@@ -274,13 +274,13 @@ public class r {
                     return;
                 }
             }
-            this.f30528a = aVar;
+            this.f30698a = aVar;
         }
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f30525e && !f30524d) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f30695e && !f30694d) {
             b();
         }
     }

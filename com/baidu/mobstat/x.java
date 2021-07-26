@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.bt;
-import com.baidu.swan.apps.so.SoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,10 +27,10 @@ public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile DexClassLoader f9017a;
+    public static volatile DexClassLoader f9043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f9018b;
+    public static volatile boolean f9044b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -40,10 +39,10 @@ public class x {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f9019a;
+        public Context f9045a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobstat.a f9020b;
+        public com.baidu.mobstat.a f9046b;
 
         public a(Context context, com.baidu.mobstat.a aVar) {
             Interceptable interceptable = $ic;
@@ -60,14 +59,14 @@ public class x {
                     return;
                 }
             }
-            this.f9019a = context;
-            this.f9020b = aVar;
+            this.f9045a = context;
+            this.f9046b = aVar;
         }
 
         private void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-                this.f9020b.a(context, System.currentTimeMillis());
+                this.f9046b.a(context, System.currentTimeMillis());
             }
         }
 
@@ -89,7 +88,7 @@ public class x {
                     bb c2 = bb.c();
                     c2.a("startDownload remote jar file version = " + str);
                 }
-                str = SoUtils.SO_EVENT_ID_DEFAULT;
+                str = "24";
                 ArrayList<Pair> arrayList = new ArrayList();
                 arrayList.add(new Pair("dynamicVersion", "" + str));
                 arrayList.add(new Pair("packageName", bw.t(context)));
@@ -99,7 +98,7 @@ public class x {
                 arrayList.add(new Pair("m", android.os.Build.MODEL));
                 arrayList.add(new Pair("s", Build.VERSION.SDK_INT + ""));
                 arrayList.add(new Pair(Config.OS, Build.VERSION.RELEASE));
-                arrayList.add(new Pair("i", SoUtils.SO_EVENT_ID_DEFAULT));
+                arrayList.add(new Pair("i", "24"));
                 StringBuilder sb = new StringBuilder();
                 for (Pair pair : arrayList) {
                     try {
@@ -113,7 +112,7 @@ public class x {
                     } catch (Exception unused) {
                     }
                 }
-                return aa.f8614c + "?" + sb.toString();
+                return aa.f8640c + "?" + sb.toString();
             }
             return (String) invokeL.objValue;
         }
@@ -123,16 +122,16 @@ public class x {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    int i2 = aa.f8612a ? 3 : 10;
+                    int i2 = aa.f8638a ? 3 : 10;
                     bb c2 = bb.c();
                     c2.a("start version check in " + i2 + "s");
                     Thread.sleep((long) (i2 * 1000));
                     a();
-                    a(this.f9019a);
+                    a(this.f9045a);
                 } catch (Exception e2) {
                     bb.c().a(e2);
                 }
-                boolean unused = x.f9018b = false;
+                boolean unused = x.f9044b = false;
             }
         }
 
@@ -147,8 +146,8 @@ public class x {
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 synchronized (this) {
                     bb.c().a("start get config and download jar");
-                    Context context = this.f9019a;
-                    com.baidu.mobstat.a aVar = this.f9020b;
+                    Context context = this.f9045a;
+                    com.baidu.mobstat.a aVar = this.f9046b;
                     String b2 = b(context);
                     bb.c().c("update req url is:" + b2);
                     HttpURLConnection d2 = bo.d(context, b2);
@@ -182,7 +181,7 @@ public class x {
                                 e = e3;
                                 bb.c().b(e);
                                 bu.a(fileOutputStream);
-                                DexClassLoader unused = x.f9017a = null;
+                                DexClassLoader unused = x.f9043a = null;
                                 u.a();
                                 if (!TextUtils.isEmpty(headerField)) {
                                 }
@@ -199,7 +198,7 @@ public class x {
                             throw th;
                         }
                     }
-                    DexClassLoader unused2 = x.f9017a = null;
+                    DexClassLoader unused2 = x.f9043a = null;
                     u.a();
                     if (!TextUtils.isEmpty(headerField)) {
                         aVar.a(context, headerField);
@@ -359,8 +358,8 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (x.class) {
-                if (f9017a != null) {
-                    return f9017a;
+                if (f9043a != null) {
+                    return f9043a;
                 }
                 File fileStreamPath = context.getFileStreamPath(".remote.jar");
                 if (fileStreamPath == null || fileStreamPath.isFile()) {
@@ -378,11 +377,11 @@ public class x {
                         return null;
                     } else {
                         try {
-                            f9017a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
+                            f9043a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
                         } catch (Exception e2) {
                             bb.c().a(e2);
                         }
-                        return f9017a;
+                        return f9043a;
                     }
                 }
                 return null;
@@ -395,7 +394,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, aVar) == null) {
             synchronized (x.class) {
-                if (f9018b) {
+                if (f9044b) {
                     return;
                 }
                 if (!bw.q(context)) {
@@ -405,7 +404,7 @@ public class x {
                 } else {
                     bb.c().a("can start update config");
                     new a(context, aVar).start();
-                    f9018b = true;
+                    f9044b = true;
                 }
             }
         }

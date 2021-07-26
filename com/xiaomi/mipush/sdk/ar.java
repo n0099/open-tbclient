@@ -17,7 +17,7 @@ public class ar implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f39783a;
+    public final /* synthetic */ an f40055a;
 
     public ar(an anVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class ar implements ServiceConnection {
                 return;
             }
         }
-        this.f39783a = anVar;
+        this.f40055a = anVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -44,19 +44,19 @@ public class ar implements ServiceConnection {
         Messenger messenger;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            synchronized (this.f39783a) {
-                this.f39783a.f70a = new Messenger(iBinder);
-                this.f39783a.f39778c = false;
-                list = this.f39783a.f73a;
+            synchronized (this.f40055a) {
+                this.f40055a.f70a = new Messenger(iBinder);
+                this.f40055a.f40050c = false;
+                list = this.f40055a.f73a;
                 for (Message message : list) {
                     try {
-                        messenger = this.f39783a.f70a;
+                        messenger = this.f40055a.f70a;
                         messenger.send(message);
                     } catch (RemoteException e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
                 }
-                list2 = this.f39783a.f73a;
+                list2 = this.f40055a.f73a;
                 list2.clear();
             }
         }
@@ -66,8 +66,8 @@ public class ar implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f39783a.f70a = null;
-            this.f39783a.f39778c = false;
+            this.f40055a.f70a = null;
+            this.f40055a.f40050c = false;
         }
     }
 }

@@ -22,10 +22,10 @@ public class HkWebView extends HkMWebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public HkWebView f18462h;
+    public HkWebView f18547h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f18463i;
+    public Context f18548i;
 
     /* loaded from: classes4.dex */
     public class a extends HkMWebView.c {
@@ -33,7 +33,7 @@ public class HkWebView extends HkMWebView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ HkWebView f18464c;
+        public final /* synthetic */ HkWebView f18549c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HkWebView hkWebView, HkMWebView hkMWebView, Activity activity) {
@@ -54,7 +54,7 @@ public class HkWebView extends HkMWebView {
                     return;
                 }
             }
-            this.f18464c = hkWebView;
+            this.f18549c = hkWebView;
         }
 
         @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
@@ -115,8 +115,8 @@ public class HkWebView extends HkMWebView {
                 return;
             }
         }
-        this.f18462h = this;
-        this.f18463i = context;
+        this.f18547h = this;
+        this.f18548i = context;
         init();
     }
 
@@ -152,18 +152,18 @@ public class HkWebView extends HkMWebView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 11) {
-                    this.f18462h.removeJavascriptInterface("searchBoxJavaBridge_");
-                    this.f18462h.removeJavascriptInterface("accessibility");
-                    this.f18462h.removeJavascriptInterface("accessibilityTraversal");
+                    this.f18547h.removeJavascriptInterface("searchBoxJavaBridge_");
+                    this.f18547h.removeJavascriptInterface("accessibility");
+                    this.f18547h.removeJavascriptInterface("accessibilityTraversal");
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            b(this.f18463i);
+            b(this.f18548i);
             getSettings().setCacheMode(-1);
             getSettings().setUserAgentString(getUserAgent());
-            setDownloadListener(new HkMWebView.b(this.f18462h, (Activity) this.f18463i));
-            setWebViewClient(new a(this, this.f18462h, (Activity) this.f18463i));
+            setDownloadListener(new HkMWebView.b(this.f18547h, (Activity) this.f18548i));
+            setWebViewClient(new a(this, this.f18547h, (Activity) this.f18548i));
         }
     }
 
@@ -186,8 +186,8 @@ public class HkWebView extends HkMWebView {
                 return;
             }
         }
-        this.f18462h = this;
-        this.f18463i = context;
+        this.f18547h = this;
+        this.f18548i = context;
         init();
     }
 }

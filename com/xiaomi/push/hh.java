@@ -15,34 +15,34 @@ public final class hh {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hh f40261a;
+    public static final hh f40533a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hh[] f475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hh f40262b;
+    public static final hh f40534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hh f40263c;
+    public static final hh f40535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hh f40264d;
+    public static final hh f40536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hh f40265e;
+    public static final hh f40537e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hh f40266f;
+    public static final hh f40538f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hh f40267g;
+    public static final hh f40539g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hh f40268h;
+    public static final hh f40540h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hh f40269i;
+    public static final hh f40541i;
     public static final hh j;
     public static final hh k;
     public static final hh l;
@@ -76,15 +76,15 @@ public final class hh {
                 return;
             }
         }
-        f40261a = new hh("DeviceInfo", 0, 1);
-        f40262b = new hh("AppInstallList", 1, 2);
-        f40263c = new hh("AppActiveList", 2, 3);
-        f40264d = new hh("Bluetooth", 3, 4);
-        f40265e = new hh("Location", 4, 5);
-        f40266f = new hh("Account", 5, 6);
-        f40267g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
-        f40268h = new hh("Cellular", 7, 8);
-        f40269i = new hh("TopApp", 8, 9);
+        f40533a = new hh("DeviceInfo", 0, 1);
+        f40534b = new hh("AppInstallList", 1, 2);
+        f40535c = new hh("AppActiveList", 2, 3);
+        f40536d = new hh("Bluetooth", 3, 4);
+        f40537e = new hh("Location", 4, 5);
+        f40538f = new hh("Account", 5, 6);
+        f40539g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
+        f40540h = new hh("Cellular", 7, 8);
+        f40541i = new hh("TopApp", 8, 9);
         j = new hh("BroadcastAction", 9, 10);
         k = new hh("BroadcastActionAdded", 10, 11);
         l = new hh("BroadcastActionRemoved", 11, 12);
@@ -101,7 +101,7 @@ public final class hh {
         w = new hh("Storage", 22, 23);
         hh hhVar = new hh("AppIsInstalled", 23, 24);
         x = hhVar;
-        f475a = new hh[]{f40261a, f40262b, f40263c, f40264d, f40265e, f40266f, f40267g, f40268h, f40269i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
+        f475a = new hh[]{f40533a, f40534b, f40535c, f40536d, f40537e, f40538f, f40539g, f40540h, f40541i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
     }
 
     public hh(String str, int i2, int i3) {
@@ -131,23 +131,23 @@ public final class hh {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             switch (i2) {
                 case 1:
-                    return f40261a;
+                    return f40533a;
                 case 2:
-                    return f40262b;
+                    return f40534b;
                 case 3:
-                    return f40263c;
+                    return f40535c;
                 case 4:
-                    return f40264d;
+                    return f40536d;
                 case 5:
-                    return f40265e;
+                    return f40537e;
                 case 6:
-                    return f40266f;
+                    return f40538f;
                 case 7:
-                    return f40267g;
+                    return f40539g;
                 case 8:
-                    return f40268h;
+                    return f40540h;
                 case 9:
-                    return f40269i;
+                    return f40541i;
                 case 10:
                     return j;
                 case 11:

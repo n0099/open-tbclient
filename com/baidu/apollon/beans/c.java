@@ -9,31 +9,31 @@ public abstract class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3668a = 0;
+    public static final int f3694a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3669b = -15;
+    public static final int f3695b = -15;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3670c = -16;
+    public static final int f3696c = -16;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3671d = -2;
+    public static final int f3697d = -2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3672e = -3;
+    public static final int f3698e = -3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f3673f = -4;
+    public static final int f3699f = -4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f3674g = -5;
+    public static final int f3700g = -5;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f3675h = 5003;
+    public static final int f3701h = 5003;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f3676i = -7;
+    public static final int f3702i = -7;
     public static final int j = -8;
     public transient /* synthetic */ FieldHolder $fh;
 

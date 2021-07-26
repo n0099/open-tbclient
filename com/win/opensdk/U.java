@@ -1,51 +1,24 @@
 package com.win.opensdk;
 
+import android.widget.Toast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class U {
+public class U implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f39492a;
+    public final /* synthetic */ V f39685a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f39493b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f39494c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public T f39495d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List f39496e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f39497f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f39498g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f39499h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f39500i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-
-    public U() {
+    public U(V v) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -55,10 +28,14 @@ public class U {
                 return;
             }
         }
-        this.f39492a = null;
-        this.f39493b = 0;
-        this.f39494c = 0;
-        this.f39496e = new ArrayList();
-        this.m = 0;
+        this.f39685a = v;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Toast.makeText(this.f39685a.f39696b.getApplicationContext(), R.string.win_toast_network_error2, 0).show();
+        }
     }
 }

@@ -11,14 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
 import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.q.s;
 /* loaded from: classes5.dex */
 public class NativeExpressDrawVideoView extends NativeExpressVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int w;
+    public int r;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NativeExpressDrawVideoView(@NonNull Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, AdSlot adSlot, String str) {
@@ -39,22 +38,22 @@ public class NativeExpressDrawVideoView extends NativeExpressVideoView {
                 return;
             }
         }
-        this.w = getResources().getConfiguration().orientation;
+        this.r = getResources().getConfiguration().orientation;
     }
 
-    private void q() {
+    private void o() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.w == (i2 = getResources().getConfiguration().orientation)) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.r == (i2 = getResources().getConfiguration().orientation)) {
             return;
         }
-        this.w = i2;
-        q.a(this, new q.a(this) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressDrawVideoView.1
+        this.r = i2;
+        com.bytedance.sdk.openadsdk.q.s.a(this, new s.a(this) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressDrawVideoView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NativeExpressDrawVideoView f30391a;
+            public final /* synthetic */ NativeExpressDrawVideoView f30494a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -71,26 +70,26 @@ public class NativeExpressDrawVideoView extends NativeExpressVideoView {
                         return;
                     }
                 }
-                this.f30391a = this;
+                this.f30494a = this;
             }
 
-            @Override // com.bytedance.sdk.openadsdk.r.q.a
+            @Override // com.bytedance.sdk.openadsdk.q.s.a
             public void a(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    int width = this.f30391a.getWidth();
-                    int height = this.f30391a.getHeight();
-                    NativeExpressDrawVideoView nativeExpressDrawVideoView = this.f30391a;
-                    nativeExpressDrawVideoView.a(nativeExpressDrawVideoView.o, width, height);
-                    NativeExpressDrawVideoView nativeExpressDrawVideoView2 = this.f30391a;
-                    View findViewById = nativeExpressDrawVideoView2.o.findViewById(r.e(nativeExpressDrawVideoView2.f30408h, "tt_root_view"));
-                    this.f30391a.a(findViewById, width, height);
+                    int width = this.f30494a.getWidth();
+                    int height = this.f30494a.getHeight();
+                    NativeExpressDrawVideoView nativeExpressDrawVideoView = this.f30494a;
+                    nativeExpressDrawVideoView.a(nativeExpressDrawVideoView.l, width, height);
+                    NativeExpressDrawVideoView nativeExpressDrawVideoView2 = this.f30494a;
+                    View findViewById = nativeExpressDrawVideoView2.l.findViewById(com.bytedance.sdk.component.utils.t.e(nativeExpressDrawVideoView2.f30510g, "tt_root_view"));
+                    this.f30494a.a(findViewById, width, height);
                     if (findViewById != null) {
                         findViewById.requestLayout();
                     }
-                    NativeExpressDrawVideoView nativeExpressDrawVideoView3 = this.f30391a;
+                    NativeExpressDrawVideoView nativeExpressDrawVideoView3 = this.f30494a;
                     nativeExpressDrawVideoView3.a(nativeExpressDrawVideoView3.getWebView(), width, height);
-                    ExpressVideoView expressVideoView = ((NativeExpressVideoView) this.f30391a).f30392a;
+                    ExpressVideoView expressVideoView = ((NativeExpressVideoView) this.f30494a).f30495a;
                     if (expressVideoView != null) {
                         expressVideoView.a(width, height);
                     }
@@ -104,7 +103,7 @@ public class NativeExpressDrawVideoView extends NativeExpressVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            q();
+            o();
         }
     }
 
@@ -113,7 +112,7 @@ public class NativeExpressDrawVideoView extends NativeExpressVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            q();
+            o();
         }
     }
 
@@ -122,7 +121,7 @@ public class NativeExpressDrawVideoView extends NativeExpressVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishTemporaryDetach();
-            q();
+            o();
         }
     }
 

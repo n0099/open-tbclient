@@ -25,16 +25,16 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f22546a;
+    public BaseFragmentActivity f22704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f22547b;
+    public LayoutInflater f22705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<ImageFileInfo> f22548c;
+    public List<ImageFileInfo> f22706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<Integer, Boolean> f22549d;
+    public Map<Integer, Boolean> f22707d;
 
     public AlbumImagePagerAdapter(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -51,25 +51,25 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f22549d = new HashMap();
-        this.f22546a = baseFragmentActivity;
-        this.f22547b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.f22707d = new HashMap();
+        this.f22704a = baseFragmentActivity;
+        this.f22705b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
     }
 
     public ImageFileInfo b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (ImageFileInfo) ListUtils.getItem(this.f22548c, i2) : (ImageFileInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (ImageFileInfo) ListUtils.getItem(this.f22706c, i2) : (ImageFileInfo) invokeI.objValue;
     }
 
     public boolean c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f22549d.get(Integer.valueOf(i2)) == null) {
+            if (this.f22707d.get(Integer.valueOf(i2)) == null) {
                 return false;
             }
-            return this.f22549d.get(Integer.valueOf(i2)).booleanValue();
+            return this.f22707d.get(Integer.valueOf(i2)).booleanValue();
         }
         return invokeI.booleanValue;
     }
@@ -77,7 +77,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public void d(List<ImageFileInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f22548c = list;
+            this.f22706c = list;
             notifyDataSetChanged();
         }
     }
@@ -94,7 +94,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f22548c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f22706c) : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -102,7 +102,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
-            View inflate = this.f22547b.inflate(R.layout.album_big_image_item, (ViewGroup) null);
+            View inflate = this.f22705b.inflate(R.layout.album_big_image_item, (ViewGroup) null);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.big_image);
             tbImageView.setTag(null);
             tbImageView.setDefaultBgResource(0);
@@ -119,7 +119,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
             if (b2 != null) {
                 tbImageView2.N(b2.getFilePath(), 35, false, true);
                 tbImageView.M(b2.getFilePath(), 36, false);
-                this.f22549d.put(Integer.valueOf(i2), Boolean.TRUE);
+                this.f22707d.put(Integer.valueOf(i2), Boolean.TRUE);
             }
             viewGroup.addView(inflate, 0);
             SkinManager.setBackgroundColor(inflate, R.color.CAM_X0201);

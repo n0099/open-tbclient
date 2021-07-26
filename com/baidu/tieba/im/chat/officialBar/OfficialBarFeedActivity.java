@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i1.h.o.a;
-import d.a.p0.i1.l.c.b;
+import d.a.q0.i1.h.o.a;
+import d.a.q0.i1.l.c.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
@@ -123,7 +123,7 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onReadCountLoad(LongSparseArray<d.a.p0.i1.i.a.b.b> longSparseArray) {
+    public void onReadCountLoad(LongSparseArray<d.a.q0.i1.i.a.b.b> longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, longSparseArray) == null) {
             this.mCurrentMsgListView.m(longSparseArray);

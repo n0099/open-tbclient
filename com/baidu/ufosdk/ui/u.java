@@ -13,7 +13,7 @@ public final class u implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23690a;
+    public final /* synthetic */ FeedbackEditActivity f23848a;
 
     public u(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class u implements Runnable {
                 return;
             }
         }
-        this.f23690a = feedbackEditActivity;
+        this.f23848a = feedbackEditActivity;
     }
 
     @Override // java.lang.Runnable
@@ -38,12 +38,12 @@ public final class u implements Runnable {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.e.a.a(this.f23690a.getApplicationContext());
-            Context applicationContext = this.f23690a.getApplicationContext();
+            com.baidu.ufosdk.e.a.a(this.f23848a.getApplicationContext());
+            Context applicationContext = this.f23848a.getApplicationContext();
             String str = UfoSDK.clientid;
             String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
             if (c2 != null) {
-                handler = this.f23690a.af;
+                handler = this.f23848a.af;
                 handler.obtainMessage(0, c2).sendToTarget();
             }
         }

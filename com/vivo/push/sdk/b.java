@@ -12,16 +12,16 @@ public final class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Method f39222a;
+    public final /* synthetic */ Method f39443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f39223b;
+    public final /* synthetic */ Object f39444b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object[] f39224c;
+    public final /* synthetic */ Object[] f39445c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f39225d;
+    public final /* synthetic */ a f39446d;
 
     public b(a aVar, Method method, Object obj, Object[] objArr) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public final class b implements Runnable {
                 return;
             }
         }
-        this.f39225d = aVar;
-        this.f39222a = method;
-        this.f39223b = obj;
-        this.f39224c = objArr;
+        this.f39446d = aVar;
+        this.f39443a = method;
+        this.f39444b = obj;
+        this.f39445c = objArr;
     }
 
     @Override // java.lang.Runnable
@@ -49,7 +49,7 @@ public final class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f39222a.invoke(this.f39223b, this.f39224c);
+                this.f39443a.invoke(this.f39444b, this.f39445c);
             } catch (Exception e2) {
                 p.b("CommandWorker", "reflect e: ", e2);
             }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.g0.a.a;
+import d.a.h0.a.a;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class IPerfFrameRegister_PerfFrameRuntime_ListProvider implements a {
@@ -27,7 +27,7 @@ public class IPerfFrameRegister_PerfFrameRuntime_ListProvider implements a {
         }
     }
 
-    @Override // d.a.g0.a.a
+    @Override // d.a.h0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

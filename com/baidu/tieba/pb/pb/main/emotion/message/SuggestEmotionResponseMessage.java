@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h2.k.e.b1.e.a;
+import d.a.q0.h2.k.e.c1.e.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

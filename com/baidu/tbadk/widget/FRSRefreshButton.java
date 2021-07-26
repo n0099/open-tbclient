@@ -23,19 +23,19 @@ public class FRSRefreshButton extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13225e;
+    public int f13274e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13226f;
+    public int f13275f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f13227g;
+    public Paint f13276g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13228h;
+    public int f13277h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PorterDuffXfermode f13229i;
+    public PorterDuffXfermode f13278i;
     public PorterDuffXfermode j;
     public Drawable k;
     public int l;
@@ -67,9 +67,9 @@ public class FRSRefreshButton extends ImageView {
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f13227g.setXfermode(this.f13229i);
-            canvas.drawPaint(this.f13227g);
-            this.f13227g.setXfermode(this.j);
+            this.f13276g.setXfermode(this.f13278i);
+            canvas.drawPaint(this.f13276g);
+            this.f13276g.setXfermode(this.j);
         }
     }
 
@@ -94,10 +94,10 @@ public class FRSRefreshButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Paint paint = new Paint();
-            this.f13227g = paint;
+            this.f13276g = paint;
             paint.setAntiAlias(true);
-            this.f13227g.setStyle(Paint.Style.FILL);
-            this.f13227g.setAntiAlias(true);
+            this.f13276g.setStyle(Paint.Style.FILL);
+            this.f13276g.setAntiAlias(true);
             this.k = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_refresh24_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
             setLayerType(1, null);
         }
@@ -150,17 +150,17 @@ public class FRSRefreshButton extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) || this.f13225e <= 0 || this.f13226f <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) || this.f13274e <= 0 || this.f13275f <= 0) {
             return;
         }
         int saveCount = canvas.getSaveCount();
         canvas.save();
         a(canvas);
-        canvas.rotate(45.0f, this.f13225e / 2, this.f13226f / 2);
-        this.f13227g.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
-        this.f13227g.setColor(SkinManager.getColor(this.f13228h));
-        int i2 = this.f13225e;
-        canvas.drawCircle(i2 / 2, this.f13226f / 2, (i2 / 2) - 20, this.f13227g);
+        canvas.rotate(45.0f, this.f13274e / 2, this.f13275f / 2);
+        this.f13276g.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
+        this.f13276g.setColor(SkinManager.getColor(this.f13277h));
+        int i2 = this.f13274e;
+        canvas.drawCircle(i2 / 2, this.f13275f / 2, (i2 / 2) - 20, this.f13276g);
         e(canvas);
         if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
             return;
@@ -173,8 +173,8 @@ public class FRSRefreshButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f13225e = getMeasuredWidth();
-            this.f13226f = getMeasuredHeight();
+            this.f13274e = getMeasuredWidth();
+            this.f13275f = getMeasuredHeight();
         }
     }
 
@@ -218,8 +218,8 @@ public class FRSRefreshButton extends ImageView {
                 return;
             }
         }
-        this.f13228h = R.color.CAM_X0211;
-        this.f13229i = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.f13277h = R.color.CAM_X0211;
+        this.f13278i = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
         this.j = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.l = 3;
         this.m = false;

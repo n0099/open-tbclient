@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.b0.a.b;
+import d.a.c0.a.b;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;

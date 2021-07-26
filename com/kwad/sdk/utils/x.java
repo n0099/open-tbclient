@@ -20,16 +20,16 @@ public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f36602a;
+    public static Method f36791a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f36603b;
+    public static Method f36792b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Field f36604c;
+    public static Field f36793c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f36605d;
+    public static int f36794d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,22 +46,22 @@ public class x {
             }
         }
         try {
-            f36602a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+            f36791a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
         } catch (NoSuchMethodException e2) {
             e2.printStackTrace();
         }
         try {
-            f36603b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+            f36792b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException e3) {
             e3.printStackTrace();
         }
         try {
-            f36604c = WindowManager.LayoutParams.class.getField("statusBarColor");
+            f36793c = WindowManager.LayoutParams.class.getField("statusBarColor");
         } catch (NoSuchFieldException e4) {
             e4.printStackTrace();
         }
         try {
-            f36605d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+            f36794d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
         } catch (IllegalAccessException e5) {
             e5.printStackTrace();
         } catch (NoSuchFieldException e6) {
@@ -79,7 +79,7 @@ public class x {
     public static void a(Activity activity, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Method method = f36603b;
+            Method method = f36792b;
             if (method == null) {
                 if (z2) {
                     a(activity.getWindow(), z);
@@ -101,7 +101,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, view, z) == null) {
             int systemUiVisibility = view.getSystemUiVisibility();
-            int i2 = z ? f36605d | systemUiVisibility : (~f36605d) & systemUiVisibility;
+            int i2 = z ? f36794d | systemUiVisibility : (~f36794d) & systemUiVisibility;
             if (i2 != systemUiVisibility) {
                 view.setSystemUiVisibility(i2);
             }
@@ -112,11 +112,11 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i2) == null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
-            Field field = f36604c;
+            Field field = f36793c;
             if (field != null) {
                 try {
                     if (field.getInt(attributes) != i2) {
-                        f36604c.set(attributes, Integer.valueOf(i2));
+                        f36793c.set(attributes, Integer.valueOf(i2));
                         window.setAttributes(attributes);
                     }
                 } catch (IllegalAccessException e2) {

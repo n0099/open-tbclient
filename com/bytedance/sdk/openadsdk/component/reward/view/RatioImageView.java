@@ -15,7 +15,7 @@ public class RatioImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f29592a;
+    public float f29690a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RatioImageView(Context context) {
@@ -48,7 +48,7 @@ public class RatioImageView extends ImageView {
             int size2 = View.MeasureSpec.getSize(i3);
             int i4 = getLayoutParams().width;
             int i5 = getLayoutParams().height;
-            float f2 = this.f29592a;
+            float f2 = this.f29690a;
             if (f2 > 0.0f) {
                 if (i4 == -2) {
                     size = (int) (size2 * f2);
@@ -65,7 +65,7 @@ public class RatioImageView extends ImageView {
     public void setRatio(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f29592a = f2;
+            this.f29690a = f2;
         }
     }
 

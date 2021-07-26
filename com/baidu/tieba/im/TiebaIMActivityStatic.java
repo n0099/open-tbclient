@@ -91,9 +91,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.z0.f0;
-import d.a.o0.z0.i0;
-import d.a.o0.z0.p0;
+import d.a.p0.b1.f0;
+import d.a.p0.b1.i0;
+import d.a.p0.b1.p0;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -341,12 +341,12 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f17305b == null || (tbPageContext = aVar.f17304a) == null) {
+            if (aVar.f17361b == null || (tbPageContext = aVar.f17360a) == null) {
                 return;
             }
             MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
             msgMultiImageTextViewItemAdapter.k0(true);
-            aVar.f17305b.add(msgMultiImageTextViewItemAdapter);
+            aVar.f17361b.add(msgMultiImageTextViewItemAdapter);
         }
     }
 
@@ -361,7 +361,7 @@ public class TiebaIMActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LinkedList f17270a;
+            public final /* synthetic */ LinkedList f17326a;
 
             public a(h hVar, LinkedList linkedList) {
                 Interceptable interceptable = $ic;
@@ -378,26 +378,26 @@ public class TiebaIMActivityStatic {
                         return;
                     }
                 }
-                this.f17270a = linkedList;
+                this.f17326a = linkedList;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.o0.z0.f0
+            @Override // d.a.p0.b1.f0
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.a.p0.i1.h.l.t().a(this.f17270a) : (Void) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.a.q0.i1.h.l.t().a(this.f17326a) : (Void) invokeV.objValue;
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements d.a.o0.z0.n<Void> {
+        public class b implements d.a.p0.b1.n<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomMessage f17271a;
+            public final /* synthetic */ CustomMessage f17327a;
 
             public b(h hVar, CustomMessage customMessage) {
                 Interceptable interceptable = $ic;
@@ -414,18 +414,18 @@ public class TiebaIMActivityStatic {
                         return;
                     }
                 }
-                this.f17271a = customMessage;
+                this.f17327a = customMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.o0.z0.n
+            @Override // d.a.p0.b1.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || ((OfficalBarChatActivityConfig) this.f17271a.getData()).getUserData().getUserIdLong() == 0) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || ((OfficalBarChatActivityConfig) this.f17327a.getData()).getUserData().getUserIdLong() == 0) {
                     return;
                 }
-                ((OfficalBarChatActivityConfig) this.f17271a.getData()).startActivity(OfficialBarChatActivity.class);
+                ((OfficalBarChatActivityConfig) this.f17327a.getData()).startActivity(OfficialBarChatActivity.class);
             }
         }
 
@@ -494,7 +494,7 @@ public class TiebaIMActivityStatic {
                         if (c2 == null || c2.length() <= 0) {
                             return 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), d.a.c.e.m.b.f(c2, 0L), c3, c4, 0)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), d.a.d.e.m.b.f(c2, 0L), c3, c4, 0)));
                         return 1;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_FORUM_BROADCAST_SINGLE_FEED)) {
                         Uri parse = Uri.parse(str);
@@ -513,7 +513,7 @@ public class TiebaIMActivityStatic {
                         String queryParameter4 = Uri.parse(str).getQueryParameter(TbTitleActivityConfig.FORUM_ID);
                         HashMap hashMap = new HashMap();
                         hashMap.put("forum_id", queryParameter4);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new d.a.p0.h3.h0.m(tbPageContext.getPageActivity(), OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new d.a.q0.h3.h0.m(tbPageContext.getPageActivity(), OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
                         return 0;
                     }
                 }
@@ -665,16 +665,16 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f17305b == null || (tbPageContext = aVar.f17304a) == null) {
+            if (aVar.f17361b == null || (tbPageContext = aVar.f17360a) == null) {
                 return;
             }
             MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_PHOTOLIVE);
             msgPhotoLiveItemAdapter.j0(true);
-            aVar.f17305b.add(msgPhotoLiveItemAdapter);
-            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f17304a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
+            aVar.f17361b.add(msgPhotoLiveItemAdapter);
+            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f17360a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
             msgActivityViewItemAdapter.j0(true);
             msgActivityViewItemAdapter.k0(true);
-            aVar.f17305b.add(msgActivityViewItemAdapter);
+            aVar.f17361b.add(msgActivityViewItemAdapter);
         }
     }
 
@@ -829,7 +829,7 @@ public class TiebaIMActivityStatic {
         CustomMessageTask customMessageTask7 = new CustomMessageTask(2003004, new a());
         customMessageTask7.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask7);
-        CustomMessageTask customMessageTask8 = new CustomMessageTask(2001306, new d.a.p0.i1.q.a.a());
+        CustomMessageTask customMessageTask8 = new CustomMessageTask(2001306, new d.a.q0.i1.q.a.a());
         customMessageTask8.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask8);
         CustomMessageTask customMessageTask9 = new CustomMessageTask(2001299, new b());
@@ -855,17 +855,17 @@ public class TiebaIMActivityStatic {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            i(2001106, d.a.p0.i1.v.a.n.class);
-            i(2001205, d.a.p0.i1.v.a.p.class);
-            i(2001206, d.a.p0.i1.v.a.o.class);
-            i(2001207, d.a.p0.i1.v.a.q.class);
-            i(2001144, d.a.p0.i1.v.a.g.class);
-            i(2001147, d.a.p0.i1.v.a.m.class);
-            i(2001154, d.a.p0.i1.v.a.j.class);
-            i(2001150, d.a.p0.i1.v.a.h.class);
-            i(2001151, d.a.p0.i1.v.a.i.class);
-            i(2001152, d.a.p0.i1.v.a.k.class);
-            i(2001177, d.a.p0.i1.v.a.l.class);
+            i(2001106, d.a.q0.i1.v.a.n.class);
+            i(2001205, d.a.q0.i1.v.a.p.class);
+            i(2001206, d.a.q0.i1.v.a.o.class);
+            i(2001207, d.a.q0.i1.v.a.q.class);
+            i(2001144, d.a.q0.i1.v.a.g.class);
+            i(2001147, d.a.q0.i1.v.a.m.class);
+            i(2001154, d.a.q0.i1.v.a.j.class);
+            i(2001150, d.a.q0.i1.v.a.h.class);
+            i(2001151, d.a.q0.i1.v.a.i.class);
+            i(2001152, d.a.q0.i1.v.a.k.class);
+            i(2001177, d.a.q0.i1.v.a.l.class);
             return true;
         }
         return invokeV.booleanValue;
@@ -926,14 +926,14 @@ public class TiebaIMActivityStatic {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, d.a.p0.h3.d0.a.a(RecommendDetailActivity.RECOMMEND_DETAIL_URL, 303025));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, d.a.q0.h3.d0.a.a(RecommendDetailActivity.RECOMMEND_DETAIL_URL, 303025));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setIsUseCurrentBDUSS(false);
             tbHttpMessageTask.setResponsedClass(RecommendDetailHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            d.a.p0.h3.d0.a.f(303025, RecommendDetailSocketResponseMessage.class, false);
+            d.a.q0.h3.d0.a.f(303025, RecommendDetailSocketResponseMessage.class, false);
         }
     }
 
@@ -941,36 +941,36 @@ public class TiebaIMActivityStatic {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            MessageManager.getInstance().addResponsedMessageRule(new d.a.p0.i1.l.a());
-            MessageManager.getInstance().addResponsedMessageRule(new d.a.p0.i1.l.b());
+            MessageManager.getInstance().addResponsedMessageRule(new d.a.q0.i1.l.a());
+            MessageManager.getInstance().addResponsedMessageRule(new d.a.q0.i1.l.b());
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public static d.a.o0.v0.a i(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+    public static d.a.p0.x0.a i(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i2, cls)) == null) ? d.a.p0.i1.c.a(i2, cls) : (d.a.o0.v0.a) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i2, cls)) == null) ? d.a.q0.i1.c.a(i2, cls) : (d.a.p0.x0.a) invokeIL.objValue;
     }
 
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, d.a.p0.h3.d0.a.a(TbConfig.GET_FORUM_DETAIL, 303021));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, d.a.q0.h3.d0.a.a(TbConfig.GET_FORUM_DETAIL, 303021));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setIsUseCurrentBDUSS(false);
             tbHttpMessageTask.setResponsedClass(ForumDetailHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            d.a.p0.h3.d0.a.f(303021, ForumDetailSocketResponse.class, false);
+            d.a.q0.h3.d0.a.f(303021, ForumDetailSocketResponse.class, false);
         }
     }
 
-    public static d.a.o0.v0.b k(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
+    public static d.a.p0.x0.b k(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) ? d.a.p0.i1.c.b(i2, cls, z) : (d.a.o0.v0.b) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) ? d.a.q0.i1.c.b(i2, cls, z) : (d.a.p0.x0.b) invokeCommon.objValue;
     }
 }

@@ -12,25 +12,25 @@ public class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1980a = "pref_trade_token";
+    public static final String f2013a = "pref_trade_token";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1981b = ";";
+    public static final String f2014b = ";";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1982c = "result={";
+    public static final String f2015c = "result={";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1983d = "}";
+    public static final String f2016d = "}";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1984e = "trade_token=\"";
+    public static final String f2017e = "trade_token=\"";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1985f = "\"";
+    public static final String f2018f = "\"";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1986g = "trade_token=";
+    public static final String f2019g = "trade_token=";
     public transient /* synthetic */ FieldHolder $fh;
 
     public i() {
@@ -56,7 +56,7 @@ public class i {
                 if (TextUtils.isEmpty(a2)) {
                     return;
                 }
-                j.a(context, f1980a, a2);
+                j.a(context, f2013a, a2);
             } catch (Throwable th) {
                 com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.B, th);
                 c.a(th);
@@ -74,16 +74,16 @@ public class i {
             }
             String[] split = str.split(";");
             for (int i2 = 0; i2 < split.length; i2++) {
-                if (split[i2].startsWith(f1982c) && split[i2].endsWith("}")) {
+                if (split[i2].startsWith(f2015c) && split[i2].endsWith("}")) {
                     String[] split2 = split[i2].substring(8, split[i2].length() - 1).split("&");
                     int i3 = 0;
                     while (true) {
                         if (i3 >= split2.length) {
                             break;
-                        } else if (split2[i3].startsWith(f1984e) && split2[i3].endsWith("\"")) {
+                        } else if (split2[i3].startsWith(f2017e) && split2[i3].endsWith("\"")) {
                             str2 = split2[i3].substring(13, split2[i3].length() - 1);
                             break;
-                        } else if (split2[i3].startsWith(f1986g)) {
+                        } else if (split2[i3].startsWith(f2019g)) {
                             str2 = split2[i3].substring(12);
                             break;
                         } else {
@@ -101,7 +101,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String b2 = j.b(context, f1980a, "");
+            String b2 = j.b(context, f2013a, "");
             c.b("", "PayResultUtil::fetchTradeToken > tradeToken:" + b2);
             return b2;
         }

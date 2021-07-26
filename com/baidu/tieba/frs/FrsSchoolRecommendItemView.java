@@ -22,37 +22,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.o0.r.f0.t.c;
-import d.a.p0.u0.z0;
+import d.a.d.e.p.k;
+import d.a.p0.s.f0.t.c;
+import d.a.q0.u0.z0;
 /* loaded from: classes4.dex */
 public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f15415b;
+    public HeadImageView f15463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15416c;
+    public TextView f15464c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15417d;
+    public TextView f15465d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EntelechyUserLikeButton f15418e;
+    public EntelechyUserLikeButton f15466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f15419f;
+    public c f15467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f15420g;
+    public BdUniqueId f15468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public z0 f15421h;
+    public z0 f15469h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15422i;
+    public int f15470i;
     public TbPageContext j;
     public View.OnClickListener k;
 
@@ -62,7 +62,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsSchoolRecommendItemView f15423e;
+        public final /* synthetic */ FrsSchoolRecommendItemView f15471e;
 
         public a(FrsSchoolRecommendItemView frsSchoolRecommendItemView) {
             Interceptable interceptable = $ic;
@@ -79,16 +79,16 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
                     return;
                 }
             }
-            this.f15423e = frsSchoolRecommendItemView;
+            this.f15471e = frsSchoolRecommendItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15423e.f15421h == null || k.isEmpty(this.f15423e.f15421h.f64020a.getUserName()) || k.isEmpty(this.f15423e.f15421h.f64020a.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15471e.f15469h == null || k.isEmpty(this.f15471e.f15469h.f64665a.getUserName()) || k.isEmpty(this.f15471e.f15469h.f64665a.getUserId())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f15423e.a().getContext(), this.f15423e.f15421h.f64020a.getUserId(), this.f15423e.f15421h.f64020a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f15471e.a().getContext(), this.f15471e.f15469h.f64665a.getUserId(), this.f15471e.f15469h.f64665a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 
@@ -110,39 +110,39 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
                 return;
             }
         }
-        this.f15422i = 3;
+        this.f15470i = 3;
         this.k = new a(this);
-        this.f15420g = bdUniqueId;
+        this.f15468g = bdUniqueId;
         this.j = tbPageContext;
         HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.rec_usr_header);
-        this.f15415b = headImageView;
-        headImageView.setPageId(this.f15420g);
-        this.f15415b.setIsRound(true);
-        this.f15416c = (TextView) view.findViewById(R.id.rec_user_name);
-        this.f15417d = (TextView) view.findViewById(R.id.rec_user_describe);
+        this.f15463b = headImageView;
+        headImageView.setPageId(this.f15468g);
+        this.f15463b.setIsRound(true);
+        this.f15464c = (TextView) view.findViewById(R.id.rec_user_name);
+        this.f15465d = (TextView) view.findViewById(R.id.rec_user_describe);
         EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view.findViewById(R.id.rec_user_like);
-        this.f15418e = entelechyUserLikeButton;
+        this.f15466e = entelechyUserLikeButton;
         c cVar = new c(tbPageContext, entelechyUserLikeButton);
-        this.f15419f = cVar;
+        this.f15467f = cVar;
         cVar.m("1");
-        this.f15419f.l(bdUniqueId);
+        this.f15467f.l(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void b(d.a.p0.f1.b.c cVar) {
+    public void b(d.a.q0.f1.b.c cVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (cVar instanceof z0)) {
             z0 z0Var = (z0) cVar;
-            this.f15421h = z0Var;
-            if (StringUtils.isNull(z0Var.f64020a.getUserId())) {
+            this.f15469h = z0Var;
+            if (StringUtils.isNull(z0Var.f64665a.getUserId())) {
                 return;
             }
-            this.f15415b.M(this.f15421h.f64020a.getPortrait(), 28, false);
-            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f15421h.f64020a.getUserName(), 5);
-            this.f15417d.setText(StringHelper.cutStringWithEllipsis(this.f15421h.f64020a.getGodUserData().getIntro(), 6));
-            this.f15416c.setText(cutStringWithEllipsis);
+            this.f15463b.M(this.f15469h.f64665a.getPortrait(), 28, false);
+            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f15469h.f64665a.getUserName(), 5);
+            this.f15465d.setText(StringHelper.cutStringWithEllipsis(this.f15469h.f64665a.getGodUserData().getIntro(), 6));
+            this.f15464c.setText(cutStringWithEllipsis);
             a().setOnClickListener(this.k);
-            this.f15419f.n(this.f15421h.f64020a);
+            this.f15467f.n(this.f15469h.f64665a);
             d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -151,19 +151,19 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public ItemViewHolder c(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? new FrsSchoolRecommendItemView(view, this.j, this.f15420g) : (ItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? new FrsSchoolRecommendItemView(view, this.j, this.f15468g) : (ItemViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f15422i != i2) {
-                SkinManager.setViewTextColor(this.f15416c, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f15417d, R.color.CAM_X0109);
-                this.f15418e.g(i2);
+            if (this.f15470i != i2) {
+                SkinManager.setViewTextColor(this.f15464c, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f15465d, R.color.CAM_X0109);
+                this.f15466e.g(i2);
             }
-            this.f15422i = i2;
+            this.f15470i = i2;
         }
     }
 }

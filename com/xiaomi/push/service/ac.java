@@ -73,7 +73,7 @@ public class ac {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f40575a;
+    public static long f40847a;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile aj f872a;
@@ -91,7 +91,7 @@ public class ac {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f40576a;
+        public Context f40848a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f875a;
@@ -114,7 +114,7 @@ public class ac {
                     return;
                 }
             }
-            this.f40576a = context;
+            this.f40848a = context;
             this.f875a = str;
             this.f876a = z;
         }
@@ -132,12 +132,12 @@ public class ac {
                     return null;
                 }
                 if (this.f875a.startsWith("http")) {
-                    an.b a2 = an.a(this.f40576a, this.f875a, this.f876a);
+                    an.b a2 = an.a(this.f40848a, this.f875a, this.f876a);
                     if (a2 != null) {
                         return a2.f892a;
                     }
                 } else {
-                    bitmap = an.a(this.f40576a, this.f875a);
+                    bitmap = an.a(this.f40848a, this.f875a);
                     if (bitmap != null) {
                         return bitmap;
                     }
@@ -155,7 +155,7 @@ public class ac {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f40577a;
+        public long f40849a;
 
         /* renamed from: a  reason: collision with other field name */
         public Notification f877a;
@@ -173,7 +173,7 @@ public class ac {
                     return;
                 }
             }
-            this.f40577a = 0L;
+            this.f40849a = 0L;
         }
     }
 
@@ -183,7 +183,7 @@ public class ac {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f40578a;
+        public long f40850a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f878a;
@@ -201,7 +201,7 @@ public class ac {
                     return;
                 }
             }
-            this.f40578a = 0L;
+            this.f40850a = 0L;
         }
     }
 
@@ -442,13 +442,13 @@ public class ac {
             if (TextUtils.isEmpty(str6)) {
                 return null;
             }
-            if (az.f40622a.equals(str6)) {
+            if (az.f40894a.equals(str6)) {
                 try {
                     launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.d("Cause: " + e2.getMessage());
                 }
-            } else if (az.f40623b.equals(str6)) {
+            } else if (az.f40895b.equals(str6)) {
                 if (map.containsKey(str3)) {
                     String str7 = map.get(str3);
                     if (str7 != null) {
@@ -481,7 +481,7 @@ public class ac {
                 }
                 launchIntentForPackage = null;
             } else {
-                if (az.f40624c.equals(str6)) {
+                if (az.f40896c.equals(str6)) {
                     String str8 = map.get(str5);
                     if (!TextUtils.isEmpty(str8)) {
                         String trim = str8.trim();
@@ -853,7 +853,7 @@ public class ac {
                     an.b a16 = an.a(context, a15, true);
                     if (a16 != null) {
                         a5 = a16.f892a;
-                        bVar2.f40577a = a16.f40592a;
+                        bVar2.f40849a = a16.f40864a;
                     } else {
                         a5 = null;
                     }
@@ -899,8 +899,8 @@ public class ac {
                     if (m408a != null && m408a.containsKey(ALaKeepAliveService.KEY_TICKER)) {
                         enVar2.setTicker(m408a.get(ALaKeepAliveService.KEY_TICKER));
                     }
-                    if (currentTimeMillis - f40575a <= 10000) {
-                        f40575a = currentTimeMillis;
+                    if (currentTimeMillis - f40847a <= 10000) {
+                        f40847a = currentTimeMillis;
                         i3 = m450a.f540a;
                         if (m578b(context, a9)) {
                             i3 = a(context, a9);
@@ -1042,7 +1042,7 @@ public class ac {
             if (m408a != null) {
                 enVar2.setTicker(m408a.get(ALaKeepAliveService.KEY_TICKER));
             }
-            if (currentTimeMillis - f40575a <= 10000) {
+            if (currentTimeMillis - f40847a <= 10000) {
             }
             if (m408a != null) {
             }
@@ -1129,7 +1129,7 @@ public class ac {
                 i2 = 0;
             }
             int hashCode = ((a(ibVar).hashCode() / 10) * 10) + i2;
-            if (com.xiaomi.push.l.m536a(context) && a4 == g.a.f40160c) {
+            if (com.xiaomi.push.l.m536a(context) && a4 == g.a.f40432c) {
                 if (m450a != null) {
                     el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m450a.m407a(), "10:" + a(ibVar));
                 }
@@ -1145,7 +1145,7 @@ public class ac {
                 if (a6 != null) {
                     if (Build.VERSION.SDK_INT >= 11) {
                         b a7 = a(context, ibVar, bArr, a5, a6, hashCode);
-                        cVar.f40578a = a7.f40577a;
+                        cVar.f40850a = a7.f40849a;
                         cVar.f878a = a(ibVar);
                         notification = a7.f877a;
                     } else {
@@ -1168,7 +1168,7 @@ public class ac {
                                 notification.tickerText = m408a.get(ALaKeepAliveService.KEY_TICKER);
                             }
                             currentTimeMillis = System.currentTimeMillis();
-                            if (currentTimeMillis - f40575a > 10000) {
+                            if (currentTimeMillis - f40847a > 10000) {
                             }
                             notification.flags |= 16;
                             if (a5 != null) {
@@ -1240,7 +1240,7 @@ public class ac {
                             if (m408a != null) {
                             }
                             currentTimeMillis = System.currentTimeMillis();
-                            if (currentTimeMillis - f40575a > 10000) {
+                            if (currentTimeMillis - f40847a > 10000) {
                             }
                             notification.flags |= 16;
                             if (a5 != null) {
@@ -1285,7 +1285,7 @@ public class ac {
                             if (m408a != null) {
                             }
                             currentTimeMillis = System.currentTimeMillis();
-                            if (currentTimeMillis - f40575a > 10000) {
+                            if (currentTimeMillis - f40847a > 10000) {
                             }
                             notification.flags |= 16;
                             if (a5 != null) {
@@ -1330,7 +1330,7 @@ public class ac {
                             if (m408a != null) {
                             }
                             currentTimeMillis = System.currentTimeMillis();
-                            if (currentTimeMillis - f40575a > 10000) {
+                            if (currentTimeMillis - f40847a > 10000) {
                             }
                             notification.flags |= 16;
                             if (a5 != null) {
@@ -1367,8 +1367,8 @@ public class ac {
                             notification.tickerText = m408a.get(ALaKeepAliveService.KEY_TICKER);
                         }
                         currentTimeMillis = System.currentTimeMillis();
-                        if (currentTimeMillis - f40575a > 10000) {
-                            f40575a = currentTimeMillis;
+                        if (currentTimeMillis - f40847a > 10000) {
+                            f40847a = currentTimeMillis;
                             int i4 = m450a.f540a;
                             if (m578b(context, a(ibVar))) {
                                 i4 = a(context, a(ibVar));
@@ -1520,7 +1520,7 @@ public class ac {
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        if (az.f40622a.equals(a2) || az.f40623b.equals(a2) || az.f40624c.equals(a2)) {
+        if (az.f40894a.equals(a2) || az.f40895b.equals(a2) || az.f40896c.equals(a2)) {
             intent.putExtra("local_paid", ibVar.f634a);
             if (!TextUtils.isEmpty(ibVar.f638b)) {
                 intent.putExtra("target_package", ibVar.f638b);
@@ -1996,7 +1996,7 @@ public class ac {
     public static boolean d(ib ibVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, ibVar)) == null) ? ibVar.a() == hf.f40250a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, ibVar)) == null) ? ibVar.a() == hf.f40522a : invokeL.booleanValue;
     }
 
     public static int e(Map<String, String> map) {

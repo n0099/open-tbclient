@@ -1,6 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import android.content.Context;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -13,7 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.l0.f;
+import d.a.p0.n0.b;
+import d.a.p0.n0.f;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class CurrencyJumpHelper {
@@ -48,13 +50,13 @@ public class CurrencyJumpHelper {
     public static void goYYPay(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new f(context, 0, null, null, null));
+            goYYPay(context, null);
         }
     }
 
     public static void gotoBuyTBeanPage(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65543, null, context, j) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context);
                 return;
@@ -68,7 +70,7 @@ public class CurrencyJumpHelper {
 
     public static void memberCenterBuyTBean(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context);
             } else {
@@ -79,7 +81,7 @@ public class CurrencyJumpHelper {
 
     public static void nativeGotoBuyBean(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context);
             } else {
@@ -90,7 +92,7 @@ public class CurrencyJumpHelper {
 
     public static void openNativeBuyTBean(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65546, null, context, map) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context);
                 return;
@@ -103,7 +105,7 @@ public class CurrencyJumpHelper {
 
     public static void personGotoBuyBean(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context);
                 return;
@@ -116,12 +118,19 @@ public class CurrencyJumpHelper {
 
     public static void schemaGotoBuyBean(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context);
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(context, 0.0f)));
             }
+        }
+    }
+
+    public static void goYYPay(Context context, @Nullable b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bVar) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new f(context, 0, null, null, bVar));
         }
     }
 
@@ -140,9 +149,16 @@ public class CurrencyJumpHelper {
 
     public static void gotoBuyTBeanPage(Context context, float f2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Float.valueOf(f2), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, Float.valueOf(f2), str, str2}) == null) {
+            gotoBuyTBeanPage(context, f2, str, str2, null);
+        }
+    }
+
+    public static void gotoBuyTBeanPage(Context context, float f2, String str, String str2, @Nullable b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, Float.valueOf(f2), str, str2, bVar}) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context);
+                goYYPay(context, bVar);
                 return;
             }
             BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), f2);

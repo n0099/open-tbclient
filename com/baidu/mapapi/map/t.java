@@ -22,7 +22,7 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ TextureMapView f7196a;
+    public final /* synthetic */ TextureMapView f7222a;
 
     public t(TextureMapView textureMapView) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
                 return;
             }
         }
-        this.f7196a = textureMapView;
+        this.f7222a = textureMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -60,31 +60,31 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
         ac acVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            acVar = this.f7196a.f7118b;
+            acVar = this.f7222a.f7144b;
             if (acVar != null) {
-                acVar2 = this.f7196a.f7118b;
+                acVar2 = this.f7222a.f7144b;
                 if (acVar2.b() == null) {
                     return;
                 }
-                acVar3 = this.f7196a.f7118b;
-                float f3 = acVar3.b().E().f7661a;
-                acVar4 = this.f7196a.f7118b;
-                if (f3 < acVar4.b().f7709b) {
-                    acVar8 = this.f7196a.f7118b;
-                    f3 = acVar8.b().f7709b;
+                acVar3 = this.f7222a.f7144b;
+                float f3 = acVar3.b().E().f7687a;
+                acVar4 = this.f7222a.f7144b;
+                if (f3 < acVar4.b().f7735b) {
+                    acVar8 = this.f7222a.f7144b;
+                    f3 = acVar8.b().f7735b;
                 } else {
-                    acVar5 = this.f7196a.f7118b;
-                    if (f3 > acVar5.b().f7708a) {
-                        acVar6 = this.f7196a.f7118b;
-                        f3 = acVar6.b().f7708a;
+                    acVar5 = this.f7222a.f7144b;
+                    if (f3 > acVar5.b().f7734a) {
+                        acVar6 = this.f7222a.f7144b;
+                        f3 = acVar6.b().f7734a;
                     }
                 }
-                f2 = this.f7196a.r;
+                f2 = this.f7222a.r;
                 if (Math.abs(f2 - f3) > 0.0f) {
                     sparseArray = TextureMapView.q;
                     int intValue = ((Integer) sparseArray.get(Math.round(f3))).intValue();
-                    acVar7 = this.f7196a.f7118b;
-                    imageView = this.f7196a.o;
+                    acVar7 = this.f7222a.f7144b;
+                    imageView = this.f7222a.o;
                     int i2 = ((int) (intValue / acVar7.b().E().m)) / 2;
                     imageView.setPadding(i2, 0, i2, 0);
                     Object[] objArr = new Object[1];
@@ -95,14 +95,14 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
                         objArr[0] = Integer.valueOf(intValue);
                         format = String.format(" %d米 ", objArr);
                     }
-                    textView = this.f7196a.m;
+                    textView = this.f7222a.m;
                     textView.setText(format);
-                    textView2 = this.f7196a.n;
+                    textView2 = this.f7222a.n;
                     textView2.setText(format);
-                    this.f7196a.r = f3;
+                    this.f7222a.r = f3;
                 }
-                this.f7196a.b();
-                this.f7196a.requestLayout();
+                this.f7222a.b();
+                this.f7222a.requestLayout();
             }
         }
     }

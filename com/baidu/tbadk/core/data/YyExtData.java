@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -121,7 +122,7 @@ public class YyExtData implements Serializable, Parcelable {
         }
         this.mSid = jSONObject.optString("sid");
         this.mSsid = jSONObject.optString("ssid");
-        this.mTemplateId = jSONObject.optString("template_id");
+        this.mTemplateId = jSONObject.optString(TiebaStatic.Params.TEMPLATE_ID);
         this.mYyUid = jSONObject.optString("yy_uid");
         this.isYyGame = jSONObject.optInt("is_yy_game") == 1;
     }

@@ -42,7 +42,7 @@ public class IdCardDetectionController {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IdCardDetectionController f24009a;
+        public static final IdCardDetectionController f24167a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public class IdCardDetectionController {
                     return;
                 }
             }
-            f24009a = new IdCardDetectionController(null);
+            f24167a = new IdCardDetectionController(null);
         }
     }
 
@@ -69,7 +69,7 @@ public class IdCardDetectionController {
     public static final IdCardDetectionController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24009a : (IdCardDetectionController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24167a : (IdCardDetectionController) invokeV.objValue;
     }
 
     public void IdCardDeteFailed(int i2, String str) {

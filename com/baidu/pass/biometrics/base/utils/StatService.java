@@ -29,7 +29,7 @@ public final class StatService {
     public static final String TAG = "StatService";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f9159a;
+    public static final Map<String, String> f9185a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,10 +46,10 @@ public final class StatService {
             }
         }
         HashMap hashMap = new HashMap();
-        f9159a = hashMap;
+        f9185a = hashMap;
         hashMap.put("pid", "111");
-        f9159a.put("type", "1023");
-        f9159a.put("device", "android");
+        f9185a.put("type", "1023");
+        f9185a.put("device", "android");
     }
 
     public StatService() {
@@ -74,7 +74,7 @@ public final class StatService {
         try {
             if (NetworkUtils.isNetworkAvailable(context)) {
                 HashMap hashMap = new HashMap();
-                hashMap.putAll(f9159a);
+                hashMap.putAll(f9185a);
                 map.put("v", String.valueOf(System.currentTimeMillis()));
                 hashMap.put("name", str);
                 hashMap.put("model", Build.MODEL);

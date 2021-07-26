@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.k;
-import d.a.n0.f.j.o.a;
+import d.a.o0.a.k;
+import d.a.o0.f.j.o.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -340,7 +340,7 @@ public class GameGuideConfigInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                if (k.f45831a) {
+                if (k.f46335a) {
                     Log.d(TAG, "data 为空");
                 }
                 return null;
@@ -362,7 +362,7 @@ public class GameGuideConfigInfo implements Serializable {
             }
             gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
             if (optInt == 0) {
-                if (k.f45831a) {
+                if (k.f46335a) {
                     Log.d(TAG, "配置数据标明不展示");
                 }
                 return gameGuideConfigInfo;

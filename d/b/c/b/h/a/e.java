@@ -20,27 +20,27 @@ public class e {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile e f68979e;
+    public static volatile e f69433e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68980a;
+    public Context f69434a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<com.bytedance.tea.crash.c, c> f68981b;
+    public Map<com.bytedance.tea.crash.c, c> f69435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f68982c;
+    public b f69436c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f68983d;
+    public d f69437d;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f68984a;
+        public static final /* synthetic */ int[] f69438a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -57,17 +57,17 @@ public class e {
                 }
             }
             int[] iArr = new int[com.bytedance.tea.crash.c.values().length];
-            f68984a = iArr;
+            f69438a = iArr;
             try {
-                iArr[com.bytedance.tea.crash.c.f32379b.ordinal()] = 1;
+                iArr[com.bytedance.tea.crash.c.f32566b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f68984a[com.bytedance.tea.crash.c.f32381d.ordinal()] = 2;
+                f69438a[com.bytedance.tea.crash.c.f32568d.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f68984a[com.bytedance.tea.crash.c.f32385h.ordinal()] = 3;
+                f69438a[com.bytedance.tea.crash.c.f32572h.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -88,18 +88,18 @@ public class e {
                 return;
             }
         }
-        this.f68981b = new HashMap();
-        this.f68980a = context;
-        this.f68982c = new b(context);
-        this.f68983d = new d(this.f68980a);
+        this.f69435b = new HashMap();
+        this.f69434a = context;
+        this.f69436c = new b(context);
+        this.f69437d = new d(this.f69434a);
     }
 
     public static e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68979e != null) {
-                return f68979e;
+            if (f69433e != null) {
+                return f69433e;
             }
             throw new IllegalArgumentException("CrashContextAssembly not init");
         }
@@ -108,8 +108,8 @@ public class e {
 
     public static void d(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f68979e == null) {
-            f68979e = new e(context);
+        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f69433e == null) {
+            f69433e = new e(context);
         }
     }
 
@@ -125,20 +125,20 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
-            c cVar2 = this.f68981b.get(cVar);
+            c cVar2 = this.f69435b.get(cVar);
             if (cVar2 != null) {
                 return cVar2;
             }
-            int i2 = a.f68984a[cVar.ordinal()];
+            int i2 = a.f69438a[cVar.ordinal()];
             if (i2 == 1) {
-                cVar2 = new g(this.f68980a, this.f68982c, this.f68983d);
+                cVar2 = new g(this.f69434a, this.f69436c, this.f69437d);
             } else if (i2 == 2) {
-                cVar2 = new d.b.c.b.h.a.a(this.f68980a, this.f68982c, this.f68983d);
+                cVar2 = new d.b.c.b.h.a.a(this.f69434a, this.f69436c, this.f69437d);
             } else if (i2 == 3) {
-                cVar2 = new f(this.f68980a, this.f68982c, this.f68983d);
+                cVar2 = new f(this.f69434a, this.f69436c, this.f69437d);
             }
             if (cVar2 != null) {
-                this.f68981b.put(cVar, cVar2);
+                this.f69435b.put(cVar, cVar2);
             }
             return cVar2;
         }

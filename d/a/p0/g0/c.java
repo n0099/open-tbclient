@@ -1,8 +1,6 @@
 package d.a.p0.g0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import androidx.fragment.app.Fragment;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,32 +8,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.n;
-/* loaded from: classes8.dex */
-public class c implements n {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f56287f;
+/* loaded from: classes7.dex */
+public class c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int j = 1;
+    public static int k = 2;
+    public static int l = 3;
+    public static int m = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public Fragment f52618a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f52619b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f52620c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f52621d;
+
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardCompetition f56288e;
+    public int f52622e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f52623f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f52624g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d.a.p0.g0.e.a f52625h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f52626i;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1571807980, "Ld/a/p0/g0/c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1571807980, "Ld/a/p0/g0/c;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1571807980, "Ld/a/p0/g0/c;")) == null) {
+            return;
         }
-        f56287f = BdUniqueId.gen();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1571807980, "Ld/a/p0/g0/c;");
+        }
     }
 
     public c() {
@@ -48,31 +69,9 @@ public class c implements n {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public FeatureCardCompetition b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56288e : (FeatureCardCompetition) invokeV.objValue;
-    }
-
-    public void c(FeatureCardCompetition featureCardCompetition) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetition) == null) || featureCardCompetition == null) {
-            return;
-        }
-        this.f56288e = featureCardCompetition;
-        String str = featureCardCompetition.title;
-        Integer num = featureCardCompetition.floor;
-        Integer num2 = featureCardCompetition.type;
-    }
-
-    @Override // d.a.c.k.e.n
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f56287f : (BdUniqueId) invokeV.objValue;
+        this.f52626i = j;
     }
 }

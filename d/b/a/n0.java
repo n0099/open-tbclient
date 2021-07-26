@@ -25,10 +25,10 @@ public final class n0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68811a;
+    public static final String f69265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static j0<u0> f68812b;
+    public static j0<u0> f69266b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -73,8 +73,8 @@ public final class n0 {
                 return;
             }
         }
-        f68811a = n0.class.getSimpleName() + "#";
-        f68812b = new a();
+        f69265a = n0.class.getSimpleName() + "#";
+        f69266b = new a();
     }
 
     public n0() {
@@ -98,7 +98,7 @@ public final class n0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sharedPreferences)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             String a2 = l0.a(sharedPreferences);
-            o0.e("TrackerDr", f68811a + "getCdid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+            o0.e("TrackerDr", f69265a + "getCdid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
             return a2;
         }
         return (String) invokeL.objValue;
@@ -125,8 +125,8 @@ public final class n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, sharedPreferences)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            Map<String, String> b2 = f68812b.b(context).b(100L);
-            o0.e("TrackerDr", f68811a + "getOaid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+            Map<String, String> b2 = f69266b.b(context).b(100L);
+            o0.e("TrackerDr", f69265a + "getOaid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
             return b2;
         }
         return (Map) invokeLL.objValue;
@@ -136,7 +136,7 @@ public final class n0 {
     public static void d(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
-            f68812b.b(context).c();
+            f69266b.b(context).c();
         }
     }
 

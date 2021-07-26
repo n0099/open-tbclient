@@ -10,7 +10,7 @@ import java.util.List;
 public interface f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f f70021a = new c();
+    public static final f f70475a = new c();
 
     Pair<d.f.b.a.a0.e, Boolean> a(d.f.b.a.a0.e eVar, Uri uri, Format format, List<Format> list, DrmInitData drmInitData, s sVar);
 }

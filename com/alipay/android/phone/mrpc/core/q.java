@@ -63,32 +63,32 @@ public final class q implements Callable<u> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HttpRequestRetryHandler f1673e;
+    public static final HttpRequestRetryHandler f1706e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f1674a;
+    public l f1707a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f1675b;
+    public Context f1708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f1676c;
+    public o f1709c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1677d;
+    public String f1710d;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpUriRequest f1678f;
+    public HttpUriRequest f1711f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpContext f1679g;
+    public HttpContext f1712g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CookieStore f1680h;
+    public CookieStore f1713h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CookieManager f1681i;
+    public CookieManager f1714i;
     public AbstractHttpEntity j;
     public HttpHost k;
     public URL l;
@@ -111,7 +111,7 @@ public final class q implements Callable<u> {
                 return;
             }
         }
-        f1673e = new ad();
+        f1706e = new ad();
     }
 
     public q(l lVar, o oVar) {
@@ -129,15 +129,15 @@ public final class q implements Callable<u> {
                 return;
             }
         }
-        this.f1679g = new BasicHttpContext();
-        this.f1680h = new BasicCookieStore();
+        this.f1712g = new BasicHttpContext();
+        this.f1713h = new BasicCookieStore();
         this.m = 0;
         this.n = false;
         this.o = false;
         this.p = null;
-        this.f1674a = lVar;
-        this.f1675b = lVar.f1651a;
-        this.f1676c = oVar;
+        this.f1707a = lVar;
+        this.f1708b = lVar.f1684a;
+        this.f1709c = oVar;
     }
 
     public static long a(String[] strArr) {
@@ -203,8 +203,8 @@ public final class q implements Callable<u> {
                 a(entity, byteArrayOutputStream2);
                 byte[] byteArray = byteArrayOutputStream2.toByteArray();
                 this.o = false;
-                this.f1674a.c(System.currentTimeMillis() - currentTimeMillis);
-                this.f1674a.a(byteArray.length);
+                this.f1707a.c(System.currentTimeMillis() - currentTimeMillis);
+                this.f1707a.a(byteArray.length);
                 new StringBuilder("res:").append(byteArray.length);
                 p pVar = new p(a(httpResponse), i2, str, byteArray);
                 long b2 = b(httpResponse);
@@ -268,11 +268,11 @@ public final class q implements Callable<u> {
                     byte[] bArr = new byte[2048];
                     while (true) {
                         int read = a2.read(bArr);
-                        if (read == -1 || this.f1676c.h()) {
+                        if (read == -1 || this.f1709c.h()) {
                             break;
                         }
                         outputStream.write(bArr, 0, read);
-                        if (this.f1676c.f() != null) {
+                        if (this.f1709c.f() != null) {
                             int i2 = (contentLength > 0L ? 1 : (contentLength == 0L ? 0 : -1));
                         }
                     }
@@ -314,8 +314,8 @@ public final class q implements Callable<u> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            String a2 = this.f1676c.a();
-            String str = this.f1677d;
+            String a2 = this.f1709c.a();
+            String str = this.f1710d;
             if (str != null) {
                 a2 = str;
             }
@@ -331,31 +331,31 @@ public final class q implements Callable<u> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            HttpUriRequest httpUriRequest = this.f1678f;
+            HttpUriRequest httpUriRequest = this.f1711f;
             if (httpUriRequest != null) {
                 return httpUriRequest;
             }
             if (this.j == null) {
-                byte[] b2 = this.f1676c.b();
-                String b3 = this.f1676c.b(AsyncHttpClient.ENCODING_GZIP);
+                byte[] b2 = this.f1709c.b();
+                String b3 = this.f1709c.b(AsyncHttpClient.ENCODING_GZIP);
                 if (b2 != null) {
                     if (TextUtils.equals(b3, "true")) {
                         this.j = b.a(b2);
                     } else {
                         this.j = new ByteArrayEntity(b2);
                     }
-                    this.j.setContentType(this.f1676c.c());
+                    this.j.setContentType(this.f1709c.c());
                 }
             }
             AbstractHttpEntity abstractHttpEntity = this.j;
             if (abstractHttpEntity != null) {
                 HttpPost httpPost = new HttpPost(b());
                 httpPost.setEntity(abstractHttpEntity);
-                this.f1678f = httpPost;
+                this.f1711f = httpPost;
             } else {
-                this.f1678f = new HttpGet(b());
+                this.f1711f = new HttpGet(b());
             }
-            return this.f1678f;
+            return this.f1711f;
         }
         return (HttpUriRequest) invokeV.objValue;
     }
@@ -388,7 +388,7 @@ public final class q implements Callable<u> {
         }
         while (true) {
             try {
-                NetworkInfo[] allNetworkInfo = ((ConnectivityManager) this.f1675b.getSystemService("connectivity")).getAllNetworkInfo();
+                NetworkInfo[] allNetworkInfo = ((ConnectivityManager) this.f1708b.getSystemService("connectivity")).getAllNetworkInfo();
                 boolean z2 = true;
                 if (allNetworkInfo != null) {
                     for (NetworkInfo networkInfo : allNetworkInfo) {
@@ -400,7 +400,7 @@ public final class q implements Callable<u> {
                 }
                 z = false;
                 if (z) {
-                    ArrayList<Header> d2 = this.f1676c.d();
+                    ArrayList<Header> d2 = this.f1709c.d();
                     if (d2 != null && !d2.isEmpty()) {
                         Iterator<Header> it = d2.iterator();
                         while (it.hasNext()) {
@@ -409,16 +409,16 @@ public final class q implements Callable<u> {
                     }
                     b.a((HttpRequest) c());
                     b.b((HttpRequest) c());
-                    c().addHeader("cookie", i().getCookie(this.f1676c.a()));
-                    this.f1679g.setAttribute(ClientContext.COOKIE_STORE, this.f1680h);
-                    this.f1674a.a().a(f1673e);
+                    c().addHeader("cookie", i().getCookie(this.f1709c.a()));
+                    this.f1712g.setAttribute(ClientContext.COOKIE_STORE, this.f1713h);
+                    this.f1707a.a().a(f1706e);
                     long currentTimeMillis = System.currentTimeMillis();
                     StringBuilder sb = new StringBuilder("By Http/Https to request. operationType=");
                     sb.append(f());
                     sb.append(" url=");
-                    sb.append(this.f1678f.getURI().toString());
-                    HttpParams params = this.f1674a.a().getParams();
-                    NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f1675b.getSystemService("connectivity")).getActiveNetworkInfo();
+                    sb.append(this.f1711f.getURI().toString());
+                    HttpParams params = this.f1707a.a().getParams();
+                    NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f1708b.getSystemService("connectivity")).getActiveNetworkInfo();
                     HttpHost httpHost3 = null;
                     if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                         String defaultHost = Proxy.getDefaultHost();
@@ -440,10 +440,10 @@ public final class q implements Callable<u> {
                             if (g() == 80) {
                                 httpHost2 = new HttpHost(h().getHost());
                             }
-                            HttpResponse execute = this.f1674a.a().execute(httpHost2, this.f1678f, this.f1679g);
-                            this.f1674a.b(System.currentTimeMillis() - currentTimeMillis);
-                            cookies = this.f1680h.getCookies();
-                            if (this.f1676c.e()) {
+                            HttpResponse execute = this.f1707a.a().execute(httpHost2, this.f1711f, this.f1712g);
+                            this.f1707a.b(System.currentTimeMillis() - currentTimeMillis);
+                            cookies = this.f1713h.getCookies();
+                            if (this.f1709c.e()) {
                                 i().removeAllCookie();
                             }
                             if (!cookies.isEmpty()) {
@@ -456,7 +456,7 @@ public final class q implements Callable<u> {
                                         sb2.append("; domain=");
                                         sb2.append(cookie.getDomain());
                                         sb2.append(cookie.isSecure() ? "; Secure" : "");
-                                        i().setCookie(this.f1676c.a(), sb2.toString());
+                                        i().setCookie(this.f1709c.a(), sb2.toString());
                                         CookieSyncManager.getInstance().sync();
                                     }
                                 }
@@ -478,7 +478,7 @@ public final class q implements Callable<u> {
                                 } catch (Exception unused) {
                                 }
                             }
-                            a3 = this.f1676c.a();
+                            a3 = this.f1709c.a();
                             if (a3 != null && !TextUtils.isEmpty(f())) {
                                 StringBuilder sb3 = new StringBuilder();
                                 sb3.append(a3);
@@ -497,10 +497,10 @@ public final class q implements Callable<u> {
                     }
                     if (g() == 80) {
                     }
-                    HttpResponse execute2 = this.f1674a.a().execute(httpHost2, this.f1678f, this.f1679g);
-                    this.f1674a.b(System.currentTimeMillis() - currentTimeMillis);
-                    cookies = this.f1680h.getCookies();
-                    if (this.f1676c.e()) {
+                    HttpResponse execute2 = this.f1707a.a().execute(httpHost2, this.f1711f, this.f1712g);
+                    this.f1707a.b(System.currentTimeMillis() - currentTimeMillis);
+                    cookies = this.f1713h.getCookies();
+                    if (this.f1709c.e()) {
                     }
                     if (!cookies.isEmpty()) {
                     }
@@ -512,7 +512,7 @@ public final class q implements Callable<u> {
                     if (((a2 != null || a2.b() == null) ? -1L : a2.b().length) == -1) {
                         Long.parseLong(((p) a2).a().getHead("Content-Length"));
                     }
-                    a3 = this.f1676c.a();
+                    a3 = this.f1709c.a();
                     if (a3 != null) {
                         StringBuilder sb32 = new StringBuilder();
                         sb32.append(a3);
@@ -524,7 +524,7 @@ public final class q implements Callable<u> {
                 throw new HttpException(1, "The network is not available");
             } catch (HttpException e2) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     e2.getCode();
                     e2.getMsg();
                 }
@@ -540,7 +540,7 @@ public final class q implements Callable<u> {
                 this.m = i2 + 1;
             } catch (SocketTimeoutException e4) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e4);
                 }
                 new StringBuilder().append(e4);
@@ -549,69 +549,69 @@ public final class q implements Callable<u> {
                 throw new RuntimeException("Url parser error!", e5.getCause());
             } catch (UnknownHostException e6) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e6);
                 }
                 new StringBuilder().append(e6);
                 throw new HttpException(9, String.valueOf(e6));
             } catch (SSLHandshakeException e7) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e7);
                 }
                 new StringBuilder().append(e7);
                 throw new HttpException(2, String.valueOf(e7));
             } catch (SSLPeerUnverifiedException e8) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e8);
                 }
                 new StringBuilder().append(e8);
                 throw new HttpException(2, String.valueOf(e8));
             } catch (SSLException e9) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e9);
                 }
                 new StringBuilder().append(e9);
                 throw new HttpException(6, String.valueOf(e9));
             } catch (NoHttpResponseException e10) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e10);
                 }
                 new StringBuilder().append(e10);
                 throw new HttpException(5, String.valueOf(e10));
             } catch (ConnectionPoolTimeoutException e11) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e11);
                 }
                 new StringBuilder().append(e11);
                 throw new HttpException(3, String.valueOf(e11));
             } catch (ConnectTimeoutException e12) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e12);
                 }
                 new StringBuilder().append(e12);
                 throw new HttpException(3, String.valueOf(e12));
             } catch (HttpHostConnectException e13) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e13);
                 }
                 throw new HttpException(8, String.valueOf(e13));
             } catch (IOException e14) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e14);
                 }
                 new StringBuilder().append(e14);
                 throw new HttpException(6, String.valueOf(e14));
             } catch (Exception e15) {
                 e();
-                if (this.f1676c.f() != null) {
+                if (this.f1709c.f() != null) {
                     new StringBuilder().append(e15);
                 }
                 throw new HttpException(0, String.valueOf(e15));
@@ -622,7 +622,7 @@ public final class q implements Callable<u> {
     private void e() {
         HttpUriRequest httpUriRequest;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (httpUriRequest = this.f1678f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (httpUriRequest = this.f1711f) == null) {
             return;
         }
         httpUriRequest.abort();
@@ -633,7 +633,7 @@ public final class q implements Callable<u> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             if (TextUtils.isEmpty(this.q)) {
-                String b2 = this.f1676c.b("operationType");
+                String b2 = this.f1709c.b("operationType");
                 this.q = b2;
                 return b2;
             }
@@ -660,7 +660,7 @@ public final class q implements Callable<u> {
             if (url != null) {
                 return url;
             }
-            URL url2 = new URL(this.f1676c.a());
+            URL url2 = new URL(this.f1709c.a());
             this.l = url2;
             return url2;
         }
@@ -671,12 +671,12 @@ public final class q implements Callable<u> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            CookieManager cookieManager = this.f1681i;
+            CookieManager cookieManager = this.f1714i;
             if (cookieManager != null) {
                 return cookieManager;
             }
             CookieManager cookieManager2 = CookieManager.getInstance();
-            this.f1681i = cookieManager2;
+            this.f1714i = cookieManager2;
             return cookieManager2;
         }
         return (CookieManager) invokeV.objValue;
@@ -685,6 +685,6 @@ public final class q implements Callable<u> {
     public final o a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1676c : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1709c : (o) invokeV.objValue;
     }
 }

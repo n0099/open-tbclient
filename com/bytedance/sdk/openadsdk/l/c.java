@@ -1,104 +1,102 @@
 package com.bytedance.sdk.openadsdk.l;
 
-import android.graphics.Bitmap;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.d.g;
-import com.bytedance.sdk.component.d.m;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes5.dex */
-public class c implements g<Bitmap> {
+public final class c {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f31458a;
+    public static final c f31657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.k.a.c f31459b;
+    public static final c f31658b;
 
-    public c(boolean z) {
+    /* renamed from: c  reason: collision with root package name */
+    public static final c f31659c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final c f31660d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final c f31661e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final c f31662f;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final /* synthetic */ c[] f31663h;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f31664g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(97960400, "Lcom/bytedance/sdk/openadsdk/l/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(97960400, "Lcom/bytedance/sdk/openadsdk/l/c;");
+                return;
+            }
+        }
+        f31657a = new c("TYPE_2G", 0, "2g");
+        f31658b = new c("TYPE_3G", 1, "3g");
+        f31659c = new c("TYPE_4G", 2, "4g");
+        f31660d = new c("TYPE_5G", 3, "5g");
+        f31661e = new c("TYPE_WIFI", 4, "wifi");
+        c cVar = new c("TYPE_UNKNOWN", 5, "mobile");
+        f31662f = cVar;
+        f31663h = new c[]{f31657a, f31658b, f31659c, f31660d, f31661e, cVar};
+    }
+
+    public c(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f31458a = z;
-        if (z) {
-            this.f31459b = com.bytedance.sdk.openadsdk.k.a.c.b();
-        }
+        this.f31664g = str2;
     }
 
-    public void a(String str) {
-        com.bytedance.sdk.openadsdk.k.a.c cVar;
+    public static c valueOf(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.f31458a && (cVar = this.f31459b) != null) {
-            cVar.c(str);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (c) Enum.valueOf(c.class, str) : (c) invokeL.objValue;
     }
 
-    public void b(String str) {
-        com.bytedance.sdk.openadsdk.k.a.c cVar;
+    public static c[] values() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.f31458a && (cVar = this.f31459b) != null) {
-            cVar.g(str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (c[]) f31663h.clone() : (c[]) invokeV.objValue;
     }
 
-    public void c(String str) {
-        com.bytedance.sdk.openadsdk.k.a.c cVar;
+    @Override // java.lang.Enum
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.f31458a && (cVar = this.f31459b) != null) {
-            cVar.d(str);
-        }
-    }
-
-    public void d(String str) {
-        com.bytedance.sdk.openadsdk.k.a.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.f31458a && (cVar = this.f31459b) != null) {
-            cVar.i(str);
-        }
-    }
-
-    public void a(int i2) {
-        com.bytedance.sdk.openadsdk.k.a.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.f31458a && (cVar = this.f31459b) != null) {
-            cVar.a(i2);
-        }
-    }
-
-    @Override // com.bytedance.sdk.component.d.g
-    public void a(m<Bitmap> mVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) && this.f31458a && this.f31459b != null) {
-            if (mVar == null || mVar.a() == null) {
-                this.f31459b.b(202).h(com.bytedance.sdk.openadsdk.core.g.a(202));
-                com.bytedance.sdk.openadsdk.k.a.a().k(this.f31459b);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.component.d.g
-    public void a(int i2, String str, @Nullable Throwable th) {
-        com.bytedance.sdk.openadsdk.k.a.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, th) == null) && this.f31458a && (cVar = this.f31459b) != null) {
-            cVar.b(201).h(com.bytedance.sdk.openadsdk.core.g.a(201));
-            com.bytedance.sdk.openadsdk.k.a.a().k(this.f31459b);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31664g : (String) invokeV.objValue;
     }
 }

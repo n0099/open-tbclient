@@ -20,7 +20,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SparseArray<a> f73080a;
+    public static SparseArray<a> f73534a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -71,7 +71,7 @@ public final class b {
                 return;
             }
         }
-        f73080a = new SparseArray<>();
+        f73534a = new SparseArray<>();
     }
 
     public static Object a(int i2) {
@@ -179,19 +179,22 @@ public final class b {
         if (interceptable != null && interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, aVar) != null) {
             return;
         }
-        a aVar2 = f73080a.get(i2);
+        a aVar2 = f73534a.get(i2);
         if (aVar2 != null) {
             throw new RuntimeException(String.format((String) h.a(16777217, 0, 0L, "0148cc", new byte[]{100, 32, 7, 68, 93, 112, 115, 18, 96, 109, 47, 115, 85, 73, 91, 125, 32, 4, 96, 122, 111}), aVar2.toString()));
         }
-        f73080a.put(i2, aVar);
+        f73534a.put(i2, aVar);
         while (true) {
-            char c2 = 'P';
+            char c2 = 'R';
             while (true) {
                 switch (c2) {
                     case 'P':
-                        c2 = 'R';
-                    case 'R':
                         return;
+                    case 'Q':
+                        break;
+                    case 'R':
+                    default:
+                        c2 = 'P';
                 }
             }
         }
@@ -201,7 +204,7 @@ public final class b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str, obj})) == null) {
-            a aVar = f73080a.get(i2);
+            a aVar = f73534a.get(i2);
             if (aVar != null) {
                 try {
                     return aVar.a(i2, i3, j, str, obj);

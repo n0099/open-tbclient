@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.k.r.c;
+import d.a.o0.k.r.c;
 /* loaded from: classes3.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c<View> f12055a;
+    public c<View> f12081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<View> f12056b;
+    public SparseArray<View> f12082b;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -41,8 +41,8 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
                 return;
             }
         }
-        this.f12055a = new c<>(5);
-        this.f12056b = new SparseArray<>();
+        this.f12081a = new c<>(5);
+        this.f12082b = new SparseArray<>();
     }
 
     public abstract void b(View view, int i2);
@@ -58,8 +58,8 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
                 ((a) view).recycle();
             }
             viewGroup.removeView(view);
-            this.f12055a.b(view);
-            this.f12056b.remove(i2);
+            this.f12081a.b(view);
+            this.f12082b.remove(i2);
         }
     }
 
@@ -78,11 +78,11 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
-            View a2 = this.f12055a.a();
+            View a2 = this.f12081a.a();
             if (a2 == null) {
                 a2 = c(viewGroup, i2);
             }
-            this.f12056b.put(i2, a2);
+            this.f12082b.put(i2, a2);
             viewGroup.addView(a2);
             b(a2, i2);
             return a2;

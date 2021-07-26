@@ -16,7 +16,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34419a;
+    public Context f34608a;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class e {
                 return;
             }
         }
-        this.f34419a = context;
+        this.f34608a = context;
     }
 
     public String a() {
@@ -46,7 +46,7 @@ public class e {
             try {
                 Uri parse = Uri.parse("content://cn.nubia.identity/identity");
                 if (Build.VERSION.SDK_INT > 17) {
-                    ContentProviderClient acquireContentProviderClient = this.f34419a.getContentResolver().acquireContentProviderClient(parse);
+                    ContentProviderClient acquireContentProviderClient = this.f34608a.getContentResolver().acquireContentProviderClient(parse);
                     call = acquireContentProviderClient.call("getOAID", null, null);
                     if (Build.VERSION.SDK_INT >= 24) {
                         acquireContentProviderClient.close();
@@ -54,7 +54,7 @@ public class e {
                         acquireContentProviderClient.release();
                     }
                 } else {
-                    call = this.f34419a.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
+                    call = this.f34608a.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
                 }
                 if (call != null) {
                     str = call.getInt("code", -1) == 0 ? call.getString("id") : "";

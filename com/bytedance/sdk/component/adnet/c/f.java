@@ -26,32 +26,32 @@ public class f implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f27930c;
+    public static f f28028c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f27931a;
+    public Handler f28029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f27932b;
+    public long f28030b;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27933d;
+    public boolean f28031d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f27934e;
+    public Context f28032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f27935f;
+    public e f28033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27936g;
+    public int f28034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f27937h;
+    public long f28035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27938i;
+    public int f28036i;
     public HashMap<String, Integer> j;
     public HashMap<String, Integer> k;
     public int l;
@@ -73,11 +73,11 @@ public class f implements c {
                 return;
             }
         }
-        this.f27932b = 0L;
-        this.f27933d = false;
-        this.f27936g = 0;
-        this.f27937h = TNCManager.TNC_DATA_VERSION_DEFAULT;
-        this.f27938i = 0;
+        this.f28030b = 0L;
+        this.f28031d = false;
+        this.f28034g = 0;
+        this.f28035h = TNCManager.TNC_DATA_VERSION_DEFAULT;
+        this.f28036i = 0;
         this.j = new HashMap<>();
         this.k = new HashMap<>();
         this.l = 0;
@@ -85,12 +85,12 @@ public class f implements c {
         this.n = new HashMap<>();
         this.o = true;
         this.p = new HashMap();
-        this.f27931a = new Handler(this, Looper.getMainLooper()) { // from class: com.bytedance.sdk.component.adnet.c.f.1
+        this.f28029a = new Handler(this, Looper.getMainLooper()) { // from class: com.bytedance.sdk.component.adnet.c.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f27939a;
+            public final /* synthetic */ f f28037a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -110,14 +110,14 @@ public class f implements c {
                         return;
                     }
                 }
-                this.f27939a = this;
+                this.f28037a = this;
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 10000) {
-                    this.f27939a.a(message.arg1 != 0);
+                    this.f28037a.a(message.arg1 != 0);
                 }
             }
         };
@@ -132,8 +132,8 @@ public class f implements c {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "resetTNCControlState");
-            this.f27938i = 0;
+            com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "resetTNCControlState");
+            this.f28036i = 0;
             this.j.clear();
             this.k.clear();
             this.l = 0;
@@ -153,7 +153,7 @@ public class f implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            e eVar = this.f27935f;
+            e eVar = this.f28033f;
             if (eVar != null) {
                 return eVar.c();
             }
@@ -168,7 +168,7 @@ public class f implements c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             d c2 = c();
             if (c2 != null) {
-                return c2.f27920d;
+                return c2.f28018d;
             }
             return null;
         }
@@ -178,7 +178,7 @@ public class f implements c {
     public e e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27935f : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28033f : (e) invokeV.objValue;
     }
 
     public static synchronized f a() {
@@ -187,10 +187,10 @@ public class f implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (f.class) {
-                if (f27930c == null) {
-                    f27930c = new f();
+                if (f28028c == null) {
+                    f28028c = new f();
                 }
-                fVar = f27930c;
+                fVar = f28028c;
             }
             return fVar;
         }
@@ -229,7 +229,7 @@ public class f implements c {
             if (TextUtils.isEmpty(str2) || this.p.get(str2) == null || this.p.get(str2).intValue() < 3) {
                 return false;
             }
-            com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleHostMapping, TNC host faild num over limit: " + str);
+            com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleHostMapping, TNC host faild num over limit: " + str);
             return true;
         }
         return invokeL.booleanValue;
@@ -267,7 +267,7 @@ public class f implements c {
                 }
                 if (!TextUtils.isEmpty(str2) && (("http".equals(str2) || "https".equals(str2)) && !TextUtils.isEmpty(str3))) {
                     if (!d(str3)) {
-                        com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleHostMapping, TNC host faild num over limit: " + str3);
+                        com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleHostMapping, TNC host faild num over limit: " + str3);
                         return str;
                     }
                     Map<String, String> d2 = d();
@@ -276,16 +276,16 @@ public class f implements c {
                         if (TextUtils.isEmpty(str4)) {
                             return str;
                         }
-                        com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleHostMapping, match, origin: " + str);
+                        com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleHostMapping, match, origin: " + str);
                         String str5 = str2 + "://" + str3;
                         String str6 = str2 + "://" + str4;
                         if (str.startsWith(str5)) {
                             str = str.replaceFirst(str5, str6);
                         }
-                        com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleHostMapping, target: " + str);
+                        com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleHostMapping, target: " + str);
                         return str;
                     }
-                    com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleHostMapping, nomatch: " + str3);
+                    com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleHostMapping, nomatch: " + str3);
                 }
             }
             return str;
@@ -322,7 +322,7 @@ public class f implements c {
                     return;
                 }
                 if (this.o) {
-                    if (com.bytedance.sdk.component.adnet.d.f.a(this.f27934e)) {
+                    if (com.bytedance.sdk.component.adnet.d.e.a(this.f28032e)) {
                         URL url = null;
                         try {
                             url = new URL(request.getUrl());
@@ -335,23 +335,23 @@ public class f implements c {
                         String host = url.getHost();
                         String path = url.getPath();
                         String ipAddrStr = request.getIpAddrStr();
-                        int i2 = (int) mVar.f28038h;
+                        int i2 = (int) mVar.f28136h;
                         if ("http".equals(protocol) || "https".equals(protocol)) {
                             if (TextUtils.isEmpty(ipAddrStr)) {
                                 return;
                             }
-                            com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "onResponse, url: " + protocol + "://" + host + "#" + ipAddrStr + "#" + i2);
+                            com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "onResponse, url: " + protocol + "://" + host + "#" + ipAddrStr + "#" + i2);
                             d c2 = c();
-                            if (c2 != null && c2.f27918b) {
+                            if (c2 != null && c2.f28016b) {
                                 a(mVar, host);
                             }
                             if (c2 == null) {
                                 return;
                             }
-                            com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "onResponse, url matched: " + protocol + "://" + host + "#" + ipAddrStr + "#" + i2 + " " + this.f27938i + "#" + this.j.size() + "#" + this.k.size() + " " + this.l + "#" + this.m.size() + "#" + this.n.size());
+                            com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "onResponse, url matched: " + protocol + "://" + host + "#" + ipAddrStr + "#" + i2 + " " + this.f28036i + "#" + this.j.size() + "#" + this.k.size() + " " + this.l + "#" + this.m.size() + "#" + this.n.size());
                             if (i2 > 0) {
                                 if (a(i2)) {
-                                    if (this.f27938i > 0 || this.l > 0) {
+                                    if (this.f28036i > 0 || this.l > 0) {
                                         f();
                                     }
                                     c(host);
@@ -359,8 +359,8 @@ public class f implements c {
                                     this.l++;
                                     this.m.put(path, 0);
                                     this.n.put(ipAddrStr, 0);
-                                    if (this.l >= c2.f27924h && this.m.size() >= c2.f27925i && this.n.size() >= c2.j) {
-                                        com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "onResponse, url doUpdate: " + protocol + "://" + host + "#" + ipAddrStr + "#" + i2);
+                                    if (this.l >= c2.f28022h && this.m.size() >= c2.f28023i && this.n.size() >= c2.j) {
+                                        com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "onResponse, url doUpdate: " + protocol + "://" + host + "#" + ipAddrStr + "#" + i2);
                                         a(false, 0L);
                                         f();
                                     }
@@ -383,7 +383,7 @@ public class f implements c {
                     return;
                 }
                 if (this.o) {
-                    if (com.bytedance.sdk.component.adnet.d.f.a(this.f27934e)) {
+                    if (com.bytedance.sdk.component.adnet.d.e.a(this.f28032e)) {
                         URL url = null;
                         try {
                             url = new URL(request.getUrl());
@@ -401,12 +401,12 @@ public class f implements c {
                             if (c2 == null) {
                                 return;
                             }
-                            com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "onError, url matched: " + protocol + "://" + host + "#" + ipAddrStr + "# " + this.f27938i + "#" + this.j.size() + "#" + this.k.size() + " " + this.l + "#" + this.m.size() + "#" + this.n.size());
-                            this.f27938i = this.f27938i + 1;
+                            com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "onError, url matched: " + protocol + "://" + host + "#" + ipAddrStr + "# " + this.f28036i + "#" + this.j.size() + "#" + this.k.size() + " " + this.l + "#" + this.m.size() + "#" + this.n.size());
+                            this.f28036i = this.f28036i + 1;
                             this.j.put(path, 0);
                             this.k.put(ipAddrStr, 0);
-                            if (this.f27938i >= c2.f27921e && this.j.size() >= c2.f27922f && this.k.size() >= c2.f27923g) {
-                                com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "onError, url doUpate: " + protocol + "://" + host + "#" + ipAddrStr);
+                            if (this.f28036i >= c2.f28019e && this.j.size() >= c2.f28020f && this.k.size() >= c2.f28021g) {
+                                com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "onError, url doUpate: " + protocol + "://" + host + "#" + ipAddrStr);
                                 a(false, 0L);
                                 f();
                             }
@@ -431,7 +431,7 @@ public class f implements c {
         if ((interceptable == null || interceptable.invokeLL(65539, this, mVar, str) == null) && mVar != null && this.o) {
             String a2 = mVar.a(TNCManager.TNC_PROBE_HEADER, (String) null);
             if (TextUtils.isEmpty(a2)) {
-                com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleTncProbe, no probeProto, " + str);
+                com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleTncProbe, no probeProto, " + str);
                 return;
             }
             String[] split = a2.split(TNCManager.TNC_PROBE_HEADER_SECEPTOR);
@@ -447,45 +447,45 @@ public class f implements c {
                 } catch (Throwable th2) {
                     th = th2;
                     th.printStackTrace();
-                    com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleTncProbe, probeProto except, " + str);
+                    com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleTncProbe, probeProto except, " + str);
                     j = 0L;
-                    com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleTncProbe, local: " + this.f27936g + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.f27937h + " svr: " + i2 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + j + " " + str);
-                    if (j > this.f27937h) {
+                    com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleTncProbe, local: " + this.f28034g + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.f28035h + " svr: " + i2 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + j + " " + str);
+                    if (j > this.f28035h) {
                     }
                 }
-                com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleTncProbe, local: " + this.f27936g + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.f27937h + " svr: " + i2 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + j + " " + str);
-                if (j > this.f27937h) {
+                com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleTncProbe, local: " + this.f28034g + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.f28035h + " svr: " + i2 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + j + " " + str);
+                if (j > this.f28035h) {
                     return;
                 }
-                this.f27936g = i2;
-                this.f27937h = j;
-                this.f27934e.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putInt("tnc_probe_cmd", i2).putLong("tnc_probe_version", j).apply();
-                if (this.f27936g != 10000 || (c2 = c()) == null) {
+                this.f28034g = i2;
+                this.f28035h = j;
+                this.f28032e.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putInt("tnc_probe_cmd", i2).putLong("tnc_probe_version", j).apply();
+                if (this.f28034g != 10000 || (c2 = c()) == null) {
                     return;
                 }
                 Random random = new Random(System.currentTimeMillis());
                 int i3 = c2.l;
                 long nextInt = i3 > 0 ? random.nextInt(i3) * 1000 : 0L;
-                com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleTncProbe, updateConfig delay: " + nextInt + " " + str);
+                com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleTncProbe, updateConfig delay: " + nextInt + " " + str);
                 a(true, nextInt);
                 return;
             }
-            com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "handleTncProbe, probeProto err, " + str);
+            com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "handleTncProbe, probeProto err, " + str);
         }
     }
 
     private void a(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || this.f27931a.hasMessages(10000)) {
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || this.f28029a.hasMessages(10000)) {
             return;
         }
-        Message obtainMessage = this.f27931a.obtainMessage();
+        Message obtainMessage = this.f28029a.obtainMessage();
         obtainMessage.what = 10000;
         obtainMessage.arg1 = z ? 1 : 0;
         if (j > 0) {
-            this.f27931a.sendMessageDelayed(obtainMessage, j);
+            this.f28029a.sendMessageDelayed(obtainMessage, j);
         } else {
-            this.f27931a.sendMessage(obtainMessage);
+            this.f28029a.sendMessage(obtainMessage);
         }
     }
 
@@ -496,13 +496,13 @@ public class f implements c {
         if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) || (c2 = c()) == null) {
             return;
         }
-        com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "doUpdateRemote, " + z);
+        com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "doUpdateRemote, " + z);
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        if (!z && this.f27932b + (c2.k * 1000) > elapsedRealtime) {
-            com.bytedance.sdk.component.adnet.d.d.b(TNCManager.TAG, "doUpdateRemote, time limit");
+        if (!z && this.f28030b + (c2.k * 1000) > elapsedRealtime) {
+            com.bytedance.sdk.component.adnet.d.c.b(TNCManager.TAG, "doUpdateRemote, time limit");
             return;
         }
-        this.f27932b = elapsedRealtime;
-        com.bytedance.sdk.component.adnet.a.a.a(this.f27934e).b(com.bytedance.sdk.component.adnet.d.f.a(this.f27934e));
+        this.f28030b = elapsedRealtime;
+        com.bytedance.sdk.component.adnet.a.a.a(this.f28032e).b(com.bytedance.sdk.component.adnet.d.e.a(this.f28032e));
     }
 }

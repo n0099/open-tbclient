@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.f.b;
-import d.a.c.e.f.c;
+import d.a.d.e.f.b;
+import d.a.d.e.f.c;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -90,8 +90,8 @@ public class SwitchManager {
         for (c cVar : this.mSwitchs.values()) {
             if (cVar != null) {
                 cVar.i(0);
-                edit.putInt(cVar.d() + c.f41152d, 0);
-                edit.putInt(cVar.d() + c.f41153e, cVar.c());
+                edit.putInt(cVar.d() + c.f41656d, 0);
+                edit.putInt(cVar.d() + c.f41657e, cVar.c());
             }
         }
         edit.commit();

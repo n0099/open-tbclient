@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.g0.b.g;
-import d.a.p0.h3.m;
+import d.a.p0.i0.b.g;
+import d.a.q0.h3.m;
 /* loaded from: classes4.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implements NetModel.k<FrsRequestData, m> {
     public static /* synthetic */ Interceptable $ic;
@@ -130,7 +130,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public FrsRequestData c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (FrsRequestData) this.f13130g : (FrsRequestData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (FrsRequestData) this.f13179g : (FrsRequestData) invokeV.objValue;
     }
 
     public boolean d0() {
@@ -142,7 +142,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public void e0(FrsRequestData frsRequestData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, frsRequestData) == null) {
-            this.f13130g = frsRequestData;
+            this.f13179g = frsRequestData;
         }
     }
 

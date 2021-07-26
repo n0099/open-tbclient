@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.m2.j.l;
+import d.a.q0.m2.j.l;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
@@ -17,7 +17,7 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f20223e;
+    public l f20341e;
 
     public PersonCenterTabBaseFragment() {
         Interceptable interceptable = $ic;
@@ -33,25 +33,25 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         }
     }
 
-    public abstract void H0(boolean z);
+    public abstract void M0(boolean z);
 
-    public abstract int I0();
+    public abstract int N0();
 
-    public abstract boolean J0();
+    public abstract boolean O0();
 
-    public void K0(MetaData metaData) {
+    public void P0(MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
         }
     }
 
-    public abstract void L0(User user);
+    public abstract void Q0(User user);
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (lVar = this.f20223e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (lVar = this.f20341e) == null) {
             return;
         }
         lVar.dettachView(view);
@@ -62,7 +62,7 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             super.onChangeSkinType(i2);
-            l lVar = this.f20223e;
+            l lVar = this.f20341e;
             if (lVar != null) {
                 lVar.onChangeSkinType();
             }
@@ -73,17 +73,17 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public void showNetRefreshView(View view, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048583, this, view, str, z) == null) {
-            if (this.f20223e == null) {
+            if (this.f20341e == null) {
                 l lVar = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.f20223e = lVar;
+                this.f20341e = lVar;
                 lVar.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-                this.f20223e.d(null);
-                this.f20223e.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-                this.f20223e.f();
-                this.f20223e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                this.f20341e.d(null);
+                this.f20341e.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+                this.f20341e.f();
+                this.f20341e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.f20223e.onChangeSkinType();
-            this.f20223e.attachView(view, z);
+            this.f20341e.onChangeSkinType();
+            this.f20341e.attachView(view, z);
         }
     }
 }

@@ -129,10 +129,10 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MyCouponListActivity f27125a;
+        public final /* synthetic */ MyCouponListActivity f27283a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LayoutInflater f27126b;
+        public final LayoutInflater f27284b;
 
         public a(MyCouponListActivity myCouponListActivity, ListView listView) {
             Interceptable interceptable = $ic;
@@ -149,8 +149,8 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                     return;
                 }
             }
-            this.f27125a = myCouponListActivity;
-            this.f27126b = LayoutInflater.from(myCouponListActivity);
+            this.f27283a = myCouponListActivity;
+            this.f27284b = LayoutInflater.from(myCouponListActivity);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -160,8 +160,8 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (i2 < this.f27125a.mCouponList.size()) {
-                    return (CouponList.Coupon) this.f27125a.mCouponList.get(i2);
+                if (i2 < this.f27283a.mCouponList.size()) {
+                    return (CouponList.Coupon) this.f27283a.mCouponList.get(i2);
                 }
                 return null;
             }
@@ -172,7 +172,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27125a.mCouponList.size() + 1 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27283a.mCouponList.size() + 1 : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -186,7 +186,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         public int getItemViewType(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 < this.f27125a.mCouponList.size() ? 0 : 1 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 < this.f27283a.mCouponList.size() ? 0 : 1 : invokeI.intValue;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:54:0x029f  */
@@ -228,9 +228,9 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                     return view;
                 }
                 if (view == 0 || view.getTag() == null) {
-                    int emptyHeight = this.f27125a.getEmptyHeight();
+                    int emptyHeight = this.f27283a.getEmptyHeight();
                     AbsListView.LayoutParams layoutParams = emptyHeight > 0 ? new AbsListView.LayoutParams(-1, emptyHeight) : new AbsListView.LayoutParams(-1, -1);
-                    View view2 = new View(this.f27125a.mAct);
+                    View view2 = new View(this.f27283a.mAct);
                     view2.setLayoutParams(layoutParams);
                     return view2;
                 }
@@ -239,129 +239,129 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             CouponList.Coupon item = getItem(i2);
             if (item.isLabel) {
                 if (view == null || view.getTag() != null) {
-                    view = this.f27126b.inflate(ResUtils.layout(this.f27125a.mAct, "wallet_personal_coupon_label"), (ViewGroup) null);
+                    view = this.f27284b.inflate(ResUtils.layout(this.f27283a.mAct, "wallet_personal_coupon_label"), (ViewGroup) null);
                 }
-                ((TextView) view.findViewById(ResUtils.id(this.f27125a.mAct, "bd_wallet_coupon_label"))).setText(item.labelValue);
+                ((TextView) view.findViewById(ResUtils.id(this.f27283a.mAct, "bd_wallet_coupon_label"))).setText(item.labelValue);
                 return view;
             }
             DXMSdkSAUtils.onEventWithValues("#couponShow", Arrays.asList(item.logo_title, item.template_title));
             PayStatisticsUtil.onEventWithValues("#couponShow", Arrays.asList(item.logo_title, item.template_title));
             if (view == null || view.getTag() == null) {
                 cVar = new c();
-                view = this.f27126b.inflate(ResUtils.layout(this.f27125a.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
-                cVar.f27133b = (CirclePortraitView) view.findViewById(ResUtils.id(this.f27125a.mAct, "sp_logo"));
-                cVar.f27134c = (TextView) view.findViewById(ResUtils.id(this.f27125a.mAct, "logo_title"));
-                cVar.f27135d = (TextView) view.findViewById(ResUtils.id(this.f27125a.mAct, "couppon_maket_label"));
-                cVar.f27136e = (TextView) view.findViewById(ResUtils.id(this.f27125a.mAct, "coupn_tempalte_title"));
-                cVar.f27137f = (TextView) view.findViewById(ResUtils.id(this.f27125a.mAct, "coupn_use_limit"));
-                cVar.f27138g = (TextView) view.findViewById(ResUtils.id(this.f27125a.mAct, "coupn_content"));
-                cVar.f27139h = (TextView) view.findViewById(ResUtils.id(this.f27125a.mAct, "couppon_time_limit"));
-                cVar.f27140i = (TextView) view.findViewById(ResUtils.id(this.f27125a.mAct, "coupn_valid_time"));
-                cVar.j = (TextView) view.findViewById(ResUtils.id(this.f27125a.mAct, "coupn_use_now_text"));
-                cVar.k = (ImageView) view.findViewById(ResUtils.id(this.f27125a.mAct, "coupn_use_now_img"));
-                cVar.l = (ImageView) view.findViewById(ResUtils.id(this.f27125a.mAct, "coupn_new"));
+                view = this.f27284b.inflate(ResUtils.layout(this.f27283a.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
+                cVar.f27291b = (CirclePortraitView) view.findViewById(ResUtils.id(this.f27283a.mAct, "sp_logo"));
+                cVar.f27292c = (TextView) view.findViewById(ResUtils.id(this.f27283a.mAct, "logo_title"));
+                cVar.f27293d = (TextView) view.findViewById(ResUtils.id(this.f27283a.mAct, "couppon_maket_label"));
+                cVar.f27294e = (TextView) view.findViewById(ResUtils.id(this.f27283a.mAct, "coupn_tempalte_title"));
+                cVar.f27295f = (TextView) view.findViewById(ResUtils.id(this.f27283a.mAct, "coupn_use_limit"));
+                cVar.f27296g = (TextView) view.findViewById(ResUtils.id(this.f27283a.mAct, "coupn_content"));
+                cVar.f27297h = (TextView) view.findViewById(ResUtils.id(this.f27283a.mAct, "couppon_time_limit"));
+                cVar.f27298i = (TextView) view.findViewById(ResUtils.id(this.f27283a.mAct, "coupn_valid_time"));
+                cVar.j = (TextView) view.findViewById(ResUtils.id(this.f27283a.mAct, "coupn_use_now_text"));
+                cVar.k = (ImageView) view.findViewById(ResUtils.id(this.f27283a.mAct, "coupn_use_now_img"));
+                cVar.l = (ImageView) view.findViewById(ResUtils.id(this.f27283a.mAct, "coupn_new"));
                 view.setTag(cVar);
-                cVar.m = view.findViewById(ResUtils.id(this.f27125a.mAct, "coupn_use_now"));
+                cVar.m = view.findViewById(ResUtils.id(this.f27283a.mAct, "coupn_use_now"));
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.f27133b.setImageDrawable(ResUtils.getDrawable(this.f27125a.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
+            cVar.f27291b.setImageDrawable(ResUtils.getDrawable(this.f27283a.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
             if (!TextUtils.isEmpty(item.logo_url)) {
-                cVar.f27133b.setImageUrl(item.logo_url);
+                cVar.f27291b.setImageUrl(item.logo_url);
             }
             if (TextUtils.isEmpty(item.logo_title)) {
-                textView = cVar.f27134c;
-                string = ResUtils.getString(this.f27125a.mAct, "wallet_personal_coupon_logo_title");
+                textView = cVar.f27292c;
+                string = ResUtils.getString(this.f27283a.mAct, "wallet_personal_coupon_logo_title");
             } else {
-                textView = cVar.f27134c;
+                textView = cVar.f27292c;
                 string = item.logo_title;
             }
             textView.setText(string);
             if (TextUtils.isEmpty(item.marketing_label)) {
-                cVar.f27135d.setVisibility(8);
+                cVar.f27293d.setVisibility(8);
             } else {
                 if (item.marketing_label.length() > 7) {
-                    textView7 = cVar.f27135d;
+                    textView7 = cVar.f27293d;
                     str5 = item.marketing_label.substring(0, 7);
                 } else {
-                    textView7 = cVar.f27135d;
+                    textView7 = cVar.f27293d;
                     str5 = item.marketing_label;
                 }
                 textView7.setText(str5);
-                cVar.f27135d.setVisibility(0);
+                cVar.f27293d.setVisibility(0);
             }
-            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(DisplayUtils.dip2px(this.f27125a.mAct, 40.0f));
-            AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(DisplayUtils.dip2px(this.f27125a.mAct, 30.0f));
+            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(DisplayUtils.dip2px(this.f27283a.mAct, 40.0f));
+            AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(DisplayUtils.dip2px(this.f27283a.mAct, 30.0f));
             StyleSpan styleSpan = new StyleSpan(1);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(item.discount_content_v2);
             if (TextUtils.isEmpty(item.discount_content_v2_unit)) {
                 length = spannableStringBuilder.length();
             } else if (item.discount_content_v2.length() > 7) {
                 spannableStringBuilder.setSpan(absoluteSizeSpan, 0, spannableStringBuilder.length(), 18);
-                cVar.f27138g.setText(spannableStringBuilder);
-                cVar.f27136e.setText(item.template_title);
-                cVar.f27137f.setText(item.use_limit_v2);
+                cVar.f27296g.setText(spannableStringBuilder);
+                cVar.f27294e.setText(item.template_title);
+                cVar.f27295f.setText(item.use_limit_v2);
                 if (item.source_type == 1) {
-                    textView2 = cVar.f27138g;
-                    beanActivity = this.f27125a.mAct;
+                    textView2 = cVar.f27296g;
+                    beanActivity = this.f27283a.mAct;
                     str = "wallet_coupon_red";
                 } else {
-                    textView2 = cVar.f27138g;
-                    beanActivity = this.f27125a.mAct;
+                    textView2 = cVar.f27296g;
+                    beanActivity = this.f27283a.mAct;
                     str = "wallet_coupon_blue";
                 }
                 textView2.setTextColor(ResUtils.getColor(beanActivity, str));
                 if (TextUtils.isEmpty(item.date_message_expire)) {
-                    cVar.f27139h.setSingleLine(true);
-                    cVar.f27139h.setEllipsize(TextUtils.TruncateAt.END);
+                    cVar.f27297h.setSingleLine(true);
+                    cVar.f27297h.setEllipsize(TextUtils.TruncateAt.END);
                     if (item.date_message_expire.length() > 7) {
-                        textView6 = cVar.f27139h;
+                        textView6 = cVar.f27297h;
                         str4 = item.date_message_expire.substring(0, 7);
                     } else {
-                        textView6 = cVar.f27139h;
+                        textView6 = cVar.f27297h;
                         str4 = item.date_message_expire;
                     }
                     textView6.setText(str4);
-                    RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(this.f27125a.mAct, 89.5f), DisplayUtils.dip2px(this.f27125a.mAct, 16.5f));
-                    layoutParams2.setMargins(0, DisplayUtils.dip2px(this.f27125a.mAct, 6.0f), 0, 0);
-                    cVar.f27139h.setLayoutParams(layoutParams2);
-                    cVar.f27139h.setGravity(17);
-                    cVar.f27139h.setPadding(DisplayUtils.dip2px(this.f27125a.mAct, 13.0f), DisplayUtils.dip2px(this.f27125a.mAct, 1.0f), DisplayUtils.dip2px(this.f27125a.mAct, 6.0f), DisplayUtils.dip2px(this.f27125a.mAct, 0.5f));
-                    cVar.f27139h.setTextColor(ResUtils.getColor(this.f27125a.mAct, "wallet_coupon_date_message_expire"));
-                    cVar.f27139h.setBackgroundResource(ResUtils.drawable(this.f27125a.mAct, "wallet_personal_coupon_daojishi"));
-                    cVar.f27139h.setTextSize(1, 11.0f);
-                    cVar.f27140i.setVisibility(8);
+                    RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(this.f27283a.mAct, 89.5f), DisplayUtils.dip2px(this.f27283a.mAct, 16.5f));
+                    layoutParams2.setMargins(0, DisplayUtils.dip2px(this.f27283a.mAct, 6.0f), 0, 0);
+                    cVar.f27297h.setLayoutParams(layoutParams2);
+                    cVar.f27297h.setGravity(17);
+                    cVar.f27297h.setPadding(DisplayUtils.dip2px(this.f27283a.mAct, 13.0f), DisplayUtils.dip2px(this.f27283a.mAct, 1.0f), DisplayUtils.dip2px(this.f27283a.mAct, 6.0f), DisplayUtils.dip2px(this.f27283a.mAct, 0.5f));
+                    cVar.f27297h.setTextColor(ResUtils.getColor(this.f27283a.mAct, "wallet_coupon_date_message_expire"));
+                    cVar.f27297h.setBackgroundResource(ResUtils.drawable(this.f27283a.mAct, "wallet_personal_coupon_daojishi"));
+                    cVar.f27297h.setTextSize(1, 11.0f);
+                    cVar.f27298i.setVisibility(8);
                 } else {
                     if (TextUtils.isEmpty(item.date_not_started)) {
-                        cVar.f27139h.setText(item.date_message_v2);
-                        cVar.f27139h.setTextSize(1, 11.0f);
-                        cVar.f27139h.setBackgroundDrawable(null);
+                        cVar.f27297h.setText(item.date_message_v2);
+                        cVar.f27297h.setTextSize(1, 11.0f);
+                        cVar.f27297h.setBackgroundDrawable(null);
                         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
-                        layoutParams3.setMargins(0, DisplayUtils.dip2px(this.f27125a, 6.0f), 0, 0);
-                        cVar.f27139h.setPadding(0, 0, 0, 0);
-                        cVar.f27139h.setLayoutParams(layoutParams3);
-                        cVar.f27140i.setVisibility(8);
-                        cVar.f27139h.setTextColor(ResUtils.getColor(this.f27125a.mAct, "wallet_coupon_txt_999999"));
-                        textView3 = cVar.f27139h;
+                        layoutParams3.setMargins(0, DisplayUtils.dip2px(this.f27283a, 6.0f), 0, 0);
+                        cVar.f27297h.setPadding(0, 0, 0, 0);
+                        cVar.f27297h.setLayoutParams(layoutParams3);
+                        cVar.f27298i.setVisibility(8);
+                        cVar.f27297h.setTextColor(ResUtils.getColor(this.f27283a.mAct, "wallet_coupon_txt_999999"));
+                        textView3 = cVar.f27297h;
                     } else {
-                        cVar.f27139h.setPadding(0, 0, 0, 0);
+                        cVar.f27297h.setPadding(0, 0, 0, 0);
                         if (item.date_not_started.length() > 4) {
-                            textView4 = cVar.f27139h;
+                            textView4 = cVar.f27297h;
                             str2 = item.date_not_started.substring(0, 4);
                         } else {
-                            textView4 = cVar.f27139h;
+                            textView4 = cVar.f27297h;
                             str2 = item.date_not_started;
                         }
                         textView4.setText(str2);
-                        cVar.f27139h.setTextSize(1, 10.0f);
+                        cVar.f27297h.setTextSize(1, 10.0f);
                         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
-                        layoutParams4.setMargins(0, DisplayUtils.dip2px(this.f27125a, 4.0f), 0, 0);
-                        cVar.f27139h.setBackgroundDrawable(ResUtils.getDrawable(this.f27125a.mAct, "wallet_personal_coupon_xianshiduan_bg"));
-                        cVar.f27139h.setLayoutParams(layoutParams4);
-                        cVar.f27139h.setTextColor(ResUtils.getColor(this.f27125a.mAct, "wallet_coupon_txt_999999"));
-                        cVar.f27139h.setVisibility(0);
-                        cVar.f27140i.setText(item.date_message_v2);
-                        textView3 = cVar.f27140i;
+                        layoutParams4.setMargins(0, DisplayUtils.dip2px(this.f27283a, 4.0f), 0, 0);
+                        cVar.f27297h.setBackgroundDrawable(ResUtils.getDrawable(this.f27283a.mAct, "wallet_personal_coupon_xianshiduan_bg"));
+                        cVar.f27297h.setLayoutParams(layoutParams4);
+                        cVar.f27297h.setTextColor(ResUtils.getColor(this.f27283a.mAct, "wallet_coupon_txt_999999"));
+                        cVar.f27297h.setVisibility(0);
+                        cVar.f27298i.setText(item.date_message_v2);
+                        textView3 = cVar.f27298i;
                     }
                     textView3.setVisibility(0);
                 }
@@ -376,22 +376,22 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                     textView5.setText(str3);
                 }
                 if (TextUtils.isEmpty(item.date_not_started) || (item.app_scene_service == null && TextUtils.isEmpty(item.scene_service))) {
-                    cVar.j.setTextColor(ResUtils.getColor(this.f27125a.mAct, "wallet_coupon_txt_disable"));
-                    cVar.k.setImageDrawable(ResUtils.getDrawable(this.f27125a.mAct, "wallet_personal_coupon_triangle_grey"));
+                    cVar.j.setTextColor(ResUtils.getColor(this.f27283a.mAct, "wallet_coupon_txt_disable"));
+                    cVar.k.setImageDrawable(ResUtils.getDrawable(this.f27283a.mAct, "wallet_personal_coupon_triangle_grey"));
                     cVar.m.setClickable(false);
                 } else {
-                    cVar.j.setTextColor(ResUtils.getColor(this.f27125a.mAct, "wallet_coupon_btn_txt_blue"));
-                    cVar.k.setImageDrawable(ResUtils.getDrawable(this.f27125a.mAct, "wallet_personal_coupon_triangle"));
-                    cVar.m.setBackgroundDrawable(ResUtils.getDrawable(this.f27125a.mAct, "wallet_personal_coupon_list_btn_background"));
+                    cVar.j.setTextColor(ResUtils.getColor(this.f27283a.mAct, "wallet_coupon_btn_txt_blue"));
+                    cVar.k.setImageDrawable(ResUtils.getDrawable(this.f27283a.mAct, "wallet_personal_coupon_triangle"));
+                    cVar.m.setBackgroundDrawable(ResUtils.getDrawable(this.f27283a.mAct, "wallet_personal_coupon_list_btn_background"));
                     cVar.m.setOnClickListener(new View.OnClickListener(this, item) { // from class: com.baidu.wallet.personal.ui.MyCouponListActivity.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ CouponList.Coupon f27127a;
+                        public final /* synthetic */ CouponList.Coupon f27285a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ a f27128b;
+                        public final /* synthetic */ a f27286b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -408,8 +408,8 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                                     return;
                                 }
                             }
-                            this.f27128b = this;
-                            this.f27127a = item;
+                            this.f27286b = this;
+                            this.f27285a = item;
                         }
 
                         @Override // android.view.View.OnClickListener
@@ -419,55 +419,55 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             String str6;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                                if (this.f27128b.f27125a.coupon_receive_timestamp > this.f27128b.f27125a.last_coupon_receive_timestamp) {
-                                    MyCouponListActivity myCouponListActivity = this.f27128b.f27125a;
+                                if (this.f27286b.f27283a.coupon_receive_timestamp > this.f27286b.f27283a.last_coupon_receive_timestamp) {
+                                    MyCouponListActivity myCouponListActivity = this.f27286b.f27283a;
                                     myCouponListActivity.last_coupon_receive_timestamp = myCouponListActivity.coupon_receive_timestamp;
-                                    MyCouponListActivity myCouponListActivity2 = this.f27128b.f27125a;
+                                    MyCouponListActivity myCouponListActivity2 = this.f27286b.f27283a;
                                     SharedPreferencesUtils.setParam(myCouponListActivity2.mAct, "coupon_recive_timestamp", "last_coupon_receive_timestamp_key", Integer.valueOf(myCouponListActivity2.last_coupon_receive_timestamp));
                                 }
                                 JSONObject jSONObject = new JSONObject();
                                 try {
-                                    jSONObject.put("template_num", this.f27127a.template_num);
-                                    jSONObject.put("coupon_num", this.f27127a.coupon_num);
-                                    jSONObject.put("card_type", this.f27127a.card_type);
+                                    jSONObject.put("template_num", this.f27285a.template_num);
+                                    jSONObject.put("coupon_num", this.f27285a.coupon_num);
+                                    jSONObject.put("card_type", this.f27285a.card_type);
                                 } catch (JSONException e2) {
                                     e2.printStackTrace();
                                 }
                                 DXMSdkSAUtils.onEventWithValues("CouponListToUseBtnClick", Arrays.asList(jSONObject.toString()));
                                 PayStatisticsUtil.onEventWithValue("CouponListToUseBtnClick", jSONObject.toString());
-                                CouponList.Coupon coupon = this.f27127a;
+                                CouponList.Coupon coupon = this.f27285a;
                                 CouponList.Coupon.AppSceneService appSceneService = coupon.app_scene_service;
                                 if (appSceneService != null) {
-                                    if (appSceneService.f27089android > 0) {
-                                        this.f27128b.f27125a.needRefreshCouponlist = true;
-                                        BaiduWalletServiceController.getInstance().gotoWalletService(this.f27128b.f27125a.mAct, this.f27127a.app_scene_service.f27089android, "");
+                                    if (appSceneService.f27247android > 0) {
+                                        this.f27286b.f27283a.needRefreshCouponlist = true;
+                                        BaiduWalletServiceController.getInstance().gotoWalletService(this.f27286b.f27283a.mAct, this.f27285a.app_scene_service.f27247android, "");
                                         return;
                                     } else if (TextUtils.isEmpty(appSceneService.url)) {
                                         return;
                                     } else {
-                                        this.f27128b.f27125a.needRefreshCouponlist = true;
+                                        this.f27286b.f27283a.needRefreshCouponlist = true;
                                         baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                                        beanActivity2 = this.f27128b.f27125a.mAct;
-                                        str6 = this.f27127a.app_scene_service.url;
+                                        beanActivity2 = this.f27286b.f27283a.mAct;
+                                        str6 = this.f27285a.app_scene_service.url;
                                     }
                                 } else if (TextUtils.isEmpty(coupon.scene_service)) {
                                     return;
                                 } else {
-                                    this.f27128b.f27125a.needRefreshCouponlist = true;
+                                    this.f27286b.f27283a.needRefreshCouponlist = true;
                                     baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                                    beanActivity2 = this.f27128b.f27125a.mAct;
-                                    str6 = this.f27127a.scene_service;
+                                    beanActivity2 = this.f27286b.f27283a.mAct;
+                                    str6 = this.f27285a.scene_service;
                                 }
                                 baiduWalletDelegate.openH5Module(beanActivity2, str6, true);
                             }
                         }
                     });
                 }
-                if (item.coupon_receive_timestamp > this.f27125a.last_coupon_receive_timestamp) {
+                if (item.coupon_receive_timestamp > this.f27283a.last_coupon_receive_timestamp) {
                     cVar.l.setVisibility(8);
                     return view;
                 }
-                cVar.l.setBackgroundResource(ResUtils.drawable(this.f27125a.mAct, "wallet_personal_coupon_new"));
+                cVar.l.setBackgroundResource(ResUtils.drawable(this.f27283a.mAct, "wallet_personal_coupon_new"));
                 cVar.l.setVisibility(0);
                 return view;
             } else {
@@ -482,9 +482,9 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 length = spannableStringBuilder.length() - item.discount_content_v2_unit.length();
             }
             spannableStringBuilder.setSpan(styleSpan, 0, length, 18);
-            cVar.f27138g.setText(spannableStringBuilder);
-            cVar.f27136e.setText(item.template_title);
-            cVar.f27137f.setText(item.use_limit_v2);
+            cVar.f27296g.setText(spannableStringBuilder);
+            cVar.f27294e.setText(item.template_title);
+            cVar.f27295f.setText(item.use_limit_v2);
             if (item.source_type == 1) {
             }
             textView2.setTextColor(ResUtils.getColor(beanActivity, str));
@@ -494,10 +494,10 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             }
             if (TextUtils.isEmpty(item.date_not_started)) {
             }
-            cVar.j.setTextColor(ResUtils.getColor(this.f27125a.mAct, "wallet_coupon_txt_disable"));
-            cVar.k.setImageDrawable(ResUtils.getDrawable(this.f27125a.mAct, "wallet_personal_coupon_triangle_grey"));
+            cVar.j.setTextColor(ResUtils.getColor(this.f27283a.mAct, "wallet_coupon_txt_disable"));
+            cVar.k.setImageDrawable(ResUtils.getDrawable(this.f27283a.mAct, "wallet_personal_coupon_triangle_grey"));
             cVar.m.setClickable(false);
-            if (item.coupon_receive_timestamp > this.f27125a.last_coupon_receive_timestamp) {
+            if (item.coupon_receive_timestamp > this.f27283a.last_coupon_receive_timestamp) {
             }
         }
 
@@ -518,13 +518,13 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c f27129a;
+        public c f27287a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MyCouponListActivity f27130b;
+        public final /* synthetic */ MyCouponListActivity f27288b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final LayoutInflater f27131c;
+        public final LayoutInflater f27289c;
 
         public b(MyCouponListActivity myCouponListActivity) {
             Interceptable interceptable = $ic;
@@ -541,8 +541,8 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                     return;
                 }
             }
-            this.f27130b = myCouponListActivity;
-            this.f27131c = LayoutInflater.from(myCouponListActivity.mAct);
+            this.f27288b = myCouponListActivity;
+            this.f27289c = LayoutInflater.from(myCouponListActivity.mAct);
         }
 
         private void b(int i2) {
@@ -552,23 +552,23 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
                 if (i2 == 0) {
-                    imageView = this.f27129a.l;
-                    beanActivity = this.f27130b.mAct;
+                    imageView = this.f27287a.l;
+                    beanActivity = this.f27288b.mAct;
                     str = "wallet_personal_coupon_expired";
                 } else if (i2 != 1) {
                     if (i2 == 2) {
-                        imageView = this.f27129a.l;
-                        beanActivity = this.f27130b.mAct;
+                        imageView = this.f27287a.l;
+                        beanActivity = this.f27288b.mAct;
                         str = "wallet_personal_coupon_disabled";
                     }
-                    this.f27129a.l.setVisibility(0);
+                    this.f27287a.l.setVisibility(0);
                 } else {
-                    imageView = this.f27129a.l;
-                    beanActivity = this.f27130b.mAct;
+                    imageView = this.f27287a.l;
+                    beanActivity = this.f27288b.mAct;
                     str = "wallet_personal_coupon_used";
                 }
                 imageView.setImageDrawable(ResUtils.getDrawable(beanActivity, str));
-                this.f27129a.l.setVisibility(0);
+                this.f27287a.l.setVisibility(0);
             }
         }
 
@@ -578,14 +578,14 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         public CouponList.Coupon getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (CouponList.Coupon) this.f27130b.mCouponList.get(i2) : (CouponList.Coupon) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (CouponList.Coupon) this.f27288b.mCouponList.get(i2) : (CouponList.Coupon) invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27130b.mCouponList.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27288b.mCouponList.size() : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -613,56 +613,56 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
                 CouponList.Coupon item = getItem(i2);
                 if (view == null || view.getTag() == null) {
-                    this.f27129a = new c();
-                    view = this.f27131c.inflate(ResUtils.layout(this.f27130b.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
-                    this.f27129a.f27133b = (CirclePortraitView) view.findViewById(ResUtils.id(this.f27130b.mAct, "sp_logo"));
-                    this.f27129a.f27134c = (TextView) view.findViewById(ResUtils.id(this.f27130b.mAct, "logo_title"));
-                    this.f27129a.f27135d = (TextView) view.findViewById(ResUtils.id(this.f27130b.mAct, "couppon_maket_label"));
-                    this.f27129a.f27136e = (TextView) view.findViewById(ResUtils.id(this.f27130b.mAct, "coupn_tempalte_title"));
-                    this.f27129a.f27137f = (TextView) view.findViewById(ResUtils.id(this.f27130b.mAct, "coupn_use_limit"));
-                    this.f27129a.f27138g = (TextView) view.findViewById(ResUtils.id(this.f27130b.mAct, "coupn_content"));
-                    this.f27129a.f27138g.setTextColor(ResUtils.getColor(this.f27130b.mAct, "wallet_invalid_coupon_detail_D7D7D7"));
-                    this.f27129a.f27140i = (TextView) view.findViewById(ResUtils.id(this.f27130b.mAct, "couppon_time_limit"));
-                    this.f27129a.f27140i.setTextColor(ResUtils.getColor(this.f27130b.mAct, "wallet_coupon_txt_999999"));
-                    this.f27129a.l = (ImageView) view.findViewById(ResUtils.id(this.f27130b.mAct, "coupn_used"));
-                    this.f27129a.m = view.findViewById(ResUtils.id(this.f27130b.mAct, "coupn_use_now"));
-                    this.f27129a.m.setVisibility(8);
-                    view.setTag(this.f27129a);
+                    this.f27287a = new c();
+                    view = this.f27289c.inflate(ResUtils.layout(this.f27288b.mAct, "wallet_personal_coupon_item1"), (ViewGroup) null);
+                    this.f27287a.f27291b = (CirclePortraitView) view.findViewById(ResUtils.id(this.f27288b.mAct, "sp_logo"));
+                    this.f27287a.f27292c = (TextView) view.findViewById(ResUtils.id(this.f27288b.mAct, "logo_title"));
+                    this.f27287a.f27293d = (TextView) view.findViewById(ResUtils.id(this.f27288b.mAct, "couppon_maket_label"));
+                    this.f27287a.f27294e = (TextView) view.findViewById(ResUtils.id(this.f27288b.mAct, "coupn_tempalte_title"));
+                    this.f27287a.f27295f = (TextView) view.findViewById(ResUtils.id(this.f27288b.mAct, "coupn_use_limit"));
+                    this.f27287a.f27296g = (TextView) view.findViewById(ResUtils.id(this.f27288b.mAct, "coupn_content"));
+                    this.f27287a.f27296g.setTextColor(ResUtils.getColor(this.f27288b.mAct, "wallet_invalid_coupon_detail_D7D7D7"));
+                    this.f27287a.f27298i = (TextView) view.findViewById(ResUtils.id(this.f27288b.mAct, "couppon_time_limit"));
+                    this.f27287a.f27298i.setTextColor(ResUtils.getColor(this.f27288b.mAct, "wallet_coupon_txt_999999"));
+                    this.f27287a.l = (ImageView) view.findViewById(ResUtils.id(this.f27288b.mAct, "coupn_used"));
+                    this.f27287a.m = view.findViewById(ResUtils.id(this.f27288b.mAct, "coupn_use_now"));
+                    this.f27287a.m.setVisibility(8);
+                    view.setTag(this.f27287a);
                 } else {
-                    this.f27129a = (c) view.getTag();
+                    this.f27287a = (c) view.getTag();
                 }
-                this.f27129a.f27133b.setImageDrawable(ResUtils.getDrawable(this.f27130b.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
+                this.f27287a.f27291b.setImageDrawable(ResUtils.getDrawable(this.f27288b.mAct, "wallet_personal_coupon_qianbao_logo_for_list"));
                 if (TextUtils.isEmpty(item.logo_title)) {
-                    textView = this.f27129a.f27134c;
-                    string = ResUtils.getString(this.f27130b.mAct, "wallet_personal_coupon_logo_title");
+                    textView = this.f27287a.f27292c;
+                    string = ResUtils.getString(this.f27288b.mAct, "wallet_personal_coupon_logo_title");
                 } else {
-                    textView = this.f27129a.f27134c;
+                    textView = this.f27287a.f27292c;
                     string = item.logo_title;
                 }
                 textView.setText(string);
                 if (!TextUtils.isEmpty(item.logo_url)) {
-                    this.f27129a.f27133b.setImageUrl(item.logo_url);
+                    this.f27287a.f27291b.setImageUrl(item.logo_url);
                 }
                 ColorMatrix colorMatrix = new ColorMatrix();
                 colorMatrix.setSaturation(0.0f);
-                this.f27129a.f27133b.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-                this.f27129a.f27135d.setVisibility(8);
-                AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(DisplayUtils.dip2px(this.f27130b.mAct, 40.0f));
-                AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(DisplayUtils.dip2px(this.f27130b.mAct, 30.0f));
+                this.f27287a.f27291b.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+                this.f27287a.f27293d.setVisibility(8);
+                AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(DisplayUtils.dip2px(this.f27288b.mAct, 40.0f));
+                AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(DisplayUtils.dip2px(this.f27288b.mAct, 30.0f));
                 StyleSpan styleSpan = new StyleSpan(1);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(item.discount_content_v2);
                 if (TextUtils.isEmpty(item.discount_content_v2_unit)) {
                     length = spannableStringBuilder.length();
                 } else if (item.discount_content_v2.length() > 7) {
                     spannableStringBuilder.setSpan(absoluteSizeSpan, 0, spannableStringBuilder.length(), 18);
-                    this.f27129a.f27138g.setText(spannableStringBuilder);
-                    this.f27129a.f27136e.setText(item.template_title);
-                    this.f27129a.f27137f.setText(item.use_limit_v2);
+                    this.f27287a.f27296g.setText(spannableStringBuilder);
+                    this.f27287a.f27294e.setText(item.template_title);
+                    this.f27287a.f27295f.setText(item.use_limit_v2);
                     if (TextUtils.isEmpty(item.date_message)) {
-                        this.f27129a.f27140i.setVisibility(0);
-                        this.f27129a.f27140i.setText(item.date_message);
+                        this.f27287a.f27298i.setVisibility(0);
+                        this.f27287a.f27298i.setText(item.date_message);
                     } else {
-                        this.f27129a.f27140i.setVisibility(8);
+                        this.f27287a.f27298i.setVisibility(8);
                     }
                     switch (item.status) {
                         case 3:
@@ -693,9 +693,9 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                     length = spannableStringBuilder.length() - item.discount_content_v2_unit.length();
                 }
                 spannableStringBuilder.setSpan(styleSpan, 0, length, 18);
-                this.f27129a.f27138g.setText(spannableStringBuilder);
-                this.f27129a.f27136e.setText(item.template_title);
-                this.f27129a.f27137f.setText(item.use_limit_v2);
+                this.f27287a.f27296g.setText(spannableStringBuilder);
+                this.f27287a.f27294e.setText(item.template_title);
+                this.f27287a.f27295f.setText(item.use_limit_v2);
                 if (TextUtils.isEmpty(item.date_message)) {
                 }
                 switch (item.status) {
@@ -712,31 +712,31 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MyCouponListActivity f27132a;
+        public final /* synthetic */ MyCouponListActivity f27290a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CirclePortraitView f27133b;
+        public CirclePortraitView f27291b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f27134c;
+        public TextView f27292c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f27135d;
+        public TextView f27293d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f27136e;
+        public TextView f27294e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f27137f;
+        public TextView f27295f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f27138g;
+        public TextView f27296g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f27139h;
+        public TextView f27297h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f27140i;
+        public TextView f27298i;
         public TextView j;
         public ImageView k;
         public ImageView l;
@@ -757,7 +757,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                     return;
                 }
             }
-            this.f27132a = myCouponListActivity;
+            this.f27290a = myCouponListActivity;
         }
     }
 
@@ -849,7 +849,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ MyCouponListActivity f27122a;
+                    public final /* synthetic */ MyCouponListActivity f27280a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -866,17 +866,17 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                                 return;
                             }
                         }
-                        this.f27122a = this;
+                        this.f27280a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f27122a.getCouponUrl)) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f27280a.getCouponUrl)) {
                             return;
                         }
                         BaiduWalletDelegate baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                        MyCouponListActivity myCouponListActivity = this.f27122a;
+                        MyCouponListActivity myCouponListActivity = this.f27280a;
                         baiduWalletDelegate.openH5Module(myCouponListActivity.mAct, myCouponListActivity.getCouponUrl, true);
                     }
                 });
@@ -942,7 +942,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ MyCouponListActivity f27120a;
+                public final /* synthetic */ MyCouponListActivity f27278a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -959,14 +959,14 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f27120a = this;
+                    this.f27278a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                 public void onBtnClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f27120a.queryCoupon(true, null, null);
+                        this.f27278a.queryCoupon(true, null, null);
                     }
                 }
             });
@@ -976,7 +976,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ MyCouponListActivity f27121a;
+                public final /* synthetic */ MyCouponListActivity f27279a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -993,14 +993,14 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f27121a = this;
+                    this.f27279a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                 public void onBtnClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f27121a.queryCoupon(true, null, null);
+                        this.f27279a.queryCoupon(true, null, null);
                     }
                 }
             });
@@ -1092,7 +1092,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ MyCouponListActivity f27116a;
+                public final /* synthetic */ MyCouponListActivity f27274a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1109,14 +1109,14 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f27116a = this;
+                    this.f27274a = this;
                 }
 
                 @Override // com.baidu.wallet.api.WalletApiExtListener.ThirdPartyLoginListener
                 public void onCallFail(int i4, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str2) == null) {
-                        this.f27116a.mAct.finish();
+                        this.f27274a.mAct.finish();
                     }
                 }
 
@@ -1124,7 +1124,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public void onCallSuccess(int i4, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str2) == null) {
-                        this.f27116a.queryCoupon(true, null, null);
+                        this.f27274a.queryCoupon(true, null, null);
                     }
                 }
             })) {
@@ -1186,10 +1186,10 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ CouponListResponse f27123a;
+                        public final /* synthetic */ CouponListResponse f27281a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponListActivity f27124b;
+                        public final /* synthetic */ MyCouponListActivity f27282b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1206,15 +1206,15 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                                     return;
                                 }
                             }
-                            this.f27124b = this;
-                            this.f27123a = couponListResponse;
+                            this.f27282b = this;
+                            this.f27281a = couponListResponse;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.f27124b.getActivity(), this.f27123a.code_equity.url);
+                                BaiduWalletDelegate.getInstance().openH5Module(this.f27282b.getActivity(), this.f27281a.code_equity.url);
                             }
                         }
                     });
@@ -1277,7 +1277,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponListActivity f27115a;
+                        public final /* synthetic */ MyCouponListActivity f27273a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1294,19 +1294,19 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                                     return;
                                 }
                             }
-                            this.f27115a = this;
+                            this.f27273a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                Intent intent = new Intent(this.f27115a.mAct, MyCouponListActivity.class);
+                                Intent intent = new Intent(this.f27273a.mAct, MyCouponListActivity.class);
                                 intent.putExtra("IsInvaildCouponList", true);
-                                intent.putExtra("LONGITUDE", this.f27115a.longitude);
-                                intent.putExtra("LATITUDE", this.f27115a.latitude);
-                                this.f27115a.mAct.startActivityForResult(intent, 2);
-                                BaiduWalletUtils.startActivityAnim(this.f27115a.mAct);
+                                intent.putExtra("LONGITUDE", this.f27273a.longitude);
+                                intent.putExtra("LATITUDE", this.f27273a.latitude);
+                                this.f27273a.mAct.startActivityForResult(intent, 2);
+                                BaiduWalletUtils.startActivityAnim(this.f27273a.mAct);
                             }
                         }
                     });
@@ -1366,7 +1366,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ MyCouponListActivity f27114a;
+                public final /* synthetic */ MyCouponListActivity f27272a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1383,19 +1383,19 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f27114a = this;
+                    this.f27272a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        Intent intent = new Intent(this.f27114a.mAct, MyCouponListActivity.class);
+                        Intent intent = new Intent(this.f27272a.mAct, MyCouponListActivity.class);
                         intent.putExtra("IsInvaildCouponList", true);
-                        intent.putExtra("LONGITUDE", this.f27114a.longitude);
-                        intent.putExtra("Latitude", this.f27114a.latitude);
-                        this.f27114a.mAct.startActivityForResult(intent, 2);
-                        BaiduWalletUtils.startActivityAnim(this.f27114a.mAct);
+                        intent.putExtra("LONGITUDE", this.f27272a.longitude);
+                        intent.putExtra("Latitude", this.f27272a.latitude);
+                        this.f27272a.mAct.startActivityForResult(intent, 2);
+                        BaiduWalletUtils.startActivityAnim(this.f27272a.mAct);
                     }
                 }
             });
@@ -1432,7 +1432,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ MyCouponListActivity f27117a;
+                public final /* synthetic */ MyCouponListActivity f27275a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1449,16 +1449,16 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f27117a = this;
+                    this.f27275a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase.OnRefreshListener
                 public void onPullDownToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, pullToRefreshBase) == null) {
-                        this.f27117a.mCurrPage = 0;
-                        LogUtil.d("onActivityCreated. onRefresh. curr page = " + this.f27117a.mCurrPage);
-                        this.f27117a.queryCoupon(false, null, null);
+                        this.f27275a.mCurrPage = 0;
+                        LogUtil.d("onActivityCreated. onRefresh. curr page = " + this.f27275a.mCurrPage);
+                        this.f27275a.queryCoupon(false, null, null);
                     }
                 }
 
@@ -1466,8 +1466,8 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public void onPullUpToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pullToRefreshBase) == null) {
-                        LogUtil.d("onActivityCreated. onRefresh. curr page = " + this.f27117a.mCurrPage);
-                        this.f27117a.queryCoupon(false, null, null);
+                        LogUtil.d("onActivityCreated. onRefresh. curr page = " + this.f27275a.mCurrPage);
+                        this.f27275a.queryCoupon(false, null, null);
                     }
                 }
             });
@@ -1476,7 +1476,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ MyCouponListActivity f27118a;
+                public final /* synthetic */ MyCouponListActivity f27276a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1493,17 +1493,17 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f27118a = this;
+                    this.f27276a = this;
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
                     int i3;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f27118a.getActivity() == null || CheckUtils.isFastDoubleClick()) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f27276a.getActivity() == null || CheckUtils.isFastDoubleClick()) {
                         return;
                     }
-                    if (this.f27118a.isHasCouponAndBanner) {
+                    if (this.f27276a.isHasCouponAndBanner) {
                         if (i2 < 2) {
                             return;
                         }
@@ -1513,27 +1513,27 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                     } else {
                         i3 = i2 - 1;
                     }
-                    CouponList.Coupon coupon = (CouponList.Coupon) this.f27118a.mAdapter.getItem(i3);
+                    CouponList.Coupon coupon = (CouponList.Coupon) this.f27276a.mAdapter.getItem(i3);
                     if (coupon == null) {
                         return;
                     }
                     Intent intent = new Intent();
-                    intent.setClass(this.f27118a.mAct, MyCouponDetailActivity.class);
-                    if (this.f27118a.isInvaild) {
+                    intent.setClass(this.f27276a.mAct, MyCouponDetailActivity.class);
+                    if (this.f27276a.isInvaild) {
                         intent.putExtra("isInvaild", true);
                     }
                     intent.putExtra("cardType", coupon.card_type);
                     intent.putExtra("couponNum", coupon.coupon_num);
                     intent.putExtra("templateNum", coupon.template_num);
-                    intent.putExtra("longitude", this.f27118a.longitude);
-                    intent.putExtra("latitude", this.f27118a.latitude);
-                    if (this.f27118a.coupon_receive_timestamp > this.f27118a.last_coupon_receive_timestamp) {
-                        MyCouponListActivity myCouponListActivity = this.f27118a;
+                    intent.putExtra("longitude", this.f27276a.longitude);
+                    intent.putExtra("latitude", this.f27276a.latitude);
+                    if (this.f27276a.coupon_receive_timestamp > this.f27276a.last_coupon_receive_timestamp) {
+                        MyCouponListActivity myCouponListActivity = this.f27276a;
                         myCouponListActivity.last_coupon_receive_timestamp = myCouponListActivity.coupon_receive_timestamp;
-                        MyCouponListActivity myCouponListActivity2 = this.f27118a;
+                        MyCouponListActivity myCouponListActivity2 = this.f27276a;
                         SharedPreferencesUtils.setParam(myCouponListActivity2.mAct, "coupon_recive_timestamp", "last_coupon_receive_timestamp_key", Integer.valueOf(myCouponListActivity2.last_coupon_receive_timestamp));
                     }
-                    this.f27118a.startActivityForResult(intent, 1);
+                    this.f27276a.startActivityForResult(intent, 1);
                 }
             });
             if (this.isLoading) {
@@ -1544,7 +1544,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ MyCouponListActivity f27119a;
+                public final /* synthetic */ MyCouponListActivity f27277a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1561,22 +1561,22 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f27119a = this;
+                    this.f27277a = this;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.f27119a.mLoadStatus = 1;
-                        this.f27119a.showEmptyView(null);
+                        this.f27277a.mLoadStatus = 1;
+                        this.f27277a.showEmptyView(null);
                         if (i2 == 603 && WalletLoginHelper.getInstance().isPassLogin()) {
                             WalletLoginHelper.getInstance().handlerWalletError(5003);
-                            AccountManager.getInstance(this.f27119a.mAct.getApplicationContext()).logout();
+                            AccountManager.getInstance(this.f27277a.mAct.getApplicationContext()).logout();
                             if (!TextUtils.isEmpty(str)) {
-                                GlobalUtils.toast(this.f27119a.mAct, str);
+                                GlobalUtils.toast(this.f27277a.mAct, str);
                             }
-                            this.f27119a.finish();
+                            this.f27277a.finish();
                         }
                     }
                 }
@@ -1585,7 +1585,7 @@ public class MyCouponListActivity extends BeanActivity implements View.OnClickLi
                 public void onSuccess(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                        this.f27119a.queryCoupon(true, null, null);
+                        this.f27277a.queryCoupon(true, null, null);
                     }
                 }
             }));

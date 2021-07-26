@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.a.d;
-import com.bytedance.sdk.component.a.s;
-import com.bytedance.sdk.component.a.u;
+import com.bytedance.sdk.component.a.t;
 import com.bytedance.sdk.component.a.v;
+import com.bytedance.sdk.component.a.w;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -25,36 +25,36 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class g implements v.a {
+public class g implements w.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f27739a;
+    public final h f27897a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final t f27740b;
+    public final u f27898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, b> f27741c;
+    public final Map<String, b> f27899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, d.b> f27742d;
+    public final Map<String, d.b> f27900d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<p> f27743e;
+    public final List<q> f27901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<d> f27744f;
+    public final Set<d> f27902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final m f27745g;
+    public final m f27903g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f27746h;
+    public final boolean f27904h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f27747i;
+    public final boolean f27905i;
     public final com.bytedance.sdk.component.a.a j;
 
     /* loaded from: classes5.dex */
@@ -63,10 +63,10 @@ public class g implements v.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f27753a;
+        public boolean f27911a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27754b;
+        public String f27912b;
 
         public a(boolean z, @NonNull String str) {
             Interceptable interceptable = $ic;
@@ -83,17 +83,17 @@ public class g implements v.a {
                     return;
                 }
             }
-            this.f27753a = z;
-            this.f27754b = str;
+            this.f27911a = z;
+            this.f27912b = str;
         }
     }
 
-    public g(@NonNull j jVar, @NonNull com.bytedance.sdk.component.a.a aVar, @Nullable u uVar) {
+    public g(@NonNull j jVar, @NonNull com.bytedance.sdk.component.a.a aVar, @Nullable v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar, aVar, uVar};
+            Object[] objArr = {jVar, aVar, vVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -103,82 +103,82 @@ public class g implements v.a {
                 return;
             }
         }
-        this.f27741c = new HashMap();
-        this.f27742d = new HashMap();
-        this.f27743e = new ArrayList();
-        this.f27744f = new HashSet();
+        this.f27899c = new HashMap();
+        this.f27900d = new HashMap();
+        this.f27901e = new ArrayList();
+        this.f27902f = new HashSet();
         this.j = aVar;
-        this.f27739a = jVar.f27760d;
-        t tVar = new t(uVar, jVar.l, jVar.m);
-        this.f27740b = tVar;
-        tVar.a(this);
-        this.f27740b.a(jVar.p);
-        this.f27745g = jVar.f27765i;
-        this.f27746h = jVar.f27764h;
-        this.f27747i = jVar.o;
+        this.f27897a = jVar.f27918d;
+        u uVar = new u(vVar, jVar.l, jVar.m);
+        this.f27898b = uVar;
+        uVar.a(this);
+        this.f27898b.a(jVar.p);
+        this.f27903g = jVar.f27923i;
+        this.f27904h = jVar.f27922h;
+        this.f27905i = jVar.o;
     }
 
-    private w b(String str, b bVar) {
+    private x b(String str, b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, str, bVar)) == null) {
-            if (this.f27747i) {
-                return w.f27818c;
+            if (this.f27905i) {
+                return x.f27977c;
             }
-            return this.f27740b.a(this.f27746h, str, bVar);
+            return this.f27898b.a(this.f27904h, str, bVar);
         }
-        return (w) invokeLL.objValue;
+        return (x) invokeLL.objValue;
     }
 
     @Nullable
     @MainThread
-    public a a(@NonNull p pVar, @NonNull f fVar) throws Exception {
+    public a a(@NonNull q qVar, @NonNull f fVar) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pVar, fVar)) == null) {
-            b bVar = this.f27741c.get(pVar.f27769d);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, qVar, fVar)) == null) {
+            b bVar = this.f27899c.get(qVar.f27928d);
             if (bVar != null) {
                 try {
-                    w b2 = b(fVar.f27736b, bVar);
-                    fVar.f27738d = b2;
+                    x b2 = b(fVar.f27894b, bVar);
+                    fVar.f27896d = b2;
                     if (b2 == null) {
-                        if (this.f27745g != null) {
-                            this.f27745g.a(fVar.f27736b, pVar.f27769d, 1);
+                        if (this.f27903g != null) {
+                            this.f27903g.a(fVar.f27894b, qVar.f27928d, 1);
                         }
-                        i.a("Permission denied, call: " + pVar);
-                        throw new r(-1);
+                        i.a("Permission denied, call: " + qVar);
+                        throw new s(-1);
                     } else if (bVar instanceof e) {
-                        i.a("Processing stateless call: " + pVar);
-                        return a(pVar, (e) bVar, fVar);
+                        i.a("Processing stateless call: " + qVar);
+                        return a(qVar, (e) bVar, fVar);
                     } else if (bVar instanceof c) {
-                        i.a("Processing raw call: " + pVar);
-                        return a(pVar, (c) bVar, b2);
+                        i.a("Processing raw call: " + qVar);
+                        return a(qVar, (c) bVar, b2);
                     }
-                } catch (u.a e2) {
-                    i.a("No remote permission config fetched, call pending: " + pVar, e2);
-                    this.f27743e.add(pVar);
-                    return new a(false, x.a());
+                } catch (v.a e2) {
+                    i.a("No remote permission config fetched, call pending: " + qVar, e2);
+                    this.f27901e.add(qVar);
+                    return new a(false, y.a());
                 }
             }
-            d.b bVar2 = this.f27742d.get(pVar.f27769d);
+            d.b bVar2 = this.f27900d.get(qVar.f27928d);
             if (bVar2 != null) {
                 d a2 = bVar2.a();
-                a2.a(pVar.f27769d);
-                w b3 = b(fVar.f27736b, a2);
-                fVar.f27738d = b3;
+                a2.a(qVar.f27928d);
+                x b3 = b(fVar.f27894b, a2);
+                fVar.f27896d = b3;
                 if (b3 != null) {
-                    i.a("Processing stateful call: " + pVar);
-                    return a(pVar, a2, fVar);
+                    i.a("Processing stateful call: " + qVar);
+                    return a(qVar, a2, fVar);
                 }
-                i.a("Permission denied, call: " + pVar);
+                i.a("Permission denied, call: " + qVar);
                 a2.e();
-                throw new r(-1);
+                throw new s(-1);
             }
-            m mVar = this.f27745g;
+            m mVar = this.f27903g;
             if (mVar != null) {
-                mVar.a(fVar.f27736b, pVar.f27769d, 2);
+                mVar.a(fVar.f27894b, qVar.f27928d, 2);
             }
-            i.b("Received call: " + pVar + ", but not registered.");
+            i.b("Received call: " + qVar + ", but not registered.");
             return null;
         }
         return (a) invokeLL.objValue;
@@ -188,7 +188,7 @@ public class g implements v.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, eVar) == null) {
             eVar.a(str);
-            this.f27741c.put(str, eVar);
+            this.f27899c.put(str, eVar);
             i.a("JsBridge stateless method registered: " + str);
         }
     }
@@ -196,7 +196,7 @@ public class g implements v.a {
     public void a(String str, @NonNull d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
-            this.f27742d.put(str, bVar);
+            this.f27900d.put(str, bVar);
             i.a("JsBridge stateful method registered: " + str);
         }
     }
@@ -204,50 +204,50 @@ public class g implements v.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (d dVar : this.f27744f) {
+            for (d dVar : this.f27902f) {
                 dVar.f();
             }
-            this.f27744f.clear();
-            this.f27741c.clear();
-            this.f27742d.clear();
-            this.f27740b.b(this);
+            this.f27902f.clear();
+            this.f27899c.clear();
+            this.f27900d.clear();
+            this.f27898b.b(this);
         }
     }
 
     @NonNull
     @MainThread
-    private a a(@NonNull p pVar, @NonNull e eVar, @NonNull f fVar) throws Exception {
+    private a a(@NonNull q qVar, @NonNull e eVar, @NonNull f fVar) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, pVar, eVar, fVar)) == null) ? new a(true, x.a(this.f27739a.a((h) eVar.a(a(pVar.f27770e, (b) eVar), fVar)))) : (a) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, qVar, eVar, fVar)) == null) ? new a(true, y.a(this.f27897a.a((h) eVar.a(a(qVar.f27929e, (b) eVar), fVar)))) : (a) invokeLLL.objValue;
     }
 
     @NonNull
     @MainThread
-    private a a(@NonNull p pVar, @NonNull d dVar, @NonNull f fVar) throws Exception {
+    private a a(@NonNull q qVar, @NonNull d dVar, @NonNull f fVar) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, pVar, dVar, fVar)) == null) {
-            this.f27744f.add(dVar);
-            dVar.a(a(pVar.f27770e, dVar), fVar, new d.a(this, pVar, dVar) { // from class: com.bytedance.sdk.component.a.g.1
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, qVar, dVar, fVar)) == null) {
+            this.f27902f.add(dVar);
+            dVar.a(a(qVar.f27929e, dVar), fVar, new d.a(this, qVar, dVar) { // from class: com.bytedance.sdk.component.a.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f27748a;
+                public final /* synthetic */ q f27906a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f27749b;
+                public final /* synthetic */ d f27907b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ g f27750c;
+                public final /* synthetic */ g f27908c;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, pVar, dVar};
+                        Object[] objArr = {this, qVar, dVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -257,58 +257,58 @@ public class g implements v.a {
                             return;
                         }
                     }
-                    this.f27750c = this;
-                    this.f27748a = pVar;
-                    this.f27749b = dVar;
+                    this.f27908c = this;
+                    this.f27906a = qVar;
+                    this.f27907b = dVar;
                 }
 
                 @Override // com.bytedance.sdk.component.a.d.a
                 public void a(@Nullable Object obj) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) || this.f27750c.j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) || this.f27908c.j == null) {
                         return;
                     }
-                    this.f27750c.j.b(x.a(this.f27750c.f27739a.a((h) obj)), this.f27748a);
-                    this.f27750c.f27744f.remove(this.f27749b);
+                    this.f27908c.j.b(y.a(this.f27908c.f27897a.a((h) obj)), this.f27906a);
+                    this.f27908c.f27902f.remove(this.f27907b);
                 }
 
                 @Override // com.bytedance.sdk.component.a.d.a
                 public void a(@Nullable Throwable th) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) || this.f27750c.j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) || this.f27908c.j == null) {
                         return;
                     }
-                    this.f27750c.j.b(x.a(th), this.f27748a);
-                    this.f27750c.f27744f.remove(this.f27749b);
+                    this.f27908c.j.b(y.a(th), this.f27906a);
+                    this.f27908c.f27902f.remove(this.f27907b);
                 }
             });
-            return new a(false, x.a());
+            return new a(false, y.a());
         }
         return (a) invokeLLL.objValue;
     }
 
     @NonNull
     @MainThread
-    private a a(p pVar, c cVar, w wVar) throws Exception {
+    private a a(q qVar, c cVar, x xVar) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, pVar, cVar, wVar)) == null) {
-            cVar.a(pVar, new s(pVar.f27769d, wVar, new s.a(this, pVar) { // from class: com.bytedance.sdk.component.a.g.2
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, qVar, cVar, xVar)) == null) {
+            cVar.a(qVar, new t(qVar.f27928d, xVar, new t.a(this, qVar) { // from class: com.bytedance.sdk.component.a.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f27751a;
+                public final /* synthetic */ q f27909a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ g f27752b;
+                public final /* synthetic */ g f27910b;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, pVar};
+                        Object[] objArr = {this, qVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -318,11 +318,11 @@ public class g implements v.a {
                             return;
                         }
                     }
-                    this.f27752b = this;
-                    this.f27751a = pVar;
+                    this.f27910b = this;
+                    this.f27909a = qVar;
                 }
             }));
-            return new a(false, x.a());
+            return new a(false, y.a());
         }
         return (a) invokeLLL.objValue;
     }
@@ -330,7 +330,7 @@ public class g implements v.a {
     private Object a(String str, b bVar) throws JSONException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bVar)) == null) ? this.f27739a.a(str, a(bVar)[0]) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bVar)) == null) ? this.f27897a.a(str, a(bVar)[0]) : invokeLL.objValue;
     }
 
     @NonNull

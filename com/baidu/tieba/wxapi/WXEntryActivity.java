@@ -28,8 +28,8 @@ import com.tencent.mm.sdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import d.a.o0.a.g;
-import d.a.p0.f2.a;
+import d.a.p0.a.g;
+import d.a.q0.f2.a;
 /* loaded from: classes4.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     public static /* synthetic */ Interceptable $ic = null;
@@ -78,7 +78,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                         }
                     }
                 }
-                if (str.startsWith(g.f51334a) && g.c(Uri.parse(str))) {
+                if (str.startsWith(g.f51838a) && g.c(Uri.parse(str))) {
                     UtilHelper.dealOneScheme(getPageContext().getPageActivity(), str);
                 } else {
                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
@@ -167,8 +167,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         int type = baseResp.getType();
         if (1 == type) {
             a aVar = new a();
-            aVar.f56218a = this;
-            aVar.f56219b = baseResp;
+            aVar.f56762a = this;
+            aVar.f56763b = baseResp;
             MessageManager.getInstance().runTask(2921351, null, aVar);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {

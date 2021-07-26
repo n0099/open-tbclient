@@ -23,10 +23,10 @@ public class f implements d.l.a.e.b.o.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Response f71961a;
+        public final /* synthetic */ Response f72415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Call f71962b;
+        public final /* synthetic */ Call f72416b;
 
         public a(f fVar, Response response, Call call) {
             Interceptable interceptable = $ic;
@@ -43,32 +43,32 @@ public class f implements d.l.a.e.b.o.j {
                     return;
                 }
             }
-            this.f71961a = response;
-            this.f71962b = call;
+            this.f72415a = response;
+            this.f72416b = call;
         }
 
         @Override // d.l.a.e.b.o.i
         public String a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f71961a.header(str) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f72415a.header(str) : (String) invokeL.objValue;
         }
 
         @Override // d.l.a.e.b.o.i
         public int b() throws IOException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71961a.code() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72415a.code() : invokeV.intValue;
         }
 
         @Override // d.l.a.e.b.o.i
         public void c() {
             Call call;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (call = this.f71962b) == null || call.isCanceled()) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (call = this.f72416b) == null || call.isCanceled()) {
                 return;
             }
-            this.f71962b.cancel();
+            this.f72416b.cancel();
         }
     }
 

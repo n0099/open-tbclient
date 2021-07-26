@@ -13,7 +13,7 @@ public class AdapterViewHolder<T extends View> extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f2324a;
+    public T f2350a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdapterViewHolder(T t) {
@@ -33,12 +33,12 @@ public class AdapterViewHolder<T extends View> extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f2324a = t;
+        this.f2350a = t;
     }
 
     public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2324a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2350a : (T) invokeV.objValue;
     }
 }

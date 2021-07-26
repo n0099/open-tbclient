@@ -256,7 +256,7 @@ public class Util {
                 downloadStore = (DownloadStore) downloadStore.getClass().getMethod("createRemitSelf", new Class[0]).invoke(downloadStore, new Object[0]);
             } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
             }
-            d(com.baidu.android.common.util.Util.f2585b, "Get final download store is " + downloadStore);
+            d(com.baidu.android.common.util.Util.f2611b, "Get final download store is " + downloadStore);
             return downloadStore;
         }
         return (DownloadStore) invokeL.objValue;
@@ -422,7 +422,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
-                w(com.baidu.android.common.util.Util.f2585b, "failed to get connectivity manager!");
+                w(com.baidu.android.common.util.Util.f2611b, "failed to get connectivity manager!");
                 return true;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -436,7 +436,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
-                w(com.baidu.android.common.util.Util.f2585b, "failed to get connectivity manager!");
+                w(com.baidu.android.common.util.Util.f2611b, "failed to get connectivity manager!");
                 return true;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -494,7 +494,7 @@ public class Util {
             try {
                 return Long.parseLong(str);
             } catch (NumberFormatException unused) {
-                d(com.baidu.android.common.util.Util.f2585b, "parseContentLength failed parse for '" + str + "'");
+                d(com.baidu.android.common.util.Util.f2611b, "parseContentLength failed parse for '" + str + "'");
                 return -1L;
             }
         }
@@ -512,7 +512,7 @@ public class Util {
                         return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
                     }
                 } catch (Exception e2) {
-                    w(com.baidu.android.common.util.Util.f2585b, "parse content-length from content-range failed " + e2);
+                    w(com.baidu.android.common.util.Util.f2611b, "parse content-length from content-range failed " + e2);
                 }
             }
             return -1L;

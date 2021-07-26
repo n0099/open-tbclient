@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
-import d.a.o0.r.q.l1;
+import d.a.p0.s.q.b2;
+import d.a.p0.s.q.l1;
 /* loaded from: classes3.dex */
 public class PbActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -74,6 +74,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_IS_PV = "is_pv";
     public static final String KEY_IS_SHARE_THREAD = "key_is_share_thread";
     public static final String KEY_IS_SUB_PB = "is_sub_pb";
+    public static final String KEY_IS_TIEBA_PLUS = "key_is_tieba_plus";
     public static final String KEY_IS_TOP = "is_top";
     public static final String KEY_JUMP_TO_COMMENT_AREA = "key_jump_to_comment_area";
     public static final String KEY_JUMP_TO_GOD_REPLY = "key_jump_to_god_reply";
@@ -116,6 +117,10 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_THREAD_ID = "thread_id";
     public static final String KEY_THREAD_TIME = "thread_time";
     public static final String KEY_THREAD_TYPE = "thread_type";
+    public static final String KEY_TIEBA_PLUS_CANT_DELETE = "key_tieba_plus_cant_delete";
+    public static final String KEY_TIEBA_PLUS_EXTRA_PARAM = "key_tieba_extra_param";
+    public static final String KEY_TIEBA_PLUS_ORDER_ID = "key_tieba_plus_order_id";
+    public static final String KEY_TIEBA_PLUS_TOKEN = "key_tieba_plus_token";
     public static final String KEY_UNKNOW_PB_TYPE = "unKnowPbType";
     public static String KEY_VIDEO_SOURCE = "key_video_source";
     public static final String KYE_IS_START_FOR_RESULT = "is_start_for_result";
@@ -280,13 +285,13 @@ public class PbActivityConfig extends IntentConfig {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", b2Var.n1());
-            if (b2Var.p1() != null && !StringUtils.isNull(b2Var.p1().E())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, b2Var.p1().E());
+            intent.putExtra("thread_id", b2Var.o1());
+            if (b2Var.q1() != null && !StringUtils.isNull(b2Var.q1().E())) {
+                intent.putExtra("god_reply_id", b2Var.q1().E());
             }
-            intent.putExtra("is_good", b2Var.l0());
-            intent.putExtra("is_top", b2Var.m0());
-            intent.putExtra("thread_time", b2Var.q0());
+            intent.putExtra("is_good", b2Var.m0());
+            intent.putExtra("is_top", b2Var.n0());
+            intent.putExtra("thread_time", b2Var.r0());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -296,25 +301,26 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i2);
             intent.putExtra("is_from_thread_config", true);
-            long num = b2Var.G0() == null ? 0L : b2Var.G0().getNum();
+            long num = b2Var.H0() == null ? 0L : b2Var.H0().getNum();
             intent.putExtra("extra_pb_cache_key", "zan=" + num);
             if (b2Var.H() != null && b2Var.H().getGodUserData().getId() != null) {
                 intent.putExtra("extra_pb_funs_count_key", b2Var.H().getFansNum());
                 intent.putExtra("extra_pb_is_attention_key", b2Var.H().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-            String valueOf = String.valueOf(b2Var.Q());
-            String W = b2Var.W();
+            String valueOf = String.valueOf(b2Var.R());
+            String X = b2Var.X();
+            setFromForumId(String.valueOf(b2Var.P()));
             if (b2Var.F1 != null) {
                 setFromForumId(valueOf);
                 OriginalForumInfo originalForumInfo = b2Var.F1;
                 String str3 = originalForumInfo.id;
-                W = originalForumInfo.ori_fname;
+                X = originalForumInfo.ori_fname;
                 valueOf = str3;
             }
             setThreadData(b2Var);
             setForumId(String.valueOf(valueOf));
-            setForumName(W);
+            setForumName(X);
             addMoreIntentExtraParam();
             return this;
         }
@@ -552,7 +558,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_BJH_FROM, i2);
+        intent.putExtra("bjh_from", i2);
     }
 
     public void setForumId(String str) {
@@ -597,7 +603,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_FROM_HOME_QUALITY_CARD, z);
+        intent.putExtra("from_home_quality_card", z);
     }
 
     public void setFromPushNotify() {
@@ -634,7 +640,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeZ(1048605, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_IS_PRIVACY, z);
+        intent.putExtra("key_is_privacy", z);
     }
 
     public void setIsShareThread(boolean z) {
@@ -643,7 +649,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeZ(1048606, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_IS_SHARE_THREAD, z);
+        intent.putExtra("key_is_share_thread", z);
     }
 
     public void setJumpGodReply(boolean z) {
@@ -670,7 +676,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeZ(1048609, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_JUMP_TO_TOP_AREA, z);
+        intent.putExtra("key_jump_to_top", z);
     }
 
     public void setLastTid(String str) {
@@ -679,7 +685,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeL(1048610, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_LAST_TID, str);
+        intent.putExtra("last_tid", str);
     }
 
     public void setNeedPreLoad(boolean z) {
@@ -688,7 +694,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeZ(1048611, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_NEED_PRELOAD, z);
+        intent.putExtra("key_need_preload", z);
     }
 
     public void setNeedRepostRecommendForum(boolean z) {
@@ -706,7 +712,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeL(1048613, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_OFFICIAL_BAR_MESSAGE_ID, str);
+        intent.putExtra("key_official_bar_message_id", str);
     }
 
     public void setPostThreadTip(String str) {
@@ -724,7 +730,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeL(1048615, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_PRE_LOAD, str);
+        intent.putExtra("lego_pre_load_data", str);
     }
 
     public void setRecomData(l1 l1Var) {
@@ -784,16 +790,21 @@ public class PbActivityConfig extends IntentConfig {
             if (intent != null && b2Var != null) {
                 BaijiahaoData J = b2Var.J();
                 if (J != null) {
-                    intent.putExtra("key_is_from_dynamic", b2Var.p2());
+                    intent.putExtra("key_is_from_dynamic", b2Var.r2());
                     intent.putExtra("key_ori_ugc_nid", J.oriUgcNid);
                     intent.putExtra("key_ori_ugc_tid", J.oriUgcTid);
                     intent.putExtra("key_ori_ugc_type", J.oriUgcType);
                     intent.putExtra("key_ori_ugc_vid", J.oriUgcVid);
                 }
-                intent.putExtra(KEY_REC_WEIGHT, b2Var.U0);
-                intent.putExtra(KEY_REC_SOURCE, b2Var.T0);
-                intent.putExtra(KEY_REC_AB_TAG, b2Var.V0);
-                intent.putExtra(KEY_REC_EXTRA, b2Var.W0);
+                intent.putExtra("key_rec_weight", b2Var.U0);
+                intent.putExtra("key_rec_source", b2Var.T0);
+                intent.putExtra("key_rec_ab_tag", b2Var.V0);
+                intent.putExtra("key_rec_extra", b2Var.W0);
+                intent.putExtra("key_is_tieba_plus", b2Var.N2);
+                intent.putExtra("key_tieba_plus_order_id", b2Var.O2);
+                intent.putExtra("key_tieba_plus_token", b2Var.P2);
+                intent.putExtra("key_tieba_extra_param", b2Var.Q2);
+                intent.putExtra("key_tieba_plus_cant_delete", b2Var.R2);
             }
             return this;
         }
@@ -806,7 +817,7 @@ public class PbActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeL(1048622, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_UNKNOW_PB_TYPE, str);
+        intent.putExtra("unKnowPbType", str);
     }
 
     public void setUri(Uri uri) {
@@ -829,7 +840,7 @@ public class PbActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, rect)) == null) {
-            getIntent().putExtra(VIDEO_ORIGIN_AREA, rect);
+            getIntent().putExtra("video_origin_area", rect);
             return this;
         }
         return (PbActivityConfig) invokeL.objValue;
@@ -887,7 +898,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            intent.putExtra(KEY_IS_FROM_BAR_VOTE, z);
+            intent.putExtra("is_from_bar_vote", z);
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
@@ -911,7 +922,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("thread_type", i2);
             intent.putExtra("st_type", str3);
-            intent.putExtra(KEY_SHOULD_ADD_POST_ID, true);
+            intent.putExtra("KEY_SHOULD_ADD_POST_ID", true);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);

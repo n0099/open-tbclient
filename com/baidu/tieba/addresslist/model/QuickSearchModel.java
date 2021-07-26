@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.p0.s.d.a;
+import d.a.d.a.f;
+import d.a.q0.s.d.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13890e;
+    public a f13938e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f13891f;
+    public byte[] f13939f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
@@ -43,8 +43,8 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 return;
             }
         }
-        this.f13891f = new byte[0];
-        this.f13890e = a.d();
+        this.f13939f = new byte[0];
+        this.f13938e = a.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -68,20 +68,20 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<d.a.o0.s.f.a> w(String str) {
+    public List<d.a.p0.t.f.a> w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this.f13891f) {
+            synchronized (this.f13939f) {
                 ArrayList arrayList = new ArrayList();
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<d.a.o0.s.f.a> c2 = this.f13890e.c();
+                List<d.a.p0.t.f.a> c2 = this.f13938e.c();
                 if (c2 == null) {
                     return arrayList;
                 }
-                for (d.a.o0.s.f.a aVar : c2) {
+                for (d.a.p0.t.f.a aVar : c2) {
                     String f2 = aVar.f();
                     String d2 = aVar.d();
                     if (!TextUtils.isEmpty(f2) && f2.toLowerCase().startsWith(str.toLowerCase())) {
@@ -90,7 +90,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                         arrayList.add(aVar);
                     }
                 }
-                for (d.a.o0.s.f.a aVar2 : c2) {
+                for (d.a.p0.t.f.a aVar2 : c2) {
                     String f3 = aVar2.f();
                     String d3 = aVar2.d();
                     if (!arrayList.contains(aVar2)) {

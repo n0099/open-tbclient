@@ -631,9 +631,9 @@ public final class a {
             hashMap.put("clientid", UfoSDK.clientid);
             hashMap.put("appid", UfoSDK.appid);
             hashMap.put("devid", UfoSDK.devid);
-            hashMap.put("uid", com.baidu.ufosdk.b.f23285d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23285d);
-            hashMap.put("username", com.baidu.ufosdk.b.f23283b);
+            hashMap.put("uid", com.baidu.ufosdk.b.f23443d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23443d);
+            hashMap.put("username", com.baidu.ufosdk.b.f23441b);
             hashMap.put(IAdRequestParam.OS, "android");
             hashMap.put("sdkvn", "2.9.10");
             hashMap.put("output_style", 1);
@@ -981,9 +981,9 @@ public final class a {
             hashMap.put("clientid", UfoSDK.clientid);
             hashMap.put("appid", UfoSDK.appid);
             hashMap.put("devid", UfoSDK.devid);
-            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23285d);
-            hashMap.put("uid", com.baidu.ufosdk.b.f23285d);
-            hashMap.put("username", com.baidu.ufosdk.b.f23283b);
+            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23443d);
+            hashMap.put("uid", com.baidu.ufosdk.b.f23443d);
+            hashMap.put("username", com.baidu.ufosdk.b.f23441b);
             hashMap.put("sdkvn", "2.9.10");
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ai));
@@ -1060,20 +1060,20 @@ public final class a {
             HashMap hashMap = new HashMap();
             hashMap.put("appid", str2);
             hashMap.put("appvn", e.b());
-            hashMap.put("baiducuid", com.baidu.ufosdk.b.f23284c);
+            hashMap.put("baiducuid", com.baidu.ufosdk.b.f23442c);
             hashMap.put("clientid", UfoSDK.clientid);
             hashMap.put("devid", UfoSDK.devid);
             String str9 = "extra";
-            hashMap.put("extra", com.baidu.ufosdk.b.f23287f);
+            hashMap.put("extra", com.baidu.ufosdk.b.f23445f);
             String str10 = "id";
             hashMap.put("id", context2);
             hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ah));
             hashMap.put("model", Build.MODEL);
             hashMap.put(IAdRequestParam.OS, "android");
             hashMap.put("sdkvn", "2.9.10");
-            hashMap.put("uid", com.baidu.ufosdk.b.f23285d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23285d);
-            hashMap.put("username", com.baidu.ufosdk.b.f23283b);
+            hashMap.put("uid", com.baidu.ufosdk.b.f23443d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23443d);
+            hashMap.put("username", com.baidu.ufosdk.b.f23441b);
             hashMap.put("output_style", 1);
             String a3 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
             try {
@@ -1410,9 +1410,9 @@ public final class a {
             }
             hashMap.put("appid", str2);
             hashMap.put("devid", UfoSDK.devid);
-            hashMap.put("uid", com.baidu.ufosdk.b.f23285d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23285d);
-            hashMap.put("username", com.baidu.ufosdk.b.f23283b);
+            hashMap.put("uid", com.baidu.ufosdk.b.f23443d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23443d);
+            hashMap.put("username", com.baidu.ufosdk.b.f23441b);
             hashMap.put("sdkvn", "2.9.10");
             hashMap.put("id", str);
             String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));

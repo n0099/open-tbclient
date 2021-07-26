@@ -10,10 +10,10 @@ public interface k {
 
         /* renamed from: com.bytedance.sdk.component.a.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public interface InterfaceC0312a {
+        public interface InterfaceC0314a {
         }
 
-        void a(@NonNull String str, @NonNull InterfaceC0312a interfaceC0312a);
+        void a(@NonNull String str, @NonNull InterfaceC0314a interfaceC0314a);
 
         void a(@NonNull String str, @NonNull String str2);
     }

@@ -31,7 +31,7 @@ public final class h extends d.f.b.a.d0.u.l {
     public volatile boolean D;
     public final int j;
     public final int k;
-    public final a.C1980a l;
+    public final a.C1979a l;
     public final d.f.b.a.h0.e m;
     public final d.f.b.a.h0.g n;
     public final boolean o;
@@ -64,15 +64,15 @@ public final class h extends d.f.b.a.d0.u.l {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(f fVar, d.f.b.a.h0.e eVar, d.f.b.a.h0.g gVar, d.f.b.a.h0.g gVar2, a.C1980a c1980a, List<Format> list, int i2, Object obj, long j, long j2, int i3, int i4, boolean z, s sVar, h hVar, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
-        super(h(eVar, bArr, bArr2), gVar, c1980a.f70055b, i2, obj, j, j2, i3);
+    public h(f fVar, d.f.b.a.h0.e eVar, d.f.b.a.h0.g gVar, d.f.b.a.h0.g gVar2, a.C1979a c1979a, List<Format> list, int i2, Object obj, long j, long j2, int i3, int i4, boolean z, s sVar, h hVar, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
+        super(g(eVar, bArr, bArr2), gVar, c1979a.f70509b, i2, obj, j, j2, i3);
         d.f.b.a.h0.g gVar3;
         d.f.b.a.a0.e eVar2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {fVar, eVar, gVar, gVar2, c1980a, list, Integer.valueOf(i2), obj, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), sVar, hVar, drmInitData, bArr, bArr2};
+            Object[] objArr = {fVar, eVar, gVar, gVar2, c1979a, list, Integer.valueOf(i2), obj, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), sVar, hVar, drmInitData, bArr, bArr2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -86,13 +86,13 @@ public final class h extends d.f.b.a.d0.u.l {
         }
         this.k = i4;
         this.n = gVar2;
-        this.l = c1980a;
+        this.l = c1979a;
         this.p = z;
         this.q = sVar;
-        this.o = this.f69867h instanceof a;
+        this.o = this.f70321h instanceof a;
         boolean z2 = true;
         if (hVar != null) {
-            boolean z3 = hVar.l != c1980a;
+            boolean z3 = hVar.l != c1979a;
             this.r = z3;
             eVar2 = (hVar.k != i4 || z3) ? null : hVar.s;
             gVar3 = gVar;
@@ -101,7 +101,7 @@ public final class h extends d.f.b.a.d0.u.l {
             gVar3 = gVar;
             eVar2 = null;
         }
-        Pair<d.f.b.a.a0.e, Boolean> a2 = fVar.a(eVar2, gVar3.f70383a, this.f69862c, list, drmInitData, sVar);
+        Pair<d.f.b.a.a0.e, Boolean> a2 = fVar.a(eVar2, gVar3.f70837a, this.f70316c, list, drmInitData, sVar);
         this.s = (d.f.b.a.a0.e) a2.first;
         this.t = ((Boolean) a2.second).booleanValue();
         boolean z4 = this.s == eVar2;
@@ -118,7 +118,7 @@ public final class h extends d.f.b.a.d0.u.l {
         this.j = E.getAndIncrement();
     }
 
-    public static d.f.b.a.h0.e h(d.f.b.a.h0.e eVar, byte[] bArr, byte[] bArr2) {
+    public static d.f.b.a.h0.e g(d.f.b.a.h0.e eVar, byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, eVar, bArr, bArr2)) == null) ? bArr != null ? new a(eVar, bArr, bArr2) : eVar : (d.f.b.a.h0.e) invokeLLL.objValue;
@@ -128,11 +128,11 @@ public final class h extends d.f.b.a.d0.u.l {
     public void a() throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k();
+            j();
             if (this.C) {
                 return;
             }
-            j();
+            i();
         }
     }
 
@@ -143,29 +143,29 @@ public final class h extends d.f.b.a.d0.u.l {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.C : invokeV.booleanValue;
     }
 
-    @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public void c() {
+    @Override // d.f.b.a.d0.u.c
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.z : invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.Loader.c
+    public void cancelLoad() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.C = true;
         }
     }
 
-    @Override // d.f.b.a.d0.u.c
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.z : invokeV.longValue;
-    }
-
     @Override // d.f.b.a.d0.u.l
-    public boolean g() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.D : invokeV.booleanValue;
     }
 
-    public void i(l lVar) {
+    public void h(l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, lVar) == null) {
             this.x = lVar;
@@ -185,7 +185,7 @@ public final class h extends d.f.b.a.d0.u.l {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void j() throws IOException, InterruptedException {
+    public final void i() throws IOException, InterruptedException {
         d.f.b.a.h0.g b2;
         boolean z;
         d.f.b.a.a0.b bVar;
@@ -196,19 +196,19 @@ public final class h extends d.f.b.a.d0.u.l {
         int i2 = 0;
         try {
             if (this.o) {
-                b2 = this.f69860a;
+                b2 = this.f70314a;
                 if (this.z != 0) {
                     z = true;
                     if (this.p) {
                         this.q.j();
                     } else if (this.q.c() == Long.MAX_VALUE) {
-                        this.q.h(this.f69865f);
+                        this.q.h(this.f70319f);
                     }
-                    bVar = new d.f.b.a.a0.b(this.f69867h, b2.f70385c, this.f69867h.a(b2));
+                    bVar = new d.f.b.a.a0.b(this.f70321h, b2.f70839c, this.f70321h.a(b2));
                     if (this.t && !this.A) {
-                        long l = l(bVar);
+                        long k = k(bVar);
                         this.A = true;
-                        this.x.T(l == -9223372036854775807L ? this.q.b(l) : this.f69865f);
+                        this.x.T(k == -9223372036854775807L ? this.q.b(k) : this.f70319f);
                     }
                     if (z) {
                         bVar.h(this.z);
@@ -216,31 +216,31 @@ public final class h extends d.f.b.a.d0.u.l {
                     while (i2 == 0 && !this.C) {
                         i2 = this.s.e(bVar, null);
                     }
-                    this.z = (int) (bVar.getPosition() - this.f69860a.f70385c);
-                    v.h(this.f69867h);
+                    this.z = (int) (bVar.getPosition() - this.f70314a.f70839c);
+                    v.h(this.f70321h);
                     this.D = true;
                     return;
                 }
             } else {
-                b2 = this.f69860a.b(this.z);
+                b2 = this.f70314a.b(this.z);
             }
-            bVar = new d.f.b.a.a0.b(this.f69867h, b2.f70385c, this.f69867h.a(b2));
+            bVar = new d.f.b.a.a0.b(this.f70321h, b2.f70839c, this.f70321h.a(b2));
             if (this.t) {
-                long l2 = l(bVar);
+                long k2 = k(bVar);
                 this.A = true;
-                this.x.T(l2 == -9223372036854775807L ? this.q.b(l2) : this.f69865f);
+                this.x.T(k2 == -9223372036854775807L ? this.q.b(k2) : this.f70319f);
             }
             if (z) {
             }
             while (i2 == 0) {
                 i2 = this.s.e(bVar, null);
             }
-            this.z = (int) (bVar.getPosition() - this.f69860a.f70385c);
-            v.h(this.f69867h);
+            this.z = (int) (bVar.getPosition() - this.f70314a.f70839c);
+            v.h(this.f70321h);
             this.D = true;
             return;
         } catch (Throwable th) {
-            v.h(this.f69867h);
+            v.h(this.f70321h);
             throw th;
         }
         z = false;
@@ -248,7 +248,7 @@ public final class h extends d.f.b.a.d0.u.l {
         }
     }
 
-    public final void k() throws IOException, InterruptedException {
+    public final void j() throws IOException, InterruptedException {
         d.f.b.a.h0.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.B || (gVar = this.n) == null) {
@@ -256,29 +256,29 @@ public final class h extends d.f.b.a.d0.u.l {
         }
         d.f.b.a.h0.g b2 = gVar.b(this.y);
         try {
-            d.f.b.a.a0.b bVar = new d.f.b.a.a0.b(this.m, b2.f70385c, this.m.a(b2));
+            d.f.b.a.a0.b bVar = new d.f.b.a.a0.b(this.m, b2.f70839c, this.m.a(b2));
             int i2 = 0;
             while (i2 == 0 && !this.C) {
                 i2 = this.s.e(bVar, null);
             }
-            this.y = (int) (bVar.getPosition() - this.n.f70385c);
-            v.h(this.f69867h);
+            this.y = (int) (bVar.getPosition() - this.n.f70839c);
+            v.h(this.f70321h);
             this.B = true;
         } catch (Throwable th) {
-            v.h(this.f69867h);
+            v.h(this.f70321h);
             throw th;
         }
     }
 
-    public final long l(d.f.b.a.a0.f fVar) throws IOException, InterruptedException {
+    public final long k(d.f.b.a.a0.f fVar) throws IOException, InterruptedException {
         InterceptResult invokeL;
         Metadata c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar)) == null) {
             fVar.e();
-            if (fVar.d(this.w.f70489a, 0, 10, true)) {
+            if (fVar.d(this.w.f70943a, 0, 10, true)) {
                 this.w.G(10);
-                if (this.w.A() != d.f.b.a.c0.g.a.f69716b) {
+                if (this.w.A() != d.f.b.a.c0.g.a.f70170b) {
                     return -9223372036854775807L;
                 }
                 this.w.K(3);
@@ -286,18 +286,18 @@ public final class h extends d.f.b.a.d0.u.l {
                 int i2 = w + 10;
                 if (i2 > this.w.b()) {
                     d.f.b.a.i0.l lVar = this.w;
-                    byte[] bArr = lVar.f70489a;
+                    byte[] bArr = lVar.f70943a;
                     lVar.G(i2);
-                    System.arraycopy(bArr, 0, this.w.f70489a, 0, 10);
+                    System.arraycopy(bArr, 0, this.w.f70943a, 0, 10);
                 }
-                if (fVar.d(this.w.f70489a, 10, w, true) && (c2 = this.v.c(this.w.f70489a, w)) != null) {
+                if (fVar.d(this.w.f70943a, 10, w, true) && (c2 = this.v.c(this.w.f70943a, w)) != null) {
                     int length = c2.length();
                     for (int i3 = 0; i3 < length; i3++) {
                         Metadata.Entry entry = c2.get(i3);
                         if (entry instanceof PrivFrame) {
                             PrivFrame privFrame = (PrivFrame) entry;
                             if ("com.apple.streaming.transportStreamTimestamp".equals(privFrame.owner)) {
-                                System.arraycopy(privFrame.privateData, 0, this.w.f70489a, 0, 8);
+                                System.arraycopy(privFrame.privateData, 0, this.w.f70943a, 0, 8);
                                 this.w.G(8);
                                 return this.w.q();
                             }

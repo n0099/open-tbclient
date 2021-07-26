@@ -21,31 +21,31 @@ public class RimFaceResultPageTipView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f6212a;
+    public TextView f6238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f6213b;
+    public TextView f6239b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f6214c;
+    public ImageView f6240c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f6215d;
+    public TextView f6241d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f6216e;
+    public TextView f6242e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f6217f;
+    public TextView f6243f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f6218g;
+    public LinearLayout f6244g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f6219h;
+    public ImageView f6245h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f6220i;
+    public a f6246i;
     public b j;
 
     /* loaded from: classes2.dex */
@@ -84,22 +84,22 @@ public class RimFaceResultPageTipView extends LinearLayout {
     public void resetView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f6214c.setVisibility(4);
-            this.f6215d.setVisibility(4);
-            this.f6216e.setVisibility(4);
-            this.f6219h.setVisibility(4);
-            this.f6218g.setVisibility(4);
-            this.f6212a.setVisibility(4);
-            this.f6213b.setVisibility(4);
+            this.f6240c.setVisibility(4);
+            this.f6241d.setVisibility(4);
+            this.f6242e.setVisibility(4);
+            this.f6245h.setVisibility(4);
+            this.f6244g.setVisibility(4);
+            this.f6238a.setVisibility(4);
+            this.f6239b.setVisibility(4);
             this.j = null;
-            this.f6220i = null;
+            this.f6246i = null;
         }
     }
 
     public void setOnClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f6220i = aVar;
+            this.f6246i = aVar;
         }
     }
 
@@ -107,7 +107,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.j = bVar;
-            this.f6219h.setVisibility(0);
+            this.f6245h.setVisibility(0);
         }
     }
 
@@ -116,8 +116,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6212a.setVisibility(0);
-        this.f6212a.setText(str);
+        this.f6238a.setVisibility(0);
+        this.f6238a.setText(str);
     }
 
     public void setResultPageConfirmText(String str) {
@@ -125,15 +125,15 @@ public class RimFaceResultPageTipView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6213b.setVisibility(0);
-        this.f6213b.setText(str);
+        this.f6239b.setVisibility(0);
+        this.f6239b.setText(str);
     }
 
     public void setResultPageImg(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f6214c.setVisibility(0);
-            this.f6214c.setBackgroundResource(i2);
+            this.f6240c.setVisibility(0);
+            this.f6240c.setBackgroundResource(i2);
         }
     }
 
@@ -142,10 +142,10 @@ public class RimFaceResultPageTipView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6216e.setTextSize(13.0f);
-        this.f6216e.setTextColor(getResources().getColor(R.color.rim_base_text_666666));
-        this.f6216e.setText(str);
-        this.f6216e.setVisibility(0);
+        this.f6242e.setTextSize(13.0f);
+        this.f6242e.setTextColor(getResources().getColor(R.color.rim_base_text_666666));
+        this.f6242e.setText(str);
+        this.f6242e.setVisibility(0);
     }
 
     public void setResultPageNextTitleBold(String str) {
@@ -153,10 +153,10 @@ public class RimFaceResultPageTipView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6216e.setTextSize(18.0f);
-        this.f6216e.setTextColor(getResources().getColor(R.color.rim_base_text_333333));
-        this.f6216e.setText(str);
-        this.f6216e.setVisibility(0);
+        this.f6242e.setTextSize(18.0f);
+        this.f6242e.setTextColor(getResources().getColor(R.color.rim_base_text_333333));
+        this.f6242e.setText(str);
+        this.f6242e.setVisibility(0);
     }
 
     public void setResultPageRiskTipVisiable(String str) {
@@ -164,8 +164,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6217f.setText(str);
-        this.f6218g.setVisibility(0);
+        this.f6243f.setText(str);
+        this.f6244g.setVisibility(0);
     }
 
     public void setResultPageTitle(String str) {
@@ -173,8 +173,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f6215d.setText(str);
-        this.f6215d.setVisibility(0);
+        this.f6241d.setText(str);
+        this.f6241d.setVisibility(0);
     }
 
     @Override // android.view.View
@@ -189,20 +189,20 @@ public class RimFaceResultPageTipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.rim_face_risk_warning_tips_page, this);
-            this.f6214c = (ImageView) findViewById(R.id.rim_face_result_page_img);
-            this.f6219h = (ImageView) findViewById(R.id.rim_face_result_page_close_img);
-            this.f6215d = (TextView) findViewById(R.id.rim_face_result_tips_title);
-            this.f6216e = (TextView) findViewById(R.id.rim_face_result_tips_next_title);
-            this.f6217f = (TextView) findViewById(R.id.rim_face_result_page_tip_msg);
-            this.f6218g = (LinearLayout) findViewById(R.id.layout_result_page_show_risk_tip);
-            this.f6213b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
-            this.f6212a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
-            this.f6219h.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.1
+            this.f6240c = (ImageView) findViewById(R.id.rim_face_result_page_img);
+            this.f6245h = (ImageView) findViewById(R.id.rim_face_result_page_close_img);
+            this.f6241d = (TextView) findViewById(R.id.rim_face_result_tips_title);
+            this.f6242e = (TextView) findViewById(R.id.rim_face_result_tips_next_title);
+            this.f6243f = (TextView) findViewById(R.id.rim_face_result_page_tip_msg);
+            this.f6244g = (LinearLayout) findViewById(R.id.layout_result_page_show_risk_tip);
+            this.f6239b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
+            this.f6238a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
+            this.f6245h.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RimFaceResultPageTipView f6221a;
+                public final /* synthetic */ RimFaceResultPageTipView f6247a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -219,24 +219,24 @@ public class RimFaceResultPageTipView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f6221a = this;
+                    this.f6247a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f6221a.j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f6247a.j == null) {
                         return;
                     }
-                    this.f6221a.j.a();
+                    this.f6247a.j.a();
                 }
             });
-            this.f6213b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
+            this.f6239b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RimFaceResultPageTipView f6222a;
+                public final /* synthetic */ RimFaceResultPageTipView f6248a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -253,24 +253,24 @@ public class RimFaceResultPageTipView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f6222a = this;
+                    this.f6248a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f6222a.f6220i == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f6248a.f6246i == null) {
                         return;
                     }
-                    this.f6222a.f6220i.a();
+                    this.f6248a.f6246i.a();
                 }
             });
-            this.f6212a.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
+            this.f6238a.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RimFaceResultPageTipView f6223a;
+                public final /* synthetic */ RimFaceResultPageTipView f6249a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -287,16 +287,16 @@ public class RimFaceResultPageTipView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f6223a = this;
+                    this.f6249a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f6223a.f6220i == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f6249a.f6246i == null) {
                         return;
                     }
-                    this.f6223a.f6220i.b();
+                    this.f6249a.f6246i.b();
                 }
             });
         }

@@ -27,7 +27,7 @@ public final class q0 implements v0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final j0<Boolean> f68845a;
+    public static final j0<Boolean> f69299a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -109,7 +109,7 @@ public final class q0 implements v0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f68846c;
+        public long f69300c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -124,7 +124,7 @@ public final class q0 implements v0 {
                     return;
                 }
             }
-            this.f68846c = 0L;
+            this.f69300c = 0L;
         }
     }
 
@@ -141,7 +141,7 @@ public final class q0 implements v0 {
                 return;
             }
         }
-        f68845a = new a();
+        f69299a = new a();
     }
 
     public q0() {
@@ -165,7 +165,7 @@ public final class q0 implements v0 {
             if (context == null) {
                 return false;
             }
-            return f68845a.b(context).booleanValue();
+            return f69299a.b(context).booleanValue();
         }
         return invokeL.booleanValue;
     }
@@ -217,9 +217,9 @@ public final class q0 implements v0 {
                     String string = Settings.Global.getString(context.getContentResolver(), "pps_oaid");
                     String string2 = Settings.Global.getString(context.getContentResolver(), "pps_track_limit");
                     if (!TextUtils.isEmpty(string)) {
-                        cVar.f68867a = string;
-                        cVar.f68868b = Boolean.parseBoolean(string2);
-                        cVar.f68846c = 202003021704L;
+                        cVar.f69321a = string;
+                        cVar.f69322b = Boolean.parseBoolean(string2);
+                        cVar.f69300c = 202003021704L;
                         return cVar;
                     }
                 } catch (Throwable th) {
@@ -228,9 +228,9 @@ public final class q0 implements v0 {
             }
             Pair<String, Boolean> f2 = f(context);
             if (f2 != null) {
-                cVar.f68867a = (String) f2.first;
-                cVar.f68868b = ((Boolean) f2.second).booleanValue();
-                cVar.f68846c = e(context);
+                cVar.f69321a = (String) f2.first;
+                cVar.f69322b = ((Boolean) f2.second).booleanValue();
+                cVar.f69300c = e(context);
             }
             return cVar;
         }

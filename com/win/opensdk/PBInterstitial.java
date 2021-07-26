@@ -9,18 +9,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.activitys.H5Activity;
 /* loaded from: classes6.dex */
-public class PBInterstitial implements d {
+public class PBInterstitial implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39436a;
+    public String f39629a;
 
     /* renamed from: b  reason: collision with root package name */
-    public q0 f39437b;
+    public S0 f39630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBInterstitialListener f39438c;
+    public PBInterstitialListener f39631c;
 
     public PBInterstitial(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -38,22 +38,22 @@ public class PBInterstitial implements d {
             }
         }
         Context applicationContext = context.getApplicationContext();
-        this.f39436a = str;
-        q0 q0Var = new q0(applicationContext, str);
-        this.f39437b = q0Var;
-        q0Var.f39642h = new e(this);
+        this.f39629a = str;
+        S0 s0 = new S0(applicationContext, str);
+        this.f39630b = s0;
+        s0.f39670h = new s(this);
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q0 q0Var = this.f39437b;
-            q0Var.f39639e = false;
-            q0Var.f39637c = false;
-            q0Var.f39638d = false;
-            K0 k0 = q0Var.f39643i;
-            if (k0 != null) {
-                k0.a();
+            S0 s0 = this.f39630b;
+            s0.f39667e = false;
+            s0.f39665c = false;
+            s0.f39666d = false;
+            m1 m1Var = s0.f39671i;
+            if (m1Var != null) {
+                m1Var.a();
             }
         }
     }
@@ -61,16 +61,16 @@ public class PBInterstitial implements d {
     public String getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39436a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39629a : (String) invokeV.objValue;
     }
 
     public boolean isReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q0 q0Var = this.f39437b;
-            if (!q0Var.a()) {
-                if (!(q0Var.f39638d && !q0Var.f39639e && q0Var.b() && !q0Var.f39640f.isShown() && q0Var.f39640f.isEffective())) {
+            S0 s0 = this.f39630b;
+            if (!s0.a()) {
+                if (!(s0.f39666d && !s0.f39667e && s0.b() && !s0.f39668f.isShown() && s0.f39668f.isEffective())) {
                     return false;
                 }
             }
@@ -82,42 +82,42 @@ public class PBInterstitial implements d {
     public void load() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            q0 q0Var = this.f39437b;
-            if (q0Var.b() && q0Var.f39640f.isEffective() && !q0Var.f39640f.isShown()) {
-                q0Var.a(q0Var.f39640f);
+            S0 s0 = this.f39630b;
+            if (s0.b() && s0.f39668f.isEffective() && !s0.f39668f.isShown()) {
+                s0.a(s0.f39668f);
                 return;
             }
-            if (q0Var.f39643i == null) {
-                q0Var.f39643i = new K0(q0Var.f39636b, q0Var.f39635a, y.f39717b);
+            if (s0.f39671i == null) {
+                s0.f39671i = new m1(s0.f39664b, s0.f39663a, M.f39597b);
             }
-            q0Var.f39643i.f39399g = new o0(q0Var);
-            q0Var.f39643i.b();
+            s0.f39671i.f39878g = new Q0(s0);
+            s0.f39671i.b();
         }
     }
 
     public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pBInterstitialListener) == null) {
-            this.f39438c = pBInterstitialListener;
+            this.f39631c = pBInterstitialListener;
         }
     }
 
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            q0 q0Var = this.f39437b;
-            if (!z.e(q0Var.f39636b)) {
-                PBInterstitialListener pBInterstitialListener = q0Var.f39642h;
+            S0 s0 = this.f39630b;
+            if (!N.e(s0.f39664b)) {
+                PBInterstitialListener pBInterstitialListener = s0.f39670h;
                 if (pBInterstitialListener != null) {
                     pBInterstitialListener.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
                 }
-            } else if (q0Var.c() && q0Var.a() && q0Var.b()) {
-                q0Var.f39637c = false;
-                W1.a().a(W1.a(q0Var.f39640f.getTraceid(), q0Var.f39640f.getId(), q0Var.f39640f.getPid()), q0Var.f39641g);
-                q0Var.f39640f.setShown(true);
-                x.a().a(W1.a(q0Var.f39640f.getTraceid(), q0Var.f39640f.getId(), q0Var.f39635a), q0Var.f39640f);
-                H5Activity.a(q0Var.f39636b, q0Var.f39640f, q0Var.f39635a);
-                f1.a(q0Var.f39640f.getId() + q0Var.f39635a, q0Var);
+            } else if (s0.c() && s0.a() && s0.b()) {
+                s0.f39665c = false;
+                y2.a().a(y2.a(s0.f39668f.getTraceid(), s0.f39668f.getId(), s0.f39668f.getPid()), s0.f39669g);
+                s0.f39668f.setShown(true);
+                L.a().a(y2.a(s0.f39668f.getTraceid(), s0.f39668f.getId(), s0.f39663a), s0.f39668f);
+                H5Activity.a(s0.f39664b, s0.f39668f, s0.f39663a);
+                H1.a(s0.f39668f.getId() + s0.f39663a, s0);
             }
         }
     }

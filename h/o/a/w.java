@@ -7,33 +7,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.h;
 import rx.exceptions.CompositeException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class w<T> implements h.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.h<T> f72550e;
+    public final h.h<T> f73004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.b<? super T> f72551f;
+    public final h.n.b<? super T> f73005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final h.n.b<Throwable> f72552g;
+    public final h.n.b<Throwable> f73006g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a<T> extends h.i<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.i<? super T> f72553f;
+        public final h.i<? super T> f73007f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final h.n.b<? super T> f72554g;
+        public final h.n.b<? super T> f73008g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final h.n.b<Throwable> f72555h;
+        public final h.n.b<Throwable> f73009h;
 
         public a(h.i<? super T> iVar, h.n.b<? super T> bVar, h.n.b<Throwable> bVar2) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public final class w<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f72553f = iVar;
-            this.f72554g = bVar;
-            this.f72555h = bVar2;
+            this.f73007f = iVar;
+            this.f73008g = bVar;
+            this.f73009h = bVar2;
         }
 
         @Override // h.i
@@ -60,11 +60,11 @@ public final class w<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 try {
-                    this.f72555h.call(th);
-                    this.f72553f.b(th);
+                    this.f73009h.call(th);
+                    this.f73007f.b(th);
                 } catch (Throwable th2) {
                     h.m.a.e(th2);
-                    this.f72553f.b(new CompositeException(th, th2));
+                    this.f73007f.b(new CompositeException(th, th2));
                 }
             }
         }
@@ -74,8 +74,8 @@ public final class w<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
                 try {
-                    this.f72554g.call(t);
-                    this.f72553f.c(t);
+                    this.f73008g.call(t);
+                    this.f73007f.c(t);
                 } catch (Throwable th) {
                     h.m.a.h(th, this, t);
                 }
@@ -98,9 +98,9 @@ public final class w<T> implements h.c<T> {
                 return;
             }
         }
-        this.f72550e = hVar;
-        this.f72551f = bVar;
-        this.f72552g = bVar2;
+        this.f73004e = hVar;
+        this.f73005f = bVar;
+        this.f73006g = bVar2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -109,9 +109,9 @@ public final class w<T> implements h.c<T> {
     public void call(h.i<? super T> iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            a aVar = new a(iVar, this.f72551f, this.f72552g);
+            a aVar = new a(iVar, this.f73005f, this.f73006g);
             iVar.a(aVar);
-            this.f72550e.j(aVar);
+            this.f73004e.j(aVar);
         }
     }
 }

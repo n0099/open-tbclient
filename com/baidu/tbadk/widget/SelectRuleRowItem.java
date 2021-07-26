@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.b1.a;
+import d.a.p0.d1.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SelectRuleRowItem extends AdapterLinearLayout {
@@ -18,7 +18,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f13275g;
+    public a f13324g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleRowItem(Context context) {
@@ -48,7 +48,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
             setGravity(16);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             a aVar = new a(getContext());
-            this.f13275g = aVar;
+            this.f13324g = aVar;
             setAdapter(aVar);
         }
     }
@@ -56,14 +56,14 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     public void setData(List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            this.f13275g.c(list, list2);
+            this.f13324g.c(list, list2);
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f13275g.e(i2);
+            this.f13324g.e(i2);
         }
     }
 
@@ -91,7 +91,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     public void setData(List<String> list, List<String> list2, List<String> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, list, list2, list3) == null) {
-            this.f13275g.d(list, list2, list3);
+            this.f13324g.d(list, list2, list3);
         }
     }
 

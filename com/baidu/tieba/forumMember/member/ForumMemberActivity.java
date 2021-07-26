@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.j;
-import d.a.c.k.e.n;
-import d.a.o0.r.f0.f;
-import d.a.p0.s0.c.d;
-import d.a.p0.u0.b1;
-import d.a.p0.u0.s0;
-import d.a.p0.u0.y0;
+import d.a.d.e.p.j;
+import d.a.d.k.e.n;
+import d.a.p0.s.f0.f;
+import d.a.q0.s0.c.d;
+import d.a.q0.u0.b1;
+import d.a.q0.u0.s0;
+import d.a.q0.u0.y0;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -31,7 +31,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public d mModel;
     public NoNetworkView.b mNetworkChangeListener;
     public y0 mPageInfo;
-    public d.a.p0.s0.c.o.b mView;
+    public d.a.q0.s0.c.o.b mView;
 
     /* loaded from: classes4.dex */
     public class a implements s0 {
@@ -39,7 +39,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumMemberActivity f15236a;
+        public final /* synthetic */ ForumMemberActivity f15284a;
 
         public a(ForumMemberActivity forumMemberActivity) {
             Interceptable interceptable = $ic;
@@ -56,30 +56,30 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     return;
                 }
             }
-            this.f15236a = forumMemberActivity;
+            this.f15284a = forumMemberActivity;
         }
 
-        @Override // d.a.p0.u0.s0
+        @Override // d.a.q0.u0.s0
         public void a(int i2, int i3, b1 b1Var, ArrayList<n> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), b1Var, arrayList}) == null) {
-                this.f15236a.mView.d();
-                this.f15236a.mView.c();
+                this.f15284a.mView.d();
+                this.f15284a.mView.c();
                 if (arrayList != null) {
                     Iterator<n> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        if (it.next() instanceof d.a.p0.u0.n) {
+                        if (it.next() instanceof d.a.q0.u0.n) {
                             it.remove();
                         }
                     }
                 }
                 if (!ListUtils.isEmpty(arrayList)) {
-                    this.f15236a.mView.e();
-                    this.f15236a.mListViewData = arrayList;
-                    this.f15236a.mView.f(this.f15236a.mListViewData);
-                } else if (!ListUtils.isEmpty(this.f15236a.mListViewData) || b1Var == null) {
+                    this.f15284a.mView.e();
+                    this.f15284a.mListViewData = arrayList;
+                    this.f15284a.mView.f(this.f15284a.mListViewData);
+                } else if (!ListUtils.isEmpty(this.f15284a.mListViewData) || b1Var == null) {
                 } else {
-                    this.f15236a.mView.l(b1Var.f62570f);
+                    this.f15284a.mView.l(b1Var.f63213f);
                 }
             }
         }
@@ -91,7 +91,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumMemberActivity f15237e;
+        public final /* synthetic */ ForumMemberActivity f15285e;
 
         public b(ForumMemberActivity forumMemberActivity) {
             Interceptable interceptable = $ic;
@@ -108,19 +108,19 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     return;
                 }
             }
-            this.f15237e = forumMemberActivity;
+            this.f15285e = forumMemberActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f15237e.mView.b(z);
+                this.f15285e.mView.b(z);
                 if (z) {
-                    if (ListUtils.isEmpty(this.f15237e.mListViewData)) {
-                        this.f15237e.startFirstTimeLoad();
+                    if (ListUtils.isEmpty(this.f15285e.mListViewData)) {
+                        this.f15285e.startFirstTimeLoad();
                     } else {
-                        this.f15237e.mView.m();
+                        this.f15285e.mView.m();
                     }
                 }
             }
@@ -160,8 +160,8 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             }
             y0 y0Var = new y0();
             this.mPageInfo = y0Var;
-            y0Var.f64014b = this.mForumId;
-            y0Var.f64013a = this.mForumName;
+            y0Var.f64659b = this.mForumId;
+            y0Var.f64658a = this.mForumName;
         }
     }
 
@@ -189,7 +189,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             initBundle(bundle);
-            d.a.p0.s0.c.o.b bVar = new d.a.p0.s0.c.o.b(this);
+            d.a.q0.s0.c.o.b bVar = new d.a.q0.s0.c.o.b(this);
             this.mView = bVar;
             bVar.j(this.mNetworkChangeListener);
             d dVar = new d();
@@ -207,14 +207,14 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
             this.mModel.h();
-            d.a.p0.s0.c.o.b bVar = this.mView;
+            d.a.q0.s0.c.o.b bVar = this.mView;
             if (bVar != null) {
                 bVar.i();
             }
         }
     }
 
-    @Override // d.a.o0.r.f0.f.g
+    @Override // d.a.p0.s.f0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {

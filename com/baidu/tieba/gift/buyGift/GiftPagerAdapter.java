@@ -17,7 +17,7 @@ public class GiftPagerAdapter extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<View> f16330a;
+    public List<View> f16386a;
 
     public GiftPagerAdapter(List<View> list) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class GiftPagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f16330a = new ArrayList();
-        this.f16330a = list;
+        this.f16386a = new ArrayList();
+        this.f16386a = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -44,7 +44,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         if (!(interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) || i2 < 0 || i2 >= getCount()) {
             return;
         }
-        viewGroup.removeView(this.f16330a.get(i2));
+        viewGroup.removeView(this.f16386a.get(i2));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -52,7 +52,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<View> list = this.f16330a;
+            List<View> list = this.f16386a;
             if (list == null) {
                 return 0;
             }
@@ -69,7 +69,7 @@ public class GiftPagerAdapter extends PagerAdapter {
             if (i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            View view = this.f16330a.get(i2);
+            View view = this.f16386a.get(i2);
             viewGroup.addView(view);
             return view;
         }

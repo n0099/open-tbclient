@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.a.p0.t.a.f.d;
-import d.a.p0.t.a.i.c;
+import d.a.q0.t.a.f.d;
+import d.a.q0.t.a.i.c;
 /* loaded from: classes4.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;

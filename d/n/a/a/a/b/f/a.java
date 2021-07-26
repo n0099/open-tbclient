@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.n.a.a.c.b.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f72128b;
+    public static volatile a f72582b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f72129c;
+    public static final Uri f72583c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f72130a;
+    public final Context f72584a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class a {
                 return;
             }
         }
-        f72129c = Uri.parse("content://cn.nubia.identity/identity");
+        f72583c = Uri.parse("content://cn.nubia.identity/identity");
     }
 
     public a(Context context) {
@@ -59,21 +59,21 @@ public class a {
                 return;
             }
         }
-        this.f72130a = context;
+        this.f72584a = context;
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f72128b == null) {
+            if (f72582b == null) {
                 synchronized (a.class) {
-                    if (f72128b == null) {
-                        f72128b = new a(context);
+                    if (f72582b == null) {
+                        f72582b = new a(context);
                     }
                 }
             }
-            return f72128b;
+            return f72582b;
         }
         return (a) invokeL.objValue;
     }
@@ -85,7 +85,7 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = this.f72130a.getContentResolver().acquireUnstableContentProviderClient(f72129c);
+                    ContentProviderClient acquireUnstableContentProviderClient = this.f72584a.getContentResolver().acquireUnstableContentProviderClient(f72583c);
                     call = acquireUnstableContentProviderClient.call(str2, null, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -95,7 +95,7 @@ public class a {
                         }
                     }
                 } else {
-                    call = this.f72130a.getContentResolver().call(f72129c, str2, (String) null, (Bundle) null);
+                    call = this.f72584a.getContentResolver().call(f72583c, str2, (String) null, (Bundle) null);
                 }
                 return (call == null || call.getInt("code", -1) != 0) ? "" : call.getString("id");
             } catch (Throwable th) {
@@ -113,7 +113,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = this.f72130a.getContentResolver().acquireUnstableContentProviderClient(f72129c);
+                    ContentProviderClient acquireUnstableContentProviderClient = this.f72584a.getContentResolver().acquireUnstableContentProviderClient(f72583c);
                     call = acquireUnstableContentProviderClient.call("isSupport", null, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -123,7 +123,7 @@ public class a {
                         }
                     }
                 } else {
-                    call = this.f72130a.getContentResolver().call(f72129c, "isSupport", (String) null, (Bundle) null);
+                    call = this.f72584a.getContentResolver().call(f72583c, "isSupport", (String) null, (Bundle) null);
                 }
                 if (call.getInt("code", -1) == 0) {
                     return call.getBoolean("issupport", true);

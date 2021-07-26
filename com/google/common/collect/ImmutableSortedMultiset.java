@@ -85,19 +85,19 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Comparator<? super E> f33246d;
+        public final Comparator<? super E> f33435d;
 
         /* renamed from: e  reason: collision with root package name */
-        public E[] f33247e;
+        public E[] f33436e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int[] f33248f;
+        public int[] f33437f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f33249g;
+        public int f33438g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f33250h;
+        public boolean f33439h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Comparator<? super E> comparator) {
@@ -118,9 +118,9 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
                 }
             }
             n.p(comparator);
-            this.f33246d = comparator;
-            this.f33247e = (E[]) new Object[4];
-            this.f33248f = new int[4];
+            this.f33435d = comparator;
+            this.f33436e = (E[]) new Object[4];
+            this.f33437f = new int[4];
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -229,11 +229,11 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
                     return this;
                 }
                 u();
-                E[] eArr = this.f33247e;
-                int i3 = this.f33249g;
+                E[] eArr = this.f33436e;
+                int i3 = this.f33438g;
                 eArr[i3] = e2;
-                this.f33248f[i3] = i2;
-                this.f33249g = i3 + 1;
+                this.f33437f[i3] = i2;
+                this.f33438g = i3 + 1;
                 return this;
             }
             return (a) invokeLI.objValue;
@@ -247,20 +247,20 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 t();
-                int i2 = this.f33249g;
+                int i2 = this.f33438g;
                 if (i2 == 0) {
-                    return ImmutableSortedMultiset.emptyMultiset(this.f33246d);
+                    return ImmutableSortedMultiset.emptyMultiset(this.f33435d);
                 }
-                RegularImmutableSortedSet regularImmutableSortedSet = (RegularImmutableSortedSet) ImmutableSortedSet.construct(this.f33246d, i2, this.f33247e);
-                long[] jArr = new long[this.f33249g + 1];
+                RegularImmutableSortedSet regularImmutableSortedSet = (RegularImmutableSortedSet) ImmutableSortedSet.construct(this.f33435d, i2, this.f33436e);
+                long[] jArr = new long[this.f33438g + 1];
                 int i3 = 0;
-                while (i3 < this.f33249g) {
+                while (i3 < this.f33438g) {
                     int i4 = i3 + 1;
-                    jArr[i4] = jArr[i3] + this.f33248f[i3];
+                    jArr[i4] = jArr[i3] + this.f33437f[i3];
                     i3 = i4;
                 }
-                this.f33250h = true;
-                return new RegularImmutableSortedMultiset(regularImmutableSortedSet, jArr, 0, this.f33249g);
+                this.f33439h = true;
+                return new RegularImmutableSortedMultiset(regularImmutableSortedSet, jArr, 0, this.f33438g);
             }
             return (ImmutableSortedMultiset) invokeV.objValue;
         }
@@ -268,39 +268,39 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
         public final void s(boolean z) {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (i2 = this.f33249g) == 0) {
+            if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (i2 = this.f33438g) == 0) {
                 return;
             }
-            E[] eArr = (E[]) Arrays.copyOf(this.f33247e, i2);
-            Arrays.sort(eArr, this.f33246d);
+            E[] eArr = (E[]) Arrays.copyOf(this.f33436e, i2);
+            Arrays.sort(eArr, this.f33435d);
             int i3 = 1;
             for (int i4 = 1; i4 < eArr.length; i4++) {
-                if (this.f33246d.compare((Object) eArr[i3 - 1], (Object) eArr[i4]) < 0) {
+                if (this.f33435d.compare((Object) eArr[i3 - 1], (Object) eArr[i4]) < 0) {
                     eArr[i3] = eArr[i4];
                     i3++;
                 }
             }
-            Arrays.fill(eArr, i3, this.f33249g, (Object) null);
+            Arrays.fill(eArr, i3, this.f33438g, (Object) null);
             if (z) {
                 int i5 = i3 * 4;
-                int i6 = this.f33249g;
+                int i6 = this.f33438g;
                 if (i5 > i6 * 3) {
                     eArr = (E[]) Arrays.copyOf(eArr, c.e(i6, (i6 / 2) + 1));
                 }
             }
             int[] iArr = new int[eArr.length];
-            for (int i7 = 0; i7 < this.f33249g; i7++) {
-                int binarySearch = Arrays.binarySearch(eArr, 0, i3, this.f33247e[i7], this.f33246d);
-                int[] iArr2 = this.f33248f;
+            for (int i7 = 0; i7 < this.f33438g; i7++) {
+                int binarySearch = Arrays.binarySearch(eArr, 0, i3, this.f33436e[i7], this.f33435d);
+                int[] iArr2 = this.f33437f;
                 if (iArr2[i7] >= 0) {
                     iArr[binarySearch] = iArr[binarySearch] + iArr2[i7];
                 } else {
                     iArr[binarySearch] = ~iArr2[i7];
                 }
             }
-            this.f33247e = eArr;
-            this.f33248f = iArr;
-            this.f33249g = i3;
+            this.f33436e = eArr;
+            this.f33437f = iArr;
+            this.f33438g = i3;
         }
 
         public final void t() {
@@ -312,20 +312,20 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
             int i2 = 0;
             int i3 = 0;
             while (true) {
-                int i4 = this.f33249g;
+                int i4 = this.f33438g;
                 if (i2 < i4) {
-                    int[] iArr = this.f33248f;
+                    int[] iArr = this.f33437f;
                     if (iArr[i2] > 0) {
-                        E[] eArr = this.f33247e;
+                        E[] eArr = this.f33436e;
                         eArr[i3] = eArr[i2];
                         iArr[i3] = iArr[i2];
                         i3++;
                     }
                     i2++;
                 } else {
-                    Arrays.fill(this.f33247e, i3, i4, (Object) null);
-                    Arrays.fill(this.f33248f, i3, this.f33249g, 0);
-                    this.f33249g = i3;
+                    Arrays.fill(this.f33436e, i3, i4, (Object) null);
+                    Arrays.fill(this.f33437f, i3, this.f33438g, 0);
+                    this.f33438g = i3;
                     return;
                 }
             }
@@ -334,14 +334,14 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
         public final void u() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-                int i2 = this.f33249g;
-                E[] eArr = this.f33247e;
+                int i2 = this.f33438g;
+                E[] eArr = this.f33436e;
                 if (i2 == eArr.length) {
                     s(true);
-                } else if (this.f33250h) {
-                    this.f33247e = (E[]) Arrays.copyOf(eArr, eArr.length);
+                } else if (this.f33439h) {
+                    this.f33436e = (E[]) Arrays.copyOf(eArr, eArr.length);
                 }
-                this.f33250h = false;
+                this.f33439h = false;
             }
         }
     }

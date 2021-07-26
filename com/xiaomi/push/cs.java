@@ -47,7 +47,7 @@ public class cs {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f39949a;
+    public static Context f40221a;
 
     /* renamed from: a  reason: collision with other field name */
     public static a f197a;
@@ -59,13 +59,13 @@ public class cs {
     public static boolean f199a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, co> f39950b;
+    public static Map<String, co> f40222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39951c;
+    public static String f40223c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39952d;
+    public static String f40224d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -115,7 +115,7 @@ public class cs {
                 return;
             }
         }
-        f39950b = new HashMap();
+        f40222b = new HashMap();
         f199a = false;
     }
 
@@ -164,8 +164,8 @@ public class cs {
         this.f202a = bVar;
         this.f201a = crVar == null ? new ct(this) : crVar;
         this.f203a = str;
-        f39951c = str2 == null ? context.getPackageName() : str2;
-        f39952d = str3 == null ? f() : str3;
+        f40223c = str2 == null ? context.getPackageName() : str2;
+        f40224d = str3 == null ? f() : str3;
     }
 
     public static synchronized cs a() {
@@ -191,7 +191,7 @@ public class cs {
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Context context = f39949a;
+            Context context = f40221a;
             if (context == null) {
                 return "unknown";
             }
@@ -205,7 +205,7 @@ public class cs {
             if (activeNetworkInfo.getType() != 1) {
                 return activeNetworkInfo.getTypeName() + "-" + activeNetworkInfo.getSubtypeName();
             }
-            WifiManager wifiManager = (WifiManager) f39949a.getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) f40221a.getSystemService("wifi");
             if (wifiManager != null && wifiManager.getConnectionInfo() != null) {
                 return "WIFI-" + wifiManager.getConnectionInfo().getSSID();
             }
@@ -251,12 +251,12 @@ public class cs {
                     }
                 }
             }
-            boolean isEmpty = f39950b.isEmpty();
-            synchronized (f39950b) {
-                for (Object obj : f39950b.values().toArray()) {
+            boolean isEmpty = f40222b.isEmpty();
+            synchronized (f40222b) {
+                for (Object obj : f40222b.values().toArray()) {
                     co coVar = (co) obj;
                     if (!coVar.b()) {
-                        f39950b.remove(coVar.f194b);
+                        f40222b.remove(coVar.f194b);
                         isEmpty = true;
                     }
                 }
@@ -269,7 +269,7 @@ public class cs {
                 arrayList2.add(null);
             }
             try {
-                String str2 = bg.e(f39949a) ? "wifi" : "wap";
+                String str2 = bg.e(f40221a) ? "wifi" : "wap";
                 String a2 = a(arrayList, str2, this.f203a, isEmpty);
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject3 = new JSONObject(a2);
@@ -306,11 +306,11 @@ public class cs {
                                 }
                                 jSONObject = jSONObject5;
                                 arrayList2.set(i3, coVar2);
-                                coVar2.f39944g = string5;
-                                coVar2.f39940c = string;
-                                coVar2.f39942e = string3;
-                                coVar2.f39943f = string4;
-                                coVar2.f39941d = string2;
+                                coVar2.f40216g = string5;
+                                coVar2.f40212c = string;
+                                coVar2.f40214e = string3;
+                                coVar2.f40215f = string4;
+                                coVar2.f40213d = string2;
                                 if (jSONObject4.has("stat-percent")) {
                                     coVar2.a(jSONObject4.getDouble("stat-percent"));
                                 }
@@ -343,9 +343,9 @@ public class cs {
                                             coVar3.a(new cx(string7, optJSONArray2.length() - i5));
                                         }
                                     }
-                                    synchronized (f39950b) {
+                                    synchronized (f40222b) {
                                         if (this.f201a.a(next)) {
-                                            f39950b.put(next, coVar3);
+                                            f40222b.put(next, coVar3);
                                         }
                                     }
                                 }
@@ -373,9 +373,9 @@ public class cs {
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, crVar, bVar, str, str2, str3}) == null) {
             synchronized (cs.class) {
                 Context applicationContext = context.getApplicationContext();
-                f39949a = applicationContext;
+                f40221a = applicationContext;
                 if (applicationContext == null) {
-                    f39949a = context;
+                    f40221a = context;
                 }
                 if (f198a == null) {
                     if (f197a == null) {
@@ -401,13 +401,13 @@ public class cs {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            co coVar = f39950b.get(str);
-            synchronized (f39950b) {
+            co coVar = f40222b.get(str);
+            synchronized (f40222b) {
                 if (coVar == null) {
                     co coVar2 = new co(str);
                     coVar2.a(604800000L);
                     coVar2.m221a(str2);
-                    f39950b.put(str, coVar2);
+                    f40222b.put(str, coVar2);
                 } else {
                     coVar.m221a(str2);
                 }
@@ -420,7 +420,7 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             try {
-                PackageInfo packageInfo = f39949a.getPackageManager().getPackageInfo(f39949a.getPackageName(), 16384);
+                PackageInfo packageInfo = f40221a.getPackageManager().getPackageInfo(f40221a.getPackageName(), 16384);
                 return packageInfo != null ? packageInfo.versionName : "0";
             } catch (Exception unused) {
                 return "0";
@@ -452,7 +452,7 @@ public class cs {
             }
             if (this.f201a.a(str)) {
                 co c2 = c(str);
-                return (c2 == null || !c2.b()) ? (z && bg.b(f39949a) && (d2 = d(str)) != null) ? d2 : new cu(this, str, c2) : c2;
+                return (c2 == null || !c2.b()) ? (z && bg.b(f40221a) && (d2 = d(str)) != null) ? d2 : new cu(this, str, c2) : c2;
             }
             return null;
         }
@@ -467,20 +467,20 @@ public class cs {
             ArrayList<bf> arrayList3 = new ArrayList();
             arrayList3.add(new bd("type", str));
             if (str.equals("wap")) {
-                arrayList3.add(new bd("conpt", a(bg.m172a(f39949a))));
+                arrayList3.add(new bd("conpt", a(bg.m172a(f40221a))));
             }
             if (z) {
                 arrayList3.add(new bd(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "1"));
             }
             arrayList3.add(new bd("uuid", str2));
             arrayList3.add(new bd("list", bm.a(arrayList, ",")));
-            arrayList3.add(new bd("countrycode", com.xiaomi.push.service.a.a(f39949a).b()));
+            arrayList3.add(new bd("countrycode", com.xiaomi.push.service.a.a(f40221a).b()));
             co c2 = c(b());
             String format = String.format(Locale.US, "https://%1$s/gslb/?ver=4.0", b());
             if (c2 == null) {
                 arrayList2.add(format);
-                synchronized (f39950b) {
-                    co coVar = f39950b.get("resolver.msg.xiaomi.net");
+                synchronized (f40222b) {
+                    co coVar = f40222b.get("resolver.msg.xiaomi.net");
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -499,7 +499,7 @@ public class cs {
                     buildUpon.appendQueryParameter(bfVar.a(), bfVar.b());
                 }
                 try {
-                    return this.f202a == null ? bg.a(f39949a, new URL(buildUpon.toString())) : this.f202a.a(buildUpon.toString());
+                    return this.f202a == null ? bg.a(f40221a, new URL(buildUpon.toString())) : this.f202a.a(buildUpon.toString());
                 } catch (IOException e3) {
                     e2 = e3;
                 }
@@ -528,7 +528,7 @@ public class cs {
                 }
                 jSONObject.put("data", jSONArray);
                 JSONArray jSONArray2 = new JSONArray();
-                for (co coVar : f39950b.values()) {
+                for (co coVar : f40222b.values()) {
                     jSONArray2.put(coVar.m220a());
                 }
                 jSONObject.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, jSONArray2);
@@ -609,7 +609,7 @@ public class cs {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String a2 = com.xiaomi.push.service.a.a(f39949a).a();
+            String a2 = com.xiaomi.push.service.a.a(f40221a).a();
             return (TextUtils.isEmpty(a2) || PushChannelRegion.China.name().equals(a2)) ? "resolver.msg.xiaomi.net" : "resolver.msg.global.xiaomi.net";
         }
         return (String) invokeV.objValue;
@@ -657,7 +657,7 @@ public class cs {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     co a3 = new co("").a(optJSONArray2.getJSONObject(i3));
-                    f39950b.put(a3.f194b, a3);
+                    f40222b.put(a3.f194b, a3);
                 }
             }
         }
@@ -705,7 +705,7 @@ public class cs {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             synchronized (this.f204a) {
                 try {
-                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(f39949a.openFileOutput(e(), 0)));
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(f40221a.openFileOutput(e(), 0)));
                     String jSONObject = m230a().toString();
                     if (!TextUtils.isEmpty(jSONObject)) {
                         bufferedWriter.write(jSONObject);
@@ -752,7 +752,7 @@ public class cs {
             return (String) invokeV.objValue;
         }
         try {
-            file = new File(f39949a.getFilesDir(), e());
+            file = new File(f40221a.getFilesDir(), e());
         } catch (Throwable th) {
             th = th;
             bufferedReader = null;
@@ -811,7 +811,7 @@ public class cs {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) f39949a.getSystemService("activity")).getRunningAppProcesses();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) f40221a.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses != null) {
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                     if (runningAppProcessInfo.pid == Process.myPid()) {

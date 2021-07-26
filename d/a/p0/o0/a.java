@@ -1,108 +1,120 @@
 package d.a.p0.o0;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.view.Choreographer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import d.a.o0.a0.d;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
-public class a {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(16)
+/* loaded from: classes7.dex */
+public class a implements Choreographer.FrameCallback {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f61065a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f61066b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1564419874, "Ld/a/p0/o0/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1564419874, "Ld/a/p0/o0/a;");
+    /* renamed from: e  reason: collision with root package name */
+    public long f52806e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f52807f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f52808g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f52809h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f52810i;
+    public boolean j;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        f61065a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
-        f61066b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+        this.f52806e = 0L;
+        this.f52809h = 0;
+        this.f52810i = -1;
+        this.j = false;
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
-        CustomResponsedMessage runTask;
+    public final void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int i2 = 0;
-            if (str != null && str.length() != 0) {
-                Matcher matcher = f61065a.matcher(str);
-                while (matcher.find()) {
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                        i2++;
-                    }
-                }
-                Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(str);
-                while (matcher2.find()) {
-                    String[] split = matcher2.group().split(",");
-                    if (split != null && split.length == 5) {
-                        i2++;
-                    }
-                }
-                Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(str);
-                while (matcher3.find()) {
-                    String[] split2 = matcher3.group().split(",");
-                    if (split2 != null && split2.length == 6) {
-                        i2++;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = this.f52808g;
+            if (j2 <= 0) {
+                return;
             }
-            return i2;
+            long j3 = j - j2;
+            if (j3 <= 0 || this.f52810i > 0) {
+                return;
+            }
+            this.f52810i = (int) (60 - ((this.f52809h * 1000) / j3));
         }
-        return invokeL.intValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String replaceAll = str.replaceAll(d.f51437f, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-            Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
-            StringBuilder sb = new StringBuilder(replaceAll);
-            int i2 = 0;
-            while (matcher.find()) {
-                String[] split = matcher.group().split(",");
-                if (split != null && split.length == 6) {
-                    StringBuilder sb2 = new StringBuilder();
-                    int start = matcher.start() - i2;
-                    int end = matcher.end() - i2;
-                    for (int i3 = 0; i3 < split.length; i3++) {
-                        if (i3 != 1) {
-                            sb2.append(split[i3]);
-                            if (i3 < split.length - 1) {
-                                sb2.append(",");
-                            }
-                        }
-                    }
-                    i2 += (end - start) - sb2.toString().length();
-                    if (start >= 0 && end <= sb.length()) {
-                        sb.replace(start, end, sb2.toString());
-                    }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52810i : invokeV.intValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.f52808g = currentTimeMillis;
+            this.f52807f = currentTimeMillis + 1000;
+            this.f52806e = 0L;
+            this.f52809h = 0;
+            this.f52810i = -1;
+            this.j = false;
+            Choreographer.getInstance().postFrameCallback(this);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.j = true;
+            Choreographer.getInstance().removeFrameCallback(this);
+            a(System.currentTimeMillis());
+            this.f52809h = 0;
+            this.f52808g = 0L;
+        }
+    }
+
+    @Override // android.view.Choreographer.FrameCallback
+    public void doFrame(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            long j2 = this.f52806e;
+            if (j2 != 0) {
+                long j3 = (j - j2) / 1000000;
+                if (j3 > 16 && j3 < 960) {
+                    this.f52809h = (int) (this.f52809h + (j3 / 16));
                 }
             }
-            return sb.toString();
+            this.f52806e = j;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis < this.f52807f && !this.j) {
+                Choreographer.getInstance().postFrameCallback(this);
+                return;
+            }
+            a(currentTimeMillis);
+            this.f52809h = 0;
+            this.f52808g = 0L;
         }
-        return (String) invokeL.objValue;
     }
 }

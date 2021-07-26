@@ -24,6 +24,7 @@ public class TNCConfigHandler {
     public static final String TAG = "TNCConfigHandler";
     public static final Object sLock;
     public transient /* synthetic */ FieldHolder $fh;
+    public int mAid;
     public Context mContext;
     public boolean mIsMainProcess;
     public TNCConfig mTNCConfig;
@@ -44,16 +45,16 @@ public class TNCConfigHandler {
         sLock = new Object();
     }
 
-    public TNCConfigHandler(Context context, boolean z) {
+    public TNCConfigHandler(Context context, boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
+            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -62,6 +63,7 @@ public class TNCConfigHandler {
         this.mIsMainProcess = true;
         this.mContext = context;
         this.mIsMainProcess = z;
+        this.mAid = i2;
         this.mTNCConfig = new TNCConfig();
     }
 
@@ -142,12 +144,12 @@ public class TNCConfigHandler {
                 Logger.debug(TAG, "handleConfigChanged: no mainProc");
                 return;
             }
-            TNCManager.getInstance().resetHostReplaceMapFailed();
+            TncInstanceManager.getInstance().getTNCManager(this.mAid).resetHostReplaceMapFailed();
             try {
                 boolean z = jSONObject.optInt("ttnet_url_dispatcher_enabled", 0) > 0;
                 JSONArray optJSONArray = jSONObject.optJSONArray("ttnet_dispatch_actions");
                 JSONObject jSONObject2 = null;
-                if (TNCManager.getInstance().getURLDispatchEnabled() && z && optJSONArray != null) {
+                if (TncInstanceManager.getInstance().getTNCManager(this.mAid).getURLDispatchEnabled() && z && optJSONArray != null) {
                     ArrayList arrayList = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject jSONObject3 = ((JSONObject) optJSONArray.get(i2)).getJSONObject("param");
@@ -184,29 +186,29 @@ public class TNCConfigHandler {
                 Logger.debug(TAG, sb.toString());
                 if (parseConfigFromJson == null) {
                     synchronized (sLock) {
-                        this.mContext.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", "").apply();
-                        MultiProcessFileUtils.saveData(this.mContext, 1, "");
+                        this.mContext.getSharedPreferences(TncInstanceManager.getInstance().getTNCManager(this.mAid).getTncSpName(), 0).edit().putString("tnc_config_str", "").apply();
+                        MultiProcessFileUtils.saveData(this.mContext, 1, "", this.mAid);
                     }
                     return;
                 }
                 this.mTNCConfig = parseConfigFromJson;
                 String jSONObject5 = optJSONObject.toString();
                 synchronized (sLock) {
-                    this.mContext.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", jSONObject5).apply();
-                    MultiProcessFileUtils.saveData(this.mContext, 1, jSONObject5);
+                    this.mContext.getSharedPreferences(TncInstanceManager.getInstance().getTNCManager(this.mAid).getTncSpName(), 0).edit().putString("tnc_config_str", jSONObject5).apply();
+                    MultiProcessFileUtils.saveData(this.mContext, 1, jSONObject5, this.mAid);
                 }
             } catch (Throwable th) {
                 try {
                     th.printStackTrace();
                     this.mTNCConfig = new TNCConfig();
                     synchronized (sLock) {
-                        this.mContext.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", "").apply();
-                        MultiProcessFileUtils.saveData(this.mContext, 1, "");
+                        this.mContext.getSharedPreferences(TncInstanceManager.getInstance().getTNCManager(this.mAid).getTncSpName(), 0).edit().putString("tnc_config_str", "").apply();
+                        MultiProcessFileUtils.saveData(this.mContext, 1, "", this.mAid);
                     }
                 } catch (Throwable th2) {
                     synchronized (sLock) {
-                        this.mContext.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", "").apply();
-                        MultiProcessFileUtils.saveData(this.mContext, 1, "");
+                        this.mContext.getSharedPreferences(TncInstanceManager.getInstance().getTNCManager(this.mAid).getTncSpName(), 0).edit().putString("tnc_config_str", "").apply();
+                        MultiProcessFileUtils.saveData(this.mContext, 1, "", this.mAid);
                         throw th2;
                     }
                 }
@@ -217,7 +219,7 @@ public class TNCConfigHandler {
     public void loadLocalConfig() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mIsMainProcess) {
-            String string = this.mContext.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).getString("tnc_config_str", null);
+            String string = this.mContext.getSharedPreferences(TncInstanceManager.getInstance().getTNCManager(this.mAid).getTncSpName(), 0).getString("tnc_config_str", null);
             if (TextUtils.isEmpty(string)) {
                 Logger.debug(TAG, "loadLocalConfig: no existed");
                 return;
@@ -242,7 +244,7 @@ public class TNCConfigHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                String data = MultiProcessFileUtils.getData(this.mContext, 1);
+                String data = MultiProcessFileUtils.getData(this.mContext, 1, this.mAid);
                 if (TextUtils.isEmpty(data)) {
                     Logger.debug(TAG, "loadLocalConfigForOtherProcess, data empty");
                     return;

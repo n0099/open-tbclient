@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.a0.i.b;
+import d.a.b0.i.b;
 @TargetApi(28)
 /* loaded from: classes2.dex */
 public class NPSComponentFactory extends AppComponentFactory {

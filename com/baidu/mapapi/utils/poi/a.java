@@ -16,7 +16,7 @@ public final class a implements a.InterfaceC0136a<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f7518a;
+    public final /* synthetic */ Context f7544a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class a implements a.InterfaceC0136a<c> {
                 return;
             }
         }
-        this.f7518a = context;
+        this.f7544a = context;
     }
 
     @Override // com.baidu.platform.comapi.pano.a.InterfaceC0136a
@@ -41,7 +41,7 @@ public final class a implements a.InterfaceC0136a<c> {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            int i2 = b.f7520b[httpStateError.ordinal()];
+            int i2 = b.f7546b[httpStateError.ordinal()];
             if (i2 == 1) {
                 str = "current network is not available";
             } else if (i2 != 2) {
@@ -63,7 +63,7 @@ public final class a implements a.InterfaceC0136a<c> {
                 Log.d("baidumapsdk", "pano info is null");
                 return;
             }
-            int i2 = b.f7519a[cVar.a().ordinal()];
+            int i2 = b.f7545a[cVar.a().ordinal()];
             if (i2 == 1) {
                 str = "pano uid is error, please check param poi uid";
             } else if (i2 == 2) {
@@ -75,7 +75,7 @@ public final class a implements a.InterfaceC0136a<c> {
             } else {
                 if (cVar.c() == 1) {
                     try {
-                        BaiduMapPoiSearch.b(cVar.b(), this.f7518a);
+                        BaiduMapPoiSearch.b(cVar.b(), this.f7544a);
                         return;
                     } catch (Exception e2) {
                         e2.printStackTrace();

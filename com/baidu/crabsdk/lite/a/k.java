@@ -16,17 +16,17 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4724a;
+    public static Context f4750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityManager f4725b;
+    public static ActivityManager f4751b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, context) == null) && f4724a == null) {
-            f4724a = context;
-            f4725b = (ActivityManager) context.getSystemService("activity");
+        if ((interceptable == null || interceptable.invokeL(65536, null, context) == null) && f4750a == null) {
+            f4750a = context;
+            f4751b = (ActivityManager) context.getSystemService("activity");
         }
     }
 
@@ -36,11 +36,11 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (f4725b == null) {
+            if (f4751b == null) {
                 return sb.toString();
             }
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            f4725b.getMemoryInfo(memoryInfo2);
+            f4751b.getMemoryInfo(memoryInfo2);
             sb.append("isLowMem: ");
             sb.append(memoryInfo2.lowMemory ? "yes" : "no");
             sb.append("\navailMem: ");
@@ -48,7 +48,7 @@ public final class k {
             sb.append("\nthreshold: ");
             sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo2.threshold));
             sb.append("\n");
-            if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4725b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+            if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4751b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
                 sb.append("totalPrivateDirty: ");
                 sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalPrivateDirty() * 1024));
                 sb.append("\ntotalPss: ");

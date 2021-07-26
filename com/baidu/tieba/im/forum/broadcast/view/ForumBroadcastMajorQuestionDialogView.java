@@ -18,19 +18,19 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f17490e;
+    public LinearLayout f17546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f17491f;
+    public Context f17547f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17492g;
+    public TextView f17548g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17493h;
+    public TextView f17549h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17494i;
+    public TextView f17550i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumBroadcastMajorQuestionDialogView(Context context) {
@@ -50,7 +50,7 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
                 return;
             }
         }
-        this.f17491f = context;
+        this.f17547f = context;
         a(context);
     }
 
@@ -59,17 +59,17 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.forum_broadcast_major_question_dialog, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.forum_broadcast_question);
-            this.f17490e = linearLayout;
-            this.f17492g = (TextView) linearLayout.findViewById(R.id.forum_broadcast_question_title);
-            this.f17493h = (TextView) this.f17490e.findViewById(R.id.forum_broadcast_question_content);
-            this.f17494i = (TextView) this.f17490e.findViewById(R.id.known_icon);
-            this.f17492g.setText(R.string.subscribe_bar_title);
-            this.f17493h.setText(R.string.forum_broadcast_major_history_hint);
-            this.f17494i.setText(R.string.know);
-            SkinManager.setBackgroundResource(this.f17490e, R.drawable.bg_frs_private_dialog);
-            SkinManager.setViewTextColor(this.f17492g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f17493h, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f17494i, R.color.CAM_X0302);
+            this.f17546e = linearLayout;
+            this.f17548g = (TextView) linearLayout.findViewById(R.id.forum_broadcast_question_title);
+            this.f17549h = (TextView) this.f17546e.findViewById(R.id.forum_broadcast_question_content);
+            this.f17550i = (TextView) this.f17546e.findViewById(R.id.known_icon);
+            this.f17548g.setText(R.string.subscribe_bar_title);
+            this.f17549h.setText(R.string.forum_broadcast_major_history_hint);
+            this.f17550i.setText(R.string.know);
+            SkinManager.setBackgroundResource(this.f17546e, R.drawable.bg_frs_private_dialog);
+            SkinManager.setViewTextColor(this.f17548g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f17549h, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f17550i, R.color.CAM_X0302);
         }
     }
 
@@ -78,6 +78,6 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f17494i.setOnClickListener(onClickListener);
+        this.f17550i.setOnClickListener(onClickListener);
     }
 }

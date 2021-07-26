@@ -30,7 +30,7 @@ public final class SecuityBeanFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static SecuityBeanFactory f25943a;
+        public static SecuityBeanFactory f26101a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public final class SecuityBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f25943a = new SecuityBeanFactory(null);
+            f26101a = new SecuityBeanFactory(null);
         }
     }
 
@@ -57,7 +57,7 @@ public final class SecuityBeanFactory implements IBeanFactory {
     public static SecuityBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f25943a : (SecuityBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f26101a : (SecuityBeanFactory) invokeV.objValue;
     }
 
     public SecuityBeanFactory() {

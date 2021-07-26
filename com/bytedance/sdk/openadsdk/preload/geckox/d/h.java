@@ -17,7 +17,7 @@ public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32201d;
+    public int f32402d;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
                 return;
             }
         }
-        this.f32201d = 0;
+        this.f32402d = 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,8 +44,8 @@ public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             UpdatePackage g2 = g();
             List<String> urlList = g2.getPatch().getUrlList();
-            int i2 = this.f32201d;
-            this.f32201d = i2 + 1;
+            int i2 = this.f32402d;
+            this.f32402d = i2 + 1;
             return new Pair<>(Uri.parse(urlList.get(i2)), g2);
         }
         return (Pair) invokeV.objValue;
@@ -57,7 +57,7 @@ public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "patch update failed", th);
-            if (this.f32201d >= g().getPatch().getUrlList().size()) {
+            if (this.f32402d >= g().getPatch().getUrlList().size()) {
                 return false;
             }
             return (th instanceof com.bytedance.sdk.openadsdk.preload.geckox.b.a) || (th instanceof com.bytedance.sdk.openadsdk.preload.geckox.b.b);

@@ -12,7 +12,7 @@ public final class k implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ j f39177a;
+    public final /* synthetic */ j f39398a;
 
     public k(j jVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class k implements Runnable {
                 return;
             }
         }
-        this.f39177a = jVar;
+        this.f39398a = jVar;
     }
 
     @Override // java.lang.Runnable
@@ -37,10 +37,10 @@ public final class k implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j jVar = this.f39177a;
-            LocalAliasTagsManager.LocalMessageCallback localMessageCallback = jVar.f39175b;
-            context = jVar.f39176c.mContext;
-            localMessageCallback.onTransmissionMessage(context, this.f39177a.f39174a);
+            j jVar = this.f39398a;
+            LocalAliasTagsManager.LocalMessageCallback localMessageCallback = jVar.f39396b;
+            context = jVar.f39397c.mContext;
+            localMessageCallback.onTransmissionMessage(context, this.f39398a.f39395a);
         }
     }
 }

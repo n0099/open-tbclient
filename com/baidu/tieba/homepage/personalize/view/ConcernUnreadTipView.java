@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.r.d0.b;
-import d.a.p0.e1.h.j.e;
+import d.a.d.e.p.l;
+import d.a.p0.s.d0.b;
+import d.a.q0.e1.h.j.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ConcernUnreadTipView extends RelativeLayout {
@@ -31,19 +31,19 @@ public class ConcernUnreadTipView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f16790e;
+    public ImageView f16846e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f16791f;
+    public TextView f16847f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f16792g;
+    public LinearLayout f16848g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16793h;
+    public TextView f16849h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16794i;
+    public TextView f16850i;
     public ImageView j;
     public BdUniqueId k;
     public int l;
@@ -76,11 +76,11 @@ public class ConcernUnreadTipView extends RelativeLayout {
             this.l = l.g(getContext(), R.dimen.tbds94);
             this.m = 0 - l.g(getContext(), R.dimen.tbds18);
             LayoutInflater.from(context).inflate(R.layout.concern_unread_tip_view_layout, (ViewGroup) this, true);
-            this.f16791f = (TextView) findViewById(R.id.concern_unread_tip_title);
-            this.f16790e = (ImageView) findViewById(R.id.concern_unread_tip_close);
-            this.f16792g = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
-            this.f16793h = (TextView) findViewById(R.id.concern_unread_tip_info);
-            this.f16794i = (TextView) findViewById(R.id.concern_unread_tip_show);
+            this.f16847f = (TextView) findViewById(R.id.concern_unread_tip_title);
+            this.f16846e = (ImageView) findViewById(R.id.concern_unread_tip_close);
+            this.f16848g = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
+            this.f16849h = (TextView) findViewById(R.id.concern_unread_tip_info);
+            this.f16850i = (TextView) findViewById(R.id.concern_unread_tip_show);
             this.j = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
             setPadding(0, 0, 0, l.g(context, R.dimen.tbds44));
             b();
@@ -91,10 +91,10 @@ public class ConcernUnreadTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f16791f, R.color.CAM_X0105);
-            SkinManager.setImageResource(this.f16790e, R.drawable.icon_home_card_delete);
-            SkinManager.setViewTextColor(this.f16793h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f16794i, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f16847f, R.color.CAM_X0105);
+            SkinManager.setImageResource(this.f16846e, R.drawable.icon_home_card_delete);
+            SkinManager.setViewTextColor(this.f16849h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f16850i, R.color.CAM_X0109);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
@@ -110,7 +110,7 @@ public class ConcernUnreadTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             setOnClickListener(onClickListener);
-            this.f16790e.setOnClickListener(onClickListener);
+            this.f16846e.setOnClickListener(onClickListener);
         }
     }
 
@@ -123,18 +123,18 @@ public class ConcernUnreadTipView extends RelativeLayout {
             setVisibility(8);
             return;
         }
-        if (eVar.f55625c > 0) {
-            b.j().w(b.n("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.f55625c);
+        if (eVar.f56169c > 0) {
+            b.j().w(b.n("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.f56169c);
         }
-        if (this.f16793h != null && !StringUtils.isNull(eVar.f55626d)) {
-            this.f16793h.setText(eVar.f55626d);
+        if (this.f16849h != null && !StringUtils.isNull(eVar.f56170d)) {
+            this.f16849h.setText(eVar.f56170d);
         }
-        LinearLayout linearLayout = this.f16792g;
-        if (linearLayout == null || eVar.f55624b == null) {
+        LinearLayout linearLayout = this.f16848g;
+        if (linearLayout == null || eVar.f56168b == null) {
             return;
         }
         linearLayout.removeAllViews();
-        List<String> list = eVar.f55624b;
+        List<String> list = eVar.f56168b;
         for (int i2 = 0; i2 < list.size(); i2++) {
             String str = list.get(i2);
             if (!StringUtils.isNull(str)) {
@@ -149,7 +149,7 @@ public class ConcernUnreadTipView extends RelativeLayout {
                 headImageView.setIsRound(true);
                 headImageView.setDrawBorder(false);
                 SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.out_img), R.drawable.bg_unread_tip_head_border);
-                this.f16792g.addView(frameLayout);
+                this.f16848g.addView(frameLayout);
                 headImageView.setPageId(this.k);
                 headImageView.M(str, 12, false);
             }

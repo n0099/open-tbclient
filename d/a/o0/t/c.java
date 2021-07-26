@@ -1,56 +1,44 @@
 package d.a.o0.t;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.TailInfo;
 /* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public c() {
+    public static String a(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) ? jSONObject == null ? str2 : jSONObject.optString(str, str2) : (String) invokeLLL.objValue;
     }
 
-    public void a(JSONObject jSONObject) {
+    public static JSONObject b(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.optString("icon_url");
-                jSONObject.optString("icon_link");
-                jSONObject.optString("content");
-                jSONObject.optInt("tail_type");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
             }
-        }
-    }
-
-    public void b(TailInfo tailInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tailInfo) == null) {
-            try {
-                String str = tailInfo.icon_url;
-                String str2 = tailInfo.icon_link;
-                String str3 = tailInfo.content;
-                tailInfo.tail_type.intValue();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
             }
+            try {
+                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
+                    jSONObject.put("pre_source", str);
+                }
+                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
+                    jSONObject.put("pre_appid", AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeLL.objValue;
     }
 }

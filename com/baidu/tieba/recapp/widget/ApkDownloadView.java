@@ -29,30 +29,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.s.c.d;
-import d.a.p0.q.d.g.b;
-import d.a.p0.w2.c0.e;
-import d.a.p0.w2.c0.i;
+import d.a.p0.t.c.d;
+import d.a.q0.q.d.g.b;
+import d.a.q0.w2.c0.e;
+import d.a.q0.w2.c0.k;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
+public class ApkDownloadView extends FrameLayout implements d.a.q0.q.d.g.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.p0.w2.k0.a f20655e;
+    public d.a.q0.w2.k0.a f20773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DownloadData f20656f;
+    public DownloadData f20774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a f20657g;
+    public b.a f20775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadStatus f20658h;
+    public DownloadStatus f20776h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f20659i;
+    public String f20777i;
     public CustomMessageListener j;
     public CustomMessageListener k;
 
@@ -62,7 +62,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ApkDownloadView f20660a;
+        public final /* synthetic */ ApkDownloadView f20778a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ApkDownloadView apkDownloadView, int i2) {
@@ -82,14 +82,14 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
                     return;
                 }
             }
-            this.f20660a = apkDownloadView;
+            this.f20778a = apkDownloadView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof DownloadMessage) && this.f20660a.f20656f != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof DownloadMessage) && this.f20778a.f20774f != null) {
                 DownloadData downloadData = null;
                 List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                 int i2 = 0;
@@ -98,22 +98,22 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
                         break;
                     }
                     DownloadData downloadData2 = data.get(i2);
-                    if (TextUtils.isEmpty(this.f20660a.f20656f.getId())) {
+                    if (TextUtils.isEmpty(this.f20778a.f20774f.getId())) {
                         i2++;
-                    } else if (this.f20660a.f20656f.getId().equals(downloadData2.getId())) {
+                    } else if (this.f20778a.f20774f.getId().equals(downloadData2.getId())) {
                         downloadData = downloadData2;
                     }
                 }
                 if (downloadData != null) {
-                    int k = this.f20660a.k(downloadData);
-                    if (i.n(downloadData) == 1) {
-                        this.f20660a.w(k);
-                    } else if (i.n(downloadData) == 3) {
-                        this.f20660a.f20655e.setButtonText(this.f20660a.getResources().getString(R.string.immediately_install));
+                    int k = this.f20778a.k(downloadData);
+                    if (k.n(downloadData) == 1) {
+                        this.f20778a.w(k);
+                    } else if (k.n(downloadData) == 3) {
+                        this.f20778a.f20773e.setButtonText(this.f20778a.getResources().getString(R.string.immediately_install));
                     } else {
-                        this.f20660a.p(downloadData);
+                        this.f20778a.p(downloadData);
                     }
-                    this.f20660a.postInvalidate();
+                    this.f20778a.postInvalidate();
                 }
             }
         }
@@ -125,7 +125,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ApkDownloadView f20661a;
+        public final /* synthetic */ ApkDownloadView f20779a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ApkDownloadView apkDownloadView, int i2) {
@@ -145,21 +145,21 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
                     return;
                 }
             }
-            this.f20661a = apkDownloadView;
+            this.f20779a = apkDownloadView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f20661a.f20656f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f20779a.f20774f == null) {
                 return;
             }
             DownloadData downloadData = (DownloadData) customResponsedMessage.getData();
-            if (this.f20661a.f20656f.getId() == null || downloadData == null || !this.f20661a.f20656f.getId().equals(downloadData.getId())) {
+            if (this.f20779a.f20774f.getId() == null || downloadData == null || !this.f20779a.f20774f.getId().equals(downloadData.getId())) {
                 return;
             }
-            this.f20661a.v(downloadData);
+            this.f20779a.v(downloadData);
         }
     }
 
@@ -182,7 +182,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
                 return;
             }
         }
-        this.f20659i = getResources().getString(R.string.install_app);
+        this.f20777i = getResources().getString(R.string.install_app);
         this.j = null;
         this.k = null;
         n(context);
@@ -197,7 +197,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
             }
             int process = downloadData.getProcess();
             if (process <= 0) {
-                process = i.l().j(downloadData.getId(), downloadData.getName());
+                process = k.l().j(downloadData.getId(), downloadData.getName());
             }
             return Math.max(process, 0);
         }
@@ -212,25 +212,25 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
             if (adAdSense != null && !adAdSense.g()) {
                 return e.p(downloadData);
             }
-            return i.n(downloadData);
+            return k.n(downloadData);
         }
         return invokeL.intValue;
     }
 
-    @Override // d.a.p0.q.d.g.b
+    @Override // d.a.q0.q.d.g.b
     public void a(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.f20658h == DownloadStatus.STATUS_DOWNLOADING) {
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.f20776h == DownloadStatus.STATUS_DOWNLOADING) {
             w(i2);
         }
     }
 
-    @Override // d.a.p0.q.d.g.b
+    @Override // d.a.q0.q.d.g.b
     public boolean b(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
-            b.a aVar = this.f20657g;
+            b.a aVar = this.f20775g;
             if (aVar != null) {
                 return aVar.b(view);
             }
@@ -239,20 +239,20 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.p0.q.d.g.b
+    @Override // d.a.q0.q.d.g.b
     public void c(@NonNull DownloadStatus downloadStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadStatus) == null) {
-            this.f20658h = downloadStatus;
-            DownloadData downloadData = this.f20656f;
+            this.f20776h = downloadStatus;
+            DownloadData downloadData = this.f20774f;
             if (downloadData != null) {
                 downloadData.setStatus(getDownloadStatus());
-                v(this.f20656f);
+                v(this.f20774f);
             }
         }
     }
 
-    @Override // d.a.p0.q.d.g.b
+    @Override // d.a.q0.q.d.g.b
     public void d(DownloadStatus downloadStatus, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, downloadStatus, i2) == null) {
@@ -261,7 +261,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
         }
     }
 
-    @Override // d.a.p0.q.d.g.b
+    @Override // d.a.q0.q.d.g.b
     public View getActionBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -272,7 +272,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            DownloadStatus downloadStatus = this.f20658h;
+            DownloadStatus downloadStatus = this.f20776h;
             if (downloadStatus == null || downloadStatus == DownloadStatus.STATUS_NONE) {
                 return 6;
             }
@@ -290,7 +290,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
         return invokeV.intValue;
     }
 
-    @Override // d.a.p0.q.d.g.b
+    @Override // d.a.q0.q.d.g.b
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -301,7 +301,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f20655e.b();
+            this.f20773e.b();
         }
     }
 
@@ -336,7 +336,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            this.f20655e = (d.a.p0.w2.k0.a) LayoutInflater.from(context).inflate(R.layout.apk_download_view_layout, (ViewGroup) this, true).findViewById(R.id.feed_ad_operate_progress_button);
+            this.f20773e = (d.a.q0.w2.k0.a) LayoutInflater.from(context).inflate(R.layout.apk_download_view_layout, (ViewGroup) this, true).findViewById(R.id.feed_ad_operate_progress_button);
             o(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -344,7 +344,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f20655e.a();
+            this.f20773e.a();
         }
     }
 
@@ -370,8 +370,8 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void p(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, downloadData) == null) {
-            DownloadCacheKey g2 = d.a.p0.q.d.e.c().g(downloadData.getId());
-            this.f20655e.setButtonText(getResources().getString(R.string.go_on_download), g2 != null ? d.a.p0.q.d.b.c().a(g2).getPercent() : 0);
+            DownloadCacheKey g2 = d.a.q0.q.d.e.c().g(downloadData.getId());
+            this.f20773e.setButtonText(getResources().getString(R.string.go_on_download), g2 != null ? d.a.q0.q.d.b.c().a(g2).getPercent() : 0);
         }
     }
 
@@ -390,7 +390,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void r(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, downloadData) == null) {
-            this.f20655e.setButtonText(this.f20659i);
+            this.f20773e.setButtonText(this.f20777i);
         }
     }
 
@@ -404,7 +404,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void setBackgroundSkin(@DrawableRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            d.a.p0.w2.k0.a aVar = this.f20655e;
+            d.a.q0.w2.k0.a aVar = this.f20773e;
             if (aVar instanceof FeedAdProgressButton) {
                 ((FeedAdProgressButton) aVar).setBackgroundSkin(i2);
             }
@@ -417,7 +417,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
             return;
         }
         DownloadData downloadData2 = (DownloadData) downloadData.clone();
-        this.f20656f = downloadData2;
+        this.f20774f = downloadData2;
         if (downloadData2 == null) {
             return;
         }
@@ -428,7 +428,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void setForegroundSkin(@DrawableRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            d.a.p0.w2.k0.a aVar = this.f20655e;
+            d.a.q0.w2.k0.a aVar = this.f20773e;
             if (aVar instanceof FeedAdProgressButton) {
                 ((FeedAdProgressButton) aVar).setForeground(i2);
             }
@@ -436,11 +436,11 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     }
 
     public void setInitText(String str) {
-        d.a.p0.w2.k0.a aVar;
+        d.a.q0.w2.k0.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f20659i = str;
-            if (TextUtils.isEmpty(str) || (aVar = this.f20655e) == null) {
+            this.f20777i = str;
+            if (TextUtils.isEmpty(str) || (aVar = this.f20773e) == null) {
                 return;
             }
             aVar.setInitText(str);
@@ -450,14 +450,14 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void setOnClickInterceptListener(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, aVar) == null) {
-            this.f20657g = aVar;
+            this.f20775g = aVar;
         }
     }
 
     public void setStrokeWidth(@DimenRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            d.a.p0.w2.k0.a aVar = this.f20655e;
+            d.a.q0.w2.k0.a aVar = this.f20773e;
             if (aVar instanceof FeedAdProgressButton) {
                 ((FeedAdProgressButton) aVar).setStrokeWidth(i2);
             }
@@ -467,14 +467,14 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.f20655e.setButtonTextColor(i2);
+            this.f20773e.setButtonTextColor(i2);
         }
     }
 
     public void setTextColorInitSkin(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            d.a.p0.w2.k0.a aVar = this.f20655e;
+            d.a.q0.w2.k0.a aVar = this.f20773e;
             if (aVar instanceof FeedAdProgressButton) {
                 ((FeedAdProgressButton) aVar).setTextColorInitSkin(i2);
             }
@@ -484,7 +484,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void setTextColorSkin(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            d.a.p0.w2.k0.a aVar = this.f20655e;
+            d.a.q0.w2.k0.a aVar = this.f20773e;
             if (aVar instanceof FeedAdProgressButton) {
                 ((FeedAdProgressButton) aVar).setTextColorSkin(i2);
             }
@@ -494,14 +494,14 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public void setTextNightColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.f20655e.setButtonTextNightColor(i2);
+            this.f20773e.setButtonTextNightColor(i2);
         }
     }
 
     public void setTextSize(@DimenRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.f20655e.setButtonTextSize(i2);
+            this.f20773e.setButtonTextSize(i2);
         }
     }
 
@@ -543,10 +543,10 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
         if (!(interceptable == null || interceptable.invokeL(1048608, this, downloadData) == null) || downloadData == null) {
             return;
         }
-        DownloadCacheKey g2 = d.a.p0.q.d.e.c().g(downloadData.getId());
+        DownloadCacheKey g2 = d.a.q0.q.d.e.c().g(downloadData.getId());
         AdDownloadData adDownloadData = null;
         if (g2 != null) {
-            adDownloadData = d.a.p0.q.d.b.c().a(g2);
+            adDownloadData = d.a.q0.q.d.b.c().a(g2);
             i2 = adDownloadData.getPercent();
         } else {
             i2 = 0;
@@ -558,10 +558,10 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
                 return;
             case 2:
             case 7:
-                this.f20655e.setButtonText(getResources().getString(R.string.go_on_download), i2);
+                this.f20773e.setButtonText(getResources().getString(R.string.go_on_download), i2);
                 return;
             case 3:
-                this.f20655e.setButtonText(getResources().getString(R.string.immediately_install), i2);
+                this.f20773e.setButtonText(getResources().getString(R.string.immediately_install), i2);
                 if (adDownloadData != null) {
                     adDownloadData.setFakePercent(0);
                     adDownloadData.setPercent(0);
@@ -572,10 +572,10 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
             default:
                 return;
             case 6:
-                this.f20655e.setButtonText(this.f20659i, 0);
+                this.f20773e.setButtonText(this.f20777i, 0);
                 return;
             case 8:
-                this.f20655e.setButtonText(getResources().getString(R.string.immediately_open), 0);
+                this.f20773e.setButtonText(getResources().getString(R.string.immediately_open), 0);
                 if (adDownloadData != null) {
                     adDownloadData.setFakePercent(0);
                     adDownloadData.setPercent(0);
@@ -588,7 +588,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
     public final void w(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.f20655e.setProgress(Math.max(0, i2));
+            this.f20773e.setProgress(Math.max(0, i2));
         }
     }
 
@@ -611,7 +611,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
                 return;
             }
         }
-        this.f20659i = getResources().getString(R.string.install_app);
+        this.f20777i = getResources().getString(R.string.install_app);
         this.j = null;
         this.k = null;
         n(context);
@@ -635,7 +635,7 @@ public class ApkDownloadView extends FrameLayout implements d.a.p0.q.d.g.b {
                 return;
             }
         }
-        this.f20659i = getResources().getString(R.string.install_app);
+        this.f20777i = getResources().getString(R.string.install_app);
         this.j = null;
         this.k = null;
         n(context);

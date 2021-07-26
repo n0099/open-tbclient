@@ -7,7 +7,7 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.e.u;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +19,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static u f30956a;
+    public static u f31133a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
@@ -39,14 +39,14 @@ public class f {
                             fileInputStream.read(bArr);
                             u a2 = u.a(new JSONObject(new String(bArr, "utf-8")));
                             if (a2 != null) {
-                                f30956a = a2;
-                                j.b(com.alipay.sdk.packet.e.f1913e, "old version read success: " + f30956a.b());
+                                f31133a = a2;
+                                k.b(com.alipay.sdk.packet.e.f1946e, "old version read success: " + f31133a.b());
                             }
                             fileInputStream2 = fileInputStream;
                         } catch (Throwable th2) {
                             th = th2;
                             try {
-                                j.c(com.alipay.sdk.packet.e.f1913e, "version init error", th);
+                                k.c(com.alipay.sdk.packet.e.f1946e, "version init error", th);
                                 if (fileInputStream != null) {
                                     fileInputStream.close();
                                 }
@@ -62,7 +62,7 @@ public class f {
                             }
                         }
                     } else {
-                        j.b(com.alipay.sdk.packet.e.f1913e, "version pkg json file does not exist");
+                        k.b(com.alipay.sdk.packet.e.f1946e, "version pkg json file does not exist");
                     }
                 } catch (IOException unused2) {
                     return;
@@ -83,7 +83,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (f.class) {
-                uVar = f30956a;
+                uVar = f31133a;
             }
             return uVar;
         }
@@ -93,14 +93,14 @@ public class f {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            u uVar = f30956a;
+            u uVar = f31133a;
             if (uVar == null) {
-                j.b(com.alipay.sdk.packet.e.f1913e, "version save error1");
+                k.b(com.alipay.sdk.packet.e.f1946e, "version save error1");
                 return;
             }
             String g2 = uVar.g();
             if (TextUtils.isEmpty(g2)) {
-                j.b(com.alipay.sdk.packet.e.f1913e, "version save error2");
+                k.b(com.alipay.sdk.packet.e.f1946e, "version save error2");
                 return;
             }
             File file = new File(b.e(), "temp_pkg_info.json");
@@ -123,7 +123,7 @@ public class f {
                         th = th;
                         fileOutputStream = fileOutputStream2;
                         try {
-                            j.c(com.alipay.sdk.packet.e.f1913e, "version save error3", th);
+                            k.c(com.alipay.sdk.packet.e.f1946e, "version save error3", th);
                             if (fileOutputStream != null) {
                                 fileOutputStream.close();
                             }
@@ -164,7 +164,7 @@ public class f {
                 }
             }
         }
-        f30956a = null;
+        f31133a = null;
     }
 
     public static boolean b(String str) {
@@ -208,7 +208,7 @@ public class f {
             synchronized (f.class) {
                 if (uVar != null) {
                     if (uVar.f()) {
-                        f30956a = uVar;
+                        f31133a = uVar;
                     }
                 }
             }

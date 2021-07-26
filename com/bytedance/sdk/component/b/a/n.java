@@ -20,13 +20,13 @@ public final class n implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f28117a;
+    public final c f28211a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s f28118b;
+    public final s f28212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28119c;
+    public boolean f28213c;
 
     public n(s sVar) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public final class n implements e {
                 return;
             }
         }
-        this.f28117a = new c();
+        this.f28211a = new c();
         if (sVar != null) {
-            this.f28118b = sVar;
+            this.f28212b = sVar;
             return;
         }
         throw new NullPointerException("source == null");
@@ -58,12 +58,12 @@ public final class n implements e {
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, cVar, j)) == null) {
             if (cVar != null) {
                 if (j >= 0) {
-                    if (!this.f28119c) {
-                        c cVar2 = this.f28117a;
-                        if (cVar2.f28089b == 0 && this.f28118b.a(cVar2, 8192L) == -1) {
+                    if (!this.f28213c) {
+                        c cVar2 = this.f28211a;
+                        if (cVar2.f28183b == 0 && this.f28212b.a(cVar2, 8192L) == -1) {
                             return -1L;
                         }
-                        return this.f28117a.a(cVar, Math.min(j, this.f28117a.f28089b));
+                        return this.f28211a.a(cVar, Math.min(j, this.f28211a.f28183b));
                     }
                     throw new IllegalStateException("closed");
                 }
@@ -80,13 +80,13 @@ public final class n implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
             if (j >= 0) {
-                if (!this.f28119c) {
+                if (!this.f28213c) {
                     do {
-                        cVar = this.f28117a;
-                        if (cVar.f28089b >= j) {
+                        cVar = this.f28211a;
+                        if (cVar.f28183b >= j) {
                             return true;
                         }
-                    } while (this.f28118b.a(cVar, 8192L) != -1);
+                    } while (this.f28212b.a(cVar, 8192L) != -1);
                     return false;
                 }
                 throw new IllegalStateException("closed");
@@ -100,18 +100,18 @@ public final class n implements e {
     public c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f28117a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f28211a : (c) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.s, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f28119c) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f28213c) {
             return;
         }
-        this.f28119c = true;
-        this.f28118b.close();
-        this.f28117a.r();
+        this.f28213c = true;
+        this.f28212b.close();
+        this.f28211a.r();
     }
 
     @Override // com.bytedance.sdk.component.b.a.e
@@ -119,10 +119,10 @@ public final class n implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.f28119c) {
+            if (this.f28213c) {
                 throw new IllegalStateException("closed");
             }
-            return this.f28117a.e() && this.f28118b.a(this.f28117a, 8192L) == -1;
+            return this.f28211a.e() && this.f28212b.a(this.f28211a, 8192L) == -1;
         }
         return invokeV.booleanValue;
     }
@@ -136,7 +136,7 @@ public final class n implements e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ n f28120a;
+            public final /* synthetic */ n f28214a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -153,7 +153,7 @@ public final class n implements e {
                         return;
                     }
                 }
-                this.f28120a = this;
+                this.f28214a = this;
             }
 
             @Override // java.io.InputStream
@@ -161,9 +161,9 @@ public final class n implements e {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
-                    n nVar = this.f28120a;
-                    if (!nVar.f28119c) {
-                        return (int) Math.min(nVar.f28117a.f28089b, 2147483647L);
+                    n nVar = this.f28214a;
+                    if (!nVar.f28213c) {
+                        return (int) Math.min(nVar.f28211a.f28183b, 2147483647L);
                     }
                     throw new IOException("closed");
                 }
@@ -174,7 +174,7 @@ public final class n implements e {
             public void close() throws IOException {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f28120a.close();
+                    this.f28214a.close();
                 }
             }
 
@@ -183,13 +183,13 @@ public final class n implements e {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    n nVar = this.f28120a;
-                    if (!nVar.f28119c) {
-                        c cVar = nVar.f28117a;
-                        if (cVar.f28089b == 0 && nVar.f28118b.a(cVar, 8192L) == -1) {
+                    n nVar = this.f28214a;
+                    if (!nVar.f28213c) {
+                        c cVar = nVar.f28211a;
+                        if (cVar.f28183b == 0 && nVar.f28212b.a(cVar, 8192L) == -1) {
                             return -1;
                         }
-                        return this.f28120a.f28117a.h() & 255;
+                        return this.f28214a.f28211a.h() & 255;
                     }
                     throw new IOException("closed");
                 }
@@ -200,7 +200,7 @@ public final class n implements e {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048580, this)) == null) {
-                    return this.f28120a + ".inputStream()";
+                    return this.f28214a + ".inputStream()";
                 }
                 return (String) invokeV2.objValue;
             }
@@ -210,14 +210,14 @@ public final class n implements e {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-                    if (!this.f28120a.f28119c) {
+                    if (!this.f28214a.f28213c) {
                         u.a(bArr.length, i2, i3);
-                        n nVar = this.f28120a;
-                        c cVar = nVar.f28117a;
-                        if (cVar.f28089b == 0 && nVar.f28118b.a(cVar, 8192L) == -1) {
+                        n nVar = this.f28214a;
+                        c cVar = nVar.f28211a;
+                        if (cVar.f28183b == 0 && nVar.f28212b.a(cVar, 8192L) == -1) {
                             return -1;
                         }
-                        return this.f28120a.f28117a.a(bArr, i2, i3);
+                        return this.f28214a.f28211a.a(bArr, i2, i3);
                     }
                     throw new IOException("closed");
                 }
@@ -232,7 +232,7 @@ public final class n implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
             a(j);
-            return this.f28117a.g(j);
+            return this.f28211a.g(j);
         }
         return (byte[]) invokeJ.objValue;
     }
@@ -243,7 +243,7 @@ public final class n implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             a(1L);
-            return this.f28117a.h();
+            return this.f28211a.h();
         }
         return invokeV.byteValue;
     }
@@ -254,7 +254,7 @@ public final class n implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             a(2L);
-            return this.f28117a.i();
+            return this.f28211a.i();
         }
         return invokeV.shortValue;
     }
@@ -263,7 +263,7 @@ public final class n implements e {
     public boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !this.f28119c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !this.f28213c : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.e
@@ -272,7 +272,7 @@ public final class n implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             a(4L);
-            return this.f28117a.j();
+            return this.f28211a.j();
         }
         return invokeV.intValue;
     }
@@ -283,7 +283,7 @@ public final class n implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             a(2L);
-            return this.f28117a.k();
+            return this.f28211a.k();
         }
         return invokeV.shortValue;
     }
@@ -294,7 +294,7 @@ public final class n implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             a(4L);
-            return this.f28117a.l();
+            return this.f28211a.l();
         }
         return invokeV.intValue;
     }
@@ -320,13 +320,13 @@ public final class n implements e {
                 if (!b(i3)) {
                     break;
                 }
-                byte b2 = this.f28117a.b(i2);
+                byte b2 = this.f28211a.b(i2);
                 if ((b2 < 48 || b2 > 57) && ((b2 < 97 || b2 > 102) && (b2 < 65 || b2 > 70))) {
                     break;
                 }
                 i2 = i3;
             }
-            return this.f28117a.m();
+            return this.f28211a.m();
         }
         return invokeV.longValue;
     }
@@ -343,8 +343,8 @@ public final class n implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            this.f28117a.a(this.f28118b);
-            return this.f28117a.q();
+            this.f28211a.a(this.f28212b);
+            return this.f28211a.q();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -354,11 +354,11 @@ public final class n implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, byteBuffer)) == null) {
-            c cVar = this.f28117a;
-            if (cVar.f28089b == 0 && this.f28118b.a(cVar, 8192L) == -1) {
+            c cVar = this.f28211a;
+            if (cVar.f28183b == 0 && this.f28212b.a(cVar, 8192L) == -1) {
                 return -1;
             }
-            return this.f28117a.read(byteBuffer);
+            return this.f28211a.read(byteBuffer);
         }
         return invokeL.intValue;
     }
@@ -367,7 +367,7 @@ public final class n implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return "buffer(" + this.f28118b + SmallTailInfo.EMOTION_SUFFIX;
+            return "buffer(" + this.f28212b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -378,7 +378,7 @@ public final class n implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
             a(j);
-            return this.f28117a.c(j);
+            return this.f28211a.c(j);
         }
         return (f) invokeJ.objValue;
     }
@@ -387,16 +387,16 @@ public final class n implements e {
     public void h(long j) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            if (this.f28119c) {
+            if (this.f28213c) {
                 throw new IllegalStateException("closed");
             }
             while (j > 0) {
-                c cVar = this.f28117a;
-                if (cVar.f28089b == 0 && this.f28118b.a(cVar, 8192L) == -1) {
+                c cVar = this.f28211a;
+                if (cVar.f28183b == 0 && this.f28212b.a(cVar, 8192L) == -1) {
                     throw new EOFException();
                 }
-                long min = Math.min(j, this.f28117a.b());
-                this.f28117a.h(min);
+                long min = Math.min(j, this.f28211a.b());
+                this.f28211a.h(min);
                 j -= min;
             }
         }
@@ -411,15 +411,15 @@ public final class n implements e {
                 long j2 = j == Long.MAX_VALUE ? Long.MAX_VALUE : j + 1;
                 long a2 = a((byte) 10, 0L, j2);
                 if (a2 != -1) {
-                    return this.f28117a.f(a2);
+                    return this.f28211a.f(a2);
                 }
-                if (j2 < Long.MAX_VALUE && b(j2) && this.f28117a.b(j2 - 1) == 13 && b(1 + j2) && this.f28117a.b(j2) == 10) {
-                    return this.f28117a.f(j2);
+                if (j2 < Long.MAX_VALUE && b(j2) && this.f28211a.b(j2 - 1) == 13 && b(1 + j2) && this.f28211a.b(j2) == 10) {
+                    return this.f28211a.f(j2);
                 }
                 c cVar = new c();
-                c cVar2 = this.f28117a;
+                c cVar2 = this.f28211a;
                 cVar2.a(cVar, 0L, Math.min(32L, cVar2.b()));
-                throw new EOFException("\\n not found: limit=" + Math.min(this.f28117a.b(), j) + " content=" + cVar.n().e() + Typography.ellipsis);
+                throw new EOFException("\\n not found: limit=" + Math.min(this.f28211a.b(), j) + " content=" + cVar.n().e() + Typography.ellipsis);
             }
             throw new IllegalArgumentException("limit < 0: " + j);
         }
@@ -442,12 +442,12 @@ public final class n implements e {
         }
         try {
             a(bArr.length);
-            this.f28117a.a(bArr);
+            this.f28211a.a(bArr);
         } catch (EOFException e2) {
             int i2 = 0;
             while (true) {
-                c cVar = this.f28117a;
-                long j = cVar.f28089b;
+                c cVar = this.f28211a;
+                long j = cVar.f28183b;
                 if (j > 0) {
                     int a2 = cVar.a(bArr, i2, (int) j);
                     if (a2 == -1) {
@@ -467,8 +467,8 @@ public final class n implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, charset)) == null) {
             if (charset != null) {
-                this.f28117a.a(this.f28118b);
-                return this.f28117a.a(charset);
+                this.f28211a.a(this.f28212b);
+                return this.f28211a.a(charset);
             }
             throw new IllegalArgumentException("charset == null");
         }
@@ -486,18 +486,18 @@ public final class n implements e {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (this.f28119c) {
+            if (this.f28213c) {
                 throw new IllegalStateException("closed");
             }
             if (j < 0 || j2 < j) {
                 throw new IllegalArgumentException(String.format("fromIndex=%s toIndex=%s", Long.valueOf(j), Long.valueOf(j2)));
             }
             while (j < j2) {
-                long a2 = this.f28117a.a(b2, j, j2);
+                long a2 = this.f28211a.a(b2, j, j2);
                 if (a2 == -1) {
-                    c cVar = this.f28117a;
-                    long j3 = cVar.f28089b;
-                    if (j3 >= j2 || this.f28118b.a(cVar, 8192L) == -1) {
+                    c cVar = this.f28211a;
+                    long j3 = cVar.f28183b;
+                    if (j3 >= j2 || this.f28212b.a(cVar, 8192L) == -1) {
                         break;
                     }
                     j = Math.max(j, j3);
@@ -521,13 +521,13 @@ public final class n implements e {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), fVar, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (!this.f28119c) {
+            if (!this.f28213c) {
                 if (j < 0 || i2 < 0 || i3 < 0 || fVar.g() - i2 < i3) {
                     return false;
                 }
                 for (int i4 = 0; i4 < i3; i4++) {
                     long j2 = i4 + j;
-                    if (!b(1 + j2) || this.f28117a.b(j2) != fVar.a(i2 + i4)) {
+                    if (!b(1 + j2) || this.f28211a.b(j2) != fVar.a(i2 + i4)) {
                         return false;
                     }
                 }
@@ -542,6 +542,6 @@ public final class n implements e {
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28118b.a() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28212b.a() : (t) invokeV.objValue;
     }
 }

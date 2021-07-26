@@ -34,18 +34,18 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SensorsDataUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f72253a;
+    public static String f72707a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f72254b;
+    public static final SimpleDateFormat f72708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f72255c;
+    public static final List<String> f72709c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +61,7 @@ public final class SensorsDataUtils {
                 return;
             }
         }
-        f72254b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
+        f72708b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
         new HashMap<String, String>() { // from class: dxm.sasdk.util.SensorsDataUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public final class SensorsDataUtils {
                 put("46011", "中国电信");
             }
         };
-        f72255c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
+        f72709c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -149,15 +149,15 @@ public final class SensorsDataUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (!TextUtils.isEmpty(f72253a)) {
-                return f72253a;
+            if (!TextUtils.isEmpty(f72707a)) {
+                return f72707a;
             }
             try {
-                f72253a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                f72707a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            return f72253a;
+            return f72707a;
         }
         return (String) invokeL.objValue;
     }
@@ -237,7 +237,7 @@ public final class SensorsDataUtils {
     public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f72255c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f72709c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
     }
 
     public static void h(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
@@ -248,8 +248,8 @@ public final class SensorsDataUtils {
                 String next = keys.next();
                 Object obj = jSONObject.get(next);
                 if (obj instanceof Date) {
-                    synchronized (f72254b) {
-                        jSONObject2.put(next, f72254b.format((Date) obj));
+                    synchronized (f72708b) {
+                        jSONObject2.put(next, f72708b.format((Date) obj));
                     }
                 } else {
                     jSONObject2.put(next, obj);
@@ -282,7 +282,7 @@ public final class SensorsDataUtils {
                         case 12:
                         case 14:
                         case 15:
-                            return g.f3986b;
+                            return g.f4012b;
                         case 13:
                             return "4G";
                         default:

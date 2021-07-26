@@ -18,25 +18,25 @@ public class EnvironmentUtilities {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6835a;
+    public static String f6861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6836b;
+    public static String f6862b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f6837c;
+    public static String f6863c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6838d;
+    public static int f6864d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6839e;
+    public static int f6865e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6840f;
+    public static int f6866f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static h f6841g;
+    public static h f6867g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -71,14 +71,14 @@ public class EnvironmentUtilities {
     public static String getAppCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6836b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6862b : (String) invokeV.objValue;
     }
 
     public static String getAppSDCardPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = f6835a + "/BaiduMapSDKNew";
+            String str = f6861a + "/BaiduMapSDKNew";
             if (str.length() != 0) {
                 File file = new File(str);
                 if (!file.exists()) {
@@ -93,61 +93,61 @@ public class EnvironmentUtilities {
     public static String getAppSecondCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f6837c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f6863c : (String) invokeV.objValue;
     }
 
     public static int getDomTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f6839e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f6865e : invokeV.intValue;
     }
 
     public static int getItsTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f6840f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f6866f : invokeV.intValue;
     }
 
     public static int getMapTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f6838d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f6864d : invokeV.intValue;
     }
 
     public static String getSDCardPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f6835a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f6861a : (String) invokeV.objValue;
     }
 
     public static void initAppDirectory(Context context) {
         String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            if (f6841g == null) {
+            if (f6867g == null) {
                 h a2 = h.a();
-                f6841g = a2;
+                f6867g = a2;
                 a2.a(context);
             }
-            String str = f6835a;
+            String str = f6861a;
             if (str == null || str.length() <= 0) {
-                f6835a = f6841g.b().a();
-                c2 = f6841g.b().c();
+                f6861a = f6867g.b().a();
+                c2 = f6867g.b().c();
             } else {
-                c2 = f6835a + File.separator + "BaiduMapSDKNew" + File.separator + SapiOptions.KEY_CACHE;
+                c2 = f6861a + File.separator + "BaiduMapSDKNew" + File.separator + SapiOptions.KEY_CACHE;
             }
-            f6836b = c2;
-            f6837c = f6841g.b().d();
-            f6838d = 20971520;
-            f6839e = 52428800;
-            f6840f = 5242880;
+            f6862b = c2;
+            f6863c = f6867g.b().d();
+            f6864d = 20971520;
+            f6865e = 52428800;
+            f6866f = 5242880;
         }
     }
 
     public static void setSDCardPath(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            f6835a = str;
+            f6861a = str;
         }
     }
 }

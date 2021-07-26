@@ -17,13 +17,13 @@ public class AudioRecorder extends Observable implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioRecord f23936a;
+    public AudioRecord f24094a;
 
     /* renamed from: b  reason: collision with root package name */
-    public State f23937b;
+    public State f24095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f23938c;
+    public byte[] f24096c;
 
     /* renamed from: com.baidu.wallet.base.audio.AudioRecorder$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -103,7 +103,7 @@ public class AudioRecorder extends Observable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final AudioRecorder f23939a;
+        public static final AudioRecorder f24097a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -119,7 +119,7 @@ public class AudioRecorder extends Observable implements Runnable {
                     return;
                 }
             }
-            f23939a = new AudioRecorder(null);
+            f24097a = new AudioRecorder(null);
         }
 
         public a() {
@@ -144,7 +144,7 @@ public class AudioRecorder extends Observable implements Runnable {
     private void a(State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, state) == null) {
-            this.f23937b = state;
+            this.f24095b = state;
             setChanged();
             notifyObservers(state);
         }
@@ -153,20 +153,20 @@ public class AudioRecorder extends Observable implements Runnable {
     public static AudioRecorder getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f23939a : (AudioRecorder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f24097a : (AudioRecorder) invokeV.objValue;
     }
 
     public void end() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && State.RUNNING == this.f23937b) {
-            this.f23937b = State.STOP;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && State.RUNNING == this.f24095b) {
+            this.f24095b = State.STOP;
         }
     }
 
     public State getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23937b : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24095b : (State) invokeV.objValue;
     }
 
     public synchronized boolean init(int i2, int i3, int i4, int i5) {
@@ -174,12 +174,12 @@ public class AudioRecorder extends Observable implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5)) == null) {
             synchronized (this) {
-                if (this.f23937b == null || State.DESTROY == this.f23937b) {
+                if (this.f24095b == null || State.DESTROY == this.f24095b) {
                     try {
                         AudioRecord audioRecord = new AudioRecord(1, i2, i3, i4, i5);
-                        this.f23936a = audioRecord;
+                        this.f24094a = audioRecord;
                         if (1 == audioRecord.getState()) {
-                            this.f23938c = new byte[i5];
+                            this.f24096c = new byte[i5];
                             a(State.INIT);
                             return true;
                         }
@@ -198,17 +198,17 @@ public class AudioRecorder extends Observable implements Runnable {
     public void run() {
         AudioRecord audioRecord;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (audioRecord = this.f23936a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (audioRecord = this.f24094a) == null) {
             return;
         }
         audioRecord.startRecording();
         a(State.OPEN);
-        ByteBuffer wrap = ByteBuffer.wrap(this.f23938c);
-        this.f23937b = State.RUNNING;
-        while (State.RUNNING == this.f23937b) {
+        ByteBuffer wrap = ByteBuffer.wrap(this.f24096c);
+        this.f24095b = State.RUNNING;
+        while (State.RUNNING == this.f24095b) {
             wrap.clear();
-            AudioRecord audioRecord2 = this.f23936a;
-            byte[] bArr = this.f23938c;
+            AudioRecord audioRecord2 = this.f24094a;
+            byte[] bArr = this.f24096c;
             int read = audioRecord2.read(bArr, 0, bArr.length);
             if (read <= 0) {
                 break;
@@ -217,13 +217,13 @@ public class AudioRecorder extends Observable implements Runnable {
             setChanged();
             notifyObservers(wrap);
         }
-        this.f23936a.stop();
+        this.f24094a.stop();
         a(State.STOP);
-        this.f23936a.release();
-        this.f23936a = null;
+        this.f24094a.release();
+        this.f24094a = null;
         a(State.DESTROY);
         deleteObservers();
-        this.f23938c = null;
+        this.f24096c = null;
     }
 
     public AudioRecorder() {
@@ -239,7 +239,7 @@ public class AudioRecorder extends Observable implements Runnable {
                 return;
             }
         }
-        this.f23936a = null;
-        this.f23937b = null;
+        this.f24094a = null;
+        this.f24095b = null;
     }
 }

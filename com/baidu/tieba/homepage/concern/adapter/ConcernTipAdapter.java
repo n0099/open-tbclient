@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.c.k.e.a;
-import d.a.p0.e1.c.f.b;
+import d.a.d.e.p.l;
+import d.a.d.k.e.a;
+import d.a.q0.e1.c.f.b;
 /* loaded from: classes4.dex */
 public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -32,13 +32,13 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f16501a;
+        public TextView f16557a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f16502b;
+        public View f16558b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f16503c;
+        public int f16559c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ConcernTipViewHolder(View view) {
@@ -58,19 +58,19 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
                     return;
                 }
             }
-            this.f16503c = 3;
-            this.f16501a = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.f16502b = view.findViewById(R.id.concern_tip_top_line);
+            this.f16559c = 3;
+            this.f16557a = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.f16558b = view.findViewById(R.id.concern_tip_top_line);
         }
 
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f16503c == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f16559c == i2) {
                 return;
             }
             SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.f16501a, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f16502b, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.f16557a, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f16558b, R.color.CAM_X0205);
         }
     }
 
@@ -98,8 +98,8 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: f0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: e0 */
     public ConcernTipViewHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -117,21 +117,21 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: g0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: f0 */
     public View X(int i2, View view, ViewGroup viewGroup, b bVar, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernTipViewHolder})) == null) {
-            concernTipViewHolder.f16501a.setText(bVar.f55204f);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.f16501a.getLayoutParams();
-            if (bVar.f55205g) {
+            concernTipViewHolder.f16557a.setText(bVar.f55748f);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.f16557a.getLayoutParams();
+            if (bVar.f55749g) {
                 layoutParams.height = n;
-                concernTipViewHolder.f16502b.setVisibility(0);
-            } else if (bVar.f55206h) {
+                concernTipViewHolder.f16558b.setVisibility(0);
+            } else if (bVar.f55750h) {
                 layoutParams.height = m;
             }
-            concernTipViewHolder.f16501a.setLayoutParams(layoutParams);
+            concernTipViewHolder.f16557a.setLayoutParams(layoutParams);
             concernTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
             return concernTipViewHolder.a();
         }

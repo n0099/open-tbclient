@@ -23,21 +23,21 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37471a;
+    public int f37660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37472b;
+    public int f37661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37473c;
+    public int f37662c;
 
     public a() {
     }
 
     public a(Parcel parcel) {
-        this.f37471a = parcel.readInt();
-        this.f37472b = parcel.readInt();
-        this.f37473c = parcel.readInt();
+        this.f37660a = parcel.readInt();
+        this.f37661b = parcel.readInt();
+        this.f37662c = parcel.readInt();
     }
 
     public static a a(JSONObject jSONObject) {
@@ -65,19 +65,19 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.f37471a;
+        return this.f37660a;
     }
 
     public void a(int i2) {
-        this.f37471a = i2;
+        this.f37660a = i2;
     }
 
     public void b(int i2) {
-        this.f37472b = i2;
+        this.f37661b = i2;
     }
 
     public void c(int i2) {
-        this.f37473c = i2;
+        this.f37662c = i2;
     }
 
     @Override // android.os.Parcelable
@@ -86,13 +86,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.f37471a + ", cached=" + this.f37472b + ", cacheNum=" + this.f37473c + '}';
+        return "Control{pushType=" + this.f37660a + ", cached=" + this.f37661b + ", cacheNum=" + this.f37662c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f37471a);
-        parcel.writeInt(this.f37472b);
-        parcel.writeInt(this.f37473c);
+        parcel.writeInt(this.f37660a);
+        parcel.writeInt(this.f37661b);
+        parcel.writeInt(this.f37662c);
     }
 }

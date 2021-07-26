@@ -15,7 +15,7 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Object> f27328a;
+    public ConcurrentHashMap<String, Object> f27486a;
 
     /* renamed from: com.baidu.wallet.util.a$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -26,11 +26,11 @@ public final class a {
 
     /* renamed from: com.baidu.wallet.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0301a {
+    public static class C0303a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f27329a;
+        public static a f27487a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public final class a {
                     return;
                 }
             }
-            f27329a = new a(null);
+            f27487a = new a(null);
         }
     }
 
@@ -57,7 +57,7 @@ public final class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0301a.f27329a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0303a.f27487a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -73,7 +73,7 @@ public final class a {
                 return;
             }
         }
-        this.f27328a = new ConcurrentHashMap<>();
+        this.f27486a = new ConcurrentHashMap<>();
     }
 
     public static Object a(String str) {
@@ -83,7 +83,7 @@ public final class a {
             if (str == null) {
                 return null;
             }
-            return a().f27328a.get(str);
+            return a().f27486a.get(str);
         }
         return invokeL.objValue;
     }
@@ -95,9 +95,9 @@ public final class a {
         }
         a a2 = a();
         if (obj == null) {
-            a2.f27328a.remove(str);
+            a2.f27486a.remove(str);
         } else {
-            a2.f27328a.put(str, obj);
+            a2.f27486a.put(str, obj);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.win.opensdk;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,39 +7,58 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class b0 {
+public class b0 implements x2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b0() {
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ d0 f39742a;
+
+    public b0(d0 d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f39742a = d0Var;
+    }
+
+    @Override // com.win.opensdk.x2
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    public Bitmap a(int i2, int i3, Bitmap.Config config) {
-        InterceptResult invokeIIL;
+    @Override // com.win.opensdk.x2
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, config)) == null) ? Bitmap.createBitmap(i2, i3, config) : (Bitmap) invokeIIL.objValue;
-    }
-
-    public byte[] a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new byte[i2] : (byte[]) invokeI.objValue;
-    }
-
-    public int[] b(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new int[i2] : (int[]) invokeI.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            d0 d0Var = this.f39742a;
+            if (Q1.a(d0Var.f39779c, d0Var.f39784h)) {
+                this.f39742a.f39784h = System.currentTimeMillis();
+                d0 d0Var2 = this.f39742a;
+                Q1.a(d0Var2.f39777a, str, d0Var2.f39779c, d0Var2.f39783g, str2);
+                Z0.a(this.f39742a.f39777a).a(new a1(this.f39742a.f39779c), str).a("desc", str2).a();
+                f fVar = this.f39742a.f39782f;
+                if (fVar != null) {
+                    fVar.onClicked();
+                }
+                N.a(this.f39742a.f39779c, str2);
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

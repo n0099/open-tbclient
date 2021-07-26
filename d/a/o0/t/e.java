@@ -1,20 +1,24 @@
 package d.a.o0.t;
 
-import com.baidu.tbadk.TbConfig;
+import android.app.Activity;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class e extends TbConfig {
+public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Long f53419a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f53420b;
+    public static final List<String> f51622a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,13 +34,70 @@ public class e extends TbConfig {
                 return;
             }
         }
-        f53419a = 86400000L;
-        f53420b = 300;
+        f51622a = Arrays.asList("TAH-AN00", "TET-AN00");
     }
 
-    public static int a() {
+    public static int a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            double b2 = b(activity) * 0.5199999809265137d;
+            if (b2 < 1148.0d) {
+                return 1148;
+            }
+            return (int) b2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static double b(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (c(activity)) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                return displayMetrics.widthPixels;
+            }
+            return 0.0d;
+        }
+        return invokeL.doubleValue;
+    }
+
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) ? (activity == null || activity.isDestroyed() || activity.isFinishing()) ? false : true : invokeL.booleanValue;
+    }
+
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f53420b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String str = Build.MANUFACTURER;
+            String str2 = Build.MODEL;
+            if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
+                for (String str3 : f51622a) {
+                    if (str2.contains(str3)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, activity)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            double d2 = displayMetrics.widthPixels;
+            double d3 = displayMetrics.heightPixels;
+            return (d2 == 0.0d || d3 == 0.0d || d3 / d2 >= 1.5d) ? false : true;
+        }
+        return invokeL.booleanValue;
     }
 }

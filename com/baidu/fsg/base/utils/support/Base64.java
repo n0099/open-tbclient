@@ -45,31 +45,31 @@ public class Base64 {
     public static final int URL_SAFE = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f5449a;
+    public static final /* synthetic */ boolean f5475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5450b = 76;
+    public static final int f5476b = 76;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte f5451c = 61;
+    public static final byte f5477c = 61;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte f5452d = 10;
+    public static final byte f5478d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5453e = "US-ASCII";
+    public static final String f5479e = "US-ASCII";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final byte f5454f = -5;
+    public static final byte f5480f = -5;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte f5455g = -1;
+    public static final byte f5481g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final byte[] f5456h;
+    public static final byte[] f5482h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final byte[] f5457i;
+    public static final byte[] f5483i;
     public static final byte[] j;
     public static final byte[] k;
     public static final byte[] l;
@@ -82,31 +82,31 @@ public class Base64 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f5459a;
+        public final boolean f5485a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f5460b;
+        public final byte[] f5486b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f5461c;
+        public final int f5487c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final boolean f5462d;
+        public final boolean f5488d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f5463e;
+        public final int f5489e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final byte[] f5464f;
+        public final byte[] f5490f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f5465g;
+        public int f5491g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f5466h;
+        public int f5492h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f5467i;
+        public int f5493i;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public InputStream(java.io.InputStream inputStream) {
@@ -135,8 +135,8 @@ public class Base64 {
             int read;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f5465g < 0) {
-                    if (!this.f5459a) {
+                if (this.f5491g < 0) {
+                    if (!this.f5485a) {
                         byte[] bArr = new byte[4];
                         int i2 = 0;
                         while (i2 < 4) {
@@ -145,7 +145,7 @@ public class Base64 {
                                 if (read < 0) {
                                     break;
                                 }
-                            } while (this.f5464f[read & 127] <= -5);
+                            } while (this.f5490f[read & 127] <= -5);
                             if (read < 0) {
                                 break;
                             }
@@ -158,8 +158,8 @@ public class Base64 {
                             }
                             throw new IOException("Improperly padded Base64 input.");
                         }
-                        this.f5466h = Base64.b(bArr, 0, this.f5460b, 0, this.f5463e);
-                        this.f5465g = 0;
+                        this.f5492h = Base64.b(bArr, 0, this.f5486b, 0, this.f5489e);
+                        this.f5491g = 0;
                     } else {
                         byte[] bArr2 = new byte[3];
                         int i3 = 0;
@@ -174,28 +174,28 @@ public class Base64 {
                         if (i3 <= 0) {
                             return -1;
                         }
-                        Base64.b(bArr2, 0, i3, this.f5460b, 0, this.f5463e);
-                        this.f5465g = 0;
-                        this.f5466h = 4;
+                        Base64.b(bArr2, 0, i3, this.f5486b, 0, this.f5489e);
+                        this.f5491g = 0;
+                        this.f5492h = 4;
                     }
                 }
-                int i5 = this.f5465g;
+                int i5 = this.f5491g;
                 if (i5 >= 0) {
-                    if (i5 >= this.f5466h) {
+                    if (i5 >= this.f5492h) {
                         return -1;
                     }
-                    if (this.f5459a && this.f5462d && this.f5467i >= 76) {
-                        this.f5467i = 0;
+                    if (this.f5485a && this.f5488d && this.f5493i >= 76) {
+                        this.f5493i = 0;
                         return 10;
                     }
-                    this.f5467i++;
-                    byte[] bArr3 = this.f5460b;
-                    int i6 = this.f5465g;
+                    this.f5493i++;
+                    byte[] bArr3 = this.f5486b;
+                    int i6 = this.f5491g;
                     int i7 = i6 + 1;
-                    this.f5465g = i7;
+                    this.f5491g = i7;
                     byte b2 = bArr3[i6];
-                    if (i7 >= this.f5461c) {
-                        this.f5465g = -1;
+                    if (i7 >= this.f5487c) {
+                        this.f5491g = -1;
                     }
                     return b2 & 255;
                 }
@@ -222,16 +222,16 @@ public class Base64 {
                     return;
                 }
             }
-            this.f5463e = i2;
-            this.f5462d = (i2 & 8) > 0;
+            this.f5489e = i2;
+            this.f5488d = (i2 & 8) > 0;
             boolean z = (i2 & 1) > 0;
-            this.f5459a = z;
+            this.f5485a = z;
             int i5 = z ? 4 : 3;
-            this.f5461c = i5;
-            this.f5460b = new byte[i5];
-            this.f5465g = -1;
-            this.f5467i = 0;
-            this.f5464f = Base64.c(i2);
+            this.f5487c = i5;
+            this.f5486b = new byte[i5];
+            this.f5491g = -1;
+            this.f5493i = 0;
+            this.f5490f = Base64.c(i2);
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
@@ -264,31 +264,31 @@ public class Base64 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f5468a;
+        public final boolean f5494a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f5469b;
+        public final int f5495b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f5470c;
+        public final boolean f5496c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final byte[] f5471d;
+        public final byte[] f5497d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f5472e;
+        public final int f5498e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final byte[] f5473f;
+        public final byte[] f5499f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f5474g;
+        public int f5500g;
 
         /* renamed from: h  reason: collision with root package name */
-        public byte[] f5475h;
+        public byte[] f5501h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f5476i;
+        public int f5502i;
         public boolean j;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -318,7 +318,7 @@ public class Base64 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 flushBase64();
                 super.close();
-                this.f5475h = null;
+                this.f5501h = null;
                 ((FilterOutputStream) this).out = null;
             }
         }
@@ -326,12 +326,12 @@ public class Base64 {
         public void flushBase64() throws IOException {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i2 = this.f5474g) <= 0) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i2 = this.f5500g) <= 0) {
                 return;
             }
-            if (this.f5468a) {
-                ((FilterOutputStream) this).out.write(Base64.b(this.f5471d, this.f5475h, i2, this.f5472e));
-                this.f5474g = 0;
+            if (this.f5494a) {
+                ((FilterOutputStream) this).out.write(Base64.b(this.f5497d, this.f5501h, i2, this.f5498e));
+                this.f5500g = 0;
                 return;
             }
             throw new IOException("Base64 input not properly padded.");
@@ -358,35 +358,35 @@ public class Base64 {
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
                 if (this.j) {
                     ((FilterOutputStream) this).out.write(i2);
-                } else if (this.f5468a) {
-                    byte[] bArr = this.f5475h;
-                    int i3 = this.f5474g;
+                } else if (this.f5494a) {
+                    byte[] bArr = this.f5501h;
+                    int i3 = this.f5500g;
                     int i4 = i3 + 1;
-                    this.f5474g = i4;
+                    this.f5500g = i4;
                     bArr[i3] = (byte) i2;
-                    int i5 = this.f5469b;
+                    int i5 = this.f5495b;
                     if (i4 >= i5) {
-                        ((FilterOutputStream) this).out.write(Base64.b(this.f5471d, bArr, i5, this.f5472e));
-                        int i6 = this.f5476i + 4;
-                        this.f5476i = i6;
-                        if (this.f5470c && i6 >= 76) {
+                        ((FilterOutputStream) this).out.write(Base64.b(this.f5497d, bArr, i5, this.f5498e));
+                        int i6 = this.f5502i + 4;
+                        this.f5502i = i6;
+                        if (this.f5496c && i6 >= 76) {
                             ((FilterOutputStream) this).out.write(10);
-                            this.f5476i = 0;
+                            this.f5502i = 0;
                         }
-                        this.f5474g = 0;
+                        this.f5500g = 0;
                     }
                 } else {
-                    byte[] bArr2 = this.f5473f;
+                    byte[] bArr2 = this.f5499f;
                     int i7 = i2 & 127;
                     if (bArr2[i7] > -5) {
-                        byte[] bArr3 = this.f5475h;
-                        int i8 = this.f5474g;
+                        byte[] bArr3 = this.f5501h;
+                        int i8 = this.f5500g;
                         int i9 = i8 + 1;
-                        this.f5474g = i9;
+                        this.f5500g = i9;
                         bArr3[i8] = (byte) i2;
-                        if (i9 >= this.f5469b) {
-                            ((FilterOutputStream) this).out.write(this.f5471d, 0, Base64.b(bArr3, 0, this.f5471d, 0, this.f5472e));
-                            this.f5474g = 0;
+                        if (i9 >= this.f5495b) {
+                            ((FilterOutputStream) this).out.write(this.f5497d, 0, Base64.b(bArr3, 0, this.f5497d, 0, this.f5498e));
+                            this.f5500g = 0;
                         }
                     } else if (bArr2[i7] != -5) {
                         throw new IOException("Invalid character in Base64 data.");
@@ -413,18 +413,18 @@ public class Base64 {
                     return;
                 }
             }
-            this.f5470c = (i2 & 8) != 0;
+            this.f5496c = (i2 & 8) != 0;
             boolean z = (i2 & 1) != 0;
-            this.f5468a = z;
+            this.f5494a = z;
             int i5 = z ? 3 : 4;
-            this.f5469b = i5;
-            this.f5475h = new byte[i5];
-            this.f5474g = 0;
-            this.f5476i = 0;
+            this.f5495b = i5;
+            this.f5501h = new byte[i5];
+            this.f5500g = 0;
+            this.f5502i = 0;
             this.j = false;
-            this.f5471d = new byte[4];
-            this.f5472e = i2;
-            this.f5473f = Base64.c(i2);
+            this.f5497d = new byte[4];
+            this.f5498e = i2;
+            this.f5499f = Base64.c(i2);
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
@@ -455,9 +455,9 @@ public class Base64 {
                 return;
             }
         }
-        f5449a = !Base64.class.desiredAssertionStatus();
-        f5456h = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-        f5457i = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        f5475a = !Base64.class.desiredAssertionStatus();
+        f5482h = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        f5483i = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
         j = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
         k = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
         l = new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
@@ -488,7 +488,7 @@ public class Base64 {
             if ((i2 & 32) == 32) {
                 return l;
             }
-            return f5456h;
+            return f5482h;
         }
         return (byte[]) invokeI.objValue;
     }
@@ -503,7 +503,7 @@ public class Base64 {
             if ((i2 & 32) == 32) {
                 return m;
             }
-            return f5457i;
+            return f5483i;
         }
         return (byte[]) invokeI.objValue;
     }
@@ -659,12 +659,12 @@ public class Base64 {
             try {
                 str = encodeBytes(bArr, 0, bArr.length, 0);
             } catch (IOException e2) {
-                if (!f5449a) {
+                if (!f5475a) {
                     throw new AssertionError(e2.getMessage());
                 }
                 str = null;
             }
-            if (f5449a || str != null) {
+            if (f5475a || str != null) {
                 return str;
             }
             throw new AssertionError();
@@ -679,7 +679,7 @@ public class Base64 {
             try {
                 return encodeBytesToBytes(bArr, 0, bArr.length, 0);
             } catch (IOException e2) {
-                if (f5449a) {
+                if (f5475a) {
                     return null;
                 }
                 throw new AssertionError("IOExceptions only come from GZipping, which is turned off: " + e2.getMessage());
@@ -903,7 +903,7 @@ public class Base64 {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ClassLoader f5458a;
+                        public final /* synthetic */ ClassLoader f5484a;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -923,7 +923,7 @@ public class Base64 {
                                     return;
                                 }
                             }
-                            this.f5458a = classLoader;
+                            this.f5484a = classLoader;
                         }
 
                         @Override // java.io.ObjectInputStream
@@ -931,7 +931,7 @@ public class Base64 {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectStreamClass)) == null) {
-                                Class<?> cls = Class.forName(objectStreamClass.getName(), false, this.f5458a);
+                                Class<?> cls = Class.forName(objectStreamClass.getName(), false, this.f5484a);
                                 return cls == null ? super.resolveClass(objectStreamClass) : cls;
                             }
                             return (Class) invokeL.objValue;
@@ -1341,12 +1341,12 @@ public class Base64 {
             try {
                 str = encodeBytes(bArr, i2, i3, 0);
             } catch (IOException e2) {
-                if (!f5449a) {
+                if (!f5475a) {
                     throw new AssertionError(e2.getMessage());
                 }
                 str = null;
             }
-            if (f5449a || str != null) {
+            if (f5475a || str != null) {
                 return str;
             }
             throw new AssertionError();

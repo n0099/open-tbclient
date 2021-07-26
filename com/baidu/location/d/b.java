@@ -12,10 +12,10 @@ public class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WeakReference f6755a;
+    public final /* synthetic */ WeakReference f6781a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f6756b;
+    public final /* synthetic */ a f6782b;
 
     public b(a aVar, WeakReference weakReference) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f6756b = aVar;
-        this.f6755a = weakReference;
+        this.f6782b = aVar;
+        this.f6781a = weakReference;
     }
 
     @Override // java.lang.Runnable
@@ -41,10 +41,10 @@ public class b implements Runnable {
         a aVar;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.f6755a.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.f6781a.get()) == null) {
             return;
         }
-        i2 = aVar.f6753h;
+        i2 = aVar.f6779h;
         if (i2 == 3) {
             Log.d("baidu_location_service", "baidu location service force stopped ...");
             aVar.b();

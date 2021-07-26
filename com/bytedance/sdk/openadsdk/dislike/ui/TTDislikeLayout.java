@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.dislike.TTDislikeListView;
 import com.bytedance.sdk.openadsdk.dislike.ui.d;
@@ -25,25 +25,25 @@ public class TTDislikeLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f31047a;
+    public View f31229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f31048b;
+    public TextView f31230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f31049c;
+    public TextView f31231c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTDislikeListView f31050d;
+    public TTDislikeListView f31232d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f31051e;
+    public d f31233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.c.b f31052f;
+    public com.bytedance.sdk.openadsdk.dislike.c.b f31234f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b.c f31053g;
+    public com.bytedance.sdk.openadsdk.dislike.b.c f31235g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeLayout(Context context) {
@@ -68,10 +68,10 @@ public class TTDislikeLayout extends LinearLayout {
     public void setDislikeInfo(com.bytedance.sdk.openadsdk.dislike.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f31052f = bVar;
-            if (this.f31051e != null) {
-                this.f31050d.setDislikeInfo(bVar);
-                this.f31051e.a(bVar.b());
+            this.f31234f = bVar;
+            if (this.f31233e != null) {
+                this.f31232d.setDislikeInfo(bVar);
+                this.f31233e.a(bVar.b());
             }
         }
     }
@@ -100,15 +100,15 @@ public class TTDislikeLayout extends LinearLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            if (this.f31052f.a() != null) {
-                this.f31047a.setVisibility(0);
-                this.f31048b.setText(this.f31052f.a().getName());
-                this.f31047a.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeLayout.3
+            if (this.f31234f.a() != null) {
+                this.f31229a.setVisibility(0);
+                this.f31230b.setText(this.f31234f.a().getName());
+                this.f31229a.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeLayout.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TTDislikeLayout f31056a;
+                    public final /* synthetic */ TTDislikeLayout f31238a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -125,27 +125,27 @@ public class TTDislikeLayout extends LinearLayout {
                                 return;
                             }
                         }
-                        this.f31056a = this;
+                        this.f31238a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f31056a.f31053g == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f31238a.f31235g == null) {
                             return;
                         }
-                        this.f31056a.f31053g.b();
+                        this.f31238a.f31235g.b();
                     }
                 });
             }
-            d dVar = new d(getContext(), this.f31052f.b());
-            this.f31051e = dVar;
+            d dVar = new d(getContext(), this.f31234f.b());
+            this.f31233e = dVar;
             dVar.a(new d.a(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeLayout.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeLayout f31057a;
+                public final /* synthetic */ TTDislikeLayout f31239a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -162,30 +162,30 @@ public class TTDislikeLayout extends LinearLayout {
                             return;
                         }
                     }
-                    this.f31057a = this;
+                    this.f31239a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.ui.d.a
                 public void a(int i2, FilterWord filterWord) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, filterWord) == null) {
-                        if (this.f31057a.f31053g != null) {
-                            this.f31057a.f31053g.a(i2, filterWord);
+                        if (this.f31239a.f31235g != null) {
+                            this.f31239a.f31235g.a(i2, filterWord);
                         }
-                        com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31057a.f31052f, filterWord);
+                        com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31239a.f31234f, filterWord);
                     }
                 }
             });
-            this.f31050d.setAdapter((ListAdapter) this.f31051e);
-            this.f31050d.setDislikeInfo(this.f31052f);
+            this.f31232d.setAdapter((ListAdapter) this.f31233e);
+            this.f31232d.setDislikeInfo(this.f31234f);
         }
     }
 
     public void a(com.bytedance.sdk.openadsdk.dislike.c.b bVar, com.bytedance.sdk.openadsdk.dislike.b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, cVar) == null) {
-            this.f31052f = bVar;
-            this.f31053g = cVar;
+            this.f31234f = bVar;
+            this.f31235g = cVar;
             a();
             b();
         }
@@ -215,16 +215,16 @@ public class TTDislikeLayout extends LinearLayout {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f31047a = findViewById(r.e(getContext(), "tt_personalization_layout"));
-            this.f31048b = (TextView) findViewById(r.e(getContext(), "tt_personalization_name"));
-            TextView textView = (TextView) findViewById(r.e(getContext(), "tt_edit_suggestion"));
-            this.f31049c = textView;
+            this.f31229a = findViewById(t.e(getContext(), "tt_personalization_layout"));
+            this.f31230b = (TextView) findViewById(t.e(getContext(), "tt_personalization_name"));
+            TextView textView = (TextView) findViewById(t.e(getContext(), "tt_edit_suggestion"));
+            this.f31231c = textView;
             textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeLayout f31054a;
+                public final /* synthetic */ TTDislikeLayout f31236a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -241,26 +241,26 @@ public class TTDislikeLayout extends LinearLayout {
                             return;
                         }
                     }
-                    this.f31054a = this;
+                    this.f31236a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f31054a.f31053g == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f31236a.f31235g == null) {
                         return;
                     }
-                    this.f31054a.f31053g.a();
+                    this.f31236a.f31235g.a();
                 }
             });
-            TTDislikeListView tTDislikeListView = (TTDislikeListView) findViewById(r.e(getContext(), "tt_filer_words_lv"));
-            this.f31050d = tTDislikeListView;
+            TTDislikeListView tTDislikeListView = (TTDislikeListView) findViewById(t.e(getContext(), "tt_filer_words_lv"));
+            this.f31232d = tTDislikeListView;
             tTDislikeListView.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeLayout.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeLayout f31055a;
+                public final /* synthetic */ TTDislikeLayout f31237a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -277,17 +277,17 @@ public class TTDislikeLayout extends LinearLayout {
                             return;
                         }
                     }
-                    this.f31055a = this;
+                    this.f31237a = this;
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f31055a.f31053g == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f31237a.f31235g == null) {
                         return;
                     }
                     try {
-                        this.f31055a.f31053g.a(i2, this.f31055a.f31052f.b().get(i2));
+                        this.f31237a.f31235g.a(i2, this.f31237a.f31234f.b().get(i2));
                     } catch (Throwable unused) {
                     }
                 }

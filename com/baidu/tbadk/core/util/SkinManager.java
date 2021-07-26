@@ -47,10 +47,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.b;
-import d.a.c.e.p.l;
-import d.a.o0.r.u.a;
-import d.a.p0.h3.c;
+import d.a.d.a.b;
+import d.a.d.e.p.l;
+import d.a.p0.s.u.a;
+import d.a.q0.h3.c;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -798,7 +798,7 @@ public class SkinManager {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
-            d.a.o0.r.z.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
+            d.a.p0.s.z.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
             try {
                 String resourceName = resources.getResourceName(i2);
                 if (StringUtils.isNull(resourceName)) {
@@ -1098,8 +1098,8 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (d.a.o0.r.d0.b.j().g("key_is_dark_mode_notify_shown", false)) {
-                boolean g2 = d.a.o0.r.d0.b.j().g("key_is_follow_system_mode", false);
+            } else if (d.a.p0.s.d0.b.j().g("key_is_dark_mode_notify_shown", false)) {
+                boolean g2 = d.a.p0.s.d0.b.j().g("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(b2);
                 }
@@ -1111,8 +1111,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i2);
             } else {
-                d.a.o0.r.d0.b.j().t("key_is_dark_mode_notify_shown", true);
-                d.a.o0.r.d0.b.j().t("key_is_follow_system_mode", true);
+                d.a.p0.s.d0.b.j().t("key_is_dark_mode_notify_shown", true);
+                d.a.p0.s.d0.b.j().t("key_is_follow_system_mode", true);
                 TbadkCoreApplication.getInst().setSkinType(isCurrentSystemDarkMode() ? 4 : 0);
             }
         }

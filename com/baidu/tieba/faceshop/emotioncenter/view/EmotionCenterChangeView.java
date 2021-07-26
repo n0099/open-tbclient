@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.p0.y.d.b;
+import d.a.q0.p0.y.d.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, b {
@@ -34,19 +34,19 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15086e;
+    public TbPageContext f15134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EmotionHorizontalView f15087f;
+    public EmotionHorizontalView f15135f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EmotionHorizontalView f15088g;
+    public EmotionHorizontalView f15136g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EmotionHorizontalView f15089h;
+    public EmotionHorizontalView f15137h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f15090i;
+    public ImageView f15138i;
     public LinearLayout j;
     public RelativeLayout k;
     public View l;
@@ -75,7 +75,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
             }
         }
         this.p = null;
-        this.f15086e = tbPageContext;
+        this.f15134e = tbPageContext;
         b();
     }
 
@@ -93,8 +93,8 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return (Animation) invokeV.objValue;
     }
 
-    @Override // d.a.p0.p0.y.d.b
-    public void U(EmotionCenterData emotionCenterData) {
+    @Override // d.a.q0.p0.y.d.b
+    public void V(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
         }
@@ -103,7 +103,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public void a() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (imageView = this.f15090i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (imageView = this.f15138i) == null) {
             return;
         }
         imageView.clearAnimation();
@@ -114,31 +114,31 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(R.layout.emotion_category_layout, this);
-            this.f15087f = new EmotionHorizontalView(this.f15086e);
-            this.f15088g = new EmotionHorizontalView(this.f15086e);
-            this.f15089h = new EmotionHorizontalView(this.f15086e);
-            this.f15087f.f(TbadkCoreApplication.getInst().getSkinType());
-            this.f15088g.f(TbadkCoreApplication.getInst().getSkinType());
-            this.f15089h.f(TbadkCoreApplication.getInst().getSkinType());
-            addView(this.f15087f);
-            addView(this.f15088g);
-            addView(this.f15089h);
-            this.f15087f.setVisibility(8);
-            this.f15088g.setVisibility(8);
-            this.f15089h.setVisibility(8);
+            this.f15135f = new EmotionHorizontalView(this.f15134e);
+            this.f15136g = new EmotionHorizontalView(this.f15134e);
+            this.f15137h = new EmotionHorizontalView(this.f15134e);
+            this.f15135f.f(TbadkCoreApplication.getInst().getSkinType());
+            this.f15136g.f(TbadkCoreApplication.getInst().getSkinType());
+            this.f15137h.f(TbadkCoreApplication.getInst().getSkinType());
+            addView(this.f15135f);
+            addView(this.f15136g);
+            addView(this.f15137h);
+            this.f15135f.setVisibility(8);
+            this.f15136g.setVisibility(8);
+            this.f15137h.setVisibility(8);
             this.j = (LinearLayout) findViewById(R.id.emotion_change_item);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.change_head_layout);
             this.k = relativeLayout;
             relativeLayout.setVisibility(8);
             ImageView imageView = (ImageView) findViewById(R.id.emotion_change_iv);
-            this.f15090i = imageView;
+            this.f15138i = imageView;
             imageView.setOnClickListener(this);
             this.l = findViewById(R.id.category_line_top);
             this.m = (TextView) findViewById(R.id.emotion_title);
             TextView textView = (TextView) findViewById(R.id.emotion_function);
             this.n = textView;
             textView.setOnClickListener(this);
-            this.o = new EmotionChangeModel(this.f15086e);
+            this.o = new EmotionChangeModel(this.f15134e);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -148,27 +148,15 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             SkinManager.setBackgroundColor(this.l, R.color.common_color_10312);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f15090i, R.drawable.emotion_icon_refresh);
+            SkinManager.setImageResource(this.f15138i, R.drawable.emotion_icon_refresh);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
-        }
-    }
-
-    @Override // d.a.p0.p0.y.d.b
-    public void c0(EmotionCenterData emotionCenterData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, emotionCenterData) == null) {
-            a();
-            if (emotionCenterData == null || ListUtils.isEmpty(emotionCenterData.package_list)) {
-                return;
-            }
-            setData(emotionCenterData.package_list);
         }
     }
 
     public void d() {
         EmotionChangeModel emotionChangeModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (emotionChangeModel = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (emotionChangeModel = this.o) == null) {
             return;
         }
         emotionChangeModel.w(this);
@@ -177,7 +165,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public void e() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (imageView = this.f15090i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (imageView = this.f15138i) == null) {
             return;
         }
         imageView.startAnimation(getClickRotateAnimation());
@@ -185,7 +173,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
 
     public void f(EmotionPackageData emotionPackageData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, emotionPackageData) == null) || emotionPackageData == null || ListUtils.isEmpty(this.q)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, emotionPackageData) == null) || emotionPackageData == null || ListUtils.isEmpty(this.q)) {
             return;
         }
         for (EmotionPackageData emotionPackageData2 : this.q) {
@@ -198,14 +186,26 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         }
     }
 
+    @Override // d.a.q0.p0.y.d.b
+    public void f0(EmotionCenterData emotionCenterData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, emotionCenterData) == null) {
+            a();
+            if (emotionCenterData == null || ListUtils.isEmpty(emotionCenterData.package_list)) {
+                return;
+            }
+            setData(emotionCenterData.package_list);
+        }
+    }
+
     public List<EmotionPackageData> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.q : (List) invokeV.objValue;
     }
 
-    @Override // d.a.p0.p0.y.d.b
-    public void j0(EmotionCenterData emotionCenterData) {
+    @Override // d.a.q0.p0.y.d.b
+    public void m0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, emotionCenterData) == null) {
             a();
@@ -217,7 +217,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         EmotionChangeModel emotionChangeModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
-            if ((view == this.f15090i || view == this.n) && (emotionChangeModel = this.o) != null) {
+            if ((view == this.f15138i || view == this.n) && (emotionChangeModel = this.o) != null) {
                 emotionChangeModel.w(this);
                 e();
             }
@@ -234,23 +234,23 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         this.k.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            this.f15087f.setVisibility(0);
-            this.f15087f.setData(list.get(0));
-            this.f15088g.setVisibility(8);
-            this.f15089h.setVisibility(8);
+            this.f15135f.setVisibility(0);
+            this.f15135f.setData(list.get(0));
+            this.f15136g.setVisibility(8);
+            this.f15137h.setVisibility(8);
         } else if (size == 2) {
-            this.f15087f.setVisibility(0);
-            this.f15087f.setData(list.get(0));
-            this.f15088g.setVisibility(0);
-            this.f15088g.setData(list.get(1));
-            this.f15089h.setVisibility(8);
+            this.f15135f.setVisibility(0);
+            this.f15135f.setData(list.get(0));
+            this.f15136g.setVisibility(0);
+            this.f15136g.setData(list.get(1));
+            this.f15137h.setVisibility(8);
         } else {
-            this.f15087f.setVisibility(0);
-            this.f15087f.setData(list.get(0));
-            this.f15088g.setVisibility(0);
-            this.f15088g.setData(list.get(1));
-            this.f15089h.setVisibility(0);
-            this.f15089h.setData(list.get(2));
+            this.f15135f.setVisibility(0);
+            this.f15135f.setData(list.get(0));
+            this.f15136g.setVisibility(0);
+            this.f15136g.setData(list.get(1));
+            this.f15137h.setVisibility(0);
+            this.f15137h.setData(list.get(2));
         }
     }
 

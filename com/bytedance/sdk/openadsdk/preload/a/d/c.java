@@ -22,32 +22,32 @@ public class c implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f32029a;
+    public static final String[] f32230a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f32030b;
+    public static final String[] f32231b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Writer f32031c;
+    public final Writer f32232c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f32032d;
+    public int[] f32233d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32033e;
+    public int f32234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32034f;
+    public String f32235f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32035g;
+    public String f32236g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32036h;
+    public boolean f32237h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f32037i;
+    public boolean f32238i;
     public String j;
     public boolean k;
 
@@ -64,11 +64,11 @@ public class c implements Closeable, Flushable {
                 return;
             }
         }
-        f32029a = new String[128];
+        f32230a = new String[128];
         for (int i2 = 0; i2 <= 31; i2++) {
-            f32029a[i2] = String.format("\\u%04x", Integer.valueOf(i2));
+            f32230a[i2] = String.format("\\u%04x", Integer.valueOf(i2));
         }
-        String[] strArr = f32029a;
+        String[] strArr = f32230a;
         strArr[34] = "\\\"";
         strArr[92] = "\\\\";
         strArr[9] = "\\t";
@@ -77,7 +77,7 @@ public class c implements Closeable, Flushable {
         strArr[13] = "\\r";
         strArr[12] = "\\f";
         String[] strArr2 = (String[]) strArr.clone();
-        f32030b = strArr2;
+        f32231b = strArr2;
         strArr2[60] = "\\u003c";
         strArr2[62] = "\\u003e";
         strArr2[38] = "\\u0026";
@@ -100,13 +100,13 @@ public class c implements Closeable, Flushable {
                 return;
             }
         }
-        this.f32032d = new int[32];
-        this.f32033e = 0;
+        this.f32233d = new int[32];
+        this.f32234e = 0;
         a(6);
-        this.f32035g = ":";
+        this.f32236g = ":";
         this.k = true;
         if (writer != null) {
-            this.f32031c = writer;
+            this.f32232c = writer;
             return;
         }
         throw new NullPointerException("out == null");
@@ -118,7 +118,7 @@ public class c implements Closeable, Flushable {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
             m();
             a(i2);
-            this.f32031c.write(c2);
+            this.f32232c.write(c2);
             return this;
         }
         return (c) invokeCommon.objValue;
@@ -136,13 +136,13 @@ public class c implements Closeable, Flushable {
 
     private void k() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f32034f == null) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f32235f == null) {
             return;
         }
-        this.f32031c.write(10);
-        int i2 = this.f32033e;
+        this.f32232c.write(10);
+        int i2 = this.f32234e;
         for (int i3 = 1; i3 < i2; i3++) {
-            this.f32031c.write(this.f32034f);
+            this.f32232c.write(this.f32235f);
         }
     }
 
@@ -151,7 +151,7 @@ public class c implements Closeable, Flushable {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             int a2 = a();
             if (a2 == 5) {
-                this.f32031c.write(44);
+                this.f32232c.write(44);
             } else if (a2 != 3) {
                 throw new IllegalStateException("Nesting problem.");
             }
@@ -168,12 +168,12 @@ public class c implements Closeable, Flushable {
                 b(2);
                 k();
             } else if (a2 == 2) {
-                this.f32031c.append(',');
+                this.f32232c.append(',');
                 k();
             } else if (a2 != 4) {
                 if (a2 != 6) {
                     if (a2 == 7) {
-                        if (!this.f32036h) {
+                        if (!this.f32237h) {
                             throw new IllegalStateException("JSON must have only one top-level value.");
                         }
                     } else {
@@ -182,7 +182,7 @@ public class c implements Closeable, Flushable {
                 }
                 b(7);
             } else {
-                this.f32031c.append((CharSequence) this.f32035g);
+                this.f32232c.append((CharSequence) this.f32236g);
                 b(5);
             }
         }
@@ -191,7 +191,7 @@ public class c implements Closeable, Flushable {
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f32036h = z;
+            this.f32237h = z;
         }
     }
 
@@ -199,12 +199,12 @@ public class c implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             if (str.length() == 0) {
-                this.f32034f = null;
-                this.f32035g = ":";
+                this.f32235f = null;
+                this.f32236g = ":";
                 return;
             }
-            this.f32034f = str;
-            this.f32035g = ": ";
+            this.f32235f = str;
+            this.f32236g = ": ";
         }
     }
 
@@ -212,10 +212,10 @@ public class c implements Closeable, Flushable {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f32031c.close();
-            int i2 = this.f32033e;
-            if (i2 <= 1 && (i2 != 1 || this.f32032d[i2 - 1] == 7)) {
-                this.f32033e = 0;
+            this.f32232c.close();
+            int i2 = this.f32234e;
+            if (i2 <= 1 && (i2 != 1 || this.f32233d[i2 - 1] == 7)) {
+                this.f32234e = 0;
                 return;
             }
             throw new IOException("Incomplete document");
@@ -248,7 +248,7 @@ public class c implements Closeable, Flushable {
                 }
             }
             m();
-            this.f32031c.write(StringUtil.NULL_STRING);
+            this.f32232c.write(StringUtil.NULL_STRING);
             return this;
         }
         return (c) invokeV.objValue;
@@ -257,8 +257,8 @@ public class c implements Closeable, Flushable {
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.f32033e != 0) {
-                this.f32031c.flush();
+            if (this.f32234e != 0) {
+                this.f32232c.flush();
                 return;
             }
             throw new IllegalStateException("JsonWriter is closed.");
@@ -268,13 +268,13 @@ public class c implements Closeable, Flushable {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f32036h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f32237h : invokeV.booleanValue;
     }
 
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f32037i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f32238i : invokeV.booleanValue;
     }
 
     public final boolean i() {
@@ -312,11 +312,11 @@ public class c implements Closeable, Flushable {
                 throw new IllegalStateException("Nesting problem.");
             }
             if (this.j == null) {
-                this.f32033e--;
+                this.f32234e--;
                 if (a2 == i3) {
                     k();
                 }
-                this.f32031c.write(c2);
+                this.f32232c.write(c2);
                 return this;
             }
             throw new IllegalStateException("Dangling name: " + this.j);
@@ -327,7 +327,7 @@ public class c implements Closeable, Flushable {
     private void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2) == null) {
-            this.f32032d[this.f32033e - 1] = i2;
+            this.f32233d[this.f32234e - 1] = i2;
         }
     }
 
@@ -340,8 +340,8 @@ public class c implements Closeable, Flushable {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
-            String[] strArr = this.f32037i ? f32030b : f32029a;
-            this.f32031c.write(34);
+            String[] strArr = this.f32238i ? f32231b : f32230a;
+            this.f32232c.write(34);
             int length = str.length();
             int i3 = 0;
             while (i2 < length) {
@@ -350,9 +350,9 @@ public class c implements Closeable, Flushable {
                     str2 = strArr[charAt];
                     i2 = str2 == null ? i2 + 1 : 0;
                     if (i3 < i2) {
-                        this.f32031c.write(str, i3, i2 - i3);
+                        this.f32232c.write(str, i3, i2 - i3);
                     }
-                    this.f32031c.write(str2);
+                    this.f32232c.write(str2);
                     i3 = i2 + 1;
                 } else {
                     if (charAt == 8232) {
@@ -362,14 +362,14 @@ public class c implements Closeable, Flushable {
                     }
                     if (i3 < i2) {
                     }
-                    this.f32031c.write(str2);
+                    this.f32232c.write(str2);
                     i3 = i2 + 1;
                 }
             }
             if (i3 < length) {
-                this.f32031c.write(str, i3, length - i3);
+                this.f32232c.write(str, i3, length - i3);
             }
-            this.f32031c.write(34);
+            this.f32232c.write(34);
         }
     }
 
@@ -391,7 +391,7 @@ public class c implements Closeable, Flushable {
     public final void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f32037i = z;
+            this.f32238i = z;
         }
     }
 
@@ -404,14 +404,14 @@ public class c implements Closeable, Flushable {
     private void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
-            int i3 = this.f32033e;
-            int[] iArr = this.f32032d;
+            int i3 = this.f32234e;
+            int[] iArr = this.f32233d;
             if (i3 == iArr.length) {
-                this.f32032d = Arrays.copyOf(iArr, i3 * 2);
+                this.f32233d = Arrays.copyOf(iArr, i3 * 2);
             }
-            int[] iArr2 = this.f32032d;
-            int i4 = this.f32033e;
-            this.f32033e = i4 + 1;
+            int[] iArr2 = this.f32233d;
+            int i4 = this.f32234e;
+            this.f32234e = i4 + 1;
             iArr2[i4] = i2;
         }
     }
@@ -420,9 +420,9 @@ public class c implements Closeable, Flushable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            int i2 = this.f32033e;
+            int i2 = this.f32234e;
             if (i2 != 0) {
-                return this.f32032d[i2 - 1];
+                return this.f32233d[i2 - 1];
             }
             throw new IllegalStateException("JsonWriter is closed.");
         }
@@ -435,7 +435,7 @@ public class c implements Closeable, Flushable {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (str != null) {
                 if (this.j == null) {
-                    if (this.f32033e != 0) {
+                    if (this.f32234e != 0) {
                         this.j = str;
                         return this;
                     }
@@ -454,7 +454,7 @@ public class c implements Closeable, Flushable {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             j();
             m();
-            this.f32031c.write(z ? "true" : "false");
+            this.f32232c.write(z ? "true" : "false");
             return this;
         }
         return (c) invokeZ.objValue;
@@ -469,7 +469,7 @@ public class c implements Closeable, Flushable {
             }
             j();
             m();
-            this.f32031c.write(bool.booleanValue() ? "true" : "false");
+            this.f32232c.write(bool.booleanValue() ? "true" : "false");
             return this;
         }
         return (c) invokeL.objValue;
@@ -481,7 +481,7 @@ public class c implements Closeable, Flushable {
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             j();
             m();
-            this.f32031c.write(Long.toString(j));
+            this.f32232c.write(Long.toString(j));
             return this;
         }
         return (c) invokeJ.objValue;
@@ -496,11 +496,11 @@ public class c implements Closeable, Flushable {
             }
             j();
             String obj = number.toString();
-            if (!this.f32036h && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals(WalletPayViewController.DEF_CHANNEL_TITLE))) {
+            if (!this.f32237h && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals(WalletPayViewController.DEF_CHANNEL_TITLE))) {
                 throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
             }
             m();
-            this.f32031c.append((CharSequence) obj);
+            this.f32232c.append((CharSequence) obj);
             return this;
         }
         return (c) invokeL.objValue;

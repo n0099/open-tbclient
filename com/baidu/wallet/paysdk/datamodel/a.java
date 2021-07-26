@@ -14,10 +14,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26054a;
+    public String f26212a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26055b;
+    public String f26213b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f26054a)) {
-                return this.f26054a;
+            if (TextUtils.isEmpty(this.f26212a)) {
+                return this.f26212a;
             }
-            return this.f26054a;
+            return this.f26212a;
         }
         return (String) invokeV.objValue;
     }
@@ -48,14 +48,14 @@ public class a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26055b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26213b : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "CardInfoDisplayModel [content=" + this.f26054a + ", flag=" + this.f26055b + PreferencesUtil.RIGHT_MOUNT;
+            return "CardInfoDisplayModel [content=" + this.f26212a + ", flag=" + this.f26213b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }
@@ -63,14 +63,14 @@ public class a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f26055b = str;
+            this.f26213b = str;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f26054a = str;
+            this.f26212a = str;
         }
     }
 }

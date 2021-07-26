@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.n.h.d;
+import d.a.d.e.n.j.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -46,13 +46,13 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            d.a.c.e.a.f.d dVar = new d.a.c.e.a.f.d(this.mLogDir, str, DiskFileOperate.Action.READ);
+            d.a.d.e.a.f.d dVar = new d.a.d.e.a.f.d(this.mLogDir, str, DiskFileOperate.Action.READ);
             dVar.setSdCard(this.mUseSdCard);
             if (!this.mMustSuccess) {
                 dVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
                 dVar.setTrySuccessWeight(3);
             }
-            d.a.c.e.a.d.g().d(dVar);
+            d.a.d.e.a.d.g().d(dVar);
             if (dVar.isSuccess()) {
                 return dVar.a();
             }
@@ -71,7 +71,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
             ArrayList<d> arrayList2 = get(i2);
             ArrayList<String> arrayList3 = new ArrayList<>();
             for (int i3 = 0; i3 < arrayList2.size(); i3++) {
-                String readLogFileString = readLogFileString(arrayList2.get(i3).f41360b);
+                String readLogFileString = readLogFileString(arrayList2.get(i3).f41864b);
                 if (!TextUtils.isEmpty(readLogFileString)) {
                     for (String str : readLogFileString.split(Part.CRLF)) {
                         if (size > 0) {
@@ -102,7 +102,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
             ArrayList<d> arrayList = get(i2);
             ArrayList<String> arrayList2 = new ArrayList<>();
             for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                String readLogFileString = readLogFileString(arrayList.get(i3).f41360b);
+                String readLogFileString = readLogFileString(arrayList.get(i3).f41864b);
                 if (!TextUtils.isEmpty(readLogFileString)) {
                     for (String str : readLogFileString.split(Part.CRLF)) {
                         arrayList2.add(str);

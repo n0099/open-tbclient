@@ -21,17 +21,17 @@ public interface h extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0498a implements h {
+        public static class C0499a implements h {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static h f38506a;
+            public static h f38676a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f38507b;
+            public IBinder f38677b;
 
-            public C0498a(IBinder iBinder) {
+            public C0499a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public interface h extends IInterface {
                         return;
                     }
                 }
-                this.f38507b = iBinder;
+                this.f38677b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.h
@@ -58,7 +58,7 @@ public interface h extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlInterceptor");
-                        if (!this.f38507b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f38677b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                             return a.b().a();
                         }
                         obtain2.readException();
@@ -75,7 +75,7 @@ public interface h extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38507b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38677b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -106,7 +106,7 @@ public interface h extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof h)) {
                     return (h) queryLocalInterface;
                 }
-                return new C0498a(iBinder);
+                return new C0499a(iBinder);
             }
             return (h) invokeL.objValue;
         }
@@ -114,7 +114,7 @@ public interface h extends IInterface {
         public static h b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0498a.f38506a : (h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0499a.f38676a : (h) invokeV.objValue;
         }
 
         @Override // android.os.IInterface

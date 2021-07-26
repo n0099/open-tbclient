@@ -1,25 +1,28 @@
 package com.win.opensdk;
 
-import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.image.gif2.GifImageView;
+import com.win.opensdk.core.Info;
+import com.win.opensdk.downloader.WDownLoadService;
 /* loaded from: classes6.dex */
 public class W implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ GifImageView f39508a;
+    public final /* synthetic */ Info f39700a;
 
-    public W(GifImageView gifImageView) {
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ WDownLoadService f39701b;
+
+    public W(WDownLoadService wDownLoadService, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gifImageView};
+            Object[] objArr = {wDownLoadService, info};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,17 +32,17 @@ public class W implements Runnable {
                 return;
             }
         }
-        this.f39508a = gifImageView;
+        this.f39701b = wDownLoadService;
+        this.f39700a = info;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.f39508a.f39603b) == null || bitmap.isRecycled()) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Info info = this.f39700a;
+            WDownLoadService wDownLoadService = this.f39701b;
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.win_wdownload_download_finish), this.f39701b.getString(R.string.win_wdownload_download_finish), 100);
         }
-        GifImageView gifImageView = this.f39508a;
-        gifImageView.setImageBitmap(gifImageView.f39603b);
     }
 }

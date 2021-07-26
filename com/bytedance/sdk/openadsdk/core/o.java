@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.e.g;
-import com.bytedance.sdk.openadsdk.k.c.c;
+import com.bytedance.sdk.openadsdk.j.c.c;
 import java.lang.reflect.Method;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
@@ -22,32 +22,32 @@ public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.e.b<com.bytedance.sdk.openadsdk.e.a> f30463a;
+    public static volatile com.bytedance.sdk.openadsdk.e.b<com.bytedance.sdk.openadsdk.e.a> f30633a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.e.b<c.a> f30464b;
+    public static volatile com.bytedance.sdk.openadsdk.e.b<c.a> f30634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.e.b<c.a> f30465c;
+    public static volatile com.bytedance.sdk.openadsdk.e.b<c.a> f30635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile p<com.bytedance.sdk.openadsdk.e.a> f30466d;
+    public static volatile p<com.bytedance.sdk.openadsdk.e.a> f30636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.q.a f30467e;
+    public static volatile com.bytedance.sdk.openadsdk.p.a f30637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.k.c.a f30468f;
+    public static volatile com.bytedance.sdk.openadsdk.j.c.a f30638f;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile Context f30469g;
+    public static volatile Context f30639g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.core.j.h f30470h;
+    public static volatile com.bytedance.sdk.openadsdk.core.j.h f30640h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final AtomicBoolean f30471i;
+    public static final AtomicBoolean f30641i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -56,7 +56,7 @@ public class o {
         @SuppressLint({"StaticFieldLeak"})
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile Application f30473a;
+        public static volatile Application f30643a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -74,10 +74,10 @@ public class o {
             }
             try {
                 Object b2 = b();
-                f30473a = (Application) b2.getClass().getMethod("getApplication", new Class[0]).invoke(b2, new Object[0]);
-                com.bytedance.sdk.component.utils.j.f("MyApplication", "application get success");
+                f30643a = (Application) b2.getClass().getMethod("getApplication", new Class[0]).invoke(b2, new Object[0]);
+                com.bytedance.sdk.component.utils.k.f("MyApplication", "application get success");
             } catch (Throwable th) {
-                com.bytedance.sdk.component.utils.j.c("MyApplication", "application get failed", th);
+                com.bytedance.sdk.component.utils.k.c("MyApplication", "application get failed", th);
             }
         }
 
@@ -85,7 +85,7 @@ public class o {
         public static Application a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f30473a : (Application) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f30643a : (Application) invokeV.objValue;
         }
 
         public static Object b() {
@@ -97,7 +97,7 @@ public class o {
                     method.setAccessible(true);
                     return method.invoke(null, new Object[0]);
                 } catch (Throwable th) {
-                    com.bytedance.sdk.component.utils.j.c("MyApplication", "ActivityThread get error, maybe api level <= 4.2.2", th);
+                    com.bytedance.sdk.component.utils.k.c("MyApplication", "ActivityThread get error, maybe api level <= 4.2.2", th);
                     return null;
                 }
             }
@@ -118,7 +118,7 @@ public class o {
                 return;
             }
         }
-        f30471i = new AtomicBoolean(false);
+        f30641i = new AtomicBoolean(false);
     }
 
     public o() {
@@ -139,10 +139,10 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f30469g == null) {
+            if (f30639g == null) {
                 a(null);
             }
-            return f30469g;
+            return f30639g;
         }
         return (Context) invokeV.objValue;
     }
@@ -150,9 +150,9 @@ public class o {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            f30463a = null;
-            f30467e = null;
-            f30468f = null;
+            f30633a = null;
+            f30637e = null;
+            f30638f = null;
         }
     }
 
@@ -163,18 +163,18 @@ public class o {
             if (!com.bytedance.sdk.openadsdk.core.j.g.a()) {
                 return com.bytedance.sdk.openadsdk.e.b.c();
             }
-            if (f30463a == null) {
+            if (f30633a == null) {
                 synchronized (o.class) {
-                    if (f30463a == null) {
+                    if (f30633a == null) {
                         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                            f30463a = new com.bytedance.sdk.openadsdk.e.c();
+                            f30633a = new com.bytedance.sdk.openadsdk.e.c();
                         } else {
-                            f30463a = new com.bytedance.sdk.openadsdk.e.b<>(new com.bytedance.sdk.openadsdk.e.f(f30469g), f(), l(), b(f30469g));
+                            f30633a = new com.bytedance.sdk.openadsdk.e.b<>(new com.bytedance.sdk.openadsdk.e.f(f30639g), f(), l(), b(f30639g));
                         }
                     }
                 }
             }
-            return f30463a;
+            return f30633a;
         }
         return (com.bytedance.sdk.openadsdk.e.b) invokeV.objValue;
     }
@@ -186,18 +186,18 @@ public class o {
             if (!com.bytedance.sdk.openadsdk.core.j.g.a()) {
                 return com.bytedance.sdk.openadsdk.e.b.d();
             }
-            if (f30465c == null) {
+            if (f30635c == null) {
                 synchronized (o.class) {
-                    if (f30465c == null) {
+                    if (f30635c == null) {
                         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                            f30465c = new com.bytedance.sdk.openadsdk.e.m(false);
+                            f30635c = new com.bytedance.sdk.openadsdk.e.m(false);
                         } else {
-                            f30465c = a("ttad_bk_batch_stats", "AdStatsEventBatchThread", false);
+                            f30635c = a("ttad_bk_batch_stats", "AdStatsEventBatchThread", false);
                         }
                     }
                 }
             }
-            return f30465c;
+            return f30635c;
         }
         return (com.bytedance.sdk.openadsdk.e.b) invokeV.objValue;
     }
@@ -209,18 +209,18 @@ public class o {
             if (!com.bytedance.sdk.openadsdk.core.j.g.a()) {
                 return com.bytedance.sdk.openadsdk.e.b.d();
             }
-            if (f30464b == null) {
+            if (f30634b == null) {
                 synchronized (o.class) {
-                    if (f30464b == null) {
+                    if (f30634b == null) {
                         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                            f30464b = new com.bytedance.sdk.openadsdk.e.m(true);
+                            f30634b = new com.bytedance.sdk.openadsdk.e.m(true);
                         } else {
-                            f30464b = a("ttad_bk_stats", "AdStatsEventThread", true);
+                            f30634b = a("ttad_bk_stats", "AdStatsEventThread", true);
                         }
                     }
                 }
             }
-            return f30464b;
+            return f30634b;
         }
         return (com.bytedance.sdk.openadsdk.e.b) invokeV.objValue;
     }
@@ -229,84 +229,84 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (f30466d == null) {
+            if (f30636d == null) {
                 synchronized (o.class) {
-                    if (f30466d == null) {
-                        f30466d = new q(f30469g);
+                    if (f30636d == null) {
+                        f30636d = new q(f30639g);
                     }
                 }
             }
-            return f30466d;
+            return f30636d;
         }
         return (p) invokeV.objValue;
     }
 
-    public static com.bytedance.sdk.openadsdk.q.a g() {
+    public static com.bytedance.sdk.openadsdk.p.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             if (!com.bytedance.sdk.openadsdk.core.j.g.a()) {
-                return com.bytedance.sdk.openadsdk.q.b.c();
+                return com.bytedance.sdk.openadsdk.p.b.c();
             }
-            if (f30467e == null) {
-                synchronized (com.bytedance.sdk.openadsdk.q.a.class) {
-                    if (f30467e == null) {
+            if (f30637e == null) {
+                synchronized (com.bytedance.sdk.openadsdk.p.a.class) {
+                    if (f30637e == null) {
                         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                            f30467e = new com.bytedance.sdk.openadsdk.q.c();
+                            f30637e = new com.bytedance.sdk.openadsdk.p.c();
                         } else {
-                            f30467e = new com.bytedance.sdk.openadsdk.q.b(f30469g, new com.bytedance.sdk.openadsdk.q.g(f30469g));
+                            f30637e = new com.bytedance.sdk.openadsdk.p.b(f30639g, new com.bytedance.sdk.openadsdk.p.g(f30639g));
                         }
                     }
                 }
             }
-            return f30467e;
+            return f30637e;
         }
-        return (com.bytedance.sdk.openadsdk.q.a) invokeV.objValue;
+        return (com.bytedance.sdk.openadsdk.p.a) invokeV.objValue;
     }
 
     public static com.bytedance.sdk.openadsdk.core.j.h h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f30470h == null) {
+            if (f30640h == null) {
                 synchronized (com.bytedance.sdk.openadsdk.core.j.h.class) {
-                    if (f30470h == null) {
-                        f30470h = new com.bytedance.sdk.openadsdk.core.j.h();
+                    if (f30640h == null) {
+                        f30640h = new com.bytedance.sdk.openadsdk.core.j.h();
                     }
                 }
             }
-            return f30470h;
+            return f30640h;
         }
         return (com.bytedance.sdk.openadsdk.core.j.h) invokeV.objValue;
     }
 
-    public static com.bytedance.sdk.openadsdk.k.c.a i() {
+    public static com.bytedance.sdk.openadsdk.j.c.a i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             if (!com.bytedance.sdk.openadsdk.core.j.g.a()) {
-                return com.bytedance.sdk.openadsdk.k.c.c.c();
+                return com.bytedance.sdk.openadsdk.j.c.c.c();
             }
-            if (f30468f == null) {
-                synchronized (com.bytedance.sdk.openadsdk.k.c.c.class) {
-                    if (f30468f == null) {
+            if (f30638f == null) {
+                synchronized (com.bytedance.sdk.openadsdk.j.c.c.class) {
+                    if (f30638f == null) {
                         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                            f30468f = new com.bytedance.sdk.openadsdk.k.c.d();
+                            f30638f = new com.bytedance.sdk.openadsdk.j.c.d();
                         } else {
-                            f30468f = new com.bytedance.sdk.openadsdk.k.c.c();
+                            f30638f = new com.bytedance.sdk.openadsdk.j.c.c();
                         }
                     }
                 }
             }
-            return f30468f;
+            return f30638f;
         }
-        return (com.bytedance.sdk.openadsdk.k.c.a) invokeV.objValue;
+        return (com.bytedance.sdk.openadsdk.j.c.a) invokeV.objValue;
     }
 
     public static void j() {
         AtomicBoolean atomicBoolean;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65550, null) == null) || (atomicBoolean = f30471i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65550, null) == null) || (atomicBoolean = f30641i) == null) {
             return;
         }
         atomicBoolean.set(true);
@@ -316,7 +316,7 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            AtomicBoolean atomicBoolean = f30471i;
+            AtomicBoolean atomicBoolean = f30641i;
             if (atomicBoolean != null) {
                 return atomicBoolean.get();
             }
@@ -335,13 +335,13 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             synchronized (o.class) {
-                if (f30469g == null) {
+                if (f30639g == null) {
                     if (context != null) {
-                        f30469g = context.getApplicationContext();
+                        f30639g = context.getApplicationContext();
                     } else if (a.a() != null) {
                         try {
-                            f30469g = a.a();
-                            if (f30469g != null) {
+                            f30639g = a.a();
+                            if (f30639g != null) {
                             }
                         } catch (Throwable unused) {
                         }
@@ -359,7 +359,7 @@ public class o {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f30472a;
+            public final /* synthetic */ Context f30642a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -376,7 +376,7 @@ public class o {
                         return;
                     }
                 }
-                this.f30472a = context;
+                this.f30642a = context;
             }
 
             @Override // com.bytedance.sdk.openadsdk.e.g.a
@@ -384,11 +384,11 @@ public class o {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    Context context2 = this.f30472a;
+                    Context context2 = this.f30642a;
                     if (context2 == null) {
                         context2 = o.a();
                     }
-                    return com.bytedance.sdk.component.utils.m.a(context2);
+                    return com.bytedance.sdk.component.utils.n.a(context2);
                 }
                 return invokeV.booleanValue;
             }
@@ -402,13 +402,13 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, str2, z)) == null) {
             if (z) {
-                lVar = new com.bytedance.sdk.openadsdk.e.n(f30469g);
+                lVar = new com.bytedance.sdk.openadsdk.e.n(f30639g);
                 b2 = g.b.a();
             } else {
                 b2 = g.b.b();
-                lVar = new com.bytedance.sdk.openadsdk.e.l(f30469g);
+                lVar = new com.bytedance.sdk.openadsdk.e.l(f30639g);
             }
-            g.a b3 = b(f30469g);
+            g.a b3 = b(f30639g);
             return new com.bytedance.sdk.openadsdk.e.b<>(lVar, null, b2, b3, new com.bytedance.sdk.openadsdk.e.o(str, str2, lVar, null, b2, b3));
         }
         return (com.bytedance.sdk.openadsdk.e.b) invokeLLZ.objValue;

@@ -8,27 +8,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.h;
 import java.util.NoSuchElementException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class x<T> implements h.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a<T> f72556e;
+    public final d.a<T> f73010e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a<T> extends h.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.i<? super T> f72557e;
+        public final h.i<? super T> f73011e;
 
         /* renamed from: f  reason: collision with root package name */
-        public T f72558f;
+        public T f73012f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f72559g;
+        public int f73013g;
 
         public a(h.i<? super T> iVar) {
             Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public final class x<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f72557e = iVar;
+            this.f73011e = iVar;
         }
 
         @Override // h.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f72559g;
+                int i2 = this.f73013g;
                 if (i2 == 0) {
-                    this.f72557e.b(new NoSuchElementException());
+                    this.f73011e.b(new NoSuchElementException());
                 } else if (i2 == 1) {
-                    this.f72559g = 2;
-                    T t = this.f72558f;
-                    this.f72558f = null;
-                    this.f72557e.c(t);
+                    this.f73013g = 2;
+                    T t = this.f73012f;
+                    this.f73012f = null;
+                    this.f73011e.c(t);
                 }
             }
         }
@@ -68,12 +68,12 @@ public final class x<T> implements h.c<T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.f72559g == 2) {
+                if (this.f73013g == 2) {
                     h.r.c.j(th);
                     return;
                 }
-                this.f72558f = null;
-                this.f72557e.b(th);
+                this.f73012f = null;
+                this.f73011e.b(th);
             }
         }
 
@@ -81,13 +81,13 @@ public final class x<T> implements h.c<T> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                int i2 = this.f72559g;
+                int i2 = this.f73013g;
                 if (i2 == 0) {
-                    this.f72559g = 1;
-                    this.f72558f = t;
+                    this.f73013g = 1;
+                    this.f73012f = t;
                 } else if (i2 == 1) {
-                    this.f72559g = 2;
-                    this.f72557e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+                    this.f73013g = 2;
+                    this.f73011e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
                 }
             }
         }
@@ -108,7 +108,7 @@ public final class x<T> implements h.c<T> {
                 return;
             }
         }
-        this.f72556e = aVar;
+        this.f73010e = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -119,7 +119,7 @@ public final class x<T> implements h.c<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
             a aVar = new a(iVar);
             iVar.a(aVar);
-            this.f72556e.call(aVar);
+            this.f73010e.call(aVar);
         }
     }
 }

@@ -1,112 +1,179 @@
 package com.bytedance.sdk.component.adnet.d;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f28059a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1398192103, "Lcom/bytedance/sdk/component/adnet/d/g;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* renamed from: a  reason: collision with root package name */
+    public final Map<String, List<String>> f28154a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f28155b;
+
+    public g(String str) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1398192103, "Lcom/bytedance/sdk/component/adnet/d/g;");
+        this.f28154a = new LinkedHashMap();
+        this.f28155b = str;
+    }
+
+    private String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
+            if (str2 == null) {
+                str2 = "ISO-8859-1";
+            }
+            try {
+                return URLEncoder.encode(str, str2);
+            } catch (UnsupportedEncodingException e2) {
+                throw new IllegalArgumentException(e2);
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void a(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
+            List<String> list = this.f28154a.get(str);
+            if (list == null) {
+                list = new LinkedList<>();
+            }
+            list.add(String.valueOf(i2));
+            this.f28154a.put(str, list);
         }
     }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String b2 = b(context);
-            return (b2 == null || !b2.contains(":")) && b2 != null && b2.equals(context.getPackageName());
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? a() : (String) invokeV.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String str = f28059a;
-            if (TextUtils.isEmpty(str)) {
-                try {
-                    int myPid = Process.myPid();
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                        if (runningAppProcessInfo.pid == myPid) {
-                            String str2 = runningAppProcessInfo.processName;
-                            f28059a = str2;
-                            return str2;
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                String a2 = a();
-                f28059a = a2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f28154a = new LinkedHashMap();
+        this.f28155b = null;
+    }
+
+    public void a(String str, double d2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Double.valueOf(d2)}) == null) {
+            List<String> list = this.f28154a.get(str);
+            if (list == null) {
+                list = new LinkedList<>();
+            }
+            list.add(String.valueOf(d2));
+            this.f28154a.put(str, list);
+        }
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            List<String> list = this.f28154a.get(str);
+            if (list == null) {
+                list = new LinkedList<>();
+            }
+            list.add(String.valueOf(str2));
+            this.f28154a.put(str, list);
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        StringBuilder sb;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f28154a.isEmpty()) {
+                return this.f28155b;
+            }
+            String a2 = a(this.f28154a, "UTF-8");
+            String str2 = this.f28155b;
+            if (str2 == null || str2.length() == 0) {
                 return a2;
             }
-            return str;
+            if (this.f28155b.indexOf(63) >= 0) {
+                sb = new StringBuilder();
+                sb.append(this.f28155b);
+                str = "&";
+            } else {
+                sb = new StringBuilder();
+                sb.append(this.f28155b);
+                str = "?";
+            }
+            sb.append(str);
+            sb.append(a2);
+            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
+    public String a(Map<String, List<String>> map, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + Process.myPid() + "/cmdline"), "iso-8859-1"));
-            try {
-                StringBuilder sb = new StringBuilder();
-                while (true) {
-                    int read = bufferedReader.read();
-                    if (read <= 0) {
-                        break;
-                    }
-                    sb.append((char) read);
-                }
-                String sb2 = sb.toString();
-                try {
-                    bufferedReader.close();
-                } catch (Exception unused) {
-                }
-                return sb2;
-            } catch (Throwable unused2) {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception unused3) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+                String b2 = b(entry.getKey(), str);
+                List<String> value = entry.getValue();
+                if (value != null && value.size() > 0) {
+                    Iterator<String> it = value.iterator();
+                    while (it.hasNext()) {
+                        String next = it.next();
+                        String b3 = next != null ? b(next, str) : "";
+                        if (sb.length() > 0) {
+                            sb.append("&");
+                        }
+                        sb.append(b2);
+                        if (!b3.isEmpty()) {
+                            sb.append("=");
+                            sb.append(b3);
+                        }
                     }
                 }
-                return null;
             }
-        } catch (Throwable unused4) {
-            bufferedReader = null;
+            return sb.toString();
         }
+        return (String) invokeLL.objValue;
     }
 }

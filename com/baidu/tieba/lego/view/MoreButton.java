@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h3.v;
-import d.a.p0.n1.o.j.c;
+import d.a.q0.h3.v;
+import d.a.q0.n1.o.j.c;
 /* loaded from: classes4.dex */
 public class MoreButton extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -23,13 +23,13 @@ public class MoreButton extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f18353e;
+        public final /* synthetic */ TbPageContext f18409e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f18354f;
+        public final /* synthetic */ c f18410f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MoreButton f18355g;
+        public final /* synthetic */ MoreButton f18411g;
 
         public a(MoreButton moreButton, TbPageContext tbPageContext, c cVar) {
             Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class MoreButton extends TextView {
                     return;
                 }
             }
-            this.f18355g = moreButton;
-            this.f18353e = tbPageContext;
-            this.f18354f = cVar;
+            this.f18411g = moreButton;
+            this.f18409e = tbPageContext;
+            this.f18410f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                v.c(this.f18353e, this.f18354f.d());
+                v.c(this.f18409e, this.f18410f.d());
             }
         }
     }

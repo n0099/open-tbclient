@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.j;
-import d.a.c.e.p.l;
-import d.a.o0.m.f;
-import d.a.o0.r.q.l0;
-import d.a.o0.r.q.m;
+import d.a.d.a.j;
+import d.a.d.e.p.l;
+import d.a.p0.n.f;
+import d.a.p0.s.q.l0;
+import d.a.p0.s.q.m;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
@@ -26,28 +26,28 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f16865e;
+    public TbPageContext<?> f16921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AutoBannerLayout f16866f;
+    public AutoBannerLayout f16922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridIconLayout f16867g;
+    public GridIconLayout f16923g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16868h;
+    public String f16924h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f16869i;
-    public d.a.o0.r.w.b.d<m> j;
+    public f f16925i;
+    public d.a.p0.s.w.b.d<m> j;
 
     /* loaded from: classes4.dex */
-    public class a implements d.a.o0.m.c {
+    public class a implements d.a.p0.n.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedHeaderView f16870a;
+        public final /* synthetic */ HomePageTabFeedHeaderView f16926a;
 
         public a(HomePageTabFeedHeaderView homePageTabFeedHeaderView) {
             Interceptable interceptable = $ic;
@@ -64,25 +64,25 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                     return;
                 }
             }
-            this.f16870a = homePageTabFeedHeaderView;
+            this.f16926a = homePageTabFeedHeaderView;
         }
 
-        @Override // d.a.o0.m.c
+        @Override // d.a.p0.n.c
         public void a(View view, boolean z, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), obj}) == null) && z && this.f16870a.f16866f != null) {
-                this.f16870a.f16866f.d();
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), obj}) == null) && z && this.f16926a.f16922f != null) {
+                this.f16926a.f16922f.d();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements d.a.o0.m.c {
+    public class b implements d.a.p0.n.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedHeaderView f16871a;
+        public final /* synthetic */ HomePageTabFeedHeaderView f16927a;
 
         public b(HomePageTabFeedHeaderView homePageTabFeedHeaderView) {
             Interceptable interceptable = $ic;
@@ -99,14 +99,14 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                     return;
                 }
             }
-            this.f16871a = homePageTabFeedHeaderView;
+            this.f16927a = homePageTabFeedHeaderView;
         }
 
-        @Override // d.a.o0.m.c
+        @Override // d.a.p0.n.c
         public void a(View view, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), obj}) == null) && z) {
-                d.a.p0.e1.j.c.c("c13751", this.f16871a.f16868h);
+                d.a.q0.e1.j.c.c("c13751", this.f16927a.f16924h);
             }
         }
     }
@@ -117,7 +117,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedHeaderView f16872e;
+        public final /* synthetic */ HomePageTabFeedHeaderView f16928e;
 
         public c(HomePageTabFeedHeaderView homePageTabFeedHeaderView) {
             Interceptable interceptable = $ic;
@@ -134,11 +134,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                     return;
                 }
             }
-            this.f16872e = homePageTabFeedHeaderView;
+            this.f16928e = homePageTabFeedHeaderView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.o0.m.f
+        @Override // d.a.p0.n.f
         /* renamed from: b */
         public void c(View view, m mVar, int i2, long j) {
             Interceptable interceptable = $ic;
@@ -147,23 +147,23 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.o0.m.f
+        @Override // d.a.p0.n.f
         /* renamed from: d */
         public void a(View view, m mVar, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, mVar, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                d.a.p0.e1.j.c.a("c13751", mVar, i2 + 1, this.f16872e.f16868h);
+                d.a.q0.e1.j.c.a("c13751", mVar, i2 + 1, this.f16928e.f16924h);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.a.o0.r.w.b.d<m> {
+    public class d implements d.a.p0.s.w.b.d<m> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedHeaderView f16873a;
+        public final /* synthetic */ HomePageTabFeedHeaderView f16929a;
 
         public d(HomePageTabFeedHeaderView homePageTabFeedHeaderView) {
             Interceptable interceptable = $ic;
@@ -180,26 +180,26 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                     return;
                 }
             }
-            this.f16873a = homePageTabFeedHeaderView;
+            this.f16929a = homePageTabFeedHeaderView;
         }
 
-        @Override // d.a.o0.r.w.b.d
+        @Override // d.a.p0.s.w.b.d
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 m mVar = new m();
                 mVar.g(str);
-                d.a.p0.e1.j.c.a("c13750", mVar, i2, this.f16873a.f16868h);
+                d.a.q0.e1.j.c.a("c13750", mVar, i2, this.f16929a.f16924h);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.o0.r.w.b.d
+        @Override // d.a.p0.s.w.b.d
         /* renamed from: c */
         public void a(int i2, m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, mVar) == null) {
-                d.a.p0.e1.j.c.b("c13750", mVar, i2, this.f16873a.f16868h);
+                d.a.q0.e1.j.c.b("c13750", mVar, i2, this.f16929a.f16924h);
             }
         }
     }
@@ -222,7 +222,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                 return;
             }
         }
-        this.f16869i = new c(this);
+        this.f16925i = new c(this);
         this.j = new d(this);
         c();
     }
@@ -232,20 +232,20 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             setDescendantFocusability(262144);
-            this.f16865e = (TbPageContext) j.a(getContext());
+            this.f16921e = (TbPageContext) j.a(getContext());
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            AutoBannerLayout autoBannerLayout = this.f16866f;
+            AutoBannerLayout autoBannerLayout = this.f16922f;
             if (autoBannerLayout != null) {
-                autoBannerLayout.onChangeSkinType(this.f16865e, i2);
+                autoBannerLayout.onChangeSkinType(this.f16921e, i2);
             }
-            GridIconLayout gridIconLayout = this.f16867g;
+            GridIconLayout gridIconLayout = this.f16923g;
             if (gridIconLayout != null) {
-                gridIconLayout.onChangeSkinType(this.f16865e, i2);
+                gridIconLayout.onChangeSkinType(this.f16921e, i2);
             }
         }
     }
@@ -265,50 +265,50 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
     }
 
-    public void setData(d.a.p0.e1.j.h.c cVar) {
+    public void setData(d.a.q0.e1.j.h.c cVar) {
         List<m> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) || cVar == null) {
             return;
         }
         setPadding(0, l.g(getContext(), R.dimen.M_H_X003), 0, 0);
-        if (this.f16866f == null) {
+        if (this.f16922f == null) {
             AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
-            this.f16866f = autoBannerLayout;
+            this.f16922f = autoBannerLayout;
             autoBannerLayout.setMarqueenTime(3000L);
-            this.f16866f.setOnCoverViewCallback(this.j);
-            this.f16866f.setBannerHeight(l.g(getContext(), R.dimen.tbds343));
-            addView(this.f16866f);
-            this.f16866f.setIWindowChangedListener(new a(this));
+            this.f16922f.setOnCoverViewCallback(this.j);
+            this.f16922f.setBannerHeight(l.g(getContext(), R.dimen.tbds343));
+            addView(this.f16922f);
+            this.f16922f.setIWindowChangedListener(new a(this));
         }
-        this.f16866f.a(cVar.f55729e);
-        if (this.f16867g == null) {
+        this.f16922f.a(cVar.f56273e);
+        if (this.f16923g == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
-            this.f16867g = gridIconLayout;
-            gridIconLayout.setOnItemCoverListener(this.f16869i);
+            this.f16923g = gridIconLayout;
+            gridIconLayout.setOnItemCoverListener(this.f16925i);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = l.g(this.f16865e.getPageActivity(), R.dimen.M_H_X003);
-            addView(this.f16867g, layoutParams);
-            int g2 = l.g(this.f16865e.getPageActivity(), R.dimen.M_H_X002);
-            int g3 = l.g(this.f16865e.getPageActivity(), R.dimen.tbds30);
-            l0 l0Var = cVar.f55730f;
-            int size = (l0Var == null || (list = l0Var.f52716e) == null) ? 0 : list.size();
+            layoutParams.topMargin = l.g(this.f16921e.getPageActivity(), R.dimen.M_H_X003);
+            addView(this.f16923g, layoutParams);
+            int g2 = l.g(this.f16921e.getPageActivity(), R.dimen.M_H_X002);
+            int g3 = l.g(this.f16921e.getPageActivity(), R.dimen.tbds30);
+            l0 l0Var = cVar.f56274f;
+            int size = (l0Var == null || (list = l0Var.f53380e) == null) ? 0 : list.size();
             if (size == 5 || size >= 9) {
-                this.f16867g.setPadding(0, g2, 0, g2);
+                this.f16923g.setPadding(0, g2, 0, g2);
             } else if (size >= 4 && size < 9) {
-                this.f16867g.setPadding(g3, g2, g3, g2);
+                this.f16923g.setPadding(g3, g2, g3, g2);
             }
-            this.f16867g.setIWindowChangedListener(new b(this));
-            this.f16867g.setMaxItem(10);
+            this.f16923g.setIWindowChangedListener(new b(this));
+            this.f16923g.setMaxItem(10);
         }
-        this.f16867g.a(cVar.f55730f);
-        this.f16867g.onChangeSkinType(this.f16865e, TbadkCoreApplication.getInst().getSkinType());
+        this.f16923g.a(cVar.f56274f);
+        this.f16923g.onChangeSkinType(this.f16921e, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setTabCode(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f16868h = str;
+            this.f16924h = str;
         }
     }
 
@@ -331,7 +331,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                 return;
             }
         }
-        this.f16869i = new c(this);
+        this.f16925i = new c(this);
         this.j = new d(this);
         c();
     }
@@ -355,7 +355,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                 return;
             }
         }
-        this.f16869i = new c(this);
+        this.f16925i = new c(this);
         this.j = new d(this);
         c();
     }

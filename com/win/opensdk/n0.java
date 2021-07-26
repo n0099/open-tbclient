@@ -1,25 +1,29 @@
 package com.win.opensdk;
 
-import android.os.Handler;
-import android.os.Message;
+import android.os.AsyncTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class n0 extends Handler {
+public class n0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q0 f39627a;
+    public m0 f39885a;
 
-    public n0(q0 q0Var) {
+    /* renamed from: b  reason: collision with root package name */
+    public Set f39886b;
+
+    public n0(m0 m0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {q0Var};
+            Object[] objArr = {m0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,17 +33,15 @@ public class n0 extends Handler {
                 return;
             }
         }
-        this.f39627a = q0Var;
+        this.f39886b = new HashSet();
+        this.f39885a = m0Var;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public void a(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
-            this.f39627a.f39639e = true;
-            this.f39627a.k.removeMessages(11);
-            x0.a(this.f39627a.f39636b).a(new y0(this.f39627a.f39640f), 2002, (this.f39627a.b() ? this.f39627a.f39640f.getWt() : 0) * 1000).a();
-            this.f39627a.f39642h.onFail(PBError.TIMEOUT);
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || this.f39886b.contains(str)) {
+            return;
         }
+        new j0(this, str, z).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
     }
 }

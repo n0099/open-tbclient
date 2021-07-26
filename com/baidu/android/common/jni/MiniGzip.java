@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-import d.a.a.a.a;
+import d.a.b.a.a;
 import java.io.File;
 /* loaded from: classes.dex */
 public final class MiniGzip {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2571a = "MiniGzip";
+    public static final String f2597a = "MiniGzip";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,14 +54,14 @@ public final class MiniGzip {
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (str == null || str2 == null || str.equals("") || str2.equals("")) {
-                String str3 = f2571a;
+                String str3 = f2597a;
                 LogUtil.logD(str3, "parameters invalid : srcFile=" + str + "//destFile=" + str2);
             } else if (!new File(str).exists()) {
-                String str4 = f2571a;
+                String str4 = f2597a;
                 LogUtil.logD(str4, str + "  not exists.");
             } else if (new a(new File(str)).a()) {
                 uncompressFile(str, str2);
-                String str5 = f2571a;
+                String str5 = f2597a;
                 LogUtil.logD(str5, "native ungzip use time : " + (SystemClock.elapsedRealtime() - elapsedRealtime));
             }
         }

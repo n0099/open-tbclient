@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f72182a = "";
+    public static String f72636a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,22 +43,22 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (a.class) {
-                if (TextUtils.isEmpty(f72182a)) {
+                if (TextUtils.isEmpty(f72636a)) {
                     String str = new String(Base64.decode("YW5kcm9pZF9pZA==", 0));
                     String c2 = c(context, str);
-                    f72182a = c2;
+                    f72636a = c2;
                     if (TextUtils.isEmpty(c2)) {
                         String b2 = b(context, str);
-                        f72182a = b2;
+                        f72636a = b2;
                         if (TextUtils.isEmpty(b2)) {
                             String string = Settings.Secure.getString(context.getContentResolver(), str);
-                            f72182a = string;
+                            f72636a = string;
                             return string;
                         }
                     }
-                    return f72182a;
+                    return f72636a;
                 }
-                return f72182a;
+                return f72636a;
             }
         }
         return (String) invokeL.objValue;

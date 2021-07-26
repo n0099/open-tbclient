@@ -34,7 +34,7 @@ public class ClientStartStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f21290a;
+        public long f21408a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2) {
@@ -63,10 +63,10 @@ public class ClientStartStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    this.f21290a = SystemClock.elapsedRealtime();
+                    this.f21408a = SystemClock.elapsedRealtime();
                     return;
                 }
-                if (SystemClock.elapsedRealtime() - this.f21290a > 30000) {
+                if (SystemClock.elapsedRealtime() - this.f21408a > 30000) {
                     new b(null).execute(new Void[0]);
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));

@@ -13,7 +13,7 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f35135a;
+    public a f35324a;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -45,7 +45,7 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f35135a = aVar;
+            this.f35324a = aVar;
         }
     }
 
@@ -53,7 +53,7 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) || (aVar = this.f35135a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) || (aVar = this.f35324a) == null) {
             return;
         }
         aVar.a();
@@ -63,7 +63,7 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f35135a = null;
+            this.f35324a = null;
         }
     }
 }

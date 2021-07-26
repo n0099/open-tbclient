@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.e.a;
-import d.a.c.k.e.n;
+import d.a.d.k.e.a;
+import d.a.d.k.e.n;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -20,7 +20,7 @@ public class HTypeListView extends HListView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TypeAdapter f17051e;
+    public TypeAdapter f17107e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HTypeListView(Context context) {
@@ -40,7 +40,7 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f17051e = null;
+        this.f17107e = null;
         b();
     }
 
@@ -49,29 +49,29 @@ public class HTypeListView extends HListView {
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             Iterator<a> it = list.iterator();
             while (it.hasNext()) {
-                this.f17051e.a(it.next());
+                this.f17107e.a(it.next());
             }
-            setAdapter((ListAdapter) this.f17051e);
+            setAdapter((ListAdapter) this.f17107e);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f17051e == null) {
-            this.f17051e = new TypeAdapter();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f17107e == null) {
+            this.f17107e = new TypeAdapter();
         }
     }
 
     public List<n> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17051e.d() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17107e.d() : (List) invokeV.objValue;
     }
 
     public void setData(List<? extends n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f17051e.h(list);
+            this.f17107e.h(list);
         }
     }
 
@@ -94,7 +94,7 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f17051e = null;
+        this.f17107e = null;
         b();
     }
 
@@ -117,6 +117,6 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f17051e = null;
+        this.f17107e = null;
     }
 }

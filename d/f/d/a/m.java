@@ -19,7 +19,7 @@ public final class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final l f70831a;
+    public static final l f71285a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -83,7 +83,7 @@ public final class m {
             }
         }
         Logger.getLogger(m.class.getName());
-        f70831a = c();
+        f71285a = c();
     }
 
     public m() {
@@ -105,7 +105,7 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             n.p(str);
-            return f70831a.a(str);
+            return f71285a.a(str);
         }
         return (e) invokeL.objValue;
     }
@@ -125,7 +125,7 @@ public final class m {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f70831a.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f71285a.b() : invokeV.booleanValue;
     }
 
     public static boolean e(String str) {

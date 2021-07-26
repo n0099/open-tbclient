@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.IRemoteUBCService;
-import d.a.r0.d;
-import d.a.r0.e0;
-import d.a.r0.r;
-import d.a.s0.a;
+import d.a.s0.d;
+import d.a.s0.e0;
+import d.a.s0.r;
+import d.a.t0.a;
 import java.util.Map;
 import org.json.JSONObject;
 @Autowired
@@ -120,7 +120,7 @@ public class UBC {
     public static final r getUBCContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? d.a.p0.c3.r.a() : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? d.a.q0.c3.r.a() : (r) invokeV.objValue;
     }
 
     public static String getUploadType(String str) {

@@ -23,31 +23,31 @@ public final class Text extends Overlay {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7095a;
+    public String f7121a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f7096b;
+    public LatLng f7122b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7097c;
+    public int f7123c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7098d;
+    public int f7124d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7099e;
+    public int f7125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Typeface f7100f;
+    public Typeface f7126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7101g;
+    public int f7127g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7102h;
+    public int f7128h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f7103i;
+    public float f7129i;
     public int j;
 
     static {
@@ -78,7 +78,7 @@ public final class Text extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f7725e;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f7751e;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -86,7 +86,7 @@ public final class Text extends Overlay {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Typeface typeface = this.f7100f;
+            Typeface typeface = this.f7126f;
             if (typeface != null) {
                 EnvDrawText.removeFontCache(typeface.hashCode());
             }
@@ -101,32 +101,32 @@ public final class Text extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
             super.a(bundle);
-            if (this.f7096b != null) {
-                bundle.putString("text", this.f7095a);
-                GeoPoint ll2mc = CoordUtil.ll2mc(this.f7096b);
+            if (this.f7122b != null) {
+                bundle.putString("text", this.f7121a);
+                GeoPoint ll2mc = CoordUtil.ll2mc(this.f7122b);
                 bundle.putDouble("location_x", ll2mc.getLongitudeE6());
                 bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-                int i2 = this.f7098d;
+                int i2 = this.f7124d;
                 bundle.putInt("font_color", Color.argb(i2 >>> 24, i2 & 255, (i2 >> 8) & 255, (i2 >> 16) & 255));
-                int i3 = this.f7097c;
+                int i3 = this.f7123c;
                 bundle.putInt("bg_color", Color.argb(i3 >>> 24, i3 & 255, (i3 >> 8) & 255, (i3 >> 16) & 255));
-                bundle.putInt("font_size", this.f7099e);
-                Typeface typeface = this.f7100f;
+                bundle.putInt("font_size", this.f7125e);
+                Typeface typeface = this.f7126f;
                 if (typeface != null) {
-                    EnvDrawText.registFontCache(typeface.hashCode(), this.f7100f);
-                    bundle.putInt("type_face", this.f7100f.hashCode());
+                    EnvDrawText.registFontCache(typeface.hashCode(), this.f7126f);
+                    bundle.putInt("type_face", this.f7126f.hashCode());
                 }
-                int i4 = this.f7101g;
+                int i4 = this.f7127g;
                 float f2 = 1.0f;
                 bundle.putFloat("align_x", i4 != 1 ? i4 != 2 ? 0.5f : 1.0f : 0.0f);
-                int i5 = this.f7102h;
+                int i5 = this.f7128h;
                 if (i5 == 8) {
                     f2 = 0.0f;
                 } else if (i5 != 16) {
                     f2 = 0.5f;
                 }
                 bundle.putFloat("align_y", f2);
-                bundle.putFloat("rotate", this.f7103i);
+                bundle.putFloat("rotate", this.f7129i);
                 bundle.putInt("update", this.j);
                 return bundle;
             }
@@ -138,62 +138,62 @@ public final class Text extends Overlay {
     public float getAlignX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7101g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7127g : invokeV.floatValue;
     }
 
     public float getAlignY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7102h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7128h : invokeV.floatValue;
     }
 
     public int getBgColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7097c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7123c : invokeV.intValue;
     }
 
     public int getFontColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7098d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7124d : invokeV.intValue;
     }
 
     public int getFontSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f7099e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f7125e : invokeV.intValue;
     }
 
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7096b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7122b : (LatLng) invokeV.objValue;
     }
 
     public float getRotate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7103i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7129i : invokeV.floatValue;
     }
 
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f7095a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f7121a : (String) invokeV.objValue;
     }
 
     public Typeface getTypeface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f7100f : (Typeface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f7126f : (Typeface) invokeV.objValue;
     }
 
     public void setAlign(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
-            this.f7101g = i2;
-            this.f7102h = i3;
+            this.f7127g = i2;
+            this.f7128h = i3;
             this.j = 1;
             this.listener.b(this);
         }
@@ -202,7 +202,7 @@ public final class Text extends Overlay {
     public void setBgColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f7097c = i2;
+            this.f7123c = i2;
             this.j = 1;
             this.listener.b(this);
         }
@@ -211,7 +211,7 @@ public final class Text extends Overlay {
     public void setFontColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f7098d = i2;
+            this.f7124d = i2;
             this.j = 1;
             this.listener.b(this);
         }
@@ -220,7 +220,7 @@ public final class Text extends Overlay {
     public void setFontSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f7099e = i2;
+            this.f7125e = i2;
             this.j = 1;
             this.listener.b(this);
         }
@@ -232,7 +232,7 @@ public final class Text extends Overlay {
             if (latLng == null) {
                 throw new IllegalArgumentException("BDMapSDKException: position can not be null");
             }
-            this.f7096b = latLng;
+            this.f7122b = latLng;
             this.j = 1;
             this.listener.b(this);
         }
@@ -241,7 +241,7 @@ public final class Text extends Overlay {
     public void setRotate(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f7103i = f2;
+            this.f7129i = f2;
             this.j = 1;
             this.listener.b(this);
         }
@@ -253,7 +253,7 @@ public final class Text extends Overlay {
             if (str == null || str.equals("")) {
                 throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
             }
-            this.f7095a = str;
+            this.f7121a = str;
             this.j = 1;
             this.listener.b(this);
         }
@@ -262,7 +262,7 @@ public final class Text extends Overlay {
     public void setTypeface(Typeface typeface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, typeface) == null) {
-            this.f7100f = typeface;
+            this.f7126f = typeface;
             this.j = 1;
             this.listener.b(this);
         }

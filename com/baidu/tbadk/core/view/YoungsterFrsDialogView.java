@@ -19,26 +19,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.f0.n.c;
+import d.a.p0.s.f0.n.c;
 /* loaded from: classes3.dex */
 public class YoungsterFrsDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f12672e;
+    public RelativeLayout f12721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f12673f;
+    public LinearLayout f12722f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f12674g;
+    public ImageView f12723g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12675h;
+    public TextView f12724h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f12676i;
+    public TextView f12725i;
     public TBSpecificationBtn j;
     public TBSpecificationBtn k;
     public NoTipAgainView l;
@@ -68,11 +68,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.youngster_frs_dialog_view, this);
-            this.f12672e = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
-            this.f12674g = (ImageView) findViewById(R.id.img_youngster_top);
-            this.f12675h = (TextView) findViewById(R.id.txt_youngster_dialog_title);
-            this.f12676i = (TextView) findViewById(R.id.txt_youngster_dialog_content);
-            this.f12673f = (LinearLayout) findViewById(R.id.youngster_dialog_group);
+            this.f12721e = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
+            this.f12723g = (ImageView) findViewById(R.id.img_youngster_top);
+            this.f12724h = (TextView) findViewById(R.id.txt_youngster_dialog_title);
+            this.f12725i = (TextView) findViewById(R.id.txt_youngster_dialog_content);
+            this.f12722f = (LinearLayout) findViewById(R.id.youngster_dialog_group);
             this.j = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_left);
             c cVar = new c();
             cVar.q(R.color.CAM_X0105);
@@ -103,11 +103,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.transparent_bg);
-            this.f12674g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(this.f12675h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f12676i, R.color.CAM_X0107);
+            this.f12723g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setViewTextColor(this.f12724h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f12725i, R.color.CAM_X0107);
             this.l.c();
-            d.a.o0.r.u.c d2 = d.a.o0.r.u.c.d(this.f12672e);
+            d.a.p0.s.u.c d2 = d.a.p0.s.u.c.d(this.f12721e);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
             this.j.k();
@@ -145,23 +145,23 @@ public class YoungsterFrsDialogView extends LinearLayout {
     public void setTxtYoungsterDialogContentText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f12676i.setText(getContext().getString(i2));
+            this.f12725i.setText(getContext().getString(i2));
         }
     }
 
     public void setTxtYoungsterDialogTitleText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f12675h.setText(getContext().getString(i2));
+            this.f12724h.setText(getContext().getString(i2));
         }
     }
 
     public void setYoungsterDialogGroupMarginTop(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12673f.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12722f.getLayoutParams();
             layoutParams.topMargin = i2;
-            this.f12673f.setLayoutParams(layoutParams);
+            this.f12722f.setLayoutParams(layoutParams);
         }
     }
 

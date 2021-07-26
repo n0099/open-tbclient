@@ -17,7 +17,7 @@ public class g<T> extends d<List<T>, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Executor f32078d;
+    public Executor f32279d;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -44,27 +44,27 @@ public class g<T> extends d<List<T>, T> {
             CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
             CopyOnWriteArrayList copyOnWriteArrayList2 = new CopyOnWriteArrayList();
             for (T t : list) {
-                this.f32078d.execute(new Runnable(this, bVar, t, copyOnWriteArrayList, copyOnWriteArrayList2, countDownLatch) { // from class: com.bytedance.sdk.openadsdk.preload.b.g.1
+                this.f32279d.execute(new Runnable(this, bVar, t, copyOnWriteArrayList, copyOnWriteArrayList2, countDownLatch) { // from class: com.bytedance.sdk.openadsdk.preload.b.g.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f32079a;
+                    public final /* synthetic */ b f32280a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Object f32080b;
+                    public final /* synthetic */ Object f32281b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ List f32081c;
+                    public final /* synthetic */ List f32282c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ List f32082d;
+                    public final /* synthetic */ List f32283d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ CountDownLatch f32083e;
+                    public final /* synthetic */ CountDownLatch f32284e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ g f32084f;
+                    public final /* synthetic */ g f32285f;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -81,12 +81,12 @@ public class g<T> extends d<List<T>, T> {
                                 return;
                             }
                         }
-                        this.f32084f = this;
-                        this.f32079a = bVar;
-                        this.f32080b = t;
-                        this.f32081c = copyOnWriteArrayList;
-                        this.f32082d = copyOnWriteArrayList2;
-                        this.f32083e = countDownLatch;
+                        this.f32285f = this;
+                        this.f32280a = bVar;
+                        this.f32281b = t;
+                        this.f32282c = copyOnWriteArrayList;
+                        this.f32283d = copyOnWriteArrayList2;
+                        this.f32284e = countDownLatch;
                     }
 
                     @Override // java.lang.Runnable
@@ -95,13 +95,13 @@ public class g<T> extends d<List<T>, T> {
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
                                 try {
-                                    this.f32081c.add(this.f32079a.a((b) this.f32080b));
+                                    this.f32282c.add(this.f32280a.a((b) this.f32281b));
                                 } catch (i.a e2) {
                                     Throwable cause = e2.getCause();
-                                    this.f32082d.add(cause);
-                                    this.f32084f.d(cause);
+                                    this.f32283d.add(cause);
+                                    this.f32285f.d(cause);
                                 }
-                                this.f32083e.countDown();
+                                this.f32284e.countDown();
                             }
                         }
                     }
@@ -124,14 +124,14 @@ public class g<T> extends d<List<T>, T> {
             if (objArr != null) {
                 if (objArr.length == 1) {
                     if (objArr[0] instanceof Executor) {
-                        this.f32078d = (Executor) objArr[0];
+                        this.f32279d = (Executor) objArr[0];
                         return;
                     }
                     throw new IllegalArgumentException("ParallelInterceptor args must be instance of Executor");
                 }
                 throw new IllegalArgumentException("ParallelInterceptor only need one param");
             }
-            this.f32078d = com.bytedance.sdk.openadsdk.preload.geckox.b.r();
+            this.f32279d = com.bytedance.sdk.openadsdk.preload.geckox.b.r();
         }
     }
 }

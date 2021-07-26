@@ -1,24 +1,23 @@
 package com.bytedance.sdk.component.utils;
 
+import android.app.ActivityManager;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import android.os.Process;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
-public final class r {
+public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f28912a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Resources f28913b;
+    public static String f29008a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,95 +39,70 @@ public final class r {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f28912a == null) {
-                f28912a = context.getPackageName();
+            String str = f29008a;
+            if (TextUtils.isEmpty(str)) {
+                try {
+                    int myPid = Process.myPid();
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                        if (runningAppProcessInfo.pid == myPid) {
+                            if (k.a()) {
+                                k.b("Process", "processName = " + runningAppProcessInfo.processName);
+                            }
+                            String str2 = runningAppProcessInfo.processName;
+                            f29008a = str2;
+                            return str2;
+                        }
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                String a2 = a();
+                f29008a = a2;
+                return a2;
             }
-            return f28912a;
+            return str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static int b(Context context, String str) {
-        InterceptResult invokeLL;
+    public static String a() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? a(context, str, "string") : invokeLL.intValue;
-    }
-
-    public static Drawable c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) ? context.getResources().getDrawable(d(context, str)) : (Drawable) invokeLL.objValue;
-    }
-
-    public static int d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) ? a(context, str, "drawable") : invokeLL.intValue;
-    }
-
-    public static int e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) ? a(context, str, "id") : invokeLL.intValue;
-    }
-
-    public static int f(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) ? a(context, str, "layout") : invokeLL.intValue;
-    }
-
-    public static int g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) ? a(context, str, "style") : invokeLL.intValue;
-    }
-
-    public static int h(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? a(context, str, "dimen") : invokeLL.intValue;
-    }
-
-    public static int i(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) ? context.getResources().getColor(j(context, str)) : invokeLL.intValue;
-    }
-
-    public static int j(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) ? a(context, str, "color") : invokeLL.intValue;
-    }
-
-    public static int k(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) ? a(context, str, "integer") : invokeLL.intValue;
-    }
-
-    public static int l(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, str)) == null) ? context.getResources().getInteger(k(context, str)) : invokeLL.intValue;
-    }
-
-    public static int a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
-            if (f28913b == null) {
-                f28913b = context.getResources();
-            }
-            return f28913b.getIdentifier(str, str2, a(context));
+        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
+            return (String) invokeV.objValue;
         }
-        return invokeLLL.intValue;
-    }
-
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) ? context.getResources().getString(b(context, str)) : (String) invokeLL.objValue;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + Process.myPid() + "/cmdline"), "iso-8859-1"));
+            try {
+                StringBuilder sb = new StringBuilder();
+                while (true) {
+                    int read = bufferedReader.read();
+                    if (read <= 0) {
+                        break;
+                    }
+                    sb.append((char) read);
+                }
+                if (k.a()) {
+                    k.b("Process", "get processName = " + sb.toString());
+                }
+                String sb2 = sb.toString();
+                try {
+                    bufferedReader.close();
+                } catch (Exception unused) {
+                }
+                return sb2;
+            } catch (Throwable unused2) {
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (Exception unused3) {
+                    }
+                }
+                return null;
+            }
+        } catch (Throwable unused4) {
+            bufferedReader = null;
+        }
     }
 }

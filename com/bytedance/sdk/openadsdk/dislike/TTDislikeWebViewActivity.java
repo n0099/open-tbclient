@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.w;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
-import com.bytedance.sdk.openadsdk.core.widget.webview.c;
+import com.bytedance.sdk.openadsdk.core.widget.webview.e;
 import com.bytedance.sdk.openadsdk.e.d;
 /* loaded from: classes5.dex */
 public class TTDislikeWebViewActivity extends Activity {
@@ -28,28 +28,28 @@ public class TTDislikeWebViewActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f31012a;
+    public View f31194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f31013b;
+    public TextView f31195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SSWebView f31014c;
+    public SSWebView f31196c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31015d;
+    public String f31197d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31016e;
+    public String f31198e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31017f;
+    public String f31199f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31018g;
+    public String f31200g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f31019h;
+    public boolean f31201h;
 
     public TTDislikeWebViewActivity() {
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class TTDislikeWebViewActivity extends Activity {
                 return;
             }
         }
-        this.f31019h = false;
+        this.f31201h = false;
     }
 
     @Override // android.app.Activity
@@ -72,16 +72,16 @@ public class TTDislikeWebViewActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(r.f(this, "tt_activity_lite_web_layout"));
-            this.f31012a = findViewById(r.e(this, "tt_lite_web_back"));
-            this.f31013b = (TextView) findViewById(r.e(this, "tt_lite_web_title"));
-            this.f31014c = (SSWebView) findViewById(r.e(this, "tt_lite_web_view"));
-            this.f31012a.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.1
+            setContentView(t.f(this, "tt_activity_lite_web_layout"));
+            this.f31194a = findViewById(t.e(this, "tt_lite_web_back"));
+            this.f31195b = (TextView) findViewById(t.e(this, "tt_lite_web_title"));
+            this.f31196c = (SSWebView) findViewById(t.e(this, "tt_lite_web_view"));
+            this.f31194a.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeWebViewActivity f31020a;
+                public final /* synthetic */ TTDislikeWebViewActivity f31202a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -98,25 +98,25 @@ public class TTDislikeWebViewActivity extends Activity {
                             return;
                         }
                     }
-                    this.f31020a = this;
+                    this.f31202a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f31020a.onBackPressed();
+                        this.f31202a.onBackPressed();
                     }
                 }
             });
             if (getIntent() != null) {
                 a();
-                this.f31013b.setText(getIntent().getStringExtra("title"));
-                this.f31017f = getIntent().getStringExtra(LegoListActivityConfig.AD_ID);
-                this.f31016e = getIntent().getStringExtra("tag");
-                this.f31015d = getIntent().getStringExtra("log_extra");
-                this.f31018g = getIntent().getStringExtra(NotificationCompatJellybean.KEY_LABEL);
-                this.f31014c.loadUrl(getIntent().getStringExtra("url"));
+                this.f31195b.setText(getIntent().getStringExtra("title"));
+                this.f31199f = getIntent().getStringExtra(LegoListActivityConfig.AD_ID);
+                this.f31198e = getIntent().getStringExtra("tag");
+                this.f31197d = getIntent().getStringExtra("log_extra");
+                this.f31200g = getIntent().getStringExtra(NotificationCompatJellybean.KEY_LABEL);
+                this.f31196c.loadUrl(getIntent().getStringExtra("url"));
                 return;
             }
             finish();
@@ -126,15 +126,15 @@ public class TTDislikeWebViewActivity extends Activity {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f31014c.getSettings().setJavaScriptEnabled(true);
-            this.f31014c.getSettings().setDisplayZoomControls(false);
-            this.f31014c.getSettings().setCacheMode(2);
-            this.f31014c.setWebViewClient(new c(this, this, null, null) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.2
+            this.f31196c.getSettings().setJavaScriptEnabled(true);
+            this.f31196c.getSettings().setDisplayZoomControls(false);
+            this.f31196c.getSettings().setCacheMode(2);
+            this.f31196c.setWebViewClient(new e(this, this, null, null) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeWebViewActivity f31021a;
+                public final /* synthetic */ TTDislikeWebViewActivity f31203a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -155,30 +155,30 @@ public class TTDislikeWebViewActivity extends Activity {
                             return;
                         }
                     }
-                    this.f31021a = this;
+                    this.f31203a = this;
                 }
 
-                @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
+                @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
                 public void onPageFinished(WebView webView, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
                         super.onPageFinished(webView, str);
-                        j.b("TTDislikeWebViewActivity", "onPageFinished result : " + this.f31021a.f31019h);
-                        if (this.f31021a.f31019h) {
+                        k.b("TTDislikeWebViewActivity", "onPageFinished result : " + this.f31203a.f31201h);
+                        if (this.f31203a.f31201h) {
                             return;
                         }
-                        TTDislikeWebViewActivity tTDislikeWebViewActivity = this.f31021a;
-                        d.a(tTDislikeWebViewActivity, tTDislikeWebViewActivity.f31017f, this.f31021a.f31015d, this.f31021a.f31016e, this.f31021a.f31018g);
+                        TTDislikeWebViewActivity tTDislikeWebViewActivity = this.f31203a;
+                        d.a(tTDislikeWebViewActivity, tTDislikeWebViewActivity.f31199f, this.f31203a.f31197d, this.f31203a.f31198e, this.f31203a.f31200g);
                     }
                 }
 
-                @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
+                @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
                 public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, webResourceRequest, webResourceError) == null) {
                         super.onReceivedError(webView, webResourceRequest, webResourceError);
-                        j.b("TTDislikeWebViewActivity", "onReceivedError error : " + webResourceError);
-                        this.f31021a.f31019h = true;
+                        k.b("TTDislikeWebViewActivity", "onReceivedError error : " + webResourceError);
+                        this.f31203a.f31201h = true;
                     }
                 }
             });

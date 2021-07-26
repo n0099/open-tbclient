@@ -9,6 +9,8 @@ public interface UIADI2 extends ApkDownloadComplianceInterface {
 
     void destroy();
 
+    int getECPM();
+
     String getECPMLevel();
 
     long getExpireTimestamp();

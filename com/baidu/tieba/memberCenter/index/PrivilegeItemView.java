@@ -20,19 +20,19 @@ public class PrivilegeItemView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18573e;
+    public Context f18658e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18574f;
+    public View f18659f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18575g;
+    public TbImageView f18660g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PrivilegeTextView f18576h;
+    public PrivilegeTextView f18661h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18577i;
+    public TextView f18662i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeItemView(Context context) {
@@ -52,25 +52,25 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f18573e = context;
+        this.f18658e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f18573e).inflate(R.layout.index_privilege_item, this);
-            this.f18574f = inflate;
-            this.f18575g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-            this.f18576h = (PrivilegeTextView) this.f18574f.findViewById(R.id.privilege_name);
-            this.f18577i = (TextView) this.f18574f.findViewById(R.id.privilege_desc);
+            View inflate = LayoutInflater.from(this.f18658e).inflate(R.layout.index_privilege_item, this);
+            this.f18659f = inflate;
+            this.f18660g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+            this.f18661h = (PrivilegeTextView) this.f18659f.findViewById(R.id.privilege_name);
+            this.f18662i = (TextView) this.f18659f.findViewById(R.id.privilege_desc);
         }
     }
 
     public PrivilegeTextView getPrivilegeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18576h : (PrivilegeTextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18661h : (PrivilegeTextView) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,7 +92,7 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f18573e = context;
+        this.f18658e = context;
         a();
     }
 
@@ -115,7 +115,7 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f18573e = context;
+        this.f18658e = context;
         a();
     }
 }

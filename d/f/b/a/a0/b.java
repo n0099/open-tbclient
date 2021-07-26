@@ -18,26 +18,26 @@ public final class b implements f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte[] f69200g;
+    public static final byte[] f69654g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.f.b.a.h0.e f69201a;
+    public final d.f.b.a.h0.e f69655a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f69202b;
+    public final long f69656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f69203c;
+    public long f69657c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f69204d;
+    public byte[] f69658d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f69205e;
+    public int f69659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f69206f;
+    public int f69660f;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public final class b implements f {
                 return;
             }
         }
-        f69200g = new byte[4096];
+        f69654g = new byte[4096];
     }
 
     public b(d.f.b.a.h0.e eVar, long j, long j2) {
@@ -70,10 +70,10 @@ public final class b implements f {
                 return;
             }
         }
-        this.f69201a = eVar;
-        this.f69203c = j;
-        this.f69202b = j2;
-        this.f69204d = new byte[65536];
+        this.f69655a = eVar;
+        this.f69657c = j;
+        this.f69656b = j2;
+        this.f69658d = new byte[65536];
     }
 
     @Override // d.f.b.a.a0.f
@@ -98,7 +98,7 @@ public final class b implements f {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             int n = n(i2);
             if (n == 0) {
-                byte[] bArr = f69200g;
+                byte[] bArr = f69654g;
                 n = l(bArr, 0, Math.min(i2, bArr.length), 0, true);
             }
             j(n);
@@ -121,7 +121,7 @@ public final class b implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             if (i(i3, z)) {
-                System.arraycopy(this.f69204d, this.f69205e - i3, bArr, i2, i3);
+                System.arraycopy(this.f69658d, this.f69659e - i3, bArr, i2, i3);
                 return true;
             }
             return false;
@@ -133,7 +133,7 @@ public final class b implements f {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f69205e = 0;
+            this.f69659e = 0;
         }
     }
 
@@ -141,7 +141,7 @@ public final class b implements f {
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69203c + this.f69205e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69657c + this.f69659e : invokeV.longValue;
     }
 
     @Override // d.f.b.a.a0.f
@@ -156,14 +156,14 @@ public final class b implements f {
     public long getLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f69202b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f69656b : invokeV.longValue;
     }
 
     @Override // d.f.b.a.a0.f
     public long getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f69203c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f69657c : invokeV.longValue;
     }
 
     @Override // d.f.b.a.a0.f
@@ -179,16 +179,16 @@ public final class b implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             k(i2);
-            int min = Math.min(this.f69206f - this.f69205e, i2);
+            int min = Math.min(this.f69660f - this.f69659e, i2);
             while (min < i2) {
-                min = l(this.f69204d, this.f69205e, i2, min, z);
+                min = l(this.f69658d, this.f69659e, i2, min, z);
                 if (min == -1) {
                     return false;
                 }
             }
-            int i3 = this.f69205e + i2;
-            this.f69205e = i3;
-            this.f69206f = Math.max(this.f69206f, i3);
+            int i3 = this.f69659e + i2;
+            this.f69659e = i3;
+            this.f69660f = Math.max(this.f69660f, i3);
             return true;
         }
         return invokeCommon.booleanValue;
@@ -199,16 +199,16 @@ public final class b implements f {
         if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || i2 == -1) {
             return;
         }
-        this.f69203c += i2;
+        this.f69657c += i2;
     }
 
     public final void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            int i3 = this.f69205e + i2;
-            byte[] bArr = this.f69204d;
+            int i3 = this.f69659e + i2;
+            byte[] bArr = this.f69658d;
             if (i3 > bArr.length) {
-                this.f69204d = Arrays.copyOf(this.f69204d, v.k(bArr.length * 2, 65536 + i3, i3 + 524288));
+                this.f69658d = Arrays.copyOf(this.f69658d, v.k(bArr.length * 2, 65536 + i3, i3 + 524288));
             }
         }
     }
@@ -218,7 +218,7 @@ public final class b implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
             if (!Thread.interrupted()) {
-                int read = this.f69201a.read(bArr, i2 + i4, i3 - i4);
+                int read = this.f69655a.read(bArr, i2 + i4, i3 - i4);
                 if (read == -1) {
                     if (i4 == 0 && z) {
                         return -1;
@@ -236,12 +236,12 @@ public final class b implements f {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048590, this, bArr, i2, i3)) == null) {
-            int i4 = this.f69206f;
+            int i4 = this.f69660f;
             if (i4 == 0) {
                 return 0;
             }
             int min = Math.min(i4, i3);
-            System.arraycopy(this.f69204d, 0, bArr, i2, min);
+            System.arraycopy(this.f69658d, 0, bArr, i2, min);
             p(min);
             return min;
         }
@@ -252,7 +252,7 @@ public final class b implements f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            int min = Math.min(this.f69206f, i2);
+            int min = Math.min(this.f69660f, i2);
             p(min);
             return min;
         }
@@ -265,7 +265,7 @@ public final class b implements f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             int n = n(i2);
             while (n < i2 && n != -1) {
-                byte[] bArr = f69200g;
+                byte[] bArr = f69654g;
                 n = l(bArr, -n, Math.min(i2, bArr.length + n), n, z);
             }
             j(n);
@@ -277,15 +277,15 @@ public final class b implements f {
     public final void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            int i3 = this.f69206f - i2;
-            this.f69206f = i3;
-            this.f69205e = 0;
-            byte[] bArr = this.f69204d;
+            int i3 = this.f69660f - i2;
+            this.f69660f = i3;
+            this.f69659e = 0;
+            byte[] bArr = this.f69658d;
             if (i3 < bArr.length - 524288) {
                 bArr = new byte[i3 + 65536];
             }
-            System.arraycopy(this.f69204d, i2, bArr, 0, this.f69206f);
-            this.f69204d = bArr;
+            System.arraycopy(this.f69658d, i2, bArr, 0, this.f69660f);
+            this.f69658d = bArr;
         }
     }
 

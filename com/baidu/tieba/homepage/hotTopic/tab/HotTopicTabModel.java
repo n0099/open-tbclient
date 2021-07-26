@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.c.e.p.j;
-import d.a.c.k.e.n;
-import d.a.p0.e1.f.a.b;
+import d.a.d.a.f;
+import d.a.d.e.p.j;
+import d.a.d.k.e.n;
+import d.a.q0.e1.f.a.b;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -27,27 +27,27 @@ public class HotTopicTabModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f16655e;
+    public b f16711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f16656f;
+    public d.a.d.c.g.a f16712f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16657g;
+    public boolean f16713g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16658h;
+    public String f16714h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HashMap<String, List<n>> f16659i;
+    public final HashMap<String, List<n>> f16715i;
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.c.c.g.a {
+    public class a extends d.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicTabModel f16660a;
+        public final /* synthetic */ HotTopicTabModel f16716a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotTopicTabModel hotTopicTabModel, int i2, int i3) {
@@ -68,25 +68,25 @@ public class HotTopicTabModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f16660a = hotTopicTabModel;
+            this.f16716a = hotTopicTabModel;
         }
 
-        @Override // d.a.c.c.g.a
+        @Override // d.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f16660a.f16657g = false;
-                if (this.f16660a.f16655e != null && (responsedMessage instanceof d.a.p0.e1.f.a.f.a) && this.f16660a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+                this.f16716a.f16713g = false;
+                if (this.f16716a.f16711e != null && (responsedMessage instanceof d.a.q0.e1.f.a.f.a) && this.f16716a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                     if (responsedMessage.getOrginalMessage() == null) {
-                        this.f16660a.f16655e.Z(-1, null);
+                        this.f16716a.f16711e.b0(-1, null);
                         return;
                     }
                     HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
-                    d.a.p0.e1.f.a.f.a aVar = (d.a.p0.e1.f.a.f.a) responsedMessage;
-                    if (!TextUtils.isEmpty(this.f16660a.f16658h)) {
-                        this.f16660a.f16659i.put(this.f16660a.f16658h, aVar.getDataList());
+                    d.a.q0.e1.f.a.f.a aVar = (d.a.q0.e1.f.a.f.a) responsedMessage;
+                    if (!TextUtils.isEmpty(this.f16716a.f16714h)) {
+                        this.f16716a.f16715i.put(this.f16716a.f16714h, aVar.getDataList());
                     }
-                    this.f16660a.f16655e.Z(responsedMessage.getError(), aVar);
+                    this.f16716a.f16711e.b0(responsedMessage.getError(), aVar);
                 }
             }
         }
@@ -110,47 +110,47 @@ public class HotTopicTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f16658h = "all";
-        this.f16659i = new HashMap<>();
+        this.f16714h = "all";
+        this.f16715i = new HashMap<>();
         E();
     }
 
     public List<n> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? C(this.f16658h) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? C(this.f16714h) : (List) invokeV.objValue;
     }
 
     public List<n> C(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f16659i.get(str) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f16715i.get(str) : (List) invokeL.objValue;
     }
 
     public String D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16658h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16714h : (String) invokeV.objValue;
     }
 
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f16656f = new a(this, CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661);
+            this.f16712f = new a(this, CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661);
         }
     }
 
     public void F(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f16655e = bVar;
+            this.f16711e = bVar;
         }
     }
 
     public void G(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f16658h = str;
+            this.f16714h = str;
         }
     }
 
@@ -159,14 +159,14 @@ public class HotTopicTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!j.A() || this.f16657g) {
+            if (!j.A() || this.f16713g) {
                 return false;
             }
             HotTopicTabRequest hotTopicTabRequest = new HotTopicTabRequest();
-            hotTopicTabRequest.setTabCode(this.f16658h);
+            hotTopicTabRequest.setTabCode(this.f16714h);
             hotTopicTabRequest.setTag(this.unique_id);
             boolean sendMessage = MessageManager.getInstance().sendMessage(hotTopicTabRequest);
-            this.f16657g = sendMessage;
+            this.f16713g = sendMessage;
             return sendMessage;
         }
         return invokeV.booleanValue;
@@ -185,8 +185,8 @@ public class HotTopicTabModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f16656f);
-            this.f16657g = false;
+            MessageManager.getInstance().unRegisterListener(this.f16712f);
+            this.f16713g = false;
         }
     }
 
@@ -195,8 +195,8 @@ public class HotTopicTabModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
             super.setUniqueId(bdUniqueId);
-            this.f16656f.setTag(bdUniqueId);
-            registerListener(this.f16656f);
+            this.f16712f.setTag(bdUniqueId);
+            registerListener(this.f16712f);
         }
     }
 }

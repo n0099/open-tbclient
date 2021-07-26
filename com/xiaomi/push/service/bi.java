@@ -24,7 +24,7 @@ public class bi {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static bi f40646a;
+    public static bi f40918a;
 
     /* renamed from: a  reason: collision with other field name */
     public static String f929a;
@@ -84,7 +84,7 @@ public class bi {
                 return;
             }
         }
-        f40646a = new bi();
+        f40918a = new bi();
     }
 
     public bi() {
@@ -106,7 +106,7 @@ public class bi {
     public static bi a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f40646a : (bi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f40918a : (bi) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */

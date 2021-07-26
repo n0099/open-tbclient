@@ -26,7 +26,7 @@ public class w implements Closeable, t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final FileChannel f73147e;
+    public final FileChannel f73601e;
 
     public w(File file) throws FileNotFoundException {
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class w implements Closeable, t {
         if (file == null || !file.exists()) {
             throw new IllegalArgumentException("File is null or does not exist");
         }
-        this.f73147e = new FileInputStream(file).getChannel();
+        this.f73601e = new FileInputStream(file).getChannel();
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f73147e.close();
+            this.f73601e.close();
         }
     }
 
@@ -64,9 +64,9 @@ public class w implements Closeable, t {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f73147e.position(0L);
+            this.f73601e.position(0L);
             ArrayList arrayList = new ArrayList();
-            this.f73147e.position(0L);
+            this.f73601e.position(0L);
             ByteBuffer allocate = ByteBuffer.allocate(8);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
             h(allocate, 0L, 4);
@@ -83,10 +83,10 @@ public class w implements Closeable, t {
                     vVar = new v(z, this);
                 }
                 ByteBuffer allocate2 = ByteBuffer.allocate(8);
-                allocate2.order(vVar.f73131a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-                long j3 = vVar.f73135e;
+                allocate2.order(vVar.f73585a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
+                long j3 = vVar.f73589e;
                 if (j3 == WebSocketProtocol.PAYLOAD_SHORT_MAX) {
-                    j3 = vVar.c(0).f73141a;
+                    j3 = vVar.c(0).f73595a;
                 }
                 long j4 = 0;
                 while (true) {
@@ -97,8 +97,8 @@ public class w implements Closeable, t {
                     }
                     t.c b2 = vVar.b(j4);
                     j = j3;
-                    if (b2.f73137a == 2) {
-                        j2 = b2.f73138b;
+                    if (b2.f73591a == 2) {
+                        j2 = b2.f73592b;
                         break;
                     }
                     j4++;
@@ -112,24 +112,24 @@ public class w implements Closeable, t {
                 int i3 = 0;
                 while (true) {
                     t.a a2 = vVar.a(j2, i3);
-                    long j6 = a2.f73129a;
+                    long j6 = a2.f73583a;
                     if (j6 == 1) {
-                        arrayList2.add(Long.valueOf(a2.f73130b));
+                        arrayList2.add(Long.valueOf(a2.f73584b));
                     } else if (j6 == 5) {
-                        j5 = a2.f73130b;
+                        j5 = a2.f73584b;
                     }
                     i3++;
-                    if (a2.f73129a == 0) {
+                    if (a2.f73583a == 0) {
                         break;
                     }
                 }
                 if (j5 != 0) {
                     for (long j7 = 0; j7 < j; j7++) {
                         t.c b3 = vVar.b(j7);
-                        if (b3.f73137a == 1) {
-                            long j8 = b3.f73139c;
-                            if (j8 <= j5 && j5 <= b3.f73140d + j8) {
-                                long j9 = (j5 - j8) + b3.f73138b;
+                        if (b3.f73591a == 1) {
+                            long j8 = b3.f73593c;
+                            if (j8 <= j5 && j5 <= b3.f73594d + j8) {
+                                long j9 = (j5 - j8) + b3.f73592b;
                                 for (Long l : arrayList2) {
                                     long longValue = l.longValue() + j9;
                                     StringBuilder sb = new StringBuilder();
@@ -164,7 +164,7 @@ public class w implements Closeable, t {
             byteBuffer.limit(i2);
             long j2 = 0;
             while (j2 < i2) {
-                int read = this.f73147e.read(byteBuffer, j + j2);
+                int read = this.f73601e.read(byteBuffer, j + j2);
                 if (read == -1) {
                     throw new EOFException();
                 }

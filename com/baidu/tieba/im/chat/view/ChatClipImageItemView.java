@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.c.f.a.h;
-import d.a.c.f.a.k;
-import d.a.c.f.a.n;
+import d.a.d.e.p.l;
+import d.a.d.f.a.h;
+import d.a.d.f.a.k;
+import d.a.d.f.a.n;
 import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class ChatClipImageItemView extends TbImageView implements k.a {
@@ -90,11 +90,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             } else {
                 this.y0 = new h();
             }
-            this.f2202h.n = true;
+            this.f2228h.n = true;
             this.y0.t(this);
             k kVar = this.y0;
-            this.f2203i = kVar;
-            kVar.p(this.f2202h);
+            this.f2229i = kVar;
+            kVar.p(this.f2228h);
         }
     }
 
@@ -176,7 +176,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         }
     }
 
-    @Override // d.a.c.f.a.k.a
+    @Override // d.a.d.f.a.k.a
     public Path a(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -193,7 +193,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         return (Path) invokeL.objValue;
     }
 
-    @Override // d.a.c.f.a.k.a
+    @Override // d.a.d.f.a.k.a
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
@@ -201,11 +201,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public d.a.c.k.d.a getBdImage() {
+    public d.a.d.k.d.a getBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            d.a.c.k.d.a bdImage = super.getBdImage();
+            d.a.d.k.d.a bdImage = super.getBdImage();
             boolean z = true;
             boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
             boolean z3 = bdImage != null && bdImage.w();
@@ -216,18 +216,18 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             kVar.u(z);
             return bdImage;
         }
-        return (d.a.c.k.d.a) invokeV.objValue;
+        return (d.a.d.k.d.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public d.a.c.k.d.a getDefaultBdImage() {
+    public d.a.d.k.d.a getDefaultBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             this.y0.u(false);
             return super.getDefaultBdImage();
         }
-        return (d.a.c.k.d.a) invokeV.objValue;
+        return (d.a.d.k.d.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View

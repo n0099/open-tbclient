@@ -1,0 +1,15 @@
+package d.a.q0.y.b;
+/* loaded from: classes8.dex */
+public interface b {
+    int b();
+
+    void c(int i2);
+
+    void d(int i2);
+
+    float e();
+
+    float getRatio();
+
+    void reset();
+}

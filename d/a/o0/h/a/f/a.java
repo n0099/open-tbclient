@@ -1,0 +1,82 @@
+package d.a.o0.h.a.f;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+/* loaded from: classes7.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile a f50237b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public List<c> f50238a;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f50238a = new CopyOnWriteArrayList();
+    }
+
+    public static a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f50237b == null) {
+                synchronized (a.class) {
+                    if (f50237b == null) {
+                        f50237b = new a();
+                    }
+                }
+            }
+            return f50237b;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public void a(c cVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f50238a.contains(cVar)) {
+            return;
+        }
+        this.f50238a.add(cVar);
+    }
+
+    public void c(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+            for (c cVar : this.f50238a) {
+                if (i2 == 16) {
+                    cVar.c();
+                } else if (i2 == 17) {
+                    cVar.b(str);
+                }
+                d(cVar);
+            }
+        }
+    }
+
+    public void d(c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) && this.f50238a.contains(cVar)) {
+            this.f50238a.remove(cVar);
+        }
+    }
+}

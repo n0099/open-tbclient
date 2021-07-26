@@ -44,39 +44,39 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WhiteScreenConfig f25622a;
+    public WhiteScreenConfig f25780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<C0273a> f25623b;
+    public List<C0275a> f25781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f25624c;
+    public ThreadPoolExecutor f25782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f25625d;
+    public Handler f25783d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f25626e;
+    public boolean f25784e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25627f;
+    public String f25785f;
 
     /* renamed from: com.baidu.wallet.lightapp.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0273a {
+    public class C0275a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Bitmap f25645a;
+        public Bitmap f25803a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f25646b;
+        public boolean f25804b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f25647c;
+        public final /* synthetic */ a f25805c;
 
-        public C0273a(a aVar) {
+        public C0275a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,9 +91,9 @@ public class a {
                     return;
                 }
             }
-            this.f25647c = aVar;
-            this.f25645a = null;
-            this.f25646b = false;
+            this.f25805c = aVar;
+            this.f25803a = null;
+            this.f25804b = false;
         }
     }
 
@@ -102,7 +102,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f25648a;
+        public static a f25806a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -118,15 +118,15 @@ public class a {
                     return;
                 }
             }
-            f25648a = new a();
+            f25806a = new a();
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f25625d.removeCallbacksAndMessages(null);
-            List<C0273a> list = this.f25623b;
+            this.f25783d.removeCallbacksAndMessages(null);
+            List<C0275a> list = this.f25781b;
             if (list != null) {
                 list.clear();
             }
@@ -146,8 +146,8 @@ public class a {
                 return;
             }
         }
-        this.f25623b = new CopyOnWriteArrayList();
-        this.f25625d = new Handler(Looper.getMainLooper());
+        this.f25781b = new CopyOnWriteArrayList();
+        this.f25783d = new Handler(Looper.getMainLooper());
     }
 
     private boolean b(Bitmap bitmap, Rect rect, boolean z, int i2) {
@@ -155,7 +155,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{bitmap, rect, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             Rect[] a2 = a(rect.width(), rect.height(), 3, 3);
-            Iterator<Integer> it = a(this.f25622a.wsc_simple_count, new int[0]).iterator();
+            Iterator<Integer> it = a(this.f25780a.wsc_simple_count, new int[0]).iterator();
             while (it.hasNext()) {
                 Rect rect2 = a2[it.next().intValue()];
                 for (int i3 = rect2.left + rect.left; i3 < rect2.right + rect.left; i3++) {
@@ -181,35 +181,35 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f25648a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f25806a : (a) invokeV.objValue;
     }
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, context) == null) || this.f25626e) {
+        if (!(interceptable == null || interceptable.invokeL(65546, this, context) == null) || this.f25784e) {
             return;
         }
         File externalFilesDir = context.getExternalFilesDir("");
         if (externalFilesDir != null) {
-            this.f25627f = externalFilesDir.getAbsolutePath();
+            this.f25785f = externalFilesDir.getAbsolutePath();
         } else {
-            this.f25627f = context.getFilesDir().getAbsolutePath();
+            this.f25785f = context.getFilesDir().getAbsolutePath();
         }
         String whiteScreenConfig = SdkInitResponse.getInstance().getWhiteScreenConfig(context);
         if (!TextUtils.isEmpty(whiteScreenConfig)) {
             try {
-                this.f25622a = (WhiteScreenConfig) JsonUtils.fromJson(whiteScreenConfig, WhiteScreenConfig.class);
+                this.f25780a = (WhiteScreenConfig) JsonUtils.fromJson(whiteScreenConfig, WhiteScreenConfig.class);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
-        WhiteScreenConfig whiteScreenConfig2 = this.f25622a;
+        WhiteScreenConfig whiteScreenConfig2 = this.f25780a;
         if (whiteScreenConfig2 == null || !whiteScreenConfig2.isValid()) {
-            this.f25622a = new WhiteScreenConfig();
+            this.f25780a = new WhiteScreenConfig();
         }
-        WhiteScreenConfig whiteScreenConfig3 = this.f25622a;
+        WhiteScreenConfig whiteScreenConfig3 = this.f25780a;
         if (!whiteScreenConfig3.wsc_enable && !whiteScreenConfig3.wsc_view_enable) {
-            this.f25626e = true;
+            this.f25784e = true;
             return;
         }
         ThreadFactory threadFactory = new ThreadFactory(this) { // from class: com.baidu.wallet.lightapp.monitor.a.1
@@ -217,10 +217,10 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public AtomicInteger f25628a;
+            public AtomicInteger f25786a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f25629b;
+            public final /* synthetic */ a f25787b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -237,8 +237,8 @@ public class a {
                         return;
                     }
                 }
-                this.f25629b = this;
-                this.f25628a = new AtomicInteger(1);
+                this.f25787b = this;
+                this.f25786a = new AtomicInteger(1);
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -246,16 +246,16 @@ public class a {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    return new Thread(runnable, "WhiteScreenMoniter #" + this.f25628a.getAndIncrement());
+                    return new Thread(runnable, "WhiteScreenMoniter #" + this.f25786a.getAndIncrement());
                 }
                 return (Thread) invokeL.objValue;
             }
         };
-        WhiteScreenConfig whiteScreenConfig4 = this.f25622a;
+        WhiteScreenConfig whiteScreenConfig4 = this.f25780a;
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(whiteScreenConfig4.wsc_core_task, whiteScreenConfig4.wsc_max_task, whiteScreenConfig4.wsc_alive_time, TimeUnit.SECONDS, new SynchronousQueue(), threadFactory, new ThreadPoolExecutor.DiscardPolicy());
-        this.f25624c = threadPoolExecutor;
+        this.f25782c = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
-        this.f25626e = true;
+        this.f25784e = true;
     }
 
     public void a(View view, String str, boolean z) {
@@ -270,7 +270,7 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, str, str2, Boolean.valueOf(z)}) == null) {
             a(view.getContext());
             boolean z2 = view instanceof WebView;
-            WhiteScreenConfig whiteScreenConfig = this.f25622a;
+            WhiteScreenConfig whiteScreenConfig = this.f25780a;
             if (z2) {
                 if (!whiteScreenConfig.wsc_enable) {
                     return;
@@ -279,19 +279,19 @@ public class a {
                 return;
             }
             if (z2) {
-                this.f25625d.removeCallbacksAndMessages(null);
+                this.f25783d.removeCallbacksAndMessages(null);
                 Runnable runnable = new Runnable(this, view, str) { // from class: com.baidu.wallet.lightapp.monitor.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ View f25630a;
+                    public final /* synthetic */ View f25788a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f25631b;
+                    public final /* synthetic */ String f25789b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f25632c;
+                    public final /* synthetic */ a f25790c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -308,21 +308,21 @@ public class a {
                                 return;
                             }
                         }
-                        this.f25632c = this;
-                        this.f25630a = view;
-                        this.f25631b = str;
+                        this.f25790c = this;
+                        this.f25788a = view;
+                        this.f25789b = str;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f25632c.a((WebView) this.f25630a, this.f25631b);
+                            this.f25790c.a((WebView) this.f25788a, this.f25789b);
                         }
                     }
                 };
-                Handler handler = this.f25625d;
-                WhiteScreenConfig whiteScreenConfig2 = this.f25622a;
+                Handler handler = this.f25783d;
+                WhiteScreenConfig whiteScreenConfig2 = this.f25780a;
                 handler.postDelayed(runnable, z ? whiteScreenConfig2.wsc_delay_time : whiteScreenConfig2.wsc_wait_time);
                 return;
             }
@@ -338,27 +338,27 @@ public class a {
             try {
                 Bitmap createBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.RGB_565);
                 view.draw(new Canvas(createBitmap));
-                this.f25624c.execute(new Runnable(this, createBitmap, currentTimeMillis, view, str2, str) { // from class: com.baidu.wallet.lightapp.monitor.a.3
+                this.f25782c.execute(new Runnable(this, createBitmap, currentTimeMillis, view, str2, str) { // from class: com.baidu.wallet.lightapp.monitor.a.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Bitmap f25633a;
+                    public final /* synthetic */ Bitmap f25791a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ long f25634b;
+                    public final /* synthetic */ long f25792b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ View f25635c;
+                    public final /* synthetic */ View f25793c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f25636d;
+                    public final /* synthetic */ String f25794d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f25637e;
+                    public final /* synthetic */ String f25795e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ a f25638f;
+                    public final /* synthetic */ a f25796f;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -375,26 +375,26 @@ public class a {
                                 return;
                             }
                         }
-                        this.f25638f = this;
-                        this.f25633a = createBitmap;
-                        this.f25634b = currentTimeMillis;
-                        this.f25635c = view;
-                        this.f25636d = str2;
-                        this.f25637e = str;
+                        this.f25796f = this;
+                        this.f25791a = createBitmap;
+                        this.f25792b = currentTimeMillis;
+                        this.f25793c = view;
+                        this.f25794d = str2;
+                        this.f25795e = str;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            a aVar = this.f25638f;
-                            ArrayList a2 = aVar.a(aVar.f25622a.wsc_area_detect, 4, 0);
-                            boolean a3 = this.f25638f.a(this.f25633a, a2);
-                            String str3 = "" + (System.currentTimeMillis() - this.f25634b);
-                            DXMSdkSAUtils.onEventWithValues("White_View_Detected", Arrays.asList(this.f25637e, "" + a3, this.f25636d, this.f25638f.a(a2), str3));
-                            PayStatisticsUtil.onEventWithValues("White_View_Detected", Arrays.asList(this.f25637e, "" + a3, this.f25636d, this.f25638f.a(a2), str3));
-                            this.f25638f.a(this.f25633a);
-                            LogUtil.d("WhiteScreenMonitor", "WhiteView:" + this.f25637e + " " + a3 + " " + this.f25636d + " " + this.f25638f.a(a2));
+                            a aVar = this.f25796f;
+                            ArrayList a2 = aVar.a(aVar.f25780a.wsc_area_detect, 4, 0);
+                            boolean a3 = this.f25796f.a(this.f25791a, a2);
+                            String str3 = "" + (System.currentTimeMillis() - this.f25792b);
+                            DXMSdkSAUtils.onEventWithValues("White_View_Detected", Arrays.asList(this.f25795e, "" + a3, this.f25794d, this.f25796f.a(a2), str3));
+                            PayStatisticsUtil.onEventWithValues("White_View_Detected", Arrays.asList(this.f25795e, "" + a3, this.f25794d, this.f25796f.a(a2), str3));
+                            this.f25796f.a(this.f25791a);
+                            LogUtil.d("WhiteScreenMonitor", "WhiteView:" + this.f25795e + " " + a3 + " " + this.f25794d + " " + this.f25796f.a(a2));
                             StringBuilder sb = new StringBuilder();
                             sb.append("TIME COST:");
                             sb.append(str3);
@@ -414,27 +414,27 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65549, this, webView, str) == null) {
             LogUtil.d("WhiteScreenMonitor", "START DETECT");
             try {
-                this.f25624c.execute(new Runnable(this, a(webView), System.currentTimeMillis(), webView, str, webView.getUrl()) { // from class: com.baidu.wallet.lightapp.monitor.a.4
+                this.f25782c.execute(new Runnable(this, a(webView), System.currentTimeMillis(), webView, str, webView.getUrl()) { // from class: com.baidu.wallet.lightapp.monitor.a.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Bitmap f25639a;
+                    public final /* synthetic */ Bitmap f25797a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ long f25640b;
+                    public final /* synthetic */ long f25798b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ WebView f25641c;
+                    public final /* synthetic */ WebView f25799c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f25642d;
+                    public final /* synthetic */ String f25800d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f25643e;
+                    public final /* synthetic */ String f25801e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ a f25644f;
+                    public final /* synthetic */ a f25802f;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -451,26 +451,26 @@ public class a {
                                 return;
                             }
                         }
-                        this.f25644f = this;
-                        this.f25639a = r7;
-                        this.f25640b = r8;
-                        this.f25641c = webView;
-                        this.f25642d = str;
-                        this.f25643e = r12;
+                        this.f25802f = this;
+                        this.f25797a = r7;
+                        this.f25798b = r8;
+                        this.f25799c = webView;
+                        this.f25800d = str;
+                        this.f25801e = r12;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            a aVar = this.f25644f;
-                            ArrayList a2 = aVar.a(aVar.f25622a.wsc_area_detect, 4, 0);
-                            boolean a3 = this.f25644f.a(this.f25639a, a2);
-                            String str2 = "" + (System.currentTimeMillis() - this.f25640b);
-                            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_WHITE_SCREEN, Arrays.asList(CheckUtils.stripUrlParams(this.f25643e), "" + a3, this.f25642d, this.f25644f.a(a2), str2));
-                            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_WHITE_SCREEN, Arrays.asList(CheckUtils.stripUrlParams(this.f25643e), "" + a3, this.f25642d, this.f25644f.a(a2), str2));
-                            this.f25644f.a(this.f25639a);
-                            LogUtil.d("WhiteScreenMonitor", "WhiteScreen:" + CheckUtils.stripUrlParams(this.f25643e) + " " + a3 + " " + this.f25642d + " " + this.f25644f.a(a2));
+                            a aVar = this.f25802f;
+                            ArrayList a2 = aVar.a(aVar.f25780a.wsc_area_detect, 4, 0);
+                            boolean a3 = this.f25802f.a(this.f25797a, a2);
+                            String str2 = "" + (System.currentTimeMillis() - this.f25798b);
+                            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_WHITE_SCREEN, Arrays.asList(CheckUtils.stripUrlParams(this.f25801e), "" + a3, this.f25800d, this.f25802f.a(a2), str2));
+                            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_WHITE_SCREEN, Arrays.asList(CheckUtils.stripUrlParams(this.f25801e), "" + a3, this.f25800d, this.f25802f.a(a2), str2));
+                            this.f25802f.a(this.f25797a);
+                            LogUtil.d("WhiteScreenMonitor", "WhiteScreen:" + CheckUtils.stripUrlParams(this.f25801e) + " " + a3 + " " + this.f25800d + " " + this.f25802f.a(a2));
                             StringBuilder sb = new StringBuilder();
                             sb.append("TIME COST:");
                             sb.append(str2);
@@ -548,7 +548,7 @@ public class a {
             Rect[] a2 = a(bitmap.getWidth(), bitmap.getHeight(), 3, 3);
             boolean z = false;
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                if (i2 < this.f25622a.wsc_general_detect) {
+                if (i2 < this.f25780a.wsc_general_detect) {
                     z = a(bitmap, a2[arrayList.get(i2).intValue()], false, pixel);
                 } else {
                     z = b(bitmap, a2[arrayList.get(i2).intValue()], false, pixel);
@@ -610,22 +610,22 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65538, this, i2, i3)) == null) {
             synchronized (this) {
-                if (this.f25623b != null && this.f25623b.size() > 0) {
-                    for (C0273a c0273a : this.f25623b) {
-                        if (c0273a.f25645a != null && !c0273a.f25645a.isRecycled() && !c0273a.f25646b && c0273a.f25645a.getWidth() == i2 && c0273a.f25645a.getHeight() == i3) {
-                            c0273a.f25646b = true;
+                if (this.f25781b != null && this.f25781b.size() > 0) {
+                    for (C0275a c0275a : this.f25781b) {
+                        if (c0275a.f25803a != null && !c0275a.f25803a.isRecycled() && !c0275a.f25804b && c0275a.f25803a.getWidth() == i2 && c0275a.f25803a.getHeight() == i3) {
+                            c0275a.f25804b = true;
                             LogUtil.d("WhiteScreenMonitor", "Bitmap Recycled");
-                            return c0273a.f25645a;
+                            return c0275a.f25803a;
                         }
                     }
                 }
-                if (this.f25623b.size() < this.f25622a.wsc_core_cache) {
-                    C0273a c0273a2 = new C0273a();
-                    c0273a2.f25645a = Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
-                    c0273a2.f25646b = true;
-                    this.f25623b.add(c0273a2);
+                if (this.f25781b.size() < this.f25780a.wsc_core_cache) {
+                    C0275a c0275a2 = new C0275a();
+                    c0275a2.f25803a = Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
+                    c0275a2.f25804b = true;
+                    this.f25781b.add(c0275a2);
                     LogUtil.d("WhiteScreenMonitor", "Bitmap created");
-                    return c0273a2.f25645a;
+                    return c0275a2.f25803a;
                 }
                 LogUtil.d("WhiteScreenMonitor", "Bitmap new");
                 return Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
@@ -639,10 +639,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, bitmap) == null) {
             synchronized (this) {
-                if (this.f25623b != null && this.f25623b.size() > 0) {
-                    for (C0273a c0273a : this.f25623b) {
-                        if (c0273a.f25645a == bitmap && !c0273a.f25645a.isRecycled() && c0273a.f25646b) {
-                            c0273a.f25646b = false;
+                if (this.f25781b != null && this.f25781b.size() > 0) {
+                    for (C0275a c0275a : this.f25781b) {
+                        if (c0275a.f25803a == bitmap && !c0275a.f25803a.isRecycled() && c0275a.f25804b) {
+                            c0275a.f25804b = false;
                             LogUtil.d("WhiteScreenMonitor", "Bitmap Released");
                             return;
                         }

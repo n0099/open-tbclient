@@ -18,19 +18,19 @@ import java.io.PrintStream;
 import java.util.Queue;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f implements k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f72659g;
+    public static final int f73113g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Queue<Object> f72660e;
+    public Queue<Object> f73114e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile Object f72661f;
+    public volatile Object f73115f;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class f implements k {
                 printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e2.getMessage());
             }
         }
-        f72659g = i2;
+        f73113g = i2;
     }
 
     public f(Queue<Object> queue, int i2) {
@@ -73,7 +73,7 @@ public class f implements k {
                 return;
             }
         }
-        this.f72660e = queue;
+        this.f73114e = queue;
     }
 
     public static f a() {
@@ -81,7 +81,7 @@ public class f implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (f0.b()) {
-                return new f(true, f72659g);
+                return new f(true, f73113g);
             }
             return new f();
         }
@@ -93,7 +93,7 @@ public class f implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             if (f0.b()) {
-                return new f(false, f72659g);
+                return new f(false, f73113g);
             }
             return new f();
         }
@@ -116,7 +116,7 @@ public class f implements k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Queue<Object> queue = this.f72660e;
+            Queue<Object> queue = this.f73114e;
             return queue == null || queue.isEmpty();
         }
         return invokeV.booleanValue;
@@ -124,8 +124,8 @@ public class f implements k {
 
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f72661f == null) {
-            this.f72661f = NotificationLite.b();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f73115f == null) {
+            this.f73115f = NotificationLite.b();
         }
     }
 
@@ -135,7 +135,7 @@ public class f implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
             synchronized (this) {
-                Queue<Object> queue = this.f72660e;
+                Queue<Object> queue = this.f73114e;
                 z = true;
                 z2 = false;
                 if (queue != null) {
@@ -157,12 +157,12 @@ public class f implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                Queue<Object> queue = this.f72660e;
+                Queue<Object> queue = this.f73114e;
                 if (queue == null) {
                     return null;
                 }
                 Object peek = queue.peek();
-                Object obj = this.f72661f;
+                Object obj = this.f73115f;
                 if (peek == null && obj != null && queue.peek() == null) {
                     peek = obj;
                 }
@@ -177,14 +177,14 @@ public class f implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                Queue<Object> queue = this.f72660e;
+                Queue<Object> queue = this.f73114e;
                 if (queue == null) {
                     return null;
                 }
                 Object poll = queue.poll();
-                Object obj = this.f72661f;
+                Object obj = this.f73115f;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.f72661f = null;
+                    this.f73115f = null;
                     poll = obj;
                 }
                 return poll;
@@ -197,7 +197,7 @@ public class f implements k {
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f72660e == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f73114e == null : invokeV.booleanValue;
     }
 
     public synchronized void j() {
@@ -231,12 +231,12 @@ public class f implements k {
                 return;
             }
         }
-        this.f72660e = z ? new j<>(i2) : new r<>(i2);
+        this.f73114e = z ? new j<>(i2) : new r<>(i2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f() {
-        this(new h.o.d.i.c(f72659g), f72659g);
+        this(new h.o.d.i.c(f73113g), f73113g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

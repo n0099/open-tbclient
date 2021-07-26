@@ -23,7 +23,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.baidu.wallet.base.iddetect.a f24073a;
+    public static com.baidu.wallet.base.iddetect.a f24231a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,10 +45,10 @@ public class b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (f24073a == null || z) {
-                f24073a = a(i2, context);
+            if (f24231a == null || z) {
+                f24231a = a(i2, context);
             }
-            return f24073a;
+            return f24231a;
         }
         return (com.baidu.wallet.base.iddetect.a) invokeCommon.objValue;
     }
@@ -151,11 +151,11 @@ public class b {
                     break;
                 }
                 aVar = list.get(i3);
-                float a2 = a(aVar.f24067b, aVar.f24066a);
-                list.get(i3).f24069d = Math.abs(a2 - f2);
-                list.get(i3).f24070e = true;
-                if (a2 == f2 && (i2 = aVar.f24067b) >= 480 && i2 <= 720) {
-                    aVar.f24068c = 0.6306f;
+                float a2 = a(aVar.f24225b, aVar.f24224a);
+                list.get(i3).f24227d = Math.abs(a2 - f2);
+                list.get(i3).f24228e = true;
+                if (a2 == f2 && (i2 = aVar.f24225b) >= 480 && i2 <= 720) {
+                    aVar.f24226c = 0.6306f;
                     z = true;
                     break;
                 }
@@ -166,9 +166,9 @@ public class b {
                 int i4 = 0;
                 while (true) {
                     if (i4 < list.size()) {
-                        if (list.get(i4).f24067b >= 480 && list.get(i4).f24067b <= 720 && list.get(i4).f24069d <= 0.1f) {
+                        if (list.get(i4).f24225b >= 480 && list.get(i4).f24225b <= 720 && list.get(i4).f24227d <= 0.1f) {
                             aVar = list.get(i4);
-                            aVar.f24068c = a(context, rect, aVar);
+                            aVar.f24226c = a(context, rect, aVar);
                             z2 = true;
                             break;
                         }
@@ -182,10 +182,10 @@ public class b {
                 if (aVar == null) {
                     aVar = new com.baidu.wallet.base.iddetect.a(640, 480);
                 } else {
-                    aVar.f24067b = 480;
-                    aVar.f24066a = 640;
+                    aVar.f24225b = 480;
+                    aVar.f24224a = 640;
                 }
-                aVar.f24068c = a(context, rect, aVar);
+                aVar.f24226c = a(context, rect, aVar);
             }
             return aVar;
         }
@@ -196,8 +196,8 @@ public class b {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, rect, aVar)) == null) {
-            float width = (rect.width() * 1.0f) / aVar.f24067b;
-            float height = (rect.height() * 1.0f) / aVar.f24066a;
+            float width = (rect.width() * 1.0f) / aVar.f24225b;
+            float height = (rect.height() * 1.0f) / aVar.f24224a;
             return width > height ? (width * 0.6306f) / height : (height * 0.6306f) / width;
         }
         return invokeLLL.floatValue;

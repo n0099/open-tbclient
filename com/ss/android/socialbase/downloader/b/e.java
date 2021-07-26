@@ -33,23 +33,23 @@ public class e extends c.a implements t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SQLiteDatabase f38402b;
+    public static volatile SQLiteDatabase f38577b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.b.b f38403a;
+    public com.ss.android.socialbase.downloader.b.b f38578a;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.l.a.e.b.b.c f38404c;
+    public d.l.a.e.b.b.c f38579c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.l.a.e.b.b.c f38405d;
+    public d.l.a.e.b.b.c f38580d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.l.a.e.b.b.c f38406e;
+    public d.l.a.e.b.b.c f38581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f38407f;
+    public volatile boolean f38582f;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -57,10 +57,10 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f38408e;
+        public final /* synthetic */ DownloadInfo f38583e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f38409f;
+        public final /* synthetic */ e f38584f;
 
         public a(e eVar, DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
@@ -77,15 +77,15 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38409f = eVar;
-            this.f38408e = downloadInfo;
+            this.f38584f = eVar;
+            this.f38583e = downloadInfo;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38409f.d(this.f38408e);
+                this.f38584f.d(this.f38583e);
             }
         }
     }
@@ -96,10 +96,10 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f38410e;
+        public final /* synthetic */ int f38585e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f38411f;
+        public final /* synthetic */ e f38586f;
 
         public b(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -116,17 +116,17 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38411f = eVar;
-            this.f38410e = i2;
+            this.f38586f = eVar;
+            this.f38585e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38411f.e(this.f38410e);
-                this.f38411f.d(this.f38410e);
-                this.f38411f.m(this.f38410e);
+                this.f38586f.e(this.f38585e);
+                this.f38586f.d(this.f38585e);
+                this.f38586f.m(this.f38585e);
             }
         }
     }
@@ -137,16 +137,16 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f38412e;
+        public final /* synthetic */ SparseArray f38587e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f38413f;
+        public final /* synthetic */ SparseArray f38588f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.e.b.b.b f38414g;
+        public final /* synthetic */ d.l.a.e.b.b.b f38589g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f38415h;
+        public final /* synthetic */ e f38590h;
 
         public c(e eVar, SparseArray sparseArray, SparseArray sparseArray2, d.l.a.e.b.b.b bVar) {
             Interceptable interceptable = $ic;
@@ -163,10 +163,10 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38415h = eVar;
-            this.f38412e = sparseArray;
-            this.f38413f = sparseArray2;
-            this.f38414g = bVar;
+            this.f38590h = eVar;
+            this.f38587e = sparseArray;
+            this.f38588f = sparseArray2;
+            this.f38589g = bVar;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, IGET, IGET, INVOKE, INVOKE, IGET, INVOKE, IGET, IGET, IGET, INVOKE, IF] complete} */
@@ -189,10 +189,10 @@ public class e extends c.a implements t {
          */
         /* JADX WARN: Code restructure failed: missing block: B:169:0x0341, code lost:
             r0.a();
-            r18.f38415h.f38407f = true;
+            r18.f38590h.f38582f = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:170:0x0349, code lost:
-            r18.f38415h.a(r18.f38412e, r18.f38413f);
+            r18.f38590h.a(r18.f38587e, r18.f38588f);
          */
         /* JADX WARN: Code restructure failed: missing block: B:171:0x0352, code lost:
             throw r0;
@@ -214,8 +214,8 @@ public class e extends c.a implements t {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.f38415h.h();
-            if (e.f38402b == null) {
+            this.f38590h.h();
+            if (e.f38577b == null) {
                 return;
             }
             l b2 = d.l.a.e.b.g.e.b();
@@ -225,7 +225,7 @@ public class e extends c.a implements t {
             Cursor cursor = null;
             int i2 = 0;
             try {
-                cursor = e.f38402b.rawQuery("SELECT * FROM downloader", null);
+                cursor = e.f38577b.rawQuery("SELECT * FROM downloader", null);
                 while (cursor.moveToNext()) {
                     DownloadInfo downloadInfo = new DownloadInfo(cursor);
                     downloadInfo.setStatusAtDbInit(downloadInfo.getRealStatus());
@@ -262,7 +262,7 @@ public class e extends c.a implements t {
                                 downloadInfo.setId(a2);
                                 sparseArray.put(id, downloadInfo);
                             }
-                            this.f38412e.put(downloadInfo.getId(), downloadInfo);
+                            this.f38587e.put(downloadInfo.getId(), downloadInfo);
                         }
                     }
                     z = true;
@@ -270,32 +270,32 @@ public class e extends c.a implements t {
                     }
                 }
                 d.l.a.e.b.l.f.D(cursor);
-                this.f38415h.a(arrayList2);
-                this.f38415h.a(arrayList2, arrayList, sparseArray, this.f38412e, this.f38413f);
+                this.f38590h.a(arrayList2);
+                this.f38590h.a(arrayList2, arrayList, sparseArray, this.f38587e, this.f38588f);
                 try {
                     ArrayList<Integer> arrayList3 = new ArrayList();
-                    if (this.f38412e != null) {
-                        while (i2 < this.f38412e.size()) {
-                            int keyAt = this.f38412e.keyAt(i2);
+                    if (this.f38587e != null) {
+                        while (i2 < this.f38587e.size()) {
+                            int keyAt = this.f38587e.keyAt(i2);
                             if (keyAt != 0) {
-                                DownloadInfo downloadInfo2 = (DownloadInfo) this.f38412e.get(keyAt);
+                                DownloadInfo downloadInfo2 = (DownloadInfo) this.f38587e.get(keyAt);
                                 if (d.l.a.e.b.l.a.a(8192)) {
                                     if (downloadInfo2 != null && !downloadInfo2.isChunkBreakpointAvailable() && downloadInfo2.getStatus() != -3) {
                                         arrayList3.add(Integer.valueOf(downloadInfo2.getId()));
-                                        this.f38413f.remove(downloadInfo2.getId());
+                                        this.f38588f.remove(downloadInfo2.getId());
                                     }
                                 } else if (downloadInfo2 != null && !downloadInfo2.isChunkBreakpointAvailable()) {
                                     arrayList3.add(Integer.valueOf(downloadInfo2.getId()));
-                                    this.f38413f.remove(downloadInfo2.getId());
+                                    this.f38588f.remove(downloadInfo2.getId());
                                 }
                             }
                             for (Integer num : arrayList3) {
-                                this.f38412e.remove(num.intValue());
+                                this.f38587e.remove(num.intValue());
                             }
                             i2++;
                         }
                     }
-                    bVar2 = this.f38414g;
+                    bVar2 = this.f38589g;
                 } catch (Throwable th) {
                     try {
                         th.printStackTrace();
@@ -306,84 +306,84 @@ public class e extends c.a implements t {
                 try {
                     th2.printStackTrace();
                     d.l.a.e.b.l.f.D(cursor);
-                    this.f38415h.a(arrayList2);
-                    this.f38415h.a(arrayList2, arrayList, sparseArray, this.f38412e, this.f38413f);
+                    this.f38590h.a(arrayList2);
+                    this.f38590h.a(arrayList2, arrayList, sparseArray, this.f38587e, this.f38588f);
                     try {
                         ArrayList<Integer> arrayList4 = new ArrayList();
-                        if (this.f38412e != null) {
-                            while (i2 < this.f38412e.size()) {
-                                int keyAt2 = this.f38412e.keyAt(i2);
+                        if (this.f38587e != null) {
+                            while (i2 < this.f38587e.size()) {
+                                int keyAt2 = this.f38587e.keyAt(i2);
                                 if (keyAt2 != 0) {
-                                    DownloadInfo downloadInfo3 = (DownloadInfo) this.f38412e.get(keyAt2);
+                                    DownloadInfo downloadInfo3 = (DownloadInfo) this.f38587e.get(keyAt2);
                                     if (d.l.a.e.b.l.a.a(8192)) {
                                         if (downloadInfo3 != null && !downloadInfo3.isChunkBreakpointAvailable() && downloadInfo3.getStatus() != -3) {
                                             arrayList4.add(Integer.valueOf(downloadInfo3.getId()));
-                                            this.f38413f.remove(downloadInfo3.getId());
+                                            this.f38588f.remove(downloadInfo3.getId());
                                         }
                                     } else if (downloadInfo3 != null && !downloadInfo3.isChunkBreakpointAvailable()) {
                                         arrayList4.add(Integer.valueOf(downloadInfo3.getId()));
-                                        this.f38413f.remove(downloadInfo3.getId());
+                                        this.f38588f.remove(downloadInfo3.getId());
                                     }
                                 }
                                 for (Integer num2 : arrayList4) {
-                                    this.f38412e.remove(num2.intValue());
+                                    this.f38587e.remove(num2.intValue());
                                 }
                                 i2++;
                             }
                         }
-                        bVar2 = this.f38414g;
+                        bVar2 = this.f38589g;
                     } catch (Throwable th3) {
                         try {
                             th3.printStackTrace();
-                            bVar2 = this.f38414g;
+                            bVar2 = this.f38589g;
                         } finally {
-                            d.l.a.e.b.b.b bVar3 = this.f38414g;
+                            d.l.a.e.b.b.b bVar3 = this.f38589g;
                             if (bVar3 != null) {
                                 bVar3.a();
-                                this.f38415h.f38407f = true;
+                                this.f38590h.f38582f = true;
                             }
-                            this.f38415h.a(this.f38412e, this.f38413f);
+                            this.f38590h.a(this.f38587e, this.f38588f);
                         }
                     }
                 } catch (Throwable th4) {
                     d.l.a.e.b.l.f.D(cursor);
-                    this.f38415h.a(arrayList2);
-                    this.f38415h.a(arrayList2, arrayList, sparseArray, this.f38412e, this.f38413f);
+                    this.f38590h.a(arrayList2);
+                    this.f38590h.a(arrayList2, arrayList, sparseArray, this.f38587e, this.f38588f);
                     try {
                         ArrayList<Integer> arrayList5 = new ArrayList();
-                        if (this.f38412e != null) {
-                            while (i2 < this.f38412e.size()) {
-                                int keyAt3 = this.f38412e.keyAt(i2);
+                        if (this.f38587e != null) {
+                            while (i2 < this.f38587e.size()) {
+                                int keyAt3 = this.f38587e.keyAt(i2);
                                 if (keyAt3 != 0) {
-                                    DownloadInfo downloadInfo4 = (DownloadInfo) this.f38412e.get(keyAt3);
+                                    DownloadInfo downloadInfo4 = (DownloadInfo) this.f38587e.get(keyAt3);
                                     if (d.l.a.e.b.l.a.a(8192)) {
                                         if (downloadInfo4 != null && !downloadInfo4.isChunkBreakpointAvailable() && downloadInfo4.getStatus() != -3) {
                                             arrayList5.add(Integer.valueOf(downloadInfo4.getId()));
-                                            this.f38413f.remove(downloadInfo4.getId());
+                                            this.f38588f.remove(downloadInfo4.getId());
                                         }
                                     } else if (downloadInfo4 != null && !downloadInfo4.isChunkBreakpointAvailable()) {
                                         arrayList5.add(Integer.valueOf(downloadInfo4.getId()));
-                                        this.f38413f.remove(downloadInfo4.getId());
+                                        this.f38588f.remove(downloadInfo4.getId());
                                     }
                                 }
                                 for (Integer num3 : arrayList5) {
-                                    this.f38412e.remove(num3.intValue());
+                                    this.f38587e.remove(num3.intValue());
                                 }
                                 i2++;
                             }
                         }
-                        bVar = this.f38414g;
+                        bVar = this.f38589g;
                     } catch (Throwable th5) {
                         try {
                             th5.printStackTrace();
-                            bVar = this.f38414g;
+                            bVar = this.f38589g;
                         } finally {
-                            d.l.a.e.b.b.b bVar4 = this.f38414g;
+                            d.l.a.e.b.b.b bVar4 = this.f38589g;
                             if (bVar4 != null) {
                                 bVar4.a();
-                                this.f38415h.f38407f = true;
+                                this.f38590h.f38582f = true;
                             }
-                            this.f38415h.a(this.f38412e, this.f38413f);
+                            this.f38590h.a(this.f38587e, this.f38588f);
                         }
                     }
                 }
@@ -397,7 +397,7 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f38416e;
+        public final /* synthetic */ e f38591e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -414,34 +414,34 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38416e = eVar;
+            this.f38591e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38416e.k();
+                this.f38591e.k();
             }
         }
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0490e implements Runnable {
+    public class RunnableC0492e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f38417e;
+        public final /* synthetic */ int f38592e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f38418f;
+        public final /* synthetic */ ContentValues f38593f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f38419g;
+        public final /* synthetic */ e f38594g;
 
-        public RunnableC0490e(e eVar, int i2, ContentValues contentValues) {
+        public RunnableC0492e(e eVar, int i2, ContentValues contentValues) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -456,16 +456,16 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38419g = eVar;
-            this.f38417e = i2;
-            this.f38418f = contentValues;
+            this.f38594g = eVar;
+            this.f38592e = i2;
+            this.f38593f = contentValues;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38419g.b(this.f38417e, this.f38418f);
+                this.f38594g.b(this.f38592e, this.f38593f);
             }
         }
     }
@@ -476,10 +476,10 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f38420e;
+        public final /* synthetic */ int f38595e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f38421f;
+        public final /* synthetic */ e f38596f;
 
         public f(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -496,8 +496,8 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38421f = eVar;
-            this.f38420e = i2;
+            this.f38596f = eVar;
+            this.f38595e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -505,7 +505,7 @@ public class e extends c.a implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f38421f.a(this.f38420e, this.f38421f.f38405d.b());
+                    this.f38596f.a(this.f38595e, this.f38596f.f38580d.b());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -519,10 +519,10 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ com.ss.android.socialbase.downloader.model.b f38422e;
+        public final /* synthetic */ com.ss.android.socialbase.downloader.model.b f38597e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f38423f;
+        public final /* synthetic */ e f38598f;
 
         public g(e eVar, com.ss.android.socialbase.downloader.model.b bVar) {
             Interceptable interceptable = $ic;
@@ -539,8 +539,8 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38423f = eVar;
-            this.f38422e = bVar;
+            this.f38598f = eVar;
+            this.f38597e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -548,7 +548,7 @@ public class e extends c.a implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f38423f.a(this.f38422e, this.f38423f.f38405d.a());
+                    this.f38598f.a(this.f38597e, this.f38598f.f38580d.a());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -562,16 +562,16 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f38424e;
+        public final /* synthetic */ int f38599e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f38425f;
+        public final /* synthetic */ int f38600f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f38426g;
+        public final /* synthetic */ long f38601g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f38427h;
+        public final /* synthetic */ e f38602h;
 
         public h(e eVar, int i2, int i3, long j) {
             Interceptable interceptable = $ic;
@@ -588,10 +588,10 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38427h = eVar;
-            this.f38424e = i2;
-            this.f38425f = i3;
-            this.f38426g = j;
+            this.f38602h = eVar;
+            this.f38599e = i2;
+            this.f38600f = i3;
+            this.f38601g = j;
         }
 
         @Override // java.lang.Runnable
@@ -599,7 +599,7 @@ public class e extends c.a implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f38427h.a(this.f38424e, this.f38425f, this.f38426g, this.f38427h.f38405d.c());
+                    this.f38602h.a(this.f38599e, this.f38600f, this.f38601g, this.f38602h.f38580d.c());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -613,19 +613,19 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f38428e;
+        public final /* synthetic */ int f38603e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f38429f;
+        public final /* synthetic */ int f38604f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f38430g;
+        public final /* synthetic */ int f38605g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f38431h;
+        public final /* synthetic */ long f38606h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f38432i;
+        public final /* synthetic */ e f38607i;
 
         public i(e eVar, int i2, int i3, int i4, long j) {
             Interceptable interceptable = $ic;
@@ -642,11 +642,11 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38432i = eVar;
-            this.f38428e = i2;
-            this.f38429f = i3;
-            this.f38430g = i4;
-            this.f38431h = j;
+            this.f38607i = eVar;
+            this.f38603e = i2;
+            this.f38604f = i3;
+            this.f38605g = i4;
+            this.f38606h = j;
         }
 
         @Override // java.lang.Runnable
@@ -654,7 +654,7 @@ public class e extends c.a implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f38432i.a(this.f38428e, this.f38429f, this.f38430g, this.f38431h, this.f38432i.f38405d.c());
+                    this.f38607i.a(this.f38603e, this.f38604f, this.f38605g, this.f38606h, this.f38607i.f38580d.c());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -668,19 +668,19 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f38433e;
+        public final /* synthetic */ int f38608e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f38434f;
+        public final /* synthetic */ int f38609f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f38435g;
+        public final /* synthetic */ int f38610g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f38436h;
+        public final /* synthetic */ int f38611h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f38437i;
+        public final /* synthetic */ e f38612i;
 
         public j(e eVar, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -697,11 +697,11 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38437i = eVar;
-            this.f38433e = i2;
-            this.f38434f = i3;
-            this.f38435g = i4;
-            this.f38436h = i5;
+            this.f38612i = eVar;
+            this.f38608e = i2;
+            this.f38609f = i3;
+            this.f38610g = i4;
+            this.f38611h = i5;
         }
 
         @Override // java.lang.Runnable
@@ -709,7 +709,7 @@ public class e extends c.a implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f38437i.a(this.f38433e, this.f38434f, this.f38435g, this.f38436h, this.f38437i.f38405d.c());
+                    this.f38612i.a(this.f38608e, this.f38609f, this.f38610g, this.f38611h, this.f38612i.f38580d.c());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -723,10 +723,10 @@ public class e extends c.a implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f38438e;
+        public final /* synthetic */ DownloadInfo f38613e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f38439f;
+        public final /* synthetic */ e f38614f;
 
         public k(e eVar, DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
@@ -743,8 +743,8 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            this.f38439f = eVar;
-            this.f38438e = downloadInfo;
+            this.f38614f = eVar;
+            this.f38613e = downloadInfo;
         }
 
         @Override // java.lang.Runnable
@@ -752,7 +752,7 @@ public class e extends c.a implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f38439f.a(this.f38438e, this.f38439f.f38404c.a());
+                    this.f38614f.a(this.f38613e, this.f38614f.f38579c.a());
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -796,13 +796,13 @@ public class e extends c.a implements t {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65568, this) == null) && f38402b == null) {
+        if ((interceptable == null || interceptable.invokeV(65568, this) == null) && f38577b == null) {
             synchronized (e.class) {
-                if (f38402b == null) {
-                    f38402b = d.l.a.e.b.b.a.a().getWritableDatabase();
-                    this.f38404c = new d.l.a.e.b.b.c(f38402b, "downloader", d.l.a.e.b.d.b.f71730a, d.l.a.e.b.d.b.f71731b);
-                    this.f38405d = new d.l.a.e.b.b.c(f38402b, "downloadChunk", d.l.a.e.b.d.b.f71732c, d.l.a.e.b.d.b.f71733d);
-                    this.f38406e = new d.l.a.e.b.b.c(f38402b, "segments", d.l.a.e.b.d.b.f71734e, d.l.a.e.b.d.b.f71735f);
+                if (f38577b == null) {
+                    f38577b = d.l.a.e.b.b.a.a().getWritableDatabase();
+                    this.f38579c = new d.l.a.e.b.b.c(f38577b, "downloader", d.l.a.e.b.d.b.f72184a, d.l.a.e.b.d.b.f72185b);
+                    this.f38580d = new d.l.a.e.b.b.c(f38577b, "downloadChunk", d.l.a.e.b.d.b.f72186c, d.l.a.e.b.d.b.f72187d);
+                    this.f38581e = new d.l.a.e.b.b.c(f38577b, "segments", d.l.a.e.b.d.b.f72188e, d.l.a.e.b.d.b.f72189f);
                 }
             }
         }
@@ -811,7 +811,7 @@ public class e extends c.a implements t {
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65569, this) == null) {
-            f38402b.beginTransaction();
+            f38577b.beginTransaction();
         }
     }
 
@@ -819,10 +819,10 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65570, this) == null) {
             try {
-                if (f38402b == null || !f38402b.inTransaction()) {
+                if (f38577b == null || !f38577b.inTransaction()) {
                     return;
                 }
-                f38402b.endTransaction();
+                f38577b.endTransaction();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -835,9 +835,9 @@ public class e extends c.a implements t {
         if (interceptable == null || interceptable.invokeV(65571, this) == null) {
             synchronized (this) {
                 i();
-                f38402b.delete("downloader", null, null);
-                f38402b.delete("downloadChunk", null, null);
-                f38402b.setTransactionSuccessful();
+                f38577b.delete("downloader", null, null);
+                f38577b.delete("downloadChunk", null, null);
+                f38577b.setTransactionSuccessful();
                 j();
             }
         }
@@ -914,7 +914,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
             h();
-            if (f38402b != null && (cVar = this.f38404c) != null) {
+            if (f38577b != null && (cVar = this.f38579c) != null) {
                 try {
                     a(i2, cVar.b());
                     return true;
@@ -955,9 +955,9 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i2)) == null) {
             h();
-            if (f38402b != null) {
+            if (f38577b != null) {
                 try {
-                    cursor = f38402b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "segments", "_id"), new String[]{Integer.toString(i2)});
+                    cursor = f38577b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "segments", "_id"), new String[]{Integer.toString(i2)});
                     try {
                         if (cursor.moveToNext()) {
                             int columnIndex = cursor.getColumnIndex("info");
@@ -998,11 +998,11 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
             h();
-            if (f38402b == null) {
+            if (f38577b == null) {
                 return;
             }
             try {
-                a(i2, this.f38406e.b());
+                a(i2, this.f38581e.b());
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -1024,9 +1024,9 @@ public class e extends c.a implements t {
                 return;
             }
         }
-        this.f38403a = null;
+        this.f38578a = null;
         if (z) {
-            this.f38407f = false;
+            this.f38582f = false;
             a();
         }
     }
@@ -1038,9 +1038,9 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
             h();
-            if (f38402b != null) {
+            if (f38577b != null) {
                 try {
-                    cursor = f38402b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "_id"), new String[]{Integer.toString(i2)});
+                    cursor = f38577b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "_id"), new String[]{Integer.toString(i2)});
                     try {
                         if (cursor.moveToNext()) {
                             DownloadInfo downloadInfo = new DownloadInfo(cursor);
@@ -1076,10 +1076,10 @@ public class e extends c.a implements t {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
             ArrayList arrayList = new ArrayList();
             h();
-            if (f38402b != null) {
+            if (f38577b != null) {
                 Cursor cursor = null;
                 try {
-                    cursor = f38402b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloadChunk", "_id"), new String[]{Integer.toString(i2)});
+                    cursor = f38577b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloadChunk", "_id"), new String[]{Integer.toString(i2)});
                     while (cursor.moveToNext()) {
                         arrayList.add(new com.ss.android.socialbase.downloader.model.b(cursor));
                     }
@@ -1104,7 +1104,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
             h();
-            if (f38402b == null || this.f38405d == null) {
+            if (f38577b == null || this.f38580d == null) {
                 return;
             }
             d.l.a.e.b.g.e.g0(new f(this, i2));
@@ -1148,9 +1148,9 @@ public class e extends c.a implements t {
                 try {
                     if (!a(downloadInfo.getId())) {
                         c(downloadInfo);
-                    } else if (this.f38404c == null) {
+                    } else if (this.f38579c == null) {
                     } else {
-                        b(downloadInfo, this.f38404c.c());
+                        b(downloadInfo, this.f38579c.c());
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -1239,7 +1239,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65564, this, downloadInfo) == null) {
             h();
-            if (f38402b == null || this.f38404c == null) {
+            if (f38577b == null || this.f38579c == null) {
                 return;
             }
             d.l.a.e.b.g.e.g0(new k(this, downloadInfo));
@@ -1281,7 +1281,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             h();
-            if (f38402b == null) {
+            if (f38577b == null) {
                 return;
             }
             d.l.a.e.b.g.e.g0(new d(this));
@@ -1308,7 +1308,7 @@ public class e extends c.a implements t {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f38407f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f38582f : invokeV.booleanValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
@@ -1348,10 +1348,10 @@ public class e extends c.a implements t {
     public void a(List<DownloadInfo> list, List<Integer> list2, SparseArray<DownloadInfo> sparseArray, SparseArray<DownloadInfo> sparseArray2, SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray3) {
         int size;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65558, this, list, list2, sparseArray, sparseArray2, sparseArray3) == null) || (size = sparseArray.size()) < 0 || f38402b == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65558, this, list, list2, sparseArray, sparseArray2, sparseArray3) == null) || (size = sparseArray.size()) < 0 || f38577b == null) {
             return;
         }
-        synchronized (f38402b) {
+        synchronized (f38577b) {
             try {
                 i();
                 if (!list.isEmpty()) {
@@ -1361,26 +1361,26 @@ public class e extends c.a implements t {
                             strArr[i2] = String.valueOf(list.get(i2));
                         }
                         String str = "CAST(_id AS TEXT) IN (" + new String(new char[list.size() - 1]).replace("\u0000", "?,") + "?)";
-                        f38402b.delete("downloader", str, strArr);
-                        f38402b.delete("downloadChunk", str, strArr);
+                        f38577b.delete("downloader", str, strArr);
+                        f38577b.delete("downloadChunk", str, strArr);
                     } else {
                         String join = TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, list2);
-                        f38402b.delete("downloader", "_id IN (?)", new String[]{join});
-                        f38402b.delete("downloadChunk", "_id IN (?)", new String[]{join});
+                        f38577b.delete("downloader", "_id IN (?)", new String[]{join});
+                        f38577b.delete("downloadChunk", "_id IN (?)", new String[]{join});
                     }
                 }
                 for (int i3 = 0; i3 < size; i3++) {
                     int keyAt = sparseArray.keyAt(i3);
                     DownloadInfo downloadInfo = sparseArray.get(keyAt);
-                    f38402b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
-                    f38402b.insert("downloader", null, downloadInfo.toContentValues());
+                    f38577b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
+                    f38577b.insert("downloader", null, downloadInfo.toContentValues());
                     if (downloadInfo.getChunkCount() > 1) {
                         List<com.ss.android.socialbase.downloader.model.b> c2 = c(keyAt);
                         if (c2.size() > 0) {
-                            f38402b.delete("downloadChunk", "_id = ?", new String[]{String.valueOf(keyAt)});
+                            f38577b.delete("downloadChunk", "_id = ?", new String[]{String.valueOf(keyAt)});
                             for (com.ss.android.socialbase.downloader.model.b bVar : c2) {
                                 bVar.b(downloadInfo.getId());
-                                f38402b.insert("downloadChunk", null, bVar.a());
+                                f38577b.insert("downloadChunk", null, bVar.a());
                             }
                         }
                     }
@@ -1395,7 +1395,7 @@ public class e extends c.a implements t {
                         }
                     }
                 }
-                f38402b.setTransactionSuccessful();
+                f38577b.setTransactionSuccessful();
                 j();
             } catch (Throwable th) {
                 throw th;
@@ -1432,7 +1432,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65561, this, i2, contentValues) == null) {
             int i3 = 10;
-            while (f38402b.isDbLockedByCurrentThread() && i3 - 1 >= 0) {
+            while (f38577b.isDbLockedByCurrentThread() && i3 - 1 >= 0) {
                 try {
                     Thread.sleep(5L);
                 } catch (Throwable th) {
@@ -1440,7 +1440,7 @@ public class e extends c.a implements t {
                     return;
                 }
             }
-            f38402b.update("downloader", contentValues, "_id = ? ", new String[]{String.valueOf(i2)});
+            f38577b.update("downloader", contentValues, "_id = ? ", new String[]{String.valueOf(i2)});
         }
     }
 
@@ -1466,10 +1466,10 @@ public class e extends c.a implements t {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             h();
             ArrayList arrayList = new ArrayList();
-            if (f38402b != null) {
+            if (f38577b != null) {
                 Cursor cursor = null;
                 try {
-                    cursor = f38402b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "url"), new String[]{str});
+                    cursor = f38577b.rawQuery(String.format("SELECT * FROM %s WHERE %s = ?", "downloader", "url"), new String[]{str});
                     if (cursor.moveToNext()) {
                         arrayList.add(new DownloadInfo(cursor));
                     }
@@ -1510,7 +1510,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             h();
-            if (f38402b == null || this.f38405d == null) {
+            if (f38577b == null || this.f38580d == null) {
                 return;
             }
             d.l.a.e.b.g.e.g0(new g(this, bVar));
@@ -1554,7 +1554,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
             h();
-            if (i2 == 0 || i3 < 0 || j2 < 0 || f38402b == null || this.f38405d == null) {
+            if (i2 == 0 || i3 < 0 || j2 < 0 || f38577b == null || this.f38580d == null) {
                 return;
             }
             d.l.a.e.b.g.e.g0(new h(this, i2, i3, j2));
@@ -1566,7 +1566,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
             h();
-            if (i2 == 0 || i3 < 0 || i4 < 0 || j2 < 0 || f38402b == null || this.f38405d == null) {
+            if (i2 == 0 || i3 < 0 || i4 < 0 || j2 < 0 || f38577b == null || this.f38580d == null) {
                 return;
             }
             d.l.a.e.b.g.e.g0(new i(this, i2, i3, i4, j2));
@@ -1578,7 +1578,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
             h();
-            if (i2 == 0 || i4 < 0 || i5 == i3 || i5 < 0 || f38402b == null || this.f38405d == null) {
+            if (i2 == 0 || i4 < 0 || i5 == i3 || i5 < 0 || f38577b == null || this.f38580d == null) {
                 return;
             }
             d.l.a.e.b.g.e.g0(new j(this, i2, i3, i4, i5));
@@ -1593,7 +1593,7 @@ public class e extends c.a implements t {
                 synchronized (sQLiteStatement) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("chunkIndex", Integer.valueOf(i5));
-                    f38402b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
+                    f38577b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -1609,7 +1609,7 @@ public class e extends c.a implements t {
                 synchronized (sQLiteStatement) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("curOffset", Long.valueOf(j2));
-                    f38402b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3)});
+                    f38577b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3)});
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -1625,7 +1625,7 @@ public class e extends c.a implements t {
                 synchronized (sQLiteStatement) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("curOffset", Long.valueOf(j2));
-                    f38402b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
+                    f38577b.update("downloadChunk", contentValues, "_id = ? AND chunkIndex = ? AND hostChunkIndex = ?", new String[]{Integer.toString(i2), Integer.toString(i3), Integer.toString(i4)});
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -1639,11 +1639,11 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
             h();
-            if (f38402b == null) {
+            if (f38577b == null) {
                 return null;
             }
             int i4 = 10;
-            while (f38402b.isDbLockedByCurrentThread() && i4 - 1 >= 0) {
+            while (f38577b.isDbLockedByCurrentThread() && i4 - 1 >= 0) {
                 try {
                     Thread.sleep(5L);
                 } catch (Throwable th) {
@@ -1652,7 +1652,7 @@ public class e extends c.a implements t {
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("chunkCount", Integer.valueOf(i3));
-            f38402b.update("downloader", contentValues, "_id = ? ", new String[]{Integer.toString(i2)});
+            f38577b.update("downloader", contentValues, "_id = ? ", new String[]{Integer.toString(i2)});
             return null;
         }
         return (DownloadInfo) invokeII.objValue;
@@ -1664,7 +1664,7 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, downloadInfo)) == null) {
             h();
-            if (downloadInfo == null || f38402b == null) {
+            if (downloadInfo == null || f38577b == null) {
                 return false;
             }
             d.l.a.e.b.g.e.g0(new a(this, downloadInfo));
@@ -1712,7 +1712,7 @@ public class e extends c.a implements t {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i2, map)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             h();
-            if (f38402b == null) {
+            if (f38577b == null) {
                 return false;
             }
             JSONArray jSONArray = new JSONArray();
@@ -1724,7 +1724,7 @@ public class e extends c.a implements t {
                 th.printStackTrace();
             }
             Log.d("SqlDownloadCache", "json=" + jSONArray);
-            SQLiteStatement d2 = this.f38406e.d();
+            SQLiteStatement d2 = this.f38581e.d();
             synchronized (d2) {
                 d2.clearBindings();
                 d2.bindLong(1, i2);
@@ -1741,10 +1741,10 @@ public class e extends c.a implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, this, i2, contentValues) == null) {
             h();
-            if (f38402b == null) {
+            if (f38577b == null) {
                 return;
             }
-            d.l.a.e.b.g.e.g0(new RunnableC0490e(this, i2, contentValues));
+            d.l.a.e.b.g.e.g0(new RunnableC0492e(this, i2, contentValues));
         }
     }
 
@@ -1752,7 +1752,7 @@ public class e extends c.a implements t {
     public void a(com.ss.android.socialbase.downloader.b.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f38403a = bVar;
+            this.f38578a = bVar;
         }
     }
 
@@ -1762,8 +1762,8 @@ public class e extends c.a implements t {
             try {
                 HashMap q = d.l.a.e.b.l.f.q(sparseArray);
                 HashMap q2 = d.l.a.e.b.l.f.q(sparseArray2);
-                if (this.f38403a != null) {
-                    this.f38403a.a(q, q2);
+                if (this.f38578a != null) {
+                    this.f38578a.a(q, q2);
                 }
             } catch (Throwable unused) {
             }

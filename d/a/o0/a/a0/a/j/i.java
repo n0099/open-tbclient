@@ -1,0 +1,131 @@
+package d.a.o0.a.a0.a.j;
+
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.RadialGradient;
+import android.graphics.Shader;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.gesture.GestureAR;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f43748a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f43749b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Shader f43750c;
+
+    public i(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43748a = "";
+        e(jSONArray);
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43749b : invokeV.intValue;
+    }
+
+    public Shader b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43750c : (Shader) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.equals(this.f43748a, "linearGradient") || TextUtils.equals(this.f43748a, "circularGradient") : invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !TextUtils.isEmpty(this.f43748a) : invokeV.booleanValue;
+    }
+
+    public void e(JSONArray jSONArray) {
+        float[] fArr;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
+            int i2 = 0;
+            try {
+                String optString = jSONArray.optString(0);
+                int i3 = 4;
+                int i4 = 1;
+                if (TextUtils.equals(optString, "normal")) {
+                    JSONArray optJSONArray = jSONArray.optJSONArray(1);
+                    if (optJSONArray.length() == 4) {
+                        this.f43749b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
+                        this.f43748a = "normal";
+                    }
+                } else if (TextUtils.equals(optString, "linearGradient") || TextUtils.equals(optString, "circularGradient")) {
+                    JSONArray optJSONArray2 = jSONArray.optJSONArray(1);
+                    int[] iArr = null;
+                    if (optJSONArray2 == null || (length = optJSONArray2.length()) <= 0) {
+                        fArr = null;
+                    } else {
+                        iArr = new int[length];
+                        fArr = new float[length];
+                        int i5 = 0;
+                        while (i5 < length) {
+                            JSONObject optJSONObject = optJSONArray2.optJSONObject(i5);
+                            JSONArray optJSONArray3 = optJSONObject.optJSONArray("color");
+                            if (optJSONArray3.length() == i3) {
+                                iArr[i5] = Color.argb(optJSONArray3.optInt(3), optJSONArray3.optInt(i2), optJSONArray3.optInt(i4), optJSONArray3.optInt(2));
+                            }
+                            fArr[i5] = (float) optJSONObject.optDouble(IntentConfig.STOP);
+                            i5++;
+                            i2 = 0;
+                            i3 = 4;
+                            i4 = 1;
+                        }
+                    }
+                    if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
+                        JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
+                        if (TextUtils.equals(optString, "linearGradient")) {
+                            this.f43750c = new LinearGradient(d.a.o0.a.v2.n0.g(optJSONObject2.optInt("x0")), d.a.o0.a.v2.n0.g(optJSONObject2.optInt("y0")), d.a.o0.a.v2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), d.a.o0.a.v2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
+                            this.f43748a = "linearGradient";
+                            return;
+                        }
+                        this.f43750c = new RadialGradient(d.a.o0.a.v2.n0.g(optJSONObject2.optInt("x")), d.a.o0.a.v2.n0.g(optJSONObject2.optInt("y")), d.a.o0.a.v2.n0.g(optJSONObject2.optInt(com.baidu.mapsdkplatform.comapi.map.r.f7788a)), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.f43748a = "circularGradient";
+                    }
+                }
+            } catch (Exception e2) {
+                if (d.a.o0.a.k.f46335a) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+}

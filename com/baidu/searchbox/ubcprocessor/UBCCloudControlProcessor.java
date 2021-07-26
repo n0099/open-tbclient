@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
-import d.a.r0.t;
-import d.a.r0.x;
+import d.a.s0.t;
+import d.a.s0.x;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -124,7 +124,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             this.val$step = r8;
                         }
 
-                        @Override // d.a.r0.t
+                        @Override // d.a.s0.t
                         public void setUBCConfigStatisticData(JSONObject jSONObject) {
                             ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                             Interceptable interceptable2 = $ic;

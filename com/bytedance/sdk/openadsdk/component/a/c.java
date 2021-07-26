@@ -18,13 +18,13 @@ public class c extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f29286a;
+    public ImageView f29386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f29287b;
+    public final Context f29387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public m f29288c;
+    public m f29388c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(@NonNull Context context) {
@@ -44,47 +44,47 @@ public class c extends FrameLayout {
                 return;
             }
         }
-        this.f29287b = context;
+        this.f29387b = context;
         c();
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            ImageView imageView = new ImageView(this.f29287b);
-            this.f29286a = imageView;
+            ImageView imageView = new ImageView(this.f29387b);
+            this.f29386a = imageView;
             imageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.f29286a.setScaleType(ImageView.ScaleType.FIT_XY);
-            addView(this.f29286a);
+            this.f29386a.setScaleType(ImageView.ScaleType.FIT_XY);
+            addView(this.f29386a);
         }
     }
 
     public m a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29288c : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29388c : (m) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f29286a.setImageBitmap(null);
+            this.f29386a.setImageBitmap(null);
             setOnClickListener(null);
-            this.f29288c = null;
+            this.f29388c = null;
         }
     }
 
     public void a(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-            this.f29288c = mVar;
+            this.f29388c = mVar;
         }
     }
 
     public void a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-            this.f29286a.setImageBitmap(bitmap);
+            this.f29386a.setImageBitmap(bitmap);
         }
     }
 }

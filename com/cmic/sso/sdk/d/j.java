@@ -17,11 +17,11 @@ public class j {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public static j f32657b;
+    public static j f32844b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32658a;
+    public Context f32845a;
 
     public j(Context context) {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class j {
                 return;
             }
         }
-        this.f32658a = context;
+        this.f32845a = context;
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            f32657b = new j(context);
+            f32844b = new j(context);
         }
     }
 
@@ -53,7 +53,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                b.C0371b b2 = com.cmic.sso.sdk.a.b.a().b();
+                b.C0373b b2 = com.cmic.sso.sdk.a.b.a().b();
                 return b2.e(b2.d());
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -83,7 +83,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                b.C0371b b2 = com.cmic.sso.sdk.a.b.a().b();
+                b.C0373b b2 = com.cmic.sso.sdk.a.b.a().b();
                 String e2 = b2.e((b2.d() + 1) % 2);
                 return e2 == null ? "" : e2;
             } catch (Exception unused) {
@@ -98,7 +98,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            b.C0371b b2 = com.cmic.sso.sdk.a.b.a().b();
+            b.C0373b b2 = com.cmic.sso.sdk.a.b.a().b();
             return b2.a(b2.d());
         }
         return (String) invokeV.objValue;
@@ -108,7 +108,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f32658a.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f32845a.getSystemService("phone");
             if (telephonyManager != null) {
                 String simOperator = telephonyManager.getSimOperator();
                 c.b("SIMUtils", "SysOperType = " + simOperator);
@@ -122,7 +122,7 @@ public class j {
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32657b : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32844b : (j) invokeV.objValue;
     }
 
     @SuppressLint({"MissingPermission"})
@@ -131,11 +131,11 @@ public class j {
         TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            b.C0371b b2 = com.cmic.sso.sdk.a.b.a().b();
+            b.C0373b b2 = com.cmic.sso.sdk.a.b.a().b();
             String f2 = b2.f(b2.d());
-            if (TextUtils.isEmpty(f2) && n.a(this.f32658a) && (telephonyManager = (TelephonyManager) this.f32658a.getSystemService("phone")) != null) {
+            if (TextUtils.isEmpty(f2) && n.a(this.f32845a) && (telephonyManager = (TelephonyManager) this.f32845a.getSystemService("phone")) != null) {
                 f2 = telephonyManager.getSimOperator();
-                if (TextUtils.isEmpty(f2) && g.a(this.f32658a, "android.permission.READ_PHONE_STATE") && n.d()) {
+                if (TextUtils.isEmpty(f2) && g.a(this.f32845a, "android.permission.READ_PHONE_STATE") && n.d()) {
                     String str = null;
                     try {
                         str = telephonyManager.getSubscriberId();

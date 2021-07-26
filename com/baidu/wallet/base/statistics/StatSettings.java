@@ -46,23 +46,23 @@ public class StatSettings extends StatisticsSettings {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f24123a;
+    public boolean f24281a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24124b;
+    public String f24282b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24125c;
+    public String f24283c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f24126d;
+    public Context f24284d;
 
     /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatSettings f24128a;
+        public static StatSettings f24286a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -78,7 +78,7 @@ public class StatSettings extends StatisticsSettings {
                     return;
                 }
             }
-            f24128a = new StatSettings();
+            f24286a = new StatSettings();
         }
 
         public a() {
@@ -98,8 +98,8 @@ public class StatSettings extends StatisticsSettings {
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, context) == null) && this.f24126d == null && context != null) {
-            this.f24126d = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(65539, this, context) == null) && this.f24284d == null && context != null) {
+            this.f24284d = context.getApplicationContext();
         }
     }
 
@@ -107,8 +107,8 @@ public class StatSettings extends StatisticsSettings {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            a.f24128a.a(context);
-            return a.f24128a;
+            a.f24286a.a(context);
+            return a.f24286a;
         }
         return (StatSettings) invokeL.objValue;
     }
@@ -121,13 +121,13 @@ public class StatSettings extends StatisticsSettings {
             JSONObject jSONObject = new JSONObject();
             try {
                 com.baidu.wallet.base.statistics.a a2 = com.baidu.wallet.base.statistics.a.a();
-                jSONObject.putOpt("ua", a2.c(this.f24126d));
-                jSONObject.putOpt("cu", a2.a(this.f24126d));
-                jSONObject.put("cu2", a2.b(this.f24126d));
-                jSONObject.putOpt("op", a2.d(this.f24126d));
-                jSONObject.putOpt("bs", a2.e(this.f24126d));
-                jSONObject.putOpt("bk", a2.f(this.f24126d));
-                jSONObject.putOpt("sd", a2.h(this.f24126d));
+                jSONObject.putOpt("ua", a2.c(this.f24284d));
+                jSONObject.putOpt("cu", a2.a(this.f24284d));
+                jSONObject.put("cu2", a2.b(this.f24284d));
+                jSONObject.putOpt("op", a2.d(this.f24284d));
+                jSONObject.putOpt("bs", a2.e(this.f24284d));
+                jSONObject.putOpt("bk", a2.f(this.f24284d));
+                jSONObject.putOpt("sd", a2.h(this.f24284d));
                 jSONObject.putOpt(UNIONID, a2.b());
             } catch (JSONException unused) {
             }
@@ -159,10 +159,10 @@ public class StatSettings extends StatisticsSettings {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f24124b == null) {
-                this.f24124b = "com.baidu.wallet.pay,com.baidu.wallet.balance," + BuildConfig.APPLICATION_ID + ",com.baidu.wallet.fastpay,com.baidu.wallet.home,com.baidu.wallet.paysdk,com.baidu.wallet.personal,com.baidu.wallet.scancode,com.baidu.wallet.transfer,com.baidu.wallet,com.baidu.android.pay,com.baidu.android.lbspay";
+            if (this.f24282b == null) {
+                this.f24282b = "com.baidu.wallet.pay,com.baidu.wallet.balance," + BuildConfig.APPLICATION_ID + ",com.baidu.wallet.fastpay,com.baidu.wallet.home,com.baidu.wallet.paysdk,com.baidu.wallet.personal,com.baidu.wallet.scancode,com.baidu.wallet.transfer,com.baidu.wallet,com.baidu.android.pay,com.baidu.android.lbspay";
             }
-            return this.f24124b;
+            return this.f24282b;
         }
         return (String) invokeV.objValue;
     }
@@ -172,7 +172,7 @@ public class StatSettings extends StatisticsSettings {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return a(this.f24126d, 0, DebugConfig.getInstance(this.f24126d).getStatStrategyHost() + GET_STRATETY_URL);
+            return a(this.f24284d, 0, DebugConfig.getInstance(this.f24284d).getStatStrategyHost() + GET_STRATETY_URL);
         }
         return (String) invokeV.objValue;
     }
@@ -211,13 +211,13 @@ public class StatSettings extends StatisticsSettings {
     public boolean isReleaseVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24123a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24281a : invokeV.booleanValue;
     }
 
     public void setReleaseVesionFlag(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f24123a = z;
+            this.f24281a = z;
         }
     }
 
@@ -234,8 +234,8 @@ public class StatSettings extends StatisticsSettings {
                 return;
             }
         }
-        this.f24123a = true;
-        this.f24124b = null;
+        this.f24281a = true;
+        this.f24282b = null;
     }
 
     private String a(Context context, int i2, String str) {
@@ -257,7 +257,7 @@ public class StatSettings extends StatisticsSettings {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ StatSettings f24127a;
+                public final /* synthetic */ StatSettings f24285a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -274,7 +274,7 @@ public class StatSettings extends StatisticsSettings {
                             return;
                         }
                     }
-                    this.f24127a = this;
+                    this.f24285a = this;
                 }
 
                 @Override // com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor

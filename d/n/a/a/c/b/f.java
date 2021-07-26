@@ -18,13 +18,13 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f implements d.n.a.a.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f72187e;
+    public Context f72641e;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class f implements d.n.a.a.a.b.b {
                 return;
             }
         }
-        this.f72187e = context;
+        this.f72641e = context;
     }
 
     public static String a(int i2) {
@@ -91,7 +91,7 @@ public class f implements d.n.a.a.a.b.b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
                 e a2 = d.a(new String[]{str}, false, true);
-                return !TextUtils.isEmpty(a2.f72185b) ? a2.f72185b : (TextUtils.isEmpty(a2.f72186c) || !a2.f72186c.contains("denied")) ? TextUtils.isEmpty(a2.f72185b) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
+                return !TextUtils.isEmpty(a2.f72639b) ? a2.f72639b : (TextUtils.isEmpty(a2.f72640c) || !a2.f72640c.contains("denied")) ? TextUtils.isEmpty(a2.f72639b) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
             } catch (Throwable th) {
                 c.c(th);
                 return "KWE_PE";
@@ -237,7 +237,7 @@ public class f implements d.n.a.a.a.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d.n.a.a.a.b.e.a a2 = d.n.a.a.a.b.e.a.a(this.f72187e);
+            d.n.a.a.a.b.e.a a2 = d.n.a.a.a.b.e.a.a(this.f72641e);
             String c2 = !a2.d() ? null : a2.c("oaid");
             return TextUtils.isEmpty(c2) ? "" : c2;
         }
@@ -248,7 +248,7 @@ public class f implements d.n.a.a.a.b.b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? d.n.a.a.a.b.e.a.a(this.f72187e).d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? d.n.a.a.a.b.e.a.a(this.f72641e).d() : invokeV.booleanValue;
     }
 
     @Override // d.n.a.a.a.b.b

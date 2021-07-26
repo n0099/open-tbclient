@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
+import d.a.p0.s.q.b2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,7 @@ public class VideoAttentionPersonListData implements Serializable {
         for (int i2 = 0; i2 < list.size(); i2++) {
             VideoItemData videoItemData = new VideoItemData();
             b2 b2Var = new b2();
-            b2Var.I2(list.get(i2));
+            b2Var.K2(list.get(i2));
             videoItemData.parseProto(b2Var);
             this.mVideoItemDatas.add(videoItemData);
         }

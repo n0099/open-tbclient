@@ -19,17 +19,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.d;
-import d.a.n0.a.f;
-import d.a.n0.a.g;
-import d.a.n0.a.h;
+import d.a.o0.a.d;
+import d.a.o0.a.f;
+import d.a.o0.a.g;
+import d.a.o0.a.h;
 /* loaded from: classes3.dex */
 public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f11366i;
+    public RelativeLayout f11392i;
     public ImageView j;
     public ProgressBar k;
     public TextView l;
@@ -109,7 +109,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RelativeLayout relativeLayout = this.f11366i;
+            RelativeLayout relativeLayout = this.f11392i;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }
@@ -161,7 +161,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.f11366i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+            this.f11392i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
             this.j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
             this.l = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
             this.k = (ProgressBar) findViewById(f.pull_to_refresh_header_progressbar);

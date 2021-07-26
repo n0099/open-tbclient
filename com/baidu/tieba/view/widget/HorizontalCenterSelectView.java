@@ -34,19 +34,19 @@ public class HorizontalCenterSelectView extends RecyclerView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<String> f22349e;
+    public final List<String> f22507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f22350f;
+    public final Paint f22508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f22351g;
+    public c f22509g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayoutManager f22352h;
+    public LinearLayoutManager f22510h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f22353i;
+    public float f22511i;
     public float j;
     public int k;
     public boolean l;
@@ -61,7 +61,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HorizontalCenterSelectView f22354a;
+        public final /* synthetic */ HorizontalCenterSelectView f22512a;
 
         public a(HorizontalCenterSelectView horizontalCenterSelectView) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
                     return;
                 }
             }
-            this.f22354a = horizontalCenterSelectView;
+            this.f22512a = horizontalCenterSelectView;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -86,11 +86,11 @@ public class HorizontalCenterSelectView extends RecyclerView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) {
                 super.onScrollStateChanged(recyclerView, i2);
-                if (i2 == 0 && this.f22354a.l) {
-                    int findFirstVisibleItemPosition = this.f22354a.f22352h.findFirstVisibleItemPosition();
-                    int findLastVisibleItemPosition = findFirstVisibleItemPosition + ((this.f22354a.f22352h.findLastVisibleItemPosition() - findFirstVisibleItemPosition) / 2);
-                    int width = this.f22354a.getWidth() / 2;
-                    View childAt = this.f22354a.getChildAt(findLastVisibleItemPosition);
+                if (i2 == 0 && this.f22512a.l) {
+                    int findFirstVisibleItemPosition = this.f22512a.f22510h.findFirstVisibleItemPosition();
+                    int findLastVisibleItemPosition = findFirstVisibleItemPosition + ((this.f22512a.f22510h.findLastVisibleItemPosition() - findFirstVisibleItemPosition) / 2);
+                    int width = this.f22512a.getWidth() / 2;
+                    View childAt = this.f22512a.getChildAt(findLastVisibleItemPosition);
                     if (childAt != null) {
                         int left = childAt.getLeft();
                         int width2 = childAt.getWidth();
@@ -101,8 +101,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                             findLastVisibleItemPosition--;
                         }
                     }
-                    this.f22354a.q(findLastVisibleItemPosition);
-                    this.f22354a.l = false;
+                    this.f22512a.q(findLastVisibleItemPosition);
+                    this.f22512a.l = false;
                 }
             }
         }
@@ -114,7 +114,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorizontalCenterSelectView f22355e;
+        public final /* synthetic */ HorizontalCenterSelectView f22513e;
 
         public b(HorizontalCenterSelectView horizontalCenterSelectView) {
             Interceptable interceptable = $ic;
@@ -131,14 +131,14 @@ public class HorizontalCenterSelectView extends RecyclerView {
                     return;
                 }
             }
-            this.f22355e = horizontalCenterSelectView;
+            this.f22513e = horizontalCenterSelectView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HorizontalCenterSelectView horizontalCenterSelectView = this.f22355e;
+                HorizontalCenterSelectView horizontalCenterSelectView = this.f22513e;
                 horizontalCenterSelectView.p(horizontalCenterSelectView.m);
             }
         }
@@ -150,7 +150,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HorizontalCenterSelectView f22356a;
+        public final /* synthetic */ HorizontalCenterSelectView f22514a;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -158,10 +158,10 @@ public class HorizontalCenterSelectView extends RecyclerView {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f22357e;
+            public final /* synthetic */ int f22515e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f22358f;
+            public final /* synthetic */ c f22516f;
 
             public a(c cVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -178,15 +178,15 @@ public class HorizontalCenterSelectView extends RecyclerView {
                         return;
                     }
                 }
-                this.f22358f = cVar;
-                this.f22357e = i2;
+                this.f22516f = cVar;
+                this.f22515e = i2;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f22358f.f22356a.p(this.f22357e);
+                    this.f22516f.f22514a.p(this.f22515e);
                 }
             }
         }
@@ -197,10 +197,10 @@ public class HorizontalCenterSelectView extends RecyclerView {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public RelativeLayout f22359a;
+            public RelativeLayout f22517a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TextView f22360b;
+            public TextView f22518b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(@NonNull c cVar, View view) {
@@ -220,8 +220,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                         return;
                     }
                 }
-                this.f22359a = (RelativeLayout) view.findViewById(R.id.tv_parent);
-                this.f22360b = (TextView) view.findViewById(R.id.tv);
+                this.f22517a = (RelativeLayout) view.findViewById(R.id.tv_parent);
+                this.f22518b = (TextView) view.findViewById(R.id.tv);
             }
         }
 
@@ -240,7 +240,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
                     return;
                 }
             }
-            this.f22356a = horizontalCenterSelectView;
+            this.f22514a = horizontalCenterSelectView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -249,33 +249,33 @@ public class HorizontalCenterSelectView extends RecyclerView {
         public void onBindViewHolder(@NonNull b bVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bVar, i2) == null) {
-                if (this.f22356a.f22349e.get(i2) == null) {
-                    ViewGroup.LayoutParams layoutParams = bVar.f22360b.getLayoutParams();
+                if (this.f22514a.f22507e.get(i2) == null) {
+                    ViewGroup.LayoutParams layoutParams = bVar.f22518b.getLayoutParams();
                     if (i2 < getItemCount() / 2) {
-                        layoutParams.width = Math.round(this.f22356a.j);
+                        layoutParams.width = Math.round(this.f22514a.j);
                     } else {
-                        layoutParams.width = Math.round(this.f22356a.f22353i);
+                        layoutParams.width = Math.round(this.f22514a.f22511i);
                     }
-                    bVar.f22360b.setText("");
-                    bVar.f22360b.setVisibility(4);
+                    bVar.f22518b.setText("");
+                    bVar.f22518b.setVisibility(4);
                 } else {
-                    bVar.f22360b.getLayoutParams().width = -2;
-                    bVar.f22360b.setText((CharSequence) this.f22356a.f22349e.get(i2));
-                    bVar.f22360b.setVisibility(0);
+                    bVar.f22518b.getLayoutParams().width = -2;
+                    bVar.f22518b.setText((CharSequence) this.f22514a.f22507e.get(i2));
+                    bVar.f22518b.setVisibility(0);
                 }
-                bVar.f22360b.setTextSize(0, this.f22356a.f22350f.getTextSize());
-                bVar.f22360b.setTextColor(this.f22356a.f22350f.getColor());
-                d.a.o0.r.u.c.d(bVar.f22360b).w(R.array.S_O_X001);
-                bVar.f22360b.setOnClickListener(new a(this, i2));
-                if (i2 == this.f22356a.m) {
-                    bVar.f22360b.setAlpha(1.0f);
+                bVar.f22518b.setTextSize(0, this.f22514a.f22508f.getTextSize());
+                bVar.f22518b.setTextColor(this.f22514a.f22508f.getColor());
+                d.a.p0.s.u.c.d(bVar.f22518b).w(R.array.S_O_X001);
+                bVar.f22518b.setOnClickListener(new a(this, i2));
+                if (i2 == this.f22514a.m) {
+                    bVar.f22518b.setAlpha(1.0f);
                 } else {
-                    bVar.f22360b.setAlpha(0.5f);
+                    bVar.f22518b.setAlpha(0.5f);
                 }
                 ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
-                marginLayoutParams.leftMargin = this.f22356a.k / 2;
-                marginLayoutParams.rightMargin = this.f22356a.k / 2;
-                bVar.f22359a.setLayoutParams(marginLayoutParams);
+                marginLayoutParams.leftMargin = this.f22514a.k / 2;
+                marginLayoutParams.rightMargin = this.f22514a.k / 2;
+                bVar.f22517a.setLayoutParams(marginLayoutParams);
             }
         }
 
@@ -286,14 +286,14 @@ public class HorizontalCenterSelectView extends RecyclerView {
         public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) ? new b(this, LayoutInflater.from(this.f22356a.getContext()).inflate(this.f22356a.o, viewGroup, false)) : (b) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) ? new b(this, LayoutInflater.from(this.f22514a.getContext()).inflate(this.f22514a.o, viewGroup, false)) : (b) invokeLI.objValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22356a.f22349e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22514a.f22507e.size() : invokeV.intValue;
         }
 
         public /* synthetic */ c(HorizontalCenterSelectView horizontalCenterSelectView, a aVar) {
@@ -349,9 +349,9 @@ public class HorizontalCenterSelectView extends RecyclerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
             float f2 = 0.0f;
-            if (i2 >= 2 && i3 <= this.f22349e.size() - 2) {
+            if (i2 >= 2 && i3 <= this.f22507e.size() - 2) {
                 while (i2 < i3) {
-                    f2 += this.f22350f.measureText(this.f22349e.get(i2)) + this.k;
+                    f2 += this.f22508f.measureText(this.f22507e.get(i2)) + this.k;
                     i2++;
                 }
             }
@@ -363,15 +363,15 @@ public class HorizontalCenterSelectView extends RecyclerView {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f22350f.setTextSize(q);
+            this.f22508f.setTextSize(q);
             this.k = r;
             c cVar = new c(this, null);
-            this.f22351g = cVar;
+            this.f22509g = cVar;
             setAdapter(cVar);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-            this.f22352h = linearLayoutManager;
+            this.f22510h = linearLayoutManager;
             linearLayoutManager.setOrientation(0);
-            setLayoutManager(this.f22352h);
+            setLayoutManager(this.f22510h);
             addOnScrollListener(this.p);
         }
     }
@@ -380,11 +380,11 @@ public class HorizontalCenterSelectView extends RecyclerView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            float n = n(2, this.f22349e.size() - 2);
-            float n2 = n(2, (this.f22349e.size() - 2) - 1);
-            float n3 = n(3, this.f22349e.size() - 2);
+            float n = n(2, this.f22507e.size() - 2);
+            float n2 = n(2, (this.f22507e.size() - 2) - 1);
+            float n3 = n(3, this.f22507e.size() - 2);
             int i4 = this.k;
-            this.f22353i = (n3 / 2.0f) - i4;
+            this.f22511i = (n3 / 2.0f) - i4;
             this.j = (n2 / 2.0f) - i4;
             super.onMeasure(View.MeasureSpec.makeMeasureSpec(Math.round(n + Math.max(n2, n3)), 1073741824), i3);
         }
@@ -409,15 +409,15 @@ public class HorizontalCenterSelectView extends RecyclerView {
             if (i2 < 2) {
                 i2 = 3;
             }
-            if (i2 >= this.f22349e.size() - 2) {
-                i2 = (this.f22349e.size() - 2) - 1;
+            if (i2 >= this.f22507e.size() - 2) {
+                i2 = (this.f22507e.size() - 2) - 1;
             }
             int width = getWidth() / 2;
-            View findViewByPosition = this.f22352h.findViewByPosition(i2);
+            View findViewByPosition = this.f22510h.findViewByPosition(i2);
             if (findViewByPosition != null) {
                 int left = findViewByPosition.getLeft();
                 this.m = i2;
-                this.f22351g.notifyDataSetChanged();
+                this.f22509g.notifyDataSetChanged();
                 smoothScrollBy((left - width) + (findViewByPosition.getWidth() / 2), 0);
                 d dVar = this.n;
                 if (dVar != null) {
@@ -441,13 +441,13 @@ public class HorizontalCenterSelectView extends RecyclerView {
     public void setData(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f22349e.clear();
-            this.f22349e.addAll(list);
+            this.f22507e.clear();
+            this.f22507e.addAll(list);
             for (int i2 = 0; i2 < 2; i2++) {
-                this.f22349e.add(0, null);
-                this.f22349e.add(null);
+                this.f22507e.add(0, null);
+                this.f22507e.add(null);
             }
-            this.f22351g.notifyDataSetChanged();
+            this.f22509g.notifyDataSetChanged();
         }
     }
 
@@ -461,7 +461,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
     public void setItemTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f22350f.setColor(i2);
+            this.f22508f.setColor(i2);
         }
     }
 
@@ -475,7 +475,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
     public void setItemTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f22350f.setTextSize(i2);
+            this.f22508f.setTextSize(i2);
         }
     }
 
@@ -536,8 +536,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                 return;
             }
         }
-        this.f22349e = new ArrayList();
-        this.f22350f = new Paint();
+        this.f22507e = new ArrayList();
+        this.f22508f = new Paint();
         this.l = false;
         this.o = R.layout.item_pading;
         this.p = new a(this);

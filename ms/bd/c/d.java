@@ -31,8 +31,8 @@ public final class d extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Context c2 = a.a().c();
-            return c2 != null ? c2.getPackageName() : "";
+            Context a2 = a.c().a();
+            return a2 != null ? a2.getPackageName() : "";
         }
         return invokeCommon.objValue;
     }

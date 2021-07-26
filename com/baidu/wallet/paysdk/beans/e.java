@@ -19,7 +19,7 @@ public class e extends PayBaseBean<CardListResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SourceFlag f25985a;
+    public SourceFlag f26143a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -39,7 +39,7 @@ public class e extends PayBaseBean<CardListResponse> {
                 return;
             }
         }
-        this.f25985a = SourceFlag.SDK;
+        this.f26143a = SourceFlag.SDK;
     }
 
     public void a(SourceFlag sourceFlag) {
@@ -48,7 +48,7 @@ public class e extends PayBaseBean<CardListResponse> {
             if (sourceFlag == null) {
                 sourceFlag = SourceFlag.SDK;
             }
-            this.f25985a = sourceFlag;
+            this.f26143a = sourceFlag;
         }
     }
 
@@ -66,7 +66,7 @@ public class e extends PayBaseBean<CardListResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("source_flag", this.f25985a.value()));
+            arrayList.add(new RestNameValuePair("source_flag", this.f26143a.value()));
             return arrayList;
         }
         return (List) invokeV.objValue;

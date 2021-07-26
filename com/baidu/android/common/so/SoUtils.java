@@ -179,6 +179,6 @@ public final class SoUtils {
         if (!(interceptable == null || interceptable.invokeL(65546, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        onEvent(com.baidu.swan.apps.so.SoUtils.SO_EVENT_ID_DEFAULT, str);
+        onEvent("24", str);
     }
 }

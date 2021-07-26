@@ -16,7 +16,7 @@ public final class i extends l implements Iterable<l> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<l> f32061a;
+    public final List<l> f32262a;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -31,16 +31,16 @@ public final class i extends l implements Iterable<l> {
                 return;
             }
         }
-        this.f32061a = new ArrayList();
+        this.f32262a = new ArrayList();
     }
 
     public void a(l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
             if (lVar == null) {
-                lVar = n.f32062a;
+                lVar = n.f32263a;
             }
-            this.f32061a.add(lVar);
+            this.f32262a.add(lVar);
         }
     }
 
@@ -49,8 +49,8 @@ public final class i extends l implements Iterable<l> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f32061a.size() == 1) {
-                return this.f32061a.get(0).b();
+            if (this.f32262a.size() == 1) {
+                return this.f32262a.get(0).b();
             }
             throw new IllegalStateException();
         }
@@ -62,8 +62,8 @@ public final class i extends l implements Iterable<l> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f32061a.size() == 1) {
-                return this.f32061a.get(0).c();
+            if (this.f32262a.size() == 1) {
+                return this.f32262a.get(0).c();
             }
             throw new IllegalStateException();
         }
@@ -75,8 +75,8 @@ public final class i extends l implements Iterable<l> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f32061a.size() == 1) {
-                return this.f32061a.get(0).d();
+            if (this.f32262a.size() == 1) {
+                return this.f32262a.get(0).d();
             }
             throw new IllegalStateException();
         }
@@ -88,8 +88,8 @@ public final class i extends l implements Iterable<l> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f32061a.size() == 1) {
-                return this.f32061a.get(0).e();
+            if (this.f32262a.size() == 1) {
+                return this.f32262a.get(0).e();
             }
             throw new IllegalStateException();
         }
@@ -99,7 +99,7 @@ public final class i extends l implements Iterable<l> {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? obj == this || ((obj instanceof i) && ((i) obj).f32061a.equals(this.f32061a)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? obj == this || ((obj instanceof i) && ((i) obj).f32262a.equals(this.f32262a)) : invokeL.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
@@ -107,8 +107,8 @@ public final class i extends l implements Iterable<l> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f32061a.size() == 1) {
-                return this.f32061a.get(0).f();
+            if (this.f32262a.size() == 1) {
+                return this.f32262a.get(0).f();
             }
             throw new IllegalStateException();
         }
@@ -118,14 +118,14 @@ public final class i extends l implements Iterable<l> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32061a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32262a.hashCode() : invokeV.intValue;
     }
 
     @Override // java.lang.Iterable
     public Iterator<l> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f32061a.iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f32262a.iterator() : (Iterator) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
@@ -133,8 +133,8 @@ public final class i extends l implements Iterable<l> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f32061a.size() == 1) {
-                return this.f32061a.get(0).a();
+            if (this.f32262a.size() == 1) {
+                return this.f32262a.get(0).a();
             }
             throw new IllegalStateException();
         }

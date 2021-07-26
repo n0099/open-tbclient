@@ -23,7 +23,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.cmic.sso.sdk.a f32641a;
+    public com.cmic.sso.sdk.a f32828a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -92,9 +92,9 @@ public class b {
                 a2.c(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
                 a(a2, aVar);
                 JSONArray jSONArray = null;
-                if (a2.f32632a.size() > 0) {
+                if (a2.f32819a.size() > 0) {
                     jSONArray = new JSONArray();
-                    Iterator<Throwable> it = a2.f32632a.iterator();
+                    Iterator<Throwable> it = a2.f32819a.iterator();
                     while (it.hasNext()) {
                         Throwable next = it.next();
                         StringBuffer stringBuffer = new StringBuffer();
@@ -107,7 +107,7 @@ public class b {
                         jSONObject.put("stack", stringBuffer.toString());
                         jSONArray.put(jSONObject);
                     }
-                    a2.f32632a.clear();
+                    a2.f32819a.clear();
                 }
                 if (jSONArray != null && jSONArray.length() > 0) {
                     a2.a(jSONArray);
@@ -123,7 +123,7 @@ public class b {
     private void a(JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, jSONObject, aVar) == null) {
-            this.f32641a = aVar;
+            this.f32828a = aVar;
             a(jSONObject);
         }
     }
@@ -132,12 +132,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
             if (q.o() == 0 || q.n() == 0 || System.currentTimeMillis() > k.a("logCloseTime", 0L) + q.o()) {
-                com.cmic.sso.sdk.b.c.a.a().a(jSONObject, this.f32641a, new d(this) { // from class: com.cmic.sso.sdk.c.b.1
+                com.cmic.sso.sdk.b.c.a.a().a(jSONObject, this.f32828a, new d(this) { // from class: com.cmic.sso.sdk.c.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f32642a;
+                    public final /* synthetic */ b f32829a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -154,7 +154,7 @@ public class b {
                                 return;
                             }
                         }
-                        this.f32642a = this;
+                        this.f32829a = this;
                     }
 
                     @Override // com.cmic.sso.sdk.b.c.d

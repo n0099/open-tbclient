@@ -1,27 +1,25 @@
 package com.win.opensdk;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class y0 {
+public class y0 implements n1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39722a;
+    public final /* synthetic */ E0 f39990a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Info f39723b;
-
-    public y0(Info info) {
+    public y0(E0 e0) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {info};
+            Object[] objArr = {e0};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,9 +29,42 @@ public class y0 {
                 return;
             }
         }
-        this.f39723b = info;
-        if (info != null) {
-            this.f39722a = info.getPid();
+        this.f39990a = e0;
+    }
+
+    @Override // com.win.opensdk.n1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
+    }
+
+    @Override // com.win.opensdk.n1
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            Info info = (Info) obj;
+            try {
+                this.f39990a.f39567c = info;
+                if (this.f39990a.f39570f != null) {
+                    if (info == null || info.getType() != 11) {
+                        this.f39990a.f39570f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.f39990a.b()) {
+                        this.f39990a.f39570f.onLoaded();
+                    }
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    @Override // com.win.opensdk.n1
+    public void onFail(PBError pBError) {
+        PBNativeListener pBNativeListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f39990a.f39570f) == null) {
+            return;
+        }
+        pBNativeListener.onFail(pBError);
     }
 }

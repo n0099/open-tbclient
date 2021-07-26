@@ -13,14 +13,14 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f1724a;
+    public static b f1757a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread f1725b;
+    public Thread f1758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<Runnable> f1726c;
+    public LinkedList<Runnable> f1759c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public final class b {
                 return;
             }
         }
-        f1724a = new b();
+        f1757a = new b();
     }
 
     public b() {
@@ -51,24 +51,24 @@ public final class b {
                 return;
             }
         }
-        this.f1725b = null;
-        this.f1726c = new LinkedList<>();
+        this.f1758b = null;
+        this.f1759c = new LinkedList<>();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1724a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1757a : (b) invokeV.objValue;
     }
 
     public final synchronized void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             synchronized (this) {
-                this.f1726c.add(runnable);
-                if (this.f1725b == null) {
+                this.f1759c.add(runnable);
+                if (this.f1758b == null) {
                     Thread thread = new Thread(new c(this));
-                    this.f1725b = thread;
+                    this.f1758b = thread;
                     thread.start();
                 }
             }

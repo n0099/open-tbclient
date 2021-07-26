@@ -14,7 +14,7 @@ public final class gr extends al.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40228a;
+    public final /* synthetic */ Context f40500a;
 
     public gr(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class gr extends al.b {
                 return;
             }
         }
-        this.f40228a = context;
+        this.f40500a = context;
     }
 
     @Override // com.xiaomi.push.al.b
@@ -49,7 +49,7 @@ public final class gr extends al.b {
                 list2 = gq.f445a;
                 list2.clear();
             }
-            gq.b(this.f40228a, arrayList);
+            gq.b(this.f40500a, arrayList);
         }
     }
 }

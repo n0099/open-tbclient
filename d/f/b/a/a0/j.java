@@ -18,10 +18,10 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f69218h;
+    public static final String[] f69672h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int[] f69219i;
+    public static final int[] f69673i;
     public static final int[] j;
     public static final int[] k;
     public static final int[] l;
@@ -30,25 +30,25 @@ public final class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f69220a;
+    public int f69674a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f69221b;
+    public String f69675b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f69222c;
+    public int f69676c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f69223d;
+    public int f69677d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f69224e;
+    public int f69678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f69225f;
+    public int f69679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f69226g;
+    public int f69680g;
 
     static {
         InterceptResult invokeClinit;
@@ -63,8 +63,8 @@ public final class j {
                 return;
             }
         }
-        f69218h = new String[]{"audio/mpeg-L1", "audio/mpeg-L2", "audio/mpeg"};
-        f69219i = new int[]{44100, MediaEncodeParams.AUDIO_SAMPLE_RATE, 32000};
+        f69672h = new String[]{"audio/mpeg-L1", "audio/mpeg-L2", "audio/mpeg"};
+        f69673i = new int[]{44100, MediaEncodeParams.AUDIO_SAMPLE_RATE, 32000};
         j = new int[]{32, 64, 96, 128, 160, 192, 224, 256, 288, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 352, 384, 416, FileUtils.S_IRWXU};
         k = new int[]{32, 48, 56, 64, 80, 96, 112, 128, 144, 160, Opcodes.ARETURN, 192, 224, 256};
         l = new int[]{32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384};
@@ -98,7 +98,7 @@ public final class j {
             if ((i2 & (-2097152)) != -2097152 || (i3 = (i2 >>> 19) & 3) == 1 || (i4 = (i2 >>> 17) & 3) == 0 || (i5 = (i2 >>> 12) & 15) == 0 || i5 == 15 || (i6 = (i2 >>> 10) & 3) == 3) {
                 return -1;
             }
-            int i8 = f69219i[i6];
+            int i8 = f69673i[i6];
             if (i3 == 2) {
                 i8 /= 2;
             } else if (i3 == 0) {
@@ -135,7 +135,7 @@ public final class j {
             if ((i2 & (-2097152)) != -2097152 || (i3 = (i2 >>> 19) & 3) == 1 || (i4 = (i2 >>> 17) & 3) == 0 || (i5 = (i2 >>> 12) & 15) == 0 || i5 == 15 || (i6 = (i2 >>> 10) & 3) == 3) {
                 return false;
             }
-            int i10 = f69219i[i6];
+            int i10 = f69673i[i6];
             if (i3 == 2) {
                 i10 /= 2;
             } else if (i3 == 0) {
@@ -162,7 +162,7 @@ public final class j {
                     i9 = i13;
                 }
             }
-            jVar.c(i3, f69218h[3 - i4], i8, i11, ((i2 >> 6) & 3) == 3 ? 1 : 2, i7 * 1000, i9);
+            jVar.c(i3, f69672h[3 - i4], i8, i11, ((i2 >> 6) & 3) == 3 ? 1 : 2, i7 * 1000, i9);
             return true;
         }
         return invokeIL.booleanValue;
@@ -171,13 +171,13 @@ public final class j {
     public final void c(int i2, String str, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            this.f69220a = i2;
-            this.f69221b = str;
-            this.f69222c = i3;
-            this.f69223d = i4;
-            this.f69224e = i5;
-            this.f69225f = i6;
-            this.f69226g = i7;
+            this.f69674a = i2;
+            this.f69675b = str;
+            this.f69676c = i3;
+            this.f69677d = i4;
+            this.f69678e = i5;
+            this.f69679f = i6;
+            this.f69680g = i7;
         }
     }
 }

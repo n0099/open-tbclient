@@ -27,19 +27,19 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f35617a;
+    public TextView f35806a;
 
     /* renamed from: f  reason: collision with root package name */
-    public RoundAngleImageView f35618f;
+    public RoundAngleImageView f35807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f35619g;
+    public ImageView f35808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f35620h;
+    public com.kwad.sdk.core.download.b.b f35809h;
 
     /* renamed from: i  reason: collision with root package name */
-    public KsLogoView f35621i;
+    public KsLogoView f35810i;
     public DownloadProgressView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,12 +65,12 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f35621i.a(((com.kwad.sdk.feed.widget.base.a) this).f35590b);
-            this.j.a(((com.kwad.sdk.feed.widget.base.a) this).f35590b);
+            this.f35810i.a(((com.kwad.sdk.feed.widget.base.a) this).f35779b);
+            this.j.a(((com.kwad.sdk.feed.widget.base.a) this).f35779b);
             this.j.setOnClickListener(this);
-            if (com.kwad.sdk.core.response.b.a.v(((com.kwad.sdk.feed.widget.base.a) this).f35591c)) {
-                com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(((com.kwad.sdk.feed.widget.base.a) this).f35590b, null, this.j.getAppDownloadListener());
-                this.f35620h = bVar;
+            if (com.kwad.sdk.core.response.b.a.v(((com.kwad.sdk.feed.widget.base.a) this).f35780c)) {
+                com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(((com.kwad.sdk.feed.widget.base.a) this).f35779b, null, this.j.getAppDownloadListener());
+                this.f35809h = bVar;
                 bVar.c(this.j.getAppDownloadListener());
             }
         }
@@ -81,15 +81,15 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
             super.a(adTemplate);
-            this.f35617a.setText(com.kwad.sdk.core.response.b.a.m(((com.kwad.sdk.feed.widget.base.a) this).f35591c));
-            List<String> E = com.kwad.sdk.core.response.b.a.E(((com.kwad.sdk.feed.widget.base.a) this).f35591c);
+            this.f35806a.setText(com.kwad.sdk.core.response.b.a.m(((com.kwad.sdk.feed.widget.base.a) this).f35780c));
+            List<String> E = com.kwad.sdk.core.response.b.a.E(((com.kwad.sdk.feed.widget.base.a) this).f35780c);
             if (E.size() >= 1) {
-                KSImageLoader.loadFeeImage(this.f35618f, E.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f35590b);
+                KSImageLoader.loadFeeImage(this.f35807f, E.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f35779b);
             } else {
                 com.kwad.sdk.core.d.a.e("FeedTextRightImageView", "getImageUrlList size less than one");
             }
             d();
-            this.f35619g.setOnClickListener(this);
+            this.f35808g.setOnClickListener(this);
             setOnClickListener(this);
         }
     }
@@ -98,14 +98,14 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f35617a = (TextView) findViewById(R.id.ksad_ad_desc);
+            this.f35806a = (TextView) findViewById(R.id.ksad_ad_desc);
             ((RatioFrameLayout) findViewById(R.id.ksad_image_container)).setRatio(0.66f);
             RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.ksad_ad_image);
-            this.f35618f = roundAngleImageView;
+            this.f35807f = roundAngleImageView;
             roundAngleImageView.setRadius(av.a(getContext(), 3.0f));
-            this.f35619g = (ImageView) findViewById(R.id.ksad_ad_dislike);
+            this.f35808g = (ImageView) findViewById(R.id.ksad_ad_dislike);
             this.j = (DownloadProgressView) findViewById(R.id.ksad_app_download_btn);
-            this.f35621i = (KsLogoView) findViewById(R.id.ksad_feed_logo);
+            this.f35810i = (KsLogoView) findViewById(R.id.ksad_feed_logo);
         }
     }
 
@@ -120,15 +120,15 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            if (view == this.f35619g) {
+            if (view == this.f35808g) {
                 m();
             } else {
-                com.kwad.sdk.core.download.b.a.a(av.a(this), ((com.kwad.sdk.feed.widget.base.a) this).f35590b, new a.InterfaceC0413a(this) { // from class: com.kwad.sdk.feed.widget.i.1
+                com.kwad.sdk.core.download.b.a.a(av.a(this), ((com.kwad.sdk.feed.widget.base.a) this).f35779b, new a.InterfaceC0415a(this) { // from class: com.kwad.sdk.feed.widget.i.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ i f35622a;
+                    public final /* synthetic */ i f35811a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -145,17 +145,17 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
                                 return;
                             }
                         }
-                        this.f35622a = this;
+                        this.f35811a = this;
                     }
 
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC0413a
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC0415a
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f35622a.k();
+                            this.f35811a.k();
                         }
                     }
-                }, this.f35620h, view == this.j);
+                }, this.f35809h, view == this.j);
             }
         }
     }

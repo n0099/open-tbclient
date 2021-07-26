@@ -1,12 +1,12 @@
 package com.tencent.open;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.widget.Toast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,10 +14,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
-import com.tencent.open.a.f;
-import com.tencent.open.b.d;
+import com.tencent.open.a.d;
+import com.tencent.open.log.SLog;
 import com.tencent.open.utils.HttpUtils;
-import com.tencent.open.utils.j;
+import com.tencent.open.utils.i;
+import com.tencent.open.utils.l;
+import com.tencent.tauth.DefaultUiListener;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.UiError;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class SocialOperation extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
@@ -50,165 +55,474 @@ public class SocialOperation extends BaseApi {
         }
     }
 
-    private void a(Activity activity) {
+    public void bindQQGroup(Activity activity, String str, String str2, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, activity) == null) {
-            a(activity, "");
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, activity, str, str2, iUiListener) == null) {
+            SLog.i("openSDK_LOG.GameAppOperation", "-->bindQQGroup()  -- start");
+            if (activity == null) {
+                SLog.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, activity is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1001, "param acitivty is null", "activity param of api can not be null."));
+                    return;
+                }
+                return;
+            }
+            StringBuffer stringBuffer = new StringBuffer("mqqapi://opensdk/bind_group?src_type=app&version=1");
+            String appId = this.f39004c.getAppId();
+            if (TextUtils.isEmpty(appId)) {
+                SLog.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, appId is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1003, "appid is null", "please login."));
+                    return;
+                }
+                return;
+            }
+            String openId = this.f39004c.getOpenId();
+            if (TextUtils.isEmpty(openId)) {
+                SLog.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, openid is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1004, "openid params is null", "please login."));
+                    return;
+                }
+                return;
+            }
+            String a2 = l.a(activity);
+            if (TextUtils.isEmpty(a2)) {
+                SLog.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, appname is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1005, "appName params is null", ""));
+                }
+            } else if (TextUtils.isEmpty(str)) {
+                SLog.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, organization id is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1006, "organizationId params is null", ""));
+                }
+            } else if (TextUtils.isEmpty(str2)) {
+                SLog.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, organization name is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1007, "organizationName params is null", ""));
+                }
+            } else {
+                stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a2), 2));
+                stringBuffer.append("&organization_id=" + Base64.encodeToString(l.i(str), 2));
+                stringBuffer.append("&organization_name=" + Base64.encodeToString(l.i(str2), 2));
+                stringBuffer.append("&openid=" + Base64.encodeToString(l.i(openId), 2));
+                stringBuffer.append("&appid=" + Base64.encodeToString(l.i(appId), 2));
+                stringBuffer.append("&sdk_version=" + Base64.encodeToString(l.i(Constants.SDK_VERSION), 2));
+                SLog.v("openSDK_LOG.GameAppOperation", "-->bindQQGroup, url: " + stringBuffer.toString());
+                Uri parse = Uri.parse(stringBuffer.toString());
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.setData(parse);
+                if (a(intent) && i.c(activity, "8.1.0") >= 0) {
+                    DefaultUiListener defaultUiListener = new DefaultUiListener(this, iUiListener, activity, intent) { // from class: com.tencent.open.SocialOperation.3
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ IUiListener f39074a;
+
+                        /* renamed from: b  reason: collision with root package name */
+                        public final /* synthetic */ Activity f39075b;
+
+                        /* renamed from: c  reason: collision with root package name */
+                        public final /* synthetic */ Intent f39076c;
+
+                        /* renamed from: d  reason: collision with root package name */
+                        public final /* synthetic */ SocialOperation f39077d;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, iUiListener, activity, intent};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f39077d = this;
+                            this.f39074a = iUiListener;
+                            this.f39075b = activity;
+                            this.f39076c = intent;
+                        }
+
+                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                        public void onCancel() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            }
+                        }
+
+                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                        public void onComplete(Object obj) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                                SLog.w("openSDK_LOG.GameAppOperation", "-->bind group resp is: " + obj);
+                                if (obj == null) {
+                                    IUiListener iUiListener2 = this.f39074a;
+                                    if (iUiListener2 != null) {
+                                        iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
+                                    }
+                                } else if (((JSONObject) obj).optInt("bind") != 1) {
+                                    try {
+                                        this.f39077d.a(this.f39075b, (int) Constants.REQUEST_BIND_GROUP, this.f39076c, false);
+                                    } catch (Exception e2) {
+                                        SLog.e("openSDK_LOG.GameAppOperation", "-->bind group, start activity exception.", e2);
+                                        this.f39077d.a(this.f39075b);
+                                    }
+                                } else {
+                                    IUiListener iUiListener3 = this.f39074a;
+                                    if (iUiListener3 != null) {
+                                        iUiListener3.onError(new UiError(3002, "该群已绑定！", "绑定过的群不能再次绑定。"));
+                                    }
+                                    SLog.i("openSDK_LOG.GameAppOperation", "-->bindQQGroup() binded return.");
+                                }
+                            }
+                        }
+
+                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                        public void onError(UiError uiError) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
+                                SLog.v("openSDK_LOG.GameAppOperation", "-->bindQQGroup, error: " + uiError);
+                                IUiListener iUiListener2 = this.f39074a;
+                                if (iUiListener2 != null) {
+                                    iUiListener2.onError(uiError);
+                                }
+                            }
+                        }
+                    };
+                    Bundle a3 = a();
+                    a3.putString("appid", appId);
+                    a3.putString("orgid", str);
+                    HttpUtils.requestAsync(this.f39004c, activity, "https://openmobile.qq.com/cgi-bin/qunopensdk/check_group", a3, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
+                    SLog.i("openSDK_LOG.GameAppOperation", "-->bindQQGroup() do.");
+                    return;
+                }
+                SLog.w("openSDK_LOG.GameAppOperation", "-->bind group, there is no activity, show download page.");
+                a(activity);
+            }
         }
     }
 
-    public void bindQQGroup(Activity activity, Bundle bundle) {
+    public void joinGroup(Activity activity, String str, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            f.c("openSDK_LOG.GameAppOperation", "-->bindQQGroup()  -- start");
+        if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, iUiListener) == null) {
+            SLog.i("openSDK_LOG.GameAppOperation", "joinQQGroup()");
             if (activity == null) {
-                f.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, activity is empty.");
-                d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
-            } else if (bundle == null) {
-                Toast.makeText(activity, "Bundle参数为空", 0).show();
-                f.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, params is empty.");
-                d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
+                SLog.e("openSDK_LOG.GameAppOperation", "-->joinGroup, activity is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1001, "param acitivty is null", "activity param of api can not be null."));
+                }
+            } else if (TextUtils.isEmpty(str)) {
+                SLog.e("openSDK_LOG.GameAppOperation", "-->joinGroup, params is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1006, "param organizationId is null", "organizationId param of api can not be null."));
+                }
             } else {
-                String a2 = j.a(activity);
-                StringBuffer stringBuffer = new StringBuffer("mqqapi://gamesdk/bind_group?src_type=app&version=1");
-                if (!TextUtils.isEmpty(a2)) {
-                    stringBuffer.append("&app_name=" + Base64.encodeToString(j.i(a2), 2));
-                }
-                String string = bundle.getString("unionid");
-                if (TextUtils.isEmpty(string)) {
-                    Toast.makeText(activity, "游戏公会ID为空", 0).show();
-                    f.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, game union id is empty.");
-                    d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
-                    return;
-                }
-                stringBuffer.append("&unionid=" + Base64.encodeToString(j.i(string), 2));
-                String string2 = bundle.getString(GAME_UNION_NAME);
-                if (TextUtils.isEmpty(string2)) {
-                    Toast.makeText(activity, "游戏公会名称为空", 0).show();
-                    f.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, game union name is empty.");
-                    d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
-                    return;
-                }
-                stringBuffer.append("&union_name=" + Base64.encodeToString(j.i(string2), 2));
-                String string3 = bundle.getString(GAME_ZONE_ID);
-                if (TextUtils.isEmpty(string3)) {
-                    Toast.makeText(activity, "游戏区域ID为空", 0).show();
-                    f.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, game zone id  is empty.");
-                    d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
-                    return;
-                }
-                stringBuffer.append("&zoneid=" + Base64.encodeToString(j.i(string3), 2));
-                String string4 = bundle.getString(GAME_SIGNATURE);
-                if (TextUtils.isEmpty(string4)) {
-                    Toast.makeText(activity, "游戏签名为空", 0).show();
-                    f.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, game signature is empty.");
-                    d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
-                    return;
-                }
-                stringBuffer.append("&signature=" + Base64.encodeToString(j.i(string4), 2));
-                String openId = this.f38790b.getOpenId();
-                if (!TextUtils.isEmpty(openId)) {
-                    stringBuffer.append("&openid=" + Base64.encodeToString(j.i(openId), 2));
-                    Bundle b2 = b();
-                    for (String str : b2.keySet()) {
-                        b2.putString(str, Base64.encodeToString(j.i(b2.getString(str)), 2));
+                Intent intent = new Intent();
+                String appId = this.f39004c.getAppId();
+                if (TextUtils.isEmpty(appId)) {
+                    SLog.e("openSDK_LOG.GameAppOperation", "-->joinGroup, appid is empty.");
+                    if (iUiListener != null) {
+                        iUiListener.onError(new UiError(1003, "appid is null", "appid is null, please login."));
+                        return;
                     }
-                    stringBuffer.append("&" + HttpUtils.encodeUrl(b2));
-                    f.a("openSDK_LOG.GameAppOperation", "-->bindQQGroup, url: " + stringBuffer.toString());
-                    Intent intent = new Intent("android.intent.action.VIEW");
-                    intent.setData(Uri.parse(stringBuffer.toString()));
-                    if (a(intent) && !j.f(activity, "5.1.0")) {
-                        f.c("openSDK_LOG.GameAppOperation", "-->bingQQGroup target activity found, qqver > 5.1.0");
-                        try {
-                            activity.startActivity(intent);
-                            d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "0");
-                        } catch (Exception e2) {
-                            f.b("openSDK_LOG.GameAppOperation", "-->bind group, start activity exception.", e2);
-                            d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
-                            a(activity);
+                    return;
+                }
+                String openId = this.f39004c.getOpenId();
+                if (TextUtils.isEmpty(openId)) {
+                    SLog.e("openSDK_LOG.GameAppOperation", "-->joinGroup, openid is empty.");
+                    if (iUiListener != null) {
+                        iUiListener.onError(new UiError(1004, "openid is null", "openid is null, please login."));
+                        return;
+                    }
+                    return;
+                }
+                StringBuffer stringBuffer = new StringBuffer("mqqapi://opensdk/join_group?src_type=app&version=1");
+                stringBuffer.append("&openid=" + Base64.encodeToString(l.i(openId), 2));
+                stringBuffer.append("&appid=" + Base64.encodeToString(l.i(appId), 2));
+                stringBuffer.append("&organization_id=" + Base64.encodeToString(l.i(str), 2));
+                stringBuffer.append("&sdk_version=" + Base64.encodeToString(l.i(Constants.SDK_VERSION), 2));
+                intent.setData(Uri.parse(stringBuffer.toString()));
+                if (a(intent) && i.c(activity, "8.1.0") >= 0) {
+                    DefaultUiListener defaultUiListener = new DefaultUiListener(this, iUiListener, activity, intent) { // from class: com.tencent.open.SocialOperation.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ IUiListener f39070a;
+
+                        /* renamed from: b  reason: collision with root package name */
+                        public final /* synthetic */ Activity f39071b;
+
+                        /* renamed from: c  reason: collision with root package name */
+                        public final /* synthetic */ Intent f39072c;
+
+                        /* renamed from: d  reason: collision with root package name */
+                        public final /* synthetic */ SocialOperation f39073d;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, iUiListener, activity, intent};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f39073d = this;
+                            this.f39070a = iUiListener;
+                            this.f39071b = activity;
+                            this.f39072c = intent;
                         }
-                    } else {
-                        f.d("openSDK_LOG.GameAppOperation", "-->bind group, there is no activity, show download page.");
-                        d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
-                        a(activity);
-                    }
-                    f.c("openSDK_LOG.GameAppOperation", "-->bindQQGroup()  -- end");
+
+                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                        public void onCancel() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            }
+                        }
+
+                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                        public void onComplete(Object obj) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                                SLog.w("openSDK_LOG.GameAppOperation", "-->join group resp is: " + obj);
+                                if (obj == null) {
+                                    IUiListener iUiListener2 = this.f39070a;
+                                    if (iUiListener2 != null) {
+                                        iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
+                                    }
+                                } else if (((JSONObject) obj).optInt("bind") == 1) {
+                                    try {
+                                        this.f39073d.a(this.f39071b, (int) Constants.REQUEST_JOIN_GROUP, this.f39072c, false);
+                                    } catch (Exception e2) {
+                                        SLog.e("openSDK_LOG.GameAppOperation", "-->join group, start activity exception.", e2);
+                                        this.f39073d.a(this.f39071b);
+                                    }
+                                } else {
+                                    IUiListener iUiListener3 = this.f39070a;
+                                    if (iUiListener3 != null) {
+                                        iUiListener3.onError(new UiError(3003, "该组织未绑群，无法加入", "该组织未绑群，无法加入。"));
+                                    }
+                                }
+                            }
+                        }
+
+                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                        public void onError(UiError uiError) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
+                                SLog.v("openSDK_LOG.GameAppOperation", "-->joinQQGroup, error: " + uiError);
+                                IUiListener iUiListener2 = this.f39070a;
+                                if (iUiListener2 != null) {
+                                    iUiListener2.onError(uiError);
+                                }
+                            }
+                        }
+                    };
+                    Bundle a2 = a();
+                    a2.putString("appid", appId);
+                    a2.putString("orgid", str);
+                    HttpUtils.requestAsync(this.f39004c, activity, "https://openmobile.qq.com/cgi-bin/qunopensdk/check_group", a2, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
+                    SLog.i("openSDK_LOG.GameAppOperation", "-->joinQQGroup() do.");
                     return;
                 }
-                Toast.makeText(activity, "Openid为空", 0).show();
-                f.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, openid is empty.");
-                d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
+                SLog.w("openSDK_LOG.GameAppOperation", "-->bind group, there is no activity, show download page.");
+                a(activity);
             }
         }
     }
 
     public void makeFriend(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
-            f.c("openSDK_LOG.GameAppOperation", "-->makeFriend()  -- start");
+        if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
+            SLog.i("openSDK_LOG.GameAppOperation", "-->makeFriend()  -- start");
             if (bundle == null) {
-                f.e("openSDK_LOG.GameAppOperation", "-->makeFriend params is null");
-                d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
+                SLog.e("openSDK_LOG.GameAppOperation", "-->makeFriend params is null");
+                d.a().a(this.f39004c.getOpenId(), this.f39004c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
                 return;
             }
             String string = bundle.getString(GAME_FRIEND_OPENID);
             if (TextUtils.isEmpty(string)) {
-                f.e("openSDK_LOG.GameAppOperation", "-->make friend, fOpenid is empty.");
-                d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
+                SLog.e("openSDK_LOG.GameAppOperation", "-->make friend, fOpenid is empty.");
+                d.a().a(this.f39004c.getOpenId(), this.f39004c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
                 return;
             }
             String string2 = bundle.getString(GAME_FRIEND_LABEL);
             String string3 = bundle.getString(GAME_FRIEND_ADD_MESSAGE);
-            String a2 = j.a(activity);
-            String openId = this.f38790b.getOpenId();
-            String appId = this.f38790b.getAppId();
-            f.a("openSDK_LOG.GameAppOperation", "-->make friend, fOpenid: " + string + " | label: " + string2 + " | message: " + string3 + " | openid: " + openId + " | appid:" + appId);
+            String a2 = l.a(activity);
+            String openId = this.f39004c.getOpenId();
+            String appId = this.f39004c.getAppId();
+            SLog.v("openSDK_LOG.GameAppOperation", "-->make friend, fOpenid: " + string + " | label: " + string2 + " | message: " + string3 + " | openid: " + openId + " | appid:" + appId);
             StringBuffer stringBuffer = new StringBuffer("mqqapi://gamesdk/add_friend?src_type=app&version=1");
             StringBuilder sb = new StringBuilder();
             sb.append("&fopen_id=");
-            sb.append(Base64.encodeToString(j.i(string), 2));
+            sb.append(Base64.encodeToString(l.i(string), 2));
             stringBuffer.append(sb.toString());
             if (!TextUtils.isEmpty(openId)) {
-                stringBuffer.append("&open_id=" + Base64.encodeToString(j.i(openId), 2));
+                stringBuffer.append("&open_id=" + Base64.encodeToString(l.i(openId), 2));
             }
             if (!TextUtils.isEmpty(appId)) {
                 stringBuffer.append("&app_id=" + appId);
             }
             if (!TextUtils.isEmpty(string2)) {
-                stringBuffer.append("&friend_label=" + Base64.encodeToString(j.i(string2), 2));
+                stringBuffer.append("&friend_label=" + Base64.encodeToString(l.i(string2), 2));
             }
             if (!TextUtils.isEmpty(string3)) {
-                stringBuffer.append("&add_msg=" + Base64.encodeToString(j.i(string3), 2));
+                stringBuffer.append("&add_msg=" + Base64.encodeToString(l.i(string3), 2));
             }
             if (!TextUtils.isEmpty(a2)) {
-                stringBuffer.append("&app_name=" + Base64.encodeToString(j.i(a2), 2));
+                stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a2), 2));
             }
-            f.a("openSDK_LOG.GameAppOperation", "-->make friend, url: " + stringBuffer.toString());
+            SLog.v("openSDK_LOG.GameAppOperation", "-->make friend, url: " + stringBuffer.toString());
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(Uri.parse(stringBuffer.toString()));
-            if (a(intent) && !j.f(activity, "5.1.0")) {
-                f.c("openSDK_LOG.GameAppOperation", "-->makeFriend target activity found, qqver greater than 5.1.0");
+            if (a(intent) && !l.f(activity, "5.1.0")) {
+                SLog.i("openSDK_LOG.GameAppOperation", "-->makeFriend target activity found, qqver greater than 5.1.0");
                 try {
                     activity.startActivity(intent);
-                    d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "0");
+                    d.a().a(this.f39004c.getOpenId(), this.f39004c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "0");
                 } catch (Exception e2) {
-                    f.b("openSDK_LOG.GameAppOperation", "-->make friend, start activity exception.", e2);
+                    SLog.e("openSDK_LOG.GameAppOperation", "-->make friend, start activity exception.", e2);
                     a(activity);
-                    d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
+                    d.a().a(this.f39004c.getOpenId(), this.f39004c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
                 }
             } else {
-                f.d("openSDK_LOG.GameAppOperation", "-->make friend, there is no activity.");
+                SLog.w("openSDK_LOG.GameAppOperation", "-->make friend, there is no activity.");
                 a(activity);
-                d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
+                d.a().a(this.f39004c.getOpenId(), this.f39004c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
             }
-            f.c("openSDK_LOG.GameAppOperation", "-->makeFriend()  -- end");
+            SLog.i("openSDK_LOG.GameAppOperation", "-->makeFriend()  -- end");
+        }
+    }
+
+    public void unBindGroup(Context context, String str, IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, str, iUiListener) == null) {
+            SLog.i("openSDK_LOG.GameAppOperation", "unBindQQGroup()");
+            if (context == null) {
+                SLog.e("openSDK_LOG.GameAppOperation", "-->uinBindGroup, activity is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1001, "param acitivty is null", "activity param of api can not be null."));
+                }
+            } else if (TextUtils.isEmpty(str)) {
+                SLog.e("openSDK_LOG.GameAppOperation", "-->unBindGroup, params is empty.");
+                if (iUiListener != null) {
+                    iUiListener.onError(new UiError(1006, "param organizationId is null", "organizationId param of api can not be null."));
+                }
+            } else {
+                String appId = this.f39004c.getAppId();
+                if (TextUtils.isEmpty(appId)) {
+                    SLog.e("openSDK_LOG.GameAppOperation", "-->unBindGroup, appid is empty.");
+                    if (iUiListener != null) {
+                        iUiListener.onError(new UiError(1003, "param appId is null", "appid is null please login."));
+                        return;
+                    }
+                    return;
+                }
+                DefaultUiListener defaultUiListener = new DefaultUiListener(this, iUiListener) { // from class: com.tencent.open.SocialOperation.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ IUiListener f39068a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ SocialOperation f39069b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, iUiListener};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f39069b = this;
+                        this.f39068a = iUiListener;
+                    }
+
+                    @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                    public void onCancel() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        }
+                    }
+
+                    @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                    public void onComplete(Object obj) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                            SLog.w("openSDK_LOG.GameAppOperation", "-->unbind group resp is: " + obj);
+                            if (obj == null) {
+                                IUiListener iUiListener2 = this.f39068a;
+                                if (iUiListener2 != null) {
+                                    iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
+                                    return;
+                                }
+                                return;
+                            }
+                            JSONObject jSONObject = (JSONObject) obj;
+                            IUiListener iUiListener3 = this.f39068a;
+                            if (iUiListener3 != null) {
+                                iUiListener3.onComplete(jSONObject);
+                            }
+                        }
+                    }
+
+                    @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                    public void onError(UiError uiError) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
+                            SLog.v("openSDK_LOG.GameAppOperation", "-->unbindQQGroup, error: " + uiError);
+                            IUiListener iUiListener2 = this.f39068a;
+                            if (iUiListener2 != null) {
+                                iUiListener2.onError(uiError);
+                            }
+                        }
+                    }
+                };
+                Bundle a2 = a();
+                a2.putString("appid", appId);
+                a2.putString("orgid", str);
+                HttpUtils.requestAsync(this.f39004c, context, "https://openmobile.qq.com/cgi-bin/qunopensdk/unbind", a2, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
+                SLog.i("openSDK_LOG.GameAppOperation", "-->unBindQQGroup() do.");
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, activity) == null) {
+            a(activity, "");
         }
     }
 
     private void a(Activity activity, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, activity, str) == null) {
-            new TDialog(activity, "", a(str), null, this.f38790b).show();
+            new TDialog(activity, "", a(str), null, this.f39004c).show();
         }
     }
 }

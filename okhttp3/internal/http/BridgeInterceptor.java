@@ -57,7 +57,7 @@ public final class BridgeInterceptor implements Interceptor {
                 }
                 Cookie cookie = list.get(i2);
                 sb.append(cookie.name());
-                sb.append(a.f1890h);
+                sb.append(a.f1923h);
                 sb.append(cookie.value());
             }
             return sb.toString();

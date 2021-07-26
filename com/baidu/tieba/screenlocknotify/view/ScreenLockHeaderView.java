@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.p0.y2.d;
+import d.a.d.e.p.k;
+import d.a.q0.y2.d;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -27,19 +27,19 @@ public class ScreenLockHeaderView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20681e;
+    public TextView f20799e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20682f;
+    public View f20800f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f20683g;
+    public View f20801g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20684h;
+    public TextView f20802h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f20685i;
+    public TextView f20803i;
     public TextView j;
     public View k;
     public d l;
@@ -66,11 +66,11 @@ public class ScreenLockHeaderView extends LinearLayout {
             }
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.f20681e = (TextView) findViewById(R.id.friend_name_show1);
-        this.f20682f = findViewById(R.id.friend_name_layout);
-        this.f20683g = findViewById(R.id.msg_content_layout);
-        this.f20684h = (TextView) findViewById(R.id.last_msg_time_show1);
-        this.f20685i = (TextView) findViewById(R.id.one_msg_content_show1);
+        this.f20799e = (TextView) findViewById(R.id.friend_name_show1);
+        this.f20800f = findViewById(R.id.friend_name_layout);
+        this.f20801g = findViewById(R.id.msg_content_layout);
+        this.f20802h = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.f20803i = (TextView) findViewById(R.id.one_msg_content_show1);
         this.j = (TextView) findViewById(R.id.unread_msg_count_show1);
         this.k = findViewById(R.id.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
@@ -117,10 +117,10 @@ public class ScreenLockHeaderView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
             this.l = dVar;
-            this.f20681e.setText(dVar.f66443a);
-            this.f20684h.setText(a(dVar.l));
-            this.f20685i.setText(dVar.f66447e);
-            this.j.setText(b(dVar.f66451i));
+            this.f20799e.setText(dVar.f67121a);
+            this.f20802h.setText(a(dVar.l));
+            this.f20803i.setText(dVar.f67125e);
+            this.j.setText(b(dVar.f67129i));
         }
     }
 
@@ -153,8 +153,8 @@ public class ScreenLockHeaderView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, onClickListener, onClickListener2) == null) {
             this.m.setOnClickListener(onClickListener);
-            this.f20682f.setOnClickListener(onClickListener2);
-            this.f20683g.setOnClickListener(onClickListener2);
+            this.f20800f.setOnClickListener(onClickListener2);
+            this.f20801g.setOnClickListener(onClickListener2);
         }
     }
 

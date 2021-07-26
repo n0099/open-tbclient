@@ -154,7 +154,7 @@ public final class GeneralAppIdDecoder {
                         c2 = Typography.less;
                         break;
                     case GDiffPatcher.DATA_INT /* 248 */:
-                        c2 = a.f1890h;
+                        c2 = a.f1923h;
                         break;
                     case 249:
                         c2 = Typography.greater;

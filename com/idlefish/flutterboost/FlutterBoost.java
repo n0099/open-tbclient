@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
-import d.a.c.h.j.g.d;
-import d.a.p0.m3.a;
+import d.a.d.h.j.g.d;
+import d.a.q0.m3.a;
 import dalvik.system.PathClassLoader;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.android.FlutterView;
@@ -309,12 +309,12 @@ public class FlutterBoost {
                 a.getInstance().setFlutterPath("createEngine1");
             }
             if (this.mEngine == null) {
-                synchronized (d.a.c.h.k.a.f41759a) {
+                synchronized (d.a.d.h.k.a.f42263a) {
                     PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
                     try {
                         if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {
-                            Object i2 = d.a.c.h.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
-                            Object h3 = d.a.c.h.k.a.h(i2);
+                            Object i2 = d.a.d.h.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
+                            Object h3 = d.a.d.h.k.a.h(i2);
                             if (h3 instanceof File[]) {
                                 File[] fileArr = (File[]) h3;
                                 z = false;
@@ -337,7 +337,7 @@ public class FlutterBoost {
                             if (!z) {
                                 String replace = h2.apkPath.replace(".apk", "/lib");
                                 if (h3 instanceof File[]) {
-                                    list = d.a.c.h.k.a.c(h3, new File(replace));
+                                    list = d.a.d.h.k.a.c(h3, new File(replace));
                                 } else {
                                     boolean z2 = h3 instanceof List;
                                     list = h3;
@@ -347,19 +347,19 @@ public class FlutterBoost {
                                         list = list3;
                                     }
                                 }
-                                d.a.c.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
+                                d.a.d.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
                                 if (Build.VERSION.SDK_INT <= 25 && (Build.VERSION.SDK_INT != 25 || !Util.t())) {
                                     if (Build.VERSION.SDK_INT >= 23) {
                                         Method declaredMethod = i2.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                                         declaredMethod.setAccessible(true);
-                                        d.a.c.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i2.getClass(), (List) list, null, new ArrayList()));
+                                        d.a.d.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i2.getClass(), (List) list, null, new ArrayList()));
                                     } else {
-                                        d.a.c.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
+                                        d.a.d.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
                                     }
                                 }
                                 Method declaredMethod2 = i2.getClass().getDeclaredMethod("makePathElements", List.class);
                                 declaredMethod2.setAccessible(true);
-                                d.a.c.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i2.getClass(), (List) list));
+                                d.a.d.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i2.getClass(), (List) list));
                             }
                         }
                     } catch (Exception e2) {

@@ -11,17 +11,17 @@ public abstract class h implements c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f6065f = 24;
+    public static final int f6091f = 24;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f6066g = 1;
+    public static final int f6092g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f6067h = 1048576;
+    public static final int f6093h = 1048576;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f6068i;
+    public volatile boolean f6094i;
     public b j;
     public volatile boolean k;
     public ExecutorService l;
@@ -69,7 +69,7 @@ public abstract class h implements c {
     @Override // com.baidu.fsg.face.liveness.video.c
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f6068i && !this.p) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f6094i && !this.p) {
             b();
             d();
         }

@@ -9,7 +9,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static a.InterfaceC0283a a(int i2, a.b bVar) {
+    public static a.InterfaceC0285a a(int i2, a.b bVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, bVar)) == null) {
@@ -24,6 +24,6 @@ public class b {
             }
             return new d(bVar);
         }
-        return (a.InterfaceC0283a) invokeIL.objValue;
+        return (a.InterfaceC0285a) invokeIL.objValue;
     }
 }

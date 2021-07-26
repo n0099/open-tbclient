@@ -85,7 +85,7 @@ public class LegoListActivityConfig extends IntentConfig {
             intent.putExtra("page_id", j);
             intent.putExtra("page_type", i2);
             if (!TextUtils.isEmpty(str)) {
-                intent.putExtra(ITEM_ID, str);
+                intent.putExtra("item_id", str);
             }
             intent.putExtra(IS_IMMERSIVE, i3);
             intent.putExtra("rn", i4);

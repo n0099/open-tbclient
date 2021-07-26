@@ -10,7 +10,7 @@ public /* synthetic */ class cz {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f39958a;
+    public static final /* synthetic */ int[] f40230a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,53 +27,53 @@ public /* synthetic */ class cz {
             }
         }
         int[] iArr = new int[hf.values().length];
-        f39958a = iArr;
+        f40230a = iArr;
         try {
-            iArr[hf.f40250a.ordinal()] = 1;
+            iArr[hf.f40522a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f39958a[hf.f40251b.ordinal()] = 2;
+            f40230a[hf.f40523b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f39958a[hf.f40252c.ordinal()] = 3;
+            f40230a[hf.f40524c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f39958a[hf.f40253d.ordinal()] = 4;
+            f40230a[hf.f40525d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f39958a[hf.f40254e.ordinal()] = 5;
+            f40230a[hf.f40526e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f39958a[hf.f40255f.ordinal()] = 6;
+            f40230a[hf.f40527f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f39958a[hf.f40256g.ordinal()] = 7;
+            f40230a[hf.f40528g.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            f39958a[hf.f40257h.ordinal()] = 8;
+            f40230a[hf.f40529h.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            f39958a[hf.k.ordinal()] = 9;
+            f40230a[hf.k.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            f39958a[hf.l.ordinal()] = 10;
+            f40230a[hf.l.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
         try {
-            f39958a[hf.f40258i.ordinal()] = 11;
+            f40230a[hf.f40530i.ordinal()] = 11;
         } catch (NoSuchFieldError unused11) {
         }
         try {
-            f39958a[hf.j.ordinal()] = 12;
+            f40230a[hf.j.ordinal()] = 12;
         } catch (NoSuchFieldError unused12) {
         }
     }

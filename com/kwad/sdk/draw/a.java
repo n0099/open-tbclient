@@ -28,32 +28,32 @@ public class a extends KSFrameLayout {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public KsDrawAd.AdInteractionListener f35424a;
+    public KsDrawAd.AdInteractionListener f35613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f35425b;
+    public AdBaseFrameLayout f35614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DetailVideoView f35426c;
+    public DetailVideoView f35615c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.draw.a.b f35427d;
+    public com.kwad.sdk.draw.a.b f35616d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Presenter f35428e;
+    public Presenter f35617e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f35429f;
+    public AdTemplate f35618f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo f35430g;
+    public AdInfo f35619g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.draw.c.a f35431h;
+    public com.kwad.sdk.draw.c.a f35620h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f35432i;
+    public e f35621i;
     public Context j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -83,9 +83,9 @@ public class a extends KSFrameLayout {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             FrameLayout.inflate(this.j, R.layout.ksad_draw_layout, this);
             AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
-            this.f35425b = adBaseFrameLayout;
+            this.f35614b = adBaseFrameLayout;
             DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.ksad_video_player);
-            this.f35426c = detailVideoView;
+            this.f35615c = detailVideoView;
             detailVideoView.setAd(true);
         }
     }
@@ -95,16 +95,16 @@ public class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             com.kwad.sdk.draw.a.b bVar = new com.kwad.sdk.draw.a.b();
-            bVar.f35434a = this.f35424a;
-            bVar.f35435b = this.f35425b;
-            bVar.f35436c = this.f35429f;
-            if (com.kwad.sdk.core.response.b.a.v(this.f35430g)) {
-                bVar.f35437d = new com.kwad.sdk.core.download.b.b(this.f35429f);
+            bVar.f35623a = this.f35613a;
+            bVar.f35624b = this.f35614b;
+            bVar.f35625c = this.f35618f;
+            if (com.kwad.sdk.core.response.b.a.v(this.f35619g)) {
+                bVar.f35626d = new com.kwad.sdk.core.download.b.b(this.f35618f);
             }
-            bVar.f35438e = this.f35431h;
-            bVar.f35439f = new com.kwad.sdk.draw.b.b.a(this.f35429f);
-            if (com.kwad.sdk.core.response.b.b.j(this.f35429f)) {
-                bVar.f35440g = new c();
+            bVar.f35627e = this.f35620h;
+            bVar.f35628f = new com.kwad.sdk.draw.b.b.a(this.f35618f);
+            if (com.kwad.sdk.core.response.b.b.j(this.f35618f)) {
+                bVar.f35629g = new c();
             }
             return bVar;
         }
@@ -121,11 +121,11 @@ public class a extends KSFrameLayout {
             presenter.a((Presenter) new com.kwad.sdk.draw.b.c());
             presenter.a((Presenter) new com.kwad.sdk.draw.b.b());
             presenter.a((Presenter) new com.kwad.sdk.draw.b.b.b());
-            if (com.kwad.sdk.core.response.b.b.i(this.f35429f)) {
+            if (com.kwad.sdk.core.response.b.b.i(this.f35618f)) {
                 presenter.a((Presenter) new com.kwad.sdk.draw.b.b.c());
             }
             presenter.a((Presenter) new com.kwad.sdk.draw.b.c.a());
-            if (com.kwad.sdk.core.response.b.b.j(this.f35429f)) {
+            if (com.kwad.sdk.core.response.b.b.j(this.f35618f)) {
                 presenter.a((Presenter) new com.kwad.sdk.draw.b.c.b());
             }
             return presenter;
@@ -138,24 +138,24 @@ public class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f35427d = d();
+            this.f35616d = d();
             Presenter e2 = e();
-            this.f35428e = e2;
-            e2.a((View) this.f35425b);
-            this.f35428e.a(this.f35427d);
-            this.f35432i.a();
-            this.f35431h.a();
+            this.f35617e = e2;
+            e2.a((View) this.f35614b);
+            this.f35617e.a(this.f35616d);
+            this.f35621i.a();
+            this.f35620h.a();
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f35429f = adTemplate;
-            this.f35430g = com.kwad.sdk.core.response.b.c.i(adTemplate);
+            this.f35618f = adTemplate;
+            this.f35619g = com.kwad.sdk.core.response.b.c.i(adTemplate);
             e eVar = new e(this, 70);
-            this.f35432i = eVar;
-            this.f35431h = new com.kwad.sdk.draw.c.a(this.f35429f, eVar, this.f35426c);
+            this.f35621i = eVar;
+            this.f35620h = new com.kwad.sdk.draw.c.a(this.f35618f, eVar, this.f35615c);
         }
     }
 
@@ -164,19 +164,19 @@ public class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.b();
-            e eVar = this.f35432i;
+            e eVar = this.f35621i;
             if (eVar != null) {
                 eVar.f();
             }
-            com.kwad.sdk.draw.c.a aVar = this.f35431h;
+            com.kwad.sdk.draw.c.a aVar = this.f35620h;
             if (aVar != null) {
                 aVar.b();
             }
-            com.kwad.sdk.draw.a.b bVar = this.f35427d;
+            com.kwad.sdk.draw.a.b bVar = this.f35616d;
             if (bVar != null) {
                 bVar.a();
             }
-            Presenter presenter = this.f35428e;
+            Presenter presenter = this.f35617e;
             if (presenter != null) {
                 presenter.h();
             }
@@ -186,7 +186,7 @@ public class a extends KSFrameLayout {
     public void setAdInteractionListener(KsDrawAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, adInteractionListener) == null) {
-            this.f35424a = adInteractionListener;
+            this.f35613a = adInteractionListener;
         }
     }
 }

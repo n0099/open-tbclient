@@ -15,26 +15,26 @@ public final class y implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, Integer> f39278a;
+    public static final HashMap<String, Integer> f39499a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, Long> f39279b;
+    public static final HashMap<String, Long> f39500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<String, String> f39280c;
+    public static final HashMap<String, String> f39501c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static y f39281d;
+    public static y f39502d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f39282e;
+    public Context f39503e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f39283f;
+    public c f39504f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f39284g;
+    public boolean f39505g;
 
     static {
         InterceptResult invokeClinit;
@@ -49,9 +49,9 @@ public final class y implements c {
                 return;
             }
         }
-        f39278a = new HashMap<>();
-        f39279b = new HashMap<>();
-        f39280c = new HashMap<>();
+        f39499a = new HashMap<>();
+        f39500b = new HashMap<>();
+        f39501c = new HashMap<>();
     }
 
     public y(Context context) {
@@ -69,10 +69,10 @@ public final class y implements c {
                 return;
             }
         }
-        this.f39284g = false;
-        this.f39282e = context;
-        this.f39284g = a(context);
-        p.d("SystemCache", "init status is " + this.f39284g + ";  curCache is " + this.f39283f);
+        this.f39505g = false;
+        this.f39503e = context;
+        this.f39505g = a(context);
+        p.d("SystemCache", "init status is " + this.f39505g + ";  curCache is " + this.f39504f);
     }
 
     public static synchronized y b(Context context) {
@@ -81,10 +81,10 @@ public final class y implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (y.class) {
-                if (f39281d == null) {
-                    f39281d = new y(context.getApplicationContext());
+                if (f39502d == null) {
+                    f39502d = new y(context.getApplicationContext());
                 }
-                yVar = f39281d;
+                yVar = f39502d;
             }
             return yVar;
         }
@@ -95,7 +95,7 @@ public final class y implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             x xVar = new x();
-            if (xVar.a(this.f39282e)) {
+            if (xVar.a(this.f39503e)) {
                 xVar.a();
                 p.d("SystemCache", "sp cache is cleared");
             }
@@ -107,8 +107,8 @@ public final class y implements c {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            f39280c.put(str, str2);
-            if (!this.f39284g || (cVar = this.f39283f) == null) {
+            f39501c.put(str, str2);
+            if (!this.f39505g || (cVar = this.f39504f) == null) {
                 return;
             }
             cVar.b(str, str2);
@@ -121,20 +121,20 @@ public final class y implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             v vVar = new v();
-            this.f39283f = vVar;
+            this.f39504f = vVar;
             boolean a2 = vVar.a(context);
             if (!a2) {
                 u uVar = new u();
-                this.f39283f = uVar;
+                this.f39504f = uVar;
                 a2 = uVar.a(context);
             }
             if (!a2) {
                 x xVar = new x();
-                this.f39283f = xVar;
+                this.f39504f = xVar;
                 a2 = xVar.a(context);
             }
             if (!a2) {
-                this.f39283f = null;
+                this.f39504f = null;
             }
             return a2;
         }
@@ -147,8 +147,8 @@ public final class y implements c {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String str3 = f39280c.get(str);
-            return (str3 != null || (cVar = this.f39283f) == null) ? str3 : cVar.a(str, str2);
+            String str3 = f39501c.get(str);
+            return (str3 != null || (cVar = this.f39504f) == null) ? str3 : cVar.a(str, str2);
         }
         return (String) invokeLL.objValue;
     }

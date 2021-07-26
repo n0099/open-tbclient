@@ -36,6 +36,6 @@ public enum ai extends Session.c {
     public final d.f.c.a.b a(long j, Session session) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? session.f32966b.a(j, session) : (d.f.c.a.b) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? session.f33155b.a(j, session) : (d.f.c.a.b) invokeJL.objValue;
     }
 }

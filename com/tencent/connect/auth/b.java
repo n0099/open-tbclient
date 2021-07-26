@@ -15,20 +15,20 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f38774a;
+    public static b f38948a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ boolean f38775d;
+    public static final /* synthetic */ boolean f38949d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f38776e;
+    public static int f38950e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, a> f38777b;
+    public HashMap<String, a> f38951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f38778c;
+    public final String f38952c;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -36,13 +36,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IUiListener f38779a;
+        public IUiListener f38953a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.tencent.connect.auth.a f38780b;
+        public com.tencent.connect.auth.a f38954b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f38781c;
+        public String f38955c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -72,8 +72,8 @@ public class b {
                 return;
             }
         }
-        f38775d = !b.class.desiredAssertionStatus();
-        f38776e = 0;
+        f38949d = !b.class.desiredAssertionStatus();
+        f38950e = 0;
     }
 
     public b() {
@@ -89,18 +89,18 @@ public class b {
                 return;
             }
         }
-        this.f38777b = new HashMap<>();
-        this.f38778c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        this.f38951b = new HashMap<>();
+        this.f38952c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f38774a == null) {
-                f38774a = new b();
+            if (f38948a == null) {
+                f38948a = new b();
             }
-            return f38774a;
+            return f38948a;
         }
         return (b) invokeV.objValue;
     }
@@ -109,8 +109,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int i2 = f38776e + 1;
-            f38776e = i2;
+            int i2 = f38950e + 1;
+            f38950e = i2;
             return i2;
         }
         return invokeV.intValue;
@@ -138,7 +138,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             int b2 = b();
             try {
-                HashMap<String, a> hashMap = this.f38777b;
+                HashMap<String, a> hashMap = this.f38951b;
                 hashMap.put("" + b2, aVar);
             } catch (Throwable th) {
                 th.printStackTrace();

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.Domains;
-import d.a.o0.s.c.z;
+import d.a.p0.t.c.a0;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyManagementException;
@@ -227,7 +227,7 @@ public class HttpsUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (z.a(str)) {
+            if (a0.a(str)) {
                 return true;
             }
             List<String> hostWhiteList = TbSingleton.getInstance().getHostWhiteList();

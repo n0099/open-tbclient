@@ -47,7 +47,7 @@ public class l extends n {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f31261a.a("stats_serverbusy_retrycount", i2);
+            this.f31504a.a("stats_serverbusy_retrycount", i2);
         }
     }
 
@@ -55,7 +55,7 @@ public class l extends n {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31261a.b("stats_serverbusy_retrycount", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31504a.b("stats_serverbusy_retrycount", 0) : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.n

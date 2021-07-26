@@ -31,11 +31,11 @@ public class d extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9430b = "d";
+    public static final String f9456b = "d";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9431c;
+    public boolean f9457c;
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +65,7 @@ public class d extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f9431c = false;
+        this.f9457c = false;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -92,9 +92,9 @@ public class d extends com.baidu.platform.base.d {
                 if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray("result")) == null || optJSONArray.length() == 0) {
                     return false;
                 }
-                return this.f9431c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
+                return this.f9457c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
             } catch (JSONException e2) {
-                Log.e(f9430b, "Parse detail search result error", e2);
+                Log.e(f9456b, "Parse detail search result error", e2);
                 return false;
             }
         }
@@ -199,12 +199,12 @@ public class d extends com.baidu.platform.base.d {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SearchResult poiDetailSearchResult = this.f9431c ? new PoiDetailSearchResult() : new PoiDetailResult();
+            SearchResult poiDetailSearchResult = this.f9457c ? new PoiDetailSearchResult() : new PoiDetailResult();
             if (str != null && !str.isEmpty()) {
                 try {
                     jSONObject = new JSONObject(str);
                 } catch (JSONException e2) {
-                    Log.e(f9430b, "Parse detail search result failed", e2);
+                    Log.e(f9456b, "Parse detail search result failed", e2);
                 }
                 if (jSONObject.length() == 0) {
                     poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -251,7 +251,7 @@ public class d extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
             OnGetPoiSearchResultListener onGetPoiSearchResultListener = (OnGetPoiSearchResultListener) obj;
-            if (this.f9431c) {
+            if (this.f9457c) {
                 onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailSearchResult) searchResult);
             } else {
                 onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailResult) searchResult);
@@ -262,7 +262,7 @@ public class d extends com.baidu.platform.base.d {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f9431c = z;
+            this.f9457c = z;
         }
     }
 }

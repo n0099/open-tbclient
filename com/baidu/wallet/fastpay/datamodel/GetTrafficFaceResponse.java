@@ -59,16 +59,16 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetTrafficFaceResponse f24815a;
+        public final /* synthetic */ GetTrafficFaceResponse f24973a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24816b;
+        public String f24974b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f24817c;
+        public String f24975c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<TrafficFaceModel> f24818d;
+        public ArrayList<TrafficFaceModel> f24976d;
 
         public a(GetTrafficFaceResponse getTrafficFaceResponse) {
             Interceptable interceptable = $ic;
@@ -85,29 +85,29 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
                     return;
                 }
             }
-            this.f24815a = getTrafficFaceResponse;
-            this.f24816b = "";
-            this.f24817c = "";
+            this.f24973a = getTrafficFaceResponse;
+            this.f24974b = "";
+            this.f24975c = "";
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f24816b = str;
+                this.f24974b = str;
             }
         }
 
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f24817c = str;
+                this.f24975c = str;
             }
         }
 
         public void a(ArrayList<TrafficFaceModel> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                this.f24818d = arrayList;
+                this.f24976d = arrayList;
             }
         }
     }

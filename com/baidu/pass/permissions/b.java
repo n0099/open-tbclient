@@ -12,7 +12,7 @@ public class b implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PermissionsHelperActivity f9368a;
+    public final /* synthetic */ PermissionsHelperActivity f9394a;
 
     public b(PermissionsHelperActivity permissionsHelperActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class b implements View.OnClickListener {
                 return;
             }
         }
-        this.f9368a = permissionsHelperActivity;
+        this.f9394a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,11 +38,11 @@ public class b implements View.OnClickListener {
         PermissionsDTO permissionsDTO;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            sb = this.f9368a.f9365e;
+            sb = this.f9394a.f9391e;
             SharedPreferencesUtil.put(sb.toString(), Boolean.TRUE);
-            PermissionsHelperActivity permissionsHelperActivity = this.f9368a;
-            permissionsDTO = permissionsHelperActivity.f9363c;
-            permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, PermissionsHelperActivity.f9362b);
+            PermissionsHelperActivity permissionsHelperActivity = this.f9394a;
+            permissionsDTO = permissionsHelperActivity.f9389c;
+            permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, PermissionsHelperActivity.f9388b);
         }
     }
 }

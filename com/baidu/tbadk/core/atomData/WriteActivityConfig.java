@@ -29,10 +29,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.h3.q0.a;
-import d.a.p0.h3.q0.b;
-import d.a.p0.h3.q0.c;
+import d.a.d.e.p.l;
+import d.a.q0.h3.q0.g;
+import d.a.q0.h3.q0.h;
+import d.a.q0.h3.q0.i;
 /* loaded from: classes3.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -120,7 +120,7 @@ public class WriteActivityConfig extends IntentConfig {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.f58197g = new Intent(getIntent());
+            i.f58811g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -601,8 +601,8 @@ public class WriteActivityConfig extends IntentConfig {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean m = a.g().m();
-            b.a("发帖阻拦状态 = " + m);
+            boolean m = g.g().m();
+            h.a("发帖阻拦状态 = " + m);
             if (m && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 l.M(currentActivity, "正在发布，请稍后");
             }

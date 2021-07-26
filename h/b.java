@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.g;
 import rx.internal.operators.CompletableOnSubscribeConcatIterable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f72396a;
+    public final f f72850a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,42 +52,42 @@ public class b {
     }
 
     /* renamed from: h.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C2059b implements f {
+    /* loaded from: classes9.dex */
+    public class C2058b implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f72397e;
+        public final /* synthetic */ g f72851e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f72398f;
+        public final /* synthetic */ b f72852f;
 
         /* renamed from: h.b$b$a */
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public class a implements h.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g.a f72399e;
+            public final /* synthetic */ g.a f72853e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h.c f72400f;
+            public final /* synthetic */ h.c f72854f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ h.o.d.h f72401g;
+            public final /* synthetic */ h.o.d.h f72855g;
 
             /* renamed from: h.b$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes8.dex */
-            public class C2060a implements h.n.a {
+            /* loaded from: classes9.dex */
+            public class C2059a implements h.n.a {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f72402e;
+                public final /* synthetic */ a f72856e;
 
-                public C2060a(a aVar) {
+                public C2059a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f72402e = aVar;
+                    this.f72856e = aVar;
                 }
 
                 @Override // h.n.a
@@ -110,27 +110,27 @@ public class b {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         try {
-                            this.f72402e.f72400f.onCompleted();
+                            this.f72856e.f72854f.onCompleted();
                         } finally {
-                            this.f72402e.f72401g.unsubscribe();
+                            this.f72856e.f72855g.unsubscribe();
                         }
                     }
                 }
             }
 
             /* renamed from: h.b$b$a$b  reason: collision with other inner class name */
-            /* loaded from: classes8.dex */
-            public class C2061b implements h.n.a {
+            /* loaded from: classes9.dex */
+            public class C2060b implements h.n.a {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f72403e;
+                public final /* synthetic */ Throwable f72857e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ a f72404f;
+                public final /* synthetic */ a f72858f;
 
-                public C2061b(a aVar, Throwable th) {
+                public C2060b(a aVar, Throwable th) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,8 +145,8 @@ public class b {
                             return;
                         }
                     }
-                    this.f72404f = aVar;
-                    this.f72403e = th;
+                    this.f72858f = aVar;
+                    this.f72857e = th;
                 }
 
                 @Override // h.n.a
@@ -154,20 +154,20 @@ public class b {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         try {
-                            this.f72404f.f72400f.onError(this.f72403e);
+                            this.f72858f.f72854f.onError(this.f72857e);
                         } finally {
-                            this.f72404f.f72401g.unsubscribe();
+                            this.f72858f.f72855g.unsubscribe();
                         }
                     }
                 }
             }
 
-            public a(C2059b c2059b, g.a aVar, h.c cVar, h.o.d.h hVar) {
+            public a(C2058b c2058b, g.a aVar, h.c cVar, h.o.d.h hVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c2059b, aVar, cVar, hVar};
+                    Object[] objArr = {c2058b, aVar, cVar, hVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -177,16 +177,16 @@ public class b {
                         return;
                     }
                 }
-                this.f72399e = aVar;
-                this.f72400f = cVar;
-                this.f72401g = hVar;
+                this.f72853e = aVar;
+                this.f72854f = cVar;
+                this.f72855g = hVar;
             }
 
             @Override // h.c
             public void onCompleted() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f72399e.b(new C2060a(this));
+                    this.f72853e.b(new C2059a(this));
                 }
             }
 
@@ -194,7 +194,7 @@ public class b {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.f72399e.b(new C2061b(this, th));
+                    this.f72853e.b(new C2060b(this, th));
                 }
             }
 
@@ -202,12 +202,12 @@ public class b {
             public void onSubscribe(k kVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-                    this.f72401g.a(kVar);
+                    this.f72855g.a(kVar);
                 }
             }
         }
 
-        public C2059b(b bVar, g gVar) {
+        public C2058b(b bVar, g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,8 +222,8 @@ public class b {
                     return;
                 }
             }
-            this.f72398f = bVar;
-            this.f72397e = gVar;
+            this.f72852f = bVar;
+            this.f72851e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -233,21 +233,21 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
                 h.o.d.h hVar = new h.o.d.h();
-                g.a createWorker = this.f72397e.createWorker();
+                g.a createWorker = this.f72851e.createWorker();
                 hVar.a(createWorker);
                 cVar.onSubscribe(hVar);
-                this.f72398f.j(new a(this, createWorker, cVar, hVar));
+                this.f72852f.j(new a(this, createWorker, cVar, hVar));
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements h.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.u.c f72405e;
+        public final /* synthetic */ h.u.c f72859e;
 
         public c(b bVar, h.u.c cVar) {
             Interceptable interceptable = $ic;
@@ -264,14 +264,14 @@ public class b {
                     return;
                 }
             }
-            this.f72405e = cVar;
+            this.f72859e = cVar;
         }
 
         @Override // h.c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f72405e.unsubscribe();
+                this.f72859e.unsubscribe();
             }
         }
 
@@ -280,7 +280,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 h.r.c.j(th);
-                this.f72405e.unsubscribe();
+                this.f72859e.unsubscribe();
                 b.c(th);
             }
         }
@@ -289,12 +289,12 @@ public class b {
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-                this.f72405e.a(kVar);
+                this.f72859e.a(kVar);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class d implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -324,30 +324,30 @@ public class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class e implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f72406e;
+        public final /* synthetic */ g f72860e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f72407f;
+        public final /* synthetic */ b f72861f;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public class a implements h.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.c f72408e;
+            public final /* synthetic */ h.c f72862e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ g.a f72409f;
+            public final /* synthetic */ g.a f72863f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ e f72410g;
+            public final /* synthetic */ e f72864g;
 
             public a(e eVar, h.c cVar, g.a aVar) {
                 Interceptable interceptable = $ic;
@@ -364,9 +364,9 @@ public class b {
                         return;
                     }
                 }
-                this.f72410g = eVar;
-                this.f72408e = cVar;
-                this.f72409f = aVar;
+                this.f72864g = eVar;
+                this.f72862e = cVar;
+                this.f72863f = aVar;
             }
 
             @Override // h.n.a
@@ -374,9 +374,9 @@ public class b {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f72410g.f72407f.j(this.f72408e);
+                        this.f72864g.f72861f.j(this.f72862e);
                     } finally {
-                        this.f72409f.unsubscribe();
+                        this.f72863f.unsubscribe();
                     }
                 }
             }
@@ -397,8 +397,8 @@ public class b {
                     return;
                 }
             }
-            this.f72407f = bVar;
-            this.f72406e = gVar;
+            this.f72861f = bVar;
+            this.f72860e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -407,13 +407,13 @@ public class b {
         public void call(h.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                g.a createWorker = this.f72406e.createWorker();
+                g.a createWorker = this.f72860e.createWorker();
                 createWorker.b(new a(this, cVar, createWorker));
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface f extends h.n.b<h.c> {
     }
 
@@ -449,7 +449,7 @@ public class b {
                 return;
             }
         }
-        this.f72396a = h.r.c.g(fVar);
+        this.f72850a = h.r.c.g(fVar);
     }
 
     public static b a(Iterable<? extends b> iterable) {
@@ -515,7 +515,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             e(gVar);
-            return b(new C2059b(this, gVar));
+            return b(new C2058b(this, gVar));
         }
         return (b) invokeL.objValue;
     }
@@ -556,7 +556,7 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
             e(cVar);
             try {
-                h.r.c.e(this, this.f72396a).call(cVar);
+                h.r.c.e(this, this.f72850a).call(cVar);
             } catch (NullPointerException e2) {
                 throw e2;
             } catch (Throwable th) {
@@ -583,6 +583,6 @@ public class b {
                 return;
             }
         }
-        this.f72396a = z ? h.r.c.g(fVar) : fVar;
+        this.f72850a = z ? h.r.c.g(fVar) : fVar;
     }
 }

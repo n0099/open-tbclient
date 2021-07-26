@@ -1,39 +1,27 @@
 package com.win.opensdk;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import com.win.opensdk.core.Info;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class g1 implements ServiceConnection {
+public class g1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39580a;
+    public List f39809a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f39581b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final BlockingQueue f39582c;
-
-    public g1(Context context) {
+    public g1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -43,50 +31,54 @@ public class g1 implements ServiceConnection {
                 return;
             }
         }
-        this.f39581b = false;
-        this.f39582c = new LinkedBlockingQueue();
-        this.f39580a = context;
+        this.f39809a = Collections.synchronizedList(new ArrayList());
     }
 
-    public IBinder a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f39581b) {
-                throw new IllegalStateException("Binder already consumed");
-            }
-            IBinder iBinder = (IBinder) this.f39582c.take();
-            if (iBinder != null) {
-                this.f39581b = true;
-            }
-            return iBinder;
-        }
-        return (IBinder) invokeV.objValue;
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f39582c.put(iBinder);
-                String a2 = ((a) b.a(iBinder)).a();
-                if (TextUtils.isEmpty(a2)) {
-                    return;
-                }
-                s1.f(this.f39580a, a2);
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
-            } catch (InterruptedException e3) {
-                e3.printStackTrace();
+                this.f39809a.clear();
+            } catch (Exception unused) {
             }
         }
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
+    public void a(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, componentName) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            synchronized (this.f39809a) {
+                this.f39809a.clear();
+                this.f39809a.addAll(list);
+            }
         }
+    }
+
+    public Info b() {
+        InterceptResult invokeV;
+        Info info;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.f39809a) {
+                info = null;
+                while (this.f39809a.size() > 0 && ((info = (Info) this.f39809a.remove(0)) == null || !info.isEffective())) {
+                }
+            }
+            return info;
+        }
+        return (Info) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        boolean isEmpty;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.f39809a) {
+                isEmpty = this.f39809a.isEmpty();
+            }
+            return isEmpty;
+        }
+        return invokeV.booleanValue;
     }
 }

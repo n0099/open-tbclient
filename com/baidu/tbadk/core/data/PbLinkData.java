@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a0.e0.c;
+import d.a.q0.a0.e0.c;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbLinkInfo;
@@ -69,7 +69,7 @@ public class PbLinkData extends c implements Serializable {
         this.urlType = pbLinkInfo.url_type.intValue();
     }
 
-    @Override // d.a.p0.a0.e0.c
+    @Override // d.a.q0.a0.e0.c
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

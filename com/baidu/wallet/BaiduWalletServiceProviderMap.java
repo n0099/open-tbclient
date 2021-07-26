@@ -38,7 +38,7 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BaiduWalletServiceProviderMap f23773a;
+        public static final BaiduWalletServiceProviderMap f23931a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
                     return;
                 }
             }
-            f23773a = new BaiduWalletServiceProviderMap(null);
+            f23931a = new BaiduWalletServiceProviderMap(null);
         }
 
         public a() {
@@ -79,7 +79,7 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
     public static final BaiduWalletServiceProviderMap getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f23773a : (BaiduWalletServiceProviderMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f23931a : (BaiduWalletServiceProviderMap) invokeV.objValue;
     }
 
     private void initMaps() {

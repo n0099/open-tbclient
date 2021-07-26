@@ -14,10 +14,10 @@ public class KeyboardEventLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19875e;
+    public int f19993e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f19876f;
+    public a f19994f;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -42,8 +42,8 @@ public class KeyboardEventLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f19875e = 0;
-        this.f19876f = null;
+        this.f19993e = 0;
+        this.f19994f = null;
     }
 
     @Override // android.view.View
@@ -52,9 +52,9 @@ public class KeyboardEventLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            int max = Math.max(Math.max(i5, i3), this.f19875e);
-            this.f19875e = max;
-            if (i5 == 0 || (aVar = this.f19876f) == null) {
+            int max = Math.max(Math.max(i5, i3), this.f19993e);
+            this.f19993e = max;
+            if (i5 == 0 || (aVar = this.f19994f) == null) {
                 return;
             }
             if (i5 > i3) {
@@ -69,7 +69,7 @@ public class KeyboardEventLayout extends RelativeLayout {
     public void setOnKeyStateChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f19876f = aVar;
+            this.f19994f = aVar;
         }
     }
 
@@ -91,8 +91,8 @@ public class KeyboardEventLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f19875e = 0;
-        this.f19876f = null;
+        this.f19993e = 0;
+        this.f19994f = null;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,7 +114,7 @@ public class KeyboardEventLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f19875e = 0;
-        this.f19876f = null;
+        this.f19993e = 0;
+        this.f19994f = null;
     }
 }

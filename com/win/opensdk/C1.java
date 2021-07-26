@@ -1,28 +1,24 @@
 package com.win.opensdk;
 
-import android.graphics.Bitmap;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.top.PProvider;
 /* loaded from: classes6.dex */
-public class C1 extends WebViewClient {
+public class C1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ E1 f39331a;
+    public final /* synthetic */ PProvider f39553a;
 
-    public C1(E1 e1) {
+    public C1(PProvider pProvider) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e1};
+            Object[] objArr = {pProvider};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,39 +28,20 @@ public class C1 extends WebViewClient {
                 return;
             }
         }
-        this.f39331a = e1;
+        this.f39553a = pProvider;
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            super.onPageFinished(webView, str);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-            super.onPageStarted(webView, str, bitmap);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
-            super.onReceivedError(webView, i2, str, str2);
-            this.f39331a.f39356b.setVisibility(8);
-            if (str.contains("TIMED_OUT")) {
-                E1 e1 = this.f39331a;
-                if (e1.f39357c != null) {
-                    w0 b2 = x0.a(e1.f39355a).b(new y0(this.f39331a.f39357c), 4);
-                    b2.a("desc", str + "&errcode:" + i2 + "&fileurl:" + str2).a();
-                }
-                Toast.makeText(this.f39331a.f39355a, R.string.win_toast_network_error, 0).show();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            PProvider pProvider = this.f39553a;
+            pProvider.f39950a = pProvider.getContext();
+            PProvider pProvider2 = this.f39553a;
+            if (pProvider2.f39950a == null) {
+                return;
             }
+            pProvider2.a();
         }
     }
 }

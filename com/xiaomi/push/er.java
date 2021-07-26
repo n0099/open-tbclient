@@ -18,7 +18,7 @@ public final class er {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40072a;
+    public static int f40344a;
 
     /* renamed from: a  reason: collision with other field name */
     public static a f333a;
@@ -51,7 +51,7 @@ public final class er {
             }
         }
         f334a = XMJobService.class.getCanonicalName();
-        f40072a = 0;
+        f40344a = 0;
     }
 
     public static synchronized void a() {
@@ -137,15 +137,15 @@ public final class er {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, null, context, i2) == null) {
             synchronized (er.class) {
-                int i3 = f40072a;
+                int i3 = f40344a;
                 if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
                     if (i2 == 2) {
-                        f40072a = 2;
+                        f40344a = 2;
                     } else {
-                        f40072a = 0;
+                        f40344a = 0;
                     }
                 }
-                if (i3 != f40072a && f40072a == 2) {
+                if (i3 != f40344a && f40344a == 2) {
                     a();
                     f333a = new eu(context);
                 }

@@ -35,7 +35,7 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultiset f33126i;
+        public final /* synthetic */ AbstractMapBasedMultiset f33315i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AbstractMapBasedMultiset abstractMapBasedMultiset) {
@@ -55,14 +55,14 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
                     return;
                 }
             }
-            this.f33126i = abstractMapBasedMultiset;
+            this.f33315i = abstractMapBasedMultiset;
         }
 
         @Override // com.google.common.collect.AbstractMapBasedMultiset.c
         public E b(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33126i.backingMap.i(i2) : (E) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33315i.backingMap.i(i2) : (E) invokeI.objValue;
         }
     }
 
@@ -72,7 +72,7 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultiset f33127i;
+        public final /* synthetic */ AbstractMapBasedMultiset f33316i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AbstractMapBasedMultiset abstractMapBasedMultiset) {
@@ -92,7 +92,7 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
                     return;
                 }
             }
-            this.f33127i = abstractMapBasedMultiset;
+            this.f33316i = abstractMapBasedMultiset;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -101,7 +101,7 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         public s0.a<E> b(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33127i.backingMap.g(i2) : (s0.a) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33316i.backingMap.g(i2) : (s0.a) invokeI.objValue;
         }
     }
 
@@ -111,16 +111,16 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33128e;
+        public int f33317e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33129f;
+        public int f33318f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f33130g;
+        public int f33319g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AbstractMapBasedMultiset f33131h;
+        public final /* synthetic */ AbstractMapBasedMultiset f33320h;
 
         public c(AbstractMapBasedMultiset abstractMapBasedMultiset) {
             Interceptable interceptable = $ic;
@@ -137,15 +137,15 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
                     return;
                 }
             }
-            this.f33131h = abstractMapBasedMultiset;
-            this.f33128e = this.f33131h.backingMap.e();
-            this.f33129f = -1;
-            this.f33130g = this.f33131h.backingMap.f70911d;
+            this.f33320h = abstractMapBasedMultiset;
+            this.f33317e = this.f33320h.backingMap.e();
+            this.f33318f = -1;
+            this.f33319g = this.f33320h.backingMap.f71365d;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f33131h.backingMap.f70911d != this.f33130g) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f33320h.backingMap.f71365d != this.f33319g) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -158,7 +158,7 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 a();
-                return this.f33128e >= 0;
+                return this.f33317e >= 0;
             }
             return invokeV.booleanValue;
         }
@@ -169,10 +169,10 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 if (hasNext()) {
-                    T b2 = b(this.f33128e);
-                    int i2 = this.f33128e;
-                    this.f33129f = i2;
-                    this.f33128e = this.f33131h.backingMap.s(i2);
+                    T b2 = b(this.f33317e);
+                    int i2 = this.f33317e;
+                    this.f33318f = i2;
+                    this.f33317e = this.f33320h.backingMap.s(i2);
                     return b2;
                 }
                 throw new NoSuchElementException();
@@ -186,11 +186,11 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 a();
-                m.e(this.f33129f != -1);
-                this.f33131h.size -= abstractMapBasedMultiset.backingMap.x(this.f33129f);
-                this.f33128e = this.f33131h.backingMap.t(this.f33128e, this.f33129f);
-                this.f33129f = -1;
-                this.f33130g = this.f33131h.backingMap.f70911d;
+                m.e(this.f33318f != -1);
+                this.f33320h.size -= abstractMapBasedMultiset.backingMap.x(this.f33318f);
+                this.f33317e = this.f33320h.backingMap.t(this.f33317e, this.f33318f);
+                this.f33318f = -1;
+                this.f33319g = this.f33320h.backingMap.f71365d;
             }
         }
     }

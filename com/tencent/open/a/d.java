@@ -1,161 +1,92 @@
 package com.tencent.open.a;
 
-import android.annotation.SuppressLint;
-import android.os.Environment;
-import android.os.StatFs;
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.text.SimpleDateFormat;
+import com.tencent.open.utils.l;
 /* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static d f39103a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static final boolean a(int i2, int i3) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i2, i3)) == null) ? i3 == (i2 & i3) : invokeII.booleanValue;
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                String externalStorageState = Environment.getExternalStorageState();
-                return "mounted".equals(externalStorageState) || "mounted_ro".equals(externalStorageState);
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static c b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (a()) {
-                    return c.b(Environment.getExternalStorageDirectory());
+    public static synchronized d a() {
+        InterceptResult invokeV;
+        d dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (d.class) {
+                if (f39103a == null) {
+                    f39103a = new d();
                 }
-                return null;
+                dVar = f39103a;
             }
-            return (c) invokeV.objValue;
+            return dVar;
+        }
+        return (d) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, String str3, String str4, String str5, String str6) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
+            g.a().a(l.a(str, str3, str4, str5, str2, str6), str2, true);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public File f38906a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f38907b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public long f38908c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public File a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38906a : (File) invokeV.objValue;
-        }
-
-        public long b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38907b : invokeV.longValue;
-        }
-
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38908c : invokeV.longValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? String.format("[%s : %d / %d]", a().getAbsolutePath(), Long.valueOf(c()), Long.valueOf(b())) : (String) invokeV.objValue;
-        }
-
-        public void a(File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
-                this.f38906a = file;
-            }
-        }
-
-        public void b(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-                this.f38908c = j;
-            }
-        }
-
-        public static c b(File file) {
-            InterceptResult invokeL;
-            StatFs statFs;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-                c cVar = new c();
-                cVar.a(file);
-                long blockSize = new StatFs(file.getAbsolutePath()).getBlockSize();
-                cVar.a(statFs.getBlockCount() * blockSize);
-                cVar.b(statFs.getAvailableBlocks() * blockSize);
-                return cVar;
-            }
-            return (c) invokeL.objValue;
-        }
-
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.f38907b = j;
-            }
+    public void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8}) == null) {
+            g.a().a(l.a(str, str4, str5, str3, str2, str6, "", str7, str8, "", "", ""), str2, false);
         }
     }
 
-    /* renamed from: com.tencent.open.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class C0525d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10}) == null) {
+            g.a().a(l.a(str, str4, str5, str3, str2, str6, str7, "", "", str8, str9, str10), str2, false);
+        }
+    }
 
-        @SuppressLint({"SimpleDateFormat"})
-        public static SimpleDateFormat a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? new SimpleDateFormat(str) : (SimpleDateFormat) invokeL.objValue;
+    public void a(int i2, String str, String str2, String str3, String str4, Long l, int i3, int i4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4, l, Integer.valueOf(i3), Integer.valueOf(i4), str5}) == null) {
+            long elapsedRealtime = SystemClock.elapsedRealtime() - l.longValue();
+            if (l.longValue() == 0 || elapsedRealtime < 0) {
+                elapsedRealtime = 0;
+            }
+            StringBuffer stringBuffer = new StringBuffer("https://huatuocode.huatuo.qq.com");
+            stringBuffer.append("?domain=mobile.opensdk.com&cgi=opensdk&type=");
+            stringBuffer.append(i2);
+            stringBuffer.append("&code=");
+            stringBuffer.append(i3);
+            stringBuffer.append("&time=");
+            stringBuffer.append(elapsedRealtime);
+            stringBuffer.append("&rate=");
+            stringBuffer.append(i4);
+            stringBuffer.append("&uin=");
+            stringBuffer.append(str2);
+            stringBuffer.append("&data=");
+            g.a().a(stringBuffer.toString(), "GET", l.a(String.valueOf(i2), String.valueOf(i3), String.valueOf(elapsedRealtime), String.valueOf(i4), str, str2, str3, str4, str5), true);
         }
     }
 }

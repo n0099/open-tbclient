@@ -43,13 +43,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import d.a.c.a.b;
-import d.a.c.e.p.k;
-import d.a.c.e.p.l;
-import d.a.o0.d.a;
-import d.a.o0.l0.d;
-import d.a.o0.l0.e;
-import d.a.o0.l0.f;
+import d.a.d.a.b;
+import d.a.d.e.p.k;
+import d.a.d.e.p.l;
+import d.a.p0.e.a;
+import d.a.p0.n0.d;
+import d.a.p0.n0.e;
+import d.a.p0.n0.f;
 import java.util.HashMap;
 import java.util.Map;
 import tbclient.UserBfbInfo;
@@ -131,28 +131,28 @@ public class WalletStatic {
                     Activity activity;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f52125d) == null) {
+                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f52781d) == null) {
                             return null;
                         }
-                        BdUniqueId bdUniqueId = data.f52122a;
-                        String str = data.f52124c;
-                        int i2 = data.f52123b;
+                        BdUniqueId bdUniqueId = data.f52778a;
+                        String str = data.f52780c;
+                        int i2 = data.f52779b;
                         if (i2 == 1) {
-                            WalletPluginManager.getInstance().doBaiduPay(data.f52125d, str, bdUniqueId);
+                            WalletPluginManager.getInstance().doBaiduPay(data.f52781d, str, bdUniqueId);
                         } else if (i2 == 2) {
-                            WalletPluginManager.getInstance().doAliPay(data.f52125d, str, bdUniqueId);
+                            WalletPluginManager.getInstance().doAliPay(data.f52781d, str, bdUniqueId);
                         } else if (i2 == 3) {
-                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f52125d, data.f52126e, data.f52124c, bdUniqueId);
-                        } else if (i2 == 4 && data.f52127f != null) {
+                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f52781d, data.f52782e, data.f52780c, bdUniqueId);
+                        } else if (i2 == 4 && data.f52783f != null) {
                             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(activity, TbConfig.WEIXIN_SHARE_APP_ID);
                             PayReq payReq = new PayReq();
-                            payReq.appId = data.f52127f.get("appid");
-                            payReq.partnerId = data.f52127f.get("partnerid");
-                            payReq.prepayId = data.f52127f.get("prepayid");
-                            payReq.packageValue = data.f52127f.get("packagealias");
-                            payReq.nonceStr = data.f52127f.get("noncestr");
-                            payReq.timeStamp = data.f52127f.get("timestamp");
-                            payReq.sign = data.f52127f.get("sign");
+                            payReq.appId = data.f52783f.get("appid");
+                            payReq.partnerId = data.f52783f.get("partnerid");
+                            payReq.prepayId = data.f52783f.get("prepayid");
+                            payReq.packageValue = data.f52783f.get("packagealias");
+                            payReq.nonceStr = data.f52783f.get("noncestr");
+                            payReq.timeStamp = data.f52783f.get("timestamp");
+                            payReq.sign = data.f52783f.get("sign");
                             createWXAPI.registerApp(payReq.appId);
                             createWXAPI.sendReq(payReq);
                         }
@@ -196,7 +196,7 @@ public class WalletStatic {
                             return null;
                         }
                         WalletPluginManager.getInstance().invokePlugin(null);
-                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().f51881a, customMessage.getData().f51882b, customMessage.getData().f51883c));
+                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().f52495a, customMessage.getData().f52496b, customMessage.getData().f52497c));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
@@ -343,8 +343,8 @@ public class WalletStatic {
     public static void registerHttpAndSocketTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            d.a.p0.h3.d0.a.f(303043, ResponsedGetOrderSocketMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, d.a.p0.h3.d0.a.a(TbConfig.GET_ORDER, 303043));
+            d.a.q0.h3.d0.a.f(303043, ResponsedGetOrderSocketMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, d.a.q0.h3.d0.a.a(TbConfig.GET_ORDER, 303043));
             tbHttpMessageTask.setResponsedClass(ResponsedGetOrderHttpMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -465,7 +465,7 @@ public class WalletStatic {
                             } else {
                                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                                 bdStatisticsManager.newDebug("wallet_debug", 0L, null, "type", "scheme_start_wallet_sub_thread", "link", "" + str);
-                                d.a.c.e.m.e.a().post(new Runnable(this, str) { // from class: com.baidu.tieba.wallet.WalletStatic.6.1
+                                d.a.d.e.m.e.a().post(new Runnable(this, str) { // from class: com.baidu.tieba.wallet.WalletStatic.6.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass6 this$0;

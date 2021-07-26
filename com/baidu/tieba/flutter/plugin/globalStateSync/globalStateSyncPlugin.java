@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.o0.b.d;
-import d.a.o0.b.e;
-import d.a.o0.b.f.u;
-import d.a.o0.r.d0.b;
-import d.a.o0.s.b.a;
-import d.a.o0.z0.o0;
-import d.a.p0.q0.a.b.g;
+import d.a.d.e.p.k;
+import d.a.p0.b.d;
+import d.a.p0.b.e;
+import d.a.p0.b.f.w;
+import d.a.p0.b1.o0;
+import d.a.p0.s.d0.b;
+import d.a.p0.t.b.a;
+import d.a.q0.q0.a.b.g;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
@@ -444,11 +444,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e b2 = d.b(u.f51502c);
-            if (b2 == null || k.isEmpty(b2.f51447a)) {
+            e b2 = d.b(w.f52003c);
+            if (b2 == null || k.isEmpty(b2.f51942a)) {
                 return "";
             }
-            String str = b2.f51447a;
+            String str = b2.f51942a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 1688589) {
@@ -522,7 +522,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap.put(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
             hashMap.put("z_id", TbadkCoreApplication.getInst().getZid());
             hashMap.put("model", Build.MODEL);
-            hashMap.put("teenMode", Boolean.valueOf(d.a.o0.c1.b.e.d()));
+            hashMap.put("teenMode", Boolean.valueOf(d.a.p0.e1.b.e.d()));
             hashMap.put("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
             hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
@@ -606,7 +606,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             HashMap hashMap2 = new HashMap();
-            Object hashMap3 = new HashMap();
+            HashMap hashMap3 = new HashMap();
             Object hashMap4 = new HashMap();
             Object hashMap5 = new HashMap();
             Object hashMap6 = new HashMap();
@@ -623,12 +623,16 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
             hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.j().k("key_video_works_progress_bar_waiting_time", 0)));
             hashMap.put("syncData", hashMap2);
+            if (TbSingleton.getInstance().getTiebaPlusConfigData() != null) {
+                hashMap3.put("heatingSwitchOpen", TbSingleton.getInstance().getTiebaPlusConfigData().c() ? "1" : "0");
+                hashMap3.put("heatingWeburl", TbSingleton.getInstance().getTiebaPlusConfigData().a());
+            }
             hashMap.put("configInfo", hashMap3);
             hashMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, hashMap4);
             hashMap.put("noticeConfig", hashMap5);
             hashMap.put("adsenseData", hashMap6);
             hashMap.put("switches", readSwitches());
-            hashMap.put("experimentCommonFeedCardID", d.g() ? "12_0_B_brand_level_a" : "12_0_B_brand_level");
+            hashMap.put("experimentCommonFeedCardID", d.h() ? "12_0_B_brand_level_a" : "12_0_B_brand_level");
             hashMap.put("proxyIp", TbadkCoreApplication.getInst().getProxyIp());
             hashMap.put("proxyPort", TbadkCoreApplication.getInst().getProxyPort());
             return hashMap;

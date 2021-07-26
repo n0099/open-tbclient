@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.e;
+import d.a.d.e.m.e;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -46,7 +46,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipActivity f13150e;
+        public final /* synthetic */ PluginErrorTipActivity f13199e;
 
         public a(PluginErrorTipActivity pluginErrorTipActivity) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                     return;
                 }
             }
-            this.f13150e = pluginErrorTipActivity;
+            this.f13199e = pluginErrorTipActivity;
         }
 
         @Override // java.lang.Runnable
@@ -76,7 +76,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f13150e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f13199e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
                             hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
                         }
                     }
@@ -172,7 +172,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
             } else if (view == this.btn) {
                 PluginStatus pluginStatus = this.status;
                 if (pluginStatus != null && pluginStatus.getErrorCode() == 100) {
-                    d.a.c.h.h.a.b().u(true);
+                    d.a.d.h.h.a.b().u(true);
                 }
                 showLoadingDialog(getResources().getString(R.string.waiting));
                 e.a().postDelayed(new a(this), 2000L);

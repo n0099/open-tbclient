@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.audio.b;
-import d.a.o0.r.g0.c.d;
+import d.a.p0.s.g0.c.d;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -27,31 +27,31 @@ public class MyAudioRecorder implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread f12805a;
+    public Thread f12854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12806b;
+    public boolean f12855b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12807c;
+    public int f12856c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12808d;
+    public String f12857d;
 
     /* renamed from: e  reason: collision with root package name */
-    public State f12809e;
+    public State f12858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RandomAccessFile f12810f;
+    public RandomAccessFile f12859f;
 
     /* renamed from: g  reason: collision with root package name */
-    public short f12811g;
+    public short f12860g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12812h;
+    public int f12861h;
 
     /* renamed from: i  reason: collision with root package name */
-    public short f12813i;
+    public short f12862i;
     public int j;
     public int k;
     public byte[] l;
@@ -129,7 +129,7 @@ public class MyAudioRecorder implements d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyAudioRecorder f12814e;
+        public final /* synthetic */ MyAudioRecorder f12863e;
 
         public a(MyAudioRecorder myAudioRecorder) {
             Interceptable interceptable = $ic;
@@ -146,14 +146,14 @@ public class MyAudioRecorder implements d {
                     return;
                 }
             }
-            this.f12814e = myAudioRecorder;
+            this.f12863e = myAudioRecorder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f12814e.n();
+                this.f12863e.n();
             }
         }
     }
@@ -192,30 +192,30 @@ public class MyAudioRecorder implements d {
                 return;
             }
         }
-        this.f12807c = 0;
-        this.f12808d = null;
+        this.f12856c = 0;
+        this.f12857d = null;
         try {
-            this.f12806b = z;
+            this.f12855b = z;
             if (z) {
                 if (i5 == 2) {
-                    this.f12813i = (short) 16;
+                    this.f12862i = (short) 16;
                 } else {
-                    this.f12813i = (short) 8;
+                    this.f12862i = (short) 8;
                 }
                 if (i4 == 2) {
-                    this.f12811g = (short) 1;
+                    this.f12860g = (short) 1;
                 } else {
-                    this.f12811g = (short) 2;
+                    this.f12860g = (short) 2;
                 }
-                this.f12812h = i3;
+                this.f12861h = i3;
                 int i8 = (i3 * 120) / 1000;
                 this.k = i8;
-                int i9 = (((i8 * 2) * this.f12813i) * this.f12811g) / 8;
+                int i9 = (((i8 * 2) * this.f12862i) * this.f12860g) / 8;
                 this.j = i9;
                 if (i9 < AudioRecord.getMinBufferSize(i3, i4, i5)) {
                     int minBufferSize = AudioRecord.getMinBufferSize(i3, i4, i5);
                     this.j = minBufferSize;
-                    this.k = minBufferSize / (((this.f12813i * 2) * this.f12811g) / 8);
+                    this.k = minBufferSize / (((this.f12862i * 2) * this.f12860g) / 8);
                     BdLog.w(MyAudioRecorder.class.getName() + "Increasing buffer size to " + Integer.toString(this.j));
                 }
                 AudioRecord audioRecord = new AudioRecord(i2, i3, i4, i5, this.j);
@@ -233,16 +233,16 @@ public class MyAudioRecorder implements d {
                 q.setOutputFormat(1);
                 q.setAudioEncoder(1);
             }
-            this.f12807c = 0;
-            this.f12808d = null;
-            this.f12809e = State.INITIALIZING;
+            this.f12856c = 0;
+            this.f12857d = null;
+            this.f12858e = State.INITIALIZING;
         } catch (Exception e2) {
             if (e2.getMessage() != null) {
                 BdLog.e(e2);
             } else {
                 BdLog.e(MyAudioRecorder.class.getName() + "Unknown error occured while initializing recording");
             }
-            this.f12809e = State.ERROR;
+            this.f12858e = State.ERROR;
         }
     }
 
@@ -276,22 +276,22 @@ public class MyAudioRecorder implements d {
         return (MyAudioRecorder) invokeL.objValue;
     }
 
-    @Override // d.a.o0.r.g0.c.d
+    @Override // d.a.p0.s.g0.c.d
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12809e = State.STOPPED;
+            this.f12858e = State.STOPPED;
         }
     }
 
-    @Override // d.a.o0.r.g0.c.d
+    @Override // d.a.p0.s.g0.c.d
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12809e == State.RECORDING : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12858e == State.RECORDING : invokeV.booleanValue;
     }
 
-    @Override // d.a.o0.r.g0.c.d
+    @Override // d.a.p0.s.g0.c.d
     public boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -304,15 +304,15 @@ public class MyAudioRecorder implements d {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.o0.r.g0.c.d
+    @Override // d.a.p0.s.g0.c.d
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (o) {
-                if (this.f12805a == null || !this.f12805a.isAlive()) {
+                if (this.f12854a == null || !this.f12854a.isAlive()) {
                     Thread thread = new Thread(new a(this));
-                    this.f12805a = thread;
+                    this.f12854a = thread;
                     thread.start();
                 }
             }
@@ -330,7 +330,7 @@ public class MyAudioRecorder implements d {
     public State h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12809e : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12858e : (State) invokeV.objValue;
     }
 
     public boolean i() {
@@ -338,45 +338,45 @@ public class MyAudioRecorder implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                if (this.f12809e == State.INITIALIZING) {
-                    if (this.f12806b) {
-                        if ((p.getState() == 1) & (this.f12808d != null)) {
-                            if (this.f12810f != null) {
-                                this.f12810f.close();
-                                this.f12810f = null;
+                if (this.f12858e == State.INITIALIZING) {
+                    if (this.f12855b) {
+                        if ((p.getState() == 1) & (this.f12857d != null)) {
+                            if (this.f12859f != null) {
+                                this.f12859f.close();
+                                this.f12859f = null;
                             }
-                            RandomAccessFile randomAccessFile = new RandomAccessFile(this.f12808d, "rw");
-                            this.f12810f = randomAccessFile;
+                            RandomAccessFile randomAccessFile = new RandomAccessFile(this.f12857d, "rw");
+                            this.f12859f = randomAccessFile;
                             randomAccessFile.setLength(0L);
-                            this.f12810f.writeBytes(b.f23950e);
-                            this.f12810f.writeInt(0);
-                            this.f12810f.writeBytes(b.f23951f);
-                            this.f12810f.writeBytes(b.f23952g);
-                            this.f12810f.writeInt(Integer.reverseBytes(16));
-                            this.f12810f.writeShort(Short.reverseBytes((short) 1));
-                            this.f12810f.writeShort(Short.reverseBytes(this.f12811g));
-                            this.f12810f.writeInt(Integer.reverseBytes(this.f12812h));
-                            this.f12810f.writeInt(Integer.reverseBytes(((this.f12812h * this.f12813i) * this.f12811g) / 8));
-                            this.f12810f.writeShort(Short.reverseBytes((short) ((this.f12811g * this.f12813i) / 8)));
-                            this.f12810f.writeShort(Short.reverseBytes(this.f12813i));
-                            this.f12810f.writeBytes("data");
-                            this.f12810f.writeInt(0);
-                            this.l = new byte[((this.k * this.f12813i) / 8) * this.f12811g];
-                            this.f12809e = State.READY;
+                            this.f12859f.writeBytes(b.f24108e);
+                            this.f12859f.writeInt(0);
+                            this.f12859f.writeBytes(b.f24109f);
+                            this.f12859f.writeBytes(b.f24110g);
+                            this.f12859f.writeInt(Integer.reverseBytes(16));
+                            this.f12859f.writeShort(Short.reverseBytes((short) 1));
+                            this.f12859f.writeShort(Short.reverseBytes(this.f12860g));
+                            this.f12859f.writeInt(Integer.reverseBytes(this.f12861h));
+                            this.f12859f.writeInt(Integer.reverseBytes(((this.f12861h * this.f12862i) * this.f12860g) / 8));
+                            this.f12859f.writeShort(Short.reverseBytes((short) ((this.f12860g * this.f12862i) / 8)));
+                            this.f12859f.writeShort(Short.reverseBytes(this.f12862i));
+                            this.f12859f.writeBytes("data");
+                            this.f12859f.writeInt(0);
+                            this.l = new byte[((this.k * this.f12862i) / 8) * this.f12860g];
+                            this.f12858e = State.READY;
                         } else {
                             BdLog.e(MyAudioRecorder.class.getName() + "prepare() method called on uninitialized recorder");
-                            this.f12809e = State.ERROR;
+                            this.f12858e = State.ERROR;
                             return false;
                         }
                     } else {
                         q.prepare();
-                        this.f12809e = State.READY;
+                        this.f12858e = State.READY;
                     }
                     return true;
                 }
                 BdLog.e(MyAudioRecorder.class.getName() + "prepare() method called on illegal state");
                 j();
-                this.f12809e = State.ERROR;
+                this.f12858e = State.ERROR;
                 return false;
             } catch (Exception e2) {
                 if (e2.getMessage() != null) {
@@ -384,7 +384,7 @@ public class MyAudioRecorder implements d {
                 } else {
                     BdLog.e(MyAudioRecorder.class.getName() + "Unknown error occured in prepare()");
                 }
-                this.f12809e = State.ERROR;
+                this.f12858e = State.ERROR;
                 return false;
             }
         }
@@ -394,20 +394,20 @@ public class MyAudioRecorder implements d {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            State state = this.f12809e;
+            State state = this.f12858e;
             if (state == State.RECORDING) {
                 m();
             } else {
-                if ((state == State.READY) & this.f12806b) {
+                if ((state == State.READY) & this.f12855b) {
                     try {
-                        this.f12810f.close();
+                        this.f12859f.close();
                     } catch (IOException unused) {
                         BdLog.e(MyAudioRecorder.class.getName() + "I/O exception occured while closing output file");
                     }
-                    new File(this.f12808d).delete();
+                    new File(this.f12857d).delete();
                 }
             }
-            if (this.f12806b) {
+            if (this.f12855b) {
                 AudioRecord audioRecord = p;
                 if (audioRecord != null) {
                     audioRecord.release();
@@ -427,9 +427,9 @@ public class MyAudioRecorder implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             try {
-                if (this.f12809e == State.INITIALIZING) {
-                    this.f12808d = str;
-                    if (this.f12806b) {
+                if (this.f12858e == State.INITIALIZING) {
+                    this.f12857d = str;
+                    if (this.f12855b) {
                         return true;
                     }
                     q.setOutputFile(str);
@@ -442,7 +442,7 @@ public class MyAudioRecorder implements d {
                 } else {
                     BdLog.e(MyAudioRecorder.class.getName() + "Unknown error occured while setting output path");
                 }
-                this.f12809e = State.ERROR;
+                this.f12858e = State.ERROR;
                 return false;
             }
         }
@@ -452,8 +452,8 @@ public class MyAudioRecorder implements d {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.f12809e == State.READY) {
-                if (this.f12806b) {
+            if (this.f12858e == State.READY) {
+                if (this.f12855b) {
                     this.m = 0;
                     p.startRecording();
                     AudioRecord audioRecord = p;
@@ -462,11 +462,11 @@ public class MyAudioRecorder implements d {
                 } else {
                     q.start();
                 }
-                this.f12809e = State.RECORDING;
+                this.f12858e = State.RECORDING;
                 return;
             }
             BdLog.e(MyAudioRecorder.class.getName() + "start() called on illegal state");
-            this.f12809e = State.ERROR;
+            this.f12858e = State.ERROR;
         }
     }
 
@@ -476,17 +476,17 @@ public class MyAudioRecorder implements d {
             BdLog.e(MyAudioRecorder.class.getName() + "audioRecorder.stop()");
             p.stop();
             try {
-                this.f12810f.seek(4L);
-                this.f12810f.writeInt(Integer.reverseBytes(this.m + 36));
-                this.f12810f.seek(40L);
-                this.f12810f.writeInt(Integer.reverseBytes(this.m));
-                this.f12810f.close();
+                this.f12859f.seek(4L);
+                this.f12859f.writeInt(Integer.reverseBytes(this.m + 36));
+                this.f12859f.seek(40L);
+                this.f12859f.writeInt(Integer.reverseBytes(this.m));
+                this.f12859f.close();
                 BdLog.e(MyAudioRecorder.class.getName() + "randomAccessWriter.close()");
             } catch (IOException unused) {
                 BdLog.e(MyAudioRecorder.class.getName() + "I/O exception occured while closing output file");
-                this.f12809e = State.ERROR;
+                this.f12858e = State.ERROR;
             }
-            this.f12809e = State.STOPPED;
+            this.f12858e = State.STOPPED;
         }
     }
 
@@ -502,21 +502,21 @@ public class MyAudioRecorder implements d {
                 p.read(this.l, 0, this.l.length);
                 try {
                     System.out.println(this.l);
-                    this.f12810f.write(this.l);
+                    this.f12859f.write(this.l);
                     this.m += this.l.length;
-                    if (this.f12813i == 16) {
+                    if (this.f12862i == 16) {
                         while (i2 < this.l.length / 2) {
                             int i3 = i2 * 2;
                             short g2 = g(this.l[i3], this.l[i3 + 1]);
-                            if (g2 > this.f12807c) {
-                                this.f12807c = g2;
+                            if (g2 > this.f12856c) {
+                                this.f12856c = g2;
                             }
                             i2++;
                         }
                     } else {
                         while (i2 < this.l.length) {
-                            if (this.l[i2] > this.f12807c) {
-                                this.f12807c = this.l[i2];
+                            if (this.l[i2] > this.f12856c) {
+                                this.f12856c = this.l[i2];
                             }
                             i2++;
                         }

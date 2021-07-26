@@ -21,7 +21,7 @@ public class ARProxyManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, d> f4200a;
+    public HashMap<String, d> f4226a;
 
     public ARProxyManager() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class ARProxyManager {
                 return;
             }
         }
-        this.f4200a = new HashMap<>();
+        this.f4226a = new HashMap<>();
     }
 
     private d a(String str) {
@@ -44,15 +44,15 @@ public class ARProxyManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
             if (b(str)) {
-                if (this.f4200a == null) {
-                    this.f4200a = new HashMap<>();
+                if (this.f4226a == null) {
+                    this.f4226a = new HashMap<>();
                 }
-                d dVar = this.f4200a.get(str);
+                d dVar = this.f4226a.get(str);
                 if (dVar == null) {
                     dVar = c(str);
                 }
                 if (dVar != null) {
-                    this.f4200a.put(str, dVar);
+                    this.f4226a.put(str, dVar);
                 }
                 return dVar;
             }
@@ -109,7 +109,7 @@ public class ARProxyManager {
     public void d() {
         HashMap<String, d> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (hashMap = this.f4200a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (hashMap = this.f4226a) == null) {
             return;
         }
         for (d dVar : hashMap.values()) {
@@ -121,7 +121,7 @@ public class ARProxyManager {
         HashMap<String, d> hashMap;
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (hashMap = this.f4200a) == null || (dVar = hashMap.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (hashMap = this.f4226a) == null || (dVar = hashMap.get(str)) == null) {
             return;
         }
         dVar.a(null);
@@ -173,13 +173,13 @@ public class ARProxyManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             d();
-            HashMap<String, d> hashMap = this.f4200a;
+            HashMap<String, d> hashMap = this.f4226a;
             if (hashMap != null) {
                 for (Map.Entry<String, d> entry : hashMap.entrySet()) {
                     entry.getValue().release();
                 }
-                this.f4200a.clear();
-                this.f4200a = null;
+                this.f4226a.clear();
+                this.f4226a = null;
             }
         }
     }

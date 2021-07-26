@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.k;
+import d.a.d.e.p.l;
+import d.a.q0.k;
 /* loaded from: classes3.dex */
 public class SelectForumActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +29,7 @@ public class SelectForumActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectForumActivity f13666a;
+        public final /* synthetic */ SelectForumActivity f13714a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectForumActivity selectForumActivity, int i2) {
@@ -49,7 +49,7 @@ public class SelectForumActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f13666a = selectForumActivity;
+            this.f13714a = selectForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class SelectForumActivity extends SuspendedActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f13666a.finish();
+            this.f13714a.finish();
         }
     }
 
@@ -69,7 +69,7 @@ public class SelectForumActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectForumActivity f13667a;
+        public final /* synthetic */ SelectForumActivity f13715a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SelectForumActivity selectForumActivity, int i2) {
@@ -89,7 +89,7 @@ public class SelectForumActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f13667a = selectForumActivity;
+            this.f13715a = selectForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -99,9 +99,9 @@ public class SelectForumActivity extends SuspendedActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (TextUtils.isEmpty(str)) {
-                    str = this.f13667a.getString(R.string.activity_select_forum_error);
+                    str = this.f13715a.getString(R.string.activity_select_forum_error);
                 }
-                l.M(this.f13667a, str);
+                l.M(this.f13715a, str);
             }
         }
     }
@@ -124,7 +124,7 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public d.a.o0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public d.a.p0.v0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -133,7 +133,7 @@ public class SelectForumActivity extends SuspendedActivity {
             }
             return this.selectForumView;
         }
-        return (d.a.o0.t0.a) invokeLL.objValue;
+        return (d.a.p0.v0.a) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity

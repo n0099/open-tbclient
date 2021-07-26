@@ -24,7 +24,7 @@ public class TbListTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13294e;
+    public boolean f13343e;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -32,13 +32,13 @@ public class TbListTextView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f13295a;
+        public final boolean f13344a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Object> f13296b;
+        public final List<Object> f13345b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<Object> f13297c;
+        public final List<Object> f13346c;
 
         public a(boolean z, List<Object> list, List<Object> list2) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class TbListTextView extends TextView {
                     return;
                 }
             }
-            this.f13295a = z;
-            this.f13296b = list;
-            this.f13297c = list2;
+            this.f13344a = z;
+            this.f13345b = list;
+            this.f13346c = list2;
         }
 
         public static a a(List<Object> list, List<Object> list2) {
@@ -91,7 +91,7 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f13294e = true;
+        this.f13343e = true;
     }
 
     public final a a(SpannableStringBuilder spannableStringBuilder, int i2, int i3) {
@@ -147,7 +147,7 @@ public class TbListTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, spannableStringBuilder, i2, i3) == null) {
             a a2 = a(spannableStringBuilder, i2, i3);
-            if (a2.f13295a) {
+            if (a2.f13344a) {
                 f(i2, i3, spannableStringBuilder, a2);
             } else {
                 b(i2, i3);
@@ -165,7 +165,7 @@ public class TbListTextView extends TextView {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), spannableStringBuilder, aVar}) == null) {
-            for (Object obj : aVar.f13297c) {
+            for (Object obj : aVar.f13346c) {
                 int spanEnd = spannableStringBuilder.getSpanEnd(obj);
                 spannableStringBuilder.delete(spanEnd, spanEnd + 1);
                 try {
@@ -176,7 +176,7 @@ public class TbListTextView extends TextView {
             }
             loop1: while (true) {
                 z = true;
-                for (Object obj2 : aVar.f13296b) {
+                for (Object obj2 : aVar.f13345b) {
                     int spanStart = spannableStringBuilder.getSpanStart(obj2);
                     int i4 = spanStart - 1;
                     spannableStringBuilder.delete(i4, spanStart);
@@ -221,7 +221,7 @@ public class TbListTextView extends TextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            if (!this.f13294e) {
+            if (!this.f13343e) {
                 return super.onTouchEvent(motionEvent);
             }
             setLongClickable(false);
@@ -234,7 +234,7 @@ public class TbListTextView extends TextView {
     public void setCheckSelection(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f13294e = z;
+            this.f13343e = z;
         }
     }
 
@@ -257,7 +257,7 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f13294e = true;
+        this.f13343e = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -279,6 +279,6 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f13294e = true;
+        this.f13343e = true;
     }
 }

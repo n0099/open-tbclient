@@ -1,6 +1,7 @@
 package com.qq.e.ads.interstitial3;
 
 import com.qq.e.comm.util.AdError;
+@Deprecated
 /* loaded from: classes6.dex */
 public interface ExpressInterstitialAdListener {
     void onAdLoaded();
@@ -12,6 +13,10 @@ public interface ExpressInterstitialAdListener {
     void onError(AdError adError);
 
     void onExpose();
+
+    void onRenderFail();
+
+    void onRenderSuccess();
 
     void onShow();
 

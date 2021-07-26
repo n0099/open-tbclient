@@ -12,7 +12,7 @@ public class f<TResult> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e<TResult> f1514a;
+    public final e<TResult> f1547a;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -27,13 +27,13 @@ public class f<TResult> {
                 return;
             }
         }
-        this.f1514a = new e<>();
+        this.f1547a = new e<>();
     }
 
     public e<TResult> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1514a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1547a : (e) invokeV.objValue;
     }
 
     public void b() {
@@ -60,18 +60,18 @@ public class f<TResult> {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1514a.t() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1547a.t() : invokeV.booleanValue;
     }
 
     public boolean f(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, exc)) == null) ? this.f1514a.u(exc) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, exc)) == null) ? this.f1547a.u(exc) : invokeL.booleanValue;
     }
 
     public boolean g(TResult tresult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, tresult)) == null) ? this.f1514a.v(tresult) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, tresult)) == null) ? this.f1547a.v(tresult) : invokeL.booleanValue;
     }
 }

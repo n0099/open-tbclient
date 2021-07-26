@@ -31,16 +31,16 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34434a = "";
+    public static String f34623a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f34435b;
+    public static a f34624b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f34436c;
+    public static boolean f34625c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f34437d;
+    public static boolean f34626d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -79,16 +79,16 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f34434a)) {
+            if (TextUtils.isEmpty(f34623a)) {
                 String e2 = am.e(context);
-                f34434a = e2;
+                f34623a = e2;
                 if (TextUtils.isEmpty(e2)) {
                     b(context);
-                    return f34434a;
+                    return f34623a;
                 }
-                return f34434a;
+                return f34623a;
             }
-            return f34434a;
+            return f34623a;
         }
         return (String) invokeL.objValue;
     }
@@ -114,14 +114,14 @@ public class b {
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, context) == null) && TextUtils.isEmpty(f34434a) && context != null) {
+        if ((interceptable == null || interceptable.invokeL(65543, null, context) == null) && TextUtils.isEmpty(f34623a) && context != null) {
             c(context);
             com.kwad.sdk.core.f.a.a(context, new a(context) { // from class: com.kwad.sdk.core.f.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f34438a;
+                public final /* synthetic */ Context f34627a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,15 +138,15 @@ public class b {
                             return;
                         }
                     }
-                    this.f34438a = context;
+                    this.f34627a = context;
                 }
 
                 @Override // com.kwad.sdk.core.f.b.a
                 public void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        String unused = b.f34434a = str;
-                        am.i(this.f34438a, b.f34434a);
+                        String unused = b.f34623a = str;
+                        am.i(this.f34627a, b.f34623a);
                         b.h();
                     }
                 }
@@ -156,11 +156,11 @@ public class b {
 
     public static void c(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, context) == null) || !TextUtils.isEmpty(f34434a) || context == null || f34436c) {
+        if (!(interceptable == null || interceptable.invokeL(65546, null, context) == null) || !TextUtils.isEmpty(f34623a) || context == null || f34625c) {
             return;
         }
-        f34436c = true;
-        if (context == null || f34437d) {
+        f34625c = true;
+        if (context == null || f34626d) {
             return;
         }
         g.a(new Runnable(context.getApplicationContext()) { // from class: com.kwad.sdk.core.f.b.2
@@ -168,7 +168,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f34439a;
+            public final /* synthetic */ Context f34628a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -185,7 +185,7 @@ public class b {
                         return;
                     }
                 }
-                this.f34439a = r6;
+                this.f34628a = r6;
             }
 
             /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -309,68 +309,68 @@ public class b {
                     }
                     switch (c2) {
                         case 0:
-                            a2 = new com.kwad.sdk.core.f.a.b(this.f34439a).a();
-                            String unused = b.f34434a = a2;
+                            a2 = new com.kwad.sdk.core.f.a.b(this.f34628a).a();
+                            String unused = b.f34623a = a2;
                             break;
                         case 1:
                         case 2:
-                            a2 = new i(this.f34439a).a();
-                            String unused2 = b.f34434a = a2;
+                            a2 = new i(this.f34628a).a();
+                            String unused2 = b.f34623a = a2;
                             break;
                         case 3:
                         case 4:
-                            a2 = new f(this.f34439a).a();
-                            String unused22 = b.f34434a = a2;
+                            a2 = new f(this.f34628a).a();
+                            String unused22 = b.f34623a = a2;
                             break;
                         case 5:
-                            a2 = new h(this.f34439a).a();
-                            String unused222 = b.f34434a = a2;
+                            a2 = new h(this.f34628a).a();
+                            String unused222 = b.f34623a = a2;
                             break;
                         case 6:
                         case 7:
-                            a2 = new com.kwad.sdk.core.f.a.c(this.f34439a).a();
-                            String unused2222 = b.f34434a = a2;
+                            a2 = new com.kwad.sdk.core.f.a.c(this.f34628a).a();
+                            String unused2222 = b.f34623a = a2;
                             break;
                         case '\b':
-                            a2 = new d(this.f34439a).a();
-                            String unused22222 = b.f34434a = a2;
+                            a2 = new d(this.f34628a).a();
+                            String unused22222 = b.f34623a = a2;
                             break;
                         case '\t':
-                            a2 = new e(this.f34439a).a();
-                            String unused222222 = b.f34434a = a2;
+                            a2 = new e(this.f34628a).a();
+                            String unused222222 = b.f34623a = a2;
                             break;
                         case '\n':
-                            a2 = new com.kwad.sdk.core.f.a.g(this.f34439a).a();
-                            String unused2222222 = b.f34434a = a2;
+                            a2 = new com.kwad.sdk.core.f.a.g(this.f34628a).a();
+                            String unused2222222 = b.f34623a = a2;
                             break;
                         case 11:
-                            a2 = new com.kwad.sdk.core.f.a.a(this.f34439a).a();
-                            String unused22222222 = b.f34434a = a2;
+                            a2 = new com.kwad.sdk.core.f.a.a(this.f34628a).a();
+                            String unused22222222 = b.f34623a = a2;
                             break;
                         case '\f':
                         case '\r':
                         case 14:
-                            jVar = new j(this.f34439a);
+                            jVar = new j(this.f34628a);
                             a2 = jVar.a();
-                            String unused222222222 = b.f34434a = a2;
+                            String unused222222222 = b.f34623a = a2;
                             break;
                         default:
                             if (b.f() || b.g()) {
-                                jVar = new j(this.f34439a);
+                                jVar = new j(this.f34628a);
                                 a2 = jVar.a();
-                                String unused2222222222 = b.f34434a = a2;
+                                String unused2222222222 = b.f34623a = a2;
                                 break;
                             }
                             break;
                     }
-                    com.kwad.sdk.core.d.a.c("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + b.f34434a);
-                    if (TextUtils.isEmpty(b.f34434a)) {
-                        boolean unused3 = b.f34437d = true;
+                    com.kwad.sdk.core.d.a.c("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + b.f34623a);
+                    if (TextUtils.isEmpty(b.f34623a)) {
+                        boolean unused3 = b.f34626d = true;
                     } else {
-                        am.i(this.f34439a, b.f34434a);
+                        am.i(this.f34628a, b.f34623a);
                     }
                     b.h();
-                    boolean unused4 = b.f34436c = false;
+                    boolean unused4 = b.f34625c = false;
                 }
             }
         });
@@ -399,9 +399,9 @@ public class b {
     public static void h() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || (aVar = f34435b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || (aVar = f34624b) == null) {
             return;
         }
-        aVar.a(f34434a);
+        aVar.a(f34623a);
     }
 }

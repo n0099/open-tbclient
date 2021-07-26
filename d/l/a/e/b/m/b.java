@@ -29,10 +29,10 @@ public class b implements d.l.a.e.b.g.i {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, lVar)) == null) {
-            if (lVar.ordinal() <= com.ss.android.socialbase.downloader.network.l.f38640b.ordinal()) {
+            if (lVar.ordinal() <= com.ss.android.socialbase.downloader.network.l.f38812b.ordinal()) {
                 return 1;
             }
-            return lVar == com.ss.android.socialbase.downloader.network.l.f38641c ? i2 - 1 : i2;
+            return lVar == com.ss.android.socialbase.downloader.network.l.f38813c ? i2 - 1 : i2;
         }
         return invokeIL.intValue;
     }

@@ -26,22 +26,22 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24980a;
+    public String f25138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24981b;
+    public String f25139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24982c;
+    public String f25140c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24983d;
+    public boolean f25141d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24984e;
+    public String f25142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24985f;
+    public String f25143f;
 
     static {
         InterceptResult invokeClinit;
@@ -76,10 +76,10 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
                 return;
             }
         }
-        this.f24980a = "";
-        this.f24981b = "";
-        this.f24982c = "";
-        this.f24983d = false;
+        this.f25138a = "";
+        this.f25139b = "";
+        this.f25140c = "";
+        this.f25141d = false;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -96,11 +96,11 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("cate[layout_content]", this.f24980a));
-            arrayList.add(new RestNameValuePair("cate[layout_title]", this.f24981b));
-            arrayList.add(new RestNameValuePair("cate[layout_footer]", this.f24982c));
-            arrayList.add(new RestNameValuePair("page", this.f24985f));
-            arrayList.add(new RestNameValuePair("changedSign", this.f24984e));
+            arrayList.add(new RestNameValuePair("cate[layout_content]", this.f25138a));
+            arrayList.add(new RestNameValuePair("cate[layout_title]", this.f25139b));
+            arrayList.add(new RestNameValuePair("cate[layout_footer]", this.f25140c));
+            arrayList.add(new RestNameValuePair("page", this.f25143f));
+            arrayList.add(new RestNameValuePair("changedSign", this.f25142e));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -130,7 +130,7 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(DomainConfig.getInstance().getAppHost());
-            sb.append(this.f24983d ? WalletHomeBeanConstants.API_HOME_CFG_ABTYPE : WalletHomeBeanConstants.API_HOME_CFG_NEW);
+            sb.append(this.f25141d ? WalletHomeBeanConstants.API_HOME_CFG_ABTYPE : WalletHomeBeanConstants.API_HOME_CFG_NEW);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -139,42 +139,42 @@ public class HomeCfgBean extends BaseBean<HomeCfgResponse> {
     public void setAbtypeHomePage(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f24983d = z;
+            this.f25141d = z;
         }
     }
 
     public void setAllFingerPrint(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f24980a = str;
+            this.f25138a = str;
         }
     }
 
     public void setChangeSign(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f24984e = str;
+            this.f25142e = str;
         }
     }
 
     public void setFooterFingerPrint(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f24982c = str;
+            this.f25140c = str;
         }
     }
 
     public void setPageId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f24985f = str;
+            this.f25143f = str;
         }
     }
 
     public void setTitleFingerPrint(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f24981b = str;
+            this.f25139b = str;
         }
     }
 }

@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.e;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.core.dynamic.d.a;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.q.s;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -27,31 +27,31 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f29981a;
+    public float f30080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f29982b;
+    public float f30081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f29983c;
+    public float f30082c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f29984d;
+    public float f30083d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29985e;
+    public int f30084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29986f;
+    public int f30085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29987g;
+    public int f30086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29988h;
+    public int f30087h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f29989i;
+    public Context f30088i;
     public e j;
     public f k;
     public List<DynamicBaseWidget> l;
@@ -79,20 +79,20 @@ public abstract class DynamicBaseWidget extends ViewGroup {
             }
         }
         this.p = true;
-        this.f29989i = context;
+        this.f30088i = context;
         this.m = dynamicRootView;
         this.k = fVar;
-        this.f29981a = fVar.a();
-        this.f29982b = fVar.b();
-        this.f29983c = fVar.c();
-        this.f29984d = fVar.d();
-        this.f29987g = (int) q.b(this.f29989i, this.f29981a);
-        this.f29988h = (int) q.b(this.f29989i, this.f29982b);
-        this.f29985e = (int) q.b(this.f29989i, this.f29983c);
-        this.f29986f = (int) q.b(this.f29989i, this.f29984d);
+        this.f30080a = fVar.a();
+        this.f30081b = fVar.b();
+        this.f30082c = fVar.c();
+        this.f30083d = fVar.d();
+        this.f30086g = (int) s.b(this.f30088i, this.f30080a);
+        this.f30087h = (int) s.b(this.f30088i, this.f30081b);
+        this.f30084e = (int) s.b(this.f30088i, this.f30082c);
+        this.f30085f = (int) s.b(this.f30088i, this.f30083d);
         e eVar = new e(fVar.e());
         this.j = eVar;
-        this.o = eVar.k() > 0;
+        this.o = eVar.l() > 0;
     }
 
     public void a(DynamicBaseWidget dynamicBaseWidget) {
@@ -126,11 +126,11 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             boolean b2 = b();
             try {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f29985e, this.f29986f);
-                j.f("DynamicBaseWidget", "widget mDynamicView:" + this.n);
-                j.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f29981a + "," + this.f29982b + "," + this.f29985e + "," + this.f29986f);
-                layoutParams.topMargin = this.f29988h;
-                layoutParams.leftMargin = this.f29987g;
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f30084e, this.f30085f);
+                k.f("DynamicBaseWidget", "widget mDynamicView:" + this.n);
+                k.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f30080a + "," + this.f30081b + "," + this.f30084e + "," + this.f30085f);
+                layoutParams.topMargin = this.f30087h;
+                layoutParams.leftMargin = this.f30086g;
                 this.m.addView(this, layoutParams);
                 return b2;
             } catch (Exception unused) {
@@ -145,7 +145,7 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             e eVar = this.j;
-            return (eVar == null || eVar.p() == 0) ? false : true;
+            return (eVar == null || eVar.q() == 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -156,9 +156,9 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(q.b(this.f29989i, this.j.l()));
-            gradientDrawable.setColor(this.j.q());
-            gradientDrawable.setStroke((int) q.b(this.f29989i, this.j.n()), this.j.m());
+            gradientDrawable.setCornerRadius(s.b(this.f30088i, this.j.m()));
+            gradientDrawable.setColor(this.j.r());
+            gradientDrawable.setStroke((int) s.b(this.f30088i, this.j.o()), this.j.n());
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -167,7 +167,7 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public int getClickArea() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j.p() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j.q() : invokeV.intValue;
     }
 
     public a getDynamicClickListener() {

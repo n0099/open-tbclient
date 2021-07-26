@@ -30,22 +30,22 @@ public class LivenessVideoUploadView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f6147a;
+    public ImageView f6173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LivenessCircleProgressView f6148b;
+    public LivenessCircleProgressView f6174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f6149c;
+    public TextView f6175c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f6150d;
+    public LinearLayout f6176d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f6151e;
+    public LinearLayout f6177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f6152f;
+    public a f6178f;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -80,7 +80,7 @@ public class LivenessVideoUploadView extends FrameLayout {
     public void setUploadListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f6152f = aVar;
+            this.f6178f = aVar;
         }
     }
 
@@ -97,10 +97,10 @@ public class LivenessVideoUploadView extends FrameLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f6155a;
+                public final /* synthetic */ int f6181a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoUploadView f6156b;
+                public final /* synthetic */ LivenessVideoUploadView f6182b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -117,16 +117,16 @@ public class LivenessVideoUploadView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f6156b = this;
-                    this.f6155a = i2;
+                    this.f6182b = this;
+                    this.f6181a = i2;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        this.f6156b.f6150d.clearAnimation();
-                        this.f6156b.f6150d.setTranslationX(-this.f6155a);
+                        this.f6182b.f6176d.clearAnimation();
+                        this.f6182b.f6176d.setTranslationX(-this.f6181a);
                     }
                 }
 
@@ -144,21 +144,21 @@ public class LivenessVideoUploadView extends FrameLayout {
                     }
                 }
             });
-            this.f6150d.startAnimation(translateAnimation);
+            this.f6176d.startAnimation(translateAnimation);
             TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, i2, 0.0f, 0.0f);
             translateAnimation2.setFillAfter(true);
             translateAnimation2.setDuration(600L);
             translateAnimation2.setInterpolator(new BounceInterpolator());
-            this.f6151e.startAnimation(translateAnimation2);
+            this.f6177e.startAnimation(translateAnimation2);
             translateAnimation2.setAnimationListener(new Animation.AnimationListener(this, i2) { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoUploadView.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f6157a;
+                public final /* synthetic */ int f6183a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoUploadView f6158b;
+                public final /* synthetic */ LivenessVideoUploadView f6184b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -175,16 +175,16 @@ public class LivenessVideoUploadView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f6158b = this;
-                    this.f6157a = i2;
+                    this.f6184b = this;
+                    this.f6183a = i2;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        this.f6158b.f6151e.clearAnimation();
-                        this.f6158b.f6151e.setTranslationX(this.f6157a);
+                        this.f6184b.f6177e.clearAnimation();
+                        this.f6184b.f6177e.setTranslationX(this.f6183a);
                     }
                 }
 
@@ -208,7 +208,7 @@ public class LivenessVideoUploadView extends FrameLayout {
     public void updateProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f6148b.updateProgress(i2);
+            this.f6174b.updateProgress(i2);
         }
     }
 
@@ -216,17 +216,17 @@ public class LivenessVideoUploadView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_liveness_video_upload_view, (ViewGroup) this, true);
-            this.f6148b = (LivenessCircleProgressView) inflate.findViewById(R.id.uploading_file_view);
-            this.f6149c = (TextView) inflate.findViewById(R.id.uploading_tv);
-            this.f6147a = (ImageView) inflate.findViewById(R.id.img_canvas_view);
-            this.f6150d = (LinearLayout) inflate.findViewById(R.id.cancle_upload);
-            this.f6151e = (LinearLayout) inflate.findViewById(R.id.confirm_upload);
-            this.f6150d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoUploadView.1
+            this.f6174b = (LivenessCircleProgressView) inflate.findViewById(R.id.uploading_file_view);
+            this.f6175c = (TextView) inflate.findViewById(R.id.uploading_tv);
+            this.f6173a = (ImageView) inflate.findViewById(R.id.img_canvas_view);
+            this.f6176d = (LinearLayout) inflate.findViewById(R.id.cancle_upload);
+            this.f6177e = (LinearLayout) inflate.findViewById(R.id.confirm_upload);
+            this.f6176d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoUploadView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoUploadView f6153a;
+                public final /* synthetic */ LivenessVideoUploadView f6179a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -243,24 +243,24 @@ public class LivenessVideoUploadView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f6153a = this;
+                    this.f6179a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f6153a.f6152f == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f6179a.f6178f == null) {
                         return;
                     }
-                    this.f6153a.f6152f.a();
+                    this.f6179a.f6178f.a();
                 }
             });
-            this.f6151e.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoUploadView.2
+            this.f6177e.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoUploadView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoUploadView f6154a;
+                public final /* synthetic */ LivenessVideoUploadView f6180a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -277,14 +277,14 @@ public class LivenessVideoUploadView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f6154a = this;
+                    this.f6180a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f6154a.f6152f != null && this.f6154a.f6152f.b()) {
-                        this.f6154a.b();
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.f6180a.f6178f != null && this.f6180a.f6178f.b()) {
+                        this.f6180a.b();
                     }
                 }
             });
@@ -305,7 +305,7 @@ public class LivenessVideoUploadView extends FrameLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoUploadView f6159a;
+                public final /* synthetic */ LivenessVideoUploadView f6185a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -322,19 +322,19 @@ public class LivenessVideoUploadView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f6159a = this;
+                    this.f6185a = this;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        this.f6159a.f6151e.setVisibility(8);
-                        this.f6159a.f6150d.setVisibility(8);
-                        if (this.f6159a.f6152f != null) {
-                            this.f6159a.f6148b.setVisibility(0);
-                            this.f6159a.f6149c.setVisibility(0);
-                            this.f6159a.f6152f.c();
+                        this.f6185a.f6177e.setVisibility(8);
+                        this.f6185a.f6176d.setVisibility(8);
+                        if (this.f6185a.f6178f != null) {
+                            this.f6185a.f6174b.setVisibility(0);
+                            this.f6185a.f6175c.setVisibility(0);
+                            this.f6185a.f6178f.c();
                         }
                     }
                 }
@@ -353,9 +353,9 @@ public class LivenessVideoUploadView extends FrameLayout {
                     }
                 }
             });
-            float[] fArr = {this.f6148b.getX() + (this.f6148b.getWidth() / 2), this.f6148b.getY() + (this.f6148b.getHeight() / 2)};
-            float[] fArr2 = {this.f6150d.getX() + (this.f6150d.getWidth() / 2), this.f6150d.getY() + (this.f6150d.getHeight() / 2)};
-            float[] fArr3 = {this.f6151e.getX() + (this.f6151e.getWidth() / 2), this.f6151e.getY() + (this.f6151e.getHeight() / 2)};
+            float[] fArr = {this.f6174b.getX() + (this.f6174b.getWidth() / 2), this.f6174b.getY() + (this.f6174b.getHeight() / 2)};
+            float[] fArr2 = {this.f6176d.getX() + (this.f6176d.getWidth() / 2), this.f6176d.getY() + (this.f6176d.getHeight() / 2)};
+            float[] fArr3 = {this.f6177e.getX() + (this.f6177e.getWidth() / 2), this.f6177e.getY() + (this.f6177e.getHeight() / 2)};
             TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, fArr[0] - fArr2[0], 0.0f, fArr[1] - fArr2[1]);
             translateAnimation.setDuration(j);
             translateAnimation.setFillAfter(true);
@@ -363,7 +363,7 @@ public class LivenessVideoUploadView extends FrameLayout {
             AnimationSet animationSet = new AnimationSet(getContext(), null);
             animationSet.addAnimation(translateAnimation);
             animationSet.addAnimation(alphaAnimation);
-            this.f6150d.startAnimation(animationSet);
+            this.f6176d.startAnimation(animationSet);
             TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, fArr[0] - fArr3[0], 0.0f, fArr[1] - fArr3[1]);
             translateAnimation2.setDuration(j);
             translateAnimation2.setFillAfter(true);
@@ -371,7 +371,7 @@ public class LivenessVideoUploadView extends FrameLayout {
             AnimationSet animationSet2 = new AnimationSet(getContext(), null);
             animationSet2.addAnimation(translateAnimation2);
             animationSet2.addAnimation(alphaAnimation);
-            this.f6151e.startAnimation(animationSet2);
+            this.f6177e.startAnimation(animationSet2);
         }
     }
 

@@ -55,31 +55,31 @@ public class ap {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36508a = "";
+    public static String f36697a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36509b = "";
+    public static String f36698b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36510c = "";
+    public static String f36699c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String[] f36511d;
+    public static String[] f36700d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f36512e;
+    public static String f36701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f36513f;
+    public static String f36702f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f36514g;
+    public static String f36703g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f36515h;
+    public static String f36704h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f36516i;
+    public static String f36705i;
     public static int j;
     public static boolean k;
     public static boolean l;
@@ -107,10 +107,10 @@ public class ap {
                 return;
             }
         }
-        f36511d = new String[]{"", ""};
-        f36512e = "";
-        f36513f = "";
-        f36514g = "";
+        f36700d = new String[]{"", ""};
+        f36701e = "";
+        f36702f = "";
+        f36703g = "";
         j = -1;
         k = false;
         l = false;
@@ -345,20 +345,20 @@ public class ap {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             if (k) {
-                return f36509b;
+                return f36698b;
             }
-            if (!TextUtils.isEmpty(f36509b) || context == null) {
-                return f36509b;
+            if (!TextUtils.isEmpty(f36698b) || context == null) {
+                return f36698b;
             }
             if (com.kwad.sdk.core.config.c.a(1L)) {
-                return f36509b;
+                return f36698b;
             }
             boolean z = false;
             try {
                 z = i(context);
                 if (z) {
                     String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                    f36509b = deviceId;
+                    f36698b = deviceId;
                     if (TextUtils.isEmpty(deviceId)) {
                         k = true;
                     }
@@ -369,7 +369,7 @@ public class ap {
                     k = true;
                 }
             }
-            return f36509b;
+            return f36698b;
         }
         return (String) invokeL.objValue;
     }
@@ -393,10 +393,10 @@ public class ap {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
             if (p) {
-                return f36510c;
+                return f36699c;
             }
-            if (!TextUtils.isEmpty(f36510c) || context == null) {
-                return f36510c;
+            if (!TextUtils.isEmpty(f36699c) || context == null) {
+                return f36699c;
             }
             boolean z = false;
             try {
@@ -404,14 +404,14 @@ public class ap {
                 if (z && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
                     if (Build.VERSION.SDK_INT >= 26) {
                         String meid = telephonyManager.getMeid();
-                        f36510c = meid;
+                        f36699c = meid;
                     } else if (telephonyManager.getPhoneType() == 2) {
                         String deviceId = telephonyManager.getDeviceId();
-                        f36510c = deviceId;
+                        f36699c = deviceId;
                         if (TextUtils.isEmpty(deviceId)) {
                         }
                     } else {
-                        f36510c = null;
+                        f36699c = null;
                     }
                     p = true;
                 }
@@ -421,7 +421,7 @@ public class ap {
                     p = true;
                 }
             }
-            return f36510c;
+            return f36699c;
         }
         return (String) invokeL.objValue;
     }
@@ -433,7 +433,7 @@ public class ap {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:30:0x006f, code lost:
-        if (android.text.TextUtils.isEmpty(com.kwad.sdk.utils.ap.f36511d[1]) != false) goto L35;
+        if (android.text.TextUtils.isEmpty(com.kwad.sdk.utils.ap.f36700d[1]) != false) goto L35;
      */
     @SuppressLint({"HardwareIds", "MissingPermission"})
     /*
@@ -444,12 +444,12 @@ public class ap {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
             if (o) {
-                return f36511d;
+                return f36700d;
             }
             boolean z = false;
-            if (TextUtils.isEmpty(f36511d[0]) && TextUtils.isEmpty(f36511d[1]) && context != null) {
+            if (TextUtils.isEmpty(f36700d[0]) && TextUtils.isEmpty(f36700d[1]) && context != null) {
                 if (com.kwad.sdk.core.config.c.a(1L)) {
-                    return f36511d;
+                    return f36700d;
                 }
                 try {
                     boolean i2 = i(context);
@@ -460,26 +460,26 @@ public class ap {
                                 if (Build.VERSION.SDK_INT >= 26) {
                                     int min = Math.min(telephonyManager.getPhoneCount(), 2);
                                     for (int i3 = 0; i3 < min; i3++) {
-                                        f36511d[i3] = telephonyManager.getImei(i3);
+                                        f36700d[i3] = telephonyManager.getImei(i3);
                                     }
-                                    if (TextUtils.isEmpty(f36511d[0])) {
+                                    if (TextUtils.isEmpty(f36700d[0])) {
                                     }
                                 } else {
                                     if (telephonyManager.getPhoneType() == 1) {
                                         if (Build.VERSION.SDK_INT >= 23) {
                                             int min2 = Math.min(telephonyManager.getPhoneCount(), 2);
                                             for (int i4 = 0; i4 < min2; i4++) {
-                                                f36511d[i4] = telephonyManager.getDeviceId(i4);
+                                                f36700d[i4] = telephonyManager.getDeviceId(i4);
                                             }
                                         } else {
-                                            f36511d[0] = telephonyManager.getDeviceId();
-                                            f36511d[1] = null;
+                                            f36700d[0] = telephonyManager.getDeviceId();
+                                            f36700d[1] = null;
                                         }
-                                        if (TextUtils.isEmpty(f36511d[0]) && TextUtils.isEmpty(f36511d[1])) {
+                                        if (TextUtils.isEmpty(f36700d[0]) && TextUtils.isEmpty(f36700d[1])) {
                                         }
                                     } else {
-                                        f36511d[0] = null;
-                                        f36511d[1] = null;
+                                        f36700d[0] = null;
+                                        f36700d[1] = null;
                                     }
                                     o = true;
                                 }
@@ -491,15 +491,15 @@ public class ap {
                             if (z) {
                                 o = true;
                             }
-                            return f36511d;
+                            return f36700d;
                         }
                     }
                 } catch (Exception e3) {
                     e = e3;
                 }
-                return f36511d;
+                return f36700d;
             }
-            return f36511d;
+            return f36700d;
         }
         return (String[]) invokeL.objValue;
     }
@@ -521,27 +521,27 @@ public class ap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            if (!TextUtils.isEmpty(f36512e) || context == null) {
-                return f36512e;
+            if (!TextUtils.isEmpty(f36701e) || context == null) {
+                return f36701e;
             }
             if (Build.VERSION.SDK_INT < 29 && !l && !com.kwad.sdk.core.config.c.a(128L)) {
                 boolean z = false;
                 try {
                     z = i(context);
                     if (z) {
-                        f36512e = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId();
+                        f36701e = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId();
                     }
                 } catch (Exception unused) {
-                    f36512e = null;
+                    f36701e = null;
                 }
-                if (z && TextUtils.isEmpty(f36512e)) {
+                if (z && TextUtils.isEmpty(f36701e)) {
                     l = true;
                 }
-                String str = TextUtils.isEmpty(f36512e) ? "" : f36512e;
-                f36512e = str;
+                String str = TextUtils.isEmpty(f36701e) ? "" : f36701e;
+                f36701e = str;
                 return str;
             }
-            return f36512e;
+            return f36701e;
         }
         return (String) invokeL.objValue;
     }
@@ -550,10 +550,10 @@ public class ap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            if (TextUtils.isEmpty(f36516i)) {
-                f36516i = System.getProperty("os.arch");
+            if (TextUtils.isEmpty(f36705i)) {
+                f36705i = System.getProperty("os.arch");
             }
-            return f36516i;
+            return f36705i;
         }
         return (String) invokeV.objValue;
     }
@@ -580,28 +580,28 @@ public class ap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
-            if (!TextUtils.isEmpty(f36513f) || context == null) {
-                return f36513f;
+            if (!TextUtils.isEmpty(f36702f) || context == null) {
+                return f36702f;
             }
             if (!m && t && !com.kwad.sdk.core.config.c.a(128L)) {
                 boolean z = false;
                 try {
                     z = i(context);
                     if (z) {
-                        f36513f = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSimSerialNumber();
+                        f36702f = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSimSerialNumber();
                     }
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
-                    f36513f = null;
+                    f36702f = null;
                 }
-                if (z && TextUtils.isEmpty(f36513f)) {
+                if (z && TextUtils.isEmpty(f36702f)) {
                     m = true;
                 }
-                String str = TextUtils.isEmpty(f36513f) ? "" : f36513f;
-                f36513f = str;
+                String str = TextUtils.isEmpty(f36702f) ? "" : f36702f;
+                f36702f = str;
                 return str;
             }
-            return f36513f;
+            return f36702f;
         }
         return (String) invokeL.objValue;
     }
@@ -678,20 +678,20 @@ public class ap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
-            if (!TextUtils.isEmpty(f36514g) || context == null) {
-                return f36514g;
+            if (!TextUtils.isEmpty(f36703g) || context == null) {
+                return f36703g;
             }
             if (!n && !com.kwad.sdk.core.config.c.a(2L)) {
                 try {
-                    f36514g = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                    f36703g = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
                 } catch (Exception unused) {
                 }
-                if (TextUtils.isEmpty(f36514g)) {
+                if (TextUtils.isEmpty(f36703g)) {
                     n = true;
                 }
-                return f36514g;
+                return f36703g;
             }
-            return f36514g;
+            return f36703g;
         }
         return (String) invokeL.objValue;
     }
@@ -717,28 +717,28 @@ public class ap {
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }
-            if (TextUtils.isEmpty(f36515h)) {
+            if (TextUtils.isEmpty(f36704h)) {
                 String q2 = q();
                 if (!TextUtils.isEmpty(q2)) {
                     String str = "ANDROID_" + q2;
-                    f36515h = str;
+                    f36704h = str;
                     return str;
                 }
                 String m2 = m(KsAdSDKImpl.get().getContext());
                 if (!TextUtils.isEmpty(m2) && !a(m2)) {
                     String str2 = "ANDROID_" + m2;
-                    f36515h = str2;
+                    f36704h = str2;
                     return str2;
                 }
                 String p2 = p();
                 if (!TextUtils.isEmpty(p2)) {
-                    f36515h = "ANDROID_" + p2;
+                    f36704h = "ANDROID_" + p2;
                     b(p2);
-                    return f36515h;
+                    return f36704h;
                 }
                 return "ANDROID_";
             }
-            return f36515h;
+            return f36704h;
         }
         return (String) invokeV.objValue;
     }
@@ -802,17 +802,17 @@ public class ap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, context)) == null) {
-            if (!TextUtils.isEmpty(f36508a) || context == null) {
-                return f36508a;
+            if (!TextUtils.isEmpty(f36697a) || context == null) {
+                return f36697a;
             }
             if (s && !com.kwad.sdk.core.config.c.a(4L)) {
-                if (TextUtils.isEmpty(f36508a)) {
+                if (TextUtils.isEmpty(f36697a)) {
                     try {
                         WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
                         if (connectionInfo != null) {
-                            f36508a = connectionInfo.getMacAddress();
+                            f36697a = connectionInfo.getMacAddress();
                         }
-                        if (TextUtils.isEmpty(f36508a) || f36508a.equals(Config.DEF_MAC_ID)) {
+                        if (TextUtils.isEmpty(f36697a) || f36697a.equals(Config.DEF_MAC_ID)) {
                             Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
                             while (true) {
                                 if (!it.hasNext()) {
@@ -830,23 +830,23 @@ public class ap {
                                         if (sb.length() > 0) {
                                             sb.deleteCharAt(sb.length() - 1);
                                         }
-                                        f36508a = sb.toString();
+                                        f36697a = sb.toString();
                                     }
                                 }
                             }
                         }
-                        if (TextUtils.isEmpty(f36508a) || f36508a.equals(Config.DEF_MAC_ID)) {
-                            f36508a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
+                        if (TextUtils.isEmpty(f36697a) || f36697a.equals(Config.DEF_MAC_ID)) {
+                            f36697a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
                         }
-                        if (!TextUtils.isEmpty(f36508a)) {
-                            f36508a = f36508a.toUpperCase(Locale.US);
+                        if (!TextUtils.isEmpty(f36697a)) {
+                            f36697a = f36697a.toUpperCase(Locale.US);
                         }
                     } catch (Exception unused) {
                     }
                 }
-                return f36508a;
+                return f36697a;
             }
-            return f36508a;
+            return f36697a;
         }
         return (String) invokeL.objValue;
     }

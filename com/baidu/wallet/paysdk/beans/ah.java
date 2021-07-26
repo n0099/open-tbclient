@@ -22,7 +22,7 @@ public class ah extends PayBaseBean<VerifyCodeResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.datamodel.d f25970a;
+    public com.baidu.wallet.paysdk.datamodel.d f26128a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ah(Context context) {
@@ -42,7 +42,7 @@ public class ah extends PayBaseBean<VerifyCodeResponse> {
                 return;
             }
         }
-        this.f25970a = (com.baidu.wallet.paysdk.datamodel.d) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE);
+        this.f26128a = (com.baidu.wallet.paysdk.datamodel.d) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -59,10 +59,10 @@ public class ah extends PayBaseBean<VerifyCodeResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("mobile", this.f25970a.f26058a));
-            arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f25970a.f26059b));
-            arrayList.add(new RestNameValuePair("order_no", this.f25970a.f26060c));
-            arrayList.add(new RestNameValuePair("pay_type", this.f25970a.f26061d));
+            arrayList.add(new RestNameValuePair("mobile", this.f26128a.f26216a));
+            arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f26128a.f26217b));
+            arrayList.add(new RestNameValuePair("order_no", this.f26128a.f26218c));
+            arrayList.add(new RestNameValuePair("pay_type", this.f26128a.f26219d));
             if (!TextUtils.isEmpty(PayDataCache.getInstance().getPaySessionInfo())) {
                 arrayList.add(new RestNameValuePair("session_info", PayDataCache.getInstance().getPaySessionInfo()));
             }

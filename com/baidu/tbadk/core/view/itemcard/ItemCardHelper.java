@@ -2,10 +2,10 @@ package com.baidu.tbadk.core.view.itemcard;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import androidx.core.view.InputDeviceCompat;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -18,7 +18,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
@@ -38,39 +37,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.c.e.p.l;
+import d.a.d.e.p.k;
+import d.a.d.e.p.l;
+import tbclient.ApkDetail;
 import tbclient.Item;
 /* loaded from: classes3.dex */
 public class ItemCardHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f12697a;
+    public static final String f12746a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f12698b;
+    public static final String f12747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f12699c;
+    public static final String f12748c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f12700d;
+    public static final String f12749d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f12701e;
+    public static final String f12750e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f12702f;
+    public static final String f12751f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f12703g;
+    public static final String f12752g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static b f12704h;
+    public static b f12753h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static TBSpecificationBtn f12705i;
+    public static TBSpecificationBtn f12754i;
     public static Button j;
     public static String k;
     public static final HttpMessageListener l;
@@ -100,7 +100,7 @@ public class ItemCardHelper {
                 }
             }
             COMPLETED = new OrderTipStatus("COMPLETED", 0);
-            SUCCESS = new OrderTipStatus(c.f2103g, 1);
+            SUCCESS = new OrderTipStatus(c.f2136g, 1);
             OrderTipStatus orderTipStatus = new OrderTipStatus("FAIL", 2);
             FAIL = orderTipStatus;
             $VALUES = new OrderTipStatus[]{COMPLETED, SUCCESS, orderTipStatus};
@@ -170,13 +170,15 @@ public class ItemCardHelper {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003496) {
                 int error = httpResponsedMessage.getError();
                 if (httpResponsedMessage.getStatusCode() != 200 || error != 0) {
-                    if (ItemCardHelper.f12704h != null) {
-                        ItemCardHelper.f12704h.b();
+                    if (ItemCardHelper.f12753h != null) {
+                        ItemCardHelper.f12753h.b();
                     }
-                } else if (ItemCardHelper.f12704h != null) {
-                    ItemCardHelper.f12704h.success();
-                    ItemCardHelper.s();
+                } else if (ItemCardHelper.f12753h != null) {
+                    ItemCardHelper.f12753h.success();
+                    ItemCardHelper.w();
                 }
+                TBSpecificationBtn unused = ItemCardHelper.f12754i = null;
+                Button unused2 = ItemCardHelper.j = null;
             }
         }
     }
@@ -201,50 +203,50 @@ public class ItemCardHelper {
                 return;
             }
         }
-        f12697a = TbadkCoreApplication.getInst().getResources().getString(R.string.item_order);
-        f12698b = TbadkCoreApplication.getInst().getResources().getString(R.string.item_download);
-        f12699c = TbadkCoreApplication.getInst().getResources().getString(R.string.item_order_complete);
-        f12700d = TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse);
-        f12701e = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_completed);
-        f12702f = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_successs);
-        f12703g = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_fail);
-        f12704h = null;
+        f12746a = TbadkCoreApplication.getInst().getResources().getString(R.string.item_order);
+        f12747b = TbadkCoreApplication.getInst().getResources().getString(R.string.item_download);
+        f12748c = TbadkCoreApplication.getInst().getResources().getString(R.string.item_order_complete);
+        f12749d = TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse);
+        f12750e = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_completed);
+        f12751f = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_successs);
+        f12752g = TbadkCoreApplication.getInst().getResources().getString(R.string.tip_order_fail);
+        f12753h = null;
         l = new a(CmdConfigHttp.CMD_GAME_ITEM_ORDER);
     }
 
-    public static int c(String str) {
+    public static int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (f12698b.equals(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            if (f12747b.equals(str)) {
                 return 1;
             }
-            if (f12697a.equals(str)) {
+            if (f12746a.equals(str)) {
                 return 2;
             }
-            return f12700d.equals(str) ? 3 : -1;
+            return f12749d.equals(str) ? 3 : -1;
         }
         return invokeL.intValue;
     }
 
-    public static void d(Context context, String str) {
+    public static void f(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str) == null) || k.isEmpty(str)) {
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, "", str, true)));
     }
 
-    public static HttpMessageListener e() {
+    public static HttpMessageListener g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? l : (HttpMessageListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? l : (HttpMessageListener) invokeV.objValue;
     }
 
-    public static HttpMessageTask f() {
+    public static HttpMessageTask h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_ITEM_ORDER, TbConfig.SERVER_ADDRESS + "c/c/item/subscribeitem");
             tbHttpMessageTask.setResponsedClass(OrderHttpResponsedMsg.class);
             return tbHttpMessageTask;
@@ -252,68 +254,74 @@ public class ItemCardHelper {
         return (HttpMessageTask) invokeV.objValue;
     }
 
-    public static void g(Context context, BdUniqueId bdUniqueId, View view, int i2, ViewGroup viewGroup) {
-        String str;
+    public static void i(Context context, BdUniqueId bdUniqueId, View view, int i2, ViewGroup viewGroup) {
+        String charSequence;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, bdUniqueId, view, Integer.valueOf(i2), viewGroup}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, bdUniqueId, view, Integer.valueOf(i2), viewGroup}) == null) {
             Object tag = view.getTag(R.id.item_data);
-            if (tag instanceof d.a.o0.r.f0.p.a) {
-                d.a.o0.r.f0.p.a aVar = (d.a.o0.r.f0.p.a) tag;
+            if (tag instanceof d.a.p0.s.f0.p.a) {
+                d.a.p0.s.f0.p.a aVar = (d.a.p0.s.f0.p.a) tag;
                 Item a2 = aVar.a();
                 int b2 = aVar.b();
-                if (view instanceof TBSpecificationBtn) {
-                    j = null;
-                    TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view;
-                    f12705i = tBSpecificationBtn;
-                    str = tBSpecificationBtn.getText();
-                } else if (view instanceof Button) {
-                    f12705i = null;
-                    Button button = (Button) view;
-                    j = button;
-                    str = button.getText().toString();
+                boolean z = view instanceof TBSpecificationBtn;
+                if (z) {
+                    charSequence = ((TBSpecificationBtn) view).getText();
                 } else {
-                    str = "";
+                    charSequence = view instanceof Button ? ((Button) view).getText().toString() : "";
                 }
-                if (f12697a.equals(str)) {
+                if (f12746a.equals(charSequence)) {
                     if (StringUtils.isNull(a2.button_link)) {
-                        o(bdUniqueId, a2);
+                        if (z) {
+                            j = null;
+                            f12754i = (TBSpecificationBtn) view;
+                        } else if (view instanceof Button) {
+                            f12754i = null;
+                            j = (Button) view;
+                        }
+                        r(bdUniqueId, a2);
                     } else {
-                        d(context, a2.button_link);
+                        f(context, a2.button_link);
                     }
-                    k(b2, a2.item_id.longValue(), c(a2.button_name));
+                    n(b2, a2.item_id.longValue(), e(a2.button_name), aVar.c());
                 }
-                if (f12698b.equals(str) && a2.button_link_type.intValue() == 2) {
-                    d(context, a2.button_link);
-                    k(b2, a2.item_id.longValue(), c(a2.button_name));
+                if (f12747b.equals(charSequence) && a2.button_link_type.intValue() == 2) {
+                    f(context, a2.button_link);
+                    n(b2, a2.item_id.longValue(), e(a2.button_name), aVar.c());
                 }
-                if (f12700d.equals(str)) {
+                if (f12749d.equals(charSequence)) {
                     ItemClickJumpUtil.itemClickJump(a2.forum_name, String.valueOf(a2.item_id), i2);
-                    k(b2, a2.item_id.longValue(), c(a2.button_name));
+                    n(b2, a2.item_id.longValue(), e(a2.button_name), aVar.c());
                 }
-                if (f12699c.equals(str)) {
-                    q(context, OrderTipStatus.COMPLETED, viewGroup);
+                if (f12748c.equals(charSequence)) {
+                    u(context, OrderTipStatus.COMPLETED, viewGroup);
                 }
             }
         }
     }
 
-    public static void h(Context context, BdUniqueId bdUniqueId, View view, ViewGroup viewGroup) {
+    public static void j(Context context, BdUniqueId bdUniqueId, View view, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65544, null, context, bdUniqueId, view, viewGroup) == null) {
-            g(context, bdUniqueId, view, 0, viewGroup);
+        if (interceptable == null || interceptable.invokeLLLL(65546, null, context, bdUniqueId, view, viewGroup) == null) {
+            i(context, bdUniqueId, view, 0, viewGroup);
         }
     }
 
-    public static boolean i(Button button, d.a.o0.r.f0.p.a aVar, String str) {
+    public static boolean k(Button button, d.a.p0.s.f0.p.a aVar, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, button, aVar, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, button, aVar, str)) == null) {
             k = str;
             Item a2 = aVar.a();
-            if (!f12697a.equals(a2.button_name) && !f12698b.equals(a2.button_name) && !f12699c.equals(a2.button_name)) {
+            if (!f12746a.equals(a2.button_name) && !f12747b.equals(a2.button_name) && !f12748c.equals(a2.button_name)) {
                 Item.Builder builder = new Item.Builder(a2);
-                builder.button_name = f12700d;
-                aVar.c(builder.build(true));
+                builder.button_name = f12749d;
+                a2 = builder.build(true);
+                aVar.d(a2);
+            }
+            if (f12747b.equals(a2.button_name) && t(a2) && !m(a2)) {
+                Item.Builder builder2 = new Item.Builder(a2);
+                builder2.button_name = f12749d;
+                aVar.d(builder2.build(true));
             }
             button.setTag(R.id.item_data, aVar);
             return true;
@@ -321,21 +329,27 @@ public class ItemCardHelper {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean j(TBSpecificationBtn tBSpecificationBtn, d.a.o0.r.f0.p.a aVar) {
+    public static boolean l(TBSpecificationBtn tBSpecificationBtn, d.a.p0.s.f0.p.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, tBSpecificationBtn, aVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, tBSpecificationBtn, aVar)) == null) {
             Item a2 = aVar.a();
-            if (!f12697a.equals(a2.button_name) && !f12698b.equals(a2.button_name) && !f12699c.equals(a2.button_name)) {
+            if (!f12746a.equals(a2.button_name) && !f12747b.equals(a2.button_name) && !f12748c.equals(a2.button_name)) {
                 Item.Builder builder = new Item.Builder(a2);
-                builder.button_name = f12700d;
+                builder.button_name = f12749d;
                 a2 = builder.build(true);
-                aVar.c(a2);
+                aVar.d(a2);
             }
-            if (f12699c.equals(a2.button_name)) {
+            if (f12747b.equals(a2.button_name) && t(a2) && !m(a2)) {
+                Item.Builder builder2 = new Item.Builder(a2);
+                builder2.button_name = f12749d;
+                a2 = builder2.build(true);
+                aVar.d(a2);
+            }
+            if (f12748c.equals(a2.button_name)) {
                 TBSpecificationButtonConfig styleConfig = tBSpecificationBtn.getStyleConfig();
-                if (styleConfig instanceof d.a.o0.r.f0.n.b) {
-                    ((d.a.o0.r.f0.n.b) styleConfig).r(R.color.CAM_X0109);
+                if (styleConfig instanceof d.a.p0.s.f0.n.c) {
+                    ((d.a.p0.s.f0.n.c) styleConfig).o(R.color.CAM_X0109);
                 }
             }
             tBSpecificationBtn.setTag(R.id.item_data, aVar);
@@ -344,72 +358,87 @@ public class ItemCardHelper {
         return invokeLL.booleanValue;
     }
 
-    public static void k(int i2, long j2, int i3) {
+    public static boolean m(Item item) {
+        InterceptResult invokeL;
+        ApkDetail apkDetail;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, item)) == null) ? (item == null || item.button_link_type.intValue() != 1 || TextUtils.isEmpty(item.apk_name) || TextUtils.isEmpty(item.button_link) || (apkDetail = item.apk_detail) == null || TextUtils.isEmpty(apkDetail.developer) || TextUtils.isEmpty(item.apk_detail.version) || item.apk_detail.version_code.intValue() <= 0 || TextUtils.isEmpty(item.apk_detail.authority_url) || TextUtils.isEmpty(item.apk_detail.privacy_url)) ? false : true : invokeL.booleanValue;
+    }
+
+    public static void n(int i2, long j2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), str}) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ITEM_CARD_BUTTON_CLICK);
             statisticItem.addParam("obj_locate", i2);
             statisticItem.addParam("obj_source", j2);
             statisticItem.addParam("obj_type", i3);
+            statisticItem.addParam("tid", str);
             TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void l(int i2, long j2, int i3) {
+    public static void o(int i2, long j2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), str}) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ITEM_CARD_BUTTON_SHOW);
             statisticItem.addParam("obj_locate", i2);
             statisticItem.addParam("obj_source", j2);
             statisticItem.addParam("obj_type", i3);
+            statisticItem.addParam("tid", str);
             TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void m() {
+    public static void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            MessageManager.getInstance().registerListener(e());
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            MessageManager.getInstance().registerListener(g());
         }
     }
 
-    public static void n() {
+    public static void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            MessageManager.getInstance().registerTask(f());
+        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
+            MessageManager.getInstance().registerTask(h());
         }
     }
 
-    public static void o(BdUniqueId bdUniqueId, Item item) {
+    public static void r(BdUniqueId bdUniqueId, Item item) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, bdUniqueId, item) == null) {
+        if (interceptable == null || interceptable.invokeLL(65554, null, bdUniqueId, item) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GAME_ITEM_ORDER);
             httpMessage.setTag(bdUniqueId);
-            httpMessage.addParam(LegoListActivityConfig.ITEM_ID, item.item_id);
+            httpMessage.addParam("item_id", item.item_id);
             httpMessage.addParam("item_name", item.item_name);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public static void p(b bVar) {
+    public static void s(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, bVar) == null) {
-            f12704h = bVar;
+        if (interceptable == null || interceptable.invokeL(65555, null, bVar) == null) {
+            f12753h = bVar;
         }
     }
 
-    public static void q(Context context, OrderTipStatus orderTipStatus, ViewGroup viewGroup) {
+    public static boolean t(Item item) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, item)) == null) ? item != null && item.button_link_type.intValue() == 1 : invokeL.booleanValue;
+    }
+
+    public static void u(Context context, OrderTipStatus orderTipStatus, ViewGroup viewGroup) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65553, null, context, orderTipStatus, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65557, null, context, orderTipStatus, viewGroup) == null) {
             boolean z = true;
             if (orderTipStatus == OrderTipStatus.COMPLETED) {
-                str = f12701e;
+                str = f12750e;
             } else if (orderTipStatus == OrderTipStatus.SUCCESS) {
-                str = f12702f;
+                str = f12751f;
             } else {
                 z = false;
-                str = f12703g;
+                str = f12752g;
             }
             BdTopToast bdTopToast = new BdTopToast(context);
             bdTopToast.i(z);
@@ -418,40 +447,40 @@ public class ItemCardHelper {
         }
     }
 
-    public static void r(Button button, String str) {
+    public static void v(Button button, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, null, button, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65558, null, button, str) == null) {
             k = str;
             if (button.getBackground() instanceof GradientDrawable) {
                 GradientDrawable gradientDrawable = (GradientDrawable) button.getBackground();
                 gradientDrawable.setShape(0);
-                if (f12699c.equals(button.getText())) {
-                    button.setTextColor(d.a.p0.h3.c.a(d.a.p0.h3.c.c(str), d.a.o0.r.u.a.a(R.string.A_X09)));
-                    gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), d.a.p0.h3.c.a(d.a.p0.h3.c.c(str), d.a.o0.r.u.a.a(R.string.A_X09)));
+                if (f12748c.equals(button.getText())) {
+                    button.setTextColor(d.a.q0.h3.c.a(d.a.q0.h3.c.c(str), d.a.p0.s.u.a.a(R.string.A_X09)));
+                    gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), d.a.q0.h3.c.a(d.a.q0.h3.c.c(str), d.a.p0.s.u.a.a(R.string.A_X09)));
                     gradientDrawable.setColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0201));
                 } else {
                     button.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0101));
-                    gradientDrawable.setColor(d.a.p0.h3.c.c(str));
+                    gradientDrawable.setColor(d.a.q0.h3.c.c(str));
                 }
                 button.setBackgroundDrawable(gradientDrawable);
             }
         }
     }
 
-    public static void s() {
+    public static void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, null) == null) {
-            if (f12705i != null) {
-                d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
-                bVar.r(R.color.CAM_X0109);
-                f12705i.setConfig(bVar);
-                f12705i.setText(f12699c);
-                f12705i.refreshDrawableState();
+        if (interceptable == null || interceptable.invokeV(65559, null) == null) {
+            if (f12754i != null) {
+                d.a.p0.s.f0.n.c cVar = new d.a.p0.s.f0.n.c();
+                cVar.o(R.color.CAM_X0109);
+                f12754i.setConfig(cVar);
+                f12754i.setText(f12748c);
+                f12754i.refreshDrawableState();
             }
             Button button = j;
             if (button != null) {
-                button.setText(f12699c);
-                r(j, k);
+                button.setText(f12748c);
+                v(j, k);
             }
         }
     }

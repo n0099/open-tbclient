@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.b.d;
-import d.a.o0.r.q.b2;
+import d.a.p0.b.d;
+import d.a.p0.s.q.b2;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeadPendantClickableView f12423e;
+        public final /* synthetic */ HeadPendantClickableView f12453e;
 
         public a(HeadPendantClickableView headPendantClickableView) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class HeadPendantClickableView extends HeadPendantView {
                     return;
                 }
             }
-            this.f12423e = headPendantClickableView;
+            this.f12453e = headPendantClickableView;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:33:0x0157  */
@@ -77,31 +77,31 @@ public class HeadPendantClickableView extends HeadPendantView {
             String str3;
             AlaInfoData alaInfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12423e.q == null || this.f12423e.q.H() == null || StringUtils.isNull(this.f12423e.q.H().getName_show()) || StringUtils.isNull(this.f12423e.q.H().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12453e.q == null || this.f12453e.q.H() == null || StringUtils.isNull(this.f12453e.q.H().getName_show()) || StringUtils.isNull(this.f12453e.q.H().getUserId())) {
                 return;
             }
-            if (this.f12423e.q.W1) {
+            if (this.f12453e.q.W1) {
                 str3 = AddFriendActivityConfig.TYPE_HOME_HEAD;
                 str = YYLiveUtil.SOURCE_HOME_RECOMMEND_HEAD;
-            } else if (this.f12423e.q.O1()) {
+            } else if (this.f12453e.q.P1()) {
                 str3 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
                 str = YYLiveUtil.SOURCE_HOME_FOLLOW_TAB_HEAD;
-            } else if (!this.f12423e.q.isFromFrs()) {
+            } else if (!this.f12453e.q.isFromFrs()) {
                 str = YYLiveUtil.SOURCE_NOT_DEFINE;
                 str2 = "";
                 String str4 = str;
-                alaInfo = this.f12423e.q.H().getAlaInfo();
+                alaInfo = this.f12453e.q.H().getAlaInfo();
                 if (alaInfo == null && alaInfo.isLegalYYLiveData()) {
-                    TbPageContext tbPageContext = this.f12423e.getTbPageContext();
+                    TbPageContext tbPageContext = this.f12453e.getTbPageContext();
                     YyExtData yyExtData = alaInfo.mYyExtData;
                     YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, str4);
-                    HeadPendantClickableView headPendantClickableView = this.f12423e;
-                    headPendantClickableView.r(headPendantClickableView.q.n1(), String.valueOf(this.f12423e.q.Q()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                    HeadPendantClickableView headPendantClickableView = this.f12453e;
+                    headPendantClickableView.r(headPendantClickableView.q.o1(), String.valueOf(this.f12453e.q.R()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12423e.r, this.f12423e.q.H().getUserId(), this.f12423e.q.H().getName_show(), this.f12423e.q.W(), str2, this.f12423e.q.n1(), this.f12423e.q.A0())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12453e.r, this.f12453e.q.H().getUserId(), this.f12453e.q.H().getName_show(), this.f12453e.q.X(), str2, this.f12453e.q.o1(), this.f12453e.q.B0())));
                 }
-                if (this.f12423e.s == null) {
-                    this.f12423e.s.onClick(view);
+                if (this.f12453e.s == null) {
+                    this.f12453e.s.onClick(view);
                     return;
                 }
                 return;
@@ -111,11 +111,11 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
             str2 = str3;
             String str42 = str;
-            alaInfo = this.f12423e.q.H().getAlaInfo();
+            alaInfo = this.f12453e.q.H().getAlaInfo();
             if (alaInfo == null) {
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12423e.r, this.f12423e.q.H().getUserId(), this.f12423e.q.H().getName_show(), this.f12423e.q.W(), str2, this.f12423e.q.n1(), this.f12423e.q.A0())));
-            if (this.f12423e.s == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12453e.r, this.f12453e.q.H().getUserId(), this.f12453e.q.H().getName_show(), this.f12453e.q.X(), str2, this.f12453e.q.o1(), this.f12453e.q.B0())));
+            if (this.f12453e.s == null) {
             }
         }
     }
@@ -209,7 +209,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         getHeadView().setUserId(H.getUserId());
         getHeadView().setUserName(H.getUserName());
         getHeadView().setUrl(H.getAvater());
-        if (H.isDefaultAvatar && d.f0()) {
+        if (H.isDefaultAvatar && d.o0()) {
             getHeadView().M(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
         } else if (!StringUtils.isNull(H.getAvater()) && H.getAvater().startsWith("http")) {
             getHeadView().M(H.getAvater(), 10, false);
@@ -259,7 +259,7 @@ public class HeadPendantClickableView extends HeadPendantView {
             return;
         }
         b2 b2Var = new b2();
-        b2Var.h3(metaData);
+        b2Var.j3(metaData);
         setData(b2Var, z);
     }
 }

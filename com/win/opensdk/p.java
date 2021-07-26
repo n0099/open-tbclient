@@ -1,73 +1,50 @@
 package com.win.opensdk;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class p implements r {
+public class p extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q f39630a;
+    public final /* synthetic */ PBDrawVideo f39900a;
 
-    public p(q qVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(PBDrawVideo pBDrawVideo, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qVar};
+            Object[] objArr = {pBDrawVideo, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39630a = qVar;
+        this.f39900a = pBDrawVideo;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onClicked() {
-        r rVar;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        PBDrawVideo pBDrawVideo;
+        PBDrawVideoListener pBDrawVideoListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (rVar = this.f39630a.f39634b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBDrawVideoListener = (pBDrawVideo = this.f39900a).f39620c) == null || pBDrawVideo.f39621d) {
             return;
         }
-        rVar.onClicked();
-    }
-
-    @Override // com.win.opensdk.r
-    public void onDisplayed() {
-        r rVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (rVar = this.f39630a.f39634b) == null) {
-            return;
-        }
-        rVar.onDisplayed();
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        r rVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (rVar = this.f39630a.f39634b) == null) {
-            return;
-        }
-        rVar.onFail(pBError);
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onLoaded() {
-        r rVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (rVar = this.f39630a.f39634b) == null) {
-            return;
-        }
-        rVar.onLoaded();
+        pBDrawVideoListener.onFail(PBError.LOAD_TIME_OUT);
+        this.f39900a.f39622e = true;
     }
 }

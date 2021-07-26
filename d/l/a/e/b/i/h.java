@@ -12,10 +12,10 @@ public class h implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f71833a;
+    public final e f72287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f71834b;
+    public final e f72288b;
 
     public h(e eVar, e eVar2) {
         Interceptable interceptable = $ic;
@@ -32,16 +32,16 @@ public class h implements e {
                 return;
             }
         }
-        this.f71833a = eVar;
-        this.f71834b = eVar2;
+        this.f72287a = eVar;
+        this.f72288b = eVar2;
     }
 
     @Override // d.l.a.e.b.i.e
     public void b(@NonNull a aVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.f71812b = this.f71834b;
-            this.f71833a.b(aVar);
+            aVar.f72266b = this.f72288b;
+            this.f72287a.b(aVar);
         }
     }
 }

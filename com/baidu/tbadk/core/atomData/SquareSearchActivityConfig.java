@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.c1.b.e;
+import d.a.p0.e1.b.e;
 /* loaded from: classes3.dex */
 public class SquareSearchActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;

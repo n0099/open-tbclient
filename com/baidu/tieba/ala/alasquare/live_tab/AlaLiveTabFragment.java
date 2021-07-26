@@ -26,11 +26,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.j;
-import d.a.c.e.p.l;
-import d.a.o0.d0.h;
-import d.a.o0.z0.b0;
-import d.a.p0.u0.n0;
+import d.a.d.e.p.j;
+import d.a.d.e.p.l;
+import d.a.p0.b1.b0;
+import d.a.p0.f0.h;
+import d.a.q0.u0.n0;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class AlaLiveTabFragment extends BaseFragment implements n0 {
@@ -42,19 +42,19 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.p0.v.d.c.h.a f13961e;
+    public d.a.q0.v.d.c.h.a f14009e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlaLiveUserNotifyController f13962f;
+    public AlaLiveUserNotifyController f14010f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlaLiveUserNotifyManager.AlaLiveNotifyListener f13963g;
+    public AlaLiveUserNotifyManager.AlaLiveNotifyListener f14011g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13964h;
+    public boolean f14012h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13965i;
+    public int f14013i;
     public boolean j;
     public CustomMessageListener k;
     public CustomMessageListener l;
@@ -65,7 +65,7 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaLiveTabFragment f13966a;
+        public final /* synthetic */ AlaLiveTabFragment f14014a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaLiveTabFragment alaLiveTabFragment, int i2) {
@@ -85,28 +85,28 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
                     return;
                 }
             }
-            this.f13966a = alaLiveTabFragment;
+            this.f14014a = alaLiveTabFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d.a.p0.v.d.c.e.b)) {
-                this.f13966a.f13961e.z(true);
-                d.a.p0.v.d.c.e.b bVar = (d.a.p0.v.d.c.e.b) customResponsedMessage.getData();
-                if (bVar.f64297a) {
-                    if (this.f13966a.f13964h || !bVar.f64298b) {
-                        this.f13966a.Q0();
-                        AlaLiveTabFragment alaLiveTabFragment = this.f13966a;
-                        alaLiveTabFragment.hideLoadingView(alaLiveTabFragment.f13961e.m());
-                        this.f13966a.f13961e.B(bVar.f64299c);
-                        this.f13966a.f13964h = false;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d.a.q0.v.d.c.e.b)) {
+                this.f14014a.f14009e.z(true);
+                d.a.q0.v.d.c.e.b bVar = (d.a.q0.v.d.c.e.b) customResponsedMessage.getData();
+                if (bVar.f64942a) {
+                    if (this.f14014a.f14012h || !bVar.f64943b) {
+                        this.f14014a.V0();
+                        AlaLiveTabFragment alaLiveTabFragment = this.f14014a;
+                        alaLiveTabFragment.hideLoadingView(alaLiveTabFragment.f14009e.m());
+                        this.f14014a.f14009e.B(bVar.f64944c);
+                        this.f14014a.f14012h = false;
                     }
-                } else if (this.f13966a.f13964h || !bVar.f64298b) {
-                    AlaLiveTabFragment alaLiveTabFragment2 = this.f13966a;
-                    alaLiveTabFragment2.hideLoadingView(alaLiveTabFragment2.f13961e.m());
-                    this.f13966a.U0();
+                } else if (this.f14014a.f14012h || !bVar.f64943b) {
+                    AlaLiveTabFragment alaLiveTabFragment2 = this.f14014a;
+                    alaLiveTabFragment2.hideLoadingView(alaLiveTabFragment2.f14009e.m());
+                    this.f14014a.Z0();
                 }
             }
         }
@@ -118,7 +118,7 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaLiveTabFragment f13967a;
+        public final /* synthetic */ AlaLiveTabFragment f14015a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AlaLiveTabFragment alaLiveTabFragment, int i2) {
@@ -138,7 +138,7 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
                     return;
                 }
             }
-            this.f13967a = alaLiveTabFragment;
+            this.f14015a = alaLiveTabFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,8 +147,8 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                 int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                if (this.f13967a.f13961e != null) {
-                    this.f13967a.f13961e.A(intValue);
+                if (this.f14015a.f14009e != null) {
+                    this.f14015a.f14009e.A(intValue);
                 }
             }
         }
@@ -160,7 +160,7 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaLiveTabFragment f13968a;
+        public final /* synthetic */ AlaLiveTabFragment f14016a;
 
         public c(AlaLiveTabFragment alaLiveTabFragment) {
             Interceptable interceptable = $ic;
@@ -177,25 +177,25 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
                     return;
                 }
             }
-            this.f13968a = alaLiveTabFragment;
+            this.f14016a = alaLiveTabFragment;
         }
 
         @Override // com.baidu.ala.notify.AlaLiveUserNotifyManager.AlaLiveNotifyListener
         public void onCallBack() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f13968a.isPrimary()) {
-                this.f13968a.f13962f.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f14016a.isPrimary()) {
+                this.f14016a.f14010f.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d extends d.a.c.c.f.c {
+    public class d extends d.a.d.c.f.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaLiveTabFragment f13969a;
+        public final /* synthetic */ AlaLiveTabFragment f14017a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(AlaLiveTabFragment alaLiveTabFragment, int i2) {
@@ -215,19 +215,19 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
                     return;
                 }
             }
-            this.f13969a = alaLiveTabFragment;
+            this.f14017a = alaLiveTabFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.c.c.f.g
+        @Override // d.a.d.c.f.g
         /* renamed from: c */
         public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
             InterceptResult invokeL;
             boolean e2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-                if ((((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getParams().get("fname") == null || StringUtils.isNull(((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getParams().get("fname").toString())) && (e2 = d.a.p0.v.d.c.c.e()) != this.f13969a.f13961e.q) {
-                    this.f13969a.f13961e.j(e2, true, false);
+                if ((((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getParams().get("fname") == null || StringUtils.isNull(((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getParams().get("fname").toString())) && (e2 = d.a.q0.v.d.c.c.e()) != this.f14017a.f14009e.q) {
+                    this.f14017a.f14009e.j(e2, true, false);
                     return null;
                 }
                 return httpResponsedMessage;
@@ -242,7 +242,7 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaLiveTabFragment f13970e;
+        public final /* synthetic */ AlaLiveTabFragment f14018e;
 
         public e(AlaLiveTabFragment alaLiveTabFragment) {
             Interceptable interceptable = $ic;
@@ -259,16 +259,16 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
                     return;
                 }
             }
-            this.f13970e = alaLiveTabFragment;
+            this.f14018e = alaLiveTabFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A() && this.f13970e.f13961e != null) {
-                this.f13970e.f13961e.z(false);
-                this.f13970e.T0();
-                this.f13970e.f13961e.s();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A() && this.f14018e.f14009e != null) {
+                this.f14018e.f14009e.z(false);
+                this.f14018e.Y0();
+                this.f14018e.f14009e.s();
                 AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
             }
         }
@@ -303,13 +303,13 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
                 return;
             }
         }
-        this.f13964h = true;
-        this.f13965i = -1;
+        this.f14012h = true;
+        this.f14013i = -1;
         this.k = new a(this, AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE);
         this.l = new b(this, 2921446);
     }
 
-    public static void O0(int i2) {
+    public static void T0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65545, null, i2) == null) {
             if (p.containsKey(Integer.valueOf(i2))) {
@@ -320,7 +320,7 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         }
     }
 
-    public static int P0(int i2) {
+    public static int U0(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
@@ -333,14 +333,14 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         return invokeI.intValue;
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -348,43 +348,43 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         }
     }
 
-    public void Q0() {
+    public void V0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f13961e.z(true);
+            this.f14009e.z(true);
             h hVar = this.mRefreshView;
             if (hVar != null) {
-                hVar.dettachView(this.f13961e.m());
+                hVar.dettachView(this.f14009e.m());
                 this.mRefreshView = null;
             }
         }
     }
 
-    public boolean R0() {
+    public boolean W0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13964h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14012h : invokeV.booleanValue;
     }
 
-    public void S0() {
+    public void X0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && isAdded()) {
-            T0();
-            this.f13961e.s();
+            Y0();
+            this.f14009e.s();
         }
     }
 
-    public final void T0() {
+    public final void Y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f13965i < 0) {
-                this.f13965i = this.f13961e.m().getHeight();
+            if (this.f14013i < 0) {
+                this.f14013i = this.f14009e.m().getHeight();
             }
-            showLoadingView(this.f13961e.m(), false, (((this.f13965i - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
+            showLoadingView(this.f14009e.m(), false, (((this.f14013i - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
         }
     }
 
-    public void U0() {
+    public void Z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.mRefreshView == null) {
@@ -394,24 +394,24 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
             this.mRefreshView.l(null);
             this.mRefreshView.m(getResources().getString(R.string.refresh_view_title_text));
             this.mRefreshView.i(R.drawable.new_pic_emotion_08);
-            this.f13961e.z(false);
+            this.f14009e.z(false);
             this.mRefreshView.k(0);
-            this.mRefreshView.attachView(this.f13961e.m(), false);
+            this.mRefreshView.attachView(this.f14009e.m(), false);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.o0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "a083" : (String) invokeV.objValue;
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f13961e.x();
+            this.f14009e.x();
         }
     }
 
@@ -420,7 +420,7 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             super.onChangeSkinType(i2);
-            d.a.p0.v.d.c.h.a aVar = this.f13961e;
+            d.a.q0.v.d.c.h.a aVar = this.f14009e;
             if (aVar != null) {
                 aVar.v();
             }
@@ -436,18 +436,18 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(null);
-            this.f13961e = new d.a.p0.v.d.c.h.a(getPageContext(), getChildFragmentManager(), this.j);
-            if (this.f13962f == null) {
-                this.f13962f = new AlaLiveUserNotifyController(getPageContext());
+            this.f14009e = new d.a.q0.v.d.c.h.a(getPageContext(), getChildFragmentManager(), this.j);
+            if (this.f14010f == null) {
+                this.f14010f = new AlaLiveUserNotifyController(getPageContext());
             }
-            this.f13963g = new c(this);
-            AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.f13963g);
+            this.f14011g = new c(this);
+            AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.f14011g);
             MessageManager.getInstance().registerListener(this.k);
             MessageManager.getInstance().registerListener(this.l);
             MessageManager.getInstance().addResponsedMessageRule(new d(this, AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO));
-            this.f13961e.n();
-            if (this.f13965i > 0) {
-                T0();
+            this.f14009e.n();
+            if (this.f14013i > 0) {
+                Y0();
             }
         }
     }
@@ -457,7 +457,7 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
-            ViewGroup m2 = this.f13961e.m();
+            ViewGroup m2 = this.f14009e.m();
             if (m2.getParent() instanceof ViewGroup) {
                 ((ViewGroup) m2.getParent()).removeView(m2);
             }
@@ -471,16 +471,16 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            this.f13964h = true;
-            d.a.p0.v.d.c.h.a aVar = this.f13961e;
+            this.f14012h = true;
+            d.a.q0.v.d.c.h.a aVar = this.f14009e;
             if (aVar != null) {
                 aVar.k();
             }
-            AlaLiveUserNotifyController alaLiveUserNotifyController = this.f13962f;
+            AlaLiveUserNotifyController alaLiveUserNotifyController = this.f14010f;
             if (alaLiveUserNotifyController != null) {
                 alaLiveUserNotifyController.onDestroy();
             }
-            AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.f13963g);
+            AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.f14011g);
             MessageManager.getInstance().unRegisterListener(this.k);
             MessageManager.getInstance().unRegisterListener(this.l);
         }
@@ -492,8 +492,8 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onLazyLoad();
             this.j = true;
-            this.f13961e.s();
-            T0();
+            this.f14009e.s();
+            Y0();
         }
     }
 
@@ -505,38 +505,38 @@ public class AlaLiveTabFragment extends BaseFragment implements n0 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
                 AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
-                d.a.p0.v.d.c.h.a aVar = this.f13961e;
+                d.a.q0.v.d.c.h.a aVar = this.f14009e;
                 if (aVar != null) {
                     aVar.u(true);
                 }
             } else {
-                d.a.p0.v.d.c.h.a aVar2 = this.f13961e;
+                d.a.q0.v.d.c.h.a aVar2 = this.f14009e;
                 if (aVar2 != null) {
                     aVar2.u(false);
                 }
             }
-            d.a.p0.v.d.c.h.a aVar3 = this.f13961e;
+            d.a.q0.v.d.c.h.a aVar3 = this.f14009e;
             if (aVar3 != null) {
                 aVar3.w(isPrimary());
             }
         }
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
         }
     }
 
-    @Override // d.a.p0.u0.n0
+    @Override // d.a.q0.u0.n0
     public void x(b0 b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, b0Var) == null) {

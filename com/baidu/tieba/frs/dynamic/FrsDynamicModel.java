@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.g0.b.g;
-import d.a.p0.u0.l1.a;
+import d.a.p0.i0.b.g;
+import d.a.q0.u0.l1.a;
 /* loaded from: classes4.dex */
 public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, a, T> {
     public static /* synthetic */ Interceptable $ic;

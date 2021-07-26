@@ -39,10 +39,10 @@ public class a implements com.kwad.sdk.plugin.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f33669a;
+                public final /* synthetic */ Context f33858a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f33670b;
+                public final /* synthetic */ a f33859b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -59,8 +59,8 @@ public class a implements com.kwad.sdk.plugin.a {
                             return;
                         }
                     }
-                    this.f33670b = this;
-                    this.f33669a = context;
+                    this.f33859b = this;
+                    this.f33858a = context;
                 }
 
                 @Override // d.n.a.a.d
@@ -75,8 +75,8 @@ public class a implements com.kwad.sdk.plugin.a {
                 public void a(String str, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                        com.kwad.sdk.core.b.e.a(this.f33669a, str2);
-                        this.f33670b.a(this.f33669a, str);
+                        com.kwad.sdk.core.b.e.a(this.f33858a, str2);
+                        this.f33859b.a(this.f33858a, str);
                     }
                 }
             });

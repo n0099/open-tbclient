@@ -1,239 +1,236 @@
 package d.a.a0.b.a;
 
-import androidx.core.view.InputDeviceCompat;
+import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
-import com.baidu.nps.main.manager.NPSManager;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.minivideo.effect.core.Rotation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.a0.i.h;
-import dalvik.system.PathClassLoader;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Set;
+import com.faceunity.gles.GeneratedTexture;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class b extends PathClassLoader {
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ClassLoader f40776a;
+    public int[] f41234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f40777b;
+    public int[] f41235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f40778c;
+    public final FloatBuffer f41236c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f40779d;
+    public final FloatBuffer f41237d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f40780e;
+    public final FloatBuffer f41238e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<String> f40781f;
+    public int f41239f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(ClassLoader classLoader, ClassLoader classLoader2) {
-        super("", "", classLoader);
+    /* renamed from: g  reason: collision with root package name */
+    public int f41240g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f41241h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float[] f41242i;
+
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {classLoader, classLoader2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (ClassLoader) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f40781f = new HashSet();
-        this.f40776a = classLoader2;
-        b(classLoader2);
-        c(classLoader2);
-        this.f40781f.add("android.widget.ViewStub");
-        this.f40781f.add("android.widget.View");
-        this.f40781f.add("android.webkit.ViewStub");
-        this.f40781f.add("android.webkit.View");
-        this.f40781f.add("android.app.ViewStub");
-        this.f40781f.add("android.app.View");
-        this.f40781f.add("com.google.android.gms.net.PlayServicesCronetProvider");
-        this.f40781f.add("com.google.android.gms.net.GmsCoreCronetProvider");
-        this.f40781f.add("org.chromium.net.impl.JavaCronetProvider");
+        this.f41242i = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
+        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(g.f41262a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.f41236c = asFloatBuffer;
+        asFloatBuffer.put(g.f41262a).position(0);
+        FloatBuffer asFloatBuffer2 = ByteBuffer.allocateDirect(i.f41264a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.f41237d = asFloatBuffer2;
+        asFloatBuffer2.put(i.f41264a).position(0);
+        float[] b2 = i.b(Rotation.NORMAL, false, true);
+        FloatBuffer asFloatBuffer3 = ByteBuffer.allocateDirect(b2.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.f41238e = asFloatBuffer3;
+        asFloatBuffer3.put(b2).position(0);
     }
 
-    public final void a(String str, ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, classLoader) == null) {
-            try {
-                Field a2 = h.a(classLoader.getClass(), str);
-                h.g(a2);
-                h.k(a2, this, h.f(a2, classLoader));
-            } catch (IllegalAccessException unused) {
-            }
-        }
-    }
-
-    public final void b(ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, classLoader) == null) {
-            a("pathList", classLoader);
-        }
-    }
-
-    public final void c(ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, classLoader) == null) {
-            Class<?> cls = classLoader.getClass();
-            Method b2 = h.b(cls, "findResource", String.class);
-            this.f40777b = b2;
-            b2.setAccessible(true);
-            Method b3 = h.b(cls, "findResources", String.class);
-            this.f40778c = b3;
-            b3.setAccessible(true);
-            Method b4 = h.b(cls, "findLibrary", String.class);
-            this.f40779d = b4;
-            b4.setAccessible(true);
-            Method b5 = h.b(cls, "getPackage", String.class);
-            this.f40780e = b5;
-            b5.setAccessible(true);
-        }
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Class<?> findClass(String str) throws ClassNotFoundException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? super.findClass(str) : (Class) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public String findLibrary(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            try {
-                return (String) this.f40779d.invoke(this.f40776a, str);
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-                return super.findLibrary(str);
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
-                return super.findLibrary(str);
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
-                return super.findLibrary(str);
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public URL findResource(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            try {
-                return (URL) this.f40777b.invoke(this.f40776a, str);
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-                return super.findResource(str);
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
-                return super.findResource(str);
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
-                return super.findResource(str);
-            }
-        }
-        return (URL) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Enumeration<URL> findResources(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            try {
-                return (Enumeration) this.f40778c.invoke(this.f40776a, str);
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-                return super.findResources(str);
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
-                return super.findResources(str);
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
-                return super.findResources(str);
-            }
-        }
-        return (Enumeration) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Package getPackage(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            Package r0 = null;
-            if (str != null && !str.isEmpty()) {
-                try {
-                    r0 = (Package) this.f40780e.invoke(this.f40776a, str);
-                } catch (IllegalAccessException e2) {
-                    e2.printStackTrace();
-                } catch (IllegalArgumentException e3) {
-                    e3.printStackTrace();
-                } catch (InvocationTargetException e4) {
-                    e4.printStackTrace();
-                }
-                if (r0 == null) {
-                    r0 = super.getPackage(str);
-                }
-                if (r0 == null) {
-                    return definePackage(str, "Unknown", XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT, "Unknown", "Unknown", XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT, "Unknown", null);
-                }
-            }
-            return r0;
-        }
-        return (Package) invokeL.objValue;
-    }
-
-    @Override // java.lang.ClassLoader
-    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
-        Class<?> loadComponentClass;
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
-            try {
-                return this.f40776a.loadClass(str);
-            } catch (ClassNotFoundException unused) {
-                return (this.f40781f.contains(str) || (loadComponentClass = NPSManager.getInstance().loadComponentClass(str)) == null) ? super.loadClass(str, z) : loadComponentClass;
-            }
-        }
-        return (Class) invokeLZ.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader
-    public String toString() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return b.class.getName() + "[mBase=" + this.f40776a.toString() + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int[] iArr = this.f41234a;
+            return iArr == null || this.f41241h >= iArr.length;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int[] iArr = this.f41235b;
+            if (iArr != null) {
+                GLES20.glDeleteTextures(iArr.length, iArr, 0);
+                this.f41235b = null;
+            }
+            int[] iArr2 = this.f41234a;
+            if (iArr2 != null) {
+                GLES20.glDeleteFramebuffers(iArr2.length, iArr2, 0);
+                this.f41234a = null;
+            }
+        }
+    }
+
+    public void c(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || i2 == 0 || i3 == 0) {
+            return;
+        }
+        if (this.f41239f == i2 && this.f41240g == i3) {
+            return;
+        }
+        if (this.f41234a != null) {
+            b();
+        }
+        this.f41239f = i2;
+        this.f41240g = i3;
+        d(2);
+    }
+
+    public final void d(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            int[] iArr = this.f41234a;
+            int length = iArr != null ? i2 + iArr.length : i2;
+            int[] iArr2 = new int[length];
+            int[] iArr3 = new int[length];
+            for (int i3 = 0; i3 < length; i3++) {
+                int[] iArr4 = this.f41234a;
+                if (iArr4 != null && iArr4.length > i3) {
+                    iArr2[i3] = iArr4[i3];
+                }
+                int[] iArr5 = this.f41235b;
+                if (iArr5 != null && iArr5.length > i3) {
+                    iArr3[i3] = iArr5[i3];
+                }
+                if (iArr3[i3] == 0) {
+                    GLES20.glGenFramebuffers(1, iArr2, i3);
+                    GLES20.glGenTextures(1, iArr3, i3);
+                    GLES20.glBindTexture(3553, iArr3[i3]);
+                    GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.f41239f, this.f41240g, 0, GeneratedTexture.FORMAT, 5121, null);
+                    GLES20.glTexParameterf(3553, 10240, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10241, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10242, 33071.0f);
+                    GLES20.glTexParameterf(3553, 10243, 33071.0f);
+                    GLES20.glBindFramebuffer(36160, iArr2[i3]);
+                    GLES20.glFramebufferTexture2D(36160, 36064, 3553, iArr3[i3], 0);
+                    GLES20.glBindTexture(3553, 0);
+                    GLES20.glBindFramebuffer(36160, 0);
+                }
+            }
+            this.f41234a = iArr2;
+            this.f41235b = iArr3;
+        }
+    }
+
+    public int e(int i2, a aVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, aVar)) == null) {
+            if (aVar == null) {
+                return i2;
+            }
+            try {
+                if (a()) {
+                    d(2);
+                }
+                aVar.s();
+                GLES20.glBindFramebuffer(36160, this.f41234a[this.f41241h]);
+                GLES20.glViewport(0, 0, this.f41239f, this.f41240g);
+                GLES20.glClearColor(this.f41242i[0], this.f41242i[1], this.f41242i[2], this.f41242i[3]);
+                GLES20.glClear(16640);
+                aVar.p(i2, this.f41236c, this.f41238e);
+                GLES20.glBindFramebuffer(36160, 0);
+                i2 = this.f41235b[this.f41241h];
+                this.f41241h++;
+                return i2;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return i2;
+            }
+        }
+        return invokeIL.intValue;
+    }
+
+    public int f(int i2, List<a> list) {
+        InterceptResult invokeIL;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, list)) == null) {
+            if (list != null) {
+                int size = list.size();
+                if (size == 0) {
+                    return i2;
+                }
+                if (this.f41234a.length - this.f41241h <= size) {
+                    d(size);
+                }
+                int i4 = this.f41241h;
+                while (true) {
+                    i3 = this.f41241h;
+                    if (i4 >= i3 + size) {
+                        break;
+                    }
+                    a aVar = list.get(i4 - i3);
+                    aVar.s();
+                    GLES20.glBindFramebuffer(36160, this.f41234a[i4]);
+                    GLES20.glViewport(0, 0, this.f41239f, this.f41240g);
+                    float[] fArr = this.f41242i;
+                    GLES20.glClearColor(fArr[0], fArr[1], fArr[2], fArr[3]);
+                    GLES20.glClear(16640);
+                    aVar.p(i2, this.f41236c, this.f41238e);
+                    GLES20.glBindFramebuffer(36160, 0);
+                    i2 = this.f41235b[i4];
+                    i4++;
+                }
+                this.f41241h = i3 + size;
+            }
+            return i2;
+        }
+        return invokeIL.intValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f41241h = 0;
+        }
+    }
+
+    public void h(float f2, float f3, float f4, float f5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            float[] fArr = this.f41242i;
+            fArr[0] = f2;
+            fArr[1] = f3;
+            fArr[2] = f4;
+            fArr[3] = f5;
+        }
     }
 }

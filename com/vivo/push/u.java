@@ -11,10 +11,10 @@ public final class u implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f39229a;
+    public final /* synthetic */ String f39450a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f39230b;
+    public final /* synthetic */ p f39451b;
 
     public u(p pVar, String str) {
         Interceptable interceptable = $ic;
@@ -31,12 +31,12 @@ public final class u implements Runnable {
                 return;
             }
         }
-        this.f39230b = pVar;
-        this.f39229a = str;
+        this.f39451b = pVar;
+        this.f39450a = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-        r0 = r4.f39230b.c(r4.f39229a);
+        r0 = r4.f39451b.c(r4.f39450a);
      */
     @Override // java.lang.Runnable
     /*

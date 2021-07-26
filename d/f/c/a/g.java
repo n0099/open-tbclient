@@ -14,7 +14,7 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Long, AugmentedFace> f70785a;
+    public final Map<Long, AugmentedFace> f71239a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class g {
                 return;
             }
         }
-        this.f70785a = new com.google.ar.core.j(1, 0.75f, true);
+        this.f71239a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
     public final synchronized AugmentedFace a(long j, Session session) {
@@ -38,10 +38,10 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
             synchronized (this) {
-                augmentedFace = this.f70785a.get(Long.valueOf(j));
+                augmentedFace = this.f71239a.get(Long.valueOf(j));
                 if (augmentedFace == null) {
                     augmentedFace = new AugmentedFace(j, session);
-                    this.f70785a.put(Long.valueOf(j), augmentedFace);
+                    this.f71239a.put(Long.valueOf(j), augmentedFace);
                 }
             }
             return augmentedFace;

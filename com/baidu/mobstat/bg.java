@@ -21,13 +21,13 @@ public class bg {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f8838a;
+    public static volatile boolean f8864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f8839b;
+    public static volatile boolean f8865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f8840c;
+    public static volatile boolean f8866c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -45,11 +45,11 @@ public class bg {
                     if (i2 != 2) {
                         return false;
                     }
-                    return f8840c;
+                    return f8866c;
                 }
-                return f8839b;
+                return f8865b;
             }
-            return f8838a;
+            return f8864a;
         }
         return invokeI.booleanValue;
     }
@@ -64,12 +64,12 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 0) {
-                f8838a = z;
+                f8864a = z;
             } else if (i2 == 1) {
-                f8839b = z;
+                f8865b = z;
             } else if (i2 != 2) {
             } else {
-                f8840c = z;
+                f8866c = z;
             }
         }
     }

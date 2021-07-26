@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f72391a;
+    public static final d f72845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f72392b;
+    public static final d f72846b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class C2058a implements d {
+    /* loaded from: classes9.dex */
+    public static final class C2057a implements d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final C2058a f72393a;
+        public static final C2057a f72847a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,10 +41,10 @@ public final class a {
                     return;
                 }
             }
-            f72393a = new C2058a();
+            f72847a = new C2057a();
         }
 
-        public C2058a() {
+        public C2057a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,12 +69,12 @@ public final class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b implements d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f72394a;
+        public static final b f72848a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -90,7 +90,7 @@ public final class a {
                     return;
                 }
             }
-            f72394a = new b();
+            f72848a = new b();
         }
 
         public b() {
@@ -118,12 +118,12 @@ public final class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class c implements d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f72395a;
+        public static final c f72849a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -139,7 +139,7 @@ public final class a {
                     return;
                 }
             }
-            f72395a = new c();
+            f72849a = new c();
         }
 
         public c() {
@@ -167,7 +167,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface d {
         boolean a() throws MissingBackpressureException;
     }
@@ -185,10 +185,10 @@ public final class a {
                 return;
             }
         }
-        c cVar = c.f72395a;
-        f72391a = cVar;
-        f72392b = cVar;
-        b bVar = b.f72394a;
-        C2058a c2058a = C2058a.f72393a;
+        c cVar = c.f72849a;
+        f72845a = cVar;
+        f72846b = cVar;
+        b bVar = b.f72848a;
+        C2057a c2057a = C2057a.f72847a;
     }
 }

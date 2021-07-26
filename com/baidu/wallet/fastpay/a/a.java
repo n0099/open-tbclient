@@ -10,25 +10,25 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f24801a = "mobileRechargeClickMenu";
+    public static String f24959a = "mobileRechargeClickMenu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f24802b = "mobileRechargeAddressbookClick";
+    public static String f24960b = "mobileRechargeAddressbookClick";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f24803c = "mobileRechargeClickService";
+    public static String f24961c = "mobileRechargeClickService";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f24804d = "mobileRechargeClickHistoryRecord";
+    public static String f24962d = "mobileRechargeClickHistoryRecord";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f24805e = "mobileRechargeBackBtnClick";
+    public static String f24963e = "mobileRechargeBackBtnClick";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f24806f = "mobileRechargeChooseDenomination";
+    public static String f24964f = "mobileRechargeChooseDenomination";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f24807g = "mobileRechargeClickPrompt";
+    public static String f24965g = "mobileRechargeClickPrompt";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

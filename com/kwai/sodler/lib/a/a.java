@@ -17,31 +17,31 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f36957a;
+    public File f37146a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36958b;
+    public String f37147b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwai.sodler.lib.ext.c f36959c;
+    public com.kwai.sodler.lib.ext.c f37148c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36960d;
+    public String f37149d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36961e;
+    public String f37150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwai.sodler.lib.b.b f36962f;
+    public com.kwai.sodler.lib.b.b f37151f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36963g;
+    public boolean f37152g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final byte[] f36964h;
+    public final byte[] f37153h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f36965i;
+    public final String f37154i;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -58,18 +58,18 @@ public abstract class a {
                 return;
             }
         }
-        this.f36964h = new byte[0];
-        this.f36963g = false;
-        this.f36965i = str;
-        this.f36958b = str;
-        this.f36959c = j.a().b();
+        this.f37153h = new byte[0];
+        this.f37152g = false;
+        this.f37154i = str;
+        this.f37147b = str;
+        this.f37148c = j.a().b();
     }
 
     public a a(@NonNull com.kwai.sodler.lib.b.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-            this.f36962f = bVar;
+            this.f37151f = bVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -78,7 +78,7 @@ public abstract class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36961e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37150e : (String) invokeV.objValue;
     }
 
     public abstract void a(Context context, String str);
@@ -86,14 +86,14 @@ public abstract class a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f36961e = str;
+            this.f37150e = str;
         }
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f36960d = str;
+            this.f37149d = str;
         }
     }
 
@@ -102,11 +102,11 @@ public abstract class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f36963g) {
+            if (this.f37152g) {
                 return true;
             }
-            synchronized (this.f36964h) {
-                z = this.f36963g;
+            synchronized (this.f37153h) {
+                z = this.f37152g;
             }
             return z;
         }
@@ -116,37 +116,37 @@ public abstract class a {
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36960d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37149d : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f36958b = str;
+            this.f37147b = str;
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f36963g) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f37152g) {
             return;
         }
-        synchronized (this.f36964h) {
-            this.f36963g = true;
+        synchronized (this.f37153h) {
+            this.f37152g = true;
         }
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36965i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37154i : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "Plugin{, ApkPath = '" + this.f36965i + "'}";
+            return "Plugin{, ApkPath = '" + this.f37154i + "'}";
         }
         return (String) invokeV.objValue;
     }

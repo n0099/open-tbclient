@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.l.c;
-import d.a.c.e.l.d;
-import d.a.c.e.m.e;
-import d.a.c.k.d.a;
-import d.a.o0.r.f0.l;
-import d.a.o0.r.q.b2;
+import d.a.d.e.l.c;
+import d.a.d.e.l.d;
+import d.a.d.e.m.e;
+import d.a.d.k.d.a;
+import d.a.p0.s.f0.l;
+import d.a.p0.s.q.b2;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -65,13 +65,13 @@ public class SpecHotTopicHelper {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.c.e.l.c
+            @Override // d.a.d.e.l.c
             public void onLoaded(a aVar, String str, int i2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, aVar, str, i2) == null) {
                     super.onLoaded((AnonymousClass2) aVar, str, i2);
                     if (aVar != null) {
-                        d.a.o0.a0.c.k().a(str, aVar.p());
+                        d.a.p0.b0.c.k().a(str, aVar.p());
                     }
                 }
             }
@@ -100,20 +100,20 @@ public class SpecHotTopicHelper {
         if (!(interceptable == null || interceptable.invokeLLLI(65539, null, b2Var, spannableString, str, i2) == null) || b2Var == null || spannableString == null || StringUtils.isNull(str)) {
             return;
         }
-        String s0 = b2Var.s0();
-        String S0 = b2Var.S0();
-        if (StringUtils.isNull(s0) || StringUtils.isNull(S0)) {
+        String t0 = b2Var.t0();
+        String T0 = b2Var.T0();
+        if (StringUtils.isNull(t0) || StringUtils.isNull(T0)) {
             return;
         }
-        Bitmap j = d.a.o0.a0.c.k().j(s0);
-        if ((j == null || !AbstractImageLoaderProc.isImageFileExist(s0, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(s0, 10)) != null) {
+        Bitmap j = d.a.p0.b0.c.k().j(t0);
+        if ((j == null || !AbstractImageLoaderProc.isImageFileExist(t0, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(t0, 10)) != null) {
             j = loadBdImageFromLocal.p();
-            d.a.o0.a0.c.k().a(s0, j);
+            d.a.p0.b0.c.k().a(t0, j);
         }
-        Bitmap j2 = d.a.o0.a0.c.k().j(S0);
-        if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(S0, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(S0, 10)) != null) {
+        Bitmap j2 = d.a.p0.b0.c.k().j(T0);
+        if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(T0, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(T0, 10)) != null) {
             j2 = loadBdImageFromLocal2.p();
-            d.a.o0.a0.c.k().a(S0, j2);
+            d.a.p0.b0.c.k().a(T0, j2);
         }
         if (j != null && !j.isRecycled() && j2 != null && !j2.isRecycled()) {
             int i3 = 0;
@@ -127,7 +127,7 @@ public class SpecHotTopicHelper {
                         bitmapDrawable.setBounds(0, 0, j2.getWidth(), j2.getHeight());
                     }
                     l lVar = new l(bitmapDrawable);
-                    lVar.b(d.a.c.e.p.l.e(TbadkCoreApplication.getInst(), b2Var.p));
+                    lVar.b(d.a.d.e.p.l.e(TbadkCoreApplication.getInst(), b2Var.p));
                     int i5 = i2 + i4;
                     spannableString.setSpan(lVar, i5, i5 + 1, 33);
                     i3++;
@@ -135,16 +135,16 @@ public class SpecHotTopicHelper {
             }
             return;
         }
-        loadSpecTopicIconIfNeed(s0, S0);
+        loadSpecTopicIconIfNeed(t0, T0);
     }
 
     public static void loadSpecTopicIconIfNeed(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            Bitmap j = d.a.o0.a0.c.k().j(str);
-            Bitmap j2 = d.a.o0.a0.c.k().j(str2);
+            Bitmap j = d.a.p0.b0.c.k().j(str);
+            Bitmap j2 = d.a.p0.b0.c.k().j(str2);
             if (j == null || j2 == null) {
-                if (!d.a.c.e.p.l.C()) {
+                if (!d.a.d.e.p.l.C()) {
                     e.a().post(new Runnable(str, str2) { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class SpecHotTopicHelper {
         if (!(interceptable == null || interceptable.invokeJL(65543, null, j, b2Var) == null) || (pair = mMap.get(Long.valueOf(j))) == null) {
             return;
         }
-        b2Var.l3(j);
-        b2Var.a4((String) pair.first, (String) pair.second);
+        b2Var.o3(j);
+        b2Var.d4((String) pair.first, (String) pair.second);
     }
 }

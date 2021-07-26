@@ -31,7 +31,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SixNumberPwdView f26634a;
+    public SixNumberPwdView f26792a;
     public String extraFromH5;
     public boolean isOpenHalfScreenPwdVerify;
     public TextView mErrorTip;
@@ -99,7 +99,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     public String getPwd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26634a.getPwd() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26792a.getPwd() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
@@ -162,18 +162,18 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
             }
             this.mTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_tip"));
             this.mSubTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_sub_tip"));
-            this.f26634a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
+            this.f26792a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
             this.mErrorTip = (TextView) findViewById(ResUtils.id(getActivity(), "error_tip"));
             this.mForgetPasswd = findViewById(ResUtils.id(getActivity(), "forget_pwd"));
             hideErrorMsg();
             this.mRootView = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "root_view"));
             this.mScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f26634a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f26792a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
             this.mSafeEditText = safeKeyBoardEditText;
             safeKeyBoardEditText.initSafeKeyBoardParams(this.mRootView, this.mScrollView, safeKeyBoardEditText, false);
             this.mSafeEditText.setGap(20);
             this.mSafeEditText.setDisablePast(true);
-            this.f26634a.addSixNumberPwdChangedListenter(this);
+            this.f26792a.addSixNumberPwdChangedListenter(this);
             setSafeScrollView(this.mScrollView);
             this.mSafeEditText.requestFocus();
         }
@@ -213,7 +213,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     public void resetPwd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f26634a.resetPwd();
+            this.f26792a.resetPwd();
         }
     }
 

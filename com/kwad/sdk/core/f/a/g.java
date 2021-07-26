@@ -19,13 +19,13 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34424a;
+    public Context f34613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f34425b;
+    public final LinkedBlockingQueue<IBinder> f34614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f34426c;
+    public ServiceConnection f34615c;
 
     public g(Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class g {
                 return;
             }
         }
-        this.f34425b = new LinkedBlockingQueue<>(1);
-        this.f34426c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.g.1
+        this.f34614b = new LinkedBlockingQueue<>(1);
+        this.f34615c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f34427a;
+            public final /* synthetic */ g f34616a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class g {
                         return;
                     }
                 }
-                this.f34427a = this;
+                this.f34616a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -73,7 +73,7 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
-                        this.f34427a.f34425b.put(iBinder);
+                        this.f34616a.f34614b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -87,7 +87,7 @@ public class g {
                 }
             }
         };
-        this.f34424a = context;
+        this.f34613a = context;
     }
 
     public String a() {
@@ -100,16 +100,16 @@ public class g {
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-                if (this.f34424a.bindService(intent, this.f34426c, 1)) {
+                if (this.f34613a.bindService(intent, this.f34615c, 1)) {
                     try {
-                        str = new e.a(this.f34425b.take()).a();
+                        str = new e.a(this.f34614b.take()).a();
                         com.kwad.sdk.core.d.a.c("SamsungDeviceIDHelper", "getOAID oaid:" + str);
-                        context = this.f34424a;
-                        serviceConnection = this.f34426c;
+                        context = this.f34613a;
+                        serviceConnection = this.f34615c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f34424a;
-                        serviceConnection = this.f34426c;
+                        context = this.f34613a;
+                        serviceConnection = this.f34615c;
                     }
                     context.unbindService(serviceConnection);
                 }

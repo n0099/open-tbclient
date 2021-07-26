@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.w.z.a;
+import d.a.p0.x.z.a;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class CommonTabWidgetView extends LinearLayout {
@@ -24,13 +24,13 @@ public class CommonTabWidgetView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CommonTabHorizonScrollView f13084e;
+    public CommonTabHorizonScrollView f13133e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13085f;
+    public ImageView f13134f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditorTools f13086g;
+    public EditorTools f13135g;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -38,7 +38,7 @@ public class CommonTabWidgetView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonTabWidgetView f13087e;
+        public final /* synthetic */ CommonTabWidgetView f13136e;
 
         public a(CommonTabWidgetView commonTabWidgetView) {
             Interceptable interceptable = $ic;
@@ -55,16 +55,16 @@ public class CommonTabWidgetView extends LinearLayout {
                     return;
                 }
             }
-            this.f13087e = commonTabWidgetView;
+            this.f13136e = commonTabWidgetView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13087e.f13086g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13136e.f13135g == null) {
                 return;
             }
-            this.f13087e.f13086g.A(new d.a.o0.w.a(3, 3, null));
+            this.f13136e.f13135g.A(new d.a.p0.x.a(3, 3, null));
         }
     }
 
@@ -98,7 +98,7 @@ public class CommonTabWidgetView extends LinearLayout {
     public void b(a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f13084e.b(bVar);
+            this.f13133e.b(bVar);
         }
     }
 
@@ -108,9 +108,9 @@ public class CommonTabWidgetView extends LinearLayout {
             setVisibility(8);
             removeAllViews();
             LayoutInflater.from(context).inflate(R.layout.common_tab_widget, (ViewGroup) this, true);
-            this.f13084e = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
+            this.f13133e = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
             ImageView imageView = (ImageView) findViewById(R.id.privilege_tab_delete);
-            this.f13085f = imageView;
+            this.f13134f = imageView;
             imageView.setOnClickListener(new a(this));
         }
     }
@@ -119,30 +119,30 @@ public class CommonTabWidgetView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             SkinManager.setBackgroundColor(this, R.color.common_color_10223, i2);
-            this.f13084e.e(i2);
-            SkinManager.setImageResource(this.f13085f, R.drawable.but_face_close, i2);
-            SkinManager.setBackgroundColor(this.f13085f, R.color.common_color_10224, i2);
+            this.f13133e.e(i2);
+            SkinManager.setImageResource(this.f13134f, R.drawable.but_face_close, i2);
+            SkinManager.setBackgroundColor(this.f13134f, R.color.common_color_10224, i2);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f13084e.f();
+            this.f13133e.f();
         }
     }
 
     public void setCurrentTab(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f13084e.setCurrentTab(i2);
+            this.f13133e.setCurrentTab(i2);
         }
     }
 
-    public void setDatas(ArrayList<d.a.o0.w.z.a> arrayList) {
+    public void setDatas(ArrayList<d.a.p0.x.z.a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.f13084e.setDatas(arrayList);
+            this.f13133e.setDatas(arrayList);
             if (arrayList != null && arrayList.size() > 1) {
                 setVisibility(0);
             } else {
@@ -154,14 +154,14 @@ public class CommonTabWidgetView extends LinearLayout {
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, editorTools) == null) {
-            this.f13086g = editorTools;
+            this.f13135g = editorTools;
         }
     }
 
     public void setOnTabSelectedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f13084e.setOnTabSelectedListener(bVar);
+            this.f13133e.setOnTabSelectedListener(bVar);
         }
     }
 
@@ -169,9 +169,9 @@ public class CommonTabWidgetView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                this.f13085f.setVisibility(0);
+                this.f13134f.setVisibility(0);
             } else {
-                this.f13085f.setVisibility(8);
+                this.f13134f.setVisibility(8);
             }
         }
     }

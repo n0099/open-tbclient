@@ -51,19 +51,19 @@ public final class DummySurface extends Surface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int[] f32944e;
+        public final int[] f33133e;
 
         /* renamed from: f  reason: collision with root package name */
-        public EGLDisplay f32945f;
+        public EGLDisplay f33134f;
 
         /* renamed from: g  reason: collision with root package name */
-        public EGLContext f32946g;
+        public EGLContext f33135g;
 
         /* renamed from: h  reason: collision with root package name */
-        public EGLSurface f32947h;
+        public EGLSurface f33136h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Handler f32948i;
+        public Handler f33137i;
         public SurfaceTexture j;
         public Error k;
         public RuntimeException l;
@@ -85,7 +85,7 @@ public final class DummySurface extends Surface {
                     return;
                 }
             }
-            this.f32944e = new int[1];
+            this.f33133e = new int[1];
         }
 
         public DummySurface a(boolean z) {
@@ -94,10 +94,10 @@ public final class DummySurface extends Surface {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
                 start();
-                this.f32948i = new Handler(getLooper(), this);
+                this.f33137i = new Handler(getLooper(), this);
                 synchronized (this) {
                     z2 = false;
-                    this.f32948i.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
+                    this.f33137i.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
                     while (this.m == null && this.l == null && this.k == null) {
                         try {
                             wait();
@@ -126,25 +126,25 @@ public final class DummySurface extends Surface {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-                this.f32945f = eglGetDisplay;
+                this.f33134f = eglGetDisplay;
                 d.f.b.a.i0.a.g(eglGetDisplay != null, "eglGetDisplay failed");
                 int[] iArr = new int[2];
-                d.f.b.a.i0.a.g(EGL14.eglInitialize(this.f32945f, iArr, 0, iArr, 1), "eglInitialize failed");
+                d.f.b.a.i0.a.g(EGL14.eglInitialize(this.f33134f, iArr, 0, iArr, 1), "eglInitialize failed");
                 EGLConfig[] eGLConfigArr = new EGLConfig[1];
                 int[] iArr2 = new int[1];
-                d.f.b.a.i0.a.g(EGL14.eglChooseConfig(this.f32945f, new int[]{12352, 4, ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 8, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, 0, ZeusMonitorType.MONITOR_TYPE_KEY_RESOURCE, ZeusMonitorType.MONITOR_TYPE_AD_FILTER, ZeusMonitorType.MONITOR_TYPE_MULTI_PERFORMANCE_TIMING, 4, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0, eGLConfigArr, 0, 1, iArr2, 0) && iArr2[0] > 0 && eGLConfigArr[0] != null, "eglChooseConfig failed");
+                d.f.b.a.i0.a.g(EGL14.eglChooseConfig(this.f33134f, new int[]{12352, 4, ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 8, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, 0, ZeusMonitorType.MONITOR_TYPE_KEY_RESOURCE, ZeusMonitorType.MONITOR_TYPE_AD_FILTER, ZeusMonitorType.MONITOR_TYPE_MULTI_PERFORMANCE_TIMING, 4, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0, eGLConfigArr, 0, 1, iArr2, 0) && iArr2[0] > 0 && eGLConfigArr[0] != null, "eglChooseConfig failed");
                 EGLConfig eGLConfig = eGLConfigArr[0];
-                EGLContext eglCreateContext = EGL14.eglCreateContext(this.f32945f, eGLConfig, EGL14.EGL_NO_CONTEXT, z ? new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, DummySurface.EGL_PROTECTED_CONTENT_EXT, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER} : new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-                this.f32946g = eglCreateContext;
+                EGLContext eglCreateContext = EGL14.eglCreateContext(this.f33134f, eGLConfig, EGL14.EGL_NO_CONTEXT, z ? new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, DummySurface.EGL_PROTECTED_CONTENT_EXT, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER} : new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                this.f33135g = eglCreateContext;
                 d.f.b.a.i0.a.g(eglCreateContext != null, "eglCreateContext failed");
-                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.f32945f, eGLConfig, z ? new int[]{12375, 1, 12374, 1, DummySurface.EGL_PROTECTED_CONTENT_EXT, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER} : new int[]{12375, 1, 12374, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-                this.f32947h = eglCreatePbufferSurface;
+                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.f33134f, eGLConfig, z ? new int[]{12375, 1, 12374, 1, DummySurface.EGL_PROTECTED_CONTENT_EXT, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER} : new int[]{12375, 1, 12374, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                this.f33136h = eglCreatePbufferSurface;
                 d.f.b.a.i0.a.g(eglCreatePbufferSurface != null, "eglCreatePbufferSurface failed");
-                EGLDisplay eGLDisplay = this.f32945f;
-                EGLSurface eGLSurface = this.f32947h;
-                d.f.b.a.i0.a.g(EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f32946g), "eglMakeCurrent failed");
-                GLES20.glGenTextures(1, this.f32944e, 0);
-                SurfaceTexture surfaceTexture = new SurfaceTexture(this.f32944e[0]);
+                EGLDisplay eGLDisplay = this.f33134f;
+                EGLSurface eGLSurface = this.f33136h;
+                d.f.b.a.i0.a.g(EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f33135g), "eglMakeCurrent failed");
+                GLES20.glGenTextures(1, this.f33133e, 0);
+                SurfaceTexture surfaceTexture = new SurfaceTexture(this.f33133e[0]);
                 this.j = surfaceTexture;
                 surfaceTexture.setOnFrameAvailableListener(this);
                 this.m = new DummySurface(this, this.j, z, null);
@@ -154,7 +154,7 @@ public final class DummySurface extends Surface {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f32948i.sendEmptyMessage(3);
+                this.f33137i.sendEmptyMessage(3);
             }
         }
 
@@ -165,20 +165,20 @@ public final class DummySurface extends Surface {
                 try {
                     if (this.j != null) {
                         this.j.release();
-                        GLES20.glDeleteTextures(1, this.f32944e, 0);
+                        GLES20.glDeleteTextures(1, this.f33133e, 0);
                     }
                 } finally {
-                    EGLSurface eGLSurface = this.f32947h;
+                    EGLSurface eGLSurface = this.f33136h;
                     if (eGLSurface != null) {
-                        EGL14.eglDestroySurface(this.f32945f, eGLSurface);
+                        EGL14.eglDestroySurface(this.f33134f, eGLSurface);
                     }
-                    EGLContext eGLContext = this.f32946g;
+                    EGLContext eGLContext = this.f33135g;
                     if (eGLContext != null) {
-                        EGL14.eglDestroyContext(this.f32945f, eGLContext);
+                        EGL14.eglDestroyContext(this.f33134f, eGLContext);
                     }
-                    this.f32947h = null;
-                    this.f32946g = null;
-                    this.f32945f = null;
+                    this.f33136h = null;
+                    this.f33135g = null;
+                    this.f33134f = null;
                     this.m = null;
                     this.j = null;
                 }
@@ -245,7 +245,7 @@ public final class DummySurface extends Surface {
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, surfaceTexture) == null) {
-                this.f32948i.sendEmptyMessage(2);
+                this.f33137i.sendEmptyMessage(2);
             }
         }
     }
@@ -256,7 +256,7 @@ public final class DummySurface extends Surface {
 
     public static void assertApiLevel17OrHigher() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && v.f70515a < 17) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && v.f70969a < 17) {
             throw new UnsupportedOperationException("Unsupported prior to API level 17");
         }
     }
@@ -267,8 +267,8 @@ public final class DummySurface extends Surface {
         String eglQueryString;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (v.f70515a >= 26 || !ManufacturerUtils.SAMSUNG.equals(v.f70517c)) {
-                return (v.f70515a >= 26 || context.getPackageManager().hasSystemFeature("android.hardware.vr.high_performance")) && (eglQueryString = EGL14.eglQueryString(EGL14.eglGetDisplay(0), 12373)) != null && eglQueryString.contains("EGL_EXT_protected_content");
+            if (v.f70969a >= 26 || !ManufacturerUtils.SAMSUNG.equals(v.f70971c)) {
+                return (v.f70969a >= 26 || context.getPackageManager().hasSystemFeature("android.hardware.vr.high_performance")) && (eglQueryString = EGL14.eglQueryString(EGL14.eglGetDisplay(0), 12373)) != null && eglQueryString.contains("EGL_EXT_protected_content");
             }
             return false;
         }
@@ -282,7 +282,7 @@ public final class DummySurface extends Surface {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (DummySurface.class) {
                 if (!secureSupportedInitialized) {
-                    secureSupported = v.f70515a >= 24 && enableSecureDummySurfaceV24(context);
+                    secureSupported = v.f70969a >= 24 && enableSecureDummySurfaceV24(context);
                     secureSupportedInitialized = true;
                 }
                 z = secureSupported;

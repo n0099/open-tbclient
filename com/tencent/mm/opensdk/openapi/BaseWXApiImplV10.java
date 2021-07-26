@@ -13,6 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -188,7 +189,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
                     resp.errCode = d.c(queryParameter2);
                 }
                 resp.openId = parse.getQueryParameter("openid");
-                resp.templateID = parse.getQueryParameter("template_id");
+                resp.templateID = parse.getQueryParameter(TiebaStatic.Params.TEMPLATE_ID);
                 resp.scene = d.c(parse.getQueryParameter("scene"));
                 resp.action = parse.getQueryParameter("action");
                 resp.reserved = parse.getQueryParameter(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
@@ -845,12 +846,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 this.appId = str;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-            a.C0518a c0518a = new a.C0518a();
-            c0518a.f38832a = "com.tencent.mm";
-            c0518a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-            c0518a.content = "weixin://registerapp?appid=" + this.appId;
-            c0518a.f38833b = j;
-            return a.a(this.context, c0518a);
+            a.C0521a c0521a = new a.C0521a();
+            c0521a.f39041a = "com.tencent.mm";
+            c0521a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+            c0521a.content = "weixin://registerapp?appid=" + this.appId;
+            c0521a.f39042b = j;
+            return a.a(this.context, c0521a);
         }
         return invokeLJ.booleanValue;
     }
@@ -1053,11 +1054,11 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 return;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-            a.C0518a c0518a = new a.C0518a();
-            c0518a.f38832a = "com.tencent.mm";
-            c0518a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-            c0518a.content = "weixin://unregisterapp?appid=" + this.appId;
-            a.a(this.context, c0518a);
+            a.C0521a c0521a = new a.C0521a();
+            c0521a.f39041a = "com.tencent.mm";
+            c0521a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+            c0521a.content = "weixin://unregisterapp?appid=" + this.appId;
+            a.a(this.context, c0521a);
         }
     }
 }

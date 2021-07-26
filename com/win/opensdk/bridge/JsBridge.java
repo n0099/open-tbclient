@@ -11,7 +11,7 @@ public class JsBridge {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile JsBridge f39547a;
+    public static volatile JsBridge f39749a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public JsBridge() {
@@ -32,13 +32,13 @@ public class JsBridge {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JsBridge jsBridge = f39547a;
+            JsBridge jsBridge = f39749a;
             if (jsBridge == null) {
                 synchronized (JsBridge.class) {
-                    jsBridge = f39547a;
+                    jsBridge = f39749a;
                     if (jsBridge == null) {
                         jsBridge = new JsBridge();
-                        f39547a = jsBridge;
+                        f39749a = jsBridge;
                     }
                 }
             }

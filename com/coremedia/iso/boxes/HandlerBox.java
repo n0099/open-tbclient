@@ -37,13 +37,13 @@ public class HandlerBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f32677a;
+    public long f32864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32678b;
+    public long f32865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f32679c;
+    public long f32866c;
     public String handlerType;
     public String name;
     public long shouldBeZeroButAppleWritesHereSomeValue;
@@ -119,9 +119,9 @@ public class HandlerBox extends AbstractFullBox {
             parseVersionAndFlags(byteBuffer);
             this.shouldBeZeroButAppleWritesHereSomeValue = IsoTypeReader.readUInt32(byteBuffer);
             this.handlerType = IsoTypeReader.read4cc(byteBuffer);
-            this.f32677a = IsoTypeReader.readUInt32(byteBuffer);
-            this.f32678b = IsoTypeReader.readUInt32(byteBuffer);
-            this.f32679c = IsoTypeReader.readUInt32(byteBuffer);
+            this.f32864a = IsoTypeReader.readUInt32(byteBuffer);
+            this.f32865b = IsoTypeReader.readUInt32(byteBuffer);
+            this.f32866c = IsoTypeReader.readUInt32(byteBuffer);
             if (byteBuffer.remaining() > 0) {
                 String readString = IsoTypeReader.readString(byteBuffer, byteBuffer.remaining());
                 this.name = readString;
@@ -145,9 +145,9 @@ public class HandlerBox extends AbstractFullBox {
             writeVersionAndFlags(byteBuffer);
             IsoTypeWriter.writeUInt32(byteBuffer, this.shouldBeZeroButAppleWritesHereSomeValue);
             byteBuffer.put(IsoFile.fourCCtoBytes(this.handlerType));
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f32677a);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f32678b);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f32679c);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f32864a);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f32865b);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f32866c);
             String str = this.name;
             if (str != null) {
                 byteBuffer.put(Utf8.convert(str));

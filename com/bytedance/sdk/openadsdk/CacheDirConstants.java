@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.f;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.component.video.a.a;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.multipro.b;
@@ -47,10 +47,10 @@ public class CacheDirConstants {
             }
             Context a3 = o.a();
             if (o.h().C() == 1) {
-                j.c("CacheDirConstants", "使用内部存储");
+                k.c("CacheDirConstants", "使用内部存储");
                 a2 = f.b(a3, b.b(), "tt_ad");
             } else {
-                j.c("CacheDirConstants", "使用外部存储");
+                k.c("CacheDirConstants", "使用外部存储");
                 a2 = f.a(a3, b.b(), "tt_ad");
             }
             if (a2.isFile()) {
@@ -71,16 +71,16 @@ public class CacheDirConstants {
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             HashSet hashSet = new HashSet();
             if (Build.VERSION.SDK_INT >= 23) {
-                for (a aVar : a.f28917a.values()) {
+                for (a aVar : a.f29016a.values()) {
                     if (aVar != null && aVar.a() != null) {
                         com.bytedance.sdk.component.video.b.a a2 = aVar.a();
-                        hashSet.add(com.bytedance.sdk.component.video.d.b.a(a2.d(), a2.c()).getAbsolutePath());
+                        hashSet.add(com.bytedance.sdk.component.video.d.b.b(a2.d(), a2.c()).getAbsolutePath());
                     }
                 }
-                for (com.bytedance.sdk.component.video.a.c.a aVar2 : com.bytedance.sdk.component.video.a.b.a.f28932a.values()) {
+                for (com.bytedance.sdk.component.video.a.c.a aVar2 : com.bytedance.sdk.component.video.a.b.a.f29031a.values()) {
                     if (aVar2 != null && aVar2.a() != null) {
                         com.bytedance.sdk.component.video.b.a a3 = aVar2.a();
-                        hashSet.add(com.bytedance.sdk.component.video.d.b.a(a3.d(), a3.c()).getAbsolutePath());
+                        hashSet.add(com.bytedance.sdk.component.video.d.b.b(a3.d(), a3.c()).getAbsolutePath());
                     }
                 }
             }

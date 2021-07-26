@@ -69,10 +69,10 @@ public abstract class Ordering<T> implements Comparator<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f33400e;
+        public final AtomicInteger f33589e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ConcurrentMap<Object, Integer> f33401f;
+        public final ConcurrentMap<Object, Integer> f33590f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -87,20 +87,20 @@ public abstract class Ordering<T> implements Comparator<T> {
                     return;
                 }
             }
-            this.f33400e = new AtomicInteger(0);
+            this.f33589e = new AtomicInteger(0);
             MapMaker mapMaker = new MapMaker();
             y0.i(mapMaker);
-            this.f33401f = mapMaker.i();
+            this.f33590f = mapMaker.i();
         }
 
         public final Integer a(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                Integer num = this.f33401f.get(obj);
+                Integer num = this.f33590f.get(obj);
                 if (num == null) {
-                    Integer valueOf = Integer.valueOf(this.f33400e.getAndIncrement());
-                    Integer putIfAbsent = this.f33401f.putIfAbsent(obj, valueOf);
+                    Integer valueOf = Integer.valueOf(this.f33589e.getAndIncrement());
+                    Integer putIfAbsent = this.f33590f.putIfAbsent(obj, valueOf);
                     return putIfAbsent != null ? putIfAbsent : valueOf;
                 }
                 return num;
@@ -154,7 +154,7 @@ public abstract class Ordering<T> implements Comparator<T> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Ordering<Object> f33402a;
+        public static final Ordering<Object> f33591a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -170,7 +170,7 @@ public abstract class Ordering<T> implements Comparator<T> {
                     return;
                 }
             }
-            f33402a = new a();
+            f33591a = new a();
         }
     }
 
@@ -197,7 +197,7 @@ public abstract class Ordering<T> implements Comparator<T> {
     public static Ordering<Object> arbitrary() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f33402a : (Ordering) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f33591a : (Ordering) invokeV.objValue;
     }
 
     public static <T> Ordering<T> explicit(List<T> list) {

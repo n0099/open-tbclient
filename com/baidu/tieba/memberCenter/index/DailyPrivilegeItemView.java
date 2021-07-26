@@ -18,19 +18,19 @@ public class DailyPrivilegeItemView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18550e;
+    public Context f18635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18551f;
+    public View f18636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18552g;
+    public TbImageView f18637g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f18553h;
+    public TbImageView f18638h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PrivilegeTextView f18554i;
+    public PrivilegeTextView f18639i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,22 +51,22 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f18550e = context;
+        this.f18635e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f18550e).inflate(R.layout.index_daily_item, this);
-            this.f18551f = inflate;
-            this.f18552g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-            TbImageView tbImageView = (TbImageView) this.f18551f.findViewById(R.id.privilege_tag_icon);
-            this.f18553h = tbImageView;
+            View inflate = LayoutInflater.from(this.f18635e).inflate(R.layout.index_daily_item, this);
+            this.f18636f = inflate;
+            this.f18637g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+            TbImageView tbImageView = (TbImageView) this.f18636f.findViewById(R.id.privilege_tag_icon);
+            this.f18638h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f18553h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f18554i = (PrivilegeTextView) this.f18551f.findViewById(R.id.privilege_title);
-            this.j = (TextView) this.f18551f.findViewById(R.id.privilege_desc);
+            this.f18638h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f18639i = (PrivilegeTextView) this.f18636f.findViewById(R.id.privilege_title);
+            this.j = (TextView) this.f18636f.findViewById(R.id.privilege_desc);
         }
     }
 
@@ -89,7 +89,7 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f18550e = context;
+        this.f18635e = context;
         a();
     }
 
@@ -112,7 +112,7 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f18550e = context;
+        this.f18635e = context;
         a();
     }
 }

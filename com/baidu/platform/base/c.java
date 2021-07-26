@@ -11,16 +11,16 @@ public class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f9403a;
+    public final /* synthetic */ d f9429a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SearchResult f9404b;
+    public final /* synthetic */ SearchResult f9430b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object f9405c;
+    public final /* synthetic */ Object f9431c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f9406d;
+    public final /* synthetic */ a f9432d;
 
     public c(a aVar, d dVar, SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
@@ -37,23 +37,23 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f9406d = aVar;
-        this.f9403a = dVar;
-        this.f9404b = searchResult;
-        this.f9405c = obj;
+        this.f9432d = aVar;
+        this.f9429a = dVar;
+        this.f9430b = searchResult;
+        this.f9431c = obj;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9403a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9429a == null) {
             return;
         }
-        this.f9406d.f9394a.lock();
+        this.f9432d.f9420a.lock();
         try {
-            this.f9403a.a(this.f9404b, this.f9405c);
+            this.f9429a.a(this.f9430b, this.f9431c);
         } finally {
-            this.f9406d.f9394a.unlock();
+            this.f9432d.f9420a.unlock();
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.core.h;
 /* loaded from: classes5.dex */
@@ -60,9 +60,9 @@ public class DynamicDislike extends DynamicBaseWidgetImp {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 1) {
-                ((ImageView) this.n).setImageResource(r.d(getContext(), "tt_dislike_icon_night"));
+                ((ImageView) this.n).setImageResource(t.d(getContext(), "tt_dislike_icon_night"));
             } else {
-                ((ImageView) this.n).setImageResource(r.d(getContext(), "tt_dislike_icon"));
+                ((ImageView) this.n).setImageResource(t.d(getContext(), "tt_dislike_icon"));
             }
         }
     }

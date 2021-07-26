@@ -28,7 +28,7 @@ public interface a extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f4983a;
+            public IBinder f5009a;
 
             public C0092a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f4983a = iBinder;
+                this.f5009a = iBinder;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -57,7 +57,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                        this.f4983a.transact(3, obtain, obtain2, 0);
+                        this.f5009a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
                     } finally {
@@ -79,7 +79,7 @@ public interface a extends IInterface {
                         obtain.writeInt(i2);
                         obtain.writeString(str);
                         obtain.writeLong(j);
-                        this.f4983a.transact(2, obtain, obtain2, 0);
+                        this.f5009a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -102,7 +102,7 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f4983a.transact(1, obtain, obtain2, 0);
+                        this.f5009a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -115,7 +115,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4983a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5009a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -126,7 +126,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                        this.f4983a.transact(4, obtain, obtain2, 0);
+                        this.f5009a.transact(4, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();

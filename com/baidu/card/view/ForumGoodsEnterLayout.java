@@ -16,24 +16,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.a;
-import d.a.o0.r.q.b2;
+import d.a.p0.s.q.a;
+import d.a.p0.s.q.b2;
 /* loaded from: classes.dex */
 public class ForumGoodsEnterLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f4438e;
+    public Context f4464e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadForumEnterGoodsButton f4439f;
+    public ThreadForumEnterGoodsButton f4465f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f4440g;
+    public View.OnClickListener f4466g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4441h;
+    public int f4467h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumGoodsEnterLayout(Context context) {
@@ -59,27 +59,27 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f4438e = context;
-            this.f4439f = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
+            this.f4464e = context;
+            this.f4465f = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
         }
     }
 
     public final boolean b(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().q2() || aVar.getThreadData().l1() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().s2() || aVar.getThreadData().m1() == null) ? false : true : invokeL.booleanValue;
     }
 
     public final boolean c(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().D0() == null || aVar.getThreadData().D0().getOptions() == null || aVar.getThreadData().D0().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().E0() == null || aVar.getThreadData().E0().getOptions() == null || aVar.getThreadData().E0().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
     }
 
     public void d(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.f4439f.e();
+            this.f4465f.e();
         }
     }
 
@@ -88,13 +88,13 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             b2 threadData = aVar.getThreadData();
-            if (c(aVar) || b(aVar) || aVar.getThreadData() == null || !aVar.getThreadData().R1() || this.f4441h == 3) {
+            if (c(aVar) || b(aVar) || aVar.getThreadData() == null || !aVar.getThreadData().S1() || this.f4467h == 3) {
                 z = false;
             } else {
-                this.f4439f.setVisibility(0);
-                this.f4439f.setFrom(2);
-                this.f4439f.a(threadData);
-                this.f4439f.setAfterClickListener(this.f4440g);
+                this.f4465f.setVisibility(0);
+                this.f4465f.setFrom(2);
+                this.f4465f.a(threadData);
+                this.f4465f.setAfterClickListener(this.f4466g);
                 z = true;
             }
             setVisibility(z ? 0 : 8);
@@ -110,14 +110,14 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public void setFrstype(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f4441h = i2;
+            this.f4467h = i2;
         }
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f4440g = onClickListener;
+            this.f4466g = onClickListener;
         }
     }
 

@@ -1,31 +1,27 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.VideoView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public class h extends AsyncTask {
+public class h implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f39583a;
+    public final /* synthetic */ PBDrawVideo f39813a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f39584b;
-
-    public h(PBSplash pBSplash, String str) {
+    public h(PBDrawVideo pBDrawVideo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pBSplash, str};
+            Object[] objArr = {pBDrawVideo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,63 +31,93 @@ public class h extends AsyncTask {
                 return;
             }
         }
-        this.f39584b = pBSplash;
-        this.f39583a = str;
+        this.f39813a = pBDrawVideo;
     }
 
-    @Override // android.os.AsyncTask
-    public Object doInBackground(Object[] objArr) {
-        InterceptResult invokeL;
+    @Override // com.win.opensdk.f
+    public void a(boolean z) {
+        VideoView videoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-            String str = ((String[]) objArr)[0];
-            if (str != null) {
-                try {
-                    return z.d(str);
-                } catch (OutOfMemoryError unused) {
-                    return null;
-                }
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (videoView = this.f39813a.f39625h) == null) {
+            return;
         }
-        return invokeL.objValue;
+        if (!z) {
+            videoView.pause();
+            return;
+        }
+        videoView.start();
+        this.f39813a.a();
     }
 
-    @Override // android.os.AsyncTask
-    public void onPostExecute(Object obj) {
-        Context context;
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        PBDrawVideoListener pBDrawVideoListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            byte[] bArr = (byte[]) obj;
-            if (bArr == null) {
-                PBSplash pBSplash = this.f39584b;
-                PBSplashListener pBSplashListener = pBSplash.f39446e;
-                if (pBSplashListener != null && !pBSplash.j) {
-                    pBSplashListener.onFail(PBError.NO_RESUOURCE);
-                    this.f39584b.f39450i = true;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBDrawVideoListener = this.f39813a.f39620c) == null) {
+            return;
+        }
+        pBDrawVideoListener.onClicked();
+    }
+
+    @Override // com.win.opensdk.f
+    public void onDisplayed() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f39813a.f39620c == null) {
+            return;
+        }
+        Log.e("regiser", "回调给开发者onDisplayed");
+        VideoView videoView = this.f39813a.f39625h;
+        if (videoView != null) {
+            videoView.start();
+            this.f39813a.a();
+        }
+        this.f39813a.f39620c.onDisplayed();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
+            if (pBError == PBError.PID_INVALID) {
+                PBDrawVideoListener pBDrawVideoListener = this.f39813a.f39620c;
+                if (pBDrawVideoListener != null) {
+                    pBDrawVideoListener.onFail(PBError.NO_FILL);
+                    return;
                 }
-            } else {
-                PBSplash pBSplash2 = this.f39584b;
-                PBSplashListener pBSplashListener2 = pBSplash2.f39446e;
-                if (pBSplashListener2 != null && !pBSplash2.j) {
-                    pBSplash2.m = bArr;
-                    pBSplashListener2.onLoaded();
-                    this.f39584b.f39450i = true;
-                }
+                return;
             }
-            if (bArr != null) {
-                PBSplash pBSplash3 = this.f39584b;
-                if (pBSplash3.j) {
-                    StringBuilder sb = new StringBuilder();
-                    context = this.f39584b.f39442a;
-                    sb.append(z.a(context));
-                    sb.append(File.separator);
-                    sb.append("win");
-                    sb.append(File.separator);
-                    sb.append(z.c(this.f39583a));
-                    sb.append(".gif");
-                    pBSplash3.p = new File(sb.toString());
-                    new Thread(new Z0(bArr, this.f39584b.p.getPath())).start();
+            PBDrawVideo pBDrawVideo = this.f39813a;
+            PBDrawVideoListener pBDrawVideoListener2 = pBDrawVideo.f39620c;
+            if (pBDrawVideoListener2 == null || pBDrawVideo.f39622e) {
+                return;
+            }
+            pBDrawVideoListener2.onFail(PBError.NO_FILL);
+        }
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d0 d0Var = this.f39813a.f39619b.f39792a;
+            if (d0Var != null && d0Var.b()) {
+                PBDrawVideo pBDrawVideo = this.f39813a;
+                Context context = pBDrawVideo.f39618a;
+                d0 d0Var2 = pBDrawVideo.f39619b.f39792a;
+                U1.b(context, (d0Var2 == null || !d0Var2.b()) ? 0L : d0Var2.f39779c.getLo_timeout());
+                d0 d0Var3 = this.f39813a.f39619b.f39792a;
+                String str = "";
+                if (((d0Var3 == null || !d0Var3.b()) ? "" : d0Var3.f39779c.getLoad_type()).equals("video")) {
+                    d0 d0Var4 = this.f39813a.f39619b.f39792a;
+                    if (d0Var4 != null && d0Var4.b()) {
+                        str = d0Var4.f39779c.getLoad();
+                    }
+                    this.f39813a.a(str);
+                    return;
+                }
+                PBDrawVideoListener pBDrawVideoListener = this.f39813a.f39620c;
+                if (pBDrawVideoListener != null) {
+                    pBDrawVideoListener.onFail(PBError.LOAD_TYPE_ERROR);
                 }
             }
         }

@@ -7,6 +7,8 @@ import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 public interface RVADI2 extends ApkDownloadComplianceInterface {
     void destroy();
 
+    int getECPM();
+
     String getECPMLevel();
 
     long getExpireTimestamp();

@@ -29,32 +29,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a4.u.q.b;
+import d.a.q0.a4.u.q.b;
 import java.util.Arrays;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B\u0013\b\u0016\u0012\b\u0010M\u001a\u0004\u0018\u00010L¢\u0006\u0004\bN\u0010OB\u001d\b\u0016\u0012\b\u0010M\u001a\u0004\u0018\u00010L\u0012\b\u0010Q\u001a\u0004\u0018\u00010P¢\u0006\u0004\bN\u0010RB%\b\u0016\u0012\b\u0010M\u001a\u0004\u0018\u00010L\u0012\b\u0010Q\u001a\u0004\u0018\u00010P\u0012\u0006\u0010S\u001a\u00020\u0019¢\u0006\u0004\bN\u0010TJ\r\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0003¢\u0006\u0004\b\t\u0010\u0005J\u000f\u0010\n\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\n\u0010\u0005J\r\u0010\u000b\u001a\u00020\u0003¢\u0006\u0004\b\u000b\u0010\u0005J\u000f\u0010\f\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\f\u0010\u0005J\u000f\u0010\r\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\r\u0010\u0005J\r\u0010\u000e\u001a\u00020\u0003¢\u0006\u0004\b\u000e\u0010\u0005J\r\u0010\u000f\u001a\u00020\u0003¢\u0006\u0004\b\u000f\u0010\u0005J\u0019\u0010\u0012\u001a\u00020\u00032\n\u0010\u0011\u001a\u0006\u0012\u0002\b\u00030\u0010¢\u0006\u0004\b\u0012\u0010\u0013J\u001d\u0010\u0017\u001a\u00020\u00032\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u0006¢\u0006\u0004\b\u0017\u0010\u0018J\u001f\u0010\u001c\u001a\u00020\u00032\u0006\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u001b\u001a\u00020\u0019H\u0002¢\u0006\u0004\b\u001c\u0010\u001dR\u001c\u0010\u001e\u001a\u00020\u00198\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u001e\u0010\u001f\u001a\u0004\b \u0010!R\u001c\u0010\"\u001a\u00020\u00198\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\"\u0010\u001f\u001a\u0004\b#\u0010!R\u001c\u0010$\u001a\u00020\u00198\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b$\u0010\u001f\u001a\u0004\b%\u0010!R\u001c\u0010&\u001a\u00020\u00198\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b&\u0010\u001f\u001a\u0004\b'\u0010!R\u0018\u0010)\u001a\u0004\u0018\u00010(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R\u0018\u0010,\u001a\u0004\u0018\u00010+8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010-R$\u0010/\u001a\u0004\u0018\u00010.8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u00100\u001a\u0004\b1\u00102\"\u0004\b3\u00104R\u001a\u00105\u001a\u0006\u0012\u0002\b\u00030\u00108\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b5\u00106R\u0016\u00108\u001a\u0002078\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b8\u00109R\u0016\u0010;\u001a\u00020:8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b;\u0010<R\u0016\u0010=\u001a\u00020:8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b=\u0010<R\u0016\u0010>\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010\u001fR\u0016\u0010?\u001a\u00020\u00028\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b?\u0010@R\u0016\u0010A\u001a\u00020:8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bA\u0010<R\u0016\u0010C\u001a\u00020B8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bC\u0010DR\u0016\u0010F\u001a\u00020E8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bF\u0010GR\u0018\u0010I\u001a\u0004\u0018\u00010H8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bI\u0010JR\u0018\u0010\u0015\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0015\u0010K¨\u0006U"}, d2 = {"Lcom/baidu/tieba/write/write/work/WorkPublishMixVideoView;", "Ld/a/p0/a4/u/q/b;", "Landroid/widget/LinearLayout;", "", "initView", "()V", "", "isVisible", "()Z", "onChangeSkin", "onCoverEditClick", MissionEvent.MESSAGE_DESTROY, "onEditClick", "onPlayClick", MissionEvent.MESSAGE_START, MissionEvent.MESSAGE_STOP, "Lcom/baidu/tbadk/TbPageContext;", "tbPageContext", "setPageContext", "(Lcom/baidu/tbadk/TbPageContext;)V", "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", TbPreviewVideoActivityConfig.KEY_VIDEO_INFO, "isDraft", "setVideoInfo", "(Lcom/baidu/tbadk/coreExtra/data/VideoInfo;Z)V", "", "state", SapiOptions.KEY_CACHE_PERCENT, "updateStateTexts", "(II)V", "STATE_FAILED", "I", "getSTATE_FAILED", "()I", "STATE_MIXING", "getSTATE_MIXING", "STATE_NONE", "getSTATE_NONE", "STATE_SUCCESS", "getSTATE_SUCCESS", "Lcom/baidu/tieba/video/EditVideoTaskDataAndCallback;", "callback", "Lcom/baidu/tieba/video/EditVideoTaskDataAndCallback;", "Lcom/baidu/tieba/video/EditVideoData;", "editData", "Lcom/baidu/tieba/video/EditVideoData;", "Lcom/baidu/tieba/write/write/work/IWorkVideoMixListener;", "iWorkVideoMixListener", "Lcom/baidu/tieba/write/write/work/IWorkVideoMixListener;", "getIWorkVideoMixListener", "()Lcom/baidu/tieba/write/write/work/IWorkVideoMixListener;", "setIWorkVideoMixListener", "(Lcom/baidu/tieba/write/write/work/IWorkVideoMixListener;)V", "mContext", "Lcom/baidu/tbadk/TbPageContext;", "Landroid/view/View;", "mRootView", "Landroid/view/View;", "Landroid/widget/TextView;", "mixPercentText", "Landroid/widget/TextView;", "mixRetryText", "mixState", "mixStateLayout", "Landroid/widget/LinearLayout;", "mixStateText", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "muxerProgressUpdateListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "Lcom/baidu/tieba/write/write/work/WorkPublishVideoView;", "publishVideoView", "Lcom/baidu/tieba/write/write/work/WorkPublishVideoView;", "Lcom/baidu/tieba/controller/ISaveEditVideoController;", "saveEditVideoController", "Lcom/baidu/tieba/controller/ISaveEditVideoController;", "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "write_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B\u0013\b\u0016\u0012\b\u0010M\u001a\u0004\u0018\u00010L¢\u0006\u0004\bN\u0010OB\u001d\b\u0016\u0012\b\u0010M\u001a\u0004\u0018\u00010L\u0012\b\u0010Q\u001a\u0004\u0018\u00010P¢\u0006\u0004\bN\u0010RB%\b\u0016\u0012\b\u0010M\u001a\u0004\u0018\u00010L\u0012\b\u0010Q\u001a\u0004\u0018\u00010P\u0012\u0006\u0010S\u001a\u00020\u0019¢\u0006\u0004\bN\u0010TJ\r\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0003¢\u0006\u0004\b\t\u0010\u0005J\u000f\u0010\n\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\n\u0010\u0005J\r\u0010\u000b\u001a\u00020\u0003¢\u0006\u0004\b\u000b\u0010\u0005J\u000f\u0010\f\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\f\u0010\u0005J\u000f\u0010\r\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\r\u0010\u0005J\r\u0010\u000e\u001a\u00020\u0003¢\u0006\u0004\b\u000e\u0010\u0005J\r\u0010\u000f\u001a\u00020\u0003¢\u0006\u0004\b\u000f\u0010\u0005J\u0019\u0010\u0012\u001a\u00020\u00032\n\u0010\u0011\u001a\u0006\u0012\u0002\b\u00030\u0010¢\u0006\u0004\b\u0012\u0010\u0013J\u001d\u0010\u0017\u001a\u00020\u00032\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u0006¢\u0006\u0004\b\u0017\u0010\u0018J\u001f\u0010\u001c\u001a\u00020\u00032\u0006\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u001b\u001a\u00020\u0019H\u0002¢\u0006\u0004\b\u001c\u0010\u001dR\u001c\u0010\u001e\u001a\u00020\u00198\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u001e\u0010\u001f\u001a\u0004\b \u0010!R\u001c\u0010\"\u001a\u00020\u00198\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\"\u0010\u001f\u001a\u0004\b#\u0010!R\u001c\u0010$\u001a\u00020\u00198\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b$\u0010\u001f\u001a\u0004\b%\u0010!R\u001c\u0010&\u001a\u00020\u00198\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b&\u0010\u001f\u001a\u0004\b'\u0010!R\u0018\u0010)\u001a\u0004\u0018\u00010(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R\u0018\u0010,\u001a\u0004\u0018\u00010+8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010-R$\u0010/\u001a\u0004\u0018\u00010.8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u00100\u001a\u0004\b1\u00102\"\u0004\b3\u00104R\u001a\u00105\u001a\u0006\u0012\u0002\b\u00030\u00108\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b5\u00106R\u0016\u00108\u001a\u0002078\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b8\u00109R\u0016\u0010;\u001a\u00020:8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b;\u0010<R\u0016\u0010=\u001a\u00020:8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b=\u0010<R\u0016\u0010>\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010\u001fR\u0016\u0010?\u001a\u00020\u00028\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b?\u0010@R\u0016\u0010A\u001a\u00020:8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bA\u0010<R\u0016\u0010C\u001a\u00020B8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bC\u0010DR\u0016\u0010F\u001a\u00020E8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bF\u0010GR\u0018\u0010I\u001a\u0004\u0018\u00010H8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bI\u0010JR\u0018\u0010\u0015\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0015\u0010K¨\u0006U"}, d2 = {"Lcom/baidu/tieba/write/write/work/WorkPublishMixVideoView;", "Ld/a/q0/a4/u/q/b;", "Landroid/widget/LinearLayout;", "", "initView", "()V", "", "isVisible", "()Z", "onChangeSkin", "onCoverEditClick", MissionEvent.MESSAGE_DESTROY, "onEditClick", "onPlayClick", MissionEvent.MESSAGE_START, MissionEvent.MESSAGE_STOP, "Lcom/baidu/tbadk/TbPageContext;", "tbPageContext", "setPageContext", "(Lcom/baidu/tbadk/TbPageContext;)V", "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", TbPreviewVideoActivityConfig.KEY_VIDEO_INFO, "isDraft", "setVideoInfo", "(Lcom/baidu/tbadk/coreExtra/data/VideoInfo;Z)V", "", "state", SapiOptions.KEY_CACHE_PERCENT, "updateStateTexts", "(II)V", "STATE_FAILED", "I", "getSTATE_FAILED", "()I", "STATE_MIXING", "getSTATE_MIXING", "STATE_NONE", "getSTATE_NONE", "STATE_SUCCESS", "getSTATE_SUCCESS", "Lcom/baidu/tieba/video/EditVideoTaskDataAndCallback;", "callback", "Lcom/baidu/tieba/video/EditVideoTaskDataAndCallback;", "Lcom/baidu/tieba/video/EditVideoData;", "editData", "Lcom/baidu/tieba/video/EditVideoData;", "Lcom/baidu/tieba/write/write/work/IWorkVideoMixListener;", "iWorkVideoMixListener", "Lcom/baidu/tieba/write/write/work/IWorkVideoMixListener;", "getIWorkVideoMixListener", "()Lcom/baidu/tieba/write/write/work/IWorkVideoMixListener;", "setIWorkVideoMixListener", "(Lcom/baidu/tieba/write/write/work/IWorkVideoMixListener;)V", "mContext", "Lcom/baidu/tbadk/TbPageContext;", "Landroid/view/View;", "mRootView", "Landroid/view/View;", "Landroid/widget/TextView;", "mixPercentText", "Landroid/widget/TextView;", "mixRetryText", "mixState", "mixStateLayout", "Landroid/widget/LinearLayout;", "mixStateText", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "muxerProgressUpdateListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "Lcom/baidu/tieba/write/write/work/WorkPublishVideoView;", "publishVideoView", "Lcom/baidu/tieba/write/write/work/WorkPublishVideoView;", "Lcom/baidu/tieba/controller/ISaveEditVideoController;", "saveEditVideoController", "Lcom/baidu/tieba/controller/ISaveEditVideoController;", "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "write_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public final class WorkPublishMixVideoView extends LinearLayout implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f22974e;
+    public final int f23132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f22975f;
+    public final int f23133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f22976g;
+    public final int f23134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f22977h;
+    public final int f23135h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22978i;
+    public int f23136i;
     public View j;
     public TbPageContext<?> k;
     public WorkPublishVideoView l;
@@ -62,11 +62,11 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
     public TextView n;
     public TextView o;
     public TextView p;
-    public d.a.p0.v3.b q;
-    public d.a.p0.e0.b r;
+    public d.a.q0.v3.b q;
+    public d.a.q0.e0.b r;
     public VideoInfo s;
     public EditVideoData t;
-    public d.a.p0.a4.u.q.a u;
+    public d.a.q0.a4.u.q.a u;
     public final CustomMessageListener v;
 
     /* loaded from: classes4.dex */
@@ -75,7 +75,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishMixVideoView f22979a;
+        public final /* synthetic */ WorkPublishMixVideoView f23137a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(WorkPublishMixVideoView workPublishMixVideoView, int i2) {
@@ -95,7 +95,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
                     return;
                 }
             }
-            this.f22979a = workPublishMixVideoView;
+            this.f23137a = workPublishMixVideoView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,10 +109,10 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
                 }
                 int intValue = ((Integer) data).intValue();
                 if (intValue >= 0 && intValue < 100) {
-                    WorkPublishMixVideoView workPublishMixVideoView = this.f22979a;
+                    WorkPublishMixVideoView workPublishMixVideoView = this.f23137a;
                     workPublishMixVideoView.h(workPublishMixVideoView.getSTATE_MIXING(), intValue);
                 } else if (intValue == 100) {
-                    WorkPublishMixVideoView workPublishMixVideoView2 = this.f22979a;
+                    WorkPublishMixVideoView workPublishMixVideoView2 = this.f23137a;
                     workPublishMixVideoView2.h(workPublishMixVideoView2.getSTATE_SUCCESS(), intValue);
                 }
             }
@@ -137,18 +137,18 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
                 return;
             }
         }
-        this.f22975f = 1;
-        this.f22976g = 2;
-        this.f22977h = 3;
-        this.f22978i = this.f22974e;
+        this.f23133f = 1;
+        this.f23134g = 2;
+        this.f23135h = 3;
+        this.f23136i = this.f23132e;
         this.v = new a(this, 2921584);
         e();
     }
 
-    @Override // d.a.p0.a4.u.q.b
+    @Override // d.a.q0.a4.u.q.b
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f22978i == this.f22975f) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23136i == this.f23133f) {
             return;
         }
         g();
@@ -179,10 +179,10 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
         }
     }
 
-    @Override // d.a.p0.a4.u.q.b
+    @Override // d.a.q0.a4.u.q.b
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f22978i == this.f22975f || this.s == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f23136i == this.f23133f || this.s == null) {
             return;
         }
         TbPageContext<?> tbPageContext = this.k;
@@ -192,10 +192,10 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbPreviewVideoActivityConfig(tbPageContext.getPageActivity(), this.s)));
     }
 
-    @Override // d.a.p0.a4.u.q.b
+    @Override // d.a.q0.a4.u.q.b
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f22978i == this.f22975f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f23136i == this.f23133f) {
             return;
         }
         g();
@@ -286,7 +286,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
             if (textView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mixStateText");
             }
-            SkinManager.setViewTextColor(textView, this.f22978i == this.f22977h ? R.color.CAM_X0301 : R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView, this.f23136i == this.f23135h ? R.color.CAM_X0301 : R.color.CAM_X0107);
             TextView textView2 = this.o;
             if (textView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -303,14 +303,14 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            d.a.p0.v3.b bVar = this.q;
+            d.a.q0.v3.b bVar = this.q;
             if (bVar != null) {
                 if (bVar == null) {
                     Intrinsics.throwNpe();
                 }
                 bVar.i(true);
             }
-            d.a.p0.e0.b bVar2 = this.r;
+            d.a.q0.e0.b bVar2 = this.r;
             if (bVar2 != null) {
                 if (bVar2 == null) {
                     Intrinsics.throwNpe();
@@ -321,34 +321,34 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
         }
     }
 
-    public final d.a.p0.a4.u.q.a getIWorkVideoMixListener() {
+    public final d.a.q0.a4.u.q.a getIWorkVideoMixListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.u : (d.a.p0.a4.u.q.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.u : (d.a.q0.a4.u.q.a) invokeV.objValue;
     }
 
     public final int getSTATE_FAILED() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22977h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f23135h : invokeV.intValue;
     }
 
     public final int getSTATE_MIXING() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22975f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23133f : invokeV.intValue;
     }
 
     public final int getSTATE_NONE() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22974e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f23132e : invokeV.intValue;
     }
 
     public final int getSTATE_SUCCESS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f22976g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f23134g : invokeV.intValue;
     }
 
     public final void h(int i2, int i3) {
@@ -368,14 +368,14 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
             String format = String.format(string, Arrays.copyOf(new Object[]{Integer.valueOf(i3)}, 1));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
             textView.setText(format);
-            if (i2 != this.f22978i) {
-                this.f22978i = i2;
+            if (i2 != this.f23136i) {
+                this.f23136i = i2;
                 TextView textView2 = this.n;
                 if (textView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mixStateText");
                 }
-                SkinManager.setViewTextColor(textView2, this.f22978i == this.f22977h ? R.color.CAM_X0301 : R.color.CAM_X0107);
-                if (i2 == this.f22975f) {
+                SkinManager.setViewTextColor(textView2, this.f23136i == this.f23135h ? R.color.CAM_X0301 : R.color.CAM_X0107);
+                if (i2 == this.f23133f) {
                     TextView textView3 = this.n;
                     if (textView3 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixStateText");
@@ -395,7 +395,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
                         Intrinsics.throwUninitializedPropertyAccessException("mixRetryText");
                     }
                     textView5.setVisibility(8);
-                } else if (i2 == this.f22977h) {
+                } else if (i2 == this.f23135h) {
                     TextView textView6 = this.n;
                     if (textView6 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixStateText");
@@ -436,9 +436,9 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
                     }
                     textView11.setVisibility(8);
                 }
-                d.a.p0.a4.u.q.a aVar = this.u;
+                d.a.q0.a4.u.q.a aVar = this.u;
                 if (aVar != null) {
-                    aVar.onMixStateChanged(this.f22978i);
+                    aVar.onMixStateChanged(this.f23136i);
                 }
             }
             WorkPublishVideoView workPublishVideoView = this.l;
@@ -449,7 +449,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
         }
     }
 
-    public final void setIWorkVideoMixListener(d.a.p0.a4.u.q.a aVar) {
+    public final void setIWorkVideoMixListener(d.a.q0.a4.u.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
             this.u = aVar;
@@ -521,11 +521,11 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
                 Intrinsics.throwUninitializedPropertyAccessException("publishVideoView");
             }
             workPublishVideoView5.f();
-            d.a.p0.v3.b bVar = this.q;
+            d.a.q0.v3.b bVar = this.q;
             if (bVar != null) {
                 bVar.i(true);
             }
-            d.a.p0.e0.b bVar2 = this.r;
+            d.a.q0.e0.b bVar2 = this.r;
             if (bVar2 != null) {
                 bVar2.cancel();
             }
@@ -552,10 +552,10 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
                 return;
             }
         }
-        this.f22975f = 1;
-        this.f22976g = 2;
-        this.f22977h = 3;
-        this.f22978i = this.f22974e;
+        this.f23133f = 1;
+        this.f23134g = 2;
+        this.f23135h = 3;
+        this.f23136i = this.f23132e;
         this.v = new a(this, 2921584);
         e();
     }
@@ -579,10 +579,10 @@ public final class WorkPublishMixVideoView extends LinearLayout implements b {
                 return;
             }
         }
-        this.f22975f = 1;
-        this.f22976g = 2;
-        this.f22977h = 3;
-        this.f22978i = this.f22974e;
+        this.f23133f = 1;
+        this.f23134g = 2;
+        this.f23135h = 3;
+        this.f23136i = this.f23132e;
         this.v = new a(this, 2921584);
         e();
     }

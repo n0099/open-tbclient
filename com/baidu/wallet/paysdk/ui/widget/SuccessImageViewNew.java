@@ -33,31 +33,31 @@ public class SuccessImageViewNew extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PathMeasure f26942a;
+    public PathMeasure f27100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PathMeasure f26943b;
+    public PathMeasure f27101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Animation f26944c;
+    public Animation f27102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation f26945d;
+    public Animation f27103d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f26946e;
+    public Paint f27104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f26947f;
+    public float f27105f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f26948g;
+    public float f27106g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f26949h;
+    public float f27107h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f26950i;
+    public float f27108i;
     public final RectF j;
     public Path k;
     public Path l;
@@ -104,8 +104,8 @@ public class SuccessImageViewNew extends View {
                 return;
             }
         }
-        this.f26942a = new PathMeasure();
-        this.f26943b = new PathMeasure();
+        this.f27100a = new PathMeasure();
+        this.f27101b = new PathMeasure();
         this.j = new RectF();
         this.k = new Path();
         this.n = 0;
@@ -136,13 +136,13 @@ public class SuccessImageViewNew extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f26949h == 0.0f) {
+            if (this.f27107h == 0.0f) {
                 return;
             }
             if (this.n == 1 && (path = this.m) != null) {
-                canvas.drawPath(path, this.f26946e);
+                canvas.drawPath(path, this.f27104e);
             }
-            canvas.drawPath(this.k, this.f26946e);
+            canvas.drawPath(this.k, this.f27104e);
             canvas.save();
         }
     }
@@ -153,14 +153,14 @@ public class SuccessImageViewNew extends View {
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
             if (getMeasuredWidth() > getMeasuredHeight()) {
-                this.f26949h = getMeasuredHeight();
+                this.f27107h = getMeasuredHeight();
             } else {
-                this.f26949h = getMeasuredWidth();
+                this.f27107h = getMeasuredWidth();
             }
-            float f2 = this.f26949h;
-            this.f26947f = f2 / 2.0f;
-            this.f26948g = f2 / 2.0f;
-            this.f26950i = (f2 - dip2px(4.0f)) / 2.0f;
+            float f2 = this.f27107h;
+            this.f27105f = f2 / 2.0f;
+            this.f27106g = f2 / 2.0f;
+            this.f27108i = (f2 - dip2px(4.0f)) / 2.0f;
             b();
         }
     }
@@ -183,15 +183,15 @@ public class SuccessImageViewNew extends View {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f26949h == 0.0f) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f27107h == 0.0f) {
             return;
         }
         if (this.l == null) {
             RectF rectF = this.j;
-            float f2 = this.f26947f;
-            float f3 = this.f26950i;
+            float f2 = this.f27105f;
+            float f3 = this.f27108i;
             rectF.left = f2 - f3;
-            float f4 = this.f26948g;
+            float f4 = this.f27106g;
             rectF.top = f4 - f3;
             rectF.right = f2 + f3;
             rectF.bottom = f4 + f3;
@@ -199,7 +199,7 @@ public class SuccessImageViewNew extends View {
             this.l = path;
             path.addArc(this.j, 0.0f, 320.0f);
             this.l.rLineTo(0.0f, 0.0f);
-            this.f26943b = new PathMeasure(this.l, false);
+            this.f27101b = new PathMeasure(this.l, false);
         }
         if (this.m == null) {
             PathMeasure pathMeasure = new PathMeasure(this.l, true);
@@ -211,12 +211,12 @@ public class SuccessImageViewNew extends View {
             LogUtil.i(str2, "path1 pos" + fArr[0] + GlideException.IndentedAppendable.INDENT + fArr[1]);
             Path path2 = new Path();
             this.m = path2;
-            float f5 = (this.f26950i * 3.0f) / 7.0f;
-            path2.moveTo(this.f26947f - f5, this.f26948g - ((2.0f * f5) / 5.0f));
-            this.m.lineTo(this.f26947f, this.f26948g + ((f5 * 3.0f) / 5.0f));
+            float f5 = (this.f27108i * 3.0f) / 7.0f;
+            path2.moveTo(this.f27105f - f5, this.f27106g - ((2.0f * f5) / 5.0f));
+            this.m.lineTo(this.f27105f, this.f27106g + ((f5 * 3.0f) / 5.0f));
             this.m.rMoveTo(0.0f, 0.0f);
             this.m.lineTo(fArr[0], fArr[1]);
-            this.f26942a = new PathMeasure(this.m, false);
+            this.f27100a = new PathMeasure(this.m, false);
         }
     }
 
@@ -224,13 +224,13 @@ public class SuccessImageViewNew extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             Paint paint = new Paint();
-            this.f26946e = paint;
+            this.f27104e = paint;
             paint.setAntiAlias(true);
-            this.f26946e.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
-            this.f26946e.setStrokeWidth(dip2px(4.0f));
-            this.f26946e.setStyle(Paint.Style.STROKE);
-            this.f26946e.setStrokeJoin(Paint.Join.ROUND);
-            this.f26946e.setStrokeCap(Paint.Cap.ROUND);
+            this.f27104e.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
+            this.f27104e.setStrokeWidth(dip2px(4.0f));
+            this.f27104e.setStyle(Paint.Style.STROKE);
+            this.f27104e.setStrokeJoin(Paint.Join.ROUND);
+            this.f27104e.setStrokeCap(Paint.Cap.ROUND);
         }
     }
 
@@ -253,8 +253,8 @@ public class SuccessImageViewNew extends View {
                 return;
             }
         }
-        this.f26942a = new PathMeasure();
-        this.f26943b = new PathMeasure();
+        this.f27100a = new PathMeasure();
+        this.f27101b = new PathMeasure();
         this.j = new RectF();
         this.k = new Path();
         this.n = 0;
@@ -271,7 +271,7 @@ public class SuccessImageViewNew extends View {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SuccessImageViewNew f26951a;
+                public final /* synthetic */ SuccessImageViewNew f27109a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -288,38 +288,38 @@ public class SuccessImageViewNew extends View {
                             return;
                         }
                     }
-                    this.f26951a = this;
+                    this.f27109a = this;
                 }
 
                 @Override // android.view.animation.Animation
                 public void applyTransformation(float f4, Transformation transformation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f4), transformation}) == null) {
-                        SuccessImageViewNew successImageViewNew = this.f26951a;
-                        if (successImageViewNew.f26944c != null) {
+                        SuccessImageViewNew successImageViewNew = this.f27109a;
+                        if (successImageViewNew.f27102c != null) {
                             successImageViewNew.k.reset();
-                            float length = this.f26951a.f26942a.getLength();
+                            float length = this.f27109a.f27100a.getLength();
                             float f5 = f4 * length;
-                            SuccessImageViewNew successImageViewNew2 = this.f26951a;
-                            successImageViewNew2.f26942a.getSegment(0.0f, f5, successImageViewNew2.k, true);
+                            SuccessImageViewNew successImageViewNew2 = this.f27109a;
+                            successImageViewNew2.f27100a.getSegment(0.0f, f5, successImageViewNew2.k, true);
                             String str = SuccessImageViewNew.TAG;
                             LogUtil.i(str, "length " + length + "currentLength " + f5);
-                            this.f26951a.k.rLineTo(0.0f, 0.0f);
+                            this.f27109a.k.rLineTo(0.0f, 0.0f);
                         }
-                        this.f26951a.invalidate();
+                        this.f27109a.invalidate();
                     }
                 }
             };
-            this.f26944c = animation;
+            this.f27102c = animation;
             animation.setAnimationListener(new Animation.AnimationListener(this, j) { // from class: com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ long f26952a;
+                public final /* synthetic */ long f27110a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SuccessImageViewNew f26953b;
+                public final /* synthetic */ SuccessImageViewNew f27111b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -336,16 +336,16 @@ public class SuccessImageViewNew extends View {
                             return;
                         }
                     }
-                    this.f26953b = this;
-                    this.f26952a = j;
+                    this.f27111b = this;
+                    this.f27110a = j;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation2) == null) {
-                        this.f26953b.n = 1;
-                        this.f26953b.b(0.0f, 1.0f, this.f26952a);
+                        this.f27111b.n = 1;
+                        this.f27111b.b(0.0f, 1.0f, this.f27110a);
                     }
                 }
 
@@ -363,10 +363,10 @@ public class SuccessImageViewNew extends View {
                     }
                 }
             });
-            this.f26944c.setInterpolator(new AccelerateDecelerateInterpolator());
-            this.f26944c.setDuration(j);
-            this.f26944c.setRepeatCount(0);
-            startAnimation(this.f26944c);
+            this.f27102c.setInterpolator(new AccelerateDecelerateInterpolator());
+            this.f27102c.setDuration(j);
+            this.f27102c.setRepeatCount(0);
+            startAnimation(this.f27102c);
         }
     }
 
@@ -389,8 +389,8 @@ public class SuccessImageViewNew extends View {
                 return;
             }
         }
-        this.f26942a = new PathMeasure();
-        this.f26943b = new PathMeasure();
+        this.f27100a = new PathMeasure();
+        this.f27101b = new PathMeasure();
         this.j = new RectF();
         this.k = new Path();
         this.n = 0;
@@ -408,7 +408,7 @@ public class SuccessImageViewNew extends View {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SuccessImageViewNew f26954a;
+                public final /* synthetic */ SuccessImageViewNew f27112a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -425,35 +425,35 @@ public class SuccessImageViewNew extends View {
                             return;
                         }
                     }
-                    this.f26954a = this;
+                    this.f27112a = this;
                 }
 
                 @Override // android.view.animation.Animation
                 public void applyTransformation(float f4, Transformation transformation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f4), transformation}) == null) {
-                        SuccessImageViewNew successImageViewNew = this.f26954a;
-                        if (successImageViewNew.f26945d != null) {
+                        SuccessImageViewNew successImageViewNew = this.f27112a;
+                        if (successImageViewNew.f27103d != null) {
                             successImageViewNew.k.reset();
-                            float length = this.f26954a.f26943b.getLength();
+                            float length = this.f27112a.f27101b.getLength();
                             float f5 = f4 * length;
-                            SuccessImageViewNew successImageViewNew2 = this.f26954a;
-                            successImageViewNew2.f26943b.getSegment(length - f5, length, successImageViewNew2.k, true);
+                            SuccessImageViewNew successImageViewNew2 = this.f27112a;
+                            successImageViewNew2.f27101b.getSegment(length - f5, length, successImageViewNew2.k, true);
                             String str = SuccessImageViewNew.TAG;
                             LogUtil.i(str, "length " + length + "currentLengthCircle " + f5);
-                            this.f26954a.k.rLineTo(0.0f, 0.0f);
+                            this.f27112a.k.rLineTo(0.0f, 0.0f);
                         }
-                        this.f26954a.invalidate();
+                        this.f27112a.invalidate();
                     }
                 }
             };
-            this.f26945d = animation;
+            this.f27103d = animation;
             animation.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SuccessImageViewNew f26955a;
+                public final /* synthetic */ SuccessImageViewNew f27113a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -470,17 +470,17 @@ public class SuccessImageViewNew extends View {
                             return;
                         }
                     }
-                    this.f26955a = this;
+                    this.f27113a = this;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, animation2) == null) || this.f26955a.p == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, animation2) == null) || this.f27113a.p == null) {
                         return;
                     }
-                    this.f26955a.p.a();
-                    this.f26955a.p = null;
+                    this.f27113a.p.a();
+                    this.f27113a.p = null;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -497,10 +497,10 @@ public class SuccessImageViewNew extends View {
                     }
                 }
             });
-            this.f26945d.setInterpolator(new LinearInterpolator());
-            this.f26945d.setDuration(j);
-            this.f26945d.setRepeatCount(0);
-            startAnimation(this.f26945d);
+            this.f27103d.setInterpolator(new LinearInterpolator());
+            this.f27103d.setDuration(j);
+            this.f27103d.setRepeatCount(0);
+            startAnimation(this.f27103d);
         }
     }
 }

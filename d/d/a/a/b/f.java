@@ -27,7 +27,7 @@ public class f {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f69112a;
+        public static final f f69566a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class f {
                     return;
                 }
             }
-            f69112a = new f(null);
+            f69566a = new f(null);
         }
     }
 
@@ -54,7 +54,7 @@ public class f {
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f69112a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f69566a : (f) invokeV.objValue;
     }
 
     public String b(Context context) {
@@ -67,7 +67,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("Stat_Sensor_SDK_SendRem", 0).edit();
-            edit.putLong(BasicStoreTools.f3922c, j);
+            edit.putLong(BasicStoreTools.f3948c, j);
             edit.commit();
         }
     }
@@ -87,9 +87,9 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("Stat_Sensor_SDK_SendRem", 0);
             try {
-                return sharedPreferences.getLong(BasicStoreTools.f3922c, 0L);
+                return sharedPreferences.getLong(BasicStoreTools.f3948c, 0L);
             } catch (ClassCastException unused) {
-                return sharedPreferences.getInt(BasicStoreTools.f3922c, 0);
+                return sharedPreferences.getInt(BasicStoreTools.f3948c, 0);
             }
         }
         return invokeL.longValue;

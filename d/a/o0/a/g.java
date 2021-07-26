@@ -1,359 +1,191 @@
 package d.a.o0.a;
 
-import android.app.Activity;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class g {
+public final class g {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String A = "tab_name";
-    public static String B = "maintablocate";
-    public static String C = "maintab_subtab";
-    public static String D = "newgod_from";
-    public static String E = "field_id";
-    public static String F = "chushou_third_live_type";
-    public static String G = "chuchou_third_room_id";
-    public static String H = "yy_url";
-    public static String I = "hotTrend";
-    public static String J = "tab_id";
-    public static String K = "param_uri";
-    public static String L = "forumId";
-    public static String M = "item_id";
-    public static String N = "itemId";
-    public static String O = "sortType";
-    public static String P = "rankType";
-    public static String Q = "rankCode";
-    public static String R = "homeTabName";
-    public static String S = "tabId";
-    public static String T = "from_tb_token";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f51334a = "com.baidu.tieba";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f51335b = "unidispatch";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f51336c = "/homepage";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f51337d = "/enterforum";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f51338e = "/recommendforum";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f51339f = "/frs";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f51340g = "/pb";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f51341h = "/tbwebview";
-
-    /* renamed from: i  reason: collision with root package name */
-    public static String f51342i = "/usercenter";
-    public static String j = "/topicdetail";
-    public static String k = "/tiebachushou";
-    public static String l = "/tiebayy";
-    public static String m = "/activitypage";
-    public static String n = "extdata";
-    public static String o = "kw";
-    public static String p = "tid";
-    public static String q = "ori_ugc_nid";
-    public static String r = "ori_ugc_tid";
-    public static String s = "ori_ugc_type";
-    public static String t = "ori_ugc_vid";
-    public static String u = "portrait";
-    public static String v = "topic_id";
-    public static String w = "url";
-    public static String x = "schemefrom";
-    public static String y = "from";
-    public static String z = "token";
+    public static final int abc_action_bar_title_item = 2131492864;
+    public static final int abc_action_bar_up_container = 2131492865;
+    public static final int abc_action_menu_item_layout = 2131492866;
+    public static final int abc_action_menu_layout = 2131492867;
+    public static final int abc_action_mode_bar = 2131492868;
+    public static final int abc_action_mode_close_item_material = 2131492869;
+    public static final int abc_activity_chooser_view = 2131492870;
+    public static final int abc_activity_chooser_view_list_item = 2131492871;
+    public static final int abc_alert_dialog_button_bar_material = 2131492872;
+    public static final int abc_alert_dialog_material = 2131492873;
+    public static final int abc_alert_dialog_title_material = 2131492874;
+    public static final int abc_cascading_menu_item_layout = 2131492875;
+    public static final int abc_dialog_title_material = 2131492876;
+    public static final int abc_expanded_menu_layout = 2131492877;
+    public static final int abc_list_menu_item_checkbox = 2131492878;
+    public static final int abc_list_menu_item_icon = 2131492879;
+    public static final int abc_list_menu_item_layout = 2131492880;
+    public static final int abc_list_menu_item_radio = 2131492881;
+    public static final int abc_popup_menu_header_item_layout = 2131492882;
+    public static final int abc_popup_menu_item_layout = 2131492883;
+    public static final int abc_screen_content_include = 2131492884;
+    public static final int abc_screen_simple = 2131492885;
+    public static final int abc_screen_simple_overlay_action_mode = 2131492886;
+    public static final int abc_screen_toolbar = 2131492887;
+    public static final int abc_search_dropdown_item_icons_2line = 2131492888;
+    public static final int abc_search_view = 2131492889;
+    public static final int abc_select_dialog_material = 2131492890;
+    public static final int abc_tooltip = 2131492891;
+    public static final int activity_pay_web = 2131492932;
+    public static final int activity_poly = 2131492935;
+    public static final int activity_trace_info = 2131492948;
+    public static final int ai_games_fps_textview = 2131492992;
+    public static final int ai_games_fragment = 2131492993;
+    public static final int ai_games_loading_fragment = 2131492994;
+    public static final int aiapp_menu_base_view_layout = 2131492995;
+    public static final int aiapp_menu_item_view_layout = 2131492996;
+    public static final int aiapp_menu_layout = 2131492997;
+    public static final int aiapps_about_fragment = 2131492998;
+    public static final int aiapps_action_bar = 2131492999;
+    public static final int aiapps_action_bar_right_menu = 2131493000;
+    public static final int aiapps_actionbar = 2131493001;
+    public static final int aiapps_activity = 2131493002;
+    public static final int aiapps_alert_dialog = 2131493004;
+    public static final int aiapps_bear_layout = 2131493005;
+    public static final int aiapps_bottom_tab_icon = 2131493006;
+    public static final int aiapps_browser_http_authentication = 2131493007;
+    public static final int aiapps_clickable_toast_view = 2131493008;
+    public static final int aiapps_common_empty_view = 2131493010;
+    public static final int aiapps_common_pull_to_refresh_header = 2131493011;
+    public static final int aiapps_console_button = 2131493012;
+    public static final int aiapps_datepicker_layout = 2131493013;
+    public static final int aiapps_double_icon_double_text_clickable_toast_view = 2131493014;
+    public static final int aiapps_error_activity = 2131493015;
+    public static final int aiapps_error_fragment = 2131493016;
+    public static final int aiapps_favorite_guide_normal = 2131493017;
+    public static final int aiapps_favorite_guide_tips = 2131493018;
+    public static final int aiapps_fragment = 2131493019;
+    public static final int aiapps_fullscreen_floatview = 2131493020;
+    public static final int aiapps_fullscreen_floatview_button = 2131493021;
+    public static final int aiapps_games_loading_tips_view = 2131493027;
+    public static final int aiapps_half_web_pop_window = 2131493028;
+    public static final int aiapps_icon_title_message_button_toast_view = 2131493029;
+    public static final int aiapps_item_hv_dialog = 2131493031;
+    public static final int aiapps_js_prompt = 2131493032;
+    public static final int aiapps_keyboard_img_item = 2131493033;
+    public static final int aiapps_keyboard_layout = 2131493034;
+    public static final int aiapps_keyboard_text_item = 2131493035;
+    public static final int aiapps_left_icon_clickable_toast_view = 2131493036;
+    public static final int aiapps_loading_fragment = 2131493037;
+    public static final int aiapps_loading_fragment_circle = 2131493038;
+    public static final int aiapps_loading_fragment_shimmer = 2131493039;
+    public static final int aiapps_loading_layout = 2131493040;
+    public static final int aiapps_menu_scroll_view = 2131493043;
+    public static final int aiapps_multipicker_layout = 2131493044;
+    public static final int aiapps_neutral_pull_to_refresh_header = 2131493045;
+    public static final int aiapps_normal_toast_view = 2131493046;
+    public static final int aiapps_property_button = 2131493049;
+    public static final int aiapps_property_window = 2131493050;
+    public static final int aiapps_pull_to_load_footer = 2131493051;
+    public static final int aiapps_pull_to_refresh_header = 2131493052;
+    public static final int aiapps_pull_to_refresh_header2 = 2131493053;
+    public static final int aiapps_pull_to_refresh_header_big_bg = 2131493054;
+    public static final int aiapps_pulldown_item = 2131493055;
+    public static final int aiapps_pulldown_item_checkbox = 2131493056;
+    public static final int aiapps_right_button_toast_view = 2131493057;
+    public static final int aiapps_running_info_fragment = 2131493058;
+    public static final int aiapps_safe_dialog = 2131493059;
+    public static final int aiapps_scheme_utils_show_action_sheet = 2131493060;
+    public static final int aiapps_scheme_utils_show_action_sheet_item = 2131493061;
+    public static final int aiapps_server_request_error_view = 2131493062;
+    public static final int aiapps_setting_fragment = 2131493063;
+    public static final int aiapps_setting_item = 2131493064;
+    public static final int aiapps_show_ext_info_button = 2131493065;
+    public static final int aiapps_ssl_certificate = 2131493066;
+    public static final int aiapps_ssl_content_header = 2131493067;
+    public static final int aiapps_textarea_confirm_bar = 2131493068;
+    public static final int aiapps_timepicker_layout = 2131493069;
+    public static final int aiapps_toast_template_a_d20 = 2131493070;
+    public static final int aiapps_toast_template_b_d20 = 2131493071;
+    public static final int aiapps_toast_template_square_d20 = 2131493072;
+    public static final int aiapps_view_hv_dialog = 2131493074;
+    public static final int aiapps_view_ssl_certificate_dialog = 2131493075;
+    public static final int aiapps_webview_fragment = 2131493076;
+    public static final int aiapps_wx_pay_loading_layout = 2131493077;
+    public static final int button_progress = 2131493223;
+    public static final int core_permission_go_setting = 2131493371;
+    public static final int coupon_entrance = 2131493372;
+    public static final int coupon_list = 2131493373;
+    public static final int coupon_list_item = 2131493374;
+    public static final int custom_dialog = 2131493391;
+    public static final int default_pop_window = 2131493402;
+    public static final int hostmarket_item = 2131493759;
+    public static final int ng_game_alert_dialog = 2131494224;
+    public static final int ng_game_banner_ad = 2131494225;
+    public static final int ng_game_close_ad = 2131494226;
+    public static final int ng_game_land_play = 2131494227;
+    public static final int ng_game_portrait_por_play = 2131494228;
+    public static final int ng_game_reward_banner = 2131494229;
+    public static final int ng_game_reward_close_banner = 2131494230;
+    public static final int notification_action = 2131494239;
+    public static final int notification_action_tombstone = 2131494240;
+    public static final int notification_template_custom_big = 2131494248;
+    public static final int notification_template_icon_group = 2131494249;
+    public static final int notification_template_part_chronometer = 2131494253;
+    public static final int notification_template_part_time = 2131494254;
+    public static final int pay_confirm = 2131494291;
+    public static final int pay_success = 2131494293;
+    public static final int sailor_noapp_support_warnings = 2131494516;
+    public static final int sailor_ssl_certificate = 2131494517;
+    public static final int sailor_ssl_page_info = 2131494518;
+    public static final int sailor_ssl_warning = 2131494519;
+    public static final int sailor_ssl_warnings = 2131494520;
+    public static final int select_dialog_item_material = 2131494540;
+    public static final int select_dialog_multichoice_material = 2131494541;
+    public static final int select_dialog_singlechoice_material = 2131494542;
+    public static final int support_simple_spinner_dropdown_item = 2131494627;
+    public static final int swan_app_auth_dialog_content_common = 2131494628;
+    public static final int swan_app_auth_hover_dialog = 2131494629;
+    public static final int swan_app_auth_level1_mobile_custom = 2131494630;
+    public static final int swan_app_auth_level1_userinfo_custom = 2131494631;
+    public static final int swan_app_auth_level2_custom = 2131494632;
+    public static final int swan_app_auth_scope_detail = 2131494633;
+    public static final int swan_app_float_button = 2131494634;
+    public static final int swan_app_img_menu = 2131494635;
+    public static final int swan_app_img_menu_swan_item_layout = 2131494636;
+    public static final int swan_app_menu_header_view = 2131494638;
+    public static final int swan_app_menu_item_layout = 2131494639;
+    public static final int swan_app_menu_item_view = 2131494640;
+    public static final int swan_app_path_forbidden_fragment = 2131494641;
+    public static final int swan_app_plugin_fun_page_fragment = 2131494644;
+    public static final int swan_app_related_swan_head_item = 2131494646;
+    public static final int swan_app_related_swan_item = 2131494647;
+    public static final int swan_app_settings_layout = 2131494648;
+    public static final int swan_app_startup_window = 2131494649;
+    public static final int swan_app_subscribe_msg_dialog = 2131494650;
+    public static final int swanapp_ad_footer_view = 2131494651;
+    public static final int swanapp_ad_landing_portrait_video = 2131494652;
+    public static final int swanapp_ad_video_tail_view = 2131494653;
+    public static final int swanapp_album_camera_item = 2131494654;
+    public static final int swanapp_album_layout = 2131494655;
+    public static final int swanapp_album_loadding_layout = 2131494656;
+    public static final int swanapp_album_name_item = 2131494657;
+    public static final int swanapp_album_preview_item = 2131494658;
+    public static final int swanapp_album_preview_layout = 2131494659;
+    public static final int swanapp_album_select_item = 2131494660;
+    public static final int swanapp_emoji_panel = 2131494661;
+    public static final int swanapp_emotion_grid_item = 2131494662;
+    public static final int swanapp_local_debug_running_view = 2131494663;
+    public static final int swanapp_picker_dialog = 2131494664;
+    public static final int swanapp_progress_dialog = 2131494665;
+    public static final int swanapp_publisher_layout = 2131494666;
+    public static final int swanapp_publisher_photo_choose_layout = 2131494667;
+    public static final int swanapp_reply_editor_layout = 2131494668;
+    public static final int swanapp_scope_detail_activity = 2131494669;
+    public static final int swanapp_thumbnail_drag_item = 2131494670;
+    public static final int swanapp_webview_select_view = 2131494671;
+    public static final int view_channel_list = 2131494910;
+    public static final int view_channel_list_item = 2131494911;
+    public static final int view_confirm_finish = 2131494912;
+    public static final int view_radio_window = 2131494919;
+    public static final int view_tip = 2131494922;
+    public static final int view_toast_loading = 2131494923;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void onCallBack(HashMap<String, Object> hashMap);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final g f51343a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(154957964, "Ld/a/o0/a/g$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(154957964, "Ld/a/o0/a/g$c;");
-                    return;
-                }
-            }
-            f51343a = new g(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-799837845, "Ld/a/o0/a/g;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-799837845, "Ld/a/o0/a/g;");
-        }
-    }
-
-    public /* synthetic */ g(a aVar) {
-        this();
-    }
-
-    public static final g b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f51343a : (g) invokeV.objValue;
-    }
-
-    public static boolean c(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) ? uri != null && f51334a.equals(uri.getScheme()) && f51335b.equals(uri.getHost()) : invokeL.booleanValue;
-    }
-
-    public final void a(String str, Uri uri, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, uri, str2) == null) {
-            if (uri != null && uri.getQueryParameter("obj_source") != null && uri.getQueryParameter("obj_type") != null && !StringHelper.equals(str2, T)) {
-                TiebaStatic.log(new StatisticItem("c13391").param("obj_type", uri.getQueryParameter("obj_type")).param("obj_source", uri.getQueryParameter("obj_source")));
-            }
-            if (str == null || str.contains("tbwebview") || uri == null) {
-                return;
-            }
-            String queryParameter = uri.getQueryParameter("is_new_schema");
-            if (TextUtils.isEmpty(queryParameter) || !queryParameter.equals("1")) {
-                return;
-            }
-            UtilHelper.clearClipBoard();
-        }
-    }
-
-    public void d(Uri uri, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, bVar) == null) && uri != null && c(uri) && f51339f.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str = o;
-            hashMap.put(str, uri.getQueryParameter(str));
-            String str2 = J;
-            hashMap.put(str2, uri.getQueryParameter(str2));
-            String str3 = p;
-            hashMap.put(str3, uri.getQueryParameter(str3));
-            l(uri.getQueryParameter(y));
-            String queryParameter = uri.getQueryParameter(n);
-            String queryParameter2 = uri.getQueryParameter(x);
-            k(queryParameter, queryParameter2, uri.getQueryParameter(z), uri);
-            a("", uri, queryParameter2);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public void e(Uri uri, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, bVar) == null) && uri != null && c(uri)) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String queryParameter = uri.getQueryParameter(n);
-            String queryParameter2 = uri.getQueryParameter(x);
-            String queryParameter3 = uri.getQueryParameter(z);
-            String queryParameter4 = uri.getQueryParameter(A);
-            k(queryParameter, queryParameter2, queryParameter3, uri);
-            l(uri.getQueryParameter(y));
-            a("", uri, queryParameter2);
-            x.c(uri);
-            if (f51336c.equals(uri.getPath())) {
-                hashMap.put(B, 2);
-                String str = D;
-                hashMap.put(str, uri.getQueryParameter(str));
-                String str2 = E;
-                hashMap.put(str2, uri.getQueryParameter(str2));
-                hashMap.put(A, queryParameter4);
-            } else if (f51337d.equals(uri.getPath())) {
-                hashMap.put(B, 1);
-                hashMap.put(C, queryParameter4);
-            } else if (f51338e.equals(uri.getPath())) {
-                hashMap.put(B, 1);
-                hashMap.put(C, "1_recommend");
-            } else if (m.equals(uri.getPath())) {
-                hashMap.put(B, 2);
-                hashMap.put(A, queryParameter4);
-            }
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public void f(Uri uri, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, uri, bVar) == null) && uri != null && c(uri) && f51340g.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str = p;
-            hashMap.put(str, uri.getQueryParameter(str));
-            String str2 = q;
-            hashMap.put(str2, uri.getQueryParameter(str2));
-            String str3 = r;
-            hashMap.put(str3, uri.getQueryParameter(str3));
-            String str4 = s;
-            hashMap.put(str4, uri.getQueryParameter(str4));
-            String str5 = t;
-            hashMap.put(str5, uri.getQueryParameter(str5));
-            l(uri.getQueryParameter(y));
-            String queryParameter = uri.getQueryParameter(n);
-            String queryParameter2 = uri.getQueryParameter(x);
-            k(queryParameter, queryParameter2, uri.getQueryParameter(z), uri);
-            a("", uri, queryParameter2);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public void g(Uri uri, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, uri, bVar) == null) && uri != null && c(uri) && j.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str = v;
-            hashMap.put(str, uri.getQueryParameter(str));
-            l(uri.getQueryParameter(y));
-            k(uri.getQueryParameter(n), uri.getQueryParameter(x), uri.getQueryParameter(z), uri);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public void h(Uri uri, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, uri, bVar) == null) && uri != null && c(uri) && f51342i.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str = u;
-            hashMap.put(str, uri.getQueryParameter(str));
-            k(uri.getQueryParameter(n), uri.getQueryParameter(x), uri.getQueryParameter(z), uri);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public void i(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, uri) == null) || uri == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter("is_new_schema");
-        if (TextUtils.isEmpty(queryParameter) || !queryParameter.equals("1")) {
-            return;
-        }
-        UtilHelper.clearClipBoard();
-    }
-
-    public void j(String str, Uri uri, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, uri, bVar) == null) && uri != null && c(uri) && f51341h.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str2 = w;
-            hashMap.put(str2, uri.getQueryParameter(str2));
-            hashMap.put(K, uri);
-            l(uri.getQueryParameter(y));
-            String queryParameter = uri.getQueryParameter(n);
-            String queryParameter2 = uri.getQueryParameter(x);
-            k(queryParameter, queryParameter2, uri.getQueryParameter(z), uri);
-            a(str, uri, queryParameter2);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public final void k(String str, String str2, String str3, Uri uri) {
-        String str4;
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, uri) == null) || d.a.c.e.p.k.isEmpty(str)) {
-            return;
-        }
-        d.a.o0.a.c cVar = new d.a.o0.a.c(str);
-        cVar.l0(str3);
-        if (cVar.d() == 0 || cVar.q() == 0) {
-            return;
-        }
-        TbSingleton.getInstance().setInvokeSource(cVar.e());
-        d.a.c.e.n.f.f(String.valueOf(cVar.d()));
-        d.a.c.e.n.f.i(String.valueOf(cVar.q()));
-        int i2 = StringHelper.equals(str2, T) ? 2 : 1;
-        String str5 = "";
-        if (uri != null) {
-            str5 = uri.getQueryParameter(o);
-            str4 = uri.getQueryParameter(p);
-        } else {
-            str4 = "";
-        }
-        if (cVar.d() == 1111 && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-            if (currentActivity instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) currentActivity).showFloatingWindow();
-            } else if (currentActivity instanceof BaseActivity) {
-                ((BaseActivity) currentActivity).showFloatingWindow();
-            }
-        }
-        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", cVar.e()).param("obj_type", cVar.d()).param("obj_param1", cVar.q()).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, cVar.s()).param("extra", cVar.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str5).param("tid", str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1));
-        d.y().m(cVar);
-    }
-
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && !TextUtils.isEmpty(str) && "shoubai".equals(str)) {
-            d.a.o0.z0.e.m().v(true);
-            d.a.o0.z0.e.m().k();
-        }
-    }
-
-    public g() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 }

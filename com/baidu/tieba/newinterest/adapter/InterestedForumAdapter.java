@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.d2.c.d;
+import d.a.d.e.p.l;
+import d.a.q0.d2.c.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -36,16 +36,16 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d.a.p0.d2.c.a> f19010a;
+    public List<d.a.q0.d2.c.a> f19095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19011b;
+    public int f19096b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f19012c;
+    public c f19097c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f19013d;
+    public boolean f19098d;
 
     /* loaded from: classes4.dex */
     public static class InterestedForumViewHolder extends RecyclerView.ViewHolder {
@@ -53,31 +53,31 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f19014a;
+        public ImageView f19099a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f19015b;
+        public TextView f19100b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f19016c;
+        public TextView f19101c;
 
         /* renamed from: d  reason: collision with root package name */
-        public RelativeLayout f19017d;
+        public RelativeLayout f19102d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RelativeLayout f19018e;
+        public RelativeLayout f19103e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RelativeLayout f19019f;
+        public RelativeLayout f19104f;
 
         /* renamed from: g  reason: collision with root package name */
-        public BarImageView f19020g;
+        public BarImageView f19105g;
 
         /* renamed from: h  reason: collision with root package name */
-        public BarImageView f19021h;
+        public BarImageView f19106h;
 
         /* renamed from: i  reason: collision with root package name */
-        public BarImageView f19022i;
+        public BarImageView f19107i;
         public TextView j;
         public TextView k;
         public TextView l;
@@ -112,15 +112,15 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                     return;
                 }
             }
-            this.f19014a = (ImageView) view.findViewById(R.id.interest_icon);
-            this.f19015b = (TextView) view.findViewById(R.id.interest_text);
-            this.f19016c = (TextView) view.findViewById(R.id.interest_change);
-            this.f19017d = (RelativeLayout) view.findViewById(R.id.top_recommend_layout);
-            this.f19018e = (RelativeLayout) view.findViewById(R.id.middle_recommend_layout);
-            this.f19019f = (RelativeLayout) view.findViewById(R.id.bottom_recommend_layout);
-            this.f19020g = (BarImageView) view.findViewById(R.id.top_forum_image);
-            this.f19021h = (BarImageView) view.findViewById(R.id.middle_forum_image);
-            this.f19022i = (BarImageView) view.findViewById(R.id.bottom_forum_image);
+            this.f19099a = (ImageView) view.findViewById(R.id.interest_icon);
+            this.f19100b = (TextView) view.findViewById(R.id.interest_text);
+            this.f19101c = (TextView) view.findViewById(R.id.interest_change);
+            this.f19102d = (RelativeLayout) view.findViewById(R.id.top_recommend_layout);
+            this.f19103e = (RelativeLayout) view.findViewById(R.id.middle_recommend_layout);
+            this.f19104f = (RelativeLayout) view.findViewById(R.id.bottom_recommend_layout);
+            this.f19105g = (BarImageView) view.findViewById(R.id.top_forum_image);
+            this.f19106h = (BarImageView) view.findViewById(R.id.middle_forum_image);
+            this.f19107i = (BarImageView) view.findViewById(R.id.bottom_forum_image);
             this.j = (TextView) view.findViewById(R.id.top_forum_name);
             this.k = (TextView) view.findViewById(R.id.middle_forum_name);
             this.l = (TextView) view.findViewById(R.id.bottom_forum_name);
@@ -148,18 +148,18 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f19015b, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f19016c, R.color.CAM_X0107);
-            this.f19015b.setTypeface(Typeface.DEFAULT_BOLD);
+            SkinManager.setViewTextColor(this.f19100b, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f19101c, R.color.CAM_X0107);
+            this.f19100b.setTypeface(Typeface.DEFAULT_BOLD);
             this.j.setTypeface(Typeface.DEFAULT_BOLD);
             this.k.setTypeface(Typeface.DEFAULT_BOLD);
             this.l.setTypeface(Typeface.DEFAULT_BOLD);
-            this.v.setConfig(new d.a.o0.r.f0.n.b());
-            this.w.setConfig(new d.a.o0.r.f0.n.b());
-            this.x.setConfig(new d.a.o0.r.f0.n.b());
-            a(this.f19020g);
-            a(this.f19021h);
-            a(this.f19022i);
+            this.v.setConfig(new d.a.p0.s.f0.n.b());
+            this.w.setConfig(new d.a.p0.s.f0.n.b());
+            this.x.setConfig(new d.a.p0.s.f0.n.b());
+            a(this.f19105g);
+            a(this.f19106h);
+            a(this.f19107i);
         }
 
         public final void a(BarImageView barImageView) {
@@ -180,18 +180,18 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.p0.d2.c.a f19023e;
+        public final /* synthetic */ d.a.q0.d2.c.a f19108e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ InterestedForumViewHolder f19024f;
+        public final /* synthetic */ InterestedForumViewHolder f19109f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f19025g;
+        public final /* synthetic */ int f19110g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ InterestedForumAdapter f19026h;
+        public final /* synthetic */ InterestedForumAdapter f19111h;
 
-        public a(InterestedForumAdapter interestedForumAdapter, d.a.p0.d2.c.a aVar, InterestedForumViewHolder interestedForumViewHolder, int i2) {
+        public a(InterestedForumAdapter interestedForumAdapter, d.a.q0.d2.c.a aVar, InterestedForumViewHolder interestedForumViewHolder, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,42 +206,42 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                     return;
                 }
             }
-            this.f19026h = interestedForumAdapter;
-            this.f19023e = aVar;
-            this.f19024f = interestedForumViewHolder;
-            this.f19025g = i2;
+            this.f19111h = interestedForumAdapter;
+            this.f19108e = aVar;
+            this.f19109f = interestedForumViewHolder;
+            this.f19110g = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int size = this.f19023e.f54907a.size() - 1;
-                this.f19026h.p(size, this.f19023e);
-                InterestedForumAdapter interestedForumAdapter = this.f19026h;
-                InterestedForumViewHolder interestedForumViewHolder = this.f19024f;
-                d.a.p0.d2.c.a aVar = this.f19023e;
-                interestedForumAdapter.y(interestedForumViewHolder, aVar.f54907a.get(aVar.f54910d));
-                this.f19026h.p(size, this.f19023e);
-                InterestedForumAdapter interestedForumAdapter2 = this.f19026h;
-                InterestedForumViewHolder interestedForumViewHolder2 = this.f19024f;
-                d.a.p0.d2.c.a aVar2 = this.f19023e;
-                interestedForumAdapter2.v(interestedForumViewHolder2, aVar2.f54907a.get(aVar2.f54910d));
-                this.f19026h.p(size, this.f19023e);
-                InterestedForumAdapter interestedForumAdapter3 = this.f19026h;
-                InterestedForumViewHolder interestedForumViewHolder3 = this.f19024f;
-                d.a.p0.d2.c.a aVar3 = this.f19023e;
-                interestedForumAdapter3.u(interestedForumViewHolder3, aVar3.f54907a.get(aVar3.f54910d));
-                InterestedForumAdapter interestedForumAdapter4 = this.f19026h;
-                interestedForumAdapter4.f19013d = interestedForumAdapter4.q();
-                this.f19026h.notifyItemChanged(this.f19025g);
-                if (this.f19026h.f19012c != null) {
-                    this.f19026h.f19012c.c(this.f19026h.f19011b, this.f19026h.f19013d);
+                int size = this.f19108e.f55451a.size() - 1;
+                this.f19111h.p(size, this.f19108e);
+                InterestedForumAdapter interestedForumAdapter = this.f19111h;
+                InterestedForumViewHolder interestedForumViewHolder = this.f19109f;
+                d.a.q0.d2.c.a aVar = this.f19108e;
+                interestedForumAdapter.y(interestedForumViewHolder, aVar.f55451a.get(aVar.f55454d));
+                this.f19111h.p(size, this.f19108e);
+                InterestedForumAdapter interestedForumAdapter2 = this.f19111h;
+                InterestedForumViewHolder interestedForumViewHolder2 = this.f19109f;
+                d.a.q0.d2.c.a aVar2 = this.f19108e;
+                interestedForumAdapter2.v(interestedForumViewHolder2, aVar2.f55451a.get(aVar2.f55454d));
+                this.f19111h.p(size, this.f19108e);
+                InterestedForumAdapter interestedForumAdapter3 = this.f19111h;
+                InterestedForumViewHolder interestedForumViewHolder3 = this.f19109f;
+                d.a.q0.d2.c.a aVar3 = this.f19108e;
+                interestedForumAdapter3.u(interestedForumViewHolder3, aVar3.f55451a.get(aVar3.f55454d));
+                InterestedForumAdapter interestedForumAdapter4 = this.f19111h;
+                interestedForumAdapter4.f19098d = interestedForumAdapter4.q();
+                this.f19111h.notifyItemChanged(this.f19110g);
+                if (this.f19111h.f19097c != null) {
+                    this.f19111h.f19097c.c(this.f19111h.f19096b, this.f19111h.f19098d);
                 }
                 StatisticItem statisticItem = new StatisticItem("c13682");
                 statisticItem.param("obj_type", 2);
                 statisticItem.param("obj_locate", 4);
-                statisticItem.param("obj_source", this.f19023e.f54908b.intValue());
+                statisticItem.param("obj_source", this.f19108e.f55452b.intValue());
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -253,13 +253,13 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f19027e;
+        public final /* synthetic */ d f19112e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TBSpecificationBtn f19028f;
+        public final /* synthetic */ TBSpecificationBtn f19113f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterestedForumAdapter f19029g;
+        public final /* synthetic */ InterestedForumAdapter f19114g;
 
         public b(InterestedForumAdapter interestedForumAdapter, d dVar, TBSpecificationBtn tBSpecificationBtn) {
             Interceptable interceptable = $ic;
@@ -276,38 +276,38 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                     return;
                 }
             }
-            this.f19029g = interestedForumAdapter;
-            this.f19027e = dVar;
-            this.f19028f = tBSpecificationBtn;
+            this.f19114g = interestedForumAdapter;
+            this.f19112e = dVar;
+            this.f19113f = tBSpecificationBtn;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d dVar = this.f19027e;
-                dVar.f54917b = !dVar.f54917b;
-                d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
-                if (!this.f19027e.f54917b) {
-                    InterestedForumAdapter.m(this.f19029g);
-                    this.f19028f.setText("感兴趣");
-                    this.f19028f.setConfig(bVar);
-                    this.f19029g.f19013d = false;
+                d dVar = this.f19112e;
+                dVar.f55461b = !dVar.f55461b;
+                d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
+                if (!this.f19112e.f55461b) {
+                    InterestedForumAdapter.m(this.f19114g);
+                    this.f19113f.setText("感兴趣");
+                    this.f19113f.setConfig(bVar);
+                    this.f19114g.f19098d = false;
                 } else {
-                    InterestedForumAdapter.l(this.f19029g);
-                    this.f19028f.setText("已选择");
+                    InterestedForumAdapter.l(this.f19114g);
+                    this.f19113f.setText("已选择");
                     bVar.r(R.color.CAM_X0109);
-                    this.f19028f.setConfig(bVar);
-                    InterestedForumAdapter interestedForumAdapter = this.f19029g;
-                    interestedForumAdapter.f19013d = interestedForumAdapter.q();
+                    this.f19113f.setConfig(bVar);
+                    InterestedForumAdapter interestedForumAdapter = this.f19114g;
+                    interestedForumAdapter.f19098d = interestedForumAdapter.q();
                 }
-                if (this.f19029g.f19012c != null) {
-                    this.f19029g.f19012c.c(this.f19029g.f19011b, this.f19029g.f19013d);
+                if (this.f19114g.f19097c != null) {
+                    this.f19114g.f19097c.c(this.f19114g.f19096b, this.f19114g.f19098d);
                 }
                 StatisticItem statisticItem = new StatisticItem("c13682");
                 statisticItem.param("obj_type", 2);
                 statisticItem.param("obj_locate", 4);
-                statisticItem.param("fid", this.f19027e.f54916a.forum_id.longValue());
+                statisticItem.param("fid", this.f19112e.f55460a.forum_id.longValue());
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -331,30 +331,30 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                 return;
             }
         }
-        this.f19010a = new ArrayList();
+        this.f19095a = new ArrayList();
     }
 
     public static /* synthetic */ int l(InterestedForumAdapter interestedForumAdapter) {
-        int i2 = interestedForumAdapter.f19011b;
-        interestedForumAdapter.f19011b = i2 + 1;
+        int i2 = interestedForumAdapter.f19096b;
+        interestedForumAdapter.f19096b = i2 + 1;
         return i2;
     }
 
     public static /* synthetic */ int m(InterestedForumAdapter interestedForumAdapter) {
-        int i2 = interestedForumAdapter.f19011b;
-        interestedForumAdapter.f19011b = i2 - 1;
+        int i2 = interestedForumAdapter.f19096b;
+        interestedForumAdapter.f19096b = i2 - 1;
         return i2;
     }
 
-    public final void A(d.a.p0.d2.c.a aVar, int i2) {
+    public final void A(d.a.q0.d2.c.a aVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || this.f19013d) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || this.f19098d) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13682");
         statisticItem.param("obj_type", 2);
         statisticItem.param("obj_locate", 3);
-        statisticItem.param("fid", aVar.f54907a.get(i2).f54916a.forum_id.longValue());
+        statisticItem.param("fid", aVar.f55451a.get(i2).f55460a.forum_id.longValue());
         TiebaStatic.log(statisticItem);
     }
 
@@ -363,7 +363,7 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<d.a.p0.d2.c.a> list = this.f19010a;
+            List<d.a.q0.d2.c.a> list = this.f19095a;
             if (list == null) {
                 return 0;
             }
@@ -372,28 +372,28 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         return invokeV.intValue;
     }
 
-    public void n(List<d.a.p0.d2.c.a> list) {
+    public void n(List<d.a.q0.d2.c.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f19010a.addAll(list);
+            this.f19095a.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public List<d.a.p0.d2.c.a> o() {
+    public List<d.a.q0.d2.c.a> o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19010a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19095a : (List) invokeV.objValue;
     }
 
-    public final void p(int i2, d.a.p0.d2.c.a aVar) {
+    public final void p(int i2, d.a.q0.d2.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, aVar) == null) {
-            int i3 = aVar.f54910d;
+            int i3 = aVar.f55454d;
             if (i3 < i2) {
-                aVar.f54910d = i3 + 1;
+                aVar.f55454d = i3 + 1;
             } else {
-                aVar.f54910d = 0;
+                aVar.f55454d = 0;
             }
         }
     }
@@ -402,16 +402,16 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            for (d.a.p0.d2.c.a aVar : this.f19010a) {
-                int i2 = aVar.f54910d;
-                if (!aVar.f54907a.get(i2).f54917b) {
+            for (d.a.q0.d2.c.a aVar : this.f19095a) {
+                int i2 = aVar.f55454d;
+                if (!aVar.f55451a.get(i2).f55461b) {
                     return false;
                 }
-                int size = i2 + (-1) < 0 ? aVar.f54907a.size() - 1 : i2 - 1;
-                if (!aVar.f54907a.get(size).f54917b) {
+                int size = i2 + (-1) < 0 ? aVar.f55451a.size() - 1 : i2 - 1;
+                if (!aVar.f55451a.get(size).f55461b) {
                     return false;
                 }
-                if (!aVar.f54907a.get(size + (-1) < 0 ? aVar.f54907a.size() - 1 : size - 1).f54917b) {
+                if (!aVar.f55451a.get(size + (-1) < 0 ? aVar.f55451a.size() - 1 : size - 1).f55461b) {
                     return false;
                 }
             }
@@ -426,41 +426,41 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     public void onBindViewHolder(@NonNull InterestedForumViewHolder interestedForumViewHolder, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, interestedForumViewHolder, i2) == null) {
-            d.a.p0.d2.c.a aVar = this.f19010a.get(i2);
-            interestedForumViewHolder.f19015b.setText(aVar.f54909c);
-            if (aVar.f54908b.intValue() > 0) {
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(interestedForumViewHolder.f19014a, d.a.p0.d2.e.a.b(aVar.f54908b.intValue()), null);
+            d.a.q0.d2.c.a aVar = this.f19095a.get(i2);
+            interestedForumViewHolder.f19100b.setText(aVar.f55453c);
+            if (aVar.f55452b.intValue() > 0) {
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(interestedForumViewHolder.f19099a, d.a.q0.d2.e.a.b(aVar.f55452b.intValue()), null);
             }
-            List<d> list = aVar.f54907a;
+            List<d> list = aVar.f55451a;
             if (list == null || list.size() == 0) {
                 return;
             }
-            int i3 = aVar.f54910d;
+            int i3 = aVar.f55454d;
             if (i3 == 0) {
-                if (aVar.f54907a.size() >= 1) {
-                    y(interestedForumViewHolder, aVar.f54907a.get(0));
+                if (aVar.f55451a.size() >= 1) {
+                    y(interestedForumViewHolder, aVar.f55451a.get(0));
                 }
-                if (aVar.f54907a.size() >= 2) {
-                    v(interestedForumViewHolder, aVar.f54907a.get(1));
+                if (aVar.f55451a.size() >= 2) {
+                    v(interestedForumViewHolder, aVar.f55451a.get(1));
                 }
-                if (aVar.f54907a.size() >= 3) {
-                    u(interestedForumViewHolder, aVar.f54907a.get(2));
+                if (aVar.f55451a.size() >= 3) {
+                    u(interestedForumViewHolder, aVar.f55451a.get(2));
                 }
-                if (aVar.f54907a.size() > 3) {
-                    aVar.f54910d = 2;
+                if (aVar.f55451a.size() > 3) {
+                    aVar.f55454d = 2;
                 }
             } else {
-                u(interestedForumViewHolder, aVar.f54907a.get(i3));
-                int size = i3 + (-1) < 0 ? aVar.f54907a.size() - 1 : i3 - 1;
-                v(interestedForumViewHolder, aVar.f54907a.get(size));
-                y(interestedForumViewHolder, aVar.f54907a.get(size + (-1) < 0 ? aVar.f54907a.size() - 1 : size - 1));
+                u(interestedForumViewHolder, aVar.f55451a.get(i3));
+                int size = i3 + (-1) < 0 ? aVar.f55451a.size() - 1 : i3 - 1;
+                v(interestedForumViewHolder, aVar.f55451a.get(size));
+                y(interestedForumViewHolder, aVar.f55451a.get(size + (-1) < 0 ? aVar.f55451a.size() - 1 : size - 1));
             }
-            if (aVar.f54907a.size() <= 3) {
-                interestedForumViewHolder.f19016c.setEnabled(false);
+            if (aVar.f55451a.size() <= 3) {
+                interestedForumViewHolder.f19101c.setEnabled(false);
             } else {
-                interestedForumViewHolder.f19016c.setEnabled(true);
+                interestedForumViewHolder.f19101c.setEnabled(true);
             }
-            interestedForumViewHolder.f19016c.setOnClickListener(new a(this, aVar, interestedForumViewHolder, i2));
+            interestedForumViewHolder.f19101c.setOnClickListener(new a(this, aVar, interestedForumViewHolder, i2));
         }
     }
 
@@ -475,36 +475,36 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     }
 
     public void t() {
-        List<d.a.p0.d2.c.a> list;
+        List<d.a.q0.d2.c.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (list = this.f19010a) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (list = this.f19095a) == null || list.size() == 0) {
             return;
         }
-        for (d.a.p0.d2.c.a aVar : this.f19010a) {
-            int i2 = aVar.f54910d;
-            aVar.f54907a.get(i2).f54917b = !this.f19013d;
+        for (d.a.q0.d2.c.a aVar : this.f19095a) {
+            int i2 = aVar.f55454d;
+            aVar.f55451a.get(i2).f55461b = !this.f19098d;
             A(aVar, i2);
-            int size = i2 + (-1) < 0 ? aVar.f54907a.size() - 1 : i2 - 1;
-            aVar.f54907a.get(size).f54917b = !this.f19013d;
+            int size = i2 + (-1) < 0 ? aVar.f55451a.size() - 1 : i2 - 1;
+            aVar.f55451a.get(size).f55461b = !this.f19098d;
             A(aVar, size);
             if (size - 1 < 0) {
-                size = aVar.f54907a.size();
+                size = aVar.f55451a.size();
             }
             int i3 = size - 1;
-            aVar.f54907a.get(i3).f54917b = !this.f19013d;
+            aVar.f55451a.get(i3).f55461b = !this.f19098d;
             A(aVar, i3);
         }
-        this.f19013d = !this.f19013d;
+        this.f19098d = !this.f19098d;
         notifyDataSetChanged();
-        c cVar = this.f19012c;
+        c cVar = this.f19097c;
         if (cVar != null) {
-            boolean z = this.f19013d;
+            boolean z = this.f19098d;
             if (z) {
-                this.f19011b = this.f19010a.size() * 3;
-                this.f19012c.c(this.f19010a.size() * 3, this.f19013d);
+                this.f19096b = this.f19095a.size() * 3;
+                this.f19097c.c(this.f19095a.size() * 3, this.f19098d);
                 return;
             }
-            this.f19011b = 0;
+            this.f19096b = 0;
             cVar.c(0, z);
         }
     }
@@ -513,18 +513,18 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, interestedForumViewHolder, dVar) == null) {
-            interestedForumViewHolder.f19019f.setVisibility(0);
-            interestedForumViewHolder.f19022i.setVisibility(0);
-            interestedForumViewHolder.f19022i.M(dVar.f54916a.avatar, 10, false);
-            interestedForumViewHolder.l.setText(dVar.f54916a.forum_name);
-            if (TextUtils.isEmpty(dVar.f54916a.slogan)) {
-                str = "百度" + dVar.f54916a.forum_name + "吧";
+            interestedForumViewHolder.f19104f.setVisibility(0);
+            interestedForumViewHolder.f19107i.setVisibility(0);
+            interestedForumViewHolder.f19107i.M(dVar.f55460a.avatar, 10, false);
+            interestedForumViewHolder.l.setText(dVar.f55460a.forum_name);
+            if (TextUtils.isEmpty(dVar.f55460a.slogan)) {
+                str = "百度" + dVar.f55460a.forum_name + "吧";
             } else {
-                str = dVar.f54916a.slogan;
+                str = dVar.f55460a.slogan;
             }
             interestedForumViewHolder.o.setText(str);
-            interestedForumViewHolder.r.setText("关注 " + StringHelper.numberUniformFormatExtra(dVar.f54916a.member_count.intValue()));
-            interestedForumViewHolder.u.setText("贴子 " + StringHelper.numberUniformFormatExtra(dVar.f54916a.thread_count.intValue()));
+            interestedForumViewHolder.r.setText("关注 " + StringHelper.numberUniformFormatExtra(dVar.f55460a.member_count.intValue()));
+            interestedForumViewHolder.u.setText("贴子 " + StringHelper.numberUniformFormatExtra(dVar.f55460a.thread_count.intValue()));
             z(interestedForumViewHolder.x, dVar);
             x(dVar, interestedForumViewHolder.x);
         }
@@ -534,18 +534,18 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, interestedForumViewHolder, dVar) == null) {
-            interestedForumViewHolder.f19018e.setVisibility(0);
-            interestedForumViewHolder.f19021h.setVisibility(0);
-            interestedForumViewHolder.f19021h.M(dVar.f54916a.avatar, 10, false);
-            interestedForumViewHolder.k.setText(dVar.f54916a.forum_name);
-            if (TextUtils.isEmpty(dVar.f54916a.slogan)) {
-                str = "百度" + dVar.f54916a.forum_name + "吧";
+            interestedForumViewHolder.f19103e.setVisibility(0);
+            interestedForumViewHolder.f19106h.setVisibility(0);
+            interestedForumViewHolder.f19106h.M(dVar.f55460a.avatar, 10, false);
+            interestedForumViewHolder.k.setText(dVar.f55460a.forum_name);
+            if (TextUtils.isEmpty(dVar.f55460a.slogan)) {
+                str = "百度" + dVar.f55460a.forum_name + "吧";
             } else {
-                str = dVar.f54916a.slogan;
+                str = dVar.f55460a.slogan;
             }
             interestedForumViewHolder.n.setText(str);
-            interestedForumViewHolder.q.setText("关注 " + StringHelper.numberUniformFormatExtra(dVar.f54916a.member_count.intValue()));
-            interestedForumViewHolder.t.setText("贴子 " + StringHelper.numberUniformFormatExtra(dVar.f54916a.thread_count.intValue()));
+            interestedForumViewHolder.q.setText("关注 " + StringHelper.numberUniformFormatExtra(dVar.f55460a.member_count.intValue()));
+            interestedForumViewHolder.t.setText("贴子 " + StringHelper.numberUniformFormatExtra(dVar.f55460a.thread_count.intValue()));
             z(interestedForumViewHolder.w, dVar);
             x(dVar, interestedForumViewHolder.w);
         }
@@ -554,7 +554,7 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     public void w(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) {
-            this.f19012c = cVar;
+            this.f19097c = cVar;
         }
     }
 
@@ -569,18 +569,18 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, interestedForumViewHolder, dVar) == null) {
-            interestedForumViewHolder.f19017d.setVisibility(0);
-            interestedForumViewHolder.f19020g.setVisibility(0);
-            interestedForumViewHolder.f19020g.M(dVar.f54916a.avatar, 10, false);
-            interestedForumViewHolder.j.setText(dVar.f54916a.forum_name);
-            if (TextUtils.isEmpty(dVar.f54916a.slogan)) {
-                str = "百度" + dVar.f54916a.forum_name + "吧";
+            interestedForumViewHolder.f19102d.setVisibility(0);
+            interestedForumViewHolder.f19105g.setVisibility(0);
+            interestedForumViewHolder.f19105g.M(dVar.f55460a.avatar, 10, false);
+            interestedForumViewHolder.j.setText(dVar.f55460a.forum_name);
+            if (TextUtils.isEmpty(dVar.f55460a.slogan)) {
+                str = "百度" + dVar.f55460a.forum_name + "吧";
             } else {
-                str = dVar.f54916a.slogan;
+                str = dVar.f55460a.slogan;
             }
             interestedForumViewHolder.m.setText(str);
-            interestedForumViewHolder.p.setText("关注 " + StringHelper.numberUniformFormatExtra(dVar.f54916a.member_count.intValue()));
-            interestedForumViewHolder.s.setText("贴子 " + StringHelper.numberUniformFormatExtra(dVar.f54916a.thread_count.intValue()));
+            interestedForumViewHolder.p.setText("关注 " + StringHelper.numberUniformFormatExtra(dVar.f55460a.member_count.intValue()));
+            interestedForumViewHolder.s.setText("贴子 " + StringHelper.numberUniformFormatExtra(dVar.f55460a.thread_count.intValue()));
             z(interestedForumViewHolder.v, dVar);
             x(dVar, interestedForumViewHolder.v);
         }
@@ -589,8 +589,8 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     public final void z(TBSpecificationBtn tBSpecificationBtn, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, tBSpecificationBtn, dVar) == null) {
-            d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
-            if (!dVar.f54917b) {
+            d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
+            if (!dVar.f55461b) {
                 tBSpecificationBtn.setText("感兴趣");
                 tBSpecificationBtn.setConfig(bVar);
                 return;

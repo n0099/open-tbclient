@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.x1.a;
-import d.a.p0.x1.g;
-import d.a.p0.x1.k;
+import d.a.q0.x1.a;
+import d.a.q0.x1.g;
+import d.a.q0.x1.k;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */

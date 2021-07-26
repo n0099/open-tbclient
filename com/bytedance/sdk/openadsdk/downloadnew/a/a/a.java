@@ -14,7 +14,7 @@ public class a implements d.l.a.a.a.c.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f31095a;
+    public final WeakReference<Context> f31277a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a implements d.l.a.a.a.c.b {
                 return;
             }
         }
-        this.f31095a = new WeakReference<>(context);
+        this.f31277a = new WeakReference<>(context);
     }
 
     @Override // d.l.a.a.a.c.b

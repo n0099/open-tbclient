@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
+import d.a.p0.s.q.b2;
 /* loaded from: classes4.dex */
 public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b2Var)) == null) {
             if (super.j(b2Var)) {
-                this.f12614i.setVisibility(8);
+                this.f12663i.setVisibility(8);
                 return true;
             }
             return false;

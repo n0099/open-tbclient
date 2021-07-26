@@ -14,10 +14,10 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f24456a = true;
+    public static boolean f24614a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Runnable f24457b;
+    public static final Runnable f24615b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
                 return;
             }
         }
-        f24457b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
+        f24615b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +55,7 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    boolean unused = ReDoubleOnClickListener.f24456a = true;
+                    boolean unused = ReDoubleOnClickListener.f24614a = true;
                 }
             }
         };
@@ -80,9 +80,9 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && f24456a) {
-            f24456a = false;
-            view.post(f24457b);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && f24614a) {
+            f24614a = false;
+            view.post(f24615b);
             doClick(view);
         }
     }

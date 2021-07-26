@@ -20,13 +20,13 @@ public final class p0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Runnable f68828e;
+        public final Runnable f69282e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f68829f;
+        public final String f69283f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final String f68830g;
+        public final String f69284g;
 
         public a(Runnable runnable, String str) {
             Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public final class p0 {
                     return;
                 }
             }
-            this.f68828e = runnable;
-            this.f68829f = str;
-            this.f68830g = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
+            this.f69282e = runnable;
+            this.f69283f = str;
+            this.f69284g = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
         }
 
         @Override // java.lang.Runnable
@@ -53,10 +53,10 @@ public final class p0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f68828e.run();
+                    this.f69282e.run();
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    o0.f("TrackerDr", "Thread:" + this.f68829f + " exception\n" + this.f68830g, e2);
+                    o0.f("TrackerDr", "Thread:" + this.f69283f + " exception\n" + this.f69284g, e2);
                 }
             }
         }

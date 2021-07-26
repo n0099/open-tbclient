@@ -1,20 +1,20 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
 /* loaded from: classes6.dex */
 public class c1 {
     public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public static c1 f39562a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public String f39770a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f39771b;
 
     public c1() {
         Interceptable interceptable = $ic;
@@ -30,59 +30,12 @@ public class c1 {
         }
     }
 
-    public static c1 a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f39562a == null) {
-                synchronized (c1.class) {
-                    if (f39562a == null) {
-                        f39562a = new c1();
-                    }
-                }
-            }
-            return f39562a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f39770a + ":" + this.f39771b;
         }
-        return (c1) invokeV.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0057, code lost:
-        if (((r6 / 60) / 60) >= r10.f39343a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L9;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            if (context == null) {
-                throw new RuntimeException("Error:Context is not allowed to be null");
-            }
-            context.getApplicationContext();
-            if (!TextUtils.isEmpty(str)) {
-                s1.e(context, str);
-            }
-            u1.a(new b1(this, context));
-            D0 a2 = D0.a(context);
-            long h2 = s1.h(a2.f39343a);
-            boolean z = true;
-            if (h2 > 0) {
-                try {
-                    long time = (new Date().getTime() - h2) / 1000;
-                    if (time < 0) {
-                        a2.b();
-                    }
-                    z = false;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (z) {
-                a2.f39344b = System.currentTimeMillis();
-                u1.a(new C0(a2));
-            }
-            z.d(context);
-            n1.a(context);
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,7 +1,11 @@
 package d.l.a.e.b.f;
 
-import org.json.JSONObject;
+import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
 public interface e {
-    JSONObject a();
+    String a();
+
+    void a(int i2, DownloadInfo downloadInfo, String str, String str2);
+
+    boolean a(boolean z);
 }

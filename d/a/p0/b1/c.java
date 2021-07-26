@@ -1,21 +1,46 @@
 package d.a.p0.b1;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.c.f.j;
 /* loaded from: classes7.dex */
-public class c extends j {
+public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* renamed from: a  reason: collision with root package name */
+    public int f52037a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f52038b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f52039c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f52040d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f52041e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f52042f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f52043g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f52044h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f52045i;
+    public boolean j;
+    public boolean k;
+    public String l;
+    public String m;
+
     public c() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,32 +48,9 @@ public class c extends j {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // d.a.c.c.f.g
-    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        c(socketResponsedMessage2);
-        return socketResponsedMessage2;
-    }
-
-    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage != null && socketResponsedMessage.getError() == 1990055 && !a.c(socketResponsedMessage.getCmd())) {
-                a.d();
-            }
-            return socketResponsedMessage;
-        }
-        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

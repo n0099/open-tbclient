@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.g.a f72142a;
+    public com.yxcorp.kuaishou.addfp.a.b.g.a f72596a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f72143b;
+    public com.yxcorp.kuaishou.addfp.a.b.b f72597b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f72144c;
+    public Context f72598c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f72145d;
+    public CountDownLatch f72599d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f72146e;
+    public ServiceConnection f72600e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,15 +46,15 @@ public final class a {
                 return;
             }
         }
-        this.f72142a = null;
-        this.f72145d = new CountDownLatch(1);
-        this.f72146e = new b(this);
+        this.f72596a = null;
+        this.f72599d = new CountDownLatch(1);
+        this.f72600e = new b(this);
     }
 
     public final void c(Context context) {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f72146e) == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f72600e) == null || context == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -64,16 +64,16 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f72143b = bVar;
-                this.f72144c = context;
+                this.f72597b = bVar;
+                this.f72598c = context;
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-                if (!context.bindService(intent, this.f72146e, 1)) {
+                if (!context.bindService(intent, this.f72600e, 1)) {
                     e(false);
                     return;
                 }
-                this.f72145d.await(10L, TimeUnit.SECONDS);
-                if (this.f72142a != null) {
+                this.f72599d.await(10L, TimeUnit.SECONDS);
+                if (this.f72596a != null) {
                     e(true);
                 } else {
                     e(false);
@@ -92,7 +92,7 @@ public final class a {
                 try {
                     String g2 = g();
                     if (!TextUtils.isEmpty(g2)) {
-                        this.f72143b.a(g2);
+                        this.f72597b.a(g2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -100,14 +100,14 @@ public final class a {
                     return;
                 }
             }
-            this.f72143b.e();
+            this.f72597b.e();
         }
     }
 
     public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72142a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72596a != null : invokeV.booleanValue;
     }
 
     public final String g() {
@@ -115,8 +115,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                if (this.f72142a != null) {
-                    return this.f72142a.a();
+                if (this.f72596a != null) {
+                    return this.f72596a.a();
                 }
                 return null;
             } catch (RemoteException unused) {

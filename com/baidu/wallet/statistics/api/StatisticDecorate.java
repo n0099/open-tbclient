@@ -14,7 +14,7 @@ public class StatisticDecorate implements IStatistic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IStatistic f27319a;
+    public IStatistic f27477a;
 
     public StatisticDecorate() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEvent(String str) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEvent(str);
@@ -44,7 +44,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventEnd(String str, int i2) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventEnd(str, i2);
@@ -54,7 +54,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventEndWithValue(String str, int i2, String str2) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, str2) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, str2) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventEndWithValue(str, i2, str2);
@@ -64,7 +64,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventEndWithValues(String str, int i2, Collection<String> collection) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048582, this, str, i2, collection) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048582, this, str, i2, collection) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventEndWithValues(str, i2, collection);
@@ -74,7 +74,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventStart(String str) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventStart(str);
@@ -84,7 +84,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventWithValue(String str, String str2) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventWithValue(str, str2);
@@ -94,7 +94,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventWithValues(String str, Collection<String> collection) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, collection) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, collection) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventWithValues(str, collection);
@@ -103,7 +103,7 @@ public class StatisticDecorate implements IStatistic {
     public void setStatistic(IStatistic iStatistic) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, iStatistic) == null) {
-            this.f27319a = iStatistic;
+            this.f27477a = iStatistic;
         }
     }
 
@@ -111,7 +111,7 @@ public class StatisticDecorate implements IStatistic {
     public void triggerSending() {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.triggerSending();
@@ -121,7 +121,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEvent(String str, String str2) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEvent(str, str2);
@@ -131,7 +131,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventEnd(String str, int i2, String str2) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048579, this, str, i2, str2) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048579, this, str, i2, str2) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventEnd(str, i2, str2);
@@ -141,7 +141,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventEndWithValue(String str, int i2, String str2, String str3) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048581, this, str, i2, str2, str3) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048581, this, str, i2, str2, str3) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventEndWithValue(str, i2, str2, str3);
@@ -151,7 +151,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventEndWithValues(String str, int i2, Collection<String> collection, Map<String, Object> map) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2, collection, map) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2, collection, map) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventEndWithValues(str, i2, collection, map);
@@ -161,7 +161,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventWithValue(String str, String str2, String str3) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048588, this, str, str2, str3) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048588, this, str, str2, str3) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventWithValue(str, str2, str3);
@@ -171,7 +171,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventWithValues(String str, Collection<String> collection, Map<String, Object> map) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048591, this, str, collection, map) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048591, this, str, collection, map) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventWithValues(str, collection, map);
@@ -181,7 +181,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventEndWithValues(String str, int i2, Collection<String> collection, String str2) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048583, this, str, i2, collection, str2) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048583, this, str, i2, collection, str2) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventEndWithValues(str, i2, collection, str2);
@@ -191,7 +191,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventWithValues(String str, Collection<String> collection, String str2) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, str, collection, str2) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, str, collection, str2) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventWithValues(str, collection, str2);
@@ -201,7 +201,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventEndWithValues(String str, int i2, Collection<String> collection, Map<String, Object> map, String str2) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i2), collection, map, str2}) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i2), collection, map, str2}) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventEndWithValues(str, i2, collection, map, str2);
@@ -211,7 +211,7 @@ public class StatisticDecorate implements IStatistic {
     public void onEventWithValues(String str, Collection<String> collection, Map<String, Object> map, String str2) {
         IStatistic iStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048592, this, str, collection, map, str2) == null) || (iStatistic = this.f27319a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048592, this, str, collection, map, str2) == null) || (iStatistic = this.f27477a) == null) {
             return;
         }
         iStatistic.onEventWithValues(str, collection, map, str2);

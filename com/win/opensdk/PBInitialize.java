@@ -42,7 +42,7 @@ public class PBInitialize {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            c1.a().a(context, str);
+            E1.a().a(context, str);
         }
     }
 }

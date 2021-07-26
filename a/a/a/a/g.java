@@ -14,9 +14,9 @@ public interface g {
 
     void a();
 
-    <T extends ViewGroup> void a(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener, FunNativeAdInflater funNativeAdInflater);
-
     void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener);
+
+    <T extends ViewGroup> boolean a(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener, FunNativeAdInflater funNativeAdInflater);
 
     boolean b();
 }

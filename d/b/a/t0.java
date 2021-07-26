@@ -67,7 +67,7 @@ public final class t0 implements v0 {
                 }
                 if (call.getInt("code", -1) == 0) {
                     v0.a aVar = new v0.a();
-                    aVar.f68867a = call.getString("id");
+                    aVar.f69321a = call.getString("id");
                     return aVar;
                 }
                 String string = call.getString("message");

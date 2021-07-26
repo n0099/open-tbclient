@@ -24,10 +24,10 @@ public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Resources> f33865a;
+    public static Map<String, Resources> f34054a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f33866b;
+    public static final Object f34055b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -266,8 +266,8 @@ public class o {
                 return;
             }
         }
-        f33865a = new HashMap();
-        f33866b = new Object();
+        f34054a = new HashMap();
+        f34055b = new Object();
     }
 
     public static Resources a(Context context, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
@@ -286,14 +286,14 @@ public class o {
         Resources resources2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, resources, str)) == null) {
-            synchronized (f33866b) {
-                resources2 = f33865a.get(str);
+            synchronized (f34055b) {
+                resources2 = f34054a.get(str);
                 if (resources2 == null) {
                     resources2 = b(context, resources, str);
                     if (resources2 == null) {
                         throw new RuntimeException("Can not createResources for " + str);
                     }
-                    f33865a.put(str, resources);
+                    f34054a.put(str, resources);
                 }
             }
             return resources2;

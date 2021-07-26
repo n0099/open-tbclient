@@ -15,7 +15,7 @@ public class dg implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f39976a;
+    public final /* synthetic */ df f40248a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f235a;
@@ -38,7 +38,7 @@ public class dg implements Runnable {
                 return;
             }
         }
-        this.f39976a = dfVar;
+        this.f40248a = dfVar;
         this.f235a = str;
         this.f236a = th;
     }
@@ -61,7 +61,7 @@ public class dg implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             list = df.f232a;
             simpleDateFormat = df.f231a;
-            str = this.f39976a.f39974b;
+            str = this.f40248a.f40246b;
             list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f235a), this.f236a));
             list2 = df.f232a;
             if (list2.size() > 20000) {
@@ -79,18 +79,18 @@ public class dg implements Runnable {
                 }
                 list4 = df.f232a;
                 simpleDateFormat2 = df.f231a;
-                str4 = this.f39976a.f39974b;
+                str4 = this.f40248a.f40246b;
                 list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
             }
             try {
                 if (aa.d()) {
-                    this.f39976a.m244a();
+                    this.f40248a.m244a();
                     return;
                 }
-                str3 = this.f39976a.f39974b;
+                str3 = this.f40248a.f40246b;
                 Log.w(str3, "SDCard is unavailable.");
             } catch (Exception e2) {
-                str2 = this.f39976a.f39974b;
+                str2 = this.f40248a.f40246b;
                 Log.e(str2, "", e2);
             }
         }

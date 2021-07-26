@@ -27,7 +27,7 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageViewModel$model$2 f16149a;
+        public final /* synthetic */ VideoMiddlePageViewModel$model$2 f16204a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(VideoMiddlePageViewModel$model$2 videoMiddlePageViewModel$model$2) {
@@ -45,15 +45,15 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
                     return;
                 }
             }
-            this.f16149a = videoMiddlePageViewModel$model$2;
+            this.f16204a = videoMiddlePageViewModel$model$2;
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f16149a.this$0.k().setValue(Boolean.FALSE);
-                this.f16149a.this$0.g().setValue(str);
+                this.f16204a.this$0.k().setValue(Boolean.FALSE);
+                this.f16204a.this$0.g().setValue(str);
             }
         }
 
@@ -61,10 +61,10 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
         public void b(List<? extends BaseCardInfo> list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) {
-                this.f16149a.this$0.k().setValue(Boolean.FALSE);
-                this.f16149a.this$0.f().setValue(Boolean.valueOf(z));
-                this.f16149a.this$0.a(CollectionsKt___CollectionsKt.toMutableList((Collection) list));
-                this.f16149a.this$0.g().setValue("");
+                this.f16204a.this$0.k().setValue(Boolean.FALSE);
+                this.f16204a.this$0.f().setValue(Boolean.valueOf(z));
+                this.f16204a.this$0.a(CollectionsKt___CollectionsKt.toMutableList((Collection) list));
+                this.f16204a.this$0.g().setValue("");
             }
         }
     }

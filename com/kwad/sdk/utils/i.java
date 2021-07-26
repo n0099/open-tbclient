@@ -19,17 +19,17 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f36577a;
+    public static final AtomicBoolean f36766a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile i f36578b;
+    public static volatile i f36767b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f36579c;
+    public Context f36768c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f36580d;
+    public a f36769d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class i {
                 return;
             }
         }
-        f36577a = new AtomicBoolean(false);
+        f36766a = new AtomicBoolean(false);
     }
 
     public i(Context context) {
@@ -62,21 +62,21 @@ public class i {
                 return;
             }
         }
-        this.f36579c = context.getApplicationContext();
+        this.f36768c = context.getApplicationContext();
     }
 
     public static i a(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f36578b == null) {
+            if (f36767b == null) {
                 synchronized (i.class) {
-                    if (f36578b == null) {
-                        f36578b = new i(context);
+                    if (f36767b == null) {
+                        f36767b = new i(context);
                     }
                 }
             }
-            return f36578b;
+            return f36767b;
         }
         return (i) invokeL.objValue;
     }
@@ -84,26 +84,26 @@ public class i {
     private void c() {
         Context context;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && f36577a.get() && (context = this.f36579c) != null) {
-            context.unregisterReceiver(this.f36580d);
-            f36577a.set(false);
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && f36766a.get() && (context = this.f36768c) != null) {
+            context.unregisterReceiver(this.f36769d);
+            f36766a.set(false);
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36579c == null || f36577a.get()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36768c == null || f36766a.get()) {
             return;
         }
-        if (this.f36580d == null) {
-            this.f36580d = new a();
+        if (this.f36769d == null) {
+            this.f36769d = new a();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
-        this.f36579c.registerReceiver(this.f36580d, intentFilter);
-        f36577a.set(true);
+        this.f36768c.registerReceiver(this.f36769d, intentFilter);
+        f36766a.set(true);
     }
 
     public void b() {

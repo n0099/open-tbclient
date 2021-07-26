@@ -13,7 +13,7 @@ public class PointCloud implements Closeable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f32964e;
+    public long f33153e;
 
     public PointCloud() {
         Interceptable interceptable = $ic;
@@ -28,8 +28,8 @@ public class PointCloud implements Closeable {
                 return;
             }
         }
-        this.f32964e = 0L;
-        this.f32964e = 0L;
+        this.f33153e = 0L;
+        this.f33153e = 0L;
     }
 
     private native ByteBuffer nativeGetData(long j, long j2);
@@ -51,7 +51,7 @@ public class PointCloud implements Closeable {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f32964e;
+            long j = this.f33153e;
             if (j != 0) {
                 nativeReleasePointCloud(j);
             }
@@ -62,8 +62,8 @@ public class PointCloud implements Closeable {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            nativeReleasePointCloud(this.f32964e);
-            this.f32964e = 0L;
+            nativeReleasePointCloud(this.f33153e);
+            this.f33153e = 0L;
         }
     }
 }

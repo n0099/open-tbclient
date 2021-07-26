@@ -15,32 +15,32 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3974a = "en";
+    public static final String f4000a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3975b = "et";
+    public static final String f4001b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3976c = "ev";
+    public static final String f4002c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3977d = "eg";
+    public static final String f4003d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3978e = "lk";
+    public static final String f4004e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3979f = "nu";
+    public static final String f4005f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3980g = "at";
+    public static final String f4006g = "at";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3981h;
+    public String f4007h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f3982i;
+    public long f4008i;
     public String j;
     public String k;
     public String l;
@@ -67,8 +67,8 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("en", this.f3981h);
-                jSONObject.put("et", this.f3982i);
+                jSONObject.put("en", this.f4007h);
+                jSONObject.put("et", this.f4008i);
                 jSONObject.put("nu", this.m);
                 if (!TextUtils.isEmpty(this.k)) {
                     jSONObject.put("eg", this.k);
@@ -96,8 +96,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2, Long.valueOf(j2), str3, collection, str4})) == null) {
             e eVar = new e();
-            eVar.f3981h = str;
-            eVar.f3982i = j;
+            eVar.f4007h = str;
+            eVar.f4008i = j;
             eVar.k = str2;
             eVar.m = j2;
             eVar.l = str3;

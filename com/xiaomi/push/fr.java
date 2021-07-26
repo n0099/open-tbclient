@@ -23,19 +23,19 @@ public final class fr {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40139a = 5000;
+    public static int f40411a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
     public static Vector<String> f410a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f40140b = 330000;
+    public static int f40412b = 330000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f40141c = 600000;
+    public static int f40413c = 600000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f40142d = 330000;
+    public static int f40414d = 330000;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,9 +68,9 @@ public final class fr {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f40139a = a(newPullParser, f40139a);
+                                    f40411a = a(newPullParser, f40411a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f40140b = a(newPullParser, f40140b);
+                                    f40412b = a(newPullParser, f40412b);
                                 } else if (newPullParser.getName().equals("mechName")) {
                                     f410a.add(newPullParser.nextText());
                                 }
@@ -108,7 +108,7 @@ public final class fr {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f40140b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f40412b : invokeV.intValue;
     }
 
     public static int a(XmlPullParser xmlPullParser, int i2) {
@@ -166,6 +166,6 @@ public final class fr {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f40141c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f40413c : invokeV.intValue;
     }
 }

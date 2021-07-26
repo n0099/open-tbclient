@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
+import d.a.p0.s.q.b2;
 /* loaded from: classes3.dex */
 public class PbVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -240,10 +240,10 @@ public class PbVideoActivityConfig extends IntentConfig {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", b2Var.n1());
-            intent.putExtra("is_good", b2Var.l0());
-            intent.putExtra("is_top", b2Var.m0());
-            intent.putExtra("thread_time", b2Var.q0());
+            intent.putExtra("thread_id", b2Var.o1());
+            intent.putExtra("is_good", b2Var.m0());
+            intent.putExtra("is_top", b2Var.n0());
+            intent.putExtra("thread_time", b2Var.r0());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -253,7 +253,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i2);
             intent.putExtra("is_from_thread_config", true);
-            long num = b2Var.G0() == null ? 0L : b2Var.G0().getNum();
+            long num = b2Var.H0() == null ? 0L : b2Var.H0().getNum();
             intent.putExtra("extra_pb_cache_key", "zan=" + num);
             if (b2Var.H() != null && b2Var.H().getGodUserData().getId() != null) {
                 intent.putExtra("extra_pb_funs_count_key", b2Var.H().getFansNum());

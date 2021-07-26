@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.h0.j.d;
+import d.a.o0.a.h0.j.d;
 /* loaded from: classes3.dex */
 public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     public static /* synthetic */ Interceptable $ic;
@@ -139,7 +139,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         }
         Y0(new SimpleWebViewClient(this, null));
         X0(new SimpleWebChromeClient(this));
-        this.f10937f.setOnWebViewHookHandler(this);
+        this.f10963f.setOnWebViewHookHandler(this);
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
@@ -152,7 +152,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, d.a.n0.a.h0.f.c
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, d.a.o0.a.h0.f.c
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

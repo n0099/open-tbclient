@@ -35,7 +35,7 @@ public class ei extends com.xiaomi.clientreport.processor.a {
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            ek.a(((com.xiaomi.clientreport.processor.a) this).f39746a, list);
+            ek.a(((com.xiaomi.clientreport.processor.a) this).f40018a, list);
         }
     }
 }

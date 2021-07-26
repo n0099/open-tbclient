@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h3.h0.d;
+import d.a.q0.h3.h0.d;
 /* loaded from: classes4.dex */
 public class PbExtraStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -50,7 +50,7 @@ public class PbExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof d)) {
-                ((d) customResponsedMessage.getData()).a().add(new d.a.p0.i2.a.a(null, PostData.y0));
+                ((d) customResponsedMessage.getData()).a().add(new d.a.q0.i2.a.a(null, PostData.y0));
             }
         }
     }

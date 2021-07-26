@@ -15,7 +15,7 @@ public class a extends c {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, b bVar, d dVar) {
-        super(com.bytedance.tea.crash.c.f32381d, context, bVar, dVar);
+        super(com.bytedance.tea.crash.c.f32568d, context, bVar, dVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,13 +40,13 @@ public class a extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             d.b.c.b.e.a a2 = super.a(aVar);
-            d.b.c.b.e.b a3 = d.b.c.b.e.b.a(this.f68973b);
+            d.b.c.b.e.b a3 = d.b.c.b.e.b.a(this.f69427b);
             a3.d(m.a().a());
             a3.c(m.d().a());
-            a3.g(this.f68974c.c());
+            a3.g(this.f69428c.c());
             a2.d(a3);
-            a2.k("process_name", l.b.k(this.f68973b));
-            l.C1966l.b(a2, a3, this.f68972a);
+            a2.k("process_name", l.b.k(this.f69427b));
+            l.C1965l.b(a2, a3, this.f69426a);
             return a2;
         }
         return (d.b.c.b.e.a) invokeL.objValue;

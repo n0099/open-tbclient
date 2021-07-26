@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.j;
+import d.a.d.e.p.j;
 /* loaded from: classes3.dex */
 public abstract class CollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12193e;
+    public boolean f12223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CustomMessageListener f12194f;
+    public final CustomMessageListener f12224f;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -30,7 +30,7 @@ public abstract class CollectFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CollectFragment f12195a;
+        public final /* synthetic */ CollectFragment f12225a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CollectFragment collectFragment, int i2) {
@@ -50,7 +50,7 @@ public abstract class CollectFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f12195a = collectFragment;
+            this.f12225a = collectFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,13 +58,13 @@ public abstract class CollectFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment collectFragment = this.f12195a;
-                collectFragment.K0(collectFragment.H0());
-                CollectFragment collectFragment2 = this.f12195a;
-                if (collectFragment2.f12193e) {
+                CollectFragment collectFragment = this.f12225a;
+                collectFragment.P0(collectFragment.M0());
+                CollectFragment collectFragment2 = this.f12225a;
+                if (collectFragment2.f12223e) {
                     return;
                 }
-                collectFragment2.L0(false, collectFragment2.H0());
+                collectFragment2.Q0(false, collectFragment2.M0());
             }
         }
     }
@@ -82,33 +82,33 @@ public abstract class CollectFragment extends BaseFragment {
                 return;
             }
         }
-        this.f12193e = false;
-        this.f12194f = new a(this, 2000994);
+        this.f12223e = false;
+        this.f12224f = new a(this, 2000994);
     }
 
-    public abstract int H0();
+    public abstract int M0();
 
-    public abstract boolean I0();
+    public abstract boolean N0();
 
-    public boolean J0() {
+    public boolean O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12193e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12223e : invokeV.booleanValue;
     }
 
-    public void K0(int i2) {
+    public void P0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             Bundle bundle = new Bundle();
-            boolean z = !I0() && j.z();
-            this.f12193e = z;
+            boolean z = !N0() && j.z();
+            this.f12223e = z;
             bundle.putBoolean("is_enable_edit", z);
             bundle.putInt("fragment_type", i2);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
         }
     }
 
-    public void L0(boolean z, int i2) {
+    public void Q0(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             Bundle bundle = new Bundle();
@@ -123,7 +123,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onStart();
-            registerListener(this.f12194f);
+            registerListener(this.f12224f);
         }
     }
 
@@ -132,7 +132,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onStop();
-            MessageManager.getInstance().unRegisterListener(this.f12194f);
+            MessageManager.getInstance().unRegisterListener(this.f12224f);
         }
     }
 }

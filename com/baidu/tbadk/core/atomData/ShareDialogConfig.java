@@ -17,13 +17,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.s.l;
+import d.a.p0.s.s.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ShareDialogConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View.OnClickListener closeAdListener;
     public View.OnClickListener copyLinkListener;
     public int copyTitleId;
     public l.d dialogAddToExpressionListener;
@@ -44,6 +45,7 @@ public class ShareDialogConfig extends IntentConfig {
     public List<Integer> mCommandChannelArray;
     public ArrayList<TransmitForumData> mForumList;
     public From mFrom;
+    public boolean mIsAd;
     public boolean mIsAlaLive;
     public boolean mIsShowTransmitShare;
     public int mPrivateThread;

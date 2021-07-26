@@ -14,7 +14,7 @@ public class PbImageIcon extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19383e;
+    public Context f19473e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbImageIcon(Context context) {
@@ -34,7 +34,7 @@ public class PbImageIcon extends ImageView {
                 return;
             }
         }
-        this.f19383e = context;
+        this.f19473e = context;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -71,6 +71,6 @@ public class PbImageIcon extends ImageView {
                 return;
             }
         }
-        this.f19383e = context;
+        this.f19473e = context;
     }
 }

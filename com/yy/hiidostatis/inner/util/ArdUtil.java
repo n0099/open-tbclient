@@ -975,7 +975,7 @@ public class ArdUtil {
             return invokeV.longValue;
         }
         try {
-            randomAccessFile = new RandomAccessFile("/proc/meminfo", r.f7762a);
+            randomAccessFile = new RandomAccessFile("/proc/meminfo", r.f7788a);
             try {
                 Matcher matcher = Pattern.compile("(\\d+)").matcher(randomAccessFile.readLine());
                 String str = "";

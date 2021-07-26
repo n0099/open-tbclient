@@ -18,10 +18,10 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f20040a;
+    public int[] f20158a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f20041b;
+    public ArrayList<BaseFragment> f20159b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
@@ -41,22 +41,22 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f20041b = new ArrayList<>();
+        this.f20159b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         BaseFragment b2 = b();
         b2.setArguments(bundle);
-        this.f20041b.add(b2);
+        this.f20159b.add(b2);
         if (z) {
-            this.f20040a = new int[]{0};
+            this.f20158a = new int[]{0};
             return;
         }
         Bundle bundle2 = new Bundle();
         bundle2.putInt("page_type", 1);
         BaseFragment b3 = b();
         b3.setArguments(bundle2);
-        this.f20041b.add(b3);
-        this.f20040a = new int[]{0, 1};
+        this.f20159b.add(b3);
+        this.f20158a = new int[]{0, 1};
     }
 
     public abstract BaseFragment b();
@@ -64,14 +64,14 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public int c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f20040a[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f20158a[i2] : invokeI.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20040a.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20158a.length : invokeV.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
@@ -79,10 +79,10 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (i2 >= this.f20040a.length || i2 < 0) {
+            if (i2 >= this.f20158a.length || i2 < 0) {
                 return null;
             }
-            return this.f20041b.get(i2);
+            return this.f20159b.get(i2);
         }
         return (Fragment) invokeI.objValue;
     }

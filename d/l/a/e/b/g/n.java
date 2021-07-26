@@ -2,6 +2,7 @@ package d.l.a.e.b.g;
 
 import android.app.Notification;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
+import d.l.a.e.b.f.w;
 import java.util.List;
 /* loaded from: classes8.dex */
 public interface n {
@@ -73,7 +74,7 @@ public interface n {
 
     void d(int i2);
 
-    void d(int i2, d.l.a.e.b.f.d dVar);
+    void d(int i2, int i3, d.l.a.e.b.f.c cVar, com.ss.android.socialbase.downloader.constants.f fVar, boolean z);
 
     long e(int i2);
 
@@ -81,23 +82,23 @@ public interface n {
 
     void e();
 
-    void e(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z, boolean z2);
+    void e(int i2, int i3, d.l.a.e.b.f.c cVar, com.ss.android.socialbase.downloader.constants.f fVar, boolean z);
 
     int f(int i2);
 
-    void f(d.l.a.e.b.f.l lVar);
+    void f(int i2, int i3, d.l.a.e.b.f.c cVar, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2);
 
     boolean f();
 
     void g();
 
-    void g(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z);
+    void g(int i2, d.l.a.e.b.f.e eVar);
 
     boolean g(int i2);
 
     DownloadInfo h(int i2);
 
-    void h(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z);
+    void h(d.l.a.e.b.f.m mVar);
 
     boolean h();
 
@@ -117,9 +118,9 @@ public interface n {
 
     boolean p(int i2);
 
-    d.l.a.e.b.f.d q(int i2);
+    d.l.a.e.b.f.e q(int i2);
 
-    d.l.a.e.b.f.i r(int i2);
+    d.l.a.e.b.f.j r(int i2);
 
-    d.l.a.e.b.f.v s(int i2);
+    w s(int i2);
 }

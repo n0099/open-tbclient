@@ -1,179 +1,54 @@
 package com.bytedance.sdk.component.adnet.d;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class h {
+public class h extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, List<String>> f28060a;
+    public final WeakReference<a> f28156a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f28061b;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Message message);
+    }
 
-    public h(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(Looper looper, a aVar) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f28060a = new LinkedHashMap();
-        this.f28061b = str;
-    }
-
-    private String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
-            if (str2 == null) {
-                str2 = "ISO-8859-1";
-            }
-            try {
-                return URLEncoder.encode(str, str2);
-            } catch (UnsupportedEncodingException e2) {
-                throw new IllegalArgumentException(e2);
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public void a(String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
-            List<String> list = this.f28060a.get(str);
-            if (list == null) {
-                list = new LinkedList<>();
-            }
-            list.add(String.valueOf(i2));
-            this.f28060a.put(str, list);
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? a() : (String) invokeV.objValue;
-    }
-
-    public h() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
+            Object[] objArr = {looper, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f28060a = new LinkedHashMap();
-        this.f28061b = null;
+        this.f28156a = new WeakReference<>(aVar);
     }
 
-    public void a(String str, double d2) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Double.valueOf(d2)}) == null) {
-            List<String> list = this.f28060a.get(str);
-            if (list == null) {
-                list = new LinkedList<>();
-            }
-            list.add(String.valueOf(d2));
-            this.f28060a.put(str, list);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.f28156a.get()) == null || message == null) {
+            return;
         }
-    }
-
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            List<String> list = this.f28060a.get(str);
-            if (list == null) {
-                list = new LinkedList<>();
-            }
-            list.add(String.valueOf(str2));
-            this.f28060a.put(str, list);
-        }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        StringBuilder sb;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f28060a.isEmpty()) {
-                return this.f28061b;
-            }
-            String a2 = a(this.f28060a, "UTF-8");
-            String str2 = this.f28061b;
-            if (str2 == null || str2.length() == 0) {
-                return a2;
-            }
-            if (this.f28061b.indexOf(63) >= 0) {
-                sb = new StringBuilder();
-                sb.append(this.f28061b);
-                str = "&";
-            } else {
-                sb = new StringBuilder();
-                sb.append(this.f28061b);
-                str = "?";
-            }
-            sb.append(str);
-            sb.append(a2);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String a(Map<String, List<String>> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-                String b2 = b(entry.getKey(), str);
-                List<String> value = entry.getValue();
-                if (value != null && value.size() > 0) {
-                    Iterator<String> it = value.iterator();
-                    while (it.hasNext()) {
-                        String next = it.next();
-                        String b3 = next != null ? b(next, str) : "";
-                        if (sb.length() > 0) {
-                            sb.append("&");
-                        }
-                        sb.append(b2);
-                        if (!b3.isEmpty()) {
-                            sb.append("=");
-                            sb.append(b3);
-                        }
-                    }
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
+        aVar.a(message);
     }
 }

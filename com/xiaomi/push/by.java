@@ -10,7 +10,7 @@ public class by {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f39914a = 200;
+    public static int f40186a = 200;
 
     /* renamed from: a  reason: collision with other field name */
     public static long f167a = 52428800;

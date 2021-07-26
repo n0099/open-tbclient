@@ -18,20 +18,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
+import d.a.d.a.f;
 /* loaded from: classes4.dex */
 public class YoungsterVerifyModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20833e;
+    public b f20951e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f20834f;
+    public TbPageContext<?> f20952f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f20835g;
+    public HttpMessageListener f20953g;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -39,7 +39,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YoungsterVerifyModel f20836a;
+        public final /* synthetic */ YoungsterVerifyModel f20954a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(YoungsterVerifyModel youngsterVerifyModel, int i2) {
@@ -59,7 +59,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f20836a = youngsterVerifyModel;
+            this.f20954a = youngsterVerifyModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,21 +70,21 @@ public class YoungsterVerifyModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            this.f20836a.mErrorCode = httpResponsedMessage.getError();
-            this.f20836a.mErrorString = httpResponsedMessage.getErrorString();
-            if (!StringUtils.isNull(this.f20836a.mErrorString)) {
-                str = this.f20836a.mErrorString;
+            this.f20954a.mErrorCode = httpResponsedMessage.getError();
+            this.f20954a.mErrorString = httpResponsedMessage.getErrorString();
+            if (!StringUtils.isNull(this.f20954a.mErrorString)) {
+                str = this.f20954a.mErrorString;
             } else {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
             }
             ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.f20836a.mErrorCode);
+            errorData.setError_code(this.f20954a.mErrorCode);
             errorData.setError_msg(str);
             YoungsterVerifyHttpResponsedMessage youngsterVerifyHttpResponsedMessage = httpResponsedMessage instanceof YoungsterVerifyHttpResponsedMessage ? (YoungsterVerifyHttpResponsedMessage) httpResponsedMessage : null;
-            if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().f66678a) {
-                this.f20836a.f20833e.onSuccess();
+            if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().f67356a) {
+                this.f20954a.f20951e.onSuccess();
             } else {
-                this.f20836a.f20833e.onError(errorData);
+                this.f20954a.f20951e.onError(errorData);
             }
         }
     }
@@ -115,11 +115,11 @@ public class YoungsterVerifyModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
-        this.f20835g = aVar;
-        this.f20834f = tbPageContext;
+        this.f20953g = aVar;
+        this.f20952f = tbPageContext;
         aVar.setSelfListener(true);
-        registerListener(this.f20835g);
-        this.f20833e = bVar;
+        registerListener(this.f20953g);
+        this.f20951e = bVar;
     }
 
     public void B(String str) {
@@ -128,7 +128,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
             httpMessage.addParam(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, str);
             httpMessage.addParam("scene", YoungsterVerifyActivityConfig.PARAMA_TIEBA_AUTH);
-            this.f20834f.sendMessage(httpMessage);
+            this.f20952f.sendMessage(httpMessage);
         }
     }
 

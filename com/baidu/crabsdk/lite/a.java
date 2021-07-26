@@ -14,31 +14,31 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, HashMap<String, Object>> f4705a;
+    public static final HashMap<String, HashMap<String, Object>> f4731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4706b;
+    public static String f4732b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f4707c;
+    public static int f4733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f4708d;
+    public static int f4734d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f4709e;
+    public static boolean f4735e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f4710f;
+    public static long f4736f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static HashMap<String, Integer> f4711g;
+    public static HashMap<String, Integer> f4737g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f4712h;
+    public static boolean f4738h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f4713i;
+    public static boolean f4739i;
     public static boolean j;
     public static boolean k;
     public static Proxy l;
@@ -60,16 +60,16 @@ public final class a {
                 return;
             }
         }
-        f4705a = new HashMap<>();
-        f4706b = null;
-        f4707c = 10;
-        f4708d = 200;
-        f4709e = true;
-        f4710f = 30000L;
-        f4711g = new HashMap<>();
+        f4731a = new HashMap<>();
+        f4732b = null;
+        f4733c = 10;
+        f4734d = 200;
+        f4735e = true;
+        f4736f = 30000L;
+        f4737g = new HashMap<>();
         new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
-        f4712h = true;
-        f4713i = true;
+        f4738h = true;
+        f4739i = true;
         j = true;
         k = false;
         l = null;
@@ -84,8 +84,8 @@ public final class a {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (f4712h) {
-                if (m == null || (hashMap = f4705a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
+            if (f4738h) {
+                if (m == null || (hashMap = f4731a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
                     return "https://crab.baidu.com/api_int/add_crab";
                 }
                 return ((String) obj) + "api_int/add_crab";
@@ -101,8 +101,8 @@ public final class a {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (f4712h) {
-                if (m == null || (hashMap = f4705a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
+            if (f4738h) {
+                if (m == null || (hashMap = f4731a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
                     return "https://crab.baidu.com/api_anr/add_crab";
                 }
                 return ((String) obj) + "api_int/add_crab";
@@ -118,8 +118,8 @@ public final class a {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (f4712h) {
-                if (m == null || (hashMap = f4705a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
+            if (f4738h) {
+                if (m == null || (hashMap = f4731a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
                     return "https://crab.baidu.com/api/newsync2";
                 }
                 return ((String) obj) + "api_int/add_crab";

@@ -16,7 +16,7 @@ public class gz {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f40242a;
+    public static final int f40514a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -24,7 +24,7 @@ public class gz {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static Hashtable<Integer, Long> f40243a;
+        public static Hashtable<Integer, Long> f40515a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,7 +40,7 @@ public class gz {
                     return;
                 }
             }
-            f40243a = new Hashtable<>();
+            f40515a = new Hashtable<>();
         }
     }
 
@@ -57,13 +57,13 @@ public class gz {
                 return;
             }
         }
-        f40242a = ew.f40087c.a();
+        f40514a = ew.f40359c.a();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            a(0, f40242a);
+            a(0, f40514a);
         }
     }
 
@@ -82,7 +82,7 @@ public class gz {
         if (interceptable == null || interceptable.invokeII(65539, null, i2, i3) == null) {
             synchronized (gz.class) {
                 if (i3 < 16777215) {
-                    a.f40243a.put(Integer.valueOf((i2 << 24) | i3), Long.valueOf(System.currentTimeMillis()));
+                    a.f40515a.put(Integer.valueOf((i2 << 24) | i3), Long.valueOf(System.currentTimeMillis()));
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.d("stats key should less than 16777215");
                 }
@@ -109,16 +109,16 @@ public class gz {
             synchronized (gz.class) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i5 = (i2 << 24) | i3;
-                if (a.f40243a.containsKey(Integer.valueOf(i5))) {
+                if (a.f40515a.containsKey(Integer.valueOf(i5))) {
                     ex m365a = gx.m363a().m365a();
                     m365a.a(i3);
-                    m365a.b((int) (currentTimeMillis - a.f40243a.get(Integer.valueOf(i5)).longValue()));
+                    m365a.b((int) (currentTimeMillis - a.f40515a.get(Integer.valueOf(i5)).longValue()));
                     m365a.b(str);
                     if (i4 > -1) {
                         m365a.c(i4);
                     }
                     gx.m363a().a(m365a);
-                    a.f40243a.remove(Integer.valueOf(i3));
+                    a.f40515a.remove(Integer.valueOf(i3));
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
                 }
@@ -146,7 +146,7 @@ public class gz {
             }
             try {
                 gv.a a2 = gv.a(exc);
-                m365a.a(a2.f40232a.a());
+                m365a.a(a2.f40504a.a());
                 m365a.c(a2.f455a);
                 m365a.b(str);
                 gx.m363a().a(m365a);
@@ -161,7 +161,7 @@ public class gz {
             try {
                 gv.a b2 = gv.b(exc);
                 ex m365a = gx.m363a().m365a();
-                m365a.a(b2.f40232a.a());
+                m365a.a(b2.f40504a.a());
                 m365a.c(b2.f455a);
                 m365a.b(str);
                 gx.m363a().a(m365a);
@@ -187,7 +187,7 @@ public class gz {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            a(0, f40242a, null, -1);
+            a(0, f40514a, null, -1);
         }
     }
 
@@ -197,7 +197,7 @@ public class gz {
             try {
                 gv.a d2 = gv.d(exc);
                 ex m365a = gx.m363a().m365a();
-                m365a.a(d2.f40232a.a());
+                m365a.a(d2.f40504a.a());
                 m365a.c(d2.f455a);
                 m365a.b(str);
                 gx.m363a().a(m365a);

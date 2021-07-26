@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.c;
-import d.a.n0.a.d;
-import d.a.n0.a.f;
-import d.a.n0.a.g;
-import d.a.n0.a.h;
-import d.a.n0.a.r1.n.a;
+import d.a.o0.a.c;
+import d.a.o0.a.d;
+import d.a.o0.a.f;
+import d.a.o0.a.g;
+import d.a.o0.a.h;
+import d.a.o0.a.r1.n.a;
 /* loaded from: classes3.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public LoadingAnimView f11371i;
+    public LoadingAnimView f11397i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -96,8 +96,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f11371i.setVisibility(0);
-            this.f11371i.d();
+            this.f11397i.setVisibility(0);
+            this.f11397i.d();
             this.j.setVisibility(0);
             this.j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
         }
@@ -124,8 +124,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void l(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            this.f11371i.setVisibility(8);
-            this.f11371i.e();
+            this.f11397i.setVisibility(8);
+            this.f11397i.e();
             this.j.setVisibility(4);
             super.l(iLoadingLayout$State, iLoadingLayout$State2);
         }
@@ -134,7 +134,7 @@ public class FooterLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.f11371i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
+            this.f11397i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
             TextView textView = (TextView) findViewById(f.pull_to_load_footer_hint_textview);
             this.j = textView;
             textView.setTextColor(getResources().getColor(c.aiapps_picture_loading_text_color));

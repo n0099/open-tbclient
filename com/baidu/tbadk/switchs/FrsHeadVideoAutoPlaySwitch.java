@@ -49,7 +49,7 @@ public class FrsHeadVideoAutoPlaySwitch extends BaseNormalSwitch {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mInstance.isOn() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.a.c.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.a.d.e.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

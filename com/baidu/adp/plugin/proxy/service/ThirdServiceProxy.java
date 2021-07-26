@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.h.d;
-import d.a.c.h.h.a;
+import d.a.d.h.d;
+import d.a.d.h.h.a;
 /* loaded from: classes.dex */
 public class ThirdServiceProxy extends ServiceProxy {
     public static /* synthetic */ Interceptable $ic;

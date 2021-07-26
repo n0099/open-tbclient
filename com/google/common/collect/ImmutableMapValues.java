@@ -53,10 +53,10 @@ public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final o1<Map.Entry<K, V>> f33211e;
+        public final o1<Map.Entry<K, V>> f33400e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ImmutableMapValues f33212f;
+        public final /* synthetic */ ImmutableMapValues f33401f;
 
         public a(ImmutableMapValues immutableMapValues) {
             Interceptable interceptable = $ic;
@@ -73,22 +73,22 @@ public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
                     return;
                 }
             }
-            this.f33212f = immutableMapValues;
-            this.f33211e = this.f33212f.map.entrySet().iterator();
+            this.f33401f = immutableMapValues;
+            this.f33400e = this.f33401f.map.entrySet().iterator();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33211e.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33400e.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public V next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33211e.next().getValue() : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33400e.next().getValue() : (V) invokeV.objValue;
         }
     }
 

@@ -15,7 +15,7 @@ public class bg extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public fa f40644a;
+    public fa f40916a;
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f928a;
@@ -40,7 +40,7 @@ public class bg extends XMPushService.i {
         }
         this.f928a = null;
         this.f928a = xMPushService;
-        this.f40644a = faVar;
+        this.f40916a = faVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -55,8 +55,8 @@ public class bg extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                if (this.f40644a != null) {
-                    this.f928a.a(this.f40644a);
+                if (this.f40916a != null) {
+                    this.f928a.a(this.f40916a);
                 }
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

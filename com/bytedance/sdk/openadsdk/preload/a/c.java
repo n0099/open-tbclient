@@ -11,7 +11,7 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Field f32000a;
+    public final Field f32201a;
 
     public c(Field field) {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public final class c {
             }
         }
         com.bytedance.sdk.openadsdk.preload.a.b.a.a(field);
-        this.f32000a = field;
+        this.f32201a = field;
     }
 }

@@ -41,17 +41,17 @@ public abstract class b implements o<Character> {
 
     /* renamed from: d.f.d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C1998b extends a {
+    public static final class C1997b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final char f70817e;
+        public final char f71271e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final char f70818f;
+        public final char f71272f;
 
-        public C1998b(char c2, char c3) {
+        public C1997b(char c2, char c3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,22 +67,22 @@ public abstract class b implements o<Character> {
                 }
             }
             n.d(c3 >= c2);
-            this.f70817e = c2;
-            this.f70818f = c3;
+            this.f71271e = c2;
+            this.f71272f = c3;
         }
 
         @Override // d.f.d.a.b
         public boolean f(char c2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? this.f70817e <= c2 && c2 <= this.f70818f : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? this.f71271e <= c2 && c2 <= this.f71272f : invokeCommon.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CharMatcher.inRange('" + b.g(this.f70817e) + "', '" + b.g(this.f70818f) + "')";
+                return "CharMatcher.inRange('" + b.g(this.f71271e) + "', '" + b.g(this.f71272f) + "')";
             }
             return (String) invokeV.objValue;
         }
@@ -94,7 +94,7 @@ public abstract class b implements o<Character> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final char f70819e;
+        public final char f71273e;
 
         public c(char c2) {
             Interceptable interceptable = $ic;
@@ -111,21 +111,21 @@ public abstract class b implements o<Character> {
                     return;
                 }
             }
-            this.f70819e = c2;
+            this.f71273e = c2;
         }
 
         @Override // d.f.d.a.b
         public boolean f(char c2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? c2 == this.f70819e : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) ? c2 == this.f71273e : invokeCommon.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CharMatcher.is('" + b.g(this.f70819e) + "')";
+                return "CharMatcher.is('" + b.g(this.f71273e) + "')";
             }
             return (String) invokeV.objValue;
         }
@@ -148,7 +148,7 @@ public abstract class b implements o<Character> {
     public static b c(char c2, char c3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) ? new C1998b(c2, c3) : (b) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) ? new C1997b(c2, c3) : (b) invokeCommon.objValue;
     }
 
     public static b e(char c2) {

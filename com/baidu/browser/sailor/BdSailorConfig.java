@@ -100,7 +100,7 @@ public final class BdSailorConfig implements INoProGuard {
                 return;
             }
         }
-        BUILTIN_WEBKIT = BdWebkitManager.a.f4348c;
+        BUILTIN_WEBKIT = BdWebkitManager.a.f4374c;
     }
 
     public BdSailorConfig() {

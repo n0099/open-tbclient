@@ -13,16 +13,16 @@ public final class dc {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23551a;
+    public TextView f23709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f23552b;
+    public ImageView f23710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f23553c;
+    public ImageView f23711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f23554d;
+    public RelativeLayout f23712d;
 
     public dc() {
         Interceptable interceptable = $ic;

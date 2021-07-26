@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.o0.r.r.a;
-import d.a.p0.h1.c;
+import d.a.p0.s.r.a;
+import d.a.q0.h1.c;
 import java.io.IOException;
 /* loaded from: classes4.dex */
 public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object> {

@@ -12,19 +12,19 @@ public class ac {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f1002a;
+    public byte[] f1003a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f1003b;
+    public volatile int f1004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile int f1004c;
+    public volatile int f1005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile int f1005d;
+    public volatile int f1006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1006e;
+    public int f1007e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ac() {
@@ -59,22 +59,22 @@ public class ac {
                 return;
             }
         }
-        this.f1002a = null;
-        this.f1003b = 0;
-        this.f1004c = 0;
-        this.f1005d = 0;
-        this.f1006e = 0;
-        this.f1006e = i2;
-        this.f1002a = new byte[i2];
+        this.f1003a = null;
+        this.f1004b = 0;
+        this.f1005c = 0;
+        this.f1006d = 0;
+        this.f1007e = 0;
+        this.f1007e = i2;
+        this.f1003a = new byte[i2];
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                this.f1003b = 0;
-                this.f1004c = 0;
-                this.f1005d = 0;
+                this.f1004b = 0;
+                this.f1005c = 0;
+                this.f1006d = 0;
             }
         }
     }
@@ -85,17 +85,17 @@ public class ac {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2)) == null) {
             synchronized (this) {
                 if (bArr != null) {
-                    if (bArr.length >= i2 && i2 <= this.f1003b) {
-                        if (this.f1004c + i2 <= this.f1006e) {
-                            System.arraycopy(this.f1002a, this.f1004c, bArr, 0, i2);
-                            this.f1004c += i2;
-                            this.f1003b -= i2;
+                    if (bArr.length >= i2 && i2 <= this.f1004b) {
+                        if (this.f1005c + i2 <= this.f1007e) {
+                            System.arraycopy(this.f1003a, this.f1005c, bArr, 0, i2);
+                            this.f1005c += i2;
+                            this.f1004b -= i2;
                             return true;
                         }
-                        System.arraycopy(this.f1002a, this.f1004c, bArr, 0, this.f1006e - this.f1004c);
-                        System.arraycopy(this.f1002a, 0, bArr, this.f1006e - this.f1004c, (this.f1004c + i2) - this.f1006e);
-                        this.f1004c = (i2 - this.f1006e) + this.f1004c;
-                        this.f1003b -= i2;
+                        System.arraycopy(this.f1003a, this.f1005c, bArr, 0, this.f1007e - this.f1005c);
+                        System.arraycopy(this.f1003a, 0, bArr, this.f1007e - this.f1005c, (this.f1005c + i2) - this.f1007e);
+                        this.f1005c = (i2 - this.f1007e) + this.f1005c;
+                        this.f1004b -= i2;
                         return true;
                     }
                 }
@@ -111,17 +111,17 @@ public class ac {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bArr, i2)) == null) {
             synchronized (this) {
                 if (bArr != null) {
-                    if (bArr.length >= i2 && this.f1003b + i2 <= this.f1006e) {
-                        if (this.f1005d + i2 <= this.f1006e) {
-                            System.arraycopy(bArr, 0, this.f1002a, this.f1005d, i2);
-                            this.f1005d += i2;
-                            this.f1003b += i2;
+                    if (bArr.length >= i2 && this.f1004b + i2 <= this.f1007e) {
+                        if (this.f1006d + i2 <= this.f1007e) {
+                            System.arraycopy(bArr, 0, this.f1003a, this.f1006d, i2);
+                            this.f1006d += i2;
+                            this.f1004b += i2;
                             return true;
                         }
-                        System.arraycopy(bArr, 0, this.f1002a, this.f1005d, this.f1006e - this.f1005d);
-                        System.arraycopy(bArr, this.f1006e - this.f1005d, this.f1002a, 0, (this.f1005d + i2) - this.f1006e);
-                        this.f1005d = (i2 - this.f1006e) + this.f1005d;
-                        this.f1003b += i2;
+                        System.arraycopy(bArr, 0, this.f1003a, this.f1006d, this.f1007e - this.f1006d);
+                        System.arraycopy(bArr, this.f1007e - this.f1006d, this.f1003a, 0, (this.f1006d + i2) - this.f1007e);
+                        this.f1006d = (i2 - this.f1007e) + this.f1006d;
+                        this.f1004b += i2;
                         return true;
                     }
                 }

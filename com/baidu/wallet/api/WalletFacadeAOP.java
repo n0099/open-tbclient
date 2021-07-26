@@ -19,7 +19,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final IWalletFacade f23898a;
+    public final IWalletFacade f24056a;
 
     public WalletFacadeAOP(IWalletFacade iWalletFacade) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 return;
             }
         }
-        this.f23898a = iWalletFacade;
+        this.f24056a = iWalletFacade;
     }
 
     private boolean a() {
@@ -75,7 +75,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                     th.printStackTrace();
                 }
             }
-            Object invoke = method.invoke(this.f23898a, objArr);
+            Object invoke = method.invoke(this.f24056a, objArr);
             if (method != null && a(method.getName())) {
                 try {
                     c();

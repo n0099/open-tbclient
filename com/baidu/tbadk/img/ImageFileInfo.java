@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
-import d.a.c.e.l.d;
-import d.a.c.e.p.k;
+import d.a.d.e.l.d;
+import d.a.d.e.p.k;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -53,6 +53,7 @@ public class ImageFileInfo extends MediaFileInfo {
     public LinkedList<ImageOperation> persistActionsList;
     public String serverImageCode;
     public ImageUploadResult.picInfo serverPicInfo;
+    public transient long startUploadTime;
     public int width;
 
     public ImageFileInfo() {
@@ -488,7 +489,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next != null) {
                                 sb.append(':');
                                 sb.append(next.actionName);
-                                sb.append(a.f1890h);
+                                sb.append(a.f1923h);
                                 sb.append(next.actionParam);
                             }
                         }
@@ -500,7 +501,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next2 != null) {
                                 sb.append(':');
                                 sb.append(next2.actionName);
-                                sb.append(a.f1890h);
+                                sb.append(a.f1923h);
                                 sb.append(next2.actionParam);
                             }
                         }
@@ -518,7 +519,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         ImageOperation imageOperation = this.pageActionsList.get(i2);
                         sb2.append(':');
                         sb2.append(imageOperation.actionName);
-                        sb2.append(a.f1890h);
+                        sb2.append(a.f1923h);
                         sb2.append(imageOperation.actionParam);
                     }
                 }

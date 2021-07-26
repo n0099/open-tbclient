@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.l.d;
-import d.a.c.e.p.k;
-import d.a.c.e.p.l;
-import d.a.o0.a0.c;
+import d.a.d.e.l.d;
+import d.a.d.e.p.k;
+import d.a.d.e.p.l;
+import d.a.p0.b0.c;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class GridImageLayout extends RelativeLayout {
@@ -38,19 +38,19 @@ public class GridImageLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.c.e.k.b<ImageView> f13405e;
+    public d.a.d.e.k.b<ImageView> f13454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.e.k.b<GifView> f13406f;
+    public d.a.d.e.k.b<GifView> f13455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.o0.b1.m.a f13407g;
+    public d.a.p0.d1.m.a f13456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<TbRichTextImageInfo> f13408h;
+    public ArrayList<TbRichTextImageInfo> f13457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13409i;
+    public int f13458i;
     public int j;
     public boolean k;
     public String l;
@@ -63,7 +63,7 @@ public class GridImageLayout extends RelativeLayout {
     public int s;
     public int t;
     public int[] u;
-    public TbRichTextView.x v;
+    public TbRichTextView.z v;
     public View.OnClickListener w;
     public View.OnClickListener x;
     public View.OnLongClickListener y;
@@ -75,7 +75,7 @@ public class GridImageLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GridImageLayout f13410e;
+        public final /* synthetic */ GridImageLayout f13459e;
 
         public a(GridImageLayout gridImageLayout) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class GridImageLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f13410e = gridImageLayout;
+            this.f13459e = gridImageLayout;
         }
 
         @Override // android.view.View.OnClickListener
@@ -100,17 +100,17 @@ public class GridImageLayout extends RelativeLayout {
             String url;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f13410e.v != null && this.f13410e.f13408h != null) {
-                    int indexOfChild = this.f13410e.indexOfChild(view);
+                if (this.f13459e.v != null && this.f13459e.f13457h != null) {
+                    int indexOfChild = this.f13459e.indexOfChild(view);
                     if (view instanceof TbImageView) {
                         url = ((TbImageView) view).getUrl();
                     } else {
                         url = view instanceof GifView ? ((GifView) view).getUrl() : "";
                     }
-                    this.f13410e.v.a(view, url, indexOfChild, this.f13410e.k, true);
+                    this.f13459e.v.a(view, url, indexOfChild, this.f13459e.k, true);
                 }
-                if (this.f13410e.w != null) {
-                    this.f13410e.w.onClick(view);
+                if (this.f13459e.w != null) {
+                    this.f13459e.w.onClick(view);
                 }
             }
         }
@@ -122,7 +122,7 @@ public class GridImageLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GridImageLayout f13411a;
+        public final /* synthetic */ GridImageLayout f13460a;
 
         public b(GridImageLayout gridImageLayout) {
             Interceptable interceptable = $ic;
@@ -139,7 +139,7 @@ public class GridImageLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f13411a = gridImageLayout;
+            this.f13460a = gridImageLayout;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
@@ -158,7 +158,7 @@ public class GridImageLayout extends RelativeLayout {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            d.a.c.k.d.a m = c.k().m(d.h().g(tbImageView.getUrl(), this.f13411a.r));
+            d.a.d.k.d.a m = c.k().m(d.h().g(tbImageView.getUrl(), this.f13460a.r));
             int i3 = 0;
             if (m != null) {
                 i3 = m.r();
@@ -205,8 +205,8 @@ public class GridImageLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f13405e = null;
-        this.f13406f = null;
+        this.f13454e = null;
+        this.f13455f = null;
         this.q = true;
         this.u = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
         this.x = new a(this);
@@ -250,7 +250,7 @@ public class GridImageLayout extends RelativeLayout {
             eMTextView.setPadding(g2, 0, g2, 0);
             eMTextView.setGravity(16);
             eMTextView.setText(this.l);
-            d.a.o0.r.u.c d2 = d.a.o0.r.u.c.d(eMTextView);
+            d.a.p0.s.u.c d2 = d.a.p0.s.u.c.d(eMTextView);
             d2.x(R.dimen.T_X09);
             d2.t(R.color.CAM_X0101);
             d2.y(R.string.F_X02);
@@ -273,16 +273,16 @@ public class GridImageLayout extends RelativeLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f13408h = null;
+            this.f13457h = null;
         }
     }
 
     public final void h(int i2, TbRichTextImageInfo tbRichTextImageInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, tbRichTextImageInfo) == null) || tbRichTextImageInfo == null || this.f13407g == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, tbRichTextImageInfo) == null) || tbRichTextImageInfo == null || this.f13456g == null) {
             return;
         }
-        d.a.c.e.k.b<GifView> bVar = this.f13406f;
+        d.a.d.e.k.b<GifView> bVar = this.f13455f;
         GifView b2 = bVar != null ? bVar.b() : null;
         if (b2 == null || b2.getParent() != null) {
             b2 = new GifView(getContext());
@@ -299,7 +299,7 @@ public class GridImageLayout extends RelativeLayout {
             b2.setOnLongClickListener(onLongClickListener);
         }
         b2.setOnDrawListener(null);
-        if (this.f13409i == 1) {
+        if (this.f13458i == 1) {
             b2.setPlaceHolder(3);
             b2.setScaleType(ImageView.ScaleType.MATRIX);
             b2.setOnDrawListener(this.z);
@@ -315,17 +315,17 @@ public class GridImageLayout extends RelativeLayout {
             b2.setLongIconSupport(true);
             b2.setGifIconSupport(true);
         }
-        if (this.f13407g.q) {
+        if (this.f13456g.q) {
             b2.setSupportNoImage(true);
         }
         b2.setDefaultNoImageDay(SkinManager.getResourceId(R.drawable.icon_click));
         String z = tbRichTextImageInfo.z();
         if (StringUtils.isNull(z)) {
-            if (this.f13407g.c()) {
-                z = this.f13407g.r ? tbRichTextImageInfo.w() : tbRichTextImageInfo.x();
+            if (this.f13456g.c()) {
+                z = this.f13456g.r ? tbRichTextImageInfo.w() : tbRichTextImageInfo.x();
             }
             if (StringUtils.isNull(z)) {
-                z = this.f13407g.r ? tbRichTextImageInfo.y() : tbRichTextImageInfo.B();
+                z = this.f13456g.r ? tbRichTextImageInfo.y() : tbRichTextImageInfo.B();
             }
         }
         b2.setShowStaticDrawable(false);
@@ -336,11 +336,11 @@ public class GridImageLayout extends RelativeLayout {
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || ListUtils.isEmpty(this.f13408h)) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || ListUtils.isEmpty(this.f13457h)) {
             return;
         }
-        for (int i2 = 0; i2 < this.f13409i && i2 < 9; i2++) {
-            TbRichTextImageInfo tbRichTextImageInfo = this.f13408h.get(i2);
+        for (int i2 = 0; i2 < this.f13458i && i2 < 9; i2++) {
+            TbRichTextImageInfo tbRichTextImageInfo = this.f13457h.get(i2);
             if (tbRichTextImageInfo != null) {
                 int width = tbRichTextImageInfo.getWidth();
                 int height = tbRichTextImageInfo.getHeight();
@@ -359,7 +359,7 @@ public class GridImageLayout extends RelativeLayout {
     public final void j() {
         TbRichTextImageInfo tbRichTextImageInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ListUtils.isEmpty(this.f13408h) || (tbRichTextImageInfo = this.f13408h.get(0)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ListUtils.isEmpty(this.f13457h) || (tbRichTextImageInfo = this.f13457h.get(0)) == null) {
             return;
         }
         int width = tbRichTextImageInfo.getWidth();
@@ -376,10 +376,10 @@ public class GridImageLayout extends RelativeLayout {
 
     public final void k(int i2, TbRichTextImageInfo tbRichTextImageInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i2, tbRichTextImageInfo) == null) || tbRichTextImageInfo == null || this.f13407g == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i2, tbRichTextImageInfo) == null) || tbRichTextImageInfo == null || this.f13456g == null) {
             return;
         }
-        d.a.c.e.k.b<ImageView> bVar = this.f13405e;
+        d.a.d.e.k.b<ImageView> bVar = this.f13454e;
         String str = null;
         ImageView b2 = bVar != null ? bVar.b() : null;
         if (b2 == null || b2.getParent() != null) {
@@ -399,7 +399,7 @@ public class GridImageLayout extends RelativeLayout {
                 tbImageView.setOnLongClickListener(onLongClickListener);
             }
             tbImageView.setOnDrawListener(null);
-            if (this.f13409i == 1) {
+            if (this.f13458i == 1) {
                 tbImageView.setPlaceHolder(3);
                 tbImageView.setScaleType(ImageView.ScaleType.MATRIX);
                 tbImageView.setOnDrawListener(this.z);
@@ -415,7 +415,7 @@ public class GridImageLayout extends RelativeLayout {
                 tbImageView.setLongIconSupport(true);
                 tbImageView.setGifIconSupport(true);
             }
-            if (this.f13407g.q) {
+            if (this.f13456g.q) {
                 tbImageView.setSupportNoImage(true);
             }
             if (!this.q) {
@@ -428,13 +428,13 @@ public class GridImageLayout extends RelativeLayout {
                 }
                 this.r = 13;
             } else {
-                if (this.f13407g.c()) {
-                    str = this.f13407g.r ? tbRichTextImageInfo.w() : tbRichTextImageInfo.x();
+                if (this.f13456g.c()) {
+                    str = this.f13456g.r ? tbRichTextImageInfo.w() : tbRichTextImageInfo.x();
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.f13407g.r ? tbRichTextImageInfo.y() : tbRichTextImageInfo.B();
+                    str = this.f13456g.r ? tbRichTextImageInfo.y() : tbRichTextImageInfo.B();
                 }
-                this.r = this.f13407g.r ? 13 : 14;
+                this.r = this.f13456g.r ? 13 : 14;
             }
             tbImageView.M(str, this.r, false);
             if (!tbRichTextImageInfo.C()) {
@@ -449,7 +449,7 @@ public class GridImageLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i2, i3)) == null) {
             if (n(i2, i3)) {
-                return this.u[(this.f13409i == 4 ? i2 * 2 : i2 * 3) + i3];
+                return this.u[(this.f13458i == 4 ? i2 * 2 : i2 * 3) + i3];
             }
             return -1;
         }
@@ -482,7 +482,7 @@ public class GridImageLayout extends RelativeLayout {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) {
-            int i4 = this.f13409i;
+            int i4 = this.f13458i;
             if (i4 == 4) {
                 return i2 >= 0 && i2 < 2 && i3 >= 0 && i3 < 2;
             }
@@ -494,7 +494,7 @@ public class GridImageLayout extends RelativeLayout {
     public final boolean o(ArrayList<TbRichTextImageInfo> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, arrayList)) == null) ? ListUtils.equalList(this.f13408h, arrayList) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, arrayList)) == null) ? ListUtils.equalList(this.f13457h, arrayList) : invokeL.booleanValue;
     }
 
     public void p() {
@@ -510,7 +510,7 @@ public class GridImageLayout extends RelativeLayout {
 
     public final void q(TbImageView tbImageView, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048588, this, tbImageView, i2) == null) || tbImageView == null || this.f13407g == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048588, this, tbImageView, i2) == null) || tbImageView == null || this.f13456g == null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.s, this.t);
@@ -521,7 +521,7 @@ public class GridImageLayout extends RelativeLayout {
     public final void r() {
         TbRichTextImageInfo tbRichTextImageInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f13407g == null || ListUtils.isEmpty(this.f13408h) || (tbRichTextImageInfo = this.f13408h.get(0)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f13456g == null || ListUtils.isEmpty(this.f13457h) || (tbRichTextImageInfo = this.f13457h.get(0)) == null) {
             return;
         }
         int width = tbRichTextImageInfo.getWidth();
@@ -530,12 +530,12 @@ public class GridImageLayout extends RelativeLayout {
             return;
         }
         float f2 = (width * 1.0f) / height;
-        int i2 = this.f13407g.D;
+        int i2 = this.f13456g.D;
         int i3 = this.j;
         int i4 = (i2 - (i3 * 2)) / 3;
         this.s = 0;
         this.t = 0;
-        if (this.f13409i != 1) {
+        if (this.f13458i != 1) {
             this.s = i4;
             this.t = i4;
         } else if (f2 >= 2.0f) {
@@ -559,7 +559,7 @@ public class GridImageLayout extends RelativeLayout {
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || ListUtils.isEmpty(this.f13408h)) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || ListUtils.isEmpty(this.f13457h)) {
             return;
         }
         removeAllViews();
@@ -567,7 +567,7 @@ public class GridImageLayout extends RelativeLayout {
         if (this.s <= 0 || this.t <= 0) {
             return;
         }
-        if (this.f13409i == 1) {
+        if (this.f13458i == 1) {
             j();
         } else {
             i();
@@ -589,13 +589,13 @@ public class GridImageLayout extends RelativeLayout {
 
     public void setData(ArrayList<TbRichTextImageInfo> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) || ListUtils.isEmpty(arrayList) || o(arrayList) || this.f13407g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) || ListUtils.isEmpty(arrayList) || o(arrayList) || this.f13456g == null) {
             return;
         }
-        this.f13408h = arrayList;
+        this.f13457h = arrayList;
         int size = arrayList.size();
-        this.f13409i = size;
-        this.l = size > 9 ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(this.f13409i - 9)}) : "";
+        this.f13458i = size;
+        this.l = size > 9 ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(this.f13458i - 9)}) : "";
         s();
     }
 
@@ -612,28 +612,28 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setLayoutStrategy(d.a.o0.b1.m.a aVar) {
+    public void setLayoutStrategy(d.a.p0.d1.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
-            this.f13407g = aVar;
+            this.f13456g = aVar;
             if (aVar != null) {
                 this.j = aVar.E;
             }
         }
     }
 
-    public void setObjectPool(d.a.c.e.k.b<ImageView> bVar, d.a.c.e.k.b<GifView> bVar2) {
+    public void setObjectPool(d.a.d.e.k.b<ImageView> bVar, d.a.d.e.k.b<GifView> bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, bVar, bVar2) == null) {
-            this.f13405e = bVar;
-            this.f13406f = bVar2;
+            this.f13454e = bVar;
+            this.f13455f = bVar2;
         }
     }
 
-    public void setOnImageClickListener(TbRichTextView.x xVar) {
+    public void setOnImageClickListener(TbRichTextView.z zVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, xVar) == null) {
-            this.v = xVar;
+        if (interceptable == null || interceptable.invokeL(1048598, this, zVar) == null) {
+            this.v = zVar;
         }
     }
 
@@ -655,7 +655,7 @@ public class GridImageLayout extends RelativeLayout {
     public void setTransformStyle(ImageView imageView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048601, this, imageView, i2) == null) {
-            int i3 = this.f13409i;
+            int i3 = this.f13458i;
             if (i3 == 1) {
                 u(imageView, 15);
             } else if (i3 == 2) {
@@ -726,8 +726,8 @@ public class GridImageLayout extends RelativeLayout {
             return;
         }
         imageView.setId(this.u[i2]);
-        int i3 = this.f13409i == 4 ? i2 / 2 : i2 / 3;
-        int i4 = this.f13409i == 4 ? i2 % 2 : i2 % 3;
+        int i3 = this.f13458i == 4 ? i2 / 2 : i2 / 3;
+        int i4 = this.f13458i == 4 ? i2 % 2 : i2 % 3;
         int i5 = i3 - 1;
         int l = l(i3, i4 - 1);
         int l2 = l(i5, i4);
@@ -772,8 +772,8 @@ public class GridImageLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f13405e = null;
-        this.f13406f = null;
+        this.f13454e = null;
+        this.f13455f = null;
         this.q = true;
         this.u = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
         this.x = new a(this);
@@ -800,8 +800,8 @@ public class GridImageLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f13405e = null;
-        this.f13406f = null;
+        this.f13454e = null;
+        this.f13455f = null;
         this.q = true;
         this.u = new int[]{R.id.grid_image_0, R.id.grid_image_1, R.id.grid_image_2, R.id.grid_image_3, R.id.grid_image_4, R.id.grid_image_5, R.id.grid_image_6, R.id.grid_image_7, R.id.grid_image_8};
         this.x = new a(this);

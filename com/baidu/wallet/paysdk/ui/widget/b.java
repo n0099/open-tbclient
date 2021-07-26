@@ -20,10 +20,10 @@ public class b extends BdMenu {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GetCardInfoResponse.CertificateTypeInfo[] f26960a;
+    public GetCardInfoResponse.CertificateTypeInfo[] f27118a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CertificateMenuView.b f26961b;
+    public CertificateMenuView.b f27119b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(View view, GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr) {
@@ -43,14 +43,14 @@ public class b extends BdMenu {
                 return;
             }
         }
-        this.f26960a = certificateTypeInfoArr;
+        this.f27118a = certificateTypeInfoArr;
         setDismissOnClick(true);
     }
 
     public void a(CertificateMenuView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f26961b = bVar;
+            this.f27119b = bVar;
         }
     }
 
@@ -59,8 +59,8 @@ public class b extends BdMenu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, list) == null) {
             CertificateMenuView certificateMenuView = (CertificateMenuView) view;
-            certificateMenuView.setCertificertSelectListener(this.f26961b);
-            certificateMenuView.layoutMenu(this.f26960a);
+            certificateMenuView.setCertificertSelectListener(this.f27119b);
+            certificateMenuView.layoutMenu(this.f27118a);
         }
     }
 

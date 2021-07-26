@@ -11,7 +11,7 @@ public class h implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f5543a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f5569a;
 
     public h(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
         Interceptable interceptable = $ic;
@@ -28,16 +28,16 @@ public class h implements Runnable {
                 return;
             }
         }
-        this.f5543a = safeKeyBoardPopupWindow;
+        this.f5569a = safeKeyBoardPopupWindow;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int selectionStart = this.f5543a.mySafeEditText.getSelectionStart();
-            int selectionEnd = this.f5543a.mySafeEditText.getSelectionEnd();
-            Editable text = this.f5543a.mySafeEditText.getText();
+            int selectionStart = this.f5569a.mySafeEditText.getSelectionStart();
+            int selectionEnd = this.f5569a.mySafeEditText.getSelectionEnd();
+            Editable text = this.f5569a.mySafeEditText.getText();
             if (selectionStart >= 0) {
                 if (selectionStart < selectionEnd) {
                     text.replace(selectionStart, selectionEnd, "", 0, 0);

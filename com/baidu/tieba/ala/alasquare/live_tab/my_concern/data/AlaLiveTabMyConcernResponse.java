@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
-import d.a.p0.v.d.c.f.b.b;
+import d.a.p0.s.q.b2;
+import d.a.q0.v.d.c.f.b.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -69,7 +69,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
                         b2 b2Var = new b2();
-                        b2Var.H2(optJSONObject2);
+                        b2Var.J2(optJSONObject2);
                         this.followList.add(b2Var);
                     }
                 }
@@ -92,7 +92,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                     if (optJSONObject4 != null) {
                         b2 b2Var2 = new b2();
-                        b2Var2.H2(optJSONObject4);
+                        b2Var2.J2(optJSONObject4);
                         this.recommendList.add(b2Var2);
                     }
                 }

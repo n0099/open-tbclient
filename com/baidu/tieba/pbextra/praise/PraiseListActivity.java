@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.o0.z0.v;
-import d.a.p0.i2.c.a;
-import d.a.p0.i2.c.d;
-import d.a.p0.i2.c.e;
+import d.a.d.e.p.k;
+import d.a.p0.b1.v;
+import d.a.q0.i2.c.a;
+import d.a.q0.i2.c.d;
+import d.a.q0.i2.c.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements d.b, View.OnClickListener, AdapterView.OnItemClickListener {
@@ -143,7 +143,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         v.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
     }
 
-    @Override // d.a.p0.i2.c.d.b
+    @Override // d.a.q0.i2.c.d.b
     public void onLoadFailed(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
@@ -155,7 +155,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         }
     }
 
-    @Override // d.a.p0.i2.c.d.b
+    @Override // d.a.q0.i2.c.d.b
     public void onLoadSuccessed(int i2, List<a> list, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {

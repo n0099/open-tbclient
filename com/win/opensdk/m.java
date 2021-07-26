@@ -1,50 +1,39 @@
 package com.win.opensdk;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.media.MediaPlayer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m extends Handler {
+public class m implements MediaPlayer.OnErrorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f39618a;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(PBSplash pBSplash, Looper looper) {
-        super(looper);
+    public m(PBDrawVideo pBDrawVideo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pBSplash, looper};
+            Object[] objArr = {pBDrawVideo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f39618a = pBSplash;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        PBSplash pBSplash;
-        PBSplashListener pBSplashListener;
+    @Override // android.media.MediaPlayer.OnErrorListener
+    public boolean onError(MediaPlayer mediaPlayer, int i2, int i3) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBSplashListener = (pBSplash = this.f39618a).f39446e) == null || pBSplash.f39450i) {
-            return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
+            return true;
         }
-        pBSplashListener.onFail(PBError.LOAD_TIME_OUT);
-        this.f39618a.j = true;
+        return invokeLII.booleanValue;
     }
 }

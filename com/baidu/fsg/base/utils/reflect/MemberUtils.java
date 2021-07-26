@@ -19,16 +19,16 @@ public class MemberUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5431a = 7;
+    public static final int f5457a = 7;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f5432b;
+    public static final Class<?>[] f5458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f5433c;
+    public static final Map<Class<?>, Class<?>> f5459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f5434d;
+    public static final Map<Class<?>, Class<?>> f5460d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,24 +44,24 @@ public class MemberUtils {
                 return;
             }
         }
-        f5432b = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
-        f5433c = new HashMap();
-        f5434d = new HashMap();
-        f5433c.put(Boolean.TYPE, Boolean.class);
-        f5433c.put(Byte.TYPE, Byte.class);
-        f5433c.put(Character.TYPE, Character.class);
-        f5433c.put(Short.TYPE, Short.class);
-        f5433c.put(Integer.TYPE, Integer.class);
-        f5433c.put(Long.TYPE, Long.class);
-        f5433c.put(Double.TYPE, Double.class);
-        f5433c.put(Float.TYPE, Float.class);
-        Map<Class<?>, Class<?>> map = f5433c;
+        f5458b = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
+        f5459c = new HashMap();
+        f5460d = new HashMap();
+        f5459c.put(Boolean.TYPE, Boolean.class);
+        f5459c.put(Byte.TYPE, Byte.class);
+        f5459c.put(Character.TYPE, Character.class);
+        f5459c.put(Short.TYPE, Short.class);
+        f5459c.put(Integer.TYPE, Integer.class);
+        f5459c.put(Long.TYPE, Long.class);
+        f5459c.put(Double.TYPE, Double.class);
+        f5459c.put(Float.TYPE, Float.class);
+        Map<Class<?>, Class<?>> map = f5459c;
         Class<?> cls = Void.TYPE;
         map.put(cls, cls);
-        for (Class<?> cls2 : f5433c.keySet()) {
-            Class<?> cls3 = f5433c.get(cls2);
+        for (Class<?> cls2 : f5459c.keySet()) {
+            Class<?> cls3 = f5459c.get(cls2);
             if (!cls2.equals(cls3)) {
-                f5434d.put(cls3, cls2);
+                f5460d.put(cls3, cls2);
             }
         }
     }
@@ -95,7 +95,7 @@ public class MemberUtils {
     public static Class<?> b(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? f5434d.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? f5460d.get(cls) : (Class) invokeL.objValue;
     }
 
     public static float c(Class<?> cls, Class<?> cls2) {
@@ -111,7 +111,7 @@ public class MemberUtils {
             }
             int i2 = 0;
             while (cls != cls2) {
-                Class<?>[] clsArr = f5432b;
+                Class<?>[] clsArr = f5458b;
                 if (i2 >= clsArr.length) {
                     break;
                 }
@@ -184,10 +184,10 @@ public class MemberUtils {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, clsArr, clsArr2, z)) == null) {
             if (Utils.a(clsArr, clsArr2)) {
                 if (clsArr == null) {
-                    clsArr = Utils.f5437b;
+                    clsArr = Utils.f5463b;
                 }
                 if (clsArr2 == null) {
-                    clsArr2 = Utils.f5437b;
+                    clsArr2 = Utils.f5463b;
                 }
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
                     if (!a(clsArr[i2], clsArr2[i2], z)) {
@@ -255,7 +255,7 @@ public class MemberUtils {
     public static Class<?> a(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f5433c.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f5459c.get(cls) : (Class) invokeL.objValue;
     }
 
     public static int a(Class<?>[] clsArr, Class<?>[] clsArr2, Class<?>[] clsArr3) {

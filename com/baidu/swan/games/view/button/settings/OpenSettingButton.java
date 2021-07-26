@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.g1.f;
-import d.a.n0.a.h;
-import d.a.n0.a.h0.g.g;
-import d.a.n0.a.z1.b.f.e;
+import d.a.o0.a.g1.f;
+import d.a.o0.a.h;
+import d.a.o0.a.h0.g.g;
+import d.a.o0.a.z1.b.f.e;
 /* loaded from: classes3.dex */
 public class OpenSettingButton extends ApiButton {
     public static /* synthetic */ Interceptable $ic;
@@ -55,7 +55,7 @@ public class OpenSettingButton extends ApiButton {
                 return;
             }
             g.b i2 = W.i("navigateTo");
-            i2.n(g.f44708g, g.f44710i);
+            i2.n(g.f45212g, g.f45214i);
             i2.k("authority", null).a();
         }
     }

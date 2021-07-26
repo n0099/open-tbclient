@@ -19,7 +19,7 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import d.a.v0.t.h;
+import d.a.w0.t.h;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;

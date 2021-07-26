@@ -11,31 +11,31 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f34303a;
+    public static final String f34492a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34304b;
+    public static final String f34493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34305c;
+    public static final String f34494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34306d;
+    public static final String f34495d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34307e;
+    public static final String f34496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34308f;
+    public static final String f34497f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34309g;
+    public static final String f34498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34310h;
+    public static final String f34499h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34311i;
+    public static final String f34500i;
     public static final String j;
     public static final String k;
     public static final String l;
@@ -56,19 +56,19 @@ public class a {
                 return;
             }
         }
-        f34303a = KsAdSDKImpl.get().getAppId() + "3.3.11";
-        f34304b = f34303a + "ACTION_DOWNLOAD_ONDOWNLOAD";
-        f34305c = f34303a + "ACTION_DOWNLOAD_ONPROGRESSUPDATE";
-        f34306d = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADFINISHED";
-        f34307e = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADFAILED";
-        f34308f = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADPAUSEED";
-        f34309g = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADRESUMEED";
-        f34310h = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADCANCELED";
-        f34311i = f34303a + "ACTION_DOWNLOAD_ONSTARTINSTALLAPK";
-        j = f34303a + "ACTION_DOWNLOAD_ONINSTALLINGAPK";
-        k = f34303a + "ACTION_DOWNLOAD_ONAPKINSTALLED";
-        l = f34303a + "ACTION_DOWNLOAD_ONAPKINSTALLFAILED";
-        m = f34303a + "ACTION_DOWNLOAD_ONLOWSTORAGE";
-        n = f34303a + "ACTION_DOWNLOAD_TO_CANCEL";
+        f34492a = KsAdSDKImpl.get().getAppId() + "3.3.11";
+        f34493b = f34492a + "ACTION_DOWNLOAD_ONDOWNLOAD";
+        f34494c = f34492a + "ACTION_DOWNLOAD_ONPROGRESSUPDATE";
+        f34495d = f34492a + "ACTION_DOWNLOAD_ONDOWNLOADFINISHED";
+        f34496e = f34492a + "ACTION_DOWNLOAD_ONDOWNLOADFAILED";
+        f34497f = f34492a + "ACTION_DOWNLOAD_ONDOWNLOADPAUSEED";
+        f34498g = f34492a + "ACTION_DOWNLOAD_ONDOWNLOADRESUMEED";
+        f34499h = f34492a + "ACTION_DOWNLOAD_ONDOWNLOADCANCELED";
+        f34500i = f34492a + "ACTION_DOWNLOAD_ONSTARTINSTALLAPK";
+        j = f34492a + "ACTION_DOWNLOAD_ONINSTALLINGAPK";
+        k = f34492a + "ACTION_DOWNLOAD_ONAPKINSTALLED";
+        l = f34492a + "ACTION_DOWNLOAD_ONAPKINSTALLFAILED";
+        m = f34492a + "ACTION_DOWNLOAD_ONLOWSTORAGE";
+        n = f34492a + "ACTION_DOWNLOAD_TO_CANCEL";
     }
 }

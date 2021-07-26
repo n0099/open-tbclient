@@ -15,7 +15,7 @@ public class h implements TTAdNative.RewardVideoAdListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TTAdNative.RewardVideoAdListener f29818a;
+    public TTAdNative.RewardVideoAdListener f29914a;
 
     public h(TTAdNative.RewardVideoAdListener rewardVideoAdListener) {
         Interceptable interceptable = $ic;
@@ -32,33 +32,33 @@ public class h implements TTAdNative.RewardVideoAdListener {
                 return;
             }
         }
-        this.f29818a = rewardVideoAdListener;
+        this.f29914a = rewardVideoAdListener;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener, com.bytedance.sdk.openadsdk.c.b
     public void onError(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.f29818a == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.f29914a == null) {
             return;
         }
         if (str == null) {
             str = "未知异常";
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f29818a.onError(i2, str);
+            this.f29914a.onError(i2, str);
         } else {
             l.d().post(new Runnable(this, i2, str) { // from class: com.bytedance.sdk.openadsdk.core.a.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f29819a;
+                public final /* synthetic */ int f29915a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f29820b;
+                public final /* synthetic */ String f29916b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ h f29821c;
+                public final /* synthetic */ h f29917c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -75,16 +75,16 @@ public class h implements TTAdNative.RewardVideoAdListener {
                             return;
                         }
                     }
-                    this.f29821c = this;
-                    this.f29819a = i2;
-                    this.f29820b = str;
+                    this.f29917c = this;
+                    this.f29915a = i2;
+                    this.f29916b = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29821c.f29818a.onError(this.f29819a, this.f29820b);
+                        this.f29917c.f29914a.onError(this.f29915a, this.f29916b);
                     }
                 }
             });
@@ -94,21 +94,21 @@ public class h implements TTAdNative.RewardVideoAdListener {
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
     public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) || this.f29818a == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) || this.f29914a == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f29818a.onRewardVideoAdLoad(tTRewardVideoAd);
+            this.f29914a.onRewardVideoAdLoad(tTRewardVideoAd);
         } else {
             l.d().post(new Runnable(this, tTRewardVideoAd) { // from class: com.bytedance.sdk.openadsdk.core.a.h.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTRewardVideoAd f29822a;
+                public final /* synthetic */ TTRewardVideoAd f29918a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ h f29823b;
+                public final /* synthetic */ h f29919b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -125,15 +125,15 @@ public class h implements TTAdNative.RewardVideoAdListener {
                             return;
                         }
                     }
-                    this.f29823b = this;
-                    this.f29822a = tTRewardVideoAd;
+                    this.f29919b = this;
+                    this.f29918a = tTRewardVideoAd;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29823b.f29818a.onRewardVideoAdLoad(this.f29822a);
+                        this.f29919b.f29914a.onRewardVideoAdLoad(this.f29918a);
                     }
                 }
             });
@@ -143,18 +143,18 @@ public class h implements TTAdNative.RewardVideoAdListener {
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
     public void onRewardVideoCached() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29818a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29914a == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f29818a.onRewardVideoCached();
+            this.f29914a.onRewardVideoCached();
         } else {
             l.d().post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.a.h.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f29824a;
+                public final /* synthetic */ h f29920a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -171,14 +171,14 @@ public class h implements TTAdNative.RewardVideoAdListener {
                             return;
                         }
                     }
-                    this.f29824a = this;
+                    this.f29920a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29824a.f29818a.onRewardVideoCached();
+                        this.f29920a.f29914a.onRewardVideoCached();
                     }
                 }
             });

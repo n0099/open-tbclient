@@ -11,6 +11,7 @@ import com.qq.e.ads.hybrid.HybridADListener;
 import com.qq.e.ads.hybrid.HybridADSetting;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
 import com.qq.e.ads.nativ.ADSize;
+import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 import com.qq.e.comm.adevent.ADListener;
 import java.util.HashMap;
 import org.json.JSONObject;
@@ -36,7 +37,7 @@ public interface InnerPOFactory {
 
     NEIADI getNativeExpressADDelegate2(Context context, String str, String str2, ADListener aDListener);
 
-    NEADVI getNativeExpressADView(NEADI neadi, Context context, ViewGroup viewGroup, ADSize aDSize, String str, String str2, JSONObject jSONObject, HashMap<String, Object> hashMap);
+    NEADVI getNativeExpressADView(NEADI neadi, NEADVI neadvi, NativeExpressADData2 nativeExpressADData2, Context context, ViewGroup viewGroup, ADSize aDSize, String str, String str2, JSONObject jSONObject, HashMap<String, Object> hashMap);
 
     NSPVI getNativeSplashAdView(Context context, String str, String str2);
 

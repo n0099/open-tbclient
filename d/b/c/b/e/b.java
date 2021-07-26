@@ -38,14 +38,14 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f68949c;
+    public static final String[] f69403c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68950a;
+    public Context f69404a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f68951b;
+    public JSONObject f69405b;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +60,7 @@ public final class b {
                 return;
             }
         }
-        f68949c = new String[]{"version_code", "manifest_version_code", "aid", "update_version_code"};
+        f69403c = new String[]{"version_code", "manifest_version_code", "aid", "update_version_code"};
     }
 
     public b(Context context) {
@@ -78,8 +78,8 @@ public final class b {
                 return;
             }
         }
-        this.f68951b = new JSONObject();
-        this.f68950a = context;
+        this.f69405b = new JSONObject();
+        this.f69404a = context;
     }
 
     public static b a(Context context) {
@@ -103,7 +103,7 @@ public final class b {
     public JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68951b : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69405b : (JSONObject) invokeV.objValue;
     }
 
     public JSONObject c(String str) {
@@ -111,11 +111,11 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
-                this.f68951b.put("device_id", str);
+                this.f69405b.put("device_id", str);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return this.f68951b;
+            return this.f69405b;
         }
         return (JSONObject) invokeL.objValue;
     }
@@ -126,30 +126,30 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
             if (map == null) {
-                return this.f68951b;
+                return this.f69405b;
             }
             for (Map.Entry<String, Object> entry : map.entrySet()) {
-                if (!this.f68951b.has(entry.getKey())) {
-                    this.f68951b.put(entry.getKey(), entry.getValue());
+                if (!this.f69405b.has(entry.getKey())) {
+                    this.f69405b.put(entry.getKey(), entry.getValue());
                 }
             }
-            for (String str : f68949c) {
+            for (String str : f69403c) {
                 if (map.containsKey(str)) {
                     try {
-                        this.f68951b.put(str, Integer.parseInt((String) map.get(str)));
+                        this.f69405b.put(str, Integer.parseInt((String) map.get(str)));
                     } catch (Exception unused) {
-                        this.f68951b.put(str, map.get(str));
+                        this.f69405b.put(str, map.get(str));
                     }
                 }
             }
             if (map.containsKey("version_code") && !map.containsKey("manifest_version_code")) {
-                this.f68951b.put("manifest_version_code", Integer.parseInt((String) map.get("version_code")));
+                this.f69405b.put("manifest_version_code", Integer.parseInt((String) map.get("version_code")));
             }
             if (map.containsKey(CommonUrlParamManager.PARAM_IID)) {
-                this.f68951b.put("udid", map.get(CommonUrlParamManager.PARAM_IID));
-                this.f68951b.remove(CommonUrlParamManager.PARAM_IID);
+                this.f69405b.put("udid", map.get(CommonUrlParamManager.PARAM_IID));
+                this.f69405b.remove(CommonUrlParamManager.PARAM_IID);
             }
-            return this.f68951b;
+            return this.f69405b;
         }
         return (JSONObject) invokeL.objValue;
     }
@@ -160,9 +160,9 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             try {
-                PackageInfo packageInfo = this.f68950a.getPackageManager().getPackageInfo(this.f68950a.getPackageName(), 0);
+                PackageInfo packageInfo = this.f69404a.getPackageManager().getPackageInfo(this.f69404a.getPackageName(), 0);
                 if (packageInfo.applicationInfo != null && (i2 = packageInfo.applicationInfo.labelRes) > 0) {
-                    jSONObject.put("display_name", this.f68950a.getString(i2));
+                    jSONObject.put("display_name", this.f69404a.getString(i2));
                 }
                 jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 120);
                 jSONObject.put(HttpConstants.SDK_VERSION_NAME, "0.0.1-alpha.0");
@@ -209,12 +209,12 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             try {
                 if (!TextUtils.isEmpty(str)) {
-                    this.f68951b.put("user_id", str);
+                    this.f69405b.put("user_id", str);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return this.f68951b;
+            return this.f69405b;
         }
         return (JSONObject) invokeL.objValue;
     }
@@ -257,7 +257,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
             try {
-                DisplayMetrics displayMetrics = this.f68950a.getResources().getDisplayMetrics();
+                DisplayMetrics displayMetrics = this.f69404a.getResources().getDisplayMetrics();
                 int i2 = displayMetrics.densityDpi;
                 String str = i2 != 120 ? i2 != 240 ? i2 != 320 ? "mdpi" : "xhdpi" : "hdpi" : "ldpi";
                 jSONObject.put("density_dpi", i2);
@@ -272,7 +272,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
             try {
-                String language = this.f68950a.getResources().getConfiguration().locale.getLanguage();
+                String language = this.f69404a.getResources().getConfiguration().locale.getLanguage();
                 if (!TextUtils.isEmpty(language)) {
                     jSONObject.put("language", language);
                 }
@@ -326,7 +326,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, jSONObject) == null) {
             try {
-                jSONObject.put("access", l.j.a(this.f68950a));
+                jSONObject.put("access", l.j.a(this.f69404a));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -337,7 +337,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
             try {
-                TelephonyManager telephonyManager = (TelephonyManager) this.f68950a.getSystemService("phone");
+                TelephonyManager telephonyManager = (TelephonyManager) this.f69404a.getSystemService("phone");
                 if (telephonyManager != null) {
                     String networkOperatorName = telephonyManager.getNetworkOperatorName();
                     if (!TextUtils.isEmpty(networkOperatorName)) {

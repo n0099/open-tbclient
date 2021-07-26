@@ -32,7 +32,7 @@ public final class e extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            File file = new File(a.a().c().getFilesDir(), (String) h.a(16777217, 0, 0L, "ad976f", new byte[]{62, 107, 89, 71, 8, Constants.SHORT_PING_CMD_TYPE, 99}));
+            File file = new File(a.c().a().getFilesDir(), (String) h.a(16777217, 0, 0L, "ad976f", new byte[]{62, 107, 89, 71, 8, Constants.SHORT_PING_CMD_TYPE, 99}));
             if (!file.exists()) {
                 file.mkdirs();
             }

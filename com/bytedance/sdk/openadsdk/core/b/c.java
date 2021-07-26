@@ -17,32 +17,32 @@ import com.bytedance.sdk.openadsdk.core.o;
 /* loaded from: classes5.dex */
 public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int B = 8;
+    public static int C = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f29850a;
+    public static float f29946a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f29851b;
+    public static float f29947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f29852c;
+    public static float f29948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f29853d;
+    public static float f29949d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f29854e;
+    public static long f29950e;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
-    public SparseArray<a> C;
-    public int s;
+    public int B;
+    public SparseArray<a> D;
     public int t;
     public int u;
     public int v;
-    public long w;
+    public int w;
     public long x;
-    public int y;
+    public long y;
     public int z;
 
     /* loaded from: classes5.dex */
@@ -51,16 +51,16 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f29855a;
+        public int f29951a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f29856b;
+        public double f29952b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f29857c;
+        public double f29953c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f29858d;
+        public long f29954d;
 
         public a(int i2, double d2, double d3, long j) {
             Interceptable interceptable = $ic;
@@ -77,11 +77,11 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                     return;
                 }
             }
-            this.f29855a = -1;
-            this.f29855a = i2;
-            this.f29856b = d2;
-            this.f29857c = d3;
-            this.f29858d = j;
+            this.f29951a = -1;
+            this.f29951a = i2;
+            this.f29952b = d2;
+            this.f29953c = d3;
+            this.f29954d = j;
         }
     }
 
@@ -99,13 +99,13 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
             }
         }
         if (ViewConfiguration.get(o.a()) != null) {
-            B = ViewConfiguration.get(o.a()).getScaledTouchSlop();
+            C = ViewConfiguration.get(o.a()).getScaledTouchSlop();
         }
-        f29850a = 0.0f;
-        f29851b = 0.0f;
-        f29852c = 0.0f;
-        f29853d = 0.0f;
-        f29854e = 0L;
+        f29946a = 0.0f;
+        f29947b = 0.0f;
+        f29948c = 0.0f;
+        f29949d = 0.0f;
+        f29950e = 0L;
     }
 
     public c() {
@@ -121,7 +121,7 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                 return;
             }
         }
-        this.C = new SparseArray<>();
+        this.D = new SparseArray<>();
     }
 
     public abstract void a(View view, int i2, int i3, int i4, int i5);
@@ -130,7 +130,7 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && g.a()) {
-            a(view, this.s, this.t, this.u, this.v);
+            a(view, this.t, this.u, this.v, this.w);
         }
     }
 
@@ -142,37 +142,37 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked == 0) {
-                this.s = (int) motionEvent.getRawX();
-                this.t = (int) motionEvent.getRawY();
-                this.w = System.currentTimeMillis();
-                this.y = motionEvent.getToolType(0);
-                this.z = motionEvent.getDeviceId();
-                this.A = motionEvent.getSource();
-                f29854e = System.currentTimeMillis();
+                this.t = (int) motionEvent.getRawX();
+                this.u = (int) motionEvent.getRawY();
+                this.x = System.currentTimeMillis();
+                this.z = motionEvent.getToolType(0);
+                this.A = motionEvent.getDeviceId();
+                this.B = motionEvent.getSource();
+                f29950e = System.currentTimeMillis();
                 i2 = 0;
             } else if (actionMasked == 1) {
-                this.u = (int) motionEvent.getRawX();
-                this.v = (int) motionEvent.getRawY();
-                this.x = System.currentTimeMillis();
+                this.v = (int) motionEvent.getRawX();
+                this.w = (int) motionEvent.getRawY();
+                this.y = System.currentTimeMillis();
                 i2 = 3;
             } else if (actionMasked != 2) {
                 i2 = actionMasked != 3 ? -1 : 4;
             } else {
-                f29852c += Math.abs(motionEvent.getX() - f29850a);
-                f29853d += Math.abs(motionEvent.getY() - f29851b);
-                f29850a = motionEvent.getX();
-                f29851b = motionEvent.getY();
-                if (System.currentTimeMillis() - f29854e > 200) {
-                    float f2 = f29852c;
-                    int i3 = B;
-                    if (f2 > i3 || f29853d > i3) {
+                f29948c += Math.abs(motionEvent.getX() - f29946a);
+                f29949d += Math.abs(motionEvent.getY() - f29947b);
+                f29946a = motionEvent.getX();
+                f29947b = motionEvent.getY();
+                if (System.currentTimeMillis() - f29950e > 200) {
+                    float f2 = f29948c;
+                    int i3 = C;
+                    if (f2 > i3 || f29949d > i3) {
                         i2 = 1;
                     }
                 }
                 i2 = 2;
             }
-            if (this.C.get(motionEvent.getActionMasked()) == null) {
-                this.C.put(motionEvent.getActionMasked(), new a(i2, motionEvent.getSize(), motionEvent.getPressure(), System.currentTimeMillis()));
+            if (this.D.get(motionEvent.getActionMasked()) == null) {
+                this.D.put(motionEvent.getActionMasked(), new a(i2, motionEvent.getSize(), motionEvent.getPressure(), System.currentTimeMillis()));
             }
             return false;
         }

@@ -28,7 +28,7 @@ public final class c extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SSLSocketFactory f68900a;
+    public SSLSocketFactory f69354a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -102,16 +102,16 @@ public final class c extends b {
             }
             try {
                 if (httpURLConnection instanceof HttpsURLConnection) {
-                    if (this.f68900a == null) {
+                    if (this.f69354a == null) {
                         synchronized (c.class) {
-                            if (this.f68900a == null) {
+                            if (this.f69354a == null) {
                                 SSLContext sSLContext = SSLContext.getInstance((String) h.a(16777217, 0, 0L, "5187f3", new byte[]{16, 31, 120}));
                                 sSLContext.init(null, null, null);
-                                this.f68900a = sSLContext.getSocketFactory();
+                                this.f69354a = sSLContext.getSocketFactory();
                             }
                         }
                     }
-                    ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(this.f68900a);
+                    ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(this.f69354a);
                 }
                 httpURLConnection.setConnectTimeout(10000);
                 httpURLConnection.setReadTimeout(5000);
@@ -150,7 +150,7 @@ public final class c extends b {
                         i2 = i3;
                         bufferedInputStream = null;
                         String str5 = (String) h.a(16777217, 0, 0L, "2852b4", new byte[]{48, 50, 69, 121, 85, 50});
-                        aVar.c(httpURLConnection == null ? httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "9f7bad", new byte[]{48, 41, 80, 2, 19, ByteCompanionObject.MAX_VALUE, 53, 64, 111, 54})) : null, i2);
+                        aVar.b(httpURLConnection == null ? httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "9f7bad", new byte[]{48, 41, 80, 2, 19, ByteCompanionObject.MAX_VALUE, 53, 64, 111, 54})) : null, i2);
                         c(bufferedInputStream);
                         d(dataOutputStream2);
                         if (httpURLConnection != null) {
@@ -163,7 +163,7 @@ public final class c extends b {
                 }
                 i2 = httpURLConnection.getResponseCode();
                 try {
-                    aVar.b(httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "3b0f90", new byte[]{58, UtilsBlink.VER_TYPE_SEPARATOR, 87, 6, 75, 43, 63, 68, 104, 50})), i2);
+                    aVar.c(httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "3b0f90", new byte[]{58, UtilsBlink.VER_TYPE_SEPARATOR, 87, 6, 75, 43, 63, 68, 104, 50})), i2);
                     if (i2 == 200) {
                         bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
                         try {
@@ -182,7 +182,7 @@ public final class c extends b {
                             bArr3 = byteArray;
                         } catch (Exception unused4) {
                             String str52 = (String) h.a(16777217, 0, 0L, "2852b4", new byte[]{48, 50, 69, 121, 85, 50});
-                            aVar.c(httpURLConnection == null ? httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "9f7bad", new byte[]{48, 41, 80, 2, 19, ByteCompanionObject.MAX_VALUE, 53, 64, 111, 54})) : null, i2);
+                            aVar.b(httpURLConnection == null ? httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "9f7bad", new byte[]{48, 41, 80, 2, 19, ByteCompanionObject.MAX_VALUE, 53, 64, 111, 54})) : null, i2);
                             c(bufferedInputStream);
                             d(dataOutputStream2);
                             if (httpURLConnection != null) {
@@ -207,7 +207,7 @@ public final class c extends b {
                     i2 = i3;
                     bufferedInputStream = null;
                     String str522 = (String) h.a(16777217, 0, 0L, "2852b4", new byte[]{48, 50, 69, 121, 85, 50});
-                    aVar.c(httpURLConnection == null ? httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "9f7bad", new byte[]{48, 41, 80, 2, 19, ByteCompanionObject.MAX_VALUE, 53, 64, 111, 54})) : null, i2);
+                    aVar.b(httpURLConnection == null ? httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "9f7bad", new byte[]{48, 41, 80, 2, 19, ByteCompanionObject.MAX_VALUE, 53, 64, 111, 54})) : null, i2);
                     c(bufferedInputStream);
                     d(dataOutputStream2);
                     if (httpURLConnection != null) {
@@ -225,7 +225,7 @@ public final class c extends b {
                 dataOutputStream2 = null;
                 bufferedInputStream = null;
                 String str5222 = (String) h.a(16777217, 0, 0L, "2852b4", new byte[]{48, 50, 69, 121, 85, 50});
-                aVar.c(httpURLConnection == null ? httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "9f7bad", new byte[]{48, 41, 80, 2, 19, ByteCompanionObject.MAX_VALUE, 53, 64, 111, 54})) : null, i2);
+                aVar.b(httpURLConnection == null ? httpURLConnection.getHeaderField((String) h.a(16777217, 0, 0L, "9f7bad", new byte[]{48, 41, 80, 2, 19, ByteCompanionObject.MAX_VALUE, 53, 64, 111, 54})) : null, i2);
                 c(bufferedInputStream);
                 d(dataOutputStream2);
                 if (httpURLConnection != null) {

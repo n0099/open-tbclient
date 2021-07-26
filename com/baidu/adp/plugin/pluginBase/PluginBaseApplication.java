@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.h.j.g.d;
+import d.a.d.h.j.g.d;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

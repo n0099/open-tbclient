@@ -14,7 +14,7 @@ public final class c implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f40752a;
+    public IBinder f41024a;
 
     public c(IBinder iBinder) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class c implements a {
                 return;
             }
         }
-        this.f40752a = iBinder;
+        this.f41024a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.j.a
@@ -43,7 +43,7 @@ public final class c implements a {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                this.f40752a.transact(3, obtain, obtain2, 0);
+                this.f41024a.transact(3, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -58,6 +58,6 @@ public final class c implements a {
     public final IBinder asBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40752a : (IBinder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41024a : (IBinder) invokeV.objValue;
     }
 }

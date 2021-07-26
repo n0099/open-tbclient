@@ -13,7 +13,7 @@ public class v implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ TextureMapView f7198a;
+    public final /* synthetic */ TextureMapView f7224a;
 
     public v(TextureMapView textureMapView) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class v implements View.OnClickListener {
                 return;
             }
         }
-        this.f7198a = textureMapView;
+        this.f7224a = textureMapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -40,18 +40,18 @@ public class v implements View.OnClickListener {
         ac acVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            acVar = this.f7198a.f7118b;
-            float f2 = acVar.b().f7708a;
-            acVar2 = this.f7198a.f7118b;
+            acVar = this.f7224a.f7144b;
+            float f2 = acVar.b().f7734a;
+            acVar2 = this.f7224a.f7144b;
             ab E = acVar2.b().E();
-            float f3 = E.f7661a + 1.0f;
-            E.f7661a = f3;
+            float f3 = E.f7687a + 1.0f;
+            E.f7687a = f3;
             if (f3 <= f2) {
                 f2 = f3;
             }
-            E.f7661a = f2;
+            E.f7687a = f2;
             BaiduMap.mapStatusReason |= 16;
-            acVar3 = this.f7198a.f7118b;
+            acVar3 = this.f7224a.f7144b;
             acVar3.b().a(E, 300);
         }
     }

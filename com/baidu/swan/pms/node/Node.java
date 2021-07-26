@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.n.j.d;
-import d.a.n0.n.j.e;
-import d.a.n0.n.j.j.c;
+import d.a.o0.n.j.d;
+import d.a.o0.n.j.e;
+import d.a.o0.n.j.j.c;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
 public final class Node {
@@ -44,10 +44,10 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", c.class, d.a.n0.n.j.j.d.class);
-        PACKAGE = new Node("PACKAGE", 1, AsInstallService.SCHEME_PACKAGE_ADDED, d.a.n0.n.j.k.d.class, d.a.n0.n.j.k.e.class, true);
-        CERES = new Node("CERES", 2, "ceres", d.a.n0.n.j.h.c.class, d.a.n0.n.j.h.d.class);
-        Node node = new Node("COMMON", 3, "common", d.a.n0.n.j.i.c.class, d.a.n0.n.j.i.d.class);
+        HOST = new Node("HOST", 0, "host", c.class, d.a.o0.n.j.j.d.class);
+        PACKAGE = new Node("PACKAGE", 1, AsInstallService.SCHEME_PACKAGE_ADDED, d.a.o0.n.j.k.d.class, d.a.o0.n.j.k.e.class, true);
+        CERES = new Node("CERES", 2, "ceres", d.a.o0.n.j.h.c.class, d.a.o0.n.j.h.d.class);
+        Node node = new Node("COMMON", 3, "common", d.a.o0.n.j.i.c.class, d.a.o0.n.j.i.d.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
     }
@@ -102,7 +102,7 @@ public final class Node {
             try {
                 return paramsProvider.newInstance();
             } catch (IllegalAccessException | InstantiationException e2) {
-                if (d.a.n0.n.c.f50608a) {
+                if (d.a.o0.n.c.f51112a) {
                     e2.printStackTrace();
                 }
                 return null;

@@ -21,13 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.c.k.e.n;
-import d.a.c.k.e.w;
-import d.a.p0.h2.h.h;
+import d.a.d.e.p.l;
+import d.a.q0.h2.h.h;
 import tbclient.Item;
 /* loaded from: classes4.dex */
-public class PbFirstFloorItemAdapter extends d.a.c.k.e.a<h, PbFirstFloorItemViewHolder> {
+public class PbFirstFloorItemAdapter extends d.a.d.k.e.a<h, PbFirstFloorItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener m;
@@ -38,16 +36,56 @@ public class PbFirstFloorItemAdapter extends d.a.c.k.e.a<h, PbFirstFloorItemView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f19482e;
+        public TextView f19575e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ItemCardView f19483f;
+        public ItemCardView f19576f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f19484g;
+        public View f19577g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PbFirstFloorItemAdapter f19485h;
+        public final /* synthetic */ PbFirstFloorItemAdapter f19578h;
+
+        /* loaded from: classes4.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ h f19579e;
+
+            public a(PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder, h hVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {pbFirstFloorItemViewHolder, hVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f19579e = hVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                    Item item = this.f19579e.f57452e;
+                    ItemClickJumpUtil.itemClickJump(item.forum_name, String.valueOf(item.item_id), 9, 9);
+                    StatisticItem statisticItem = new StatisticItem("c14071");
+                    statisticItem.param("tid", this.f19579e.f57453f);
+                    statisticItem.param("obj_locate", this.f19579e.f57452e.item_id.longValue());
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PbFirstFloorItemViewHolder(PbFirstFloorItemAdapter pbFirstFloorItemAdapter, View view) {
@@ -67,19 +105,19 @@ public class PbFirstFloorItemAdapter extends d.a.c.k.e.a<h, PbFirstFloorItemView
                     return;
                 }
             }
-            this.f19485h = pbFirstFloorItemAdapter;
+            this.f19578h = pbFirstFloorItemAdapter;
             ViewGroup viewGroup = (ViewGroup) view;
-            this.f19484g = viewGroup.getChildAt(0);
-            this.f19482e = (TextView) viewGroup.getChildAt(1);
-            this.f19483f = (ItemCardView) viewGroup.getChildAt(2);
+            this.f19577g = viewGroup.getChildAt(0);
+            this.f19575e = (TextView) viewGroup.getChildAt(1);
+            this.f19576f = (ItemCardView) viewGroup.getChildAt(2);
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setBackgroundColor(this.f19484g, R.color.CAM_X0203);
-                SkinManager.setViewTextColor(this.f19482e, R.color.CAM_X0109);
-                this.f19483f.b();
+                SkinManager.setBackgroundColor(this.f19577g, R.color.CAM_X0203);
+                SkinManager.setViewTextColor(this.f19575e, R.color.CAM_X0109);
+                this.f19576f.x();
             }
         }
 
@@ -87,11 +125,12 @@ public class PbFirstFloorItemAdapter extends d.a.c.k.e.a<h, PbFirstFloorItemView
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
                 if (hVar != null) {
-                    this.f19482e.setText(this.f19485h.f41837e.getText(R.string.related_recommendation));
-                    this.f19483f.setData(hVar.f56908e, 17);
+                    this.f19575e.setText(this.f19578h.f42341e.getText(R.string.related_recommendation));
+                    this.f19576f.setData(hVar.f57452e, 17, hVar.f57453f);
+                    this.f19576f.setOnClickListener(new a(this, hVar));
                 }
-                if (this.f19485h.m != null) {
-                    this.f19483f.setOnClickListenerOfRightBtn(this.f19485h.m);
+                if (this.f19578h.m != null) {
+                    this.f19576f.setOnClickListenerOfRightBtn(this.f19578h.m);
                 }
             }
         }
@@ -134,42 +173,6 @@ public class PbFirstFloorItemAdapter extends d.a.c.k.e.a<h, PbFirstFloorItemView
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements w {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(PbFirstFloorItemAdapter pbFirstFloorItemAdapter) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pbFirstFloorItemAdapter};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // d.a.c.k.e.w
-        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
-            h hVar;
-            Item item;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof h) && (item = (hVar = (h) nVar).f56908e) != null) {
-                ItemClickJumpUtil.itemClickJump(item.forum_name, String.valueOf(item.item_id), 9, 9);
-                StatisticItem statisticItem = new StatisticItem("c14071");
-                statisticItem.param("tid", hVar.f56909f);
-                statisticItem.param("obj_locate", hVar.f56908e.item_id.longValue());
-                TiebaStatic.log(statisticItem);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorItemAdapter(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -193,39 +196,39 @@ public class PbFirstFloorItemAdapter extends d.a.c.k.e.a<h, PbFirstFloorItemView
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // d.a.c.k.e.a
+    @Override // d.a.d.k.e.a
     public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, h hVar, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
         i0(i2, view, viewGroup, hVar, pbFirstFloorItemViewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: h0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: g0 */
     public PbFirstFloorItemViewHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f41837e);
+            LinearLayout linearLayout = new LinearLayout(this.f42341e);
             linearLayout.setOrientation(1);
             linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            int g2 = l.g(this.f41837e, R.dimen.M_W_X007);
-            int g3 = l.g(this.f41837e, R.dimen.T_X09);
-            int g4 = l.g(this.f41837e, R.dimen.M_H_X005);
-            int g5 = l.g(this.f41837e, R.dimen.M_H_X003);
-            View view = new View(this.f41837e);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, l.g(this.f41837e, R.dimen.tbds1));
+            int g2 = l.g(this.f42341e, R.dimen.M_W_X007);
+            int g3 = l.g(this.f42341e, R.dimen.T_X09);
+            int g4 = l.g(this.f42341e, R.dimen.M_H_X005);
+            int g5 = l.g(this.f42341e, R.dimen.M_H_X003);
+            View view = new View(this.f42341e);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, l.g(this.f42341e, R.dimen.tbds1));
             layoutParams.leftMargin = g2;
             layoutParams.rightMargin = g2;
             linearLayout.addView(view, layoutParams);
-            TextView textView = new TextView(this.f41837e);
+            TextView textView = new TextView(this.f42341e);
             textView.setTextSize(0, g3);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.leftMargin = g2;
             layoutParams2.topMargin = g4;
             layoutParams2.bottomMargin = g5;
             linearLayout.addView(textView, layoutParams2);
-            ItemCardView itemCardView = new ItemCardView(this.f41837e);
+            ItemCardView itemCardView = new ItemCardView(this.f42341e);
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
             layoutParams3.leftMargin = g2;
             layoutParams3.rightMargin = g2;
@@ -234,7 +237,6 @@ public class PbFirstFloorItemAdapter extends d.a.c.k.e.a<h, PbFirstFloorItemView
             linearLayout.addView(itemCardView, layoutParams3);
             itemCardView.setIsShowRightBtn(true);
             itemCardView.setOnClickListenerOfRightBtn(new a(this));
-            a0(new b(this));
             return new PbFirstFloorItemViewHolder(this, linearLayout);
         }
         return (PbFirstFloorItemViewHolder) invokeL.objValue;
@@ -244,13 +246,13 @@ public class PbFirstFloorItemAdapter extends d.a.c.k.e.a<h, PbFirstFloorItemView
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, hVar, pbFirstFloorItemViewHolder})) == null) {
-            if (hVar != null && hVar.f56908e != null) {
+            if (hVar != null && hVar.f57452e != null) {
                 pbFirstFloorItemViewHolder.c(hVar);
             }
             pbFirstFloorItemViewHolder.b();
             StatisticItem statisticItem = new StatisticItem("c14070");
-            statisticItem.param("tid", hVar.f56909f);
-            statisticItem.param("obj_locate", hVar.f56908e.item_id.longValue());
+            statisticItem.param("tid", hVar.f57453f);
+            statisticItem.param("obj_locate", hVar.f57452e.item_id.longValue());
             TiebaStatic.log(statisticItem);
             return view;
         }

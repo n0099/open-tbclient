@@ -10,15 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.e.g;
+import com.bytedance.sdk.component.d.g;
 import com.bytedance.sdk.component.net.NetResponse;
 import com.bytedance.sdk.component.net.executor.GetExecutor;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.e.v;
 import com.bytedance.sdk.openadsdk.core.h;
 import com.bytedance.sdk.openadsdk.core.j.i;
 import com.bytedance.sdk.openadsdk.core.o;
+import com.bytedance.sdk.openadsdk.q.q;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -31,11 +32,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f30941a;
+    public static volatile d f31118a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f30942b;
+    public AtomicBoolean f31119b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -50,14 +51,14 @@ public class d {
                 return;
             }
         }
-        this.f30942b = new AtomicBoolean(false);
+        this.f31119b = new AtomicBoolean(false);
     }
 
     private JSONObject c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
-            GetExecutor getExecutor = com.bytedance.sdk.openadsdk.l.e.b().c().getGetExecutor();
+            GetExecutor getExecutor = com.bytedance.sdk.openadsdk.k.d.b().c().getGetExecutor();
             getExecutor.setUrl(str);
             NetResponse execute = getExecutor.execute();
             if (execute != null) {
@@ -92,14 +93,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f30941a == null) {
+            if (f31118a == null) {
                 synchronized (d.class) {
-                    if (f30941a == null) {
-                        f30941a = new d();
+                    if (f31118a == null) {
+                        f31118a = new d();
                     }
                 }
             }
-            return f30941a;
+            return f31118a;
         }
         return (d) invokeV.objValue;
     }
@@ -133,10 +134,10 @@ public class d {
                 }
             }
             a(hashSet);
-            this.f30942b.set(false);
+            this.f31119b.set(false);
             return;
         }
-        j.b("TmplDiffManager", "end doCheckAndDeleteTask maxTplCnt,local size" + F + ", 目前存储的模版的个数 " + b2.size());
+        k.b("TmplDiffManager", "end doCheckAndDeleteTask maxTplCnt,local size" + F + ", 目前存储的模版的个数 " + b2.size());
     }
 
     public v a(String str) {
@@ -161,9 +162,9 @@ public class d {
         String c2 = mVar.P().c();
         String e2 = mVar.P().e();
         String a2 = mVar.P().a();
-        int d3 = com.bytedance.sdk.openadsdk.r.o.d(mVar.ao());
+        int d3 = q.d(mVar.ao());
         i e3 = i.a().a(b2).b(c2).c(d2).d(e2).e(a2);
-        j.b("TmplDiffManager", "从物料中获取模版信息进行保存 rit " + d3);
+        k.b("TmplDiffManager", "从物料中获取模版信息进行保存 rit " + d3);
         a(e3, d3 + "");
     }
 
@@ -177,7 +178,7 @@ public class d {
         String c2 = mVar.Q().c();
         String e2 = mVar.Q().e();
         String a2 = mVar.Q().a();
-        int d3 = com.bytedance.sdk.openadsdk.r.o.d(mVar.ao());
+        int d3 = q.d(mVar.ao());
         i e3 = i.a().a(b2).b(c2).c(d2).d(e2).e(a2);
         a(e3, d3 + "");
     }
@@ -186,45 +187,45 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, iVar, str) == null) {
             if (iVar == null) {
-                j.f("TmplDiffManager", "saveTemplate error: tplInfo == null");
+                k.f("TmplDiffManager", "saveTemplate error: tplInfo == null");
                 return;
             }
-            String str2 = iVar.f30315a;
-            String str3 = iVar.f30317c;
-            String str4 = iVar.f30316b;
-            String str5 = iVar.f30318d;
-            String str6 = iVar.f30319e;
+            String str2 = iVar.f30414a;
+            String str3 = iVar.f30416c;
+            String str4 = iVar.f30415b;
+            String str5 = iVar.f30417d;
+            String str6 = iVar.f30418e;
             if (TextUtils.isEmpty(str)) {
                 str = h.d().h();
             }
             String str7 = str;
             if (TextUtils.isEmpty(str2)) {
-                j.f("TmplDiffManager", "saveTemplate error:tmpId is empty");
+                k.f("TmplDiffManager", "saveTemplate error:tmpId is empty");
             } else {
-                com.bytedance.sdk.component.e.e.a(new g(this, "saveTemplate", str2, str3, str4, str5, str6, str7) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.d.1
+                com.bytedance.sdk.component.d.e.a(new g(this, "saveTemplate", str2, str3, str4, str5, str6, str7) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.d.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f30943a;
+                    public final /* synthetic */ String f31120a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f30944b;
+                    public final /* synthetic */ String f31121b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f30945c;
+                    public final /* synthetic */ String f31122c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f30946d;
+                    public final /* synthetic */ String f31123d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f30947e;
+                    public final /* synthetic */ String f31124e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ String f30948f;
+                    public final /* synthetic */ String f31125f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ d f30949g;
+                    public final /* synthetic */ d f31126g;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -244,20 +245,20 @@ public class d {
                                 return;
                             }
                         }
-                        this.f30949g = this;
-                        this.f30943a = str2;
-                        this.f30944b = str3;
-                        this.f30945c = str4;
-                        this.f30946d = str5;
-                        this.f30947e = str6;
-                        this.f30948f = str7;
+                        this.f31126g = this;
+                        this.f31120a = str2;
+                        this.f31121b = str3;
+                        this.f31122c = str4;
+                        this.f31123d = str5;
+                        this.f31124e = str6;
+                        this.f31125f = str7;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f30949g.a(this.f30943a, this.f30944b, this.f30945c, this.f30946d, this.f30947e, this.f30948f);
+                            this.f31126g.a(this.f31120a, this.f31121b, this.f31122c, this.f31123d, this.f31124e, this.f31125f);
                         }
                     }
                 }, 10);
@@ -291,7 +292,7 @@ public class d {
                     b(str6, str, str3, str2, str4, str5);
                 }
                 boolean b2 = f.b(str5);
-                if (!a.e() || b2) {
+                if (!a.f() || b2) {
                     b.a().a(true);
                 }
             }
@@ -325,7 +326,7 @@ public class d {
             try {
                 c.a().a(set);
             } catch (Throwable th) {
-                j.b("TmplDiffManager", th.getMessage());
+                k.b("TmplDiffManager", th.getMessage());
             }
         }
     }

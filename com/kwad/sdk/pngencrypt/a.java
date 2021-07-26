@@ -16,29 +16,29 @@ public class a implements Closeable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f35741a;
+    public static final /* synthetic */ boolean f35930a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public InputStream f35742b;
+    public InputStream f35931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f35743c;
+    public byte[] f35932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35744d;
+    public int f35933d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35745e;
+    public int f35934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35746f;
+    public boolean f35935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35747g;
+    public boolean f35936g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f35748h;
+    public long f35937h;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public class a implements Closeable {
                 return;
             }
         }
-        f35741a = !a.class.desiredAssertionStatus();
+        f35930a = !a.class.desiredAssertionStatus();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -92,11 +92,11 @@ public class a implements Closeable {
                 return;
             }
         }
-        this.f35746f = false;
-        this.f35747g = true;
-        this.f35748h = 0L;
-        this.f35742b = inputStream;
-        this.f35743c = new byte[i2 < 1 ? 16384 : i2];
+        this.f35935f = false;
+        this.f35936g = true;
+        this.f35937h = 0L;
+        this.f35931b = inputStream;
+        this.f35932c = new byte[i2 < 1 ? 16384 : i2];
     }
 
     public int a(f fVar) {
@@ -110,21 +110,21 @@ public class a implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, i2)) == null) {
             a();
-            if (i2 <= 0 || i2 >= this.f35744d) {
-                i2 = this.f35744d;
+            if (i2 <= 0 || i2 >= this.f35933d) {
+                i2 = this.f35933d;
             }
             if (i2 <= 0) {
-                if (!this.f35746f) {
+                if (!this.f35935f) {
                     com.kwad.sdk.core.d.a.a(new PngjException("This should not happen"));
                 }
                 return fVar.b() ? -1 : 0;
             }
-            int a2 = fVar.a(this.f35743c, this.f35745e, i2);
+            int a2 = fVar.a(this.f35932c, this.f35934e, i2);
             if (a2 > 0) {
-                this.f35745e += a2;
-                int i3 = this.f35744d - a2;
-                this.f35744d = i3;
-                if (!f35741a && i3 < 0) {
+                this.f35934e += a2;
+                int i3 = this.f35933d - a2;
+                this.f35933d = i3;
+                if (!f35930a && i3 < 0) {
                     throw new AssertionError();
                 }
             }
@@ -141,19 +141,19 @@ public class a implements Closeable {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f35744d > 0 || this.f35746f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f35933d > 0 || this.f35935f) {
             return;
         }
         try {
-            this.f35745e = 0;
-            int read = this.f35742b.read(this.f35743c);
-            this.f35744d = read;
+            this.f35934e = 0;
+            int read = this.f35931b.read(this.f35932c);
+            this.f35933d = read;
             if (read == 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("This should not happen: stream.read(buf) returned 0"));
             } else if (read < 0) {
                 close();
             } else {
-                this.f35748h += read;
+                this.f35937h += read;
             }
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.a(new PngjException(e2));
@@ -163,7 +163,7 @@ public class a implements Closeable {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f35747g = z;
+            this.f35936g = z;
         }
     }
 
@@ -179,7 +179,7 @@ public class a implements Closeable {
                 }
                 i3 -= a2;
             }
-            if (f35741a || i3 == 0) {
+            if (f35930a || i3 == 0) {
                 return i2;
             }
             throw new AssertionError();
@@ -191,18 +191,18 @@ public class a implements Closeable {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f35746f = true;
-            this.f35743c = null;
-            this.f35744d = 0;
-            this.f35745e = 0;
-            InputStream inputStream = this.f35742b;
-            if (inputStream != null && this.f35747g) {
+            this.f35935f = true;
+            this.f35932c = null;
+            this.f35933d = 0;
+            this.f35934e = 0;
+            InputStream inputStream = this.f35931b;
+            if (inputStream != null && this.f35936g) {
                 try {
                     inputStream.close();
                 } catch (Exception unused) {
                 }
             }
-            this.f35742b = null;
+            this.f35931b = null;
         }
     }
 }

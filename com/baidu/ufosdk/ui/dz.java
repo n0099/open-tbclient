@@ -12,7 +12,7 @@ public final class dz implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f23588a;
+    public final /* synthetic */ FeedbackReportActivity f23746a;
 
     public dz(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class dz implements View.OnClickListener {
                 return;
             }
         }
-        this.f23588a = feedbackReportActivity;
+        this.f23746a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,15 +37,15 @@ public final class dz implements View.OnClickListener {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f23588a.B;
+            z = this.f23746a.B;
             if (z) {
                 return;
             }
-            this.f23588a.f23418a = ((Integer) view.getTag()).intValue();
+            this.f23746a.f23576a = ((Integer) view.getTag()).intValue();
             if (Build.VERSION.SDK_INT >= 23) {
                 com.baidu.ufosdk.f.c.d(" CommonUtil.getAPILevel() >= 23 ");
             }
-            FeedbackReportActivity.D(this.f23588a);
+            FeedbackReportActivity.D(this.f23746a);
         }
     }
 }

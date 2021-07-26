@@ -10,7 +10,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f27526a;
+    public static final int f27684a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,6 +26,6 @@ public final class a {
                 return;
             }
         }
-        f27526a = com.baidu.webkit.logsdk.a.f27469a ? 3 : 20;
+        f27684a = com.baidu.webkit.logsdk.a.f27627a ? 3 : 20;
     }
 }

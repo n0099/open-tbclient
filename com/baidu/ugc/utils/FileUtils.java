@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.v0.t.b;
-import d.a.v0.t.c;
-import d.a.v0.t.w;
+import d.a.w0.t.b;
+import d.a.w0.t.c;
+import d.a.w0.t.w;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -399,7 +399,7 @@ public class FileUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            File file = new File(isSDMounted() ? d.a.v0.b.d().b().getExternalFilesDir(null) : null, FaceItem.DIR_UGC_DEFAULT);
+            File file = new File(isSDMounted() ? d.a.w0.b.d().b().getExternalFilesDir(null) : null, FaceItem.DIR_UGC_DEFAULT);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -494,8 +494,8 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) {
-            File file = new File(d.a.v0.b.d().a(), str);
-            return (file.exists() || file.mkdirs()) ? file : d.a.v0.b.d().b().getCacheDir();
+            File file = new File(d.a.w0.b.d().a(), str);
+            return (file.exists() || file.mkdirs()) ? file : d.a.w0.b.d().b().getCacheDir();
         }
         return (File) invokeL.objValue;
     }

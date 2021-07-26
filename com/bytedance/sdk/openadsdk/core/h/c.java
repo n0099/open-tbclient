@@ -8,7 +8,7 @@ import com.bytedance.sdk.component.utils.f;
 import java.io.File;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class c extends com.bytedance.sdk.openadsdk.d.c {
+public class c extends com.bytedance.sdk.openadsdk.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class c extends com.bytedance.sdk.openadsdk.d.c {
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.d.c, com.bytedance.sdk.openadsdk.d.b
+    @Override // com.bytedance.sdk.openadsdk.d.b, com.bytedance.sdk.openadsdk.d.a
     public void a(List<File> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {

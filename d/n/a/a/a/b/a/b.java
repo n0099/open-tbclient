@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yxcorp.kuaishou.addfp.a.b.a.c;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ a f72113e;
+    public /* synthetic */ a f72567e;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class b implements ServiceConnection {
                 return;
             }
         }
-        this.f72113e = aVar;
+        this.f72567e = aVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -44,18 +44,18 @@ public final class b implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
-                this.f72113e.f72109b = c.a(iBinder);
-                countDownLatch3 = this.f72113e.f72111d;
+                this.f72567e.f72563b = c.a(iBinder);
+                countDownLatch3 = this.f72567e.f72565d;
                 if (countDownLatch3 == null) {
                     return;
                 }
             } catch (Throwable unused) {
-                countDownLatch = this.f72113e.f72111d;
+                countDownLatch = this.f72567e.f72565d;
                 if (countDownLatch == null) {
                     return;
                 }
             }
-            countDownLatch2 = this.f72113e.f72111d;
+            countDownLatch2 = this.f72567e.f72565d;
             countDownLatch2.countDown();
         }
     }
@@ -64,7 +64,7 @@ public final class b implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f72113e.f72109b = null;
+            this.f72567e.f72563b = null;
         }
     }
 }

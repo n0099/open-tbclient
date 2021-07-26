@@ -20,19 +20,19 @@ public final class FileDataSource implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final p<? super FileDataSource> f32927a;
+    public final p<? super FileDataSource> f33116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RandomAccessFile f32928b;
+    public RandomAccessFile f33117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Uri f32929c;
+    public Uri f33118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f32930d;
+    public long f33119d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32931e;
+    public boolean f33120e;
 
     /* loaded from: classes5.dex */
     public static class FileDataSourceException extends IOException {
@@ -75,7 +75,7 @@ public final class FileDataSource implements e {
                 return;
             }
         }
-        this.f32927a = pVar;
+        this.f33116a = pVar;
     }
 
     @Override // d.f.b.a.h0.e
@@ -84,19 +84,19 @@ public final class FileDataSource implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             try {
-                this.f32929c = gVar.f70383a;
-                RandomAccessFile randomAccessFile = new RandomAccessFile(gVar.f70383a.getPath(), r.f7762a);
-                this.f32928b = randomAccessFile;
-                randomAccessFile.seek(gVar.f70386d);
-                long length = gVar.f70387e == -1 ? this.f32928b.length() - gVar.f70386d : gVar.f70387e;
-                this.f32930d = length;
+                this.f33118c = gVar.f70837a;
+                RandomAccessFile randomAccessFile = new RandomAccessFile(gVar.f70837a.getPath(), r.f7788a);
+                this.f33117b = randomAccessFile;
+                randomAccessFile.seek(gVar.f70840d);
+                long length = gVar.f70841e == -1 ? this.f33117b.length() - gVar.f70840d : gVar.f70841e;
+                this.f33119d = length;
                 if (length >= 0) {
-                    this.f32931e = true;
-                    p<? super FileDataSource> pVar = this.f32927a;
+                    this.f33120e = true;
+                    p<? super FileDataSource> pVar = this.f33116a;
                     if (pVar != null) {
                         pVar.d(this, gVar);
                     }
-                    return this.f32930d;
+                    return this.f33119d;
                 }
                 throw new EOFException();
             } catch (IOException e2) {
@@ -110,20 +110,20 @@ public final class FileDataSource implements e {
     public void close() throws FileDataSourceException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f32929c = null;
+            this.f33118c = null;
             try {
                 try {
-                    if (this.f32928b != null) {
-                        this.f32928b.close();
+                    if (this.f33117b != null) {
+                        this.f33117b.close();
                     }
                 } catch (IOException e2) {
                     throw new FileDataSourceException(e2);
                 }
             } finally {
-                this.f32928b = null;
-                if (this.f32931e) {
-                    this.f32931e = false;
-                    p<? super FileDataSource> pVar = this.f32927a;
+                this.f33117b = null;
+                if (this.f33120e) {
+                    this.f33120e = false;
+                    p<? super FileDataSource> pVar = this.f33116a;
                     if (pVar != null) {
                         pVar.b(this);
                     }
@@ -136,7 +136,7 @@ public final class FileDataSource implements e {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32929c : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33118c : (Uri) invokeV.objValue;
     }
 
     @Override // d.f.b.a.h0.e
@@ -147,15 +147,15 @@ public final class FileDataSource implements e {
             if (i3 == 0) {
                 return 0;
             }
-            long j = this.f32930d;
+            long j = this.f33119d;
             if (j == 0) {
                 return -1;
             }
             try {
-                int read = this.f32928b.read(bArr, i2, (int) Math.min(j, i3));
+                int read = this.f33117b.read(bArr, i2, (int) Math.min(j, i3));
                 if (read > 0) {
-                    this.f32930d -= read;
-                    p<? super FileDataSource> pVar = this.f32927a;
+                    this.f33119d -= read;
+                    p<? super FileDataSource> pVar = this.f33116a;
                     if (pVar != null) {
                         pVar.a(this, read);
                     }

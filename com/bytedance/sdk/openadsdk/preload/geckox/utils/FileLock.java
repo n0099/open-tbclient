@@ -19,14 +19,14 @@ public class FileLock {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f32270a;
+    public static final Map<String, Integer> f32471a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32271b;
+    public final int f32472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f32272c;
+    public final String f32473c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class FileLock {
                 return;
             }
         }
-        f32270a = new HashMap();
+        f32471a = new HashMap();
         g.a("file_lock_pg");
     }
 
@@ -60,8 +60,8 @@ public class FileLock {
                 return;
             }
         }
-        this.f32272c = str;
-        this.f32271b = i2;
+        this.f32473c = str;
+        this.f32472b = i2;
     }
 
     public static FileLock a(String str) {
@@ -119,12 +119,12 @@ public class FileLock {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            synchronized (f32270a) {
-                num = f32270a.get(str);
+            synchronized (f32471a) {
+                num = f32471a.get(str);
                 if (num == null) {
                     new File(str).getParentFile().mkdirs();
                     num = Integer.valueOf(nGetFD(str));
-                    f32270a.put(str, num);
+                    f32471a.put(str, num);
                 }
             }
             return num.intValue();
@@ -163,13 +163,13 @@ public class FileLock {
         Integer remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (f32270a) {
-                remove = f32270a.remove(this.f32272c);
+            synchronized (f32471a) {
+                remove = f32471a.remove(this.f32473c);
             }
             try {
                 nRelease(remove.intValue());
             } catch (Exception e2) {
-                throw new RuntimeException("release lock failed, file:" + this.f32272c + " caused by:" + e2.getMessage());
+                throw new RuntimeException("release lock failed, file:" + this.f32473c + " caused by:" + e2.getMessage());
             }
         }
     }
@@ -178,9 +178,9 @@ public class FileLock {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                nUnlockFile(this.f32271b);
+                nUnlockFile(this.f32472b);
             } catch (Exception unused) {
-                throw new RuntimeException("release lock failed，path:" + this.f32272c);
+                throw new RuntimeException("release lock failed，path:" + this.f32473c);
             }
         }
     }

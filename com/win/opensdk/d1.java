@@ -1,64 +1,65 @@
 package com.win.opensdk;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.util.cipher.Coder;
-import java.security.Key;
-import java.security.spec.AlgorithmParameterSpec;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
-import javax.crypto.spec.IvParameterSpec;
 /* loaded from: classes6.dex */
-public class d1 {
+public class d1 implements T0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AlgorithmParameterSpec f39565a;
+    public final /* synthetic */ e1 f39786a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Key f39566b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1639712094, "Lcom/win/opensdk/d1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1639712094, "Lcom/win/opensdk/d1;");
-        }
-    }
-
-    public d1(String str, String str2) {
+    public d1(e1 e1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {e1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        try {
-            this.f39565a = new IvParameterSpec(str2.getBytes("utf-8"));
-            this.f39566b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
-        } catch (Exception e2) {
-            throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e2);
+        this.f39786a = e1Var;
+    }
+
+    @Override // com.win.opensdk.T0
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.win.opensdk.T0
+    public void a(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+            f1 f1Var = this.f39786a.f39797a;
+            long currentTimeMillis = System.currentTimeMillis();
+            f1 f1Var2 = this.f39786a.f39797a;
+            f1Var.f39804c = currentTimeMillis - f1Var2.f39803b;
+            Z0.a(f1Var2.f39802a).a(i2, this.f39786a.f39797a.f39804c).a();
+        }
+    }
+
+    @Override // com.win.opensdk.T0
+    public void a(Object obj) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            f1 f1Var = this.f39786a.f39797a;
+            long currentTimeMillis = System.currentTimeMillis();
+            j = this.f39786a.f39797a.f39803b;
+            f1Var.f39804c = currentTimeMillis - j;
+            this.f39786a.f39797a.a((t1) obj);
         }
     }
 }

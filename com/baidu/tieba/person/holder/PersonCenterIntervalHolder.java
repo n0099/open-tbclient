@@ -13,10 +13,10 @@ public class PersonCenterIntervalHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19977a;
+    public int f20095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19978b;
+    public View f20096b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterIntervalHolder(View view) {
@@ -36,7 +36,7 @@ public class PersonCenterIntervalHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f19977a = -1;
-        this.f19978b = view.findViewById(R.id.person_center_interval_item);
+        this.f20095a = -1;
+        this.f20096b = view.findViewById(R.id.person_center_interval_item);
     }
 }

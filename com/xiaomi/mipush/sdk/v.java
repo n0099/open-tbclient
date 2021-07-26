@@ -13,7 +13,7 @@ public final class v implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f39821a;
+    public final /* synthetic */ Context f40093a;
 
     public v(Context context) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class v implements Runnable {
                 return;
             }
         }
-        this.f39821a = context;
+        this.f40093a = context;
     }
 
     @Override // java.lang.Runnable
@@ -38,10 +38,10 @@ public final class v implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                PackageInfo packageInfo = this.f39821a.getPackageManager().getPackageInfo(this.f39821a.getPackageName(), 4612);
-                u.c(this.f39821a);
-                u.d(this.f39821a, packageInfo);
-                u.c(this.f39821a, packageInfo);
+                PackageInfo packageInfo = this.f40093a.getPackageManager().getPackageInfo(this.f40093a.getPackageName(), 4612);
+                u.c(this.f40093a);
+                u.d(this.f40093a, packageInfo);
+                u.c(this.f40093a, packageInfo);
             } catch (Throwable th) {
                 Log.e("ManifestChecker", "", th);
             }

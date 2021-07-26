@@ -15,7 +15,7 @@ public final class o implements IPushClientFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ai f39192a;
+    public ai f39413a;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class o implements IPushClientFactory {
                 return;
             }
         }
-        this.f39192a = new ai();
+        this.f39413a = new ai();
     }
 
     @Override // com.vivo.push.IPushClientFactory

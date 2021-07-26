@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.u0.f1.c;
+import d.a.q0.u0.f1.c;
 /* loaded from: classes4.dex */
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.p0.u0.f1.a inviteLetter;
+    public d.a.q0.u0.f1.a inviteLetter;
     public View.OnClickListener onShareClickListener;
     public c thanksLetter;
 
@@ -25,7 +25,7 @@ public class AchievementActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AchievementActivity f15471e;
+        public final /* synthetic */ AchievementActivity f15519e;
 
         public a(AchievementActivity achievementActivity) {
             Interceptable interceptable = $ic;
@@ -42,15 +42,15 @@ public class AchievementActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f15471e = achievementActivity;
+            this.f15519e = achievementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15471e.thanksLetter.h(false);
-                this.f15471e.inviteLetter.h(true);
+                this.f15519e.thanksLetter.h(false);
+                this.f15519e.inviteLetter.h(true);
             }
         }
     }
@@ -108,7 +108,7 @@ public class AchievementActivity extends BaseActivity {
             this.thanksLetter = cVar;
             cVar.h(true);
             this.thanksLetter.j(this.onShareClickListener);
-            d.a.p0.u0.f1.a aVar = new d.a.p0.u0.f1.a(getPageContext(), findViewById(R.id.layout_invite_letter));
+            d.a.q0.u0.f1.a aVar = new d.a.q0.u0.f1.a(getPageContext(), findViewById(R.id.layout_invite_letter));
             this.inviteLetter = aVar;
             aVar.h(false);
         }

@@ -45,7 +45,7 @@ public abstract class n1<F, T> extends m1<F, T> implements ListIterator<T> {
     public final ListIterator<? extends F> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Iterators.d(this.f70870e) : (ListIterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Iterators.d(this.f71324e) : (ListIterator) invokeV.objValue;
     }
 
     @Override // java.util.ListIterator

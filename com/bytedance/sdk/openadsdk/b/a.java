@@ -11,18 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.e.g;
+import com.bytedance.sdk.component.d.e;
+import com.bytedance.sdk.component.d.g;
 import com.bytedance.sdk.component.net.NetResponse;
 import com.bytedance.sdk.component.net.callback.NetCallback;
 import com.bytedance.sdk.component.net.executor.NetExecutor;
 import com.bytedance.sdk.component.net.executor.PostExecutor;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.core.h;
 import com.bytedance.sdk.openadsdk.core.k.c;
-import com.bytedance.sdk.openadsdk.l.e;
-import com.bytedance.sdk.openadsdk.r.a;
-import com.bytedance.sdk.openadsdk.r.o;
+import com.bytedance.sdk.openadsdk.core.o;
+import com.bytedance.sdk.openadsdk.k.d;
+import com.bytedance.sdk.openadsdk.q.a;
+import com.bytedance.sdk.openadsdk.q.q;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -36,20 +38,20 @@ public class a implements a.b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f29259a = null;
+    public static volatile a f29359a = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f29260d = "com.bytedance.sdk.openadsdk.b.a";
+    public static final String f29360d = "com.bytedance.sdk.openadsdk.b.a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HashSet f29261e;
+    public static final HashSet f29361e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public CopyOnWriteArrayList<JSONObject> f29262b;
+    public CopyOnWriteArrayList<JSONObject> f29362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.r.a f29263c;
+    public com.bytedance.sdk.openadsdk.q.a f29363c;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +66,7 @@ public class a implements a.b {
                 return;
             }
         }
-        f29261e = new HashSet(Arrays.asList("dalvik.system.VMStack.getThreadStackTrace", "java.lang.Thread.getStackTrace", f29260d));
+        f29361e = new HashSet(Arrays.asList("dalvik.system.VMStack.getThreadStackTrace", "java.lang.Thread.getStackTrace", f29360d));
     }
 
     public a() {
@@ -80,9 +82,9 @@ public class a implements a.b {
                 return;
             }
         }
-        this.f29262b = new CopyOnWriteArrayList<>();
-        com.bytedance.sdk.openadsdk.r.a c2 = h.d().c();
-        this.f29263c = c2;
+        this.f29362b = new CopyOnWriteArrayList<>();
+        com.bytedance.sdk.openadsdk.q.a c2 = h.d().c();
+        this.f29363c = c2;
         if (c2 != null) {
             c2.a(this);
         }
@@ -93,11 +95,11 @@ public class a implements a.b {
     public void c() {
         CopyOnWriteArrayList<JSONObject> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (copyOnWriteArrayList = this.f29262b) == null || copyOnWriteArrayList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (copyOnWriteArrayList = this.f29362b) == null || copyOnWriteArrayList.size() <= 0) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
-        Iterator<JSONObject> it = this.f29262b.iterator();
+        Iterator<JSONObject> it = this.f29362b.iterator();
         while (it.hasNext()) {
             jSONArray.put(it.next());
         }
@@ -107,19 +109,19 @@ public class a implements a.b {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.f29262b.clear();
-        String m = o.m("/api/ad/union/sdk/callstack/batch/");
-        j.b("CallChainStatistic", "params:" + jSONObject);
+        this.f29362b.clear();
+        String l = q.l("/api/ad/union/sdk/callstack/batch/");
+        k.b("CallChainStatistic", "params:" + jSONObject);
         JSONObject a2 = com.bytedance.sdk.component.utils.a.a(jSONObject);
-        PostExecutor postExecutor = e.b().c().getPostExecutor();
-        postExecutor.setUrl(m);
+        PostExecutor postExecutor = d.b().c().getPostExecutor();
+        postExecutor.setUrl(l);
         postExecutor.setJson(a2.toString());
         postExecutor.enqueue(new NetCallback(this) { // from class: com.bytedance.sdk.openadsdk.b.a.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f29268a;
+            public final /* synthetic */ a f29368a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -136,14 +138,14 @@ public class a implements a.b {
                         return;
                     }
                 }
-                this.f29268a = this;
+                this.f29368a = this;
             }
 
             @Override // com.bytedance.sdk.component.net.callback.NetCallback
             public void onFailure(NetExecutor netExecutor, IOException iOException) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
-                    j.c("CallChainStatistic", iOException.getMessage());
+                    k.c("CallChainStatistic", iOException.getMessage());
                 }
             }
 
@@ -152,16 +154,16 @@ public class a implements a.b {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
                     if (netResponse != null) {
-                        j.b("CallChainStatistic", Boolean.valueOf(netResponse.isSuccess()), netResponse.getBody());
+                        k.b("CallChainStatistic", Boolean.valueOf(netResponse.isSuccess()), netResponse.getBody());
                     } else {
-                        j.c("CallChainStatistic", "NetResponse is null");
+                        k.c("CallChainStatistic", "NetResponse is null");
                     }
                 }
             }
         });
     }
 
-    @Override // com.bytedance.sdk.openadsdk.r.a.b
+    @Override // com.bytedance.sdk.openadsdk.q.a.b
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -173,14 +175,14 @@ public class a implements a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f29259a == null) {
+            if (f29359a == null) {
                 synchronized (a.class) {
-                    if (f29259a == null) {
-                        f29259a = new a();
+                    if (f29359a == null) {
+                        f29359a = new a();
                     }
                 }
             }
-            return f29259a;
+            return f29359a;
         }
         return (a) invokeV.objValue;
     }
@@ -204,21 +206,21 @@ public class a implements a.b {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && b.a()) {
-            com.bytedance.sdk.component.e.e.a(new g(this, "callChainStatistic", i2, str, Thread.currentThread().getStackTrace()) { // from class: com.bytedance.sdk.openadsdk.b.a.1
+            e.a(new g(this, "callChainStatistic", i2, str, Thread.currentThread().getStackTrace()) { // from class: com.bytedance.sdk.openadsdk.b.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f29264a;
+                public final /* synthetic */ int f29364a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f29265b;
+                public final /* synthetic */ String f29365b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ StackTraceElement[] f29266c;
+                public final /* synthetic */ StackTraceElement[] f29366c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f29267d;
+                public final /* synthetic */ a f29367d;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -238,21 +240,21 @@ public class a implements a.b {
                             return;
                         }
                     }
-                    this.f29267d = this;
-                    this.f29264a = i2;
-                    this.f29265b = str;
-                    this.f29266c = r11;
+                    this.f29367d = this;
+                    this.f29364a = i2;
+                    this.f29365b = str;
+                    this.f29366c = r11;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29267d.f29262b.add(this.f29267d.a(this.f29264a, this.f29265b, this.f29266c));
-                        if (this.f29267d.f29262b.size() < 3) {
+                        this.f29367d.f29362b.add(this.f29367d.a(this.f29364a, this.f29365b, this.f29366c));
+                        if (this.f29367d.f29362b.size() < 3) {
                             return;
                         }
-                        this.f29267d.c();
+                        this.f29367d.c();
                     }
                 }
             }, 1);
@@ -269,13 +271,13 @@ public class a implements a.b {
             try {
                 jSONObject.put("rit", str);
                 jSONObject.put("appid", h.d().h());
-                jSONObject.put("app_version", o.f());
-                jSONObject.put("ad_sdk_version", "3.6.1.3");
+                jSONObject.put("app_version", q.f());
+                jSONObject.put("ad_sdk_version", "3.7.0.3");
                 jSONObject.put("adtype", i2);
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 jSONObject.put("callstack", a(stackTraceElementArr));
                 jSONObject.put("type", "callstack");
-                jSONObject.put("device_info", c.e(com.bytedance.sdk.openadsdk.core.o.a()));
+                jSONObject.put("device_info", c.e(o.a()));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -291,7 +293,7 @@ public class a implements a.b {
             JSONArray jSONArray = new JSONArray();
             for (StackTraceElement stackTraceElement : stackTraceElementArr) {
                 if (stackTraceElement != null) {
-                    if (!f29261e.contains(stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName())) {
+                    if (!f29361e.contains(stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName())) {
                         String className = stackTraceElement.getClassName();
                         if (className != null && className.startsWith("android.app")) {
                             break;

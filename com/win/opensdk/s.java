@@ -3,24 +3,22 @@ package com.win.opensdk;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.activitys.H5Activity;
 /* loaded from: classes6.dex */
-public class s implements V1 {
+public class s implements PBInterstitialListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ H5Activity f39650a;
+    public final /* synthetic */ PBInterstitial f39931a;
 
-    public s(H5Activity h5Activity) {
+    public s(PBInterstitial pBInterstitial) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h5Activity};
+            Object[] objArr = {pBInterstitial};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -30,34 +28,66 @@ public class s implements V1 {
                 return;
             }
         }
-        this.f39650a = h5Activity;
+        this.f39931a = pBInterstitial;
     }
 
-    @Override // com.win.opensdk.V1
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        PBInterstitialListener pBInterstitialListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            H5Activity h5Activity = this.f39650a;
-            if (o1.a(h5Activity.f39537e, h5Activity.f39540h)) {
-                this.f39650a.f39540h = System.currentTimeMillis();
-                H5Activity h5Activity2 = this.f39650a;
-                o1.a(h5Activity2.f39533a, str, h5Activity2.f39537e, h5Activity2.f39541i, str2);
-                x0.a(this.f39650a.f39533a).a(new y0(this.f39650a.f39537e), str).a("desc", str2).a();
-                f1.a(this.f39650a.f39537e.getId() + this.f39650a.f39538f, "is_click", null);
-                z.a(this.f39650a.f39537e, str2);
-                return true;
-            }
-            return true;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBInterstitialListener = this.f39931a.f39631c) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        pBInterstitialListener.onClicked();
     }
 
-    @Override // com.win.opensdk.V1
-    public void a(String str) {
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        PBInterstitialListener pBInterstitialListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f39650a.f39539g = str;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) || (pBInterstitialListener = this.f39931a.f39631c) == null) {
+            return;
         }
+        pBInterstitialListener.onFail(pBError);
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialDismissed() {
+        PBInterstitialListener pBInterstitialListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pBInterstitialListener = this.f39931a.f39631c) == null) {
+            return;
+        }
+        pBInterstitialListener.onInterstitialDismissed();
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialDisplayed() {
+        PBInterstitialListener pBInterstitialListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBInterstitialListener = this.f39931a.f39631c) == null) {
+            return;
+        }
+        pBInterstitialListener.onInterstitialDisplayed();
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialShowFail(String str) {
+        PBInterstitialListener pBInterstitialListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (pBInterstitialListener = this.f39931a.f39631c) == null) {
+            return;
+        }
+        pBInterstitialListener.onInterstitialShowFail(str);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        PBInterstitialListener pBInterstitialListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (pBInterstitialListener = this.f39931a.f39631c) == null) {
+            return;
+        }
+        pBInterstitialListener.onLoaded();
     }
 }

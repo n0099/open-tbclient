@@ -1,52 +1,80 @@
 package a.a.a.a;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.SystemClock;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
 import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class l<K, V> {
+public class l {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<K, l<K, V>.a> f1075a;
+    public static final a f1075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c<?> f1076b;
+    public static long f1076b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static long f1077c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static long f1078d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static long f1079e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static long f1080f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static long f1081g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static long f1082h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static long f1083i;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1077a;
+        public long f1084a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f1078b;
+        public long f1085b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f1079c;
+        public long f1086c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f1080d;
+        public long f1087d;
 
         /* renamed from: e  reason: collision with root package name */
-        public FunAdInteractionListener f1081e;
+        public long f1088e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l f1082f;
+        public long f1089f;
 
-        public a(l lVar, String str, V v) {
+        /* renamed from: g  reason: collision with root package name */
+        public final Map<String, Long> f1090g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final Map<String, Long> f1091h;
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lVar, str, v};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -56,88 +84,42 @@ public class l<K, V> {
                     return;
                 }
             }
-            this.f1082f = lVar;
-            this.f1077a = str;
+            this.f1086c = -1L;
+            this.f1088e = -1L;
+            this.f1090g = new HashMap();
+            this.f1091h = new HashMap();
         }
     }
 
-    public l(c<?> cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1222022317, "La/a/a/a/l;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1222022317, "La/a/a/a/l;");
                 return;
             }
         }
-        this.f1075a = new HashMap<>();
-        this.f1076b = cVar;
+        f1075a = new a();
     }
 
-    public final void a(K k) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k) == null) {
-            synchronized (this.f1075a) {
-                this.f1075a.remove(k);
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            f1076b = System.currentTimeMillis();
+            f1080f = SystemClock.currentThreadTimeMillis();
         }
     }
 
-    public final void a(K k, String str, V v, FunAdInteractionListener funAdInteractionListener) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, str, v, funAdInteractionListener) == null) {
-            synchronized (this.f1075a) {
-                l<K, V>.a aVar = this.f1075a.get(k);
-                if (aVar == null) {
-                    aVar = new a(this, str, v);
-                    this.f1075a.put(k, aVar);
-                }
-                a.a.a.a.y.f.g.c.a(aVar.f1078b, aVar.f1082f.f1076b.f1017h.f1409a, "sh_start", new Object[0]);
-                aVar.f1078b = true;
-                aVar.f1081e = funAdInteractionListener;
-            }
-        }
-    }
-
-    public final void b(K k) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k) == null) {
-            synchronized (this.f1075a) {
-                l<K, V>.a aVar = this.f1075a.get(k);
-                if (aVar == null) {
-                    return;
-                }
-                aVar.f1082f.f1076b.f1017h.a(aVar.f1080d);
-                aVar.f1080d = true;
-                FunAdInteractionListener funAdInteractionListener = aVar.f1081e;
-                if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClicked(aVar.f1077a);
-                }
-            }
-        }
-    }
-
-    public final void c(K k) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, k) == null) {
-            synchronized (this.f1075a) {
-                l<K, V>.a aVar = this.f1075a.get(k);
-                if (aVar == null) {
-                    return;
-                }
-                aVar.f1082f.f1076b.f1017h.b(aVar.f1079c);
-                aVar.f1079c = true;
-                FunAdInteractionListener funAdInteractionListener = aVar.f1081e;
-                if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdShow(aVar.f1077a);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            f1079e = System.currentTimeMillis();
+            f1083i = SystemClock.currentThreadTimeMillis();
         }
     }
 }

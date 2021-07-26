@@ -17,10 +17,10 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f4738a;
+    public static SimpleDateFormat f4764a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4739b;
+    public static PackageManager f4765b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(long j) {
@@ -56,10 +56,10 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, date)) == null) {
-            if (f4738a == null) {
-                f4738a = new SimpleDateFormat("MM-dd HH:mm:ss");
+            if (f4764a == null) {
+                f4764a = new SimpleDateFormat("MM-dd HH:mm:ss");
             }
-            return f4738a.format(date);
+            return f4764a.format(date);
         }
         return (String) invokeL.objValue;
     }
@@ -92,10 +92,10 @@ public final class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            if (f4739b == null) {
-                f4739b = context.getPackageManager();
+            if (f4765b == null) {
+                f4765b = context.getPackageManager();
             }
-            return f4739b.checkPermission(str, context.getPackageName()) == 0;
+            return f4765b.checkPermission(str, context.getPackageName()) == 0;
         }
         return invokeLL.booleanValue;
     }

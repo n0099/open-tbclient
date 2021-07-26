@@ -17,25 +17,25 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Uri f70383a;
+    public final Uri f70837a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f70384b;
+    public final byte[] f70838b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f70385c;
+    public final long f70839c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f70386d;
+    public final long f70840d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f70387e;
+    public final long f70841e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f70388f;
+    public final String f70842f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f70389g;
+    public final int f70843g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g(Uri uri, int i2) {
@@ -61,14 +61,14 @@ public final class g {
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (this.f70389g & i2) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (this.f70843g & i2) == i2 : invokeI.booleanValue;
     }
 
     public g b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            long j2 = this.f70387e;
+            long j2 = this.f70841e;
             return c(j, j2 != -1 ? j2 - j : -1L);
         }
         return (g) invokeJ.objValue;
@@ -77,14 +77,14 @@ public final class g {
     public g c(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? (j == 0 && this.f70387e == j2) ? this : new g(this.f70383a, this.f70384b, this.f70385c + j, this.f70386d + j, j2, this.f70388f, this.f70389g) : (g) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? (j == 0 && this.f70841e == j2) ? this : new g(this.f70837a, this.f70838b, this.f70839c + j, this.f70840d + j, j2, this.f70842f, this.f70843g) : (g) invokeCommon.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "DataSpec[" + this.f70383a + StringUtil.ARRAY_ELEMENT_SEPARATOR + Arrays.toString(this.f70384b) + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70385c + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70386d + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70387e + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70388f + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70389g + PreferencesUtil.RIGHT_MOUNT;
+            return "DataSpec[" + this.f70837a + StringUtil.ARRAY_ELEMENT_SEPARATOR + Arrays.toString(this.f70838b) + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70839c + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70840d + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70841e + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70842f + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70843g + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }
@@ -174,12 +174,12 @@ public final class g {
             z = false;
         }
         d.f.b.a.i0.a.a(z);
-        this.f70383a = uri;
-        this.f70384b = bArr;
-        this.f70385c = j;
-        this.f70386d = j2;
-        this.f70387e = j3;
-        this.f70388f = str;
-        this.f70389g = i2;
+        this.f70837a = uri;
+        this.f70838b = bArr;
+        this.f70839c = j;
+        this.f70840d = j2;
+        this.f70841e = j3;
+        this.f70842f = str;
+        this.f70843g = i2;
     }
 }

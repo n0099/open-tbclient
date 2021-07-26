@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.so.SoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ public class dp extends dq {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39984a;
+    public String f40256a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dp(Context context, int i2, String str) {
@@ -39,17 +38,17 @@ public class dp extends dq {
                 return;
             }
         }
-        this.f39984a = str;
+        this.f40256a = str;
     }
 
     private String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (TextUtils.isEmpty(this.f39984a)) {
+            if (TextUtils.isEmpty(this.f40256a)) {
                 return null;
             }
-            String b2 = bj.b(this.f39984a);
+            String b2 = bj.b(this.f40256a);
             if (TextUtils.isEmpty(b2)) {
                 return null;
             }
@@ -71,7 +70,7 @@ public class dp extends dq {
     public String mo184a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? SoUtils.SO_EVENT_ID_DEFAULT : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "24" : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.dq

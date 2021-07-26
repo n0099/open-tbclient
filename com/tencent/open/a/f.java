@@ -1,10 +1,12 @@
 package com.tencent.open.a;
 
-import android.os.Environment;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,24 +14,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.a.d;
-import java.io.File;
+import com.tencent.open.log.SLog;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class f {
+public class f extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f38910a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final b f38911c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static boolean f38912d;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final String[] f39104a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f38913b;
+    public static f f39105b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
@@ -44,159 +48,325 @@ public class f {
                 return;
             }
         }
-        f38911c = new b(c(), c.m, c.f38903g, c.f38904h, c.f38899c, c.f38905i, 10, c.f38901e, c.n);
+        f39104a = new String[]{"key"};
     }
 
-    public f() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(Context context) {
+        super(context, "sdk_report.db", (SQLiteDatabase.CursorFactory) null, 2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f38913b = new a(f38911c);
     }
 
-    public static f a() {
+    public static synchronized f a() {
         InterceptResult invokeV;
+        f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f38910a == null) {
-                synchronized (f.class) {
-                    if (f38910a == null) {
-                        f38910a = new f();
-                        f38912d = true;
-                    }
+            synchronized (f.class) {
+                if (f39105b == null) {
+                    f39105b = new f(com.tencent.open.utils.f.a());
                 }
+                fVar = f39105b;
             }
-            return f38910a;
+            return fVar;
         }
         return (f) invokeV.objValue;
     }
 
-    public static final void b(String str, String str2) {
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0022, code lost:
+        if (r0 != null) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0024, code lost:
+        r0.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0032, code lost:
+        if (r0 == null) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0036, code lost:
+        return;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) {
-            a().a(2, str, str2, null);
-        }
-    }
-
-    public static final void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            a().a(4, str, str2, null);
-        }
-    }
-
-    public static final void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
-            a().a(8, str, str2, null);
-        }
-    }
-
-    public static final void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            a().a(16, str, str2, null);
-        }
-    }
-
-    public static final void b(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) {
-            a().a(16, str, str2, th);
-        }
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str = c.f38900d;
-            boolean z = false;
-            try {
-                d.c b2 = d.b.b();
-                if (b2 != null) {
-                    if (b2.c() > c.f38902f) {
-                        z = true;
-                    }
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            if (z) {
-                return new File(Environment.getExternalStorageDirectory(), str);
-            }
-            return new File(com.tencent.open.utils.e.c(), str);
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public void d() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f38913b) == null) {
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) {
             return;
         }
-        aVar.a();
-        this.f38913b.b();
-        this.f38913b = null;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            synchronized (f.class) {
-                a().d();
-                if (f38910a != null) {
-                    f38910a = null;
-                }
-            }
-        }
-    }
-
-    public void a(int i2, String str, String str2, Throwable th) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, th}) == null) {
-            if (f38912d) {
-                String b2 = com.tencent.open.utils.e.b();
-                if (!TextUtils.isEmpty(b2)) {
-                    String str3 = b2 + " SDK_VERSION:" + com.tencent.connect.common.Constants.SDK_VERSION;
-                    if (this.f38913b == null) {
-                        return;
-                    }
-                    e.f38909a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                    this.f38913b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                    f38912d = false;
-                }
-            }
-            e.f38909a.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-            if (!d.a.a(c.f38898b, i2) || (aVar = this.f38913b) == null) {
+        synchronized (this) {
+            if (TextUtils.isEmpty(str)) {
                 return;
             }
-            aVar.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+            SQLiteDatabase writableDatabase = getWritableDatabase();
+            if (writableDatabase == null) {
+                return;
+            }
+            try {
+                writableDatabase.delete("via_cgi_report", "type = ?", new String[]{str});
+            } catch (Exception e2) {
+                SLog.e("openSDK_LOG.ReportDatabaseHelper", "clearReportItem has exception.", e2);
+            }
         }
     }
 
-    public static final void a(String str, String str2) {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            a().a(1, str, str2, null);
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS via_cgi_report( _id INTEGER PRIMARY KEY,key TEXT,type TEXT,blob BLOB);");
         }
     }
 
-    public static final void a(String str, String str2, Throwable th) {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
-            a().a(2, str, str2, th);
+        if (interceptable == null || interceptable.invokeLII(1048580, this, sQLiteDatabase, i2, i3) == null) {
+            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS via_cgi_report");
+            onCreate(sQLiteDatabase);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x008e, code lost:
+        if (r1 == null) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0090, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x00a3, code lost:
+        if (r1 != null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x00a7, code lost:
+        return r0;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0079 A[Catch: all -> 0x0083, Exception -> 0x0086, TRY_ENTER, TryCatch #13 {Exception -> 0x0086, all -> 0x0083, blocks: (B:16:0x0034, B:18:0x003a, B:19:0x003d, B:22:0x0057, B:23:0x005a, B:39:0x0079, B:40:0x007c, B:30:0x0066, B:31:0x0069, B:32:0x006c, B:35:0x0070, B:36:0x0073), top: B:100:0x0034 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x008b A[Catch: all -> 0x00b3, TRY_ENTER, TryCatch #11 {, blocks: (B:5:0x0005, B:9:0x0016, B:48:0x008b, B:50:0x0090, B:63:0x00aa, B:65:0x00af, B:66:0x00b2, B:57:0x00a0), top: B:92:0x0005 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized List<Serializable> a(String str) {
+        InterceptResult invokeL;
+        ObjectInputStream objectInputStream;
+        Serializable serializable;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, str)) != null) {
+            return (List) invokeL.objValue;
+        }
+        synchronized (this) {
+            List<Serializable> synchronizedList = Collections.synchronizedList(new ArrayList());
+            if (TextUtils.isEmpty(str)) {
+                return synchronizedList;
+            }
+            SQLiteDatabase readableDatabase = getReadableDatabase();
+            if (readableDatabase == null) {
+                return synchronizedList;
+            }
+            Cursor cursor = null;
+            ObjectInputStream objectInputStream2 = null;
+            cursor = null;
+            try {
+                try {
+                    Cursor query = readableDatabase.query("via_cgi_report", null, "type = ?", new String[]{str}, null, null, null);
+                    if (query != null) {
+                        try {
+                            if (query.getCount() > 0) {
+                                query.moveToFirst();
+                                do {
+                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(query.getBlob(query.getColumnIndex("blob")));
+                                    try {
+                                        objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                                        try {
+                                            serializable = (Serializable) objectInputStream.readObject();
+                                            try {
+                                                objectInputStream.close();
+                                            } catch (IOException unused) {
+                                            }
+                                            try {
+                                                byteArrayInputStream.close();
+                                            } catch (IOException unused2) {
+                                            }
+                                        } catch (Exception unused3) {
+                                            if (objectInputStream != null) {
+                                                try {
+                                                    objectInputStream.close();
+                                                } catch (IOException unused4) {
+                                                }
+                                            }
+                                            try {
+                                                byteArrayInputStream.close();
+                                            } catch (IOException unused5) {
+                                            }
+                                            serializable = null;
+                                            if (serializable != null) {
+                                            }
+                                            if (!query.moveToNext()) {
+                                                if (query != null) {
+                                                }
+                                            }
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            objectInputStream2 = objectInputStream;
+                                            if (objectInputStream2 != null) {
+                                                try {
+                                                    objectInputStream2.close();
+                                                } catch (IOException unused6) {
+                                                }
+                                            }
+                                            try {
+                                                byteArrayInputStream.close();
+                                            } catch (IOException unused7) {
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Exception unused8) {
+                                        objectInputStream = null;
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                    }
+                                    if (serializable != null) {
+                                        synchronizedList.add(serializable);
+                                    }
+                                } while (!query.moveToNext());
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            cursor = query;
+                            SLog.e("openSDK_LOG.ReportDatabaseHelper", "getReportItemFromDB has exception.", e);
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            cursor = query;
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            if (readableDatabase != null) {
+                                readableDatabase.close();
+                            }
+                            throw th;
+                        }
+                    }
+                    if (query != null) {
+                        query.close();
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                }
+            } catch (Throwable th4) {
+                th = th4;
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x0084, code lost:
+        if (r1 != null) goto L67;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0086, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0096, code lost:
+        if (r1 == null) goto L68;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x009a, code lost:
+        return;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void a(String str, List<Serializable> list) {
+        ObjectOutputStream objectOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list) != null) {
+            return;
+        }
+        synchronized (this) {
+            int size = list.size();
+            if (size == 0) {
+                return;
+            }
+            if (size > 20) {
+                size = 20;
+            }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            b(str);
+            SQLiteDatabase writableDatabase = getWritableDatabase();
+            if (writableDatabase == null) {
+                return;
+            }
+            writableDatabase.beginTransaction();
+            try {
+                ContentValues contentValues = new ContentValues();
+                for (int i2 = 0; i2 < size; i2++) {
+                    Serializable serializable = list.get(i2);
+                    if (serializable != null) {
+                        contentValues.put("type", str);
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(512);
+                        ObjectOutputStream objectOutputStream2 = null;
+                        try {
+                            try {
+                                objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                            } catch (IOException unused) {
+                            }
+                            try {
+                                objectOutputStream.writeObject(serializable);
+                                objectOutputStream.close();
+                            } catch (IOException unused2) {
+                                if (objectOutputStream != null) {
+                                    objectOutputStream.close();
+                                }
+                                byteArrayOutputStream.close();
+                            } catch (Throwable th) {
+                                th = th;
+                                objectOutputStream2 = objectOutputStream;
+                                if (objectOutputStream2 != null) {
+                                    try {
+                                        objectOutputStream2.close();
+                                    } catch (IOException unused3) {
+                                    }
+                                }
+                                try {
+                                    byteArrayOutputStream.close();
+                                } catch (IOException unused4) {
+                                }
+                                throw th;
+                            }
+                        } catch (IOException unused5) {
+                            objectOutputStream = null;
+                        } catch (Throwable th2) {
+                            th = th2;
+                        }
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (IOException unused6) {
+                            contentValues.put("blob", byteArrayOutputStream.toByteArray());
+                            writableDatabase.insert("via_cgi_report", null, contentValues);
+                        }
+                    }
+                    contentValues.clear();
+                }
+                writableDatabase.setTransactionSuccessful();
+                writableDatabase.endTransaction();
+            } catch (Exception unused7) {
+                SLog.e("openSDK_LOG.ReportDatabaseHelper", "saveReportItemToDB has exception.");
+                writableDatabase.endTransaction();
+            }
         }
     }
 }

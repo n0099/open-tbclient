@@ -14,28 +14,28 @@ public abstract class c implements Loader.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.f.b.a.h0.g f69860a;
+    public final d.f.b.a.h0.g f70314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f69861b;
+    public final int f70315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Format f69862c;
+    public final Format f70316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f69863d;
+    public final int f70317d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f69864e;
+    public final Object f70318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f69865f;
+    public final long f70319f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f69866g;
+    public final long f70320g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.f.b.a.h0.e f69867h;
+    public final d.f.b.a.h0.e f70321h;
 
     public c(d.f.b.a.h0.e eVar, d.f.b.a.h0.g gVar, int i2, Format format, int i3, Object obj, long j, long j2) {
         Interceptable interceptable = $ic;
@@ -53,22 +53,22 @@ public abstract class c implements Loader.c {
             }
         }
         d.f.b.a.i0.a.e(eVar);
-        this.f69867h = eVar;
+        this.f70321h = eVar;
         d.f.b.a.i0.a.e(gVar);
-        this.f69860a = gVar;
-        this.f69861b = i2;
-        this.f69862c = format;
-        this.f69863d = i3;
-        this.f69864e = obj;
-        this.f69865f = j;
-        this.f69866g = j2;
+        this.f70314a = gVar;
+        this.f70315b = i2;
+        this.f70316c = format;
+        this.f70317d = i3;
+        this.f70318e = obj;
+        this.f70319f = j;
+        this.f70320g = j2;
     }
 
-    public abstract long d();
+    public abstract long c();
 
-    public final long e() {
+    public final long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69866g - this.f69865f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70320g - this.f70319f : invokeV.longValue;
     }
 }

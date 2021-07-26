@@ -9,33 +9,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.l.a.e.b.f.o;
+import d.l.a.e.b.f.p;
 import d.l.a.e.b.g.e;
 /* loaded from: classes8.dex */
-public class b extends o {
+public class b extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f71634b;
+    public Context f72088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f71635c;
+    public int f72089c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f71636d;
+    public String f72090d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f71637e;
+    public String f72091e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f71638f;
+    public String f72092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f71639g;
+    public String f72093g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.l.a.e.b.p.a f71640h;
+    public d.l.a.e.b.p.a f72094h;
 
     public b(Context context, int i2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class b extends o {
             }
         }
         if (context != null) {
-            this.f71634b = context.getApplicationContext();
+            this.f72088b = context.getApplicationContext();
         } else {
-            this.f71634b = e.n();
+            this.f72088b = e.n();
         }
-        this.f71635c = i2;
-        this.f71636d = str;
-        this.f71637e = str2;
-        this.f71638f = str3;
-        this.f71639g = str4;
+        this.f72089c = i2;
+        this.f72090d = str;
+        this.f72091e = str2;
+        this.f72092f = str3;
+        this.f72093g = str4;
     }
 
-    @Override // d.l.a.e.b.f.o, d.l.a.e.b.f.a, d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.p, d.l.a.e.b.f.a, d.l.a.e.b.f.c
     public void b(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || downloadInfo == null || downloadInfo.isAutoInstallWithoutNotification()) {
@@ -73,7 +73,7 @@ public class b extends o {
         super.b(downloadInfo);
     }
 
-    @Override // d.l.a.e.b.f.o, d.l.a.e.b.f.a, d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.p, d.l.a.e.b.f.a, d.l.a.e.b.f.c
     public void c(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) || downloadInfo == null || downloadInfo.isAutoInstallWithoutNotification()) {
@@ -82,10 +82,10 @@ public class b extends o {
         super.c(downloadInfo);
     }
 
-    @Override // d.l.a.e.b.f.o, d.l.a.e.b.f.a, d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.p, d.l.a.e.b.f.a, d.l.a.e.b.f.c
     public void f(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f71634b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f72088b == null) {
             return;
         }
         if (downloadInfo.canShowNotification() && (!downloadInfo.isAutoInstallWithoutNotification() || !downloadInfo.isAutoInstall())) {
@@ -96,7 +96,7 @@ public class b extends o {
         }
     }
 
-    @Override // d.l.a.e.b.f.o, d.l.a.e.b.f.a, d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.p, d.l.a.e.b.f.a, d.l.a.e.b.f.c
     public void g(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) || downloadInfo == null || downloadInfo.isAutoInstallWithoutNotification()) {
@@ -105,16 +105,16 @@ public class b extends o {
         super.g(downloadInfo);
     }
 
-    @Override // d.l.a.e.b.f.o, d.l.a.e.b.f.a, d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.p, d.l.a.e.b.f.a, d.l.a.e.b.f.c
     public void h(DownloadInfo downloadInfo, BaseException baseException) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, downloadInfo, baseException) == null) || downloadInfo == null || this.f71634b == null || !downloadInfo.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, downloadInfo, baseException) == null) || downloadInfo == null || this.f72088b == null || !downloadInfo.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification()) {
             return;
         }
         super.h(downloadInfo, baseException);
     }
 
-    @Override // d.l.a.e.b.f.o, d.l.a.e.b.f.a, d.l.a.e.b.f.b
+    @Override // d.l.a.e.b.f.p, d.l.a.e.b.f.a, d.l.a.e.b.f.c
     public void l(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) || downloadInfo == null || downloadInfo.isAutoInstallWithoutNotification()) {
@@ -123,16 +123,16 @@ public class b extends o {
         super.l(downloadInfo);
     }
 
-    @Override // d.l.a.e.b.f.o
+    @Override // d.l.a.e.b.f.p
     public d.l.a.e.b.p.a n() {
         InterceptResult invokeV;
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f71640h == null && (context = this.f71634b) != null) {
-                return new a(context, this.f71635c, this.f71636d, this.f71637e, this.f71638f, this.f71639g);
+            if (this.f72094h == null && (context = this.f72088b) != null) {
+                return new a(context, this.f72089c, this.f72090d, this.f72091e, this.f72092f, this.f72093g);
             }
-            return this.f71640h;
+            return this.f72094h;
         }
         return (d.l.a.e.b.p.a) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class b extends o {
                 return;
             }
         }
-        this.f71634b = e.n();
-        this.f71640h = aVar;
+        this.f72088b = e.n();
+        this.f72094h = aVar;
     }
 }

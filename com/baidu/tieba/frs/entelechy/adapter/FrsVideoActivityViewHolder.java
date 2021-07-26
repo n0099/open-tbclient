@@ -15,22 +15,22 @@ public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f15570a;
+    public TextView f15618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f15571b;
+    public ImageView f15619b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15572c;
+    public TextView f15620c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f15573d;
+    public ImageView f15621d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15574e;
+    public View f15622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f15575f;
+    public View f15623f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsVideoActivityViewHolder(View view) {
@@ -51,12 +51,12 @@ public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         if (view != null) {
-            this.f15570a = (TextView) view.findViewById(R.id.video_activity_item_title);
-            this.f15571b = (ImageView) view.findViewById(R.id.video_activity_item_tip);
-            this.f15572c = (TextView) view.findViewById(R.id.video_activity_item_type);
-            this.f15573d = (ImageView) view.findViewById(R.id.video_activity_item_more);
-            this.f15574e = view.findViewById(R.id.top_divider_line);
-            this.f15575f = view.findViewById(R.id.bottom_divider_line);
+            this.f15618a = (TextView) view.findViewById(R.id.video_activity_item_title);
+            this.f15619b = (ImageView) view.findViewById(R.id.video_activity_item_tip);
+            this.f15620c = (TextView) view.findViewById(R.id.video_activity_item_type);
+            this.f15621d = (ImageView) view.findViewById(R.id.video_activity_item_more);
+            this.f15622e = view.findViewById(R.id.top_divider_line);
+            this.f15623f = view.findViewById(R.id.bottom_divider_line);
         }
     }
 }

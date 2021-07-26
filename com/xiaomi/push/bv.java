@@ -14,7 +14,7 @@ public class bv extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f39911a;
+    public final /* synthetic */ bu f40183a;
 
     public bv(bu buVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class bv extends ai.a {
                 return;
             }
         }
-        this.f39911a = buVar;
+        this.f40183a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -50,12 +50,12 @@ public class bv extends ai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-            ckVar = this.f39911a.f163a;
+            ckVar = this.f40183a.f163a;
             if (ckVar != null) {
-                ckVar2 = this.f39911a.f163a;
-                context = this.f39911a.f160a;
+                ckVar2 = this.f40183a.f163a;
+                context = this.f40183a.f160a;
                 ckVar2.a(context);
-                this.f39911a.b("upload_time");
+                this.f40183a.b("upload_time");
             }
         }
     }

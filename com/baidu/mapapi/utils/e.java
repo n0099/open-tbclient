@@ -15,7 +15,7 @@ public class e extends b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f7510a;
+    public final /* synthetic */ d f7536a;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e extends b.a {
                 return;
             }
         }
-        this.f7510a = dVar;
+        this.f7536a = dVar;
     }
 
     @Override // com.baidu.mapframework.open.aidl.b
@@ -42,16 +42,16 @@ public class e extends b.a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iBinder) == null) {
-            str = b.f7502c;
+            str = b.f7528c;
             Log.d(str, "onClientReady");
-            iComOpenClient = b.f7504e;
+            iComOpenClient = b.f7530e;
             if (iComOpenClient != null) {
-                IComOpenClient unused = b.f7504e = null;
+                IComOpenClient unused = b.f7530e = null;
             }
-            IComOpenClient unused2 = b.f7504e = IComOpenClient.a.a(iBinder);
+            IComOpenClient unused2 = b.f7530e = IComOpenClient.a.a(iBinder);
             z = b.t;
             if (!z) {
-                b.a(b.f7500a);
+                b.a(b.f7526a);
             }
             boolean unused3 = b.t = true;
         }

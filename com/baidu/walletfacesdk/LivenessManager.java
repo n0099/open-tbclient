@@ -74,10 +74,10 @@ public class LivenessManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IvoiceListener f27374a;
+                public final /* synthetic */ IvoiceListener f27532a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f27375b;
+                public final /* synthetic */ LivenessManager f27533b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,8 +94,8 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f27375b = this;
-                    this.f27374a = ivoiceListener;
+                    this.f27533b = this;
+                    this.f27532a = ivoiceListener;
                 }
 
                 @Override // com.baidu.fsg.api.RimServiceCallback
@@ -104,11 +104,11 @@ public class LivenessManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, map2) == null) {
                         if (i2 == 0) {
-                            IvoiceListener ivoiceListener3 = this.f27374a;
+                            IvoiceListener ivoiceListener3 = this.f27532a;
                             if (ivoiceListener3 != null) {
-                                ivoiceListener3.onResult(0, 0, "ok", this.f27375b.toJSONObject(map2));
+                                ivoiceListener3.onResult(0, 0, "ok", this.f27533b.toJSONObject(map2));
                             }
-                        } else if (map2 == null || (ivoiceListener2 = this.f27374a) == null) {
+                        } else if (map2 == null || (ivoiceListener2 = this.f27532a) == null) {
                         } else {
                             ivoiceListener2.onResult(1, ((Integer) map2.get(BaiduRimConstants.RETCODE_KEY)).intValue(), (String) map2.get("retMsg"), null);
                         }
@@ -119,10 +119,10 @@ public class LivenessManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IvoiceListener f27376a;
+                public final /* synthetic */ IvoiceListener f27534a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f27377b;
+                public final /* synthetic */ LivenessManager f27535b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -139,8 +139,8 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f27377b = this;
-                    this.f27376a = ivoiceListener;
+                    this.f27535b = this;
+                    this.f27534a = ivoiceListener;
                 }
 
                 @Override // com.baidu.sapi2.openbduss.PASSMethodCallTransfer.DynamicCallbak
@@ -160,7 +160,7 @@ public class LivenessManager {
                             i3 = 10003;
                             str2 = "内部错误";
                         }
-                        this.f27376a.onResult(1, i3, str2, null);
+                        this.f27534a.onResult(1, i3, str2, null);
                     }
                 }
             }, Context.class, Map.class, RimServiceCallback.class);

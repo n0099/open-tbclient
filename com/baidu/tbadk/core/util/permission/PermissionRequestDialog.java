@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
-import d.a.c.a.f;
-import d.a.o0.r.s.a;
+import d.a.d.a.f;
+import d.a.p0.s.s.a;
 /* loaded from: classes3.dex */
 public class PermissionRequestDialog extends a {
     public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class PermissionRequestDialog extends a {
         }
     }
 
-    @Override // d.a.o0.r.s.a
+    @Override // d.a.p0.s.s.a
     public a create(f<?> fVar) {
         InterceptResult invokeL;
         char c2;

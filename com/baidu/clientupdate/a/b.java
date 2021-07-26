@@ -13,14 +13,14 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f4630b;
+    public static b f4656b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4631a;
+    public Context f4657a;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.clientupdate.download.a f4632c;
+    public com.baidu.clientupdate.download.a f4658c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,19 +52,19 @@ public final class b {
                 return;
             }
         }
-        this.f4631a = null;
-        this.f4631a = context.getApplicationContext();
-        this.f4632c = com.baidu.clientupdate.download.a.a(context);
+        this.f4657a = null;
+        this.f4657a = context.getApplicationContext();
+        this.f4658c = com.baidu.clientupdate.download.a.a(context);
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f4630b == null) {
-                f4630b = new b(context);
+            if (f4656b == null) {
+                f4656b = new b(context);
             }
-            return f4630b;
+            return f4656b;
         }
         return (b) invokeL.objValue;
     }
@@ -72,7 +72,7 @@ public final class b {
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-            new c(this, com.baidu.clientupdate.c.a.a(this.f4631a).a() + "/lcmanage/index.php?r=InstallAction&cv=1", bArr).start();
+            new c(this, com.baidu.clientupdate.c.a.a(this.f4657a).a() + "/lcmanage/index.php?r=InstallAction&cv=1", bArr).start();
         }
     }
 }

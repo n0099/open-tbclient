@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.h3.n0.c;
-import d.a.p0.i1.f.e;
-import d.a.p0.i1.f.k.a;
+import d.a.d.e.p.l;
+import d.a.q0.h3.n0.c;
+import d.a.q0.i1.f.e;
+import d.a.q0.i1.f.k.a;
 import java.net.URLDecoder;
 /* loaded from: classes4.dex */
 public class MsgPhotoLiveCardVew extends e {
@@ -56,7 +56,7 @@ public class MsgPhotoLiveCardVew extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgPhotoLiveCardVew f17449e;
+        public final /* synthetic */ MsgPhotoLiveCardVew f17505e;
 
         public a(MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             Interceptable interceptable = $ic;
@@ -73,20 +73,20 @@ public class MsgPhotoLiveCardVew extends e {
                     return;
                 }
             }
-            this.f17449e = msgPhotoLiveCardVew;
+            this.f17505e = msgPhotoLiveCardVew;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17449e.t <= 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17505e.t <= 0) {
                 return;
             }
             c photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
-            if (this.f17449e.v != 1) {
-                if (this.f17449e.v != 3) {
-                    if (this.f17449e.v != 4) {
-                        if (this.f17449e.v == 5) {
+            if (this.f17505e.v != 1) {
+                if (this.f17505e.v != 3) {
+                    if (this.f17505e.v != 4) {
+                        if (this.f17505e.v == 5) {
                             TiebaStatic.log(TbadkCoreStatisticKey.CHANDE_OLD_SUCCESS);
                         }
                     } else {
@@ -97,13 +97,13 @@ public class MsgPhotoLiveCardVew extends e {
                 }
             } else {
                 TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
-                if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.f17449e.t)) > 0) {
-                    MsgPhotoLiveCardVew msgPhotoLiveCardVew = this.f17449e;
+                if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.f17505e.t)) > 0) {
+                    MsgPhotoLiveCardVew msgPhotoLiveCardVew = this.f17505e;
                     msgPhotoLiveCardVew.u = photoLiveReadThreadHistory.f(String.valueOf(msgPhotoLiveCardVew.t));
                 }
             }
-            MsgPhotoLiveCardVew msgPhotoLiveCardVew2 = this.f17449e;
-            msgPhotoLiveCardVew2.N(msgPhotoLiveCardVew2.v);
+            MsgPhotoLiveCardVew msgPhotoLiveCardVew2 = this.f17505e;
+            msgPhotoLiveCardVew2.M(msgPhotoLiveCardVew2.v);
         }
     }
 
@@ -113,7 +113,7 @@ public class MsgPhotoLiveCardVew extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgPhotoLiveCardVew f17450e;
+        public final /* synthetic */ MsgPhotoLiveCardVew f17506e;
 
         public b(MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             Interceptable interceptable = $ic;
@@ -130,14 +130,14 @@ public class MsgPhotoLiveCardVew extends e {
                     return;
                 }
             }
-            this.f17450e = msgPhotoLiveCardVew;
+            this.f17506e = msgPhotoLiveCardVew;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17450e.L(view);
+                this.f17506e.L(view);
             }
         }
     }
@@ -208,7 +208,7 @@ public class MsgPhotoLiveCardVew extends e {
         }
     }
 
-    public final void N(int i2) {
+    public final void M(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 == 5 || i2 == 6) {
@@ -240,24 +240,24 @@ public class MsgPhotoLiveCardVew extends e {
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view) == null) || chatMessage == null) {
             return;
         }
-        a.C1460a a2 = d.a.p0.i1.f.k.a.a(chatMessage.getContent());
+        a.C1465a a2 = d.a.q0.i1.f.k.a.a(chatMessage.getContent());
         if (a2 == null) {
             this.t = 0L;
             return;
         }
-        this.t = a2.f58369f;
-        long j = a2.f58371h;
-        this.v = a2.f58372i;
+        this.t = a2.f58983f;
+        long j = a2.f58985h;
+        this.v = a2.f58986i;
         int i3 = a2.j;
         ViewGroup.LayoutParams layoutParams = this.D.getLayoutParams();
         int i4 = this.v;
         int i5 = -1;
         if (i4 == 1 || i4 == 6) {
             if (this.v == 1) {
-                decode = a2.f58370g;
+                decode = a2.f58984g;
                 i2 = R.string.look_live_thread;
             } else {
-                decode = URLDecoder.decode(a2.f58370g);
+                decode = URLDecoder.decode(a2.f58984g);
                 i2 = R.string.look_god_thread;
                 i5 = 0;
             }
@@ -266,27 +266,27 @@ public class MsgPhotoLiveCardVew extends e {
             this.D.setPadding(this.F, 0, 0, 0);
             this.x.setVisibility(0);
             this.x.setOnClickListener(new b(this));
-            this.x.setTag(a2.f58365b);
+            this.x.setTag(a2.f58979b);
             this.x.setGodIconMargin(i5);
             this.C.setVisibility(8);
             this.y.setVisibility(0);
-            this.y.setText(a2.f58366c);
-            this.A.setText(a2.f58368e);
+            this.y.setText(a2.f58980c);
+            this.A.setText(a2.f58982e);
             this.y.setTextSize(0, l.g(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
             this.E.setText(i2);
         } else if (i4 == 3) {
-            this.B.setText(a2.f58370g);
+            this.B.setText(a2.f58984g);
             layoutParams.height = l.g(TbadkCoreApplication.getInst(), R.dimen.ds80);
             this.D.setPadding(0, 0, 0, 0);
             this.x.setVisibility(8);
             this.C.setVisibility(0);
             this.y.setVisibility(8);
             this.C.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
-            String str = a2.f58368e;
+            String str = a2.f58982e;
             if (str != null && str.indexOf(String.valueOf(i3)) != -1) {
-                this.A.setText(J(a2.f58368e, i3));
+                this.A.setText(J(a2.f58982e, i3));
             } else {
-                this.A.setText(a2.f58368e);
+                this.A.setText(a2.f58982e);
             }
         } else {
             layoutParams.height = l.g(TbadkCoreApplication.getInst(), R.dimen.ds80);
@@ -294,22 +294,22 @@ public class MsgPhotoLiveCardVew extends e {
             this.x.setVisibility(8);
             this.C.setVisibility(0);
             this.y.setVisibility(8);
-            this.A.setText(a2.f58368e);
+            this.A.setText(a2.f58982e);
             int i6 = this.v;
             if (i6 == 4) {
-                this.B.setText(a2.f58370g);
+                this.B.setText(a2.f58984g);
                 this.C.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
             } else if (i6 == 5) {
-                this.B.setText(a2.f58370g);
+                this.B.setText(a2.f58984g);
                 this.E.setText(R.string.look_normal_thread);
                 this.C.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
             }
         }
-        if (!TextUtils.isEmpty(a2.f58364a)) {
-            this.x.M(a2.f58364a, 12, false);
+        if (!TextUtils.isEmpty(a2.f58978a)) {
+            this.x.M(a2.f58978a, 12, false);
         } else {
             this.x.M(null, 12, false);
         }
-        this.z.setText(StringHelper.getFormatTime(a2.f58367d));
+        this.z.setText(StringHelper.getFormatTime(a2.f58981d));
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r.g.b.b;
+import d.a.s.g.b.b;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class n {

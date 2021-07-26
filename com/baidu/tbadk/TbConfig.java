@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.a0.c;
+import d.a.d.e.p.l;
+import d.a.p0.b0.c;
 import java.util.HashSet;
 /* loaded from: classes3.dex */
 public class TbConfig {
@@ -530,6 +530,7 @@ public class TbConfig {
     public static String UPLOAD_IMG_URL = null;
     public static final String URL_ACTIVE_CONFIG = "c/s/activeConfig";
     public static final String URL_ADD_EXPERIENCED = "c/c/forum/share";
+    public static final String URL_AD_BILLING_LOG = "c/s/adNewLog";
     public static final String URL_ALA_LIVE_ROOM_CLOSED = "ala/live/mgetLiveStatus";
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
     public static final String URL_BACK_USER = "c/c/user/backUser";
@@ -877,7 +878,7 @@ public class TbConfig {
         VALUE_SUBPB_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X05);
         VALUE_SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X07);
         VALUE_SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X07);
-        VALUE_SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X08);
+        VALUE_SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X12);
         VALUE_SUBPB_EMOTION_SIZE_XLAGER = getDimens(R.dimen.tbds54);
         VALUE_SUBPB_EMOTION_SIZE_BIG = getDimens(R.dimen.tbds49);
         VALUE_SUBPB_EMOTION_SIZE_MID = getDimens(R.dimen.tbds49);

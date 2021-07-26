@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.s.d.d;
-import d.a.p0.i1.f.i.c;
+import d.a.p0.t.d.d;
+import d.a.q0.i1.f.i.c;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes4.dex */
 public class StrangerListAdapter extends c {
@@ -38,7 +38,7 @@ public class StrangerListAdapter extends c {
         }
     }
 
-    @Override // d.a.p0.i1.f.i.c
+    @Override // d.a.q0.i1.f.i.c
     public boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class StrangerListAdapter extends c {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.p0.i1.f.i.c
+    @Override // d.a.q0.i1.f.i.c
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -58,12 +58,12 @@ public class StrangerListAdapter extends c {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.p0.i1.f.i.c
+    @Override // d.a.q0.i1.f.i.c
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f58301b.setDrawBorder(true);
-            aVar.f58301b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            aVar.f58915b.setDrawBorder(true);
+            aVar.f58915b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
             if (TextUtils.isEmpty(friendBjhAvatar)) {
                 friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
@@ -71,11 +71,11 @@ public class StrangerListAdapter extends c {
             if (TextUtils.isEmpty(friendBjhAvatar)) {
                 return;
             }
-            aVar.f58301b.M(friendBjhAvatar, 12, false);
+            aVar.f58915b.M(friendBjhAvatar, 12, false);
         }
     }
 
-    @Override // d.a.p0.i1.f.i.c
+    @Override // d.a.q0.i1.f.i.c
     public BasicNameValuePair p(ImMessageCenterShowItemData imMessageCenterShowItemData, int i2, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;

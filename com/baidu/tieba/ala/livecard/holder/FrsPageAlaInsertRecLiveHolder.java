@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v.i.e.a;
+import d.a.q0.v.i.e.a;
 /* loaded from: classes4.dex */
 public class FrsPageAlaInsertRecLiveHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f14267a;
+    public a f14315a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaInsertRecLiveHolder(a aVar) {
@@ -33,6 +33,6 @@ public class FrsPageAlaInsertRecLiveHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14267a = aVar;
+        this.f14315a = aVar;
     }
 }

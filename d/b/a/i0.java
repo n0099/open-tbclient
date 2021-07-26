@@ -25,10 +25,10 @@ public class i0 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f68784a = null;
+    public static String f69238a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f68785b = ":push";
+    public static String f69239b = ":push";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -85,7 +85,7 @@ public class i0 {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0031, code lost:
-        d.b.a.i0.f68784a = r1.processName;
+        d.b.a.i0.f69238a = r1.processName;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -94,7 +94,7 @@ public class i0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String str = f68784a;
+            String str = f69238a;
             if (TextUtils.isEmpty(str)) {
                 try {
                     int myPid = Process.myPid();
@@ -111,11 +111,11 @@ public class i0 {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                f68784a = a();
-                if (h0.f68780b) {
-                    h0.a("getProcessName, " + f68784a, null);
+                f69238a = a();
+                if (h0.f69234b) {
+                    h0.a("getProcessName, " + f69238a, null);
                 }
-                return f68784a;
+                return f69238a;
             }
             return str;
         }
@@ -206,7 +206,7 @@ public class i0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             String b2 = b(context);
-            return b2 != null && b2.endsWith(f68785b);
+            return b2 != null && b2.endsWith(f69239b);
         }
         return invokeL.booleanValue;
     }

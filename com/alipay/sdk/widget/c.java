@@ -12,7 +12,7 @@ public class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f2025a;
+    public final /* synthetic */ a f2058a;
 
     public c(a aVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f2025a = aVar;
+        this.f2058a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -40,14 +40,14 @@ public class c implements Runnable {
         a.AlertDialogC0018a alertDialogC0018a3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            alertDialogC0018a = this.f2025a.f2018e;
+            alertDialogC0018a = this.f2058a.f2051e;
             if (alertDialogC0018a != null) {
-                alertDialogC0018a2 = this.f2025a.f2018e;
+                alertDialogC0018a2 = this.f2058a.f2051e;
                 if (alertDialogC0018a2.isShowing()) {
                     try {
-                        handler = this.f2025a.l;
+                        handler = this.f2058a.l;
                         handler.removeMessages(1);
-                        alertDialogC0018a3 = this.f2025a.f2018e;
+                        alertDialogC0018a3 = this.f2058a.f2051e;
                         alertDialogC0018a3.dismiss();
                     } catch (Exception e2) {
                         com.alipay.sdk.util.c.a(e2);

@@ -23,17 +23,17 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f69108a;
+    public HandlerThread f69562a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f69109b;
+    public Handler f69563b;
 
     /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f69110a;
+        public static d f69564a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public class d {
                     return;
                 }
             }
-            f69110a = new d(null);
+            f69564a = new d(null);
         }
     }
 
@@ -59,7 +59,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f69111a;
+        public final /* synthetic */ d f69565a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, Looper looper) {
@@ -79,7 +79,7 @@ public class d {
                     return;
                 }
             }
-            this.f69111a = dVar;
+            this.f69565a = dVar;
         }
 
         @Override // android.os.Handler
@@ -90,11 +90,11 @@ public class d {
             }
             int i2 = message.what;
             if (10000 == i2) {
-                this.f69111a.d((String) message.obj);
-                this.f69111a.f();
+                this.f69565a.d((String) message.obj);
+                this.f69565a.f();
             } else if (10001 == i2) {
-                this.f69111a.d("normal_log");
-                this.f69111a.f();
+                this.f69565a.d("normal_log");
+                this.f69565a.f();
             }
         }
     }
@@ -106,7 +106,7 @@ public class d {
     public static d h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f69110a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f69564a : (d) invokeV.objValue;
     }
 
     public void a() {
@@ -145,13 +145,13 @@ public class d {
                 return false;
             }
             h.b f2 = h.a().f(str);
-            if (f2.f69119a == 0 || TextUtils.isEmpty(f2.f69120b) || !e(f2.f69120b, null)) {
+            if (f2.f69573a == 0 || TextUtils.isEmpty(f2.f69574b) || !e(f2.f69574b, null)) {
                 return false;
             }
             if (str.equals("normal_log")) {
-                f.a().d(c2, e.e(f2.f69120b.getBytes(), false));
+                f.a().d(c2, e.e(f2.f69574b.getBytes(), false));
             }
-            i.a().b(str, f2.f69119a);
+            i.a().b(str, f2.f69573a);
             return true;
         }
         return invokeL.booleanValue;
@@ -194,12 +194,12 @@ public class d {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (c2 = d.d.a.a.a.c()) == null) {
             return;
         }
-        this.f69109b.removeMessages(10001);
+        this.f69563b.removeMessages(10001);
         int i2 = d.d.a.a.a.e().f().get3GSendingInterval();
         if (e.k(c2)) {
             i2 = d.d.a.a.a.e().f().getWifiSendingInterval();
         }
-        this.f69109b.sendEmptyMessageDelayed(10001, i2 * 60000);
+        this.f69563b.sendEmptyMessageDelayed(10001, i2 * 60000);
     }
 
     public final boolean g(Context context, String str) {
@@ -218,7 +218,7 @@ public class d {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f69109b.obtainMessage(10000, str).sendToTarget();
+            this.f69563b.obtainMessage(10000, str).sendToTarget();
         }
     }
 
@@ -236,8 +236,8 @@ public class d {
             }
         }
         HandlerThread handlerThread = new HandlerThread("SensorLogSenderThread");
-        this.f69108a = handlerThread;
+        this.f69562a = handlerThread;
         handlerThread.start();
-        this.f69109b = new b(this, this.f69108a.getLooper());
+        this.f69563b = new b(this, this.f69562a.getLooper());
     }
 }

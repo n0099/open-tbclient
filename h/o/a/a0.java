@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a0<T> implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.c<T> f72429e;
+    public final h.c<T> f72883e;
 
     public a0(h.c<T> cVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class a0<T> implements d.a<T> {
                 return;
             }
         }
-        this.f72429e = cVar;
+        this.f72883e = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public final class a0<T> implements d.a<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
             y yVar = new y(jVar);
             jVar.add(yVar);
-            this.f72429e.call(yVar);
+            this.f72883e.call(yVar);
         }
     }
 }

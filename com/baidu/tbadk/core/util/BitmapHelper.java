@@ -29,8 +29,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.m;
-import d.a.c.k.d.a;
+import d.a.d.e.p.m;
+import d.a.d.k.d.a;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -1348,7 +1348,7 @@ public class BitmapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65584, null, context, uri, i2)) == null) {
             try {
-                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7762a);
+                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7788a);
             } catch (Throwable unused) {
                 parcelFileDescriptor = null;
             }

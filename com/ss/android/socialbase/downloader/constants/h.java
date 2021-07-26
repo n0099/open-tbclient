@@ -13,19 +13,33 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f38478a;
+    public static final h f38655a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f38479b;
+    public static final h f38656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f38480c;
+    public static final h f38657c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f38481d;
+    public static final h f38658d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ h[] f38482e;
+    public static final h f38659e;
+    @Deprecated
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final h f38660f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final h f38661g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final h f38662h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final h f38663i;
+    public static final /* synthetic */ h[] j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,12 +55,17 @@ public final class h {
                 return;
             }
         }
-        f38478a = new h("DELAY_RETRY_NONE", 0);
-        f38479b = new h("DELAY_RETRY_WAITING", 1);
-        f38480c = new h("DELAY_RETRY_DOWNLOADING", 2);
-        h hVar = new h("DELAY_RETRY_DOWNLOADED", 3);
-        f38481d = hVar;
-        f38482e = new h[]{f38478a, f38479b, f38480c, hVar};
+        f38655a = new h("RUN_STATUS_NONE", 0);
+        f38656b = new h("RUN_STATUS_PAUSE", 1);
+        f38657c = new h("RUN_STATUS_CANCELED", 2);
+        f38658d = new h("RUN_STATUS_ERROR", 3);
+        f38659e = new h("RUN_STATUS_END_RIGHT_NOW", 4);
+        f38660f = new h("RUN_STATUS_RETRY_DELAY", 5);
+        f38661g = new h("RUN_STATUS_WAITING_ASYNC_HANDLER", 6);
+        f38662h = new h("RUN_STATUS_END_FOR_FILE_EXIST", 7);
+        h hVar = new h("RUN_STATUS_ALL_CHUNK_RETRY_WITH_RESET", 8);
+        f38663i = hVar;
+        j = new h[]{f38655a, f38656b, f38657c, f38658d, f38659e, f38660f, f38661g, f38662h, hVar};
     }
 
     public h(String str, int i2) {
@@ -77,6 +96,6 @@ public final class h {
     public static h[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f38482e.clone() : (h[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) j.clone() : (h[]) invokeV.objValue;
     }
 }

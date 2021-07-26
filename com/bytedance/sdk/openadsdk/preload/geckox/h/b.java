@@ -11,10 +11,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32223a;
+    public static boolean f32424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f32224b;
+    public static c f32425b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,20 +30,20 @@ public class b {
                 return;
             }
         }
-        f32224b = new a();
+        f32425b = new a();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            f32223a = true;
+            f32424a = true;
         }
     }
 
     public static void b(String str, String str2, Throwable th) {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f32223a && (cVar = f32224b) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f32424a && (cVar = f32425b) != null) {
             cVar.b(str, str2, th);
         }
     }
@@ -51,7 +51,7 @@ public class b {
     public static void a(String str, Object... objArr) {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f32223a && (cVar = f32224b) != null) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f32424a && (cVar = f32425b) != null) {
             cVar.a(str, objArr);
         }
     }
@@ -59,7 +59,7 @@ public class b {
     public static void a(String str, String str2, Throwable th) {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && f32223a && (cVar = f32224b) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && f32424a && (cVar = f32425b) != null) {
             cVar.a(str, str2, th);
         }
     }

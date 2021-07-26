@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a4.p.c;
+import d.a.q0.a4.p.c;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class CheckResponse extends JsonHttpResponsedMessage {
@@ -45,9 +45,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             }
             c cVar = new c();
             this.mCheckResponseData = cVar;
-            cVar.f54278a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f54280c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f54281d = jSONObject.optString("tbopen_app_icon");
+            cVar.f54822a = jSONObject.optString("tbopen_app_key");
+            this.mCheckResponseData.f54824c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.f54825d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
                 this.mCheckResponseData.j = optJSONObject.optString("default_pic");

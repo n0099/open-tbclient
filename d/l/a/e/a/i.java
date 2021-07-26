@@ -10,14 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ss.android.socialbase.downloader.constants.f;
+import com.ss.android.socialbase.downloader.constants.EnqueueType;
 import d.l.a.e.a.d;
-import d.l.a.e.b.f.q;
 import d.l.a.e.b.f.r;
-import d.l.a.e.b.f.t;
-import d.l.a.e.b.f.v;
+import d.l.a.e.b.f.s;
+import d.l.a.e.b.f.u;
+import d.l.a.e.b.f.w;
 import d.l.a.e.b.f.z;
-import d.l.a.e.b.g.s;
 import d.l.a.e.b.p.a;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,67 +34,67 @@ public class i {
     public boolean G;
     public boolean H;
     public boolean I;
-    public f J;
+    public EnqueueType J;
     public int K;
     public int L;
     public boolean M;
     public z N;
-    public r O;
+    public s O;
     public d.g P;
-    public v Q;
-    public t R;
+    public w Q;
+    public u R;
     public boolean S;
-    public d.l.a.e.b.f.i T;
+    public d.l.a.e.b.f.j T;
     public boolean U;
     public JSONObject V;
     public String W;
-    public List<q> X;
+    public List<r> X;
     public int Y;
     public long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f71676a;
+    public Activity f72130a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f71677b;
+    public Context f72131b;
     public boolean b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f71678c;
+    public String f72132c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f71679d;
+    public List<String> f72133d;
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f71680e;
+    public String f72134e;
     public String e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f71681f;
+    public String f72135f;
     public int[] f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f71682g;
+    public String f72136g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f71683h;
+    public List<com.ss.android.socialbase.downloader.model.c> f72137h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f71684i;
+    public boolean f72138i;
     public boolean j;
     public boolean k;
     public boolean l;
-    public d.l.a.e.b.f.b m;
-    public d.l.a.e.b.f.b n;
+    public d.l.a.e.b.f.c m;
+    public d.l.a.e.b.f.c n;
     public String o;
     public String p;
     public boolean q;
     public d.l.a.e.b.g.i r;
     public d.l.a.e.b.g.j s;
-    public s t;
+    public d.l.a.e.b.g.s t;
     public a u;
     public boolean v;
     public boolean w;
@@ -118,33 +117,33 @@ public class i {
                 return;
             }
         }
-        this.f71684i = true;
+        this.f72138i = true;
         this.j = false;
         this.k = true;
         this.l = false;
         this.p = "application/vnd.android.package-archive";
         this.B = 5;
         this.F = true;
-        this.J = f.f38470a;
+        this.J = EnqueueType.ENQUEUE_NONE;
         this.K = 150;
         this.M = true;
         this.X = new ArrayList();
         this.c0 = true;
         this.d0 = true;
-        this.f71677b = context.getApplicationContext();
-        this.f71678c = str;
+        this.f72131b = context.getApplicationContext();
+        this.f72132c = str;
     }
 
     public Activity A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71676a : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72130a : (Activity) invokeV.objValue;
     }
 
-    public d.l.a.e.b.f.b A0() {
+    public d.l.a.e.b.f.c A0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (d.l.a.e.b.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (d.l.a.e.b.f.c) invokeV.objValue;
     }
 
     public i B(long j) {
@@ -167,27 +166,27 @@ public class i {
         return (i) invokeZ.objValue;
     }
 
-    public i C(f fVar) {
+    public i C(EnqueueType enqueueType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fVar)) == null) {
-            this.J = fVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, enqueueType)) == null) {
+            this.J = enqueueType;
             return this;
         }
         return (i) invokeL.objValue;
     }
 
-    public d.l.a.e.b.f.b C0() {
+    public d.l.a.e.b.f.c C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.n : (d.l.a.e.b.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.n : (d.l.a.e.b.f.c) invokeV.objValue;
     }
 
-    public i D(d.l.a.e.b.f.b bVar) {
+    public i D(d.l.a.e.b.f.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
-            this.m = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cVar)) == null) {
+            this.m = cVar;
             return this;
         }
         return (i) invokeL.objValue;
@@ -203,14 +202,14 @@ public class i {
         return (i) invokeZ.objValue;
     }
 
-    public i E(q qVar) {
+    public i E(r rVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rVar)) == null) {
             synchronized (this.X) {
-                if (qVar != null) {
-                    if (!this.X.contains(qVar)) {
-                        this.X.add(qVar);
+                if (rVar != null) {
+                    if (!this.X.contains(rVar)) {
+                        this.X.add(rVar);
                         return this;
                     }
                 }
@@ -226,11 +225,11 @@ public class i {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.o : (String) invokeV.objValue;
     }
 
-    public i F(t tVar) {
+    public i F(u uVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, tVar)) == null) {
-            this.R = tVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, uVar)) == null) {
+            this.R = uVar;
             return this;
         }
         return (i) invokeL.objValue;
@@ -246,11 +245,11 @@ public class i {
         return (i) invokeZ.objValue;
     }
 
-    public i G(v vVar) {
+    public i G(w wVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, vVar)) == null) {
-            this.Q = vVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, wVar)) == null) {
+            this.Q = wVar;
             return this;
         }
         return (i) invokeL.objValue;
@@ -266,7 +265,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.f71680e = str;
+            this.f72134e = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -286,7 +285,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, list)) == null) {
-            this.f71683h = list;
+            this.f72137h = list;
             return this;
         }
         return (i) invokeL.objValue;
@@ -322,7 +321,7 @@ public class i {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048596, this, z)) == null) {
-            this.f71684i = z;
+            this.f72138i = z;
             return this;
         }
         return (i) invokeZ.objValue;
@@ -386,7 +385,7 @@ public class i {
     public List<String> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f71679d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f72133d : (List) invokeV.objValue;
     }
 
     public int P0() {
@@ -395,10 +394,10 @@ public class i {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.a0 : invokeV.intValue;
     }
 
-    public t Q() {
+    public u Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.R : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.R : (u) invokeV.objValue;
     }
 
     public String Q0() {
@@ -422,7 +421,7 @@ public class i {
     public Context S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f71677b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f72131b : (Context) invokeV.objValue;
     }
 
     public long S0() {
@@ -451,7 +450,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, str)) == null) {
-            this.f71681f = str;
+            this.f72135f = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -467,7 +466,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, list)) == null) {
-            this.f71679d = list;
+            this.f72133d = list;
             return this;
         }
         return (i) invokeL.objValue;
@@ -497,7 +496,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, str)) == null) {
-            this.f71682g = str;
+            this.f72136g = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -522,7 +521,7 @@ public class i {
     public String a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f71678c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f72132c : (String) invokeV.objValue;
     }
 
     public String b() {
@@ -573,16 +572,16 @@ public class i {
         return (i) invokeZ.objValue;
     }
 
-    public s e() {
+    public d.l.a.e.b.g.s e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.t : (s) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.t : (d.l.a.e.b.g.s) invokeV.objValue;
     }
 
     public String e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f71680e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f72134e : (String) invokeV.objValue;
     }
 
     public int f() {
@@ -642,7 +641,7 @@ public class i {
     public String i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.f71682g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.f72136g : (String) invokeV.objValue;
     }
 
     public boolean j() {
@@ -677,10 +676,10 @@ public class i {
         return (i) invokeL.objValue;
     }
 
-    public f l() {
+    public EnqueueType l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.J : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.J : (EnqueueType) invokeV.objValue;
     }
 
     public i l0(boolean z) {
@@ -702,13 +701,13 @@ public class i {
     public List<com.ss.android.socialbase.downloader.model.c> m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.f71683h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.f72137h : (List) invokeV.objValue;
     }
 
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) ? this.f71681f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) ? this.f72135f : (String) invokeV.objValue;
     }
 
     public i n0(String str) {
@@ -737,16 +736,16 @@ public class i {
         return (i) invokeZ.objValue;
     }
 
-    public r p() {
+    public s p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) ? this.O : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) ? this.O : (s) invokeV.objValue;
     }
 
     public boolean p0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.f71684i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.f72138i : invokeV.booleanValue;
     }
 
     public d.g q() {
@@ -765,10 +764,10 @@ public class i {
         return (i) invokeL.objValue;
     }
 
-    public v r() {
+    public w r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) ? this.Q : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) ? this.Q : (w) invokeV.objValue;
     }
 
     public i r0(boolean z) {
@@ -781,10 +780,10 @@ public class i {
         return (i) invokeZ.objValue;
     }
 
-    public d.l.a.e.b.f.i s() {
+    public d.l.a.e.b.f.j s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) ? this.T : (d.l.a.e.b.f.i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) ? this.T : (d.l.a.e.b.f.j) invokeV.objValue;
     }
 
     public boolean s0() {
@@ -793,7 +792,7 @@ public class i {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
-    public List<q> t() {
+    public List<r> t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) ? this.X : (List) invokeV.objValue;

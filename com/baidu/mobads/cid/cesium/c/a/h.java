@@ -13,7 +13,7 @@ public final class h implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8306a;
+    public int f8332a;
 
     public h(int i2) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class h implements i {
                 return;
             }
         }
-        this.f8306a = i2;
+        this.f8332a = i2;
     }
 
     @Override // com.baidu.mobads.cid.cesium.c.a.i
@@ -38,7 +38,7 @@ public final class h implements i {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int i3 = this.f8306a;
+            int i3 = this.f8332a;
             return i3 - (i2 % i3);
         }
         return invokeI.intValue;
@@ -71,7 +71,7 @@ public final class h implements i {
             int i5 = i3 + i2;
             int i6 = bArr[i5 - 1];
             int i7 = i6 & 255;
-            if (i7 < 1 || i7 > this.f8306a || (i4 = i5 - i7) < i2) {
+            if (i7 < 1 || i7 > this.f8332a || (i4 = i5 - i7) < i2) {
                 return -1;
             }
             for (int i8 = 0; i8 < i7; i8++) {

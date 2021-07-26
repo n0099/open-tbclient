@@ -25,7 +25,8 @@ public class y {
     public static boolean a(View view, int i2) {
         InterceptResult invokeLI;
         char c2;
-        boolean z;
+        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, view, i2)) == null) {
             if (view != null) {
@@ -35,60 +36,57 @@ public class y {
                         return false;
                     }
                     long height = rect.height() * rect.width();
-                    long height2 = view.getHeight() * view.getWidth();
-                    if (height2 <= 0 || height * 100 < i2 * height2) {
+                    j = view.getHeight() * view.getWidth();
+                    if (j <= 0) {
                         return false;
                     }
+                    j2 = height * 100;
                     c2 = '\'';
-                    z = true;
                 }
                 return false;
             }
             c2 = 'R';
-            z = false;
-            if (c2 == '\'') {
-                return z;
-            }
-            return false;
+            j = 94;
+            j2 = 85;
+            return c2 == '\'' && j2 >= ((long) i2) * j;
         }
         return invokeLI.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0020, code lost:
-        r1 = '[';
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x0013, code lost:
-        switch(r1) {
-            case 91: goto L29;
-            case 92: goto L19;
-            case 93: goto L19;
-            default: goto L17;
-        };
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static boolean a(View view, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, view, i2, i3)) == null) {
             while (true) {
-                char c2 = '^';
-                char c3 = 'K';
+                char c2 = ']';
+                char c3 = ']';
                 while (true) {
                     switch (c2) {
                         case '\\':
                             switch (c3) {
                             }
                         case ']':
+                            while (true) {
+                                switch (c3) {
+                                    case '[':
+                                    case ']':
+                                        break;
+                                    case '\\':
+                                        break;
+                                    default:
+                                        c3 = '[';
+                                }
+                            }
                             break;
                         case '^':
-                            c2 = ']';
-                            c3 = ']';
-                        default:
-                            c2 = ']';
-                            c3 = ']';
+                            if (c3 > 4) {
+                                break;
+                            } else {
+                                break;
+                            }
                     }
+                    c2 = '^';
+                    c3 = 'K';
                 }
             }
             try {
@@ -167,7 +165,7 @@ public class y {
                 }
                 return (int) d2;
             }
-            i3 = com.bytedance.sdk.openadsdk.r.q.c(view.getContext().getApplicationContext());
+            i3 = com.bytedance.sdk.openadsdk.q.s.c(view.getContext().getApplicationContext());
             d2 = i3 * 0.7d;
             c2 = 'I';
             c3 = '`';
@@ -220,15 +218,17 @@ public class y {
         return invokeLI.intValue;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x002d, code lost:
+        if (r1 == '\'') goto L9;
+     */
     /* JADX WARN: Removed duplicated region for block: B:11:0x0020  */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0023  */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0027  */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x002a  */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x0018 A[PHI: r4 
-      PHI: (r4v2 int) = (r4v1 int), (r4v3 int), (r4v3 int) binds: [B:7:0x0016, B:9:0x001c, B:12:0x0023] A[DONT_GENERATE, DONT_INLINE]] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x0020 -> B:18:0x002e). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x002c -> B:18:0x002e). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0027 A[FALL_THROUGH] */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x002b  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0033 A[FALL_THROUGH, PHI: r4 
+      PHI: (r4v6 int) = (r4v3 int), (r4v3 int), (r4v9 int) binds: [B:9:0x001c, B:15:0x0027, B:6:0x0009] A[DONT_GENERATE, DONT_INLINE]] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:15:0x0027 -> B:22:0x0033). Please submit an issue!!! */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:8:0x0018 -> B:9:0x001c). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:9:0x001c -> B:22:0x0033). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -239,51 +239,44 @@ public class y {
         char c3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, view, i2)) == null) {
-            if (i2 == 3) {
-                i3 = com.bytedance.sdk.openadsdk.r.q.d(view.getContext().getApplicationContext());
+            if (i2 != 3) {
+                i3 = 13;
                 c2 = '_';
                 c3 = '_';
                 switch (c2) {
-                    case '^':
-                        if (c3 != '\'') {
-                            return 20;
-                        }
-                        c2 = '_';
-                        c3 = '_';
-                        switch (c2) {
-                            case '_':
-                                switch (c3) {
-                                    case '^':
-                                    case '`':
-                                        c2 = '_';
-                                        c3 = '_';
-                                        switch (c2) {
-                                            case '`':
-                                                switch (c3) {
-                                                    case '7':
-                                                    case '9':
-                                                        return i3 / 2;
-                                                    case '8':
-                                                        c2 = '^';
-                                                        c3 = '}';
-                                                        switch (c2) {
-                                                        }
-                                                    default:
-                                                        return 20;
-                                                }
-                                        }
-                                }
-                        }
                 }
-            } else {
-                i3 = 13;
-                c2 = '^';
-                c3 = '}';
-                switch (c2) {
-                }
+                return i3 / 2;
             }
-        } else {
-            return invokeLI.intValue;
+            i3 = com.bytedance.sdk.openadsdk.q.s.d(view.getContext().getApplicationContext());
+            c2 = '^';
+            c3 = '}';
+            switch (c2) {
+                case '_':
+                    switch (c3) {
+                        case '^':
+                        case '`':
+                            c2 = '_';
+                            c3 = '_';
+                            switch (c2) {
+                                case '^':
+                                    break;
+                                case '_':
+                                    break;
+                                case '`':
+                                    switch (c3) {
+                                    }
+                                default:
+                                    c2 = '^';
+                                    c3 = '}';
+                                    switch (c2) {
+                                    }
+                            }
+                        case '_':
+                            return 20;
+                    }
+            }
+            return i3 / 2;
         }
+        return invokeLI.intValue;
     }
 }

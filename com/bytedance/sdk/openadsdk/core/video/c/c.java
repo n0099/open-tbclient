@@ -19,7 +19,7 @@ public interface c {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0343c {
+    public interface InterfaceC0345c {
         boolean a(c cVar, int i2, int i3);
     }
 
@@ -58,7 +58,7 @@ public interface c {
 
     void a(b bVar);
 
-    void a(InterfaceC0343c interfaceC0343c);
+    void a(InterfaceC0345c interfaceC0345c);
 
     void a(d dVar);
 
@@ -68,7 +68,7 @@ public interface c {
 
     void a(g gVar);
 
-    void a(com.bytedance.sdk.openadsdk.o.f.b bVar);
+    void a(com.bytedance.sdk.openadsdk.n.f.b bVar);
 
     void a(FileDescriptor fileDescriptor) throws Throwable;
 

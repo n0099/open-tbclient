@@ -167,7 +167,7 @@ public final class SysUtil {
                 }
                 throw new IOException("cannot list directory " + file);
             } else if (!file.getPath().endsWith("_lock")) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7762a);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7788a);
                 try {
                     randomAccessFile.getFD().sync();
                     randomAccessFile.close();

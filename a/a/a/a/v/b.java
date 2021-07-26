@@ -1,233 +1,126 @@
 package a.a.a.a.v;
 
-import a.a.a.a.v.c;
-import a.a.a.a.v.d;
-import a.a.a.a.v.e;
-import android.text.TextUtils;
-import androidx.annotation.VisibleForTesting;
+import android.content.SharedPreferences;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f1318a;
+    public static final Object f1395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1319b;
+    public static final SharedPreferences f1396b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public int f1320c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Set<e> f1321d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Set<d> f1322e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final Set<c> f1323f;
-
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1837085354, "La/a/a/a/v/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1837085354, "La/a/a/a/v/b;");
                 return;
             }
         }
-        this.f1321d = new HashSet();
-        this.f1322e = new HashSet();
-        this.f1323f = new HashSet();
+        f1395a = new Object();
+        f1396b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
     }
 
-    public static float a(float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? f2 < f3 ? f3 : f2 > f4 ? f4 : f2 : invokeCommon.floatValue;
-    }
-
-    public static int a(int i2, int i3) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
-            if (i2 < i3) {
-                return i3;
-            }
-            if (i2 > Integer.MAX_VALUE) {
-                return Integer.MAX_VALUE;
-            }
-            return i2;
-        }
-        return invokeII.intValue;
-    }
-
-    public static long a(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j < j2) {
-                return j2;
-            }
-            if (j > Long.MAX_VALUE) {
-                return Long.MAX_VALUE;
-            }
-            return j;
-        }
-        return invokeCommon.longValue;
-    }
-
-    public static long a(long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j < j2 ? j2 : j > j3 ? j3 : j : invokeCommon.longValue;
-    }
-
-    @VisibleForTesting
-    public boolean a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashSet hashSet = new HashSet();
-            HashSet hashSet2 = new HashSet();
-            for (e eVar : this.f1321d) {
-                if (hashSet.contains(eVar.f1342c)) {
-                    a.a.a.a.y.d.b("Duplicate ssp:type(%s) found.", eVar.f1342c);
-                    return false;
-                }
-                hashSet.add(eVar.f1342c);
-                for (e.a aVar : eVar.f1343d) {
-                    if (hashSet2.contains(Long.valueOf(aVar.f1344b))) {
-                        a.a.a.a.y.d.b("Duplicate pid(%d) found.", Long.valueOf(aVar.f1344b));
-                        return false;
-                    }
-                    hashSet2.add(Long.valueOf(aVar.f1344b));
-                }
-            }
-            HashSet hashSet3 = new HashSet();
-            for (d dVar : this.f1322e) {
-                if (hashSet3.contains(dVar.f1331b)) {
-                    a.a.a.a.y.d.b("Duplicate sid(%s) found in SlotId", dVar.f1331b);
-                    return false;
-                }
-                hashSet3.add(dVar.f1331b);
-                for (d.b bVar : dVar.f1334e) {
-                    HashSet hashSet4 = new HashSet();
-                    for (d.a aVar2 : bVar.f1340c) {
-                        if (!hashSet2.contains(Long.valueOf(aVar2.f1335b))) {
-                            a.a.a.a.y.d.b("Unregistered adId:(%d) in SlotId", Long.valueOf(aVar2.f1335b));
-                            return false;
-                        } else if (hashSet4.contains(Long.valueOf(aVar2.f1335b))) {
-                            a.a.a.a.y.d.b("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(aVar2.f1335b), dVar.f1331b);
-                            return false;
-                        } else {
-                            hashSet4.add(Long.valueOf(aVar2.f1335b));
-                        }
-                    }
-                }
-            }
-            if (this.f1320c == 2) {
-                for (c cVar : this.f1323f) {
-                    if (hashSet3.contains(cVar.f1324b)) {
-                        a.a.a.a.y.d.b("Duplicate sid(%s) found in SerialSlotId.", cVar.f1324b);
-                        return false;
-                    }
-                    hashSet3.add(cVar.f1324b);
-                    for (c.b bVar2 : cVar.f1325c) {
-                        for (c.a aVar3 : bVar2.f1330c) {
-                            if (!hashSet2.contains(Long.valueOf(aVar3.f1326b))) {
-                                a.a.a.a.y.d.b("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar3.f1326b));
-                                return false;
-                            }
-                        }
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f1396b.getInt("key_rpt_fai_c", 0) : invokeV.intValue;
     }
 
-    public boolean a(String str) {
+    public static void a(int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(65539, null, i2, i3, i4) == null) {
+            synchronized (f1395a) {
+                int c2 = c();
+                int d2 = d();
+                int b2 = b();
+                f1396b.edit().putInt("key_rpt_req_c", ((c2 - i2) - i3) - i4).putInt("key_rpt_fai_c", a() - i2).putInt("key_rpt_suc_c", d2 - i3).putInt("key_rpt_mis_c", b2 - i4).apply();
+            }
+        }
+    }
+
+    public static void a(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2) == null) {
+            f1396b.edit().putInt(str, i2).apply();
+        }
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f1396b.getInt("key_rpt_mis_c", 0) : invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f1396b.getInt("key_rpt_req_c", 0) : invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f1396b.getInt("key_rpt_suc_c", 0) : invokeV.intValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            synchronized (f1395a) {
+                a("key_rpt_req_c", c() + 1);
+            }
+        }
+    }
+
+    public static int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                b(str);
-                a.a.a.a.y.d.c("Config parsed over.", new Object[0]);
-                if (a()) {
-                    a.a.a.a.y.b.a(this.f1318a, this.f1319b, this.f1320c, new a(this.f1321d, this.f1322e, this.f1323f));
-                    a.a.a.a.y.d.c("Config persisted over.", new Object[0]);
-                    return true;
-                }
-            } catch (JSONException e2) {
-                a.a.a.a.y.d.a(e2);
-            }
-            this.f1321d.clear();
-            this.f1322e.clear();
-            this.f1323f.clear();
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return f1396b.getInt("key_sid_c_pre_" + str, 0);
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    @VisibleForTesting
-    public void b(String str) {
-        JSONArray optJSONArray;
+    public static void a(long j, int i2, int i3, a.a.a.a.s.a aVar) {
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
-            this.f1318a = a(jSONObject2.getLong("ver"), 0L);
-            int i2 = jSONObject2.getInt("interval");
-            if (i2 < 1) {
-                i2 = 1;
-            } else if (i2 > 1440) {
-                i2 = 1440;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), aVar}) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                objectOutputStream.writeInt(aVar.f1375a);
+                aVar.a(objectOutputStream);
+                objectOutputStream.flush();
+                bArr = byteArrayOutputStream.toByteArray();
+            } catch (IOException unused) {
+                bArr = null;
             }
-            this.f1319b = i2;
-            this.f1320c = a(jSONObject2.optInt("V", 1), 1);
-            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
-            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
-            HashMap hashMap = new HashMap();
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                e eVar = new e(jSONArray.getJSONObject(i3));
-                for (e.a aVar : eVar.f1343d) {
-                    hashMap.put(Long.valueOf(aVar.f1344b), aVar);
-                }
-                this.f1321d.add(eVar);
-            }
-            JSONArray jSONArray2 = jSONObject3.getJSONArray("sids");
-            for (int i4 = 0; i4 < jSONArray2.length(); i4++) {
-                this.f1322e.add(new d(jSONArray2.getJSONObject(i4), hashMap));
-            }
-            if (this.f1320c != 2 || (optJSONArray = jSONObject3.optJSONArray("serialSids")) == null) {
-                return;
-            }
-            for (int i5 = 0; i5 < optJSONArray.length(); i5++) {
-                this.f1323f.add(new c(optJSONArray.getJSONObject(i5), hashMap));
-            }
+            String encodeToString = bArr != null ? Base64.encodeToString(bArr, 0) : null;
+            Object[] objArr = new Object[1];
+            objArr[0] = Integer.valueOf(encodeToString == null ? -1 : encodeToString.length());
+            d.c("sspsUTF len:%d", objArr);
+            f1396b.edit().putLong("key_config_v", j).putInt("key_config_interval", i2).putInt("key_V", i3).putString("key_adcfg", encodeToString).apply();
         }
     }
 }

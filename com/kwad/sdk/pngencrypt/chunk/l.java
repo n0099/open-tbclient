@@ -11,7 +11,7 @@ public class l extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f35813h;
+    public double f36002h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(com.kwad.sdk.pngencrypt.k kVar) {
@@ -38,8 +38,8 @@ public class l extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f35789a == 4) {
-                this.f35813h = com.kwad.sdk.pngencrypt.n.c(dVar.f35792d, 0) / 100000.0d;
+            if (dVar.f35978a == 4) {
+                this.f36002h = com.kwad.sdk.pngencrypt.n.c(dVar.f35981d, 0) / 100000.0d;
                 return;
             }
             throw new PngjException("bad chunk " + dVar);

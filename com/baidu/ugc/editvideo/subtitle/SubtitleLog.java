@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
-import d.a.v0.t.h;
+import d.a.w0.t.h;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class SubtitleLog {

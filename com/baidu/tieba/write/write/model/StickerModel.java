@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.c.e.p.j;
+import d.a.d.a.f;
+import d.a.d.e.p.j;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class StickerModel extends BdBaseModel {
@@ -23,18 +23,18 @@ public class StickerModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.p0.a4.u.l.a f22883e;
+    public d.a.q0.a4.u.l.a f23041e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f22884f;
+    public d.a.d.c.g.a f23042f;
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.c.c.g.a {
+    public class a extends d.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StickerModel f22885a;
+        public final /* synthetic */ StickerModel f23043a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(StickerModel stickerModel, int i2, int i3) {
@@ -55,10 +55,10 @@ public class StickerModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f22885a = stickerModel;
+            this.f23043a = stickerModel;
         }
 
-        @Override // d.a.c.c.g.a
+        @Override // d.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -72,8 +72,8 @@ public class StickerModel extends BdBaseModel {
                 } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                     list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                 }
-                if (this.f22885a.f22883e != null) {
-                    this.f22885a.f22883e.e(list);
+                if (this.f23043a.f23041e != null) {
+                    this.f23043a.f23041e.e(list);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class StickerModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
-        this.f22884f = aVar;
+        this.f23042f = aVar;
         registerListener(aVar);
     }
 
@@ -108,8 +108,8 @@ public class StickerModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (j.A()) {
-                d.a.p0.h3.d0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                d.a.p0.h3.d0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+                d.a.q0.h3.d0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                d.a.q0.h3.d0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);
@@ -138,10 +138,10 @@ public class StickerModel extends BdBaseModel {
         }
     }
 
-    public void x(d.a.p0.a4.u.l.a aVar) {
+    public void x(d.a.q0.a4.u.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f22883e = aVar;
+            this.f23041e = aVar;
         }
     }
 }

@@ -16,10 +16,10 @@ public class m1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f73101a;
+    public static volatile boolean f73555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, e0> f73102b;
+    public static Map<String, e0> f73556b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -46,7 +46,7 @@ public class m1 {
                 return;
             }
         }
-        f73102b = new ConcurrentHashMap();
+        f73556b = new ConcurrentHashMap();
     }
 
     public m1() {
@@ -69,16 +69,16 @@ public class m1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (m1.class) {
                 if (str != null) {
-                    if (f73101a) {
+                    if (f73555a) {
                         Object a2 = b.a(67108866, str);
                         if (a2 == null) {
                             return null;
                         }
-                        e0 e0Var = f73102b.get(str);
+                        e0 e0Var = f73556b.get(str);
                         if (e0Var == null) {
                             return null;
                         }
-                        return new l1(e0Var, ms.bd.c.a.a().c(), ((Long) a2).longValue());
+                        return new l1(e0Var, ms.bd.c.a.c().a(), ((Long) a2).longValue());
                     }
                     return null;
                 }
@@ -93,7 +93,7 @@ public class m1 {
         if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
             synchronized (m1.class) {
                 Context applicationContext = context.getApplicationContext();
-                ms.bd.c.a.a().b(applicationContext);
+                ms.bd.c.a.c().b(applicationContext);
                 n.a(applicationContext, str);
                 String str2 = (String) h.a(16777217, 0, 0L, "2a6bf4", new byte[]{109, 110, 86});
                 b.a(16777218, new p0());
@@ -129,7 +129,7 @@ public class m1 {
                 b.a(16777253, new b1());
                 b.a(16777254, new c1());
                 b.a(16777255, new d1());
-                b.a((int) InputDeviceCompat.SOURCE_HDMI, b0.a() ? new u1() : new s1());
+                b.a((int) InputDeviceCompat.SOURCE_HDMI, b0.c() ? new u1() : new s1());
                 g.a();
                 d.b.b.b.a.c.a();
                 h.a(16777219, 0, 0L, null, applicationContext);
@@ -144,24 +144,24 @@ public class m1 {
             synchronized (m1.class) {
                 if (context != null) {
                     if (e0Var != null) {
-                        String str2 = e0Var.f73081a;
-                        String str3 = (str2 == null || str2.length() <= 0) ? e0Var.f73087g : e0Var.f73081a;
+                        String str2 = e0Var.f73535a;
+                        String str3 = (str2 == null || str2.length() <= 0) ? e0Var.f73541g : e0Var.f73535a;
                         if (str3 == null || str3.length() <= 0) {
                             throw new NullPointerException("appID must be set");
                         }
-                        if (!f73101a) {
+                        if (!f73555a) {
                             synchronized (m1.class) {
-                                if (!f73101a) {
+                                if (!f73555a) {
                                     b(context, str);
-                                    f73101a = true;
+                                    f73555a = true;
                                 }
                             }
                         }
-                        if (f73102b.containsKey(str3)) {
+                        if (f73556b.containsKey(str3)) {
                             return false;
                         }
                         if (((Boolean) b.a(67108865, e0Var.a())).booleanValue()) {
-                            f73102b.put(str3, e0Var);
+                            f73556b.put(str3, e0Var);
                             return true;
                         }
                         return false;

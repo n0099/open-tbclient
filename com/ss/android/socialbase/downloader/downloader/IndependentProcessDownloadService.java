@@ -37,7 +37,7 @@ public class IndependentProcessDownloadService extends DownloadService {
                 e.L(new v());
             }
             p O0 = e.O0();
-            this.f38526a = O0;
+            this.f38698a = O0;
             O0.c(new WeakReference(this));
         }
     }

@@ -16,10 +16,10 @@ public class PbNoDataItemViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f19157a;
+    public TextView f19242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f19158b;
+    public ImageView f19243b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbNoDataItemViewHolder(View view, Context context) {
@@ -39,7 +39,7 @@ public class PbNoDataItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f19157a = (TextView) view.findViewById(R.id.no_data_text);
-        this.f19158b = (ImageView) view.findViewById(R.id.no_data_image);
+        this.f19242a = (TextView) view.findViewById(R.id.no_data_text);
+        this.f19243b = (ImageView) view.findViewById(R.id.no_data_image);
     }
 }

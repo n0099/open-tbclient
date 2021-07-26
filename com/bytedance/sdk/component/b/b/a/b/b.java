@@ -24,16 +24,16 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<k> f28186a;
+    public final List<k> f28280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28187b;
+    public int f28281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28188c;
+    public boolean f28282c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28189d;
+    public boolean f28283d;
 
     public b(List<k> list) {
         Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public final class b {
                 return;
             }
         }
-        this.f28187b = 0;
-        this.f28186a = list;
+        this.f28281b = 0;
+        this.f28280a = list;
     }
 
     private boolean b(SSLSocket sSLSocket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, sSLSocket)) == null) {
-            for (int i2 = this.f28187b; i2 < this.f28186a.size(); i2++) {
-                if (this.f28186a.get(i2).a(sSLSocket)) {
+            for (int i2 = this.f28281b; i2 < this.f28280a.size(); i2++) {
+                if (this.f28280a.get(i2).a(sSLSocket)) {
                     return true;
                 }
             }
@@ -73,26 +73,26 @@ public final class b {
         k kVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sSLSocket)) == null) {
-            int i2 = this.f28187b;
-            int size = this.f28186a.size();
+            int i2 = this.f28281b;
+            int size = this.f28280a.size();
             while (true) {
                 if (i2 >= size) {
                     kVar = null;
                     break;
                 }
-                kVar = this.f28186a.get(i2);
+                kVar = this.f28280a.get(i2);
                 if (kVar.a(sSLSocket)) {
-                    this.f28187b = i2 + 1;
+                    this.f28281b = i2 + 1;
                     break;
                 }
                 i2++;
             }
             if (kVar != null) {
-                this.f28188c = b(sSLSocket);
-                com.bytedance.sdk.component.b.b.a.a.f28146a.a(kVar, sSLSocket, this.f28189d);
+                this.f28282c = b(sSLSocket);
+                com.bytedance.sdk.component.b.b.a.a.f28240a.a(kVar, sSLSocket, this.f28283d);
                 return kVar;
             }
-            throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.f28189d + ", modes=" + this.f28186a + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
+            throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.f28283d + ", modes=" + this.f28280a + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
         }
         return (k) invokeL.objValue;
     }
@@ -101,8 +101,8 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException)) == null) {
-            this.f28189d = true;
-            if (!this.f28188c || (iOException instanceof ProtocolException) || (iOException instanceof InterruptedIOException)) {
+            this.f28283d = true;
+            if (!this.f28282c || (iOException instanceof ProtocolException) || (iOException instanceof InterruptedIOException)) {
                 return false;
             }
             boolean z = iOException instanceof SSLHandshakeException;

@@ -105,13 +105,13 @@ public final class UnsignedLongs {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final long[] f33535a;
+        public static final long[] f33724a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f33536b;
+        public static final int[] f33725b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f33537c;
+        public static final int[] f33726c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -127,15 +127,15 @@ public final class UnsignedLongs {
                     return;
                 }
             }
-            f33535a = new long[37];
-            f33536b = new int[37];
-            f33537c = new int[37];
+            f33724a = new long[37];
+            f33725b = new int[37];
+            f33726c = new int[37];
             BigInteger bigInteger = new BigInteger("10000000000000000", 16);
             for (int i2 = 2; i2 <= 36; i2++) {
                 long j = i2;
-                f33535a[i2] = UnsignedLongs.b(-1L, j);
-                f33536b[i2] = (int) UnsignedLongs.e(-1L, j);
-                f33537c[i2] = bigInteger.toString(i2).length() - 1;
+                f33724a[i2] = UnsignedLongs.b(-1L, j);
+                f33725b[i2] = (int) UnsignedLongs.e(-1L, j);
+                f33726c[i2] = bigInteger.toString(i2).length() - 1;
             }
         }
 
@@ -144,11 +144,11 @@ public final class UnsignedLongs {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
                 if (j >= 0) {
-                    long[] jArr = f33535a;
+                    long[] jArr = f33724a;
                     if (j < jArr[i3]) {
                         return false;
                     }
-                    return j > jArr[i3] || i2 > f33536b[i3];
+                    return j > jArr[i3] || i2 > f33725b[i3];
                 }
                 return true;
             }
@@ -191,7 +191,7 @@ public final class UnsignedLongs {
             n.p(str);
             if (str.length() != 0) {
                 if (i2 >= 2 && i2 <= 36) {
-                    int i3 = a.f33537c[i2] - 1;
+                    int i3 = a.f33726c[i2] - 1;
                     long j = 0;
                     for (int i4 = 0; i4 < str.length(); i4++) {
                         int digit = Character.digit(str.charAt(i4), i2);

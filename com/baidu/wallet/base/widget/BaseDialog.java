@@ -25,32 +25,32 @@ public abstract class BaseDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24141a = "BaseDialog";
+    public static final String f24299a = "BaseDialog";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24142b;
+    public TextView f24300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f24143c;
+    public LinearLayout f24301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f24144d;
+    public Button f24302d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f24145e;
+    public Button f24303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageButton f24146f;
+    public ImageButton f24304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f24147g;
+    public View f24305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout.LayoutParams f24148h;
+    public LinearLayout.LayoutParams f24306h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LayoutInflater f24149i;
+    public LayoutInflater f24307i;
     public View.OnClickListener j;
     public Context mContext;
 
@@ -78,7 +78,7 @@ public abstract class BaseDialog extends Dialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BaseDialog f24150a;
+            public final /* synthetic */ BaseDialog f24308a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -95,14 +95,14 @@ public abstract class BaseDialog extends Dialog {
                         return;
                     }
                 }
-                this.f24150a = this;
+                this.f24308a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f24150a.dismiss();
+                    this.f24308a.dismiss();
                 }
             }
         };
@@ -112,15 +112,15 @@ public abstract class BaseDialog extends Dialog {
     public void addContentView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            this.f24143c.removeAllViews();
-            this.f24143c.addView(view, this.f24148h);
+            this.f24301c.removeAllViews();
+            this.f24301c.addView(view, this.f24306h);
         }
     }
 
     public Button getNegativeBtn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24145e : (Button) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24303e : (Button) invokeV.objValue;
     }
 
     public void hideButtons() {
@@ -133,26 +133,26 @@ public abstract class BaseDialog extends Dialog {
     public void hideNegativeButton() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Button button = this.f24145e;
+            Button button = this.f24303e;
             if (button != null) {
                 button.setVisibility(8);
             }
-            View view = this.f24147g;
+            View view = this.f24305g;
             if (view != null) {
                 view.setVisibility(8);
             }
-            this.f24144d.setBackgroundResource(ResUtils.drawable(this.mContext, "wallet_base_dialog_btn_selector"));
+            this.f24302d.setBackgroundResource(ResUtils.drawable(this.mContext, "wallet_base_dialog_btn_selector"));
         }
     }
 
     public void hidePositiveButton() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Button button = this.f24144d;
+            Button button = this.f24302d;
             if (button != null) {
                 button.setVisibility(8);
             }
-            View view = this.f24147g;
+            View view = this.f24305g;
             if (view != null) {
                 view.setVisibility(8);
             }
@@ -162,7 +162,7 @@ public abstract class BaseDialog extends Dialog {
     public void hideTitle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f24142b.setVisibility(8);
+            this.f24300b.setVisibility(8);
         }
     }
 
@@ -180,19 +180,19 @@ public abstract class BaseDialog extends Dialog {
             super.onCreate(bundle);
             requestWindowFeature(1);
             setContentView(ResUtils.layout(this.mContext, "wallet_base_layout_dialog_base"));
-            this.f24142b = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_title"));
-            this.f24144d = (Button) findViewById(ResUtils.id(this.mContext, "positive_btn"));
-            this.f24145e = (Button) findViewById(ResUtils.id(this.mContext, "negative_btn"));
-            this.f24146f = (ImageButton) findViewById(ResUtils.id(this.mContext, "dialog_title_close"));
-            this.f24147g = findViewById(ResUtils.id(this.mContext, "btn_line"));
-            this.f24144d.setOnClickListener(this.j);
-            this.f24145e.setOnClickListener(this.j);
-            this.f24146f.setOnClickListener(this.j);
-            this.f24143c = (LinearLayout) findViewById(ResUtils.id(this.mContext, "dialog_content_layout"));
+            this.f24300b = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_title"));
+            this.f24302d = (Button) findViewById(ResUtils.id(this.mContext, "positive_btn"));
+            this.f24303e = (Button) findViewById(ResUtils.id(this.mContext, "negative_btn"));
+            this.f24304f = (ImageButton) findViewById(ResUtils.id(this.mContext, "dialog_title_close"));
+            this.f24305g = findViewById(ResUtils.id(this.mContext, "btn_line"));
+            this.f24302d.setOnClickListener(this.j);
+            this.f24303e.setOnClickListener(this.j);
+            this.f24304f.setOnClickListener(this.j);
+            this.f24301c = (LinearLayout) findViewById(ResUtils.id(this.mContext, "dialog_content_layout"));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            this.f24148h = layoutParams;
+            this.f24306h = layoutParams;
             layoutParams.gravity = 17;
-            this.f24149i = LayoutInflater.from(this.mContext);
+            this.f24307i = LayoutInflater.from(this.mContext);
             setCanceledOnTouchOutside(false);
             setCancelable(false);
         }
@@ -201,7 +201,7 @@ public abstract class BaseDialog extends Dialog {
     public void setNegativeBtn(View.OnClickListener onClickListener) {
         Button button;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) || (button = this.f24145e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) || (button = this.f24303e) == null) {
             return;
         }
         if (onClickListener == null) {
@@ -213,7 +213,7 @@ public abstract class BaseDialog extends Dialog {
     public void setPositiveBtn(View.OnClickListener onClickListener) {
         Button button;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) || (button = this.f24144d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) || (button = this.f24302d) == null) {
             return;
         }
         if (onClickListener == null) {
@@ -225,17 +225,17 @@ public abstract class BaseDialog extends Dialog {
     public void setPositiveButtonEnable(boolean z) {
         Button button;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (button = this.f24144d) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (button = this.f24302d) == null) {
             return;
         }
         button.setTextColor(ResUtils.getColor(this.mContext, z ? "wallet_base_mainColor" : "bd_wallet_pwdpay_light_gray"));
-        this.f24144d.setEnabled(z);
+        this.f24302d.setEnabled(z);
     }
 
     public void setTitleText(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (textView = this.f24142b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (textView = this.f24300b) == null) {
             return;
         }
         textView.setText(i2);
@@ -244,7 +244,7 @@ public abstract class BaseDialog extends Dialog {
     public void setTitleTextBackgroud(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (textView = this.f24142b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (textView = this.f24300b) == null) {
             return;
         }
         textView.setBackgroundColor(i2);
@@ -253,7 +253,7 @@ public abstract class BaseDialog extends Dialog {
     public void showCloseBtn(boolean z) {
         ImageButton imageButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (imageButton = this.f24146f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (imageButton = this.f24304f) == null) {
             return;
         }
         imageButton.setVisibility(z ? 0 : 4);
@@ -262,19 +262,19 @@ public abstract class BaseDialog extends Dialog {
     public void addContentView(View view, LinearLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, view, layoutParams) == null) {
-            this.f24143c.removeAllViews();
-            this.f24143c.addView(view, layoutParams);
+            this.f24301c.removeAllViews();
+            this.f24301c.addView(view, layoutParams);
         }
     }
 
     public void setNegativeBtn(int i2, View.OnClickListener onClickListener) {
         Button button;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048587, this, i2, onClickListener) == null) || (button = this.f24145e) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048587, this, i2, onClickListener) == null) || (button = this.f24303e) == null) {
             return;
         }
         button.setText(i2);
-        Button button2 = this.f24145e;
+        Button button2 = this.f24303e;
         if (onClickListener == null) {
             onClickListener = this.j;
         }
@@ -284,11 +284,11 @@ public abstract class BaseDialog extends Dialog {
     public void setPositiveBtn(int i2, View.OnClickListener onClickListener) {
         Button button;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048590, this, i2, onClickListener) == null) || (button = this.f24144d) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048590, this, i2, onClickListener) == null) || (button = this.f24302d) == null) {
             return;
         }
         button.setText(i2);
-        Button button2 = this.f24144d;
+        Button button2 = this.f24302d;
         if (onClickListener == null) {
             onClickListener = this.j;
         }
@@ -298,7 +298,7 @@ public abstract class BaseDialog extends Dialog {
     public void setTitleText(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (textView = this.f24142b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (textView = this.f24300b) == null) {
             return;
         }
         textView.setText(str);
@@ -328,7 +328,7 @@ public abstract class BaseDialog extends Dialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BaseDialog f24150a;
+            public final /* synthetic */ BaseDialog f24308a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -345,14 +345,14 @@ public abstract class BaseDialog extends Dialog {
                         return;
                     }
                 }
-                this.f24150a = this;
+                this.f24308a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f24150a.dismiss();
+                    this.f24308a.dismiss();
                 }
             }
         };
@@ -362,20 +362,20 @@ public abstract class BaseDialog extends Dialog {
     public void addContentView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f24143c.removeAllViews();
-            this.f24143c.addView(this.f24149i.inflate(i2, (ViewGroup) null), this.f24148h);
+            this.f24301c.removeAllViews();
+            this.f24301c.addView(this.f24307i.inflate(i2, (ViewGroup) null), this.f24306h);
         }
     }
 
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, onClickListener) == null) || this.f24145e == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, onClickListener) == null) || this.f24303e == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f24145e.setText(str);
+            this.f24303e.setText(str);
         }
-        Button button = this.f24145e;
+        Button button = this.f24303e;
         if (onClickListener == null) {
             onClickListener = this.j;
         }
@@ -385,11 +385,11 @@ public abstract class BaseDialog extends Dialog {
     public void setPositiveBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
         Button button;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048591, this, spannableString, onClickListener) == null) || (button = this.f24144d) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048591, this, spannableString, onClickListener) == null) || (button = this.f24302d) == null) {
             return;
         }
         button.setText(spannableString);
-        Button button2 = this.f24144d;
+        Button button2 = this.f24302d;
         if (onClickListener == null) {
             onClickListener = this.j;
         }
@@ -399,20 +399,20 @@ public abstract class BaseDialog extends Dialog {
     public void addContentView(int i2, LinearLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, layoutParams) == null) {
-            this.f24143c.removeAllViews();
-            this.f24143c.addView(this.f24149i.inflate(i2, (ViewGroup) null), layoutParams);
+            this.f24301c.removeAllViews();
+            this.f24301c.addView(this.f24307i.inflate(i2, (ViewGroup) null), layoutParams);
         }
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048593, this, str, onClickListener) == null) || this.f24144d == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048593, this, str, onClickListener) == null) || this.f24302d == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f24144d.setText(str);
+            this.f24302d.setText(str);
         }
-        Button button = this.f24144d;
+        Button button = this.f24302d;
         if (onClickListener == null) {
             onClickListener = this.j;
         }

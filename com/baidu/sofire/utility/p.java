@@ -26,7 +26,7 @@ public final class p {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10524a = "";
+    public static String f10550a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,11 +62,11 @@ public final class p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f10524a)) {
+            if (TextUtils.isEmpty(f10550a)) {
                 new p();
-                f10524a = b(context);
+                f10550a = b(context);
             }
-            return f10524a;
+            return f10550a;
         }
         return (String) invokeL.objValue;
     }
@@ -197,7 +197,7 @@ public final class p {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 String o = a2.o();
                 if (TextUtils.isEmpty(o)) {
-                    String string = a2.f10412c.getString("rpnewuid", "");
+                    String string = a2.f10438c.getString("rpnewuid", "");
                     if (TextUtils.isEmpty(string)) {
                         return "";
                     }

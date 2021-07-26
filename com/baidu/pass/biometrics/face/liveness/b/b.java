@@ -9,10 +9,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f9222h = 0;
+    public static final int f9248h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f9223i = 1;
+    public static final int f9249i = 1;
     public static final int j = 2;
     public static final int k = 3;
     public static final int l = 4;
@@ -32,25 +32,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9224a;
+    public int f9250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9225b;
+    public boolean f9251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9226c;
+    public boolean f9252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f9227d;
+    public long f9253d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f9228e;
+    public long f9254e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9229f;
+    public boolean f9255f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9230g;
+    public boolean f9256g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -65,11 +65,11 @@ public class b {
                 return;
             }
         }
-        this.f9224a = 0;
-        this.f9225b = false;
-        this.f9226c = false;
-        this.f9228e = 20000L;
-        this.f9229f = false;
-        this.f9230g = false;
+        this.f9250a = 0;
+        this.f9251b = false;
+        this.f9252c = false;
+        this.f9254e = 20000L;
+        this.f9255f = false;
+        this.f9256g = false;
     }
 }

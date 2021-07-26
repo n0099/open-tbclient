@@ -13,10 +13,10 @@ public abstract class RouterProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f5270a;
+    public boolean f5296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, RouterAction> f5271b;
+    public HashMap<String, RouterAction> f5297b;
 
     public RouterProvider() {
         Interceptable interceptable = $ic;
@@ -31,27 +31,27 @@ public abstract class RouterProvider {
                 return;
             }
         }
-        this.f5270a = true;
-        this.f5271b = new HashMap<>();
+        this.f5296a = true;
+        this.f5297b = new HashMap<>();
         registerActions();
     }
 
     public RouterAction findAction(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f5271b.get(str) : (RouterAction) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f5297b.get(str) : (RouterAction) invokeL.objValue;
     }
 
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5270a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5296a : invokeV.booleanValue;
     }
 
     public void registerAction(String str, RouterAction routerAction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, routerAction) == null) {
-            this.f5271b.put(str, routerAction);
+            this.f5297b.put(str, routerAction);
         }
     }
 

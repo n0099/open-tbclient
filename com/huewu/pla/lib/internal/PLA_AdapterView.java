@@ -70,7 +70,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f33634a;
+        public View f33823a;
 
         public b(View view, int i2, long j) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f33634a = view;
+            this.f33823a = view;
         }
     }
 
@@ -97,10 +97,10 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Parcelable f33635a;
+        public Parcelable f33824a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PLA_AdapterView f33636b;
+        public final /* synthetic */ PLA_AdapterView f33825b;
 
         public c(PLA_AdapterView pLA_AdapterView) {
             Interceptable interceptable = $ic;
@@ -117,8 +117,8 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f33636b = pLA_AdapterView;
-            this.f33635a = null;
+            this.f33825b = pLA_AdapterView;
+            this.f33824a = null;
         }
 
         @Override // android.database.DataSetObserver
@@ -127,20 +127,20 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 d.g.a.a.a.a("data changed by onChanged()");
-                PLA_AdapterView pLA_AdapterView = this.f33636b;
+                PLA_AdapterView pLA_AdapterView = this.f33825b;
                 pLA_AdapterView.mDataChanged = true;
                 pLA_AdapterView.mOldItemCount = pLA_AdapterView.mItemCount;
                 pLA_AdapterView.mItemCount = pLA_AdapterView.getAdapter().getCount();
-                if (this.f33636b.getAdapter().hasStableIds() && (parcelable = this.f33635a) != null) {
-                    PLA_AdapterView pLA_AdapterView2 = this.f33636b;
+                if (this.f33825b.getAdapter().hasStableIds() && (parcelable = this.f33824a) != null) {
+                    PLA_AdapterView pLA_AdapterView2 = this.f33825b;
                     if (pLA_AdapterView2.mOldItemCount == 0 && pLA_AdapterView2.mItemCount > 0) {
                         pLA_AdapterView2.onRestoreInstanceState(parcelable);
-                        this.f33635a = null;
-                        this.f33636b.requestLayout();
+                        this.f33824a = null;
+                        this.f33825b.requestLayout();
                     }
                 }
-                this.f33636b.rememberSyncState();
-                this.f33636b.requestLayout();
+                this.f33825b.rememberSyncState();
+                this.f33825b.requestLayout();
             }
         }
 
@@ -149,12 +149,12 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 d.g.a.a.a.a("data changed by onInvalidated()");
-                PLA_AdapterView pLA_AdapterView = this.f33636b;
+                PLA_AdapterView pLA_AdapterView = this.f33825b;
                 pLA_AdapterView.mDataChanged = true;
                 if (pLA_AdapterView.getAdapter().hasStableIds()) {
-                    this.f33635a = this.f33636b.onSaveInstanceState();
+                    this.f33824a = this.f33825b.onSaveInstanceState();
                 }
-                PLA_AdapterView pLA_AdapterView2 = this.f33636b;
+                PLA_AdapterView pLA_AdapterView2 = this.f33825b;
                 pLA_AdapterView2.mOldItemCount = pLA_AdapterView2.mItemCount;
                 pLA_AdapterView2.mItemCount = 0;
                 pLA_AdapterView2.mSelectedPosition = -1;
@@ -188,7 +188,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PLA_AdapterView f33637e;
+        public final /* synthetic */ PLA_AdapterView f33826e;
 
         public g(PLA_AdapterView pLA_AdapterView) {
             Interceptable interceptable = $ic;
@@ -205,19 +205,19 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f33637e = pLA_AdapterView;
+            this.f33826e = pLA_AdapterView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PLA_AdapterView pLA_AdapterView = this.f33637e;
+                PLA_AdapterView pLA_AdapterView = this.f33826e;
                 if (!pLA_AdapterView.mDataChanged) {
                     pLA_AdapterView.fireOnSelected();
-                    this.f33637e.performAccessibilityActionsOnSelected();
+                    this.f33826e.performAccessibilityActionsOnSelected();
                 } else if (pLA_AdapterView.getAdapter() != null) {
-                    this.f33637e.post(this);
+                    this.f33826e.post(this);
                 }
             }
         }

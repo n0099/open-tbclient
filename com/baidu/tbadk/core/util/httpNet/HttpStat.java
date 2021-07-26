@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.j.a.d;
+import d.a.d.e.j.a.d;
 /* loaded from: classes3.dex */
 public class HttpStat {
     public static /* synthetic */ Interceptable $ic;

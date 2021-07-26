@@ -30,32 +30,32 @@ public class a extends FrameLayout {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f33751a;
+    public AdTemplate f33940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f33752b;
+    public AdInfo f33941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f33753c;
+    public KsInterstitialAd.AdInteractionListener f33942c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f33754d;
+    public Context f33943d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Presenter f33755e;
+    public Presenter f33944e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.a.a.a f33756f;
+    public com.kwad.sdk.a.a.a f33945f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f33757g;
+    public ViewGroup f33946g;
 
     /* renamed from: h  reason: collision with root package name */
-    public KsAdVideoPlayConfig f33758h;
+    public KsAdVideoPlayConfig f33947h;
 
     /* renamed from: i  reason: collision with root package name */
-    public KsAdWebView f33759i;
+    public KsAdWebView f33948i;
     public Dialog j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -98,8 +98,8 @@ public class a extends FrameLayout {
                 return;
             }
         }
-        this.f33757g = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
-        this.f33754d = context;
+        this.f33946g = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
+        this.f33943d = context;
         c();
     }
 
@@ -108,14 +108,14 @@ public class a extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             com.kwad.sdk.a.a.a aVar = new com.kwad.sdk.a.a.a();
-            AdTemplate adTemplate = this.f33751a;
-            aVar.f33675a = adTemplate;
-            aVar.f33676b = this.f33753c;
-            aVar.f33677c = this.j;
-            aVar.f33678d = new com.kwad.sdk.core.download.b.b(adTemplate);
-            aVar.f33680f = this.f33758h;
-            aVar.f33682h = new com.kwad.sdk.core.video.videoview.b(this.f33754d);
-            aVar.f33679e = new b(this.f33754d);
+            AdTemplate adTemplate = this.f33940a;
+            aVar.f33864a = adTemplate;
+            aVar.f33865b = this.f33942c;
+            aVar.f33866c = this.j;
+            aVar.f33867d = new com.kwad.sdk.core.download.b.b(adTemplate);
+            aVar.f33869f = this.f33947h;
+            aVar.f33871h = new com.kwad.sdk.core.video.videoview.b(this.f33943d);
+            aVar.f33868e = new b(this.f33943d);
             return aVar;
         }
         return (com.kwad.sdk.a.a.a) invokeV.objValue;
@@ -124,18 +124,18 @@ public class a extends FrameLayout {
     public void a(@NonNull AdTemplate adTemplate, Dialog dialog, @NonNull KsAdVideoPlayConfig ksAdVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, dialog, ksAdVideoPlayConfig, adInteractionListener) == null) {
-            this.f33751a = adTemplate;
-            this.f33752b = com.kwad.sdk.core.response.b.c.i(adTemplate);
+            this.f33940a = adTemplate;
+            this.f33941b = com.kwad.sdk.core.response.b.c.i(adTemplate);
             adTemplate.realShowType = 2;
-            this.f33758h = ksAdVideoPlayConfig;
+            this.f33947h = ksAdVideoPlayConfig;
             this.j = dialog;
-            this.f33753c = adInteractionListener;
-            this.f33756f = a();
-            if (this.f33755e == null) {
+            this.f33942c = adInteractionListener;
+            this.f33945f = a();
+            if (this.f33944e == null) {
                 Presenter b2 = b();
-                this.f33755e = b2;
-                b2.a((View) this.f33757g);
-                this.f33755e.a(this.f33756f);
+                this.f33944e = b2;
+                b2.a((View) this.f33946g);
+                this.f33944e.a(this.f33945f);
             }
         }
     }
@@ -147,7 +147,7 @@ public class a extends FrameLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Presenter presenter = new Presenter();
             presenter.a((Presenter) new d());
-            if (com.kwad.sdk.core.response.b.a.F(this.f33752b)) {
+            if (com.kwad.sdk.core.response.b.a.F(this.f33941b)) {
                 presenter.a((Presenter) new com.kwad.sdk.a.a.c());
             }
             presenter.a((Presenter) new com.kwad.sdk.a.a.b());
@@ -159,7 +159,7 @@ public class a extends FrameLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f33759i = (KsAdWebView) getRootView().findViewById(R.id.ksad_web_card_webView);
+            this.f33948i = (KsAdWebView) getRootView().findViewById(R.id.ksad_web_card_webView);
         }
     }
 
@@ -181,7 +181,7 @@ public class a extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
             d();
-            com.kwad.sdk.a.a.a aVar = this.f33756f;
+            com.kwad.sdk.a.a.a aVar = this.f33945f;
             if (aVar != null) {
                 aVar.a();
             }
@@ -193,7 +193,7 @@ public class a extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f33756f.c();
+            this.f33945f.c();
         }
     }
 
@@ -208,10 +208,10 @@ public class a extends FrameLayout {
     public void setAdInteractionListener(KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, adInteractionListener) == null) {
-            this.f33753c = adInteractionListener;
-            com.kwad.sdk.a.a.a aVar = this.f33756f;
+            this.f33942c = adInteractionListener;
+            com.kwad.sdk.a.a.a aVar = this.f33945f;
             if (aVar != null) {
-                aVar.f33676b = adInteractionListener;
+                aVar.f33865b = adInteractionListener;
             }
         }
     }

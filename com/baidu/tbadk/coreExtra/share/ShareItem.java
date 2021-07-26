@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.o0.r.q.b2;
+import d.a.d.e.p.k;
+import d.a.p0.s.q.b2;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -36,7 +36,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
-    public static final String r0;
+    public static final String s0;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle A;
     public Location B;
@@ -66,42 +66,42 @@ public class ShareItem {
     public boolean Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12838a;
+    public boolean f12887a;
     public boolean a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12839b;
+    public boolean f12888b;
     public boolean b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12840c;
+    public boolean f12889c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12841d;
-    public int d0;
+    public boolean f12890d;
+    public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12842e;
-    public String e0;
+    public boolean f12891e;
+    public int e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12843f;
-    public boolean f0;
+    public boolean f12892f;
+    public String f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12844g;
+    public boolean f12893g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12845h;
-    public String h0;
+    public boolean f12894h;
+    public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12846i;
-    public int i0;
+    public boolean f12895i;
+    public String i0;
     public boolean j;
-    public String j0;
+    public int j0;
     public boolean k;
     public String k0;
     public boolean l;
@@ -111,12 +111,13 @@ public class ShareItem {
     public String n;
     public String n0;
     public int o;
-    public JSONArray o0;
+    public String o0;
     public String p;
-    public JSONObject p0;
+    public JSONArray p0;
     public String q;
-    public List<Integer> q0;
+    public JSONObject q0;
     public String r;
+    public List<Integer> r0;
     public String s;
     public String t;
     public String u;
@@ -139,7 +140,7 @@ public class ShareItem {
                 return;
             }
         }
-        r0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+        s0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     }
 
     public ShareItem() {
@@ -155,15 +156,15 @@ public class ShareItem {
                 return;
             }
         }
-        this.f12838a = false;
-        this.f12839b = false;
-        this.f12840c = false;
-        this.f12841d = false;
-        this.f12842e = false;
-        this.f12843f = false;
-        this.f12844g = false;
-        this.f12845h = false;
-        this.f12846i = false;
+        this.f12887a = false;
+        this.f12888b = false;
+        this.f12889c = false;
+        this.f12890d = false;
+        this.f12891e = false;
+        this.f12892f = false;
+        this.f12893g = false;
+        this.f12894h = false;
+        this.f12895i = false;
         this.j = false;
         this.k = false;
         this.l = false;
@@ -179,11 +180,12 @@ public class ShareItem {
         this.W = 0;
         this.Z = false;
         this.a0 = true;
-        this.b0 = true;
+        this.b0 = false;
         this.c0 = true;
-        this.d0 = 0;
-        this.f0 = true;
-        this.g0 = false;
+        this.d0 = true;
+        this.e0 = 0;
+        this.g0 = true;
+        this.h0 = false;
         this.r = null;
         this.s = null;
         this.t = null;
@@ -201,7 +203,7 @@ public class ShareItem {
     public List<Integer> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.q0 : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.r0 : (List) invokeV.objValue;
     }
 
     public byte[] b() {
@@ -268,7 +270,7 @@ public class ShareItem {
         try {
             try {
                 if (FileHelper.checkSD()) {
-                    File file = new File(r0);
+                    File file = new File(s0);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -325,7 +327,7 @@ public class ShareItem {
     public void h(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.q0 = list;
+            this.r0 = list;
         }
     }
 
@@ -437,18 +439,18 @@ public class ShareItem {
                     }
                     forwardInfo.showText = b2Var.u1.c();
                     OriginalThreadInfo originalThreadInfo = b2Var.u1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f12249c;
-                    forwardInfo.showType = originalThreadInfo.f12247a;
+                    forwardInfo.showPicUrl = originalThreadInfo.f12279c;
+                    forwardInfo.showType = originalThreadInfo.f12277a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f12252f;
+                    forwardInfo.originalTid = originalThreadInfo.f12282f;
                     if (i2 == 1) {
                         if (postData != null && postData.K() != null) {
                             str = postData.K().toString();
                         } else if (b2Var.h() != null) {
                             str = b2Var.j().toString();
                         }
-                    } else if (b2Var.x2() != null) {
-                        str = b2Var.x2().toString();
+                    } else if (b2Var.z2() != null) {
+                        str = b2Var.z2().toString();
                     }
                     if (!TextUtils.isEmpty(str)) {
                         forwardInfo.transmitOriginThreadComment = str;
@@ -469,10 +471,10 @@ public class ShareItem {
                     OriginalThreadInfo i3 = OriginalThreadInfo.i(b2Var);
                     if (i3 != null) {
                         forwardInfo.showText = i3.c();
-                        forwardInfo.showPicUrl = i3.f12249c;
-                        forwardInfo.showType = i3.f12247a;
+                        forwardInfo.showPicUrl = i3.f12279c;
+                        forwardInfo.showType = i3.f12277a;
                     }
-                    forwardInfo.originalTid = b2Var.n1();
+                    forwardInfo.originalTid = b2Var.o1();
                 }
                 if (i2 == 1) {
                     OriginalThreadInfo originalThreadInfo2 = b2Var.u1;
@@ -505,8 +507,8 @@ public class ShareItem {
                 }
                 if (b2Var.J() != null) {
                     if (b2Var.J().oriUgcType == 2) {
-                        if (b2Var.l1() != null) {
-                            forwardInfo.video_duration = String.valueOf(b2Var.l1().video_duration);
+                        if (b2Var.m1() != null) {
+                            forwardInfo.video_duration = String.valueOf(b2Var.m1().video_duration);
                         }
                     } else if ((b2Var.J().oriUgcType == 3 || b2Var.J().oriUgcType == 4) && b2Var.H() != null && !TextUtils.isEmpty(b2Var.H().getPortrait())) {
                         if (b2Var.H().getPortrait().startsWith("http")) {

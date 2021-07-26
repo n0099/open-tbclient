@@ -22,10 +22,10 @@ public class GetHotWordsModel extends FaceBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18912e;
+    public b f18997e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f18913f;
+    public final HttpMessageListener f18998f;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -33,7 +33,7 @@ public class GetHotWordsModel extends FaceBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetHotWordsModel f18914a;
+        public final /* synthetic */ GetHotWordsModel f18999a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GetHotWordsModel getHotWordsModel, int i2) {
@@ -53,19 +53,19 @@ public class GetHotWordsModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f18914a = getHotWordsModel;
+            this.f18999a = getHotWordsModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003352 && (httpResponsedMessage instanceof GetHotWordsMessage) && this.f18914a.f18912e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003352 && (httpResponsedMessage instanceof GetHotWordsMessage) && this.f18999a.f18997e != null) {
                 GetHotWordsMessage getHotWordsMessage = (GetHotWordsMessage) httpResponsedMessage;
                 if (getHotWordsMessage.getData() != null) {
-                    this.f18914a.f18912e.onSuccess(getHotWordsMessage.getData());
+                    this.f18999a.f18997e.onSuccess(getHotWordsMessage.getData());
                 } else {
-                    this.f18914a.f18912e.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
+                    this.f18999a.f18997e.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
                 }
             }
         }
@@ -91,12 +91,12 @@ public class GetHotWordsModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f18913f = new a(this, CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
+        this.f18998f = new a(this, CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f18913f.setTag(getUniqueId());
-        this.f18913f.setSelfListener(true);
-        registerListener(this.f18913f);
+        this.f18998f.setTag(getUniqueId());
+        this.f18998f.setSelfListener(true);
+        registerListener(this.f18998f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -114,7 +114,7 @@ public class GetHotWordsModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f18913f);
+            MessageManager.getInstance().unRegisterListener(this.f18998f);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
             return true;
         }
@@ -133,7 +133,7 @@ public class GetHotWordsModel extends FaceBaseModel {
     public void x(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f18912e = bVar;
+            this.f18997e = bVar;
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS));
         }
     }

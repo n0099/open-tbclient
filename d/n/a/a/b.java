@@ -20,31 +20,31 @@ import d.n.a.a.c.a.a;
 import d.n.a.a.c.b.c;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f72163g = "KWE_NS";
+    public static String f72617g = "KWE_NS";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f72164a;
+    public Context f72618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72165b;
+    public String f72619b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f72166c;
+    public String f72620c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f72167d;
+    public String f72621d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f72168e;
+    public boolean f72622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f72169f;
+    public d f72623f;
 
     static {
         InterceptResult invokeClinit;
@@ -74,10 +74,10 @@ public class b {
                 return;
             }
         }
-        this.f72165b = "";
-        this.f72166c = "";
-        this.f72167d = "";
-        this.f72168e = false;
+        this.f72619b = "";
+        this.f72620c = "";
+        this.f72621d = "";
+        this.f72622e = false;
     }
 
     public /* synthetic */ b(e eVar) {
@@ -100,10 +100,10 @@ public class b {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, str, z)) == null) {
-            if (TextUtils.isEmpty(this.f72166c)) {
+            if (TextUtils.isEmpty(this.f72620c)) {
                 return null;
             }
-            return this.f72166c;
+            return this.f72620c;
         }
         return (String) invokeLLZ.objValue;
     }
@@ -123,9 +123,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Boolean.valueOf(z), dVar}) == null) {
             try {
-                this.f72169f = dVar;
-                this.f72164a = context;
-                this.f72168e = z;
+                this.f72623f = dVar;
+                this.f72618a = context;
+                this.f72622e = z;
                 Thread thread = new Thread(new e(this));
                 thread.setName("adsence-dfp");
                 thread.start();
@@ -142,21 +142,21 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
             try {
-                boolean b2 = new d.n.a.a.c.a.e(this.f72164a).b();
-                f(this.f72164a);
+                boolean b2 = new d.n.a.a.c.a.e(this.f72618a).b();
+                f(this.f72618a);
                 j(b2);
-                this.f72167d = a.a().c(this.f72164a, dVar, this.f72168e, TextUtils.isEmpty(this.f72166c));
+                this.f72621d = a.a().c(this.f72618a, dVar, this.f72622e, TextUtils.isEmpty(this.f72620c));
                 if (dVar == null) {
                     return;
                 }
-                if (TextUtils.isEmpty(this.f72166c) && (TextUtils.isEmpty(this.f72167d) || this.f72167d.startsWith("KWE"))) {
-                    if (this.f72167d.equals("KWE_PE")) {
+                if (TextUtils.isEmpty(this.f72620c) && (TextUtils.isEmpty(this.f72621d) || this.f72621d.startsWith("KWE"))) {
+                    if (this.f72621d.equals("KWE_PE")) {
                         return;
                     }
                     dVar.a(-2, "need check");
                     return;
                 }
-                dVar.a(this.f72166c, this.f72167d);
+                dVar.a(this.f72620c, this.f72621d);
             } catch (Throwable th) {
                 if (dVar != null) {
                     try {
@@ -173,28 +173,28 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             try {
-                Pair a2 = d.n.a.a.c.a.c.b(this.f72164a).a();
+                Pair a2 = d.n.a.a.c.a.c.b(this.f72618a).a();
                 if (a2 != null && a2.second != null) {
                     String str = (String) ((ConcurrentHashMap) a2.second).get("cache_e");
                     if (!TextUtils.isEmpty(str)) {
-                        this.f72166c = str;
+                        this.f72620c = str;
                     }
                 }
-                if (TextUtils.isEmpty(this.f72166c)) {
-                    String c2 = Build.VERSION.SDK_INT < 29 ? d.n.a.a.c.a.d.c(this.f72164a, "k_w_o_d_out_dtt") : null;
+                if (TextUtils.isEmpty(this.f72620c)) {
+                    String c2 = Build.VERSION.SDK_INT < 29 ? d.n.a.a.c.a.d.c(this.f72618a, "k_w_o_d_out_dtt") : null;
                     String str2 = "";
                     if (TextUtils.isEmpty(c2)) {
                         d.n.a.a.c.b.b.b();
-                        if (d.n.a.a.c.b.f.g(this.f72164a, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION})) {
-                            str2 = d.n.a.a.c.a.c.b(this.f72164a).g("Lm91a2R0ZnQ=");
+                        if (d.n.a.a.c.b.f.g(this.f72618a, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION})) {
+                            str2 = d.n.a.a.c.a.c.b(this.f72618a).g("Lm91a2R0ZnQ=");
                         }
                     }
                     if (TextUtils.isEmpty(c2) && TextUtils.isEmpty(str2)) {
                         return;
                     }
-                    LinkedHashMap d2 = d.n.a.a.c.a.c.b(this.f72164a).d(c2);
+                    LinkedHashMap d2 = d.n.a.a.c.a.c.b(this.f72618a).d(c2);
                     if (d2 == null || d2.size() == 0) {
-                        d2 = d.n.a.a.c.a.c.b(this.f72164a).d(str2);
+                        d2 = d.n.a.a.c.a.c.b(this.f72618a).d(str2);
                     }
                     if (d2 == null || d2.size() <= 0) {
                         return;
@@ -203,7 +203,7 @@ public class b {
                     if (TextUtils.isEmpty(str3)) {
                         return;
                     }
-                    this.f72166c = str3;
+                    this.f72620c = str3;
                 }
             } catch (Throwable th) {
                 c.c(th);

@@ -17,10 +17,10 @@ public class d extends IRewardAdInteractionListener.Stub {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TTRewardVideoAd.RewardAdInteractionListener f31560a;
+    public TTRewardVideoAd.RewardAdInteractionListener f31747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f31561b;
+    public Handler f31748b;
 
     public d(TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
         Interceptable interceptable = $ic;
@@ -37,18 +37,18 @@ public class d extends IRewardAdInteractionListener.Stub {
                 return;
             }
         }
-        this.f31561b = new Handler(Looper.getMainLooper());
-        this.f31560a = rewardAdInteractionListener;
+        this.f31748b = new Handler(Looper.getMainLooper());
+        this.f31747a = rewardAdInteractionListener;
     }
 
     private Handler b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            Handler handler = this.f31561b;
+            Handler handler = this.f31748b;
             if (handler == null) {
                 Handler handler2 = new Handler(Looper.getMainLooper());
-                this.f31561b = handler2;
+                this.f31748b = handler2;
                 return handler2;
             }
             return handler;
@@ -65,7 +65,7 @@ public class d extends IRewardAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f31564a;
+                public final /* synthetic */ d f31751a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -82,16 +82,17 @@ public class d extends IRewardAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f31564a = this;
+                    this.f31751a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31564a.f31560a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardAdInteractionListener = this.f31751a.f31747a) == null) {
                         return;
                     }
-                    this.f31564a.f31560a.onAdClose();
+                    rewardAdInteractionListener.onAdClose();
                 }
             });
         }
@@ -106,7 +107,7 @@ public class d extends IRewardAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f31562a;
+                public final /* synthetic */ d f31749a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -123,16 +124,17 @@ public class d extends IRewardAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f31562a = this;
+                    this.f31749a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31562a.f31560a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardAdInteractionListener = this.f31749a.f31747a) == null) {
                         return;
                     }
-                    this.f31562a.f31560a.onAdShow();
+                    rewardAdInteractionListener.onAdShow();
                 }
             });
         }
@@ -147,7 +149,7 @@ public class d extends IRewardAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f31563a;
+                public final /* synthetic */ d f31750a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -164,16 +166,17 @@ public class d extends IRewardAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f31563a = this;
+                    this.f31750a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31563a.f31560a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardAdInteractionListener = this.f31750a.f31747a) == null) {
                         return;
                     }
-                    this.f31563a.f31560a.onAdVideoBarClick();
+                    rewardAdInteractionListener.onAdVideoBarClick();
                 }
             });
         }
@@ -196,22 +199,22 @@ public class d extends IRewardAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f31568a;
+                public final /* synthetic */ boolean f31755a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f31569b;
+                public final /* synthetic */ int f31756b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31570c;
+                public final /* synthetic */ String f31757c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f31571d;
+                public final /* synthetic */ int f31758d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f31572e;
+                public final /* synthetic */ String f31759e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ d f31573f;
+                public final /* synthetic */ d f31760f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -228,21 +231,22 @@ public class d extends IRewardAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f31573f = this;
-                    this.f31568a = z;
-                    this.f31569b = i2;
-                    this.f31570c = str;
-                    this.f31571d = i3;
-                    this.f31572e = str2;
+                    this.f31760f = this;
+                    this.f31755a = z;
+                    this.f31756b = i2;
+                    this.f31757c = str;
+                    this.f31758d = i3;
+                    this.f31759e = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31573f.f31560a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardAdInteractionListener = this.f31760f.f31747a) == null) {
                         return;
                     }
-                    this.f31573f.f31560a.onRewardVerify(this.f31568a, this.f31569b, this.f31570c, this.f31571d, this.f31572e);
+                    rewardAdInteractionListener.onRewardVerify(this.f31755a, this.f31756b, this.f31757c, this.f31758d, this.f31759e);
                 }
             });
         }
@@ -257,7 +261,7 @@ public class d extends IRewardAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f31567a;
+                public final /* synthetic */ d f31754a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -274,16 +278,17 @@ public class d extends IRewardAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f31567a = this;
+                    this.f31754a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31567a.f31560a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardAdInteractionListener = this.f31754a.f31747a) == null) {
                         return;
                     }
-                    this.f31567a.f31560a.onSkippedVideo();
+                    rewardAdInteractionListener.onSkippedVideo();
                 }
             });
         }
@@ -298,7 +303,7 @@ public class d extends IRewardAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f31565a;
+                public final /* synthetic */ d f31752a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -315,16 +320,17 @@ public class d extends IRewardAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f31565a = this;
+                    this.f31752a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31565a.f31560a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardAdInteractionListener = this.f31752a.f31747a) == null) {
                         return;
                     }
-                    this.f31565a.f31560a.onVideoComplete();
+                    rewardAdInteractionListener.onVideoComplete();
                 }
             });
         }
@@ -339,7 +345,7 @@ public class d extends IRewardAdInteractionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f31566a;
+                public final /* synthetic */ d f31753a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -356,16 +362,17 @@ public class d extends IRewardAdInteractionListener.Stub {
                             return;
                         }
                     }
-                    this.f31566a = this;
+                    this.f31753a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31566a.f31560a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardAdInteractionListener = this.f31753a.f31747a) == null) {
                         return;
                     }
-                    this.f31566a.f31560a.onVideoError();
+                    rewardAdInteractionListener.onVideoError();
                 }
             });
         }
@@ -374,8 +381,8 @@ public class d extends IRewardAdInteractionListener.Stub {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f31560a = null;
-            this.f31561b = null;
+            this.f31747a = null;
+            this.f31748b = null;
         }
     }
 }

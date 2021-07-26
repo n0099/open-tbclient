@@ -15,7 +15,7 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<e, a> f39811a;
+    public static HashMap<e, a> f40083a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -24,10 +24,10 @@ public class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39812a;
+        public String f40084a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39813b;
+        public String f40085b;
 
         public a(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class l {
                     return;
                 }
             }
-            this.f39812a = str;
-            this.f39813b = str2;
+            this.f40084a = str;
+            this.f40085b = str2;
         }
     }
 
@@ -62,31 +62,31 @@ public class l {
                 return;
             }
         }
-        f39811a = new HashMap<>();
-        a(e.f39801a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
-        a(e.f39802b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
-        a(e.f39803c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
-        a(e.f39804d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+        f40083a = new HashMap<>();
+        a(e.f40073a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
+        a(e.f40074b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(e.f40075c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(e.f40076d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
     }
 
     public static at a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, eVar)) == null) {
-            int i2 = m.f39814a[eVar.ordinal()];
+            int i2 = m.f40086a[eVar.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
                             return null;
                         }
-                        return at.f39790f;
+                        return at.f40062f;
                     }
-                    return at.f39789e;
+                    return at.f40061e;
                 }
-                return at.f39788d;
+                return at.f40060d;
             }
-            return at.f39787c;
+            return at.f40059c;
         }
         return (at) invokeL.objValue;
     }
@@ -95,7 +95,7 @@ public class l {
     public static a m134a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? f39811a.get(eVar) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? f40083a.get(eVar) : (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -110,6 +110,6 @@ public class l {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar, aVar) == null) || aVar == null) {
             return;
         }
-        f39811a.put(eVar, aVar);
+        f40083a.put(eVar, aVar);
     }
 }

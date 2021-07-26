@@ -16,7 +16,6 @@ import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
@@ -38,11 +37,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.b;
-import d.a.o0.a.d;
-import d.a.o0.a.g;
-import d.a.o0.a.x;
-import d.a.p0.h3.h0.m;
+import d.a.d.a.b;
+import d.a.p0.a.d;
+import d.a.p0.a.g;
+import d.a.p0.a.x;
+import d.a.q0.h3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
@@ -57,7 +56,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SchemaRouteActivity f21359a;
+        public final /* synthetic */ SchemaRouteActivity f21477a;
 
         public a(SchemaRouteActivity schemaRouteActivity) {
             Interceptable interceptable = $ic;
@@ -74,17 +73,17 @@ public class SchemaRouteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f21359a = schemaRouteActivity;
+            this.f21477a = schemaRouteActivity;
         }
 
-        @Override // d.a.o0.a.g.b
+        @Override // d.a.p0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.w) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f21359a.getActivity(), null, (String) hashMap.get(g.w), true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f21477a.getActivity(), null, (String) hashMap.get(g.w), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.K));
-                this.f21359a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                this.f21477a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
     }
@@ -179,7 +178,7 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f51335b + g.k)) {
+                if (dataString.contains(g.f51839b + g.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(g.F);
                     String queryParameter2 = parse.getQueryParameter(g.G);
@@ -191,7 +190,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f51335b + g.l)) {
+                if (dataString.contains(g.f51839b + g.l)) {
                     String queryParameter3 = Uri.parse(dataString).getQueryParameter(g.H);
                     if (queryParameter3 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter3.getBytes(), 2))});
@@ -224,7 +223,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 String queryParameter8 = parse2.getQueryParameter(g.Q);
                 String queryParameter9 = parse2.getQueryParameter(g.R);
                 HashMap hashMap = new HashMap();
-                hashMap.put(LegoListActivityConfig.ITEM_ID, queryParameter4);
+                hashMap.put("item_id", queryParameter4);
                 hashMap.put("tab_id", queryParameter5);
                 hashMap.put("sort_type", queryParameter6);
                 hashMap.put("rank_type", queryParameter7);
@@ -358,7 +357,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 videoItemData.thumbnail_url = queryParameter39;
                 videoItemData.video_url = queryParameter40;
                 arrayList.add(videoItemData);
-                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this, arrayList, VideoPlayActivityConfig.FROM_NANI_VIDEO, VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
+                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this, arrayList, "from_nani_video", VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
                 videoPlayActivityConfig.setParamIsVertail(true);
                 videoPlayActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));

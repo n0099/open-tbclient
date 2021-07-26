@@ -227,10 +227,10 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicLongArray f33500a;
+        public final AtomicLongArray f33689a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final i f33501b;
+        public final i f33690b;
 
         public a(long j) {
             Interceptable interceptable = $ic;
@@ -248,8 +248,8 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
                 }
             }
             n.e(j > 0, "data length is zero!");
-            this.f33500a = new AtomicLongArray(Ints.c(LongMath.a(j, 64L, RoundingMode.CEILING)));
-            this.f33501b = LongAddables.a();
+            this.f33689a = new AtomicLongArray(Ints.c(LongMath.a(j, 64L, RoundingMode.CEILING)));
+            this.f33690b = LongAddables.a();
         }
 
         public static long[] g(AtomicLongArray atomicLongArray) {
@@ -269,25 +269,25 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33501b.sum() : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33690b.sum() : invokeV.longValue;
         }
 
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33500a.length() * 64 : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33689a.length() * 64 : invokeV.longValue;
         }
 
         public a c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(g(this.f33500a)) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(g(this.f33689a)) : (a) invokeV.objValue;
         }
 
         public boolean d(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? ((1 << ((int) j)) & this.f33500a.get((int) (j >>> 6))) != 0 : invokeJ.booleanValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? ((1 << ((int) j)) & this.f33689a.get((int) (j >>> 6))) != 0 : invokeJ.booleanValue;
         }
 
         public void e(a aVar) {
@@ -296,22 +296,22 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-                n.g(this.f33500a.length() == aVar.f33500a.length(), "BitArrays must be of equal length (%s != %s)", this.f33500a.length(), aVar.f33500a.length());
-                for (int i2 = 0; i2 < this.f33500a.length(); i2++) {
-                    long j3 = aVar.f33500a.get(i2);
+                n.g(this.f33689a.length() == aVar.f33689a.length(), "BitArrays must be of equal length (%s != %s)", this.f33689a.length(), aVar.f33689a.length());
+                for (int i2 = 0; i2 < this.f33689a.length(); i2++) {
+                    long j3 = aVar.f33689a.get(i2);
                     while (true) {
-                        j = this.f33500a.get(i2);
+                        j = this.f33689a.get(i2);
                         j2 = j | j3;
                         if (j == j2) {
                             z = false;
                             break;
-                        } else if (this.f33500a.compareAndSet(i2, j, j2)) {
+                        } else if (this.f33689a.compareAndSet(i2, j, j2)) {
                             z = true;
                             break;
                         }
                     }
                     if (z) {
-                        this.f33501b.add(Long.bitCount(j2) - Long.bitCount(j));
+                        this.f33690b.add(Long.bitCount(j2) - Long.bitCount(j));
                     }
                 }
             }
@@ -322,7 +322,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
                 if (obj instanceof a) {
-                    return Arrays.equals(g(this.f33500a), g(((a) obj).f33500a));
+                    return Arrays.equals(g(this.f33689a), g(((a) obj).f33689a));
                 }
                 return false;
             }
@@ -341,13 +341,13 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
                 int i2 = (int) (j >>> 6);
                 long j4 = 1 << ((int) j);
                 do {
-                    j2 = this.f33500a.get(i2);
+                    j2 = this.f33689a.get(i2);
                     j3 = j2 | j4;
                     if (j2 == j3) {
                         return false;
                     }
-                } while (!this.f33500a.compareAndSet(i2, j2, j3));
-                this.f33501b.increment();
+                } while (!this.f33689a.compareAndSet(i2, j2, j3));
+                this.f33690b.increment();
                 return true;
             }
             return invokeJ.booleanValue;
@@ -356,7 +356,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Arrays.hashCode(g(this.f33500a)) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Arrays.hashCode(g(this.f33689a)) : invokeV.intValue;
         }
 
         public a(long[] jArr) {
@@ -375,13 +375,13 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
                 }
             }
             n.e(jArr.length > 0, "data length is zero!");
-            this.f33500a = new AtomicLongArray(jArr);
-            this.f33501b = LongAddables.a();
+            this.f33689a = new AtomicLongArray(jArr);
+            this.f33690b = LongAddables.a();
             long j = 0;
             for (long j2 : jArr) {
                 j += Long.bitCount(j2);
             }
-            this.f33501b.add(j);
+            this.f33690b.add(j);
         }
     }
 }

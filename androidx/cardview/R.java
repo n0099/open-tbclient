@@ -47,10 +47,10 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int cardview_dark_background = 0x7f0602fc;
-        public static final int cardview_light_background = 0x7f0602fd;
-        public static final int cardview_shadow_end_color = 0x7f0602fe;
-        public static final int cardview_shadow_start_color = 0x7f0602ff;
+        public static final int cardview_dark_background = 0x7f0602ea;
+        public static final int cardview_light_background = 0x7f0602eb;
+        public static final int cardview_shadow_end_color = 0x7f0602ec;
+        public static final int cardview_shadow_start_color = 0x7f0602ed;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -71,9 +71,9 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int cardview_compat_inset_shadow = 0x7f0701a0;
-        public static final int cardview_default_elevation = 0x7f0701a1;
-        public static final int cardview_default_radius = 0x7f0701a2;
+        public static final int cardview_compat_inset_shadow = 0x7f0701a1;
+        public static final int cardview_default_elevation = 0x7f0701a2;
+        public static final int cardview_default_radius = 0x7f0701a3;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {

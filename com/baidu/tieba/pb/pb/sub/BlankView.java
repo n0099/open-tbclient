@@ -17,10 +17,10 @@ public class BlankView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f19585e;
+    public Scroller f19686e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f19586f;
+    public a f19687f;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -52,12 +52,12 @@ public class BlankView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.computeScroll();
-            Scroller scroller = this.f19585e;
+            Scroller scroller = this.f19686e;
             if (scroller == null) {
                 return;
             }
             if (scroller.computeScrollOffset()) {
-                int currY = this.f19585e.getCurrY();
+                int currY = this.f19686e.getCurrY();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = currY;
@@ -66,7 +66,7 @@ public class BlankView extends View {
                 }
                 return;
             }
-            a aVar = this.f19586f;
+            a aVar = this.f19687f;
             if (aVar != null) {
                 aVar.a();
             }
@@ -84,7 +84,7 @@ public class BlankView extends View {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f19586f = aVar;
+            this.f19687f = aVar;
         }
     }
 

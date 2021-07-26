@@ -21,10 +21,10 @@ public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f36590a;
+    public static Handler f36779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f36591b;
+    public static volatile boolean f36780b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,8 +40,8 @@ public class r {
                 return;
             }
         }
-        f36590a = new Handler(Looper.getMainLooper());
-        f36591b = false;
+        f36779a = new Handler(Looper.getMainLooper());
+        f36780b = false;
     }
 
     public static void a(Context context, String str) {
@@ -60,10 +60,10 @@ public class r {
 
     public static void a(Context context, String str, int i2, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || f36591b) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || f36780b) {
             return;
         }
-        f36591b = true;
+        f36780b = true;
         View inflate = LayoutInflater.from(context).inflate(i2, (ViewGroup) null);
         ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
@@ -71,7 +71,7 @@ public class r {
         toast.setDuration(0);
         toast.setView(inflate);
         toast.show();
-        f36590a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.r.1
+        f36779a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.r.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,7 +93,7 @@ public class r {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    boolean unused = r.f36591b = false;
+                    boolean unused = r.f36780b = false;
                 }
             }
         }, j);

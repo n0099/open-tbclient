@@ -25,32 +25,32 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7805a = "b";
+    public static final String f7831a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.baidu.mapsdkplatform.comapi.synchronization.c.a f7806b;
+    public static com.baidu.mapsdkplatform.comapi.synchronization.c.a f7832b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static OnHistoryTraceListener f7807c;
+    public static OnHistoryTraceListener f7833c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static com.baidu.mapsdkplatform.comapi.synchronization.b.a f7808e;
+    public static com.baidu.mapsdkplatform.comapi.synchronization.b.a f7834e;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f7809g;
+    public static int f7835g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f7810d;
+    public HandlerThread f7836d;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f7811f;
+    public a f7837f;
 
     /* renamed from: h  reason: collision with root package name */
-    public HandlerThread f7812h;
+    public HandlerThread f7838h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f7813i;
+    public e f7839i;
     public volatile boolean j;
 
     /* loaded from: classes2.dex */
@@ -78,7 +78,7 @@ public class b {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, historyTraceQueryOptions)) == null) {
                 String a2 = new f(historyTraceQueryOptions).a();
                 if (TextUtils.isEmpty(a2)) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7805a, "Build request url failed");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7831a, "Build request url failed");
                     return null;
                 }
                 return a2;
@@ -90,16 +90,16 @@ public class b {
         public void a(int i2, String str, int i3, HistoryTraceQueryOptions historyTraceQueryOptions) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), historyTraceQueryOptions}) == null) {
-                if (b.f7808e == null) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7805a, "Data parser handler is null");
+                if (b.f7834e == null) {
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7831a, "Data parser handler is null");
                     return;
                 }
-                Message obtainMessage = b.f7808e.obtainMessage();
+                Message obtainMessage = b.f7834e.obtainMessage();
                 obtainMessage.what = i2;
                 obtainMessage.arg1 = i3;
                 obtainMessage.obj = str;
-                b.f7808e.sendMessage(obtainMessage);
-                b.f7808e.a(historyTraceQueryOptions);
+                b.f7834e.sendMessage(obtainMessage);
+                b.f7834e.a(historyTraceQueryOptions);
             }
         }
 
@@ -121,7 +121,7 @@ public class b {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(65543, this, aVar, i2) == null) {
-                int i4 = c.f7814a[aVar.ordinal()];
+                int i4 = c.f7840a[aVar.ordinal()];
                 if (i4 == 1) {
                     i3 = 0;
                     str = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
@@ -147,13 +147,13 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(65544, this, str, i2, historyTraceQueryOptions) == null) {
                 if (TextUtils.isEmpty(str)) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7805a, "Request url is null");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7831a, "Request url is null");
                     return;
                 }
-                if (b.f7806b == null) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.c.a unused = b.f7806b = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
+                if (b.f7832b == null) {
+                    com.baidu.mapsdkplatform.comapi.synchronization.c.a unused = b.f7832b = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
                 }
-                b.f7806b.a(str, new d(this, i2, historyTraceQueryOptions, str));
+                b.f7832b.a(str, new d(this, i2, historyTraceQueryOptions, str));
             }
         }
 
@@ -162,7 +162,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
-                String str = b.f7805a;
+                String str = b.f7831a;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(str, "The query type is: " + i2);
                 HistoryTraceQueryOptions historyTraceQueryOptions = (HistoryTraceQueryOptions) message.obj;
                 if (i2 != 1) {
@@ -202,32 +202,32 @@ public class b {
             }
         }
         this.j = false;
-        f7806b = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
-        this.f7811f = new a();
+        f7832b = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
+        this.f7837f = new a();
         HandlerThread handlerThread = new HandlerThread("HistoryTraceDataParser");
-        this.f7810d = handlerThread;
+        this.f7836d = handlerThread;
         handlerThread.start();
-        com.baidu.mapsdkplatform.comapi.synchronization.b.a aVar = new com.baidu.mapsdkplatform.comapi.synchronization.b.a(this.f7810d.getLooper());
-        f7808e = aVar;
-        aVar.a(this.f7811f);
+        com.baidu.mapsdkplatform.comapi.synchronization.b.a aVar = new com.baidu.mapsdkplatform.comapi.synchronization.b.a(this.f7836d.getLooper());
+        f7834e = aVar;
+        aVar.a(this.f7837f);
         HandlerThread handlerThread2 = new HandlerThread("HistoryTraceRender");
-        this.f7812h = handlerThread2;
+        this.f7838h = handlerThread2;
         handlerThread2.start();
-        this.f7813i = new e(this.f7812h.getLooper());
+        this.f7839i = new e(this.f7838h.getLooper());
     }
 
     private void a(HistoryTraceData historyTraceData, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, historyTraceData, i2) == null) {
-            if (this.f7813i == null) {
-                this.f7813i = new e(this.f7812h.getLooper());
+            if (this.f7839i == null) {
+                this.f7839i = new e(this.f7838h.getLooper());
             }
-            Message obtainMessage = this.f7813i.obtainMessage();
+            Message obtainMessage = this.f7839i.obtainMessage();
             obtainMessage.what = i2;
             if (historyTraceData != null) {
                 obtainMessage.obj = historyTraceData;
             }
-            this.f7813i.sendMessage(obtainMessage);
+            this.f7839i.sendMessage(obtainMessage);
         }
     }
 
@@ -238,25 +238,25 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, historyTraceQueryOptions, i2)) == null) {
             if (historyTraceQueryOptions == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7805a, "QueryOptions is null, please check!");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7831a, "QueryOptions is null, please check!");
                 i3 = 10001;
                 str = "QueryOptions is null, please check.";
             } else if (TextUtils.isEmpty(historyTraceQueryOptions.getOrderId())) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7805a, "Query orderId is null, please check");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7831a, "Query orderId is null, please check");
                 i3 = 10003;
                 str = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_ORDER_ID_NULL;
             } else if (historyTraceQueryOptions.getRoleType() != 0) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7805a, "Current role type not the passenger");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7831a, "Current role type not the passenger");
                 i3 = 10004;
                 str = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_ROLE_TYPE_ERROR;
             } else if (TextUtils.isEmpty(historyTraceQueryOptions.getUserId())) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7805a, "Order's user id is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7831a, "Order's user id is null");
                 i3 = 10005;
                 str = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_USER_ID_NULL;
             } else if (!TextUtils.isEmpty(historyTraceQueryOptions.getDriverId())) {
                 return true;
             } else {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7805a, "Driver id is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7831a, "Driver id is null");
                 i3 = 10006;
                 str = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_DRIVER_ID_NULL;
             }
@@ -269,9 +269,9 @@ public class b {
     public static void b(int i2, String str, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-            OnHistoryTraceListener onHistoryTraceListener = f7807c;
+            OnHistoryTraceListener onHistoryTraceListener = f7833c;
             if (onHistoryTraceListener == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7805a, "OnHistoryTraceListener is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7831a, "OnHistoryTraceListener is null");
             } else if (i3 == 1) {
                 onHistoryTraceListener.onQueryHistroyTraceData(i2, str, null);
             } else if (i3 != 2) {
@@ -284,51 +284,51 @@ public class b {
     private void b(HistoryTraceQueryOptions historyTraceQueryOptions, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65544, this, historyTraceQueryOptions, i2) == null) {
-            if (this.f7811f == null) {
-                this.f7811f = new a();
+            if (this.f7837f == null) {
+                this.f7837f = new a();
             }
-            Message obtainMessage = this.f7811f.obtainMessage();
+            Message obtainMessage = this.f7837f.obtainMessage();
             obtainMessage.what = i2;
             obtainMessage.obj = historyTraceQueryOptions;
-            this.f7811f.sendMessage(obtainMessage);
+            this.f7837f.sendMessage(obtainMessage);
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f7806b != null) {
-                f7806b = null;
+            if (f7832b != null) {
+                f7832b = null;
             }
-            if (f7807c != null) {
-                f7807c = null;
+            if (f7833c != null) {
+                f7833c = null;
             }
-            a aVar = this.f7811f;
+            a aVar = this.f7837f;
             if (aVar != null) {
                 aVar.removeCallbacksAndMessages(null);
-                this.f7811f = null;
+                this.f7837f = null;
             }
-            com.baidu.mapsdkplatform.comapi.synchronization.b.a aVar2 = f7808e;
+            com.baidu.mapsdkplatform.comapi.synchronization.b.a aVar2 = f7834e;
             if (aVar2 != null) {
                 aVar2.removeCallbacksAndMessages(null);
-                f7808e.a();
-                f7808e = null;
+                f7834e.a();
+                f7834e = null;
             }
-            HandlerThread handlerThread = this.f7810d;
+            HandlerThread handlerThread = this.f7836d;
             if (handlerThread != null) {
                 handlerThread.quit();
-                this.f7810d = null;
+                this.f7836d = null;
             }
-            e eVar = this.f7813i;
+            e eVar = this.f7839i;
             if (eVar != null) {
                 eVar.removeCallbacksAndMessages(null);
-                this.f7813i.a();
-                this.f7813i = null;
+                this.f7839i.a();
+                this.f7839i = null;
             }
-            HandlerThread handlerThread2 = this.f7812h;
+            HandlerThread handlerThread2 = this.f7838h;
             if (handlerThread2 != null) {
                 handlerThread2.quit();
-                this.f7812h = null;
+                this.f7838h = null;
             }
             this.j = false;
         }
@@ -338,16 +338,16 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baiduMap, historyTraceData, historyTraceDisplayOptions, i2) == null) {
             if (baiduMap == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7805a, "BaiduMap instance is null");
-                OnHistoryTraceListener onHistoryTraceListener = f7807c;
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7831a, "BaiduMap instance is null");
+                OnHistoryTraceListener onHistoryTraceListener = f7833c;
                 if (onHistoryTraceListener != null) {
                     onHistoryTraceListener.onRenderHistroyTrace(10007, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_BAIDUMAP_NULL);
                 }
             } else if (5 == i2) {
-                this.f7813i.a(historyTraceDisplayOptions, baiduMap, i2);
+                this.f7839i.a(historyTraceDisplayOptions, baiduMap, i2);
                 a(historyTraceData, 4);
             } else {
-                OnHistoryTraceListener onHistoryTraceListener2 = f7807c;
+                OnHistoryTraceListener onHistoryTraceListener2 = f7833c;
                 if (onHistoryTraceListener2 != null) {
                     onHistoryTraceListener2.onRenderHistroyTrace(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_CURRENT_ORDER_STATE_NOT_COMPLETE, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_CURRENT_ORDER_STATE_NOT_COMPLETE);
                 }
@@ -361,7 +361,7 @@ public class b {
             if (a(historyTraceQueryOptions, 1)) {
                 b(historyTraceQueryOptions, 1);
             } else {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7805a, "QueryOptions error, please check!");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7831a, "QueryOptions error, please check!");
             }
         }
     }
@@ -369,22 +369,22 @@ public class b {
     public void a(OnHistoryTraceListener onHistoryTraceListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onHistoryTraceListener) == null) {
-            f7807c = onHistoryTraceListener;
-            f7808e.a(onHistoryTraceListener);
-            this.f7813i.a(onHistoryTraceListener);
+            f7833c = onHistoryTraceListener;
+            f7834e.a(onHistoryTraceListener);
+            this.f7839i.a(onHistoryTraceListener);
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.c.c.f7838b = z;
+            com.baidu.mapsdkplatform.comapi.synchronization.c.c.f7864b = z;
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? com.baidu.mapsdkplatform.comapi.synchronization.c.c.f7838b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? com.baidu.mapsdkplatform.comapi.synchronization.c.c.f7864b : invokeV.booleanValue;
     }
 }

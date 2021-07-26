@@ -20,31 +20,31 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int[] f30026a;
+    public final int[] f30126a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f30027b;
+    public final int[] f30127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int[] f30028c;
+    public final int[] f30128c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int[] f30029d;
+    public final int[] f30129d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f30030e;
+    public final int f30130e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f30031f;
+    public final int f30131f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f30032g;
+    public final int f30132g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f30033h;
+    public final int f30133h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final long f30034i;
+    public final long f30134i;
     public final long j;
     public final int k;
     public final int l;
@@ -66,31 +66,31 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f30035a;
+        public long f30135a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f30036b;
+        public long f30136b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f30037c;
+        public int f30137c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f30038d;
+        public int f30138d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30039e;
+        public int f30139e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f30040f;
+        public int f30140f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int[] f30041g;
+        public int[] f30141g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int[] f30042h;
+        public int[] f30142h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int[] f30043i;
+        public int[] f30143i;
         public int[] j;
         public int k;
         public int l;
@@ -127,7 +127,7 @@ public class f {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-                this.f30036b = j;
+                this.f30136b = j;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -137,7 +137,7 @@ public class f {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-                this.f30038d = i2;
+                this.f30138d = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -147,7 +147,7 @@ public class f {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                this.f30039e = i2;
+                this.f30139e = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -157,7 +157,7 @@ public class f {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-                this.f30040f = i2;
+                this.f30140f = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -207,7 +207,7 @@ public class f {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f30037c = i2;
+                this.f30137c = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -217,7 +217,7 @@ public class f {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, iArr)) == null) {
-                this.f30043i = iArr;
+                this.f30143i = iArr;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -237,7 +237,7 @@ public class f {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.f30035a = j;
+                this.f30135a = j;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -247,7 +247,7 @@ public class f {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
-                this.f30042h = iArr;
+                this.f30142h = iArr;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -257,7 +257,7 @@ public class f {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iArr)) == null) {
-                this.f30041g = iArr;
+                this.f30141g = iArr;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -295,16 +295,16 @@ public class f {
                 return;
             }
         }
-        this.f30026a = aVar.f30042h;
-        this.f30027b = aVar.f30043i;
-        this.f30029d = aVar.j;
-        this.f30028c = aVar.f30041g;
-        this.f30030e = aVar.f30040f;
-        this.f30031f = aVar.f30039e;
-        this.f30032g = aVar.f30038d;
-        this.f30033h = aVar.f30037c;
-        this.f30034i = aVar.f30036b;
-        this.j = aVar.f30035a;
+        this.f30126a = aVar.f30142h;
+        this.f30127b = aVar.f30143i;
+        this.f30129d = aVar.j;
+        this.f30128c = aVar.f30141g;
+        this.f30130e = aVar.f30140f;
+        this.f30131f = aVar.f30139e;
+        this.f30132g = aVar.f30138d;
+        this.f30133h = aVar.f30137c;
+        this.f30134i = aVar.f30136b;
+        this.j = aVar.f30135a;
         this.k = aVar.k;
         this.l = aVar.l;
         this.m = aVar.m;
@@ -325,17 +325,17 @@ public class f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f30026a != null && this.f30026a.length == 2) {
-                    jSONObject.putOpt("ad_x", Integer.valueOf(this.f30026a[0])).putOpt("ad_y", Integer.valueOf(this.f30026a[1]));
+                if (this.f30126a != null && this.f30126a.length == 2) {
+                    jSONObject.putOpt("ad_x", Integer.valueOf(this.f30126a[0])).putOpt("ad_y", Integer.valueOf(this.f30126a[1]));
                 }
-                if (this.f30027b != null && this.f30027b.length == 2) {
-                    jSONObject.putOpt("width", Integer.valueOf(this.f30027b[0])).putOpt("height", Integer.valueOf(this.f30027b[1]));
+                if (this.f30127b != null && this.f30127b.length == 2) {
+                    jSONObject.putOpt("width", Integer.valueOf(this.f30127b[0])).putOpt("height", Integer.valueOf(this.f30127b[1]));
                 }
-                if (this.f30028c != null && this.f30028c.length == 2) {
-                    jSONObject.putOpt("button_x", Integer.valueOf(this.f30028c[0])).putOpt("button_y", Integer.valueOf(this.f30028c[1]));
+                if (this.f30128c != null && this.f30128c.length == 2) {
+                    jSONObject.putOpt("button_x", Integer.valueOf(this.f30128c[0])).putOpt("button_y", Integer.valueOf(this.f30128c[1]));
                 }
-                if (this.f30029d != null && this.f30029d.length == 2) {
-                    jSONObject.putOpt("button_width", Integer.valueOf(this.f30029d[0])).putOpt("button_height", Integer.valueOf(this.f30029d[1]));
+                if (this.f30129d != null && this.f30129d.length == 2) {
+                    jSONObject.putOpt("button_width", Integer.valueOf(this.f30129d[0])).putOpt("button_height", Integer.valueOf(this.f30129d[1]));
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 JSONArray jSONArray = new JSONArray();
@@ -344,13 +344,13 @@ public class f {
                         c.a valueAt = this.p.valueAt(i2);
                         if (valueAt != null) {
                             JSONObject jSONObject3 = new JSONObject();
-                            jSONObject3.putOpt("force", Double.valueOf(valueAt.f29857c)).putOpt("mr", Double.valueOf(valueAt.f29856b)).putOpt("phase", Integer.valueOf(valueAt.f29855a)).putOpt("ts", Long.valueOf(valueAt.f29858d));
+                            jSONObject3.putOpt("force", Double.valueOf(valueAt.f29953c)).putOpt("mr", Double.valueOf(valueAt.f29952b)).putOpt("phase", Integer.valueOf(valueAt.f29951a)).putOpt("ts", Long.valueOf(valueAt.f29954d));
                             jSONArray.put(jSONObject3);
                         }
                     }
                 }
                 jSONObject2.putOpt("ftc", Integer.valueOf(this.n)).putOpt("info", jSONArray);
-                jSONObject.putOpt("down_x", Integer.valueOf(this.f30030e)).putOpt("down_y", Integer.valueOf(this.f30031f)).putOpt("up_x", Integer.valueOf(this.f30032g)).putOpt("up_y", Integer.valueOf(this.f30033h)).putOpt("down_time", Long.valueOf(this.f30034i)).putOpt("up_time", Long.valueOf(this.j)).putOpt("toolType", Integer.valueOf(this.k)).putOpt("deviceId", Integer.valueOf(this.l)).putOpt("source", Integer.valueOf(this.m)).putOpt("ft", jSONObject2).putOpt("click_area_type", this.o);
+                jSONObject.putOpt("down_x", Integer.valueOf(this.f30130e)).putOpt("down_y", Integer.valueOf(this.f30131f)).putOpt("up_x", Integer.valueOf(this.f30132g)).putOpt("up_y", Integer.valueOf(this.f30133h)).putOpt("down_time", Long.valueOf(this.f30134i)).putOpt("up_time", Long.valueOf(this.j)).putOpt("toolType", Integer.valueOf(this.k)).putOpt("deviceId", Integer.valueOf(this.l)).putOpt("source", Integer.valueOf(this.m)).putOpt("ft", jSONObject2).putOpt("click_area_type", this.o);
             } catch (Exception unused) {
             }
             return jSONObject;

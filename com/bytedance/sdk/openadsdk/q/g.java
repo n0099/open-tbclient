@@ -1,113 +1,114 @@
 package com.bytedance.sdk.openadsdk.q;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import com.bytedance.sdk.openadsdk.k.a.a;
 /* loaded from: classes5.dex */
-public class g implements f {
+public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public Context f32296a;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
 
-    public g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f32296a = context;
+        void a(@NonNull com.bytedance.sdk.openadsdk.k.a.b bVar);
+
+        void b();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.q.f
-    public synchronized List<e> a() {
-        InterceptResult invokeV;
-        LinkedList linkedList;
+    public static void a(Context context, com.bytedance.sdk.openadsdk.k.a aVar, int i2, a aVar2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                linkedList = new LinkedList();
-                Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32296a, "trackurl", null, null, null, null, null, null);
-                if (a2 != null) {
-                    while (a2.moveToNext()) {
-                        linkedList.add(new e(a2.getString(a2.getColumnIndex("id")), a2.getString(a2.getColumnIndex("url")), a2.getInt(a2.getColumnIndex("replaceholder")) > 0, a2.getInt(a2.getColumnIndex(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM))));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, aVar, Integer.valueOf(i2), aVar2, Boolean.valueOf(z)}) == null) {
+            com.bytedance.sdk.component.utils.k.f("splashLoadAd", " getImageBytes url " + aVar);
+            com.bytedance.sdk.openadsdk.k.d.b().d().a(aVar, new a.b(aVar2) { // from class: com.bytedance.sdk.openadsdk.q.g.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ a f32509a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                    if (a2 != null) {
-                        a2.close();
+                    this.f32509a = aVar2;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.k.a.a.b
+                public void a(String str, com.bytedance.sdk.openadsdk.k.a.b bVar) {
+                    a aVar3;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
+                        if (bVar.c() && (aVar3 = this.f32509a) != null) {
+                            aVar3.a(bVar);
+                            return;
+                        }
+                        a aVar4 = this.f32509a;
+                        if (aVar4 != null) {
+                            aVar4.a();
+                        }
                     }
                 }
-            }
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
 
-    @Override // com.bytedance.sdk.openadsdk.q.f
-    public synchronized void b(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            synchronized (this) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("id", eVar.a());
-                contentValues.put("url", eVar.b());
-                contentValues.put("replaceholder", Integer.valueOf(eVar.c() ? 1 : 0));
-                contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, Integer.valueOf(eVar.d()));
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32296a, "trackurl", contentValues, "id=?", new String[]{eVar.a()});
-            }
-        }
-    }
+                @Override // com.bytedance.sdk.openadsdk.k.a.a.b
+                public void a(int i3, String str, @Nullable Throwable th) {
+                    a aVar3;
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, th) == null) || (aVar3 = this.f32509a) == null) {
+                        return;
+                    }
+                    aVar3.a();
+                }
 
-    @Override // com.bytedance.sdk.openadsdk.q.f
-    public synchronized void c(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            synchronized (this) {
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32296a, "trackurl", "id=?", new String[]{eVar.a()});
-            }
+                @Override // com.bytedance.sdk.openadsdk.k.a.a.b
+                public void a() {
+                    a aVar3;
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar3 = this.f32509a) == null) {
+                        return;
+                    }
+                    aVar3.b();
+                }
+            }, i2, i2, z);
         }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static Drawable a(byte[] bArr, int i2) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return "CREATE TABLE IF NOT EXISTS trackurl (_id INTEGER PRIMARY KEY AUTOINCREMENT,id TEXT UNIQUE,url TEXT ,replaceholder INTEGER default 0, " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + " INTEGER default 0" + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.q.f
-    public synchronized void a(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            synchronized (this) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("id", eVar.a());
-                contentValues.put("url", eVar.b());
-                contentValues.put("replaceholder", Integer.valueOf(eVar.c() ? 1 : 0));
-                contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, Integer.valueOf(eVar.d()));
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32296a, "trackurl", contentValues);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bArr, i2)) == null) {
+            if (bArr != null && bArr.length > 0) {
+                try {
+                    return new BitmapDrawable(BitmapFactory.decodeByteArray(bArr, 0, bArr.length));
+                } catch (Throwable unused) {
+                    return new ColorDrawable(0);
+                }
             }
+            return new ColorDrawable(0);
         }
+        return (Drawable) invokeLI.objValue;
     }
 }

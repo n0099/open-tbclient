@@ -96,11 +96,11 @@ public interface ITTAppDownloadListener extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static ITTAppDownloadListener f29016a;
+            public static ITTAppDownloadListener f29115a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f29017b;
+            public IBinder f29116b;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -117,14 +117,14 @@ public interface ITTAppDownloadListener extends IInterface {
                         return;
                     }
                 }
-                this.f29017b = iBinder;
+                this.f29116b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29017b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29116b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
@@ -142,7 +142,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     try {
-                        if (!this.f29017b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29116b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDownloadActive(j, j2, str, str2);
                             obtain2.recycle();
                             obtain.recycle();
@@ -177,7 +177,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     try {
-                        if (!this.f29017b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29116b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDownloadFailed(j, j2, str, str2);
                             obtain2.recycle();
                             obtain.recycle();
@@ -208,7 +208,7 @@ public interface ITTAppDownloadListener extends IInterface {
                         obtain.writeLong(j);
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        if (!this.f29017b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29116b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDownloadFinished(j, str, str2);
                         } else {
                             obtain2.readException();
@@ -235,7 +235,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     try {
-                        if (!this.f29017b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29116b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDownloadPaused(j, j2, str, str2);
                             obtain2.recycle();
                             obtain.recycle();
@@ -263,7 +263,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
-                        if (!this.f29017b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29116b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onIdle();
                         } else {
                             obtain2.readException();
@@ -285,7 +285,7 @@ public interface ITTAppDownloadListener extends IInterface {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        if (!this.f29017b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29116b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onInstalled(str, str2);
                         } else {
                             obtain2.readException();
@@ -333,17 +333,17 @@ public interface ITTAppDownloadListener extends IInterface {
         public static ITTAppDownloadListener getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29016a : (ITTAppDownloadListener) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29115a : (ITTAppDownloadListener) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(ITTAppDownloadListener iTTAppDownloadListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iTTAppDownloadListener)) == null) {
-                if (a.f29016a != null || iTTAppDownloadListener == null) {
+                if (a.f29115a != null || iTTAppDownloadListener == null) {
                     return false;
                 }
-                a.f29016a = iTTAppDownloadListener;
+                a.f29115a = iTTAppDownloadListener;
                 return true;
             }
             return invokeL.booleanValue;

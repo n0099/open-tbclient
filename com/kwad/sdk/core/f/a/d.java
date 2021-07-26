@@ -15,7 +15,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34418a;
+    public Context f34607a;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d {
                 return;
             }
         }
-        this.f34418a = context;
+        this.f34607a = context;
     }
 
     private String a(Cursor cursor) {
@@ -65,7 +65,7 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String str = "";
             try {
-                Cursor query = this.f34418a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
+                Cursor query = this.f34607a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
                 str = a(query);
                 com.kwad.sdk.core.d.a.c("MeizuDeviceIDHelper", "getOAID oaid:" + str);
                 aa.a(query);

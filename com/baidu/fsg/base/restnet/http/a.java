@@ -35,31 +35,31 @@ public class a implements b<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5229a = "Host";
+    public static final String f5255a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5230b = "Accept";
+    public static final String f5256b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5231c = "Accept-Charset";
+    public static final String f5257c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5232d = "Accept-Encoding";
+    public static final String f5258d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5233e = "Accept-Language";
+    public static final String f5259e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5234f = "Allow";
+    public static final String f5260f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5235g = "Cache-Control";
+    public static final String f5261g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5236h = "Content-Disposition";
+    public static final String f5262h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5237i = "Content-Encoding";
+    public static final String f5263i = "Content-Encoding";
     public static final String j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";

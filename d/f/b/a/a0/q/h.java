@@ -19,7 +19,7 @@ public final class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final UUID f69396a;
+        public final UUID f69850a;
 
         public a(UUID uuid, int i2, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public final class h {
                     return;
                 }
             }
-            this.f69396a = uuid;
+            this.f69850a = uuid;
         }
     }
 
@@ -118,7 +118,7 @@ public final class h {
             if (c2 == null) {
                 return null;
             }
-            return c2.f69396a;
+            return c2.f69850a;
         }
         return (UUID) invokeL.objValue;
     }

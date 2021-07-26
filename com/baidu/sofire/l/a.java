@@ -25,11 +25,11 @@ public interface a extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f10444a;
+            public static a f10470a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f10445b;
+            public IBinder f10471b;
 
             public C0165a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f10445b = iBinder;
+                this.f10471b = iBinder;
             }
 
             @Override // com.baidu.sofire.l.a
@@ -61,7 +61,7 @@ public interface a extends IInterface {
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeString(str3);
-                        if (this.f10445b.transact(1, obtain, obtain2, 0) || AbstractBinderC0164a.a() == null) {
+                        if (this.f10471b.transact(1, obtain, obtain2, 0) || AbstractBinderC0164a.a() == null) {
                             obtain2.readException();
                             return obtain2.readString();
                         }
@@ -78,14 +78,14 @@ public interface a extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10445b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10471b : (IBinder) invokeV.objValue;
             }
         }
 
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C0165a.f10444a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C0165a.f10470a : (a) invokeV.objValue;
         }
 
         public static a a(IBinder iBinder) {

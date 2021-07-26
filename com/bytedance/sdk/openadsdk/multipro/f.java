@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,13 +26,13 @@ public class f implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f31621a;
+    public static volatile f f31808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Context> f31622b;
+    public static WeakReference<Context> f31809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<a> f31623c;
+    public static List<a> f31810c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,12 +49,12 @@ public class f implements a {
             }
         }
         List<a> synchronizedList = Collections.synchronizedList(new ArrayList());
-        f31623c = synchronizedList;
+        f31810c = synchronizedList;
         synchronizedList.add(new com.bytedance.sdk.openadsdk.multipro.d.c());
-        f31623c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
-        f31623c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
-        f31623c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
-        for (a aVar : f31623c) {
+        f31810c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
+        f31810c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
+        f31810c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
+        for (a aVar : f31810c) {
             aVar.b();
         }
     }
@@ -78,16 +78,16 @@ public class f implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (context != null) {
-                f31622b = new WeakReference<>(context.getApplicationContext());
+                f31809b = new WeakReference<>(context.getApplicationContext());
             }
-            if (f31621a == null) {
+            if (f31808a == null) {
                 synchronized (f.class) {
-                    if (f31621a == null) {
-                        f31621a = new f();
+                    if (f31808a == null) {
+                        f31808a = new f();
                     }
                 }
             }
-            return f31621a;
+            return f31808a;
         }
         return (f) invokeL.objValue;
     }
@@ -113,7 +113,7 @@ public class f implements a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            for (a aVar : f31623c) {
+            for (a aVar : f31810c) {
                 aVar.a(context);
             }
         }
@@ -138,7 +138,7 @@ public class f implements a {
                 }
                 return null;
             } catch (Throwable th) {
-                j.a("TTProviderManager", "==provider query error==", th);
+                k.a("TTProviderManager", "==provider query error==", th);
                 return null;
             }
         }
@@ -157,7 +157,7 @@ public class f implements a {
                 }
                 return null;
             } catch (Throwable th) {
-                j.a("TTProviderManager", "==provider getType error==", th);
+                k.a("TTProviderManager", "==provider getType error==", th);
                 return null;
             }
         }
@@ -172,25 +172,25 @@ public class f implements a {
                 return null;
             }
             if (!c(uri)) {
-                j.b("TTProviderManager", "uri is error1");
+                k.b("TTProviderManager", "uri is error1");
                 return null;
             }
             String[] split = uri.getPath().split("/");
             if (split.length < 2) {
-                j.b("TTProviderManager", "uri is error2");
+                k.b("TTProviderManager", "uri is error2");
                 return null;
             }
             String str = split[1];
             if (TextUtils.isEmpty(str)) {
-                j.b("TTProviderManager", "uri is error3");
+                k.b("TTProviderManager", "uri is error3");
                 return null;
             }
-            for (a aVar : f31623c) {
+            for (a aVar : f31810c) {
                 if (str.equals(aVar.a())) {
                     return aVar;
                 }
             }
-            j.b("TTProviderManager", "uri is error4");
+            k.b("TTProviderManager", "uri is error4");
             return null;
         }
         return (a) invokeL.objValue;
@@ -208,7 +208,7 @@ public class f implements a {
                 }
                 return null;
             } catch (Throwable th) {
-                j.a("TTProviderManager", "==provider insert error==", th);
+                k.a("TTProviderManager", "==provider insert error==", th);
                 return null;
             }
         }
@@ -227,7 +227,7 @@ public class f implements a {
                 }
                 return 0;
             } catch (Throwable th) {
-                j.a("TTProviderManager", "==provider delete error==", th);
+                k.a("TTProviderManager", "==provider delete error==", th);
                 return 0;
             }
         }
@@ -246,7 +246,7 @@ public class f implements a {
                 }
                 return 0;
             } catch (Throwable th) {
-                j.a("TTProviderManager", "==provider update error==", th);
+                k.a("TTProviderManager", "==provider update error==", th);
                 return 0;
             }
         }

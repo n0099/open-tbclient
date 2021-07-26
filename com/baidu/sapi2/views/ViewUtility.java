@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-import d.a.b0.a.b;
+import d.a.c0.a.b;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
@@ -36,7 +36,7 @@ public class ViewUtility implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f10073a;
+        public final /* synthetic */ float f10099a;
 
         public a(float f2) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class ViewUtility implements NoProguard {
                     return;
                 }
             }
-            this.f10073a = f2;
+            this.f10099a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -69,7 +69,7 @@ public class ViewUtility implements NoProguard {
                     }
                     return false;
                 } else if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.f10073a);
+                    view.setAlpha(this.f10099a);
                     return false;
                 } else {
                     return false;

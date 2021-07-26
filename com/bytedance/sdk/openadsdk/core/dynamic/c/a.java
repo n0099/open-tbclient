@@ -1,5 +1,6 @@
 package com.bytedance.sdk.openadsdk.core.dynamic.c;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
@@ -16,14 +17,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.i;
+import com.bytedance.sdk.component.utils.e;
 import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.aa;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
-import com.bytedance.sdk.openadsdk.core.dynamic.d.c;
+import com.bytedance.sdk.openadsdk.core.dynamic.d.b;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.q.s;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -34,23 +39,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f29971e;
+    public static String f30070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Set<String> f29972f;
+    public static final Set<String> f30071f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29973a;
+    public Context f30072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSWebView f29974b;
+    public SSWebView f30073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29975c;
+    public String f30074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f29976d;
+    public b f30075d;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -61,14 +66,14 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0338a {
+    public class C0340a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29977a;
+        public final /* synthetic */ a f30076a;
 
-        public C0338a(a aVar) {
+        public C0340a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,14 +88,14 @@ public class a {
                     return;
                 }
             }
-            this.f29977a = aVar;
+            this.f30076a = aVar;
         }
 
         @JavascriptInterface
         public void calculateResult(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f29977a.c(str);
+                this.f30076a.c(str);
             }
         }
 
@@ -103,9 +108,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)})) == null) {
                 JSONObject jSONObject = new JSONObject();
-                j.f("DynamicBaseWidget", "getDomSizeFromNative String brickType==" + str2);
-                j.f("DynamicBaseWidget", "getDomSizeFromNative String str==" + str);
-                if (!str.startsWith("<svg") && !a.f29972f.contains(str2)) {
+                k.f("DynamicBaseWidget", "getDomSizeFromNative String brickType==" + str2);
+                k.f("DynamicBaseWidget", "getDomSizeFromNative String str==" + str);
+                if (!str.startsWith("<svg") && !a.f30071f.contains(str2)) {
                     if ("logo".equals(str2)) {
                         jSONObject.put("width", "union".equals(str) ? 10.0d : 20.0d);
                         jSONObject.put("height", 10.0d);
@@ -118,7 +123,7 @@ public class a {
                     float optDouble3 = (float) jSONObject2.optDouble("lineHeight");
                     float optDouble4 = (float) jSONObject2.optDouble("maxWidth");
                     double d4 = (length * (optDouble + optDouble2)) - optDouble2;
-                    j.f("DynamicBaseWidget", "getDomSizeFromNative letterSpacing==" + optDouble2 + ",lineHeight==" + optDouble3 + ",maxWidth ==" + optDouble4 + ",totalStrLength" + d4);
+                    k.f("DynamicBaseWidget", "getDomSizeFromNative letterSpacing==" + optDouble2 + ",lineHeight==" + optDouble3 + ",maxWidth ==" + optDouble4 + ",totalStrLength" + d4);
                     if (z) {
                         d3 = optDouble4;
                         int i4 = ((int) (d4 / d3)) + 1;
@@ -136,7 +141,7 @@ public class a {
                     }
                     jSONObject.put("width", d3);
                     jSONObject.put("height", d2);
-                    j.f("DynamicBaseWidget", "getDomSizeFromNative fontSize==" + optDouble + ",width==" + d3 + ",height ==" + d2);
+                    k.f("DynamicBaseWidget", "getDomSizeFromNative fontSize==" + optDouble + ",width==" + d3 + ",height ==" + d2);
                     return jSONObject.toString();
                 }
                 jSONObject.put("width", 10.0d);
@@ -153,8 +158,8 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("width", q.c(o.a(), q.c(this.f29977a.f29973a)));
-                    jSONObject.put("height", q.c(o.a(), q.d(this.f29977a.f29973a)));
+                    jSONObject.put("width", s.c(o.a(), s.c(this.f30076a.f30072a)));
+                    jSONObject.put("height", s.c(o.a(), s.d(this.f30076a.f30072a)));
                     jSONObject.put(IAdRequestParam.OS, "Android");
                 } catch (Exception unused) {
                 }
@@ -173,7 +178,7 @@ public class a {
             return invokeV.doubleValue;
         }
 
-        public /* synthetic */ C0338a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0340a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
     }
@@ -191,9 +196,10 @@ public class a {
                 return;
             }
         }
-        f29972f = Collections.unmodifiableSet(new HashSet(Arrays.asList("dislike", IntentConfig.CLOSE, "close-fill")));
+        f30071f = Collections.unmodifiableSet(new HashSet(Arrays.asList("dislike", IntentConfig.CLOSE, "close-fill")));
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
     public a(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -209,52 +215,124 @@ public class a {
                 return;
             }
         }
-        this.f29973a = context;
-        SSWebView sSWebView = new SSWebView(this.f29973a);
-        this.f29974b = sSWebView;
+        this.f30072a = context;
+        SSWebView sSWebView = new SSWebView(this.f30072a);
+        this.f30073b = sSWebView;
+        sSWebView.getSettings().setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT >= 17) {
-            sSWebView.addJavascriptInterface(new C0338a(this, null), "JS_DYNAMIC_LAYOUT_OBJ");
+            this.f30073b.addJavascriptInterface(new C0340a(this, null), "JS_DYNAMIC_LAYOUT_OBJ");
         }
-        this.f29974b.loadUrl("about:blank");
+        this.f30073b.loadUrl("about:blank");
         b();
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            String d2 = d();
-            if (TextUtils.isEmpty(d2)) {
+            if (i() && Build.VERSION.SDK_INT >= 19) {
+                String f2 = f();
+                String h2 = h();
+                if (TextUtils.isEmpty(h2)) {
+                    c();
+                    return;
+                }
+                SSWebView sSWebView = this.f30073b;
+                sSWebView.evaluateJavascript(f2 + h2, null);
                 return;
             }
-            i.a(this.f29974b, d2);
+            c();
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            i.a(this.f29974b, "javascript:var res = getLayoutInfo(" + this.f29975c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+            String e2 = e();
+            if (TextUtils.isEmpty(e2)) {
+                return;
+            }
+            j.a(this.f30073b, e2);
         }
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    private void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (TextUtils.isEmpty(f29971e)) {
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            j.a(this.f30073b, "javascript:var res = getLayoutInfo(" + this.f30074c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (TextUtils.isEmpty(f30070e)) {
                 return null;
             }
-            return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + q.c(o.a(), q.c(o.a())) + ",height:" + q.c(o.a(), q.d(o.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f29971e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
+            String f2 = f();
+            if (i()) {
+                str = "(function () {var se = document.createElement('script');se.type = 'text/javascript';se.src = '" + ("file//" + com.bytedance.sdk.openadsdk.core.widget.webview.a.b.e() + "/" + e.a(f30070e)) + "';document.body.appendChild(se);})();";
+            } else {
+                str = "(function () {var JS_TTDYNAMIC_URL = '" + f30070e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();";
+            }
+            return "javascript:" + f2 + str;
         }
         return (String) invokeV.objValue;
     }
 
-    private void e() {
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            aa.a(this.f29973a, this.f29974b);
-            aa.a(this.f29974b);
-            this.f29974b = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return "var global = Function('return this')();global.jsCoreGlobal = {width:" + s.c(o.a(), s.c(o.a())) + ",height:" + s.c(o.a(), s.d(o.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            aa.a(this.f30072a, this.f30073b);
+            aa.a(this.f30073b);
+            this.f30073b = null;
+        }
+    }
+
+    private String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            try {
+                return com.bytedance.sdk.openadsdk.n.g.a.a(new FileInputStream(com.bytedance.sdk.openadsdk.core.widget.webview.a.b.e() + "/" + e.a(f30070e)));
+            } catch (IOException e2) {
+                e2.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            if (TextUtils.isEmpty(f30070e)) {
+                return false;
+            }
+            String a2 = e.a(f30070e);
+            if (TextUtils.isEmpty(a2)) {
+                return false;
+            }
+            return new File(com.bytedance.sdk.openadsdk.core.widget.webview.a.b.e(), a2).exists();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+            f30070e = str;
         }
     }
 
@@ -268,38 +346,31 @@ public class a {
             } catch (Exception unused) {
                 fVar = null;
             }
-            c cVar = this.f29976d;
-            if (cVar != null) {
-                cVar.a(fVar);
+            b bVar = this.f30075d;
+            if (bVar != null) {
+                bVar.a(fVar);
             }
-            e();
+            g();
         }
     }
 
-    public static void a(String str) {
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f29971e = str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.f30075d = bVar;
         }
     }
 
     public void b(String str) {
-        c cVar;
+        b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f29975c = str;
-            if (TextUtils.isEmpty(f29971e) && (cVar = this.f29976d) != null) {
-                cVar.a(null);
-                e();
+            this.f30074c = str;
+            if (TextUtils.isEmpty(f30070e) && (bVar = this.f30075d) != null) {
+                bVar.a(null);
+                g();
             }
-            c();
-        }
-    }
-
-    public void a(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f29976d = cVar;
+            d();
         }
     }
 }

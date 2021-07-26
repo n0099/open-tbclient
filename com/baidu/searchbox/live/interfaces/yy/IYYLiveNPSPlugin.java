@@ -8,6 +8,10 @@ import com.baidu.searchbox.live.interfaces.callback.LiveLoadStatusCallback;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public interface IYYLiveNPSPlugin {
+    void cancelLoad();
+
+    void cancelStartYYLiveActivity();
+
     @Deprecated
     void clearLiveResourceSize(Context context);
 

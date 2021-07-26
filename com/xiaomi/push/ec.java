@@ -13,19 +13,19 @@ public final class ec {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ec f40056a;
+    public static final ec f40328a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ ec[] f318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ec f40057b;
+    public static final ec f40329b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ec f40058c;
+    public static final ec f40330c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ec f40059d;
+    public static final ec f40331d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -44,12 +44,12 @@ public final class ec {
                 return;
             }
         }
-        f40056a = new ec("ACTIVITY", 0, "activity");
-        f40057b = new ec("SERVICE_ACTION", 1, "service_action");
-        f40058c = new ec("SERVICE_COMPONENT", 2, "service_component");
+        f40328a = new ec("ACTIVITY", 0, "activity");
+        f40329b = new ec("SERVICE_ACTION", 1, "service_action");
+        f40330c = new ec("SERVICE_COMPONENT", 2, "service_component");
         ec ecVar = new ec("PROVIDER", 3, "provider");
-        f40059d = ecVar;
-        f318a = new ec[]{f40056a, f40057b, f40058c, ecVar};
+        f40331d = ecVar;
+        f318a = new ec[]{f40328a, f40329b, f40330c, ecVar};
     }
 
     public ec(String str, int i2, String str2) {

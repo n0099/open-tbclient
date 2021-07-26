@@ -16,31 +16,31 @@ public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17122a;
+    public int f17178a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17123b;
+    public View f17179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f17124c;
+    public View f17180c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f17125d;
+    public TextView f17181d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f17126e;
+    public RelativeLayout f17182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f17127f;
+    public View f17183f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f17128g;
+    public TbImageView f17184g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17129h;
+    public TextView f17185h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17130i;
+    public TextView f17186i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -63,14 +63,14 @@ public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f17122a = 3;
-        this.f17123b = null;
-        this.f17124c = null;
-        this.f17125d = null;
-        this.f17126e = null;
-        this.f17127f = null;
-        this.f17128g = null;
-        this.f17123b = view;
+        this.f17178a = 3;
+        this.f17179b = null;
+        this.f17180c = null;
+        this.f17181d = null;
+        this.f17182e = null;
+        this.f17183f = null;
+        this.f17184g = null;
+        this.f17179b = view;
         b(view);
     }
 
@@ -79,13 +79,13 @@ public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.f17124c = view.findViewById(R.id.top_divider_line);
-        this.f17125d = (TextView) view.findViewById(R.id.quality_item_theme_title);
-        this.f17127f = view.findViewById(R.id.divider_line);
-        this.f17126e = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
-        this.f17128g = (TbImageView) view.findViewById(R.id.img);
-        this.f17129h = (TextView) view.findViewById(R.id.title);
-        this.f17130i = (TextView) view.findViewById(R.id.desc);
+        this.f17180c = view.findViewById(R.id.top_divider_line);
+        this.f17181d = (TextView) view.findViewById(R.id.quality_item_theme_title);
+        this.f17183f = view.findViewById(R.id.divider_line);
+        this.f17182e = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
+        this.f17184g = (TbImageView) view.findViewById(R.id.img);
+        this.f17185h = (TextView) view.findViewById(R.id.title);
+        this.f17186i = (TextView) view.findViewById(R.id.desc);
         this.j = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
         this.k = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
         this.l = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);

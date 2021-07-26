@@ -25,7 +25,7 @@ import com.baidubce.services.bos.model.InitiateMultipartUploadRequest;
 import com.baidubce.services.bos.model.InitiateMultipartUploadResponse;
 import com.baidubce.services.bos.model.UploadPartRequest;
 import com.baidubce.services.bos.model.UploadPartResponse;
-import d.a.m.b.a;
+import d.a.n.b.a;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;

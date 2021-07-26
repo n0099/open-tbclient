@@ -23,19 +23,19 @@ public class VisitedForumData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12968e;
+    public String f13017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12969f;
+    public boolean f13018f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12970g;
+    public int f13019g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12971h;
+    public String f13020h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12972i;
+    public String f13021i;
     public boolean isForumBusinessAccount;
     public String j;
     public ThemeColorInfo k;
@@ -61,11 +61,11 @@ public class VisitedForumData extends OrmObject {
                 return;
             }
         }
-        this.f12968e = "";
-        this.f12969f = false;
-        this.f12970g = 0;
-        this.f12971h = "";
-        this.f12972i = "";
+        this.f13017e = "";
+        this.f13018f = false;
+        this.f13019g = 0;
+        this.f13020h = "";
+        this.f13021i = "";
         this.j = "";
         this.k = null;
         this.l = 0;
@@ -84,7 +84,7 @@ public class VisitedForumData extends OrmObject {
     public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12970g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13019g : invokeV.intValue;
     }
 
     public List<FrsTabItemData> C() {
@@ -108,7 +108,7 @@ public class VisitedForumData extends OrmObject {
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12969f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13018f : invokeV.booleanValue;
     }
 
     public boolean G() {
@@ -128,11 +128,11 @@ public class VisitedForumData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, historyForumInfo) == null) || historyForumInfo == null) {
             return;
         }
-        this.f12968e = historyForumInfo.avatar;
-        this.f12972i = String.valueOf(historyForumInfo.forum_id);
-        this.f12971h = historyForumInfo.forum_name;
-        this.f12969f = historyForumInfo.is_liveforum.intValue() == 1;
-        this.f12970g = historyForumInfo.unread_num.intValue();
+        this.f13017e = historyForumInfo.avatar;
+        this.f13021i = String.valueOf(historyForumInfo.forum_id);
+        this.f13020h = historyForumInfo.forum_name;
+        this.f13018f = historyForumInfo.is_liveforum.intValue() == 1;
+        this.f13019g = historyForumInfo.unread_num.intValue();
         this.j = historyForumInfo.visit_time;
         this.k = historyForumInfo.theme_color;
         this.l = historyForumInfo.follow_num.intValue();
@@ -169,13 +169,13 @@ public class VisitedForumData extends OrmObject {
     public String getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f12972i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f13021i : (String) invokeV.objValue;
     }
 
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f12971h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f13020h : (String) invokeV.objValue;
     }
 
     public int getLevel() {
@@ -187,7 +187,7 @@ public class VisitedForumData extends OrmObject {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f12972i = str;
+            this.f13021i = str;
         }
     }
 
@@ -206,7 +206,7 @@ public class VisitedForumData extends OrmObject {
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f12968e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f13017e : (String) invokeV.objValue;
     }
 
     public boolean z() {
@@ -230,12 +230,12 @@ public class VisitedForumData extends OrmObject {
                 return;
             }
         }
-        this.f12968e = str3;
-        this.f12969f = z;
-        this.f12971h = str2;
-        this.f12972i = str;
+        this.f13017e = str3;
+        this.f13018f = z;
+        this.f13020h = str2;
+        this.f13021i = str;
         this.j = str4;
-        this.f12970g = 0;
+        this.f13019g = 0;
         this.k = themeColorInfo;
         this.l = i2;
     }

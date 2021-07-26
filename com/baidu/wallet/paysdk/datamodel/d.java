@@ -15,16 +15,16 @@ public class d extends BeanRequestBase {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26058a;
+    public String f26216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26059b;
+    public String f26217b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26060c;
+    public String f26218c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26061d;
+    public String f26219d;
 
     public d(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -41,17 +41,17 @@ public class d extends BeanRequestBase {
                 return;
             }
         }
-        this.f26058a = str;
-        this.f26059b = str2;
-        this.f26060c = str3;
-        this.f26061d = str4;
+        this.f26216a = str;
+        this.f26217b = str2;
+        this.f26218c = str3;
+        this.f26219d = str4;
     }
 
     @Override // com.baidu.wallet.core.beans.BeanRequestBase
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f26058a) || TextUtils.isEmpty(this.f26059b) || TextUtils.isEmpty(this.f26060c) || TextUtils.isEmpty(this.f26061d)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f26216a) || TextUtils.isEmpty(this.f26217b) || TextUtils.isEmpty(this.f26218c) || TextUtils.isEmpty(this.f26219d)) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.core.beans.BeanRequestBase

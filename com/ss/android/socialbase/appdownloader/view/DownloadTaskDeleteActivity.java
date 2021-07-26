@@ -28,10 +28,10 @@ public class DownloadTaskDeleteActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.m f38378a;
+    public d.m f38553a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f38379b;
+    public Intent f38554b;
 
     /* loaded from: classes6.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -39,7 +39,7 @@ public class DownloadTaskDeleteActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadTaskDeleteActivity f38380e;
+        public final /* synthetic */ DownloadTaskDeleteActivity f38555e;
 
         public a(DownloadTaskDeleteActivity downloadTaskDeleteActivity) {
             Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public class DownloadTaskDeleteActivity extends Activity {
                     return;
                 }
             }
-            this.f38380e = downloadTaskDeleteActivity;
+            this.f38555e = downloadTaskDeleteActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f38380e.finish();
+                this.f38555e.finish();
             }
         }
     }
@@ -74,16 +74,16 @@ public class DownloadTaskDeleteActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f38381e;
+        public final /* synthetic */ boolean f38556e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f38382f;
+        public final /* synthetic */ DownloadInfo f38557f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f38383g;
+        public final /* synthetic */ int f38558g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadTaskDeleteActivity f38384h;
+        public final /* synthetic */ DownloadTaskDeleteActivity f38559h;
 
         public b(DownloadTaskDeleteActivity downloadTaskDeleteActivity, boolean z, DownloadInfo downloadInfo, int i2) {
             Interceptable interceptable = $ic;
@@ -100,20 +100,20 @@ public class DownloadTaskDeleteActivity extends Activity {
                     return;
                 }
             }
-            this.f38384h = downloadTaskDeleteActivity;
-            this.f38381e = z;
-            this.f38382f = downloadInfo;
-            this.f38383g = i2;
+            this.f38559h = downloadTaskDeleteActivity;
+            this.f38556e = z;
+            this.f38557f = downloadInfo;
+            this.f38558g = i2;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                if (this.f38381e) {
-                    this.f38384h.a(this.f38382f, this.f38383g);
+                if (this.f38556e) {
+                    this.f38559h.a(this.f38557f, this.f38558g);
                 }
-                this.f38384h.finish();
+                this.f38559h.finish();
             }
         }
     }
@@ -124,16 +124,16 @@ public class DownloadTaskDeleteActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f38385e;
+        public final /* synthetic */ boolean f38560e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f38386f;
+        public final /* synthetic */ DownloadInfo f38561f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f38387g;
+        public final /* synthetic */ int f38562g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadTaskDeleteActivity f38388h;
+        public final /* synthetic */ DownloadTaskDeleteActivity f38563h;
 
         /* loaded from: classes6.dex */
         public class a implements Runnable {
@@ -141,7 +141,7 @@ public class DownloadTaskDeleteActivity extends Activity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f38389e;
+            public final /* synthetic */ c f38564e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -158,14 +158,14 @@ public class DownloadTaskDeleteActivity extends Activity {
                         return;
                     }
                 }
-                this.f38389e = cVar;
+                this.f38564e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    d.l.a.e.b.g.a.H(this.f38389e.f38388h).B(this.f38389e.f38386f.getId());
+                    d.l.a.e.b.g.a.H(this.f38564e.f38563h).B(this.f38564e.f38561f.getId());
                 }
             }
         }
@@ -185,24 +185,24 @@ public class DownloadTaskDeleteActivity extends Activity {
                     return;
                 }
             }
-            this.f38388h = downloadTaskDeleteActivity;
-            this.f38385e = z;
-            this.f38386f = downloadInfo;
-            this.f38387g = i2;
+            this.f38563h = downloadTaskDeleteActivity;
+            this.f38560e = z;
+            this.f38561f = downloadInfo;
+            this.f38562g = i2;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                if (!this.f38385e) {
-                    this.f38388h.a(this.f38386f, this.f38387g);
+                if (!this.f38560e) {
+                    this.f38563h.a(this.f38561f, this.f38562g);
                 } else {
-                    this.f38386f.setOnlyWifi(true);
-                    d.l.a.e.b.g.a.H(this.f38388h).u(this.f38386f.getId());
+                    this.f38561f.setOnlyWifi(true);
+                    d.l.a.e.b.g.a.H(this.f38563h).u(this.f38561f.getId());
                     new Handler(Looper.getMainLooper()).postDelayed(new a(this), 100L);
                 }
-                this.f38388h.finish();
+                this.f38563h.finish();
             }
         }
     }
@@ -224,7 +224,7 @@ public class DownloadTaskDeleteActivity extends Activity {
     private void b() {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f38378a == null && (intent = this.f38379b) != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f38553a == null && (intent = this.f38554b) != null) {
             try {
                 boolean z = false;
                 int intExtra = intent.getIntExtra("extra_click_download_ids", 0);
@@ -241,7 +241,7 @@ public class DownloadTaskDeleteActivity extends Activity {
                 d.e b2 = e.G().b();
                 d.n a2 = b2 != null ? b2.a(this) : null;
                 if (a2 == null) {
-                    a2 = new e.C2037e(this);
+                    a2 = new e.C2036e(this);
                 }
                 if (a2 != null) {
                     int a3 = l.a(this, "tt_appdownloader_tip");
@@ -256,7 +256,7 @@ public class DownloadTaskDeleteActivity extends Activity {
                         format = getResources().getString(l.a(this, "tt_appdownloader_resume_in_wifi"));
                     }
                     a2.a(a3).a(format).b(a4, new c(this, z, f2, intExtra)).a(a5, new b(this, z, f2, intExtra)).c(new a(this));
-                    this.f38378a = a2.a();
+                    this.f38553a = a2.a();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -287,12 +287,12 @@ public class DownloadTaskDeleteActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onResume();
-            this.f38379b = getIntent();
+            this.f38554b = getIntent();
             b();
-            d.m mVar = this.f38378a;
+            d.m mVar = this.f38553a;
             if (mVar != null && !mVar.b()) {
-                this.f38378a.a();
-            } else if (this.f38378a == null) {
+                this.f38553a.a();
+            } else if (this.f38553a == null) {
                 finish();
             }
         }
@@ -316,7 +316,7 @@ public class DownloadTaskDeleteActivity extends Activity {
             if (u != null) {
                 u.a(downloadInfo);
             }
-            d.l.a.e.b.f.d i3 = d.l.a.e.b.g.a.H(d.l.a.e.b.g.e.n()).i(i2);
+            d.l.a.e.b.f.e i3 = d.l.a.e.b.g.a.H(d.l.a.e.b.g.e.n()).i(i2);
             if (i3 != null) {
                 i3.a(10, downloadInfo, "", "");
             }

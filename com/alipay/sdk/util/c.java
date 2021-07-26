@@ -14,7 +14,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1957a = "alipaysdk";
+    public static final String f1990a = "alipaysdk";
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {

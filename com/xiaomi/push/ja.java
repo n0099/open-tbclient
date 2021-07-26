@@ -10,13 +10,13 @@ public final class ja {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f40513a;
+    public final byte f40785a;
 
     /* renamed from: a  reason: collision with other field name */
     public final int f814a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte f40514b;
+    public final byte f40786b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ja() {
@@ -52,8 +52,8 @@ public final class ja {
                 return;
             }
         }
-        this.f40513a = b2;
-        this.f40514b = b3;
+        this.f40785a = b2;
+        this.f40786b = b3;
         this.f814a = i2;
     }
 }

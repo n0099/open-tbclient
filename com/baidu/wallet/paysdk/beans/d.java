@@ -25,10 +25,10 @@ public class d extends PayBaseBean<CardAddResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25983a;
+    public String f26141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BindFastRequest f25984b;
+    public BindFastRequest f26142b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -48,14 +48,14 @@ public class d extends PayBaseBean<CardAddResponse> {
                 return;
             }
         }
-        this.f25983a = null;
-        this.f25984b = null;
+        this.f26141a = null;
+        this.f26142b = null;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f25983a = str;
+            this.f26141a = str;
         }
     }
 
@@ -73,11 +73,11 @@ public class d extends PayBaseBean<CardAddResponse> {
         List<RestNameValuePair> json2KeyValuePairs;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f25984b != null) {
-                if (TextUtils.isEmpty(this.f25983a)) {
+            if (this.f26142b != null) {
+                if (TextUtils.isEmpty(this.f26141a)) {
                     json2KeyValuePairs = new ArrayList<>();
                 } else {
-                    json2KeyValuePairs = JsonUtil.json2KeyValuePairs(this.f25983a);
+                    json2KeyValuePairs = JsonUtil.json2KeyValuePairs(this.f26141a);
                     if (json2KeyValuePairs == null) {
                         json2KeyValuePairs = new ArrayList<>();
                     }
@@ -118,7 +118,7 @@ public class d extends PayBaseBean<CardAddResponse> {
     public void handleSession(BeanResponseBase.Session session) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, session) == null) {
-            BindFastRequest bindFastRequest = this.f25984b;
+            BindFastRequest bindFastRequest = this.f26142b;
             if (bindFastRequest != null) {
                 bindFastRequest.saveSession(session);
             } else {
@@ -130,13 +130,13 @@ public class d extends PayBaseBean<CardAddResponse> {
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bindFastRequest) == null) {
-            this.f25984b = bindFastRequest;
+            this.f26142b = bindFastRequest;
         }
     }
 
     public BindFastRequest a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25984b : (BindFastRequest) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26142b : (BindFastRequest) invokeV.objValue;
     }
 }

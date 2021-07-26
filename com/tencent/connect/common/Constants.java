@@ -1,14 +1,19 @@
 package com.tencent.connect.common;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_CANCEL = 0;
     public static final int ACTIVITY_OK = -1;
+    public static String APP_SPECIFIC_ROOT = null;
     public static final String CANCEL_URI = "auth://cancel";
     public static final String CLOSE_URI = "auth://close";
     public static final int CODE_REQUEST_MAX = 6656;
@@ -19,28 +24,41 @@ public class Constants {
     public static final int ERROR_CONNECTTIMEOUT = -7;
     public static final int ERROR_FILE_EXISTED = -11;
     public static final int ERROR_HTTPSTATUS_ERROR = -9;
+    public static final int ERROR_IMAGE_TOO_LARGE = -16;
     public static final int ERROR_IO = -2;
     public static final int ERROR_JSON = -4;
     public static final int ERROR_LOCATION_TIMEOUT = -13;
     public static final int ERROR_LOCATION_VERIFY_FAILED = -14;
     public static final int ERROR_NETWORK_UNAVAILABLE = -10;
+    public static final int ERROR_NO_AUTHORITY = -19;
     public static final int ERROR_NO_SDCARD = -12;
     public static final int ERROR_PARAM = -5;
+    public static final int ERROR_PROXY_LOGIN_AND_QQ_VERSION_LOWER = -18;
     public static final int ERROR_QQVERSION_LOW = -15;
     public static final int ERROR_SOCKETTIMEOUT = -8;
     public static final int ERROR_UNKNOWN = -6;
     public static final int ERROR_URL = -3;
+    public static final String FILE_PROVIDER_AUTHORITIES = "com.tencent.tauth.fileprovider";
     public static final boolean FLAG_DEBUG = true;
     public static final String HTTP_GET = "GET";
     public static final String HTTP_POST = "POST";
+    public static final int IM_AIO = 0;
+    public static final int IM_AUDIO_CHAT = 1;
+    public static final int IM_VIDEO_CHAT = 2;
     public static final String KEY_ACTION = "key_action";
     public static final String KEY_APP_NAME = "oauth_app_name";
     public static final String KEY_ERROR_CODE = "key_error_code";
     public static final String KEY_ERROR_DETAIL = "key_error_detail";
     public static final String KEY_ERROR_MSG = "key_error_msg";
     public static final String KEY_PARAMS = "key_params";
+    public static final String KEY_PPSTS = "ppsts";
+    public static String KEY_PROXY_APPID = null;
+    public static String KEY_QRCODE = null;
     public static final String KEY_REQUEST_CODE = "key_request_code";
     public static final String KEY_RESPONSE = "key_response";
+    public static String KEY_RESTORE_LANDSCAPE = null;
+    public static String KEY_SCOPE = null;
+    public static final String KEY_STAY = "stay_back_stack";
     public static final String LOGIN_INFO = "login_info";
     public static final String MOBILEQQ_PACKAGE_NAME = "com.tencent.mobileqq";
     public static final String MSG_CONNECTTIMEOUT_ERROR = "网络连接超时!";
@@ -63,8 +81,11 @@ public class Constants {
     public static final String MSG_PARAM_TARGETURL_NULL_ERROR = "targetUrl为必填项，请补充后分享";
     public static final String MSG_PARAM_TITLE_NULL_ERROR = "title不能为空!";
     public static final String MSG_PARAM_VERSION_TOO_LOW = "手Q版本过低，请下载安装最新版手Q";
+    public static final String MSG_PERSISTENCE_FAIL = "持久化失败!";
+    public static final String MSG_PROXY_LOGIN_QQ_VERSION_LOWER = "手Q版本太低，不支持委托登录!";
     public static final String MSG_PUBLISH_VIDEO_ERROR = "请选择有效的视频文件";
     public static final String MSG_SHARE_GETIMG_ERROR = "获取分享图片失败!";
+    public static final String MSG_SHARE_IMAGE_TOO_LARGE_ERROR = "图片太大，请压缩到5M内再分享!";
     public static final String MSG_SHARE_NOSD_ERROR = "分享图片失败，检测不到SD卡!";
     public static final String MSG_SHARE_TO_QQ_ERROR = "分享的手机QQ失败!";
     public static final String MSG_SHARE_TYPE_ERROR = "请选择支持的分享类型";
@@ -74,10 +95,12 @@ public class Constants {
     public static final String PACKAGE_QIM = "com.tencent.qim";
     public static final String PACKAGE_QQ = "com.tencent.mobileqq";
     public static final String PACKAGE_QQ_PAD = "com.tencent.minihd.qq";
+    public static final String PACKAGE_QQ_SPEED = "com.tencent.qqlite";
     public static final String PACKAGE_QZONE = "com.qzone";
     public static final String PACKAGE_TIM = "com.tencent.tim";
     public static final String PARAM_ACCESS_TOKEN = "access_token";
     public static final String PARAM_APP_ID = "appid";
+    public static final String PARAM_AVATAR_URI = "picture";
     public static final String PARAM_CLIENT_ID = "client_id";
     public static final String PARAM_CONSUMER_KEY = "oauth_consumer_key";
     public static final String PARAM_EXPIRES_IN = "expires_in";
@@ -91,9 +114,15 @@ public class Constants {
     public static final String PARAM_SCOPE = "scope";
     public static final String PREFERENCE_PF = "pfStore";
     public static final String QQ_APPID = "100686848";
+    public static String QQ_SHARE_TEMP_DIR = null;
     public static final int REQUEST_API = 10100;
     public static final int REQUEST_APPBAR = 10102;
     public static final int REQUEST_AVATER = 11102;
+    public static final int REQUEST_BIND_GROUP = 10112;
+    public static final int REQUEST_EDIT_AVATAR = 10108;
+    public static final int REQUEST_EDIT_DYNAMIC_AVATAR = 10110;
+    public static final int REQUEST_EDIT_EMOTION = 10109;
+    public static final int REQUEST_JOIN_GROUP = 10111;
     public static final int REQUEST_LOGIN = 11101;
     public static final int REQUEST_OLD_QZSHARE = 11104;
     public static final int REQUEST_OLD_SHARE = 11103;
@@ -104,11 +133,10 @@ public class Constants {
     public static final int REQUEST_SHARE_TO_TROOP_BAR = 10107;
     public static final int REQUEST_SOCIAL_API = 11105;
     public static final int REQUEST_SOCIAL_H5 = 11106;
-    public static final String SDK_BUILD = "5575";
-    public static final String SDK_QUA = "V1_AND_OpenSDK_3.3.0.lite_1077_RDM_B";
-    public static final String SDK_VERSION = "3.3.0.lite";
-    public static final String SDK_VERSION_REPORT = "OpenSdk_3.3.0.lite";
-    public static final String SDK_VERSION_STRING = "Android_SDK_3.3.0.lite";
+    public static final String SDK_QUA = "V1_AND_OpenSDK_3.5.2.lite_1077_RDM_B";
+    public static final String SDK_VERSION = "3.5.2.lite";
+    public static final String SDK_VERSION_REPORT = "OpenSdk_3.5.2.lite";
+    public static final String SHARE_QQ_AND_STAY = "com.tencent.tauth.opensdk.SHARE_SUCCESS_AND_STAY_QQ_";
     public static final String SIGNATRUE_QZONE = "ec96e9ac1149251acbb1b0c5777cae95";
     public static final String SOURCE_QQ = "QQ";
     public static final String SOURCE_QZONE = "qzone";
@@ -118,6 +146,7 @@ public class Constants {
     public static final int UI_DIALOG = 2;
     public static final int UI_DOWNLOAD_QQ = 4;
     public static final int UI_NONE = -1;
+    public static final int UI_PROXY_LOGIN_AND_NO_QQ = 5;
     public static final String VIA_ACT_TYPE_EIGHTEEN = "18";
     public static final String VIA_ACT_TYPE_FIVE = "5";
     public static final String VIA_ACT_TYPE_NINETEEN = "19";
@@ -131,6 +160,9 @@ public class Constants {
     public static final String VIA_MAKE_FRIEND = "ANDROIDQQ.MAKEAFRIEND.XX";
     public static final String VIA_NO_VALUE = "0";
     public static final String VIA_REPORT_TYPE_BIND_GROUP = "18";
+    public static final String VIA_REPORT_TYPE_CHAT_AIO = "24";
+    public static final String VIA_REPORT_TYPE_CHAT_AUDIO = "25";
+    public static final String VIA_REPORT_TYPE_CHAT_VIDEO = "26";
     public static final String VIA_REPORT_TYPE_DATALINE = "22";
     public static final String VIA_REPORT_TYPE_JOININ_GROUP = "13";
     public static final String VIA_REPORT_TYPE_MAKE_FRIEND = "14";
@@ -151,15 +183,16 @@ public class Constants {
     public static final String VIA_SHARE_TO_QQ = "ANDROIDQQ.SHARETOQQ.XX";
     public static final String VIA_SHARE_TO_QZONE = "ANDROIDQQ.SHARETOQZ.XX";
     public static final String VIA_SHARE_TO_TROOPBAR = "ANDROIDSDK.SHARETOTROOPBAR.XX";
-    public static final String VIA_SHARE_TYPE_APP = "4";
     public static final String VIA_SHARE_TYPE_IMAGE = "2";
     public static final String VIA_SHARE_TYPE_IMAGE_TEXT = "1";
     public static final String VIA_SHARE_TYPE_INFO = "6";
+    public static final String VIA_SHARE_TYPE_MINI_PROGRAM = "9";
     public static final String VIA_SHARE_TYPE_MUSIC = "3";
     public static final String VIA_SHARE_TYPE_PUBLISHMOOD = "7";
     public static final String VIA_SHARE_TYPE_PUBLISHVIDEO = "8";
     public static final String VIA_SHARE_TYPE_TEXT = "5";
     public static final String VIA_SSO_LOGIN = "2";
+    public static final String VIA_START_IM = "ANDROIDSDK.STARTIM.XX";
     public static final String VIA_START_WAP = "ANDROIDSDK.STARTWPA.XX";
     public static final String VIA_TO_TYPE_QQ_DISCUSS_GROUP = "3";
     public static final String VIA_TO_TYPE_QQ_FRIEND = "1";
@@ -168,16 +201,37 @@ public class Constants {
     public static final String VIA_WAP_STATE = "ANDROIDSDK.WPASTATE.XX";
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-871563897, "Lcom/tencent/connect/common/Constants;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-871563897, "Lcom/tencent/connect/common/Constants;");
+                return;
+            }
+        }
+        APP_SPECIFIC_ROOT = "tencent" + File.separator + "mobileqq" + File.separator + "opensdk";
+        QQ_SHARE_TEMP_DIR = "tmp";
+        KEY_RESTORE_LANDSCAPE = "key_restore_landscape";
+        KEY_SCOPE = "key_scope";
+        KEY_QRCODE = "key_qrcode";
+        KEY_PROXY_APPID = "key_proxy_appid";
+    }
+
     public Constants() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }

@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
-import d.a.p0.a0.b;
-import d.a.p0.v.e.b.c;
-import d.a.p0.v.e.d.a;
+import d.a.p0.s.q.b2;
+import d.a.q0.a0.b;
+import d.a.q0.v.e.b.c;
+import d.a.q0.v.e.d.a;
 /* loaded from: classes4.dex */
 public class AlaGameFrsLiveGameCardView extends b<c> {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +28,7 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsLiveGameCardView f14228a;
+        public AlaGameFrsLiveGameCardView f14276a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaGameFrsGameViewHolder(AlaGameFrsLiveGameCardView alaGameFrsLiveGameCardView) {
@@ -48,7 +48,7 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
                     return;
                 }
             }
-            this.f14228a = alaGameFrsLiveGameCardView;
+            this.f14276a = alaGameFrsLiveGameCardView;
         }
     }
 
@@ -74,14 +74,14 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
         q();
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_sub_list_game_live : invokeV.intValue;
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public void m(TbPageContext<?> tbPageContext, int i2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -107,19 +107,19 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     /* renamed from: s */
     public void l(c cVar) {
         b2 b2Var;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (b2Var = cVar.f64671e) == null || (aVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (b2Var = cVar.f65316e) == null || (aVar = this.n) == null) {
             return;
         }
         aVar.d(b2Var);
     }
 
-    public void t(d.a.p0.v.c cVar) {
+    public void t(d.a.q0.v.c cVar) {
         a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || (aVar = this.n) == null) {

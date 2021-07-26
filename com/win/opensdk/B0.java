@@ -1,24 +1,28 @@
 package com.win.opensdk;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class B0 implements r0 {
+public class B0 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ C0 f39325a;
+    public final /* synthetic */ E0 f39548a;
 
-    public B0(C0 c0) {
+    public B0(E0 e0) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0};
+            Object[] objArr = {e0};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,38 +32,56 @@ public class B0 implements r0 {
                 return;
             }
         }
-        this.f39325a = c0;
+        this.f39548a = e0;
     }
 
-    @Override // com.win.opensdk.r0
-    public void a() {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Info info;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.f39548a.j = true;
+                this.f39548a.k = System.currentTimeMillis();
+                this.f39548a.l = motionEvent.getX();
+                this.f39548a.m = motionEvent.getY();
+                this.f39548a.n = (int) motionEvent.getRawX();
+                this.f39548a.o = (int) motionEvent.getRawY();
+                this.f39548a.p = (int) motionEvent.getX();
+                this.f39548a.q = (int) motionEvent.getY();
+                this.f39548a.v = System.currentTimeMillis();
+                E0.a(this.f39548a, view);
+            } else if (action == 1) {
+                this.f39548a.w = (int) motionEvent.getRawX();
+                this.f39548a.x = (int) motionEvent.getRawY();
+                this.f39548a.r = (int) motionEvent.getX();
+                this.f39548a.s = (int) motionEvent.getY();
+                this.f39548a.y = System.currentTimeMillis();
+                Math.abs(motionEvent.getX() - this.f39548a.l);
+                Math.abs(motionEvent.getY() - this.f39548a.m);
+                if (System.currentTimeMillis() - this.f39548a.k < 2000) {
+                    E0 e0 = this.f39548a;
+                    if (e0.j && (info = e0.f39567c) != null && Q1.a(info, e0.f39572h)) {
+                        this.f39548a.f39572h = System.currentTimeMillis();
+                        E0 e02 = this.f39548a;
+                        Context context = e02.f39565a;
+                        String open = e02.f39567c.getOpen();
+                        E0 e03 = this.f39548a;
+                        Q1.a(context, open, e03.f39567c, e03.f39571g, e03.d().toString());
+                        Z0.a(this.f39548a.f39565a).a(new a1(this.f39548a.f39567c), (String) null).a("desc", this.f39548a.d().toString()).a();
+                        E0 e04 = this.f39548a;
+                        N.a(e04.f39567c, e04.d().toString());
+                        PBNativeListener pBNativeListener = this.f39548a.f39570f;
+                        if (pBNativeListener != null) {
+                            pBNativeListener.onClicked();
+                        }
+                    }
+                }
+            }
+            return true;
         }
-    }
-
-    @Override // com.win.opensdk.r0
-    public void a(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            D0 d0 = this.f39325a.f39330a;
-            long currentTimeMillis = System.currentTimeMillis();
-            D0 d02 = this.f39325a.f39330a;
-            d0.f39345c = currentTimeMillis - d02.f39344b;
-            x0.a(d02.f39343a).a(i2, this.f39325a.f39330a.f39345c).a();
-        }
-    }
-
-    @Override // com.win.opensdk.r0
-    public void a(Object obj) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            D0 d0 = this.f39325a.f39330a;
-            long currentTimeMillis = System.currentTimeMillis();
-            j = this.f39325a.f39330a.f39344b;
-            d0.f39345c = currentTimeMillis - j;
-            this.f39325a.f39330a.a((R0) obj);
-        }
+        return invokeLL.booleanValue;
     }
 }

@@ -43,39 +43,39 @@ public class a extends AbstractKsNativeAd {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f33872a;
+    public AdTemplate f34061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f33873b;
+    public AdInfo f34062b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f33874c;
+    public com.kwad.sdk.core.download.b.b f34063c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public KsNativeAd.AdInteractionListener f33875d;
+    public KsNativeAd.AdInteractionListener f34064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f33876e;
+    public b f34065e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f33877f;
+    public KsNativeAd.VideoPlayListener f34066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f33878g;
+    public KsNativeAd.VideoPlayListener f34067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public C0402a f33879h;
+    public C0404a f34068h;
 
     /* renamed from: com.kwad.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0402a implements KsNativeAd.AdInteractionListener {
+    public static class C0404a implements KsNativeAd.AdInteractionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0402a() {
+        public C0404a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,12 +129,12 @@ public class a extends AbstractKsNativeAd {
                 return;
             }
         }
-        this.f33878g = new KsNativeAd.VideoPlayListener(this) { // from class: com.kwad.sdk.b.a.6
+        this.f34067g = new KsNativeAd.VideoPlayListener(this) { // from class: com.kwad.sdk.b.a.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f33891a;
+            public final /* synthetic */ a f34080a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -151,42 +151,42 @@ public class a extends AbstractKsNativeAd {
                         return;
                     }
                 }
-                this.f33891a = this;
+                this.f34080a = this;
             }
 
             @Override // com.kwad.sdk.api.KsNativeAd.VideoPlayListener
             public void onVideoPlayComplete() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f33891a.f33877f == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f34080a.f34066f == null) {
                     return;
                 }
-                this.f33891a.f33877f.onVideoPlayComplete();
+                this.f34080a.f34066f.onVideoPlayComplete();
             }
 
             @Override // com.kwad.sdk.api.KsNativeAd.VideoPlayListener
             public void onVideoPlayError(int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, i5) == null) || this.f33891a.f33877f == null) {
+                if (!(interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, i5) == null) || this.f34080a.f34066f == null) {
                     return;
                 }
-                this.f33891a.f33877f.onVideoPlayError(i4, i5);
+                this.f34080a.f34066f.onVideoPlayError(i4, i5);
             }
 
             @Override // com.kwad.sdk.api.KsNativeAd.VideoPlayListener
             public void onVideoPlayStart() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f33891a.f33877f == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f34080a.f34066f == null) {
                     return;
                 }
-                this.f33891a.f33877f.onVideoPlayStart();
+                this.f34080a.f34066f.onVideoPlayStart();
             }
         };
-        this.f33879h = new C0402a(this) { // from class: com.kwad.sdk.b.a.7
+        this.f34068h = new C0404a(this) { // from class: com.kwad.sdk.b.a.7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f33892a;
+            public final /* synthetic */ a f34081a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -203,17 +203,17 @@ public class a extends AbstractKsNativeAd {
                         return;
                     }
                 }
-                this.f33892a = this;
+                this.f34081a = this;
             }
 
-            @Override // com.kwad.sdk.b.a.C0402a, com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+            @Override // com.kwad.sdk.b.a.C0404a, com.kwad.sdk.api.KsNativeAd.AdInteractionListener
             public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, onClickListener)) == null) {
-                    if (this.f33892a.f33875d != null) {
+                    if (this.f34081a.f34064d != null) {
                         try {
-                            return this.f33892a.f33875d.handleDownloadDialog(onClickListener);
+                            return this.f34081a.f34064d.handleDownloadDialog(onClickListener);
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                             return false;
@@ -224,36 +224,36 @@ public class a extends AbstractKsNativeAd {
                 return invokeL.booleanValue;
             }
 
-            @Override // com.kwad.sdk.b.a.C0402a, com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+            @Override // com.kwad.sdk.b.a.C0404a, com.kwad.sdk.api.KsNativeAd.AdInteractionListener
             public void onAdClicked(View view, KsNativeAd ksNativeAd) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, ksNativeAd) == null) || this.f33892a.f33875d == null) {
+                if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, ksNativeAd) == null) || this.f34081a.f34064d == null) {
                     return;
                 }
-                this.f33892a.f33875d.onAdClicked(view, this.f33892a);
+                this.f34081a.f34064d.onAdClicked(view, this.f34081a);
             }
 
-            @Override // com.kwad.sdk.b.a.C0402a, com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+            @Override // com.kwad.sdk.b.a.C0404a, com.kwad.sdk.api.KsNativeAd.AdInteractionListener
             public void onAdShow(KsNativeAd ksNativeAd) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) || this.f33892a.f33875d == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) || this.f34081a.f34064d == null) {
                     return;
                 }
-                this.f33892a.f33875d.onAdShow(this.f33892a);
+                this.f34081a.f34064d.onAdShow(this.f34081a);
             }
         };
-        this.f33872a = adTemplate;
+        this.f34061a = adTemplate;
         AdInfo i4 = c.i(adTemplate);
-        this.f33873b = i4;
+        this.f34062b = i4;
         if (com.kwad.sdk.core.response.b.a.v(i4)) {
-            com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(this.f33872a);
-            this.f33874c = bVar;
+            com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(this.f34061a);
+            this.f34063c = bVar;
             bVar.a(new b.a(this) { // from class: com.kwad.sdk.b.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f33880a;
+                public final /* synthetic */ a f34069a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -270,36 +270,36 @@ public class a extends AbstractKsNativeAd {
                             return;
                         }
                     }
-                    this.f33880a = this;
+                    this.f34069a = this;
                 }
 
                 @Override // com.kwad.sdk.core.download.b.b.a
                 public boolean a(DialogInterface.OnClickListener onClickListener) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, onClickListener)) == null) ? this.f33880a.f33879h.handleDownloadDialog(onClickListener) : invokeL.booleanValue;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, onClickListener)) == null) ? this.f34069a.f34068h.handleDownloadDialog(onClickListener) : invokeL.booleanValue;
                 }
             });
         }
-        KSImageLoader.preloadImage(com.kwad.sdk.core.response.b.a.c(this.f33873b), this.f33872a);
+        KSImageLoader.preloadImage(com.kwad.sdk.core.response.b.a.c(this.f34062b), this.f34061a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, v.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, view, aVar) == null) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f33872a, new a.InterfaceC0413a(this, aVar, view) { // from class: com.kwad.sdk.b.a.4
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f34061a, new a.InterfaceC0415a(this, aVar, view) { // from class: com.kwad.sdk.b.a.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ v.a f33887a;
+                public final /* synthetic */ v.a f34076a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f33888b;
+                public final /* synthetic */ View f34077b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f33889c;
+                public final /* synthetic */ a f34078c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -316,22 +316,22 @@ public class a extends AbstractKsNativeAd {
                             return;
                         }
                     }
-                    this.f33889c = this;
-                    this.f33887a = aVar;
-                    this.f33888b = view;
+                    this.f34078c = this;
+                    this.f34076a = aVar;
+                    this.f34077b = view;
                 }
 
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0413a
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0415a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.core.report.a.a(this.f33889c.f33872a, this.f33887a);
-                        if (this.f33889c.f33875d != null) {
-                            this.f33889c.f33875d.onAdClicked(this.f33888b, this.f33889c);
+                        com.kwad.sdk.core.report.a.a(this.f34078c.f34061a, this.f34076a);
+                        if (this.f34078c.f34064d != null) {
+                            this.f34078c.f34064d.onAdClicked(this.f34077b, this.f34078c);
                         }
                     }
                 }
-            }, this.f33874c, false);
+            }, this.f34063c, false);
         }
     }
 
@@ -343,12 +343,12 @@ public class a extends AbstractKsNativeAd {
                 b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
                 viewGroup.addView(b2);
             }
-            b2.setViewCallback(new a.InterfaceC0420a(this) { // from class: com.kwad.sdk.b.a.5
+            b2.setViewCallback(new a.InterfaceC0422a(this) { // from class: com.kwad.sdk.b.a.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f33890a;
+                public final /* synthetic */ a f34079a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -365,35 +365,35 @@ public class a extends AbstractKsNativeAd {
                             return;
                         }
                     }
-                    this.f33890a = this;
+                    this.f34079a = this;
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0420a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0422a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0420a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0422a
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        if (!this.f33890a.f33872a.mPvReported && this.f33890a.f33875d != null) {
-                            this.f33890a.f33875d.onAdShow(this.f33890a);
+                        if (!this.f34079a.f34061a.mPvReported && this.f34079a.f34064d != null) {
+                            this.f34079a.f34064d.onAdShow(this.f34079a);
                         }
-                        com.kwad.sdk.core.report.a.a(this.f33890a.f33872a, (JSONObject) null);
+                        com.kwad.sdk.core.report.a.a(this.f34079a.f34061a, (JSONObject) null);
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0420a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0422a
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0420a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0422a
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
@@ -414,16 +414,16 @@ public class a extends AbstractKsNativeAd {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ v.a f33881a;
+                    public final /* synthetic */ v.a f34070a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ViewGroup f33882b;
+                    public final /* synthetic */ ViewGroup f34071b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f33883c;
+                    public final /* synthetic */ a f34072c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public int[] f33884d;
+                    public int[] f34073d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -440,10 +440,10 @@ public class a extends AbstractKsNativeAd {
                                 return;
                             }
                         }
-                        this.f33883c = this;
-                        this.f33881a = aVar;
-                        this.f33882b = viewGroup;
-                        this.f33884d = new int[2];
+                        this.f34072c = this;
+                        this.f34070a = aVar;
+                        this.f34071b = viewGroup;
+                        this.f34073d = new int[2];
                     }
 
                     @Override // android.view.View.OnTouchListener
@@ -453,11 +453,11 @@ public class a extends AbstractKsNativeAd {
                         if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
                             int action = motionEvent.getAction();
                             if (action == 0) {
-                                this.f33881a.a(this.f33882b.getWidth(), this.f33882b.getHeight());
-                                this.f33882b.getLocationOnScreen(this.f33884d);
-                                this.f33881a.a(Math.abs(motionEvent.getRawX() - this.f33884d[0]), Math.abs(motionEvent.getRawY() - this.f33884d[1]));
+                                this.f34070a.a(this.f34071b.getWidth(), this.f34071b.getHeight());
+                                this.f34071b.getLocationOnScreen(this.f34073d);
+                                this.f34070a.a(Math.abs(motionEvent.getRawX() - this.f34073d[0]), Math.abs(motionEvent.getRawY() - this.f34073d[1]));
                             } else if (action == 1) {
-                                this.f33881a.b(Math.abs(motionEvent.getRawX() - this.f33884d[0]), Math.abs(motionEvent.getRawY() - this.f33884d[1]));
+                                this.f34070a.b(Math.abs(motionEvent.getRawX() - this.f34073d[0]), Math.abs(motionEvent.getRawY() - this.f34073d[1]));
                             }
                             return false;
                         }
@@ -469,10 +469,10 @@ public class a extends AbstractKsNativeAd {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ v.a f33885a;
+                    public final /* synthetic */ v.a f34074a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f33886b;
+                    public final /* synthetic */ a f34075b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -489,15 +489,15 @@ public class a extends AbstractKsNativeAd {
                                 return;
                             }
                         }
-                        this.f33886b = this;
-                        this.f33885a = aVar;
+                        this.f34075b = this;
+                        this.f34074a = aVar;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            this.f33886b.a(view2, this.f33885a);
+                            this.f34075b.a(view2, this.f34074a);
                         }
                     }
                 });
@@ -528,7 +528,7 @@ public class a extends AbstractKsNativeAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AdInfo.AdMaterialInfo.MaterialFeature C = com.kwad.sdk.core.response.b.a.C(this.f33873b);
+            AdInfo.AdMaterialInfo.MaterialFeature C = com.kwad.sdk.core.response.b.a.C(this.f34062b);
             if (TextUtils.isEmpty(C.coverUrl)) {
                 return null;
             }
@@ -541,7 +541,7 @@ public class a extends AbstractKsNativeAd {
     public AdTemplate b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33872a : (AdTemplate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34061a : (AdTemplate) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -549,7 +549,7 @@ public class a extends AbstractKsNativeAd {
     public String getActionDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.b.a.u(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.b.a.u(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -557,7 +557,7 @@ public class a extends AbstractKsNativeAd {
     public String getAdDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.b.a.m(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.b.a.m(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -565,7 +565,7 @@ public class a extends AbstractKsNativeAd {
     public String getAdSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.kwad.sdk.core.response.b.a.t(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.kwad.sdk.core.response.b.a.t(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -573,7 +573,7 @@ public class a extends AbstractKsNativeAd {
     public String getAppDownloadCountDes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? com.kwad.sdk.core.response.b.a.r(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? com.kwad.sdk.core.response.b.a.r(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -581,14 +581,14 @@ public class a extends AbstractKsNativeAd {
     public String getAppIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.kwad.sdk.core.response.b.a.n(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.kwad.sdk.core.response.b.a.n(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public String getAppName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? com.kwad.sdk.core.response.b.a.o(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? com.kwad.sdk.core.response.b.a.o(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -596,14 +596,14 @@ public class a extends AbstractKsNativeAd {
     public String getAppPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.kwad.sdk.core.response.b.a.q(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.kwad.sdk.core.response.b.a.q(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public long getAppPackageSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? com.kwad.sdk.core.response.b.a.ac(this.f33873b) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? com.kwad.sdk.core.response.b.a.ac(this.f34062b) : invokeV.longValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -611,14 +611,14 @@ public class a extends AbstractKsNativeAd {
     public String getAppPrivacyUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? com.kwad.sdk.core.response.b.a.aa(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? com.kwad.sdk.core.response.b.a.aa(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public float getAppScore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? com.kwad.sdk.core.response.b.a.s(this.f33873b) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? com.kwad.sdk.core.response.b.a.s(this.f34062b) : invokeV.floatValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -626,7 +626,7 @@ public class a extends AbstractKsNativeAd {
     public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? com.kwad.sdk.core.response.b.a.ab(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? com.kwad.sdk.core.response.b.a.ab(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -634,14 +634,14 @@ public class a extends AbstractKsNativeAd {
     public String getCorporationName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? com.kwad.sdk.core.response.b.a.Y(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? com.kwad.sdk.core.response.b.a.Y(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? com.kwad.sdk.core.response.b.a.x(this.f33873b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? com.kwad.sdk.core.response.b.a.x(this.f34062b) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -651,8 +651,8 @@ public class a extends AbstractKsNativeAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            AdInfo i2 = c.i(this.f33872a);
-            int H = com.kwad.sdk.core.response.b.a.H(this.f33873b);
+            AdInfo i2 = c.i(this.f34061a);
+            int H = com.kwad.sdk.core.response.b.a.H(this.f34062b);
             if (H == 2 || H == 3) {
                 for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : i2.adMaterialInfo.materialFeatureList) {
                     if (materialFeature.featureType == 2 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
@@ -669,14 +669,14 @@ public class a extends AbstractKsNativeAd {
     public int getInteractionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? com.kwad.sdk.core.response.b.a.w(this.f33873b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? com.kwad.sdk.core.response.b.a.w(this.f34062b) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getMaterialType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? com.kwad.sdk.core.response.b.a.H(this.f33873b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? com.kwad.sdk.core.response.b.a.H(this.f34062b) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -684,14 +684,14 @@ public class a extends AbstractKsNativeAd {
     public String getPermissionInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? com.kwad.sdk.core.response.b.a.Z(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? com.kwad.sdk.core.response.b.a.Z(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public String getProductName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? com.kwad.sdk.core.response.b.a.p(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? com.kwad.sdk.core.response.b.a.p(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -713,21 +713,21 @@ public class a extends AbstractKsNativeAd {
     public int getVideoDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? com.kwad.sdk.core.response.b.a.b(this.f33873b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? com.kwad.sdk.core.response.b.a.b(this.f34062b) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? com.kwad.sdk.core.response.b.a.C(this.f33873b).videoHeight : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? com.kwad.sdk.core.response.b.a.C(this.f34062b).videoHeight : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? com.kwad.sdk.core.response.b.a.a(this.f33873b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? com.kwad.sdk.core.response.b.a.a(this.f34062b) : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsNativeAd
@@ -740,14 +740,14 @@ public class a extends AbstractKsNativeAd {
                 com.kwad.sdk.core.d.a.d("KsNativeAdControl", "videoUrl is empty");
                 return null;
             }
-            if (this.f33876e == null) {
+            if (this.f34065e == null) {
                 b bVar = new b(context);
-                this.f33876e = bVar;
-                bVar.setAdInteractionListener(this.f33879h);
-                this.f33876e.setVideoPlayListener(this.f33878g);
-                this.f33876e.a(this.f33872a, this.f33874c, ksAdVideoPlayConfig);
+                this.f34065e = bVar;
+                bVar.setAdInteractionListener(this.f34068h);
+                this.f34065e.setVideoPlayListener(this.f34067g);
+                this.f34065e.a(this.f34061a, this.f34063c, ksAdVideoPlayConfig);
             }
-            return this.f33876e;
+            return this.f34065e;
         }
         return (View) invokeLL.objValue;
     }
@@ -763,14 +763,14 @@ public class a extends AbstractKsNativeAd {
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? com.kwad.sdk.core.response.b.a.C(this.f33873b).videoWidth : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? com.kwad.sdk.core.response.b.a.C(this.f34062b).videoWidth : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public void registerViewForInteraction(@NonNull ViewGroup viewGroup, @NonNull List<View> list, KsNativeAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048604, this, viewGroup, list, adInteractionListener) == null) {
-            this.f33875d = adInteractionListener;
+            this.f34064d = adInteractionListener;
             a(viewGroup);
             a(viewGroup, list);
         }
@@ -796,7 +796,7 @@ public class a extends AbstractKsNativeAd {
     public void setBidEcpm(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            AdTemplate adTemplate = this.f33872a;
+            AdTemplate adTemplate = this.f34061a;
             adTemplate.mBidEcpm = i2;
             com.kwad.sdk.core.report.a.m(adTemplate);
         }
@@ -806,7 +806,7 @@ public class a extends AbstractKsNativeAd {
     public void setDownloadListener(KsAppDownloadListener ksAppDownloadListener) {
         com.kwad.sdk.core.download.b.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, ksAppDownloadListener) == null) || (bVar = this.f33874c) == null || ksAppDownloadListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048608, this, ksAppDownloadListener) == null) || (bVar = this.f34063c) == null || ksAppDownloadListener == null) {
             return;
         }
         bVar.a(ksAppDownloadListener);
@@ -816,7 +816,7 @@ public class a extends AbstractKsNativeAd {
     public void setVideoPlayListener(KsNativeAd.VideoPlayListener videoPlayListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, videoPlayListener) == null) {
-            this.f33877f = videoPlayListener;
+            this.f34066f = videoPlayListener;
         }
     }
 }

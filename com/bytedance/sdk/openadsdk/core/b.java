@@ -91,7 +91,7 @@ public class b {
             mVar.f(jSONObject.optInt("video_adaptation", 0));
             mVar.e(jSONObject.optInt("feed_video_opentype", 0));
             mVar.b(jSONObject.optJSONObject("session_params"));
-            mVar.c(jSONObject.optInt("render_control", nVar != null ? nVar.f30104e : 1));
+            mVar.c(jSONObject.optInt("render_control", nVar != null ? nVar.f30204e : 1));
             if (optJSONObject != null) {
                 com.bytedance.sdk.openadsdk.core.e.l lVar = new com.bytedance.sdk.openadsdk.core.e.l();
                 lVar.a(optJSONObject.optString("url"));
@@ -133,12 +133,12 @@ public class b {
             JSONObject optJSONObject4 = jSONObject.optJSONObject("click_area");
             if (optJSONObject4 != null) {
                 com.bytedance.sdk.openadsdk.core.e.e eVar = new com.bytedance.sdk.openadsdk.core.e.e();
-                eVar.f30020a = optJSONObject4.optBoolean("click_upper_content_area", true);
-                eVar.f30021b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
-                eVar.f30022c = optJSONObject4.optBoolean("click_lower_content_area", true);
-                eVar.f30023d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
-                eVar.f30024e = optJSONObject4.optBoolean("click_button_area", true);
-                eVar.f30025f = optJSONObject4.optBoolean("click_video_area", true);
+                eVar.f30120a = optJSONObject4.optBoolean("click_upper_content_area", true);
+                eVar.f30121b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
+                eVar.f30122c = optJSONObject4.optBoolean("click_lower_content_area", true);
+                eVar.f30123d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
+                eVar.f30124e = optJSONObject4.optBoolean("click_button_area", true);
+                eVar.f30125f = optJSONObject4.optBoolean("click_video_area", true);
                 mVar.a(eVar);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("adslot");
@@ -226,6 +226,7 @@ public class b {
             }
             mVar.n(jSONObject.optString("ad_info"));
             mVar.d(jSONObject.optBoolean("close_on_dislike", false));
+            mVar.o(jSONObject.optString("adx_name"));
             return mVar;
         }
         return (com.bytedance.sdk.openadsdk.core.e.m) invokeLLL.objValue;

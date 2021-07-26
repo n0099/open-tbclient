@@ -20,19 +20,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f27325b;
+    public static final List<String> f27483b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Pattern f27326a;
+    public Pattern f27484a;
 
     /* renamed from: com.baidu.wallet.statistics.impl.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0300a {
+    public static class C0302a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f27327a;
+        public static a f27485a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +48,7 @@ public class a {
                     return;
                 }
             }
-            f27327a = new a();
+            f27485a = new a();
         }
     }
 
@@ -65,7 +65,7 @@ public class a {
                 return;
             }
         }
-        f27325b = new ArrayList<String>() { // from class: com.baidu.wallet.statistics.impl.HeaderService$1
+        f27483b = new ArrayList<String>() { // from class: com.baidu.wallet.statistics.impl.HeaderService$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +91,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0300a.f27327a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0302a.f27485a : (a) invokeV.objValue;
     }
 
     public String b(Context context) {
@@ -103,7 +103,7 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f27326a.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                return this.f27484a.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
                 e.printStackTrace();
@@ -153,7 +153,7 @@ public class a {
                 return;
             }
         }
-        this.f27326a = Pattern.compile("\\s*|\t|\r|\n");
+        this.f27484a = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public String a(Context context) {
@@ -165,7 +165,7 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f27326a.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                return this.f27484a.matcher(PhoneUtils.getCUID(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
                 e.printStackTrace();

@@ -16,26 +16,26 @@ import dxm.sasdk.DxmSdkSensorsDataAPI;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 @TargetApi(14)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class l implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public static final SimpleDateFormat j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Integer f72272e;
+    public Integer f72726e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f72273f;
+    public final Object f72727f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final DxmSdkSensorsDataAPI f72274g;
+    public final DxmSdkSensorsDataAPI f72728g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final g f72275h;
+    public final g f72729h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final f f72276i;
+    public final f f72730i;
 
     static {
         InterceptResult invokeClinit;
@@ -68,11 +68,11 @@ public class l implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f72272e = 0;
-        this.f72273f = new Object();
-        this.f72274g = dxmSdkSensorsDataAPI;
-        this.f72275h = gVar;
-        this.f72276i = fVar;
+        this.f72726e = 0;
+        this.f72727f = new Object();
+        this.f72728g = dxmSdkSensorsDataAPI;
+        this.f72729h = gVar;
+        this.f72730i = fVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -115,20 +115,20 @@ public class l implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             try {
-                synchronized (this.f72273f) {
-                    if (this.f72272e.intValue() == 0) {
-                        if (this.f72276i.b() == null) {
-                            this.f72276i.a(j.format(Long.valueOf(System.currentTimeMillis())));
+                synchronized (this.f72727f) {
+                    if (this.f72726e.intValue() == 0) {
+                        if (this.f72730i.b() == null) {
+                            this.f72730i.a(j.format(Long.valueOf(System.currentTimeMillis())));
                         }
-                        this.f72275h.b().booleanValue();
+                        this.f72729h.b().booleanValue();
                         try {
-                            this.f72274g.i();
+                            this.f72728g.i();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        this.f72274g.F();
+                        this.f72728g.F();
                     }
-                    this.f72272e = Integer.valueOf(this.f72272e.intValue() + 1);
+                    this.f72726e = Integer.valueOf(this.f72726e.intValue() + 1);
                 }
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -141,18 +141,18 @@ public class l implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
             try {
-                synchronized (this.f72273f) {
-                    Integer valueOf = Integer.valueOf(this.f72272e.intValue() - 1);
-                    this.f72272e = valueOf;
+                synchronized (this.f72727f) {
+                    Integer valueOf = Integer.valueOf(this.f72726e.intValue() - 1);
+                    this.f72726e = valueOf;
                     if (valueOf.intValue() == 0) {
                         try {
-                            this.f72274g.K();
-                            this.f72274g.j();
+                            this.f72728g.K();
+                            this.f72728g.j();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
                         try {
-                            this.f72274g.p();
+                            this.f72728g.p();
                         } catch (Exception e3) {
                             e3.printStackTrace();
                         }

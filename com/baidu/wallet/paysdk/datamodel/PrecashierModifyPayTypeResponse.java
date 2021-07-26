@@ -26,7 +26,7 @@ public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse im
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PrecashierModifyPayTypeResponse f26039a;
+        public static PrecashierModifyPayTypeResponse f26197a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse im
                     return;
                 }
             }
-            f26039a = new PrecashierModifyPayTypeResponse();
+            f26197a = new PrecashierModifyPayTypeResponse();
         }
     }
 
@@ -63,16 +63,16 @@ public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse im
     public static PrecashierModifyPayTypeResponse getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f26039a : (PrecashierModifyPayTypeResponse) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f26197a : (PrecashierModifyPayTypeResponse) invokeV.objValue;
     }
 
     public static void updateContent(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, obj) == null) {
             if (obj instanceof PrecashierModifyPayTypeResponse) {
-                PrecashierModifyPayTypeResponse unused = a.f26039a = (PrecashierModifyPayTypeResponse) obj;
+                PrecashierModifyPayTypeResponse unused = a.f26197a = (PrecashierModifyPayTypeResponse) obj;
             } else if (obj == null) {
-                PrecashierModifyPayTypeResponse unused2 = a.f26039a = null;
+                PrecashierModifyPayTypeResponse unused2 = a.f26197a = null;
             }
         }
     }

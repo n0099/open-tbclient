@@ -34,7 +34,7 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(d dVar, Looper looper) {
-        this(dVar, looper, b.f69715a);
+        this(dVar, looper, b.f70169a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,12 +144,12 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
                         this.w = true;
                     } else if (!this.q.i()) {
                         c cVar = this.q;
-                        cVar.j = this.p.f70595a.subsampleOffsetUs;
+                        cVar.j = this.p.f71049a.subsampleOffsetUs;
                         cVar.o();
                         try {
                             int i2 = (this.t + this.u) % 5;
                             this.r[i2] = this.v.a(this.q);
-                            this.s[i2] = this.q.f70756h;
+                            this.s[i2] = this.q.f71210h;
                             this.u++;
                         } catch (MetadataDecoderException e2) {
                             throw ExoPlaybackException.createForRenderer(e2, u());

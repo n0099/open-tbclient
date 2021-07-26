@@ -16,25 +16,25 @@ public class H5PayActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.alipay.sdk.widget.g f1754a;
+    public com.alipay.sdk.widget.g f1787a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1755b;
+    public String f1788b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1756c;
+    public String f1789c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1757d;
+    public String f1790d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1758e;
+    public String f1791e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1759f;
+    public boolean f1792f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1760g;
+    public String f1793g;
 
     public H5PayActivity() {
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class H5PayActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Object obj = PayTask.f1772a;
+            Object obj = PayTask.f1805a;
             synchronized (obj) {
                 try {
                     obj.notify();
@@ -87,7 +87,7 @@ public class H5PayActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            com.alipay.sdk.widget.g gVar = this.f1754a;
+            com.alipay.sdk.widget.g gVar = this.f1787a;
             if (gVar instanceof com.alipay.sdk.widget.h) {
                 gVar.b();
                 return;
@@ -117,30 +117,30 @@ public class H5PayActivity extends Activity {
             try {
                 Bundle extras = getIntent().getExtras();
                 String string = extras.getString("url", null);
-                this.f1755b = string;
+                this.f1788b = string;
                 if (!n.f(string)) {
                     finish();
                     return;
                 }
-                this.f1757d = extras.getString("cookie", null);
-                this.f1756c = extras.getString("method", null);
-                this.f1758e = extras.getString("title", null);
-                this.f1760g = extras.getString("version", "v1");
-                this.f1759f = extras.getBoolean("backisexit", false);
+                this.f1790d = extras.getString("cookie", null);
+                this.f1789c = extras.getString("method", null);
+                this.f1791e = extras.getString("title", null);
+                this.f1793g = extras.getString("version", "v1");
+                this.f1792f = extras.getBoolean("backisexit", false);
                 try {
-                    if (DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX.equals(this.f1760g)) {
+                    if (DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX.equals(this.f1793g)) {
                         com.alipay.sdk.widget.j jVar = new com.alipay.sdk.widget.j(this);
                         setContentView(jVar);
-                        jVar.a(this.f1758e, this.f1756c, this.f1759f);
-                        jVar.a(this.f1755b);
-                        this.f1754a = jVar;
+                        jVar.a(this.f1791e, this.f1789c, this.f1792f);
+                        jVar.a(this.f1788b);
+                        this.f1787a = jVar;
                         return;
                     }
                     com.alipay.sdk.widget.h hVar = new com.alipay.sdk.widget.h(this);
-                    this.f1754a = hVar;
+                    this.f1787a = hVar;
                     setContentView(hVar);
-                    this.f1754a.a(this.f1755b, this.f1757d);
-                    this.f1754a.a(this.f1755b);
+                    this.f1787a.a(this.f1788b, this.f1790d);
+                    this.f1787a.a(this.f1788b);
                 } catch (Throwable th) {
                     com.alipay.sdk.app.statistic.a.a("biz", "GetInstalledAppEx", th);
                     finish();
@@ -156,7 +156,7 @@ public class H5PayActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            this.f1754a.a();
+            this.f1787a.a();
         }
     }
 }

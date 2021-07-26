@@ -21,6 +21,7 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
     public int coverSource;
     public float lastCoverPercent;
     public String orignalCoverPath;
+    public int videoInfoType;
     public float videoRatio;
 
     /* loaded from: classes3.dex */
@@ -111,6 +112,7 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
             parcel.writeString(this.orignalCoverPath);
             parcel.writeInt(this.coverSource);
             parcel.writeFloat(this.lastCoverPercent);
+            parcel.writeInt(this.videoInfoType);
         }
     }
 
@@ -137,5 +139,6 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
         this.orignalCoverPath = parcel.readString();
         this.coverSource = parcel.readInt();
         this.lastCoverPercent = parcel.readFloat();
+        this.videoInfoType = parcel.readInt();
     }
 }

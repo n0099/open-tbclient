@@ -98,7 +98,7 @@ public class l {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Context f3488a;
+                        public final /* synthetic */ Context f3514a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -115,15 +115,15 @@ public class l {
                                     return;
                                 }
                             }
-                            this.f3488a = context;
+                            this.f3514a = context;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                com.baidu.android.pushservice.job.a.a(this.f3488a);
-                                com.baidu.android.pushservice.job.a.a(this.f3488a, true);
+                                com.baidu.android.pushservice.job.a.a(this.f3514a);
+                                com.baidu.android.pushservice.job.a.a(this.f3514a, true);
                             }
                         }
                     }, com.baidu.android.pushservice.b.d.h() * 1000);
@@ -133,7 +133,7 @@ public class l {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f3489a;
+                    public final /* synthetic */ Context f3515a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -154,14 +154,14 @@ public class l {
                                 return;
                             }
                         }
-                        this.f3489a = r10;
+                        this.f3515a = r10;
                     }
 
                     @Override // com.baidu.android.pushservice.h.c
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            l.a(this.f3489a, new Intent());
+                            l.a(this.f3515a, new Intent());
                         }
                     }
                 });

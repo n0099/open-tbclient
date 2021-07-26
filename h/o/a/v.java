@@ -8,39 +8,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.g;
 import h.h;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class v<T> implements h.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.c<T> f72542e;
+    public final h.c<T> f72996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f72543f;
+    public final long f72997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TimeUnit f72544g;
+    public final TimeUnit f72998g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final h.g f72545h;
+    public final h.g f72999h;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a<T> extends h.i<T> implements h.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.i<? super T> f72546f;
+        public final h.i<? super T> f73000f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final g.a f72547g;
+        public final g.a f73001g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f72548h;
+        public final long f73002h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final TimeUnit f72549i;
+        public final TimeUnit f73003i;
         public T j;
         public Throwable k;
 
@@ -59,10 +59,10 @@ public final class v<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f72546f = iVar;
-            this.f72547g = aVar;
-            this.f72548h = j;
-            this.f72549i = timeUnit;
+            this.f73000f = iVar;
+            this.f73001g = aVar;
+            this.f73002h = j;
+            this.f73003i = timeUnit;
         }
 
         @Override // h.i
@@ -70,7 +70,7 @@ public final class v<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 this.k = th;
-                this.f72547g.c(this, this.f72548h, this.f72549i);
+                this.f73001g.c(this, this.f73002h, this.f73003i);
             }
         }
 
@@ -79,7 +79,7 @@ public final class v<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
                 this.j = t;
-                this.f72547g.c(this, this.f72548h, this.f72549i);
+                this.f73001g.c(this, this.f73002h, this.f73003i);
             }
         }
 
@@ -91,14 +91,14 @@ public final class v<T> implements h.c<T> {
                     Throwable th = this.k;
                     if (th != null) {
                         this.k = null;
-                        this.f72546f.b(th);
+                        this.f73000f.b(th);
                     } else {
                         T t = this.j;
                         this.j = null;
-                        this.f72546f.c(t);
+                        this.f73000f.c(t);
                     }
                 } finally {
-                    this.f72547g.unsubscribe();
+                    this.f73001g.unsubscribe();
                 }
             }
         }
@@ -119,10 +119,10 @@ public final class v<T> implements h.c<T> {
                 return;
             }
         }
-        this.f72542e = cVar;
-        this.f72545h = gVar;
-        this.f72543f = j;
-        this.f72544g = timeUnit;
+        this.f72996e = cVar;
+        this.f72999h = gVar;
+        this.f72997f = j;
+        this.f72998g = timeUnit;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -131,11 +131,11 @@ public final class v<T> implements h.c<T> {
     public void call(h.i<? super T> iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            g.a createWorker = this.f72545h.createWorker();
-            a aVar = new a(iVar, createWorker, this.f72543f, this.f72544g);
+            g.a createWorker = this.f72999h.createWorker();
+            a aVar = new a(iVar, createWorker, this.f72997f, this.f72998g);
             iVar.a(createWorker);
             iVar.a(aVar);
-            this.f72542e.call(aVar);
+            this.f72996e.call(aVar);
         }
     }
 }

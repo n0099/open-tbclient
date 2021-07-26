@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.b;
-import d.a.p0.a0.e0.n;
-import d.a.p0.w2.w;
+import d.a.d.e.m.b;
+import d.a.q0.a0.e0.n;
+import d.a.q0.w2.w;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -59,7 +59,7 @@ public class BannerListData implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
-                return (advertAppInfo != null ? b.d(advertAppInfo.R3, 0) : 0) - (advertAppInfo2 != null ? b.d(advertAppInfo2.R3, 0) : 0);
+                return (advertAppInfo != null ? b.d(advertAppInfo.X3, 0) : 0) - (advertAppInfo2 != null ? b.d(advertAppInfo2.X3, 0) : 0);
             }
             return invokeLL.intValue;
         }
@@ -105,8 +105,8 @@ public class BannerListData implements Serializable {
             StringBuilder sb = new StringBuilder();
             int size = this.advertAppList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (!TextUtils.isEmpty(this.advertAppList.get(i2).L3)) {
-                    sb.append(this.advertAppList.get(i2).L3);
+                if (!TextUtils.isEmpty(this.advertAppList.get(i2).R3)) {
+                    sb.append(this.advertAppList.get(i2).R3);
                     if (i2 != size - 1) {
                         sb.append(",");
                     }
@@ -149,7 +149,7 @@ public class BannerListData implements Serializable {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     if (list.get(i2) != null) {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                        advertAppInfo.y4(list.get(i2));
+                        advertAppInfo.B4(list.get(i2));
                         this.advertAppList.add(advertAppInfo);
                         if (h2 != null) {
                             h2.add(advertAppInfo);

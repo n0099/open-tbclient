@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
 public class CustomScrollView extends ScrollView {
@@ -23,19 +23,19 @@ public class CustomScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public GestureDetector f22031e;
+    public GestureDetector f22189e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22032f;
+    public int f22190f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22033g;
+    public int f22191g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Field f22034h;
+    public Field f22192h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f22035i;
+    public a f22193i;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -48,7 +48,7 @@ public class CustomScrollView extends ScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CustomScrollView f22036e;
+        public final /* synthetic */ CustomScrollView f22194e;
 
         public b(CustomScrollView customScrollView) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class CustomScrollView extends ScrollView {
                     return;
                 }
             }
-            this.f22036e = customScrollView;
+            this.f22194e = customScrollView;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -95,9 +95,9 @@ public class CustomScrollView extends ScrollView {
                 return;
             }
         }
-        this.f22032f = 0;
-        this.f22033g = 0;
-        this.f22031e = new GestureDetector(context, new b(this));
+        this.f22190f = 0;
+        this.f22191g = 0;
+        this.f22189e = new GestureDetector(context, new b(this));
         setFadingEdgeLength(0);
     }
 
@@ -105,10 +105,10 @@ public class CustomScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f22034h == null) {
-                    this.f22034h = l.f(this, "mScroller");
+                if (this.f22192h == null) {
+                    this.f22192h = l.f(this, "mScroller");
                 }
-                Object obj = this.f22034h.get(this);
+                Object obj = this.f22192h.get(this);
                 if (obj == null) {
                     return;
                 }
@@ -125,7 +125,7 @@ public class CustomScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int computeVerticalScrollRange = super.computeVerticalScrollRange();
-            this.f22032f = computeVerticalScrollRange;
+            this.f22190f = computeVerticalScrollRange;
             return computeVerticalScrollRange;
         }
         return invokeV.intValue;
@@ -139,7 +139,7 @@ public class CustomScrollView extends ScrollView {
             if (motionEvent.getAction() == 0) {
                 a();
             }
-            return super.onInterceptTouchEvent(motionEvent) && this.f22031e.onTouchEvent(motionEvent);
+            return super.onInterceptTouchEvent(motionEvent) && this.f22189e.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
@@ -150,7 +150,7 @@ public class CustomScrollView extends ScrollView {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                this.f22033g = i5 - i3;
+                this.f22191g = i5 - i3;
             }
         }
     }
@@ -159,17 +159,17 @@ public class CustomScrollView extends ScrollView {
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
-            a aVar = this.f22035i;
+            a aVar = this.f22193i;
             if (aVar != null) {
                 aVar.onScrollChanged(i2, i3, i4, i5);
             }
-            boolean z = this.f22032f - this.f22033g == i3;
+            boolean z = this.f22190f - this.f22191g == i3;
             if (i3 == 0 || z) {
                 try {
-                    if (this.f22034h == null) {
-                        this.f22034h = l.f(this, "mScroller");
+                    if (this.f22192h == null) {
+                        this.f22192h = l.f(this, "mScroller");
                     }
-                    Object obj = this.f22034h.get(this);
+                    Object obj = this.f22192h.get(this);
                     if (obj != null && (obj instanceof Scroller)) {
                         ((Scroller) obj).abortAnimation();
                     }
@@ -195,7 +195,7 @@ public class CustomScrollView extends ScrollView {
     public void setOnScrollListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f22035i = aVar;
+            this.f22193i = aVar;
         }
     }
 }

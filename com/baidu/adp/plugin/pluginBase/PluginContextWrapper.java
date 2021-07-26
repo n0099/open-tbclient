@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.h;
-import d.a.c.h.j.g.d;
+import d.a.d.a.h;
+import d.a.d.h.j.g.d;
 /* loaded from: classes.dex */
 public class PluginContextWrapper extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;

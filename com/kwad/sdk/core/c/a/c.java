@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.a;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class c implements com.kwad.sdk.core.d<a.C0427a> {
+public class c implements com.kwad.sdk.core.d<a.C0429a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,24 +29,24 @@ public class c implements com.kwad.sdk.core.d<a.C0427a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
-    public void a(a.C0427a c0427a, JSONObject jSONObject) {
+    public void a(a.C0429a c0429a, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0427a, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0429a, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        c0427a.f35155a = jSONObject.optBoolean("clickActionButton");
+        c0429a.f35344a = jSONObject.optBoolean("clickActionButton");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
-    public JSONObject b(a.C0427a c0427a, JSONObject jSONObject) {
+    public JSONObject b(a.C0429a c0429a, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, c0427a, jSONObject)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, c0429a, jSONObject)) == null) {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", c0427a.f35155a);
+            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", c0429a.f35344a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

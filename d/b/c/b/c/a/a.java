@@ -11,10 +11,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f68937a;
+    public String f69391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f68938b;
+    public long f69392b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             a aVar = new a();
-            aVar.f68937a = str;
-            aVar.f68938b = System.currentTimeMillis();
+            aVar.f69391a = str;
+            aVar.f69392b = System.currentTimeMillis();
             return aVar;
         }
         return (a) invokeL.objValue;

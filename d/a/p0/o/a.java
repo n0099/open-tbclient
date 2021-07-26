@@ -1,34 +1,40 @@
 package d.a.p0.o;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import java.util.ArrayList;
-import java.util.HashMap;
-/* loaded from: classes8.dex */
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f61054a;
+    public int f52799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Integer> f61055b;
+    public int f52800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f61056c;
+    public int f52801c;
 
-    public a(c cVar, ArrayList<Integer> arrayList) {
+    /* renamed from: d  reason: collision with root package name */
+    public int f52802d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f52803e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f52804f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f52805g;
+
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,44 +44,51 @@ public class a {
                 return;
             }
         }
-        this.f61055b = arrayList;
-        this.f61056c = cVar;
-        this.f61054a = new HashMap<>();
+        this.f52799a = 300;
+        this.f52800b = 5000;
+        this.f52801c = 10000;
+        this.f52802d = 1500;
+        this.f52803e = 3000;
+        this.f52804f = 6000;
+        this.f52805g = true;
     }
 
-    public int a(String str, int i2) {
-        InterceptResult invokeLI;
-        ArrayList<Integer> arrayList;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
-            if (this.f61054a == null || k.isEmpty(str) || (arrayList = this.f61055b) == null || !arrayList.contains(Integer.valueOf(i2))) {
-                return 0;
-            }
-            if (!this.f61054a.containsKey(str)) {
-                b(str);
-            }
-            b bVar = this.f61054a.get(str);
-            if (bVar == null) {
-                return 0;
-            }
-            return bVar.a(i2);
-        }
-        return invokeLI.intValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f61054a == null || k.isEmpty(str) || this.f61056c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (this.f61054a.containsKey(str)) {
-            b bVar = this.f61054a.get(str);
-            this.f61056c.b(this.f61055b, bVar);
-            this.f61054a.put(str, bVar);
-            return;
+        try {
+            int optInt = jSONObject.optInt("wifiSlow", -1);
+            if (optInt > 0) {
+                this.f52799a = optInt;
+            }
+            int optInt2 = jSONObject.optInt("threeGSlow", -1);
+            if (optInt2 > 0) {
+                this.f52800b = optInt2;
+            }
+            int optInt3 = jSONObject.optInt("twoGSlow", -1);
+            if (optInt3 > 0) {
+                this.f52801c = optInt3;
+            }
+            int optInt4 = jSONObject.optInt("wifiLog", -1);
+            if (optInt4 > 0) {
+                this.f52802d = optInt4;
+            }
+            int optInt5 = jSONObject.optInt("threeGLog", -1);
+            if (optInt5 > 0) {
+                this.f52803e = optInt5;
+            }
+            int optInt6 = jSONObject.optInt("twoGLog", -1);
+            if (optInt6 > 0) {
+                this.f52804f = optInt6;
+            }
+            boolean z = true;
+            if (jSONObject.optInt("mobile_cdn_switch", 1) != 1) {
+                z = false;
+            }
+            this.f52805g = z;
+        } catch (Exception unused) {
         }
-        b bVar2 = new b();
-        this.f61056c.b(this.f61055b, bVar2);
-        this.f61054a.put(str, bVar2);
     }
 }

@@ -14,7 +14,7 @@ public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f23338a;
+    public static int f23496a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class l {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f23338a == 0) {
+            if (f23496a == 0) {
                 String str = Build.MODEL;
                 String str2 = Build.MANUFACTURER;
                 String str3 = Build.BRAND;
@@ -64,11 +64,11 @@ public final class l {
                     } else if (str.contains("meizu") || str2.contains("meizu") || str3.contains("meizu")) {
                         i2 = 7;
                     }
-                    f23338a = i2;
+                    f23496a = i2;
                 }
-                f23338a = 1;
+                f23496a = 1;
             }
-            return f23338a;
+            return f23496a;
         }
         return invokeV.intValue;
     }

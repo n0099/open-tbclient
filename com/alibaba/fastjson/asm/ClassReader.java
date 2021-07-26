@@ -16,7 +16,7 @@ public class ClassReader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f1605b;
+    public final byte[] f1638b;
     public final int header;
     public final int[] items;
     public final int maxStringLength;
@@ -52,7 +52,7 @@ public class ClassReader {
             }
         }
         inputStream.close();
-        this.f1605b = byteArrayOutputStream.toByteArray();
+        this.f1638b = byteArrayOutputStream.toByteArray();
         int[] iArr = new int[readUnsignedShort(8)];
         this.items = iArr;
         int length = iArr.length;
@@ -62,7 +62,7 @@ public class ClassReader {
         while (i6 < length) {
             int i7 = i5 + 1;
             this.items[i6] = i7;
-            byte b2 = this.f1605b[i5];
+            byte b2 = this.f1638b[i5];
             int i8 = 5;
             if (b2 == 1) {
                 i8 = readUnsignedShort(i7) + 3;
@@ -123,7 +123,7 @@ public class ClassReader {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-            byte[] bArr = this.f1605b;
+            byte[] bArr = this.f1638b;
             return (bArr[i2 + 3] & 255) | ((bArr[i2] & 255) << 24) | ((bArr[i2 + 1] & 255) << 16) | ((bArr[i2 + 2] & 255) << 8);
         }
         return invokeI.intValue;
@@ -199,7 +199,7 @@ public class ClassReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, cArr)) == null) {
             int i5 = i3 + i2;
-            byte[] bArr = this.f1605b;
+            byte[] bArr = this.f1638b;
             int i6 = 0;
             char c2 = 0;
             char c3 = 0;
@@ -260,7 +260,7 @@ public class ClassReader {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
-            byte[] bArr = this.f1605b;
+            byte[] bArr = this.f1638b;
             return (bArr[i2 + 1] & 255) | ((bArr[i2] & 255) << 8);
         }
         return invokeI.intValue;

@@ -18,7 +18,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends b> f73183e;
+    public final Iterable<? extends b> f73637e;
 
     /* loaded from: classes9.dex */
     public static final class ConcatInnerSubscriber extends AtomicInteger implements c {
@@ -121,7 +121,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
                 return;
             }
         }
-        this.f73183e = iterable;
+        this.f73637e = iterable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -131,7 +131,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             try {
-                Iterator<? extends b> it = this.f73183e.iterator();
+                Iterator<? extends b> it = this.f73637e.iterator();
                 if (it == null) {
                     cVar.onSubscribe(e.c());
                     cVar.onError(new NullPointerException("The iterator returned is null"));

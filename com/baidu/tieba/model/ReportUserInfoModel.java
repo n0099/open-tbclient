@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
+import d.a.d.a.f;
 /* loaded from: classes4.dex */
 public class ReportUserInfoModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -28,10 +28,10 @@ public class ReportUserInfoModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18679e;
+    public b f18764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f18680f;
+    public final HttpMessageListener f18765f;
     public long timeInterval;
 
     /* loaded from: classes4.dex */
@@ -40,7 +40,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ReportUserInfoModel f18681a;
+        public final /* synthetic */ ReportUserInfoModel f18766a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ReportUserInfoModel reportUserInfoModel, int i2) {
@@ -60,19 +60,19 @@ public class ReportUserInfoModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f18681a = reportUserInfoModel;
+            this.f18766a = reportUserInfoModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && this.f18681a.f18679e != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && this.f18766a.f18764e != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
                 ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
                 if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                    this.f18681a.f18679e.a(responseReportUserInfoMessage.getTimeInterval());
+                    this.f18766a.f18764e.a(responseReportUserInfoMessage.getTimeInterval());
                 } else {
-                    this.f18681a.f18679e.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
+                    this.f18766a.f18764e.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
                 }
             }
         }
@@ -104,7 +104,7 @@ public class ReportUserInfoModel extends BdBaseModel {
             }
         }
         this.timeInterval = 300000L;
-        this.f18680f = new a(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.f18765f = new a(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     public void A() {
@@ -124,7 +124,7 @@ public class ReportUserInfoModel extends BdBaseModel {
     public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f18679e = bVar;
+            this.f18764e = bVar;
         }
     }
 
@@ -151,7 +151,7 @@ public class ReportUserInfoModel extends BdBaseModel {
     public void unRegisterListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f18680f);
+            MessageManager.getInstance().unRegisterListener(this.f18765f);
         }
     }
 
@@ -168,7 +168,7 @@ public class ReportUserInfoModel extends BdBaseModel {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, TbConfig.SERVER_ADDRESS + "c/c/user/report");
             tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            messageManager.registerListener(this.f18680f);
+            messageManager.registerListener(this.f18765f);
         }
     }
 

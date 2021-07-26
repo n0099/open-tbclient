@@ -33,7 +33,7 @@ public abstract class e<K, V> extends Maps.p<K, V> implements NavigableMap<K, V>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f70858h;
+        public final /* synthetic */ e f71312h;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -50,21 +50,21 @@ public abstract class e<K, V> extends Maps.p<K, V> implements NavigableMap<K, V>
                     return;
                 }
             }
-            this.f70858h = eVar;
+            this.f71312h = eVar;
         }
 
         @Override // com.google.common.collect.Maps.j
         public Iterator<Map.Entry<K, V>> e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70858h.b() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71312h.b() : (Iterator) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.Maps.j
         public NavigableMap<K, V> f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70858h : (NavigableMap) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71312h : (NavigableMap) invokeV.objValue;
         }
 
         public /* synthetic */ b(e eVar, a aVar) {

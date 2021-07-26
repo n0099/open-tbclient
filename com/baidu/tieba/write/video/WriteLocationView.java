@@ -17,7 +17,7 @@ public class WriteLocationView extends LocationInfoView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocationModel f22663h;
+    public LocationModel f22821h;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -25,7 +25,7 @@ public class WriteLocationView extends LocationInfoView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteLocationView f22664a;
+        public final /* synthetic */ WriteLocationView f22822a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(WriteLocationView writeLocationView, int i2) {
@@ -45,7 +45,7 @@ public class WriteLocationView extends LocationInfoView {
                     return;
                 }
             }
-            this.f22664a = writeLocationView;
+            this.f22822a = writeLocationView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,13 +55,13 @@ public class WriteLocationView extends LocationInfoView {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    this.f22664a.f22663h.M(false);
-                    this.f22664a.f22663h.L(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                    this.f22664a.e(2, true, responsedSelectLocation.getName());
+                    this.f22822a.f22821h.M(false);
+                    this.f22822a.f22821h.L(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    this.f22822a.e(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                this.f22664a.f22663h.M(true);
-                this.f22664a.e(0, true, null);
+                this.f22822a.f22821h.M(true);
+                this.f22822a.e(0, true, null);
             }
         }
     }

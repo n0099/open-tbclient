@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.b;
+import d.a.d.e.m.b;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes3.dex */
@@ -91,12 +91,28 @@ public class TimeHelper {
     public static boolean isSameDay(Date date, Date date2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, date, date2)) == null) ? date.getYear() == date2.getYear() && date.getMonth() == date2.getMonth() && date.getDay() == date2.getDay() : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, date, date2)) == null) ? date.getYear() == date2.getYear() && date.getMonth() == date2.getMonth() && date.getDay() == date2.getDay() : invokeLL.booleanValue;
     }
 
     public static boolean isSameYear(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) ? new Date(j).getYear() == new Date(System.currentTimeMillis()).getYear() : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) ? new Date(j).getYear() == new Date(System.currentTimeMillis()).getYear() : invokeJ.booleanValue;
+    }
+
+    public static boolean isTargetTimeInTimeBlock(long j, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j > j2 && j < j3 : invokeCommon.booleanValue;
+    }
+
+    public static boolean isSameDay(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            new SimpleDateFormat("yyyy-MM-dd");
+            return isSameDay(new Date(j), new Date(j2));
+        }
+        return invokeCommon.booleanValue;
     }
 }

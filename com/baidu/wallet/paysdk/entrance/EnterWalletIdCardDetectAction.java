@@ -38,10 +38,10 @@ public class EnterWalletIdCardDetectAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f26077a;
+                public final /* synthetic */ RouterCallback f26235a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletIdCardDetectAction f26078b;
+                public final /* synthetic */ EnterWalletIdCardDetectAction f26236b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,31 +58,31 @@ public class EnterWalletIdCardDetectAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f26078b = this;
-                    this.f26077a = routerCallback;
+                    this.f26236b = this;
+                    this.f26235a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.base.controllers.IdCardDetectionController.IIdCardDetectionListener
                 public void onDetectFailed(int i3, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) || this.f26077a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) || this.f26235a == null) {
                         return;
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put(RouterCallback.KEY_ERROR_CODE, Integer.valueOf(i3));
                     hashMap.put("errMsg", str);
-                    this.f26077a.onResult(1, hashMap);
+                    this.f26235a.onResult(1, hashMap);
                 }
 
                 @Override // com.baidu.wallet.base.controllers.IdCardDetectionController.IIdCardDetectionListener
                 public void onDetectOK(Bundle bundle) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.f26077a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.f26235a == null) {
                         return;
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("result", bundle);
-                    this.f26077a.onResult(0, hashMap);
+                    this.f26235a.onResult(0, hashMap);
                 }
             }, z);
         }

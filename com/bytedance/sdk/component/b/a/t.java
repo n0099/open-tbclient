@@ -16,17 +16,17 @@ public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final t f28132c;
+    public static final t f28226c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28133a;
+    public boolean f28227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28134b;
+    public long f28228b;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f28135d;
+    public long f28229d;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class t {
                 return;
             }
         }
-        f28132c = new t() { // from class: com.bytedance.sdk.component.b.a.t.1
+        f28226c = new t() { // from class: com.bytedance.sdk.component.b.a.t.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +102,7 @@ public class t {
         if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit)) == null) {
             if (j >= 0) {
                 if (timeUnit != null) {
-                    this.f28135d = timeUnit.toNanos(j);
+                    this.f28229d = timeUnit.toNanos(j);
                     return this;
                 }
                 throw new IllegalArgumentException("unit == null");
@@ -115,21 +115,21 @@ public class t {
     public long b_() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28135d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28229d : invokeV.longValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28133a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28227a : invokeV.booleanValue;
     }
 
     public long c_() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f28133a) {
-                return this.f28134b;
+            if (this.f28227a) {
+                return this.f28228b;
             }
             throw new IllegalStateException("No deadline");
         }
@@ -140,7 +140,7 @@ public class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.f28135d = 0L;
+            this.f28229d = 0L;
             return this;
         }
         return (t) invokeV.objValue;
@@ -150,7 +150,7 @@ public class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            this.f28133a = false;
+            this.f28227a = false;
             return this;
         }
         return (t) invokeV.objValue;
@@ -160,7 +160,7 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (!Thread.interrupted()) {
-                if (this.f28133a && this.f28134b - System.nanoTime() <= 0) {
+                if (this.f28227a && this.f28228b - System.nanoTime() <= 0) {
                     throw new InterruptedIOException("deadline reached");
                 }
                 return;
@@ -174,8 +174,8 @@ public class t {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            this.f28133a = true;
-            this.f28134b = j;
+            this.f28227a = true;
+            this.f28228b = j;
             return this;
         }
         return (t) invokeJ.objValue;

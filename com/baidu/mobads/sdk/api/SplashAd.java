@@ -15,13 +15,14 @@ import com.baidu.mobads.sdk.internal.XAdErrorCode;
 import com.baidu.mobads.sdk.internal.XAdLogger;
 import com.baidu.mobads.sdk.internal.XErrorCode;
 import com.baidu.mobads.sdk.internal.XSplashAdProd;
+import com.baidu.sdk.container.interfaces.LoadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.b.a;
-import d.a.h0.a.g.d;
+import d.a.f0.a.b.a;
+import d.a.i0.a.g.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,6 +48,7 @@ public class SplashAd implements d {
     public boolean mDisplayDownInfo;
     public Boolean mLimitRegionClick;
     public SplashAdListener mListener;
+    public LoadState mLoadState;
     public RequestParameters mParameter;
     public Boolean mPopDialogIfDL;
     public int mTimeout;
@@ -128,7 +130,7 @@ public class SplashAd implements d {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("place_id", this.mAdPlaceId);
-                jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f42209a.get().A()) ? "bes_cpc" : "gd");
+                jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f42713a.get().A()) ? "bes_cpc" : "gd");
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -158,9 +160,15 @@ public class SplashAd implements d {
         return (HashMap) invokeV.objValue;
     }
 
+    public LoadState getLoadState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mLoadState : (LoadState) invokeV.objValue;
+    }
+
     public final void load() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             XSplashAdProd xSplashAdProd = this.mAdProd;
             if (xSplashAdProd != null) {
                 xSplashAdProd.removeAdAllListeners();
@@ -202,7 +210,7 @@ public class SplashAd implements d {
 
     public void setAppSid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.mAppSid = str;
         }
     }
@@ -210,7 +218,7 @@ public class SplashAd implements d {
     public final void show(ViewGroup viewGroup) {
         XSplashAdProd xSplashAdProd;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, viewGroup) == null) {
             if (viewGroup != null && (xSplashAdProd = this.mAdProd) != null) {
                 View adView = xSplashAdProd.getAdView();
                 if (adView != null && adView.getParent() == null) {
@@ -251,6 +259,7 @@ public class SplashAd implements d {
         this.mPopDialogIfDL = bool;
         this.mLimitRegionClick = bool;
         this.mTimeout = RT_SPLASH_LOAD_AD_TIMEOUT;
+        this.mLoadState = LoadState.INIT;
         this.mListener = new SplashLpCloseListener(this) { // from class: com.baidu.mobads.sdk.api.SplashAd.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

@@ -1,381 +1,138 @@
 package com.bytedance.sdk.component.adnet.b;
 
-import android.text.TextUtils;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.net.BdNetTask;
-import com.bytedance.sdk.component.adnet.core.Header;
-import com.bytedance.sdk.component.adnet.core.HttpResponse;
 import com.bytedance.sdk.component.adnet.core.Request;
 import com.bytedance.sdk.component.adnet.core.i;
 import com.bytedance.sdk.component.adnet.core.m;
 import com.bytedance.sdk.component.adnet.core.o;
-import com.bytedance.sdk.component.adnet.err.VAdError;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.zip.GZIPInputStream;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes5.dex */
-public class c extends Request<File> {
+public abstract class c<T> extends Request<T> {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f27861c;
+    public static final String f28008c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f27862d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Object f27863e;
+    public final Object f28009d;
     @Nullable
     @GuardedBy("mLock")
 
-    /* renamed from: f  reason: collision with root package name */
-    public m.a<File> f27864f;
+    /* renamed from: e  reason: collision with root package name */
+    public m.a<T> f28010e;
+    @Nullable
 
-    /* loaded from: classes5.dex */
-    public interface a extends m.a<File> {
-        void a(long j, long j2);
+    /* renamed from: f  reason: collision with root package name */
+    public final String f28011f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1398251809, "Lcom/bytedance/sdk/component/adnet/b/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1398251809, "Lcom/bytedance/sdk/component/adnet/b/c;");
+                return;
+            }
+        }
+        f28008c = String.format("application/json; charset=%s", "utf-8");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(String str, String str2, m.a<File> aVar) {
-        super(str2, aVar);
+    public c(int i2, String str, @Nullable String str2, @Nullable m.a<T> aVar) {
+        super(i2, str, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {Integer.valueOf(i2), str, str2, aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (m.a) objArr2[1]);
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (m.a) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27863e = new Object();
-        this.f27864f = aVar;
-        this.f27861c = new File(str);
-        this.f27862d = new File(str + ".tmp");
-        try {
-            if (this.f27861c != null && this.f27861c.getParentFile() != null && !this.f27861c.getParentFile().exists()) {
-                this.f27861c.getParentFile().mkdirs();
-            }
-        } catch (Throwable unused) {
-        }
-        setRetryPolicy(new com.bytedance.sdk.component.adnet.core.e(BdNetTask.TIMEOUT_READ, 1, 1.0f));
-        setShouldCache(false);
-    }
-
-    private boolean b(HttpResponse httpResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, httpResponse)) == null) ? TextUtils.equals(a(httpResponse, "Content-Encoding"), AsyncHttpClient.ENCODING_GZIP) : invokeL.booleanValue;
-    }
-
-    private boolean c(HttpResponse httpResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, httpResponse)) == null) {
-            if (TextUtils.equals(a(httpResponse, Util.ACCEPT_RANGES), "bytes")) {
-                return true;
-            }
-            String a2 = a(httpResponse, "Content-Range");
-            return a2 != null && a2.startsWith("bytes");
-        }
-        return invokeL.booleanValue;
-    }
-
-    private void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            try {
-                this.f27861c.delete();
-            } catch (Throwable unused) {
-            }
-            try {
-                this.f27862d.delete();
-            } catch (Throwable unused2) {
-            }
-        }
+        this.f28009d = new Object();
+        this.f28010e = aVar;
+        this.f28011f = str2;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request
-    public m<File> a(i iVar) {
-        InterceptResult invokeL;
+    public abstract m<T> a(i iVar);
+
+    @Override // com.bytedance.sdk.component.adnet.core.Request
+    public void a(m<T> mVar) {
+        m.a<T> aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iVar)) == null) {
-            if (!isCanceled()) {
-                if (this.f27862d.canRead() && this.f27862d.length() > 0) {
-                    if (this.f27862d.renameTo(this.f27861c)) {
-                        return m.a((Object) null, com.bytedance.sdk.component.adnet.d.c.a(iVar));
-                    }
-                    h();
-                    return m.a(new VAdError("Can't rename the download temporary file!", 609));
-                }
-                h();
-                return m.a(new VAdError("Download temporary file was invalid!", 610));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
+            synchronized (this.f28009d) {
+                aVar = this.f28010e;
             }
-            h();
-            return m.a(new VAdError("Request was Canceled!", 611));
+            if (aVar != null) {
+                aVar.a(mVar);
+            }
         }
-        return (m) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request
     public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.cancel();
-            synchronized (this.f27863e) {
-                this.f27864f = null;
+            synchronized (this.f28009d) {
+                this.f28010e = null;
             }
         }
     }
 
-    public File f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27861c : (File) invokeV.objValue;
-    }
-
-    public File g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27862d : (File) invokeV.objValue;
-    }
-
     @Override // com.bytedance.sdk.component.adnet.core.Request
-    public Map<String, String> getHeaders() throws com.bytedance.sdk.component.adnet.err.a {
+    public byte[] getBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("Range", "bytes=" + this.f27862d.length() + "-");
-            hashMap.put("Accept-Encoding", "identity");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.bytedance.sdk.component.adnet.core.Request
-    public Request.b getPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Request.b.f27958a : (Request.b) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:116:0x0178 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public byte[] a(HttpResponse httpResponse) throws IOException, com.bytedance.sdk.component.adnet.err.f {
-        InterceptResult invokeL;
-        RandomAccessFile randomAccessFile;
-        int i2;
-        InputStream inputStream;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, httpResponse)) == null) {
-            long contentLength = httpResponse.getContentLength();
-            if (contentLength <= 0) {
-                o.b("Response doesn't present Content-Length!", new Object[0]);
-            }
-            long length = g().length();
-            boolean c2 = c(httpResponse);
-            if (c2) {
-                contentLength += length;
-                String a2 = a(httpResponse, "Content-Range");
-                if (!TextUtils.isEmpty(a2)) {
-                    String str = "bytes " + length + "-" + (contentLength - 1);
-                    if (TextUtils.indexOf(a2, str) == -1) {
-                        throw new IllegalStateException("The Content-Range Header is invalid Assume[" + str + "] vs Real[" + a2 + "], please remove the temporary file [" + g() + "].");
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                if (this.f28011f == null) {
+                    return null;
                 }
-            }
-            if (contentLength > 0 && f().length() == contentLength) {
-                f().renameTo(g());
-                a(contentLength, contentLength);
+                return this.f28011f.getBytes("utf-8");
+            } catch (UnsupportedEncodingException unused) {
+                o.d("Unsupported Encoding while trying to get the bytes of %s using %s", this.f28011f, "utf-8");
                 return null;
             }
-            if (f() != null && f().exists()) {
-                f().delete();
-            }
-            try {
-                randomAccessFile = new RandomAccessFile(g(), "rw");
-                try {
-                    if (c2) {
-                        randomAccessFile.seek(length);
-                    } else {
-                        randomAccessFile.setLength(0L);
-                        length = 0;
-                    }
-                } catch (Throwable unused) {
-                }
-            } catch (Throwable unused2) {
-                randomAccessFile = null;
-            }
-            try {
-                inputStream = httpResponse.getContent();
-                try {
-                    if (b(httpResponse) && !(inputStream instanceof GZIPInputStream)) {
-                        inputStream = new GZIPInputStream(inputStream);
-                    }
-                    byte[] bArr = new byte[1024];
-                    a(length, contentLength);
-                    do {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        randomAccessFile.write(bArr, 0, read);
-                        length += read;
-                        a(length, contentLength);
-                    } while (!isCanceled());
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Throwable unused3) {
-                            i4 = 0;
-                            o.a("Error occured when calling InputStream.close", new Object[0]);
-                        }
-                    }
-                    i4 = 0;
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Throwable unused4) {
-                            o.a("Error occured when calling consumingContent", new Object[i4]);
-                        }
-                    }
-                    try {
-                        randomAccessFile.close();
-                    } catch (Throwable unused5) {
-                        o.a("Error occured when calling tmpFile.close", new Object[i4]);
-                    }
-                } catch (Throwable unused6) {
-                    i2 = 0;
-                    try {
-                        o.a("Error occured when FileRequest.parseHttpResponse", new Object[i2]);
-                        h();
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Throwable unused7) {
-                                o.a("Error occured when calling InputStream.close", new Object[i2]);
-                            }
-                        }
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Throwable unused8) {
-                                o.a("Error occured when calling consumingContent", new Object[i2]);
-                            }
-                        }
-                        try {
-                            randomAccessFile.close();
-                        } catch (Throwable unused9) {
-                            o.a("Error occured when calling tmpFile.close", new Object[i2]);
-                        }
-                        return null;
-                    } catch (Throwable th) {
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Throwable unused10) {
-                                i3 = 0;
-                                o.a("Error occured when calling InputStream.close", new Object[0]);
-                                if (inputStream != null) {
-                                }
-                                randomAccessFile.close();
-                                throw th;
-                            }
-                        }
-                        i3 = 0;
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Throwable unused11) {
-                                o.a("Error occured when calling consumingContent", new Object[i3]);
-                            }
-                        }
-                        try {
-                            randomAccessFile.close();
-                        } catch (Throwable unused12) {
-                            o.a("Error occured when calling tmpFile.close", new Object[i3]);
-                        }
-                        throw th;
-                    }
-                }
-            } catch (Throwable unused13) {
-                i2 = 0;
-                inputStream = null;
-            }
-            return null;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    private String a(HttpResponse httpResponse, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, httpResponse, str)) == null) {
-            if (httpResponse == null || httpResponse.getHeaders() == null || httpResponse.getHeaders().isEmpty()) {
-                return null;
-            }
-            for (Header header : httpResponse.getHeaders()) {
-                if (header != null && TextUtils.equals(header.getName(), str)) {
-                    return header.getValue();
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request
-    public void a(m<File> mVar) {
-        m.a<File> aVar;
+    public String getBodyContentType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-            synchronized (this.f27863e) {
-                aVar = this.f27864f;
-            }
-            if (aVar != null) {
-                aVar.a(m.a(this.f27861c, mVar.f28032b));
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f28008c : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request
-    public void a(long j, long j2) {
-        m.a<File> aVar;
+    @Deprecated
+    public byte[] getPostBody() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            synchronized (this.f27863e) {
-                aVar = this.f27864f;
-            }
-            if (aVar instanceof a) {
-                ((a) aVar).a(j, j2);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getBody() : (byte[]) invokeV.objValue;
     }
 }

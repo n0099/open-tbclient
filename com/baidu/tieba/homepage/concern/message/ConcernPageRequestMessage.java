@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.z0.c;
-import d.a.o0.z0.w;
-import d.a.p0.e1.c.d;
-import d.a.p0.w2.i0.b;
+import d.a.p0.b1.c;
+import d.a.p0.b1.w;
+import d.a.q0.e1.c.d;
+import d.a.q0.w2.i0.b;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
 /* loaded from: classes4.dex */
@@ -54,7 +54,7 @@ public class ConcernPageRequestMessage extends NetMessage {
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
             c cVar = this.adInfo;
             if (cVar != null && !isEmpty) {
-                str = cVar.f53627b;
+                str = cVar.f52038b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);
@@ -81,9 +81,9 @@ public class ConcernPageRequestMessage extends NetMessage {
                         builder.page_tag = d.w();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(d.a.o0.r.d0.b.j().l(d.a.o0.r.d0.b.n("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(d.a.p0.s.d0.b.j().l(d.a.p0.s.d0.b.n("concern_data_res_request_time"), 0L));
                 int i2 = 1;
-                builder.follow_type = Integer.valueOf(d.a.o0.b.d.h() ? d.a.o0.r.d0.b.j().k("key_home_concern_all_status", 0) : 1);
+                builder.follow_type = Integer.valueOf(d.a.p0.b.d.i() ? d.a.p0.s.d0.b.j().k("key_home_concern_all_status", 0) : 1);
                 if (z) {
                     w.a(builder, true);
                 }

@@ -17,7 +17,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1893a = "DESede/CBC/PKCS5Padding";
+    public static String f1926a = "DESede/CBC/PKCS5Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +56,7 @@ public class e {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
                 IvParameterSpec ivParameterSpec = new IvParameterSpec(new byte[8]);
-                Cipher cipher = Cipher.getInstance(f1893a);
+                Cipher cipher = Cipher.getInstance(f1926a);
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {
@@ -73,7 +73,7 @@ public class e {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
                 IvParameterSpec ivParameterSpec = new IvParameterSpec(new byte[8]);
-                Cipher cipher = Cipher.getInstance(f1893a);
+                Cipher cipher = Cipher.getInstance(f1926a);
                 cipher.init(2, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {

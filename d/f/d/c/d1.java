@@ -32,7 +32,7 @@ public final class d1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Field f70857a;
+        public final Field f71311a;
 
         public /* synthetic */ b(Field field, a aVar) {
             this(field);
@@ -42,7 +42,7 @@ public final class d1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, t, i2) == null) {
                 try {
-                    this.f70857a.set(t, Integer.valueOf(i2));
+                    this.f71311a.set(t, Integer.valueOf(i2));
                 } catch (IllegalAccessException e2) {
                     throw new AssertionError(e2);
                 }
@@ -53,7 +53,7 @@ public final class d1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, obj) == null) {
                 try {
-                    this.f70857a.set(t, obj);
+                    this.f71311a.set(t, obj);
                 } catch (IllegalAccessException e2) {
                     throw new AssertionError(e2);
                 }
@@ -75,7 +75,7 @@ public final class d1 {
                     return;
                 }
             }
-            this.f70857a = field;
+            this.f71311a = field;
             field.setAccessible(true);
         }
     }

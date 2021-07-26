@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.k;
-import d.a.n0.a.w1.k.a;
-import d.a.n0.a.w1.k.b;
+import d.a.o0.a.k;
+import d.a.o0.a.w1.k.a;
+import d.a.o0.a.w1.k.b;
 /* loaded from: classes3.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11266f;
+    public static final boolean f11292f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.a.w1.i.b f11267e;
+    public d.a.o0.a.w1.i.b f11293e;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
                 return;
             }
         }
-        f11266f = k.f45831a;
+        f11292f = k.f46335a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -68,19 +68,19 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f11267e = new d.a.n0.a.w1.i.b(this);
+            this.f11293e = new d.a.o0.a.w1.i.b(this);
         }
     }
 
-    @Override // d.a.n0.a.w1.k.a
+    @Override // d.a.o0.a.w1.k.a
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f11267e.handleHide();
+            this.f11293e.handleHide();
         }
     }
 
-    @Override // d.a.n0.a.w1.k.a
+    @Override // d.a.o0.a.w1.k.a
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -92,37 +92,37 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            if (f11266f) {
+            if (f11292f) {
                 Log.d("SPSwitchPanel", "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i3));
             }
-            int[] c2 = this.f11267e.c(i2, i3);
-            if (f11266f) {
+            int[] c2 = this.f11293e.c(i2, i3);
+            if (f11292f) {
                 Log.d("SPSwitchPanel", "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(c2[1]));
             }
             super.onMeasure(c2[0], c2[1]);
         }
     }
 
-    @Override // d.a.n0.a.w1.k.b
+    @Override // d.a.o0.a.w1.k.b
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f11267e.e(z);
+            this.f11293e.e(z);
         }
     }
 
-    @Override // d.a.n0.a.w1.k.b
+    @Override // d.a.o0.a.w1.k.b
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f11267e.d(i2);
+            this.f11293e.d(i2);
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || this.f11267e.a(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || this.f11293e.a(i2)) {
             return;
         }
         super.setVisibility(i2);

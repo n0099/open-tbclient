@@ -1,108 +1,47 @@
 package com.bytedance.sdk.component.utils;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f28909a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1410335570, "Lcom/bytedance/sdk/component/utils/p;")) == null) {
+    public static void a(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, obj, str) == null) && obj == null) {
+            b(str);
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            throw new IllegalArgumentException(str);
+        }
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && TextUtils.isEmpty(str)) {
+            b(str2);
+        }
+    }
+
+    public static void a(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZL(65539, null, z, str) == null) || z) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1410335570, "Lcom/bytedance/sdk/component/utils/p;");
-        }
+        b(str);
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String str = f28909a;
-            if (TextUtils.isEmpty(str)) {
-                try {
-                    int myPid = Process.myPid();
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                        if (runningAppProcessInfo.pid == myPid) {
-                            if (j.a()) {
-                                j.b("Process", "processName = " + runningAppProcessInfo.processName);
-                            }
-                            String str2 = runningAppProcessInfo.processName;
-                            f28909a = str2;
-                            return str2;
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                String a2 = a();
-                f28909a = a2;
-                return a2;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + Process.myPid() + "/cmdline"), "iso-8859-1"));
-            try {
-                StringBuilder sb = new StringBuilder();
-                while (true) {
-                    int read = bufferedReader.read();
-                    if (read <= 0) {
-                        break;
-                    }
-                    sb.append((char) read);
-                }
-                if (j.a()) {
-                    j.b("Process", "get processName = " + sb.toString());
-                }
-                String sb2 = sb.toString();
-                try {
-                    bufferedReader.close();
-                } catch (Exception unused) {
-                }
-                return sb2;
-            } catch (Throwable unused2) {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception unused3) {
-                    }
-                }
-                return null;
-            }
-        } catch (Throwable unused4) {
-            bufferedReader = null;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b(str);
         }
     }
 }

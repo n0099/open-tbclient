@@ -13,7 +13,7 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.multipro.e;
 import java.util.HashSet;
@@ -23,15 +23,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f31616a;
+    public static Context f31803a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            if (f31616a == null || o.a() == null) {
-                j.b("The context of SPHelper is null, please initialize sdk in main process");
+            if (f31803a == null || o.a() == null) {
+                k.c("The context of SPHelper is null, please initialize sdk in main process");
                 return false;
             }
             return true;
@@ -59,7 +59,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            Context context = f31616a;
+            Context context = f31803a;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -69,7 +69,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            return e.f31620b + "/t_sp/";
+            return e.f31807b + "/t_sp/";
         }
         return (String) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            f31616a = context == null ? o.a() : context.getApplicationContext();
+            f31803a = context == null ? o.a() : context.getApplicationContext();
         }
     }
 

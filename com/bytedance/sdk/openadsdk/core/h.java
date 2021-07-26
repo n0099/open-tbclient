@@ -28,59 +28,63 @@ import com.bytedance.sdk.openadsdk.TTSecAbs;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile h u;
-    public static TTCustomController x;
+    public static volatile h v;
+    public static TTCustomController y;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile String f30220a;
+    public volatile String f30320a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30221b;
+    public String f30321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30222c;
+    public boolean f30322c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30223d;
+    public String f30323d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30224e;
+    public String f30324e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30225f;
+    public int f30325f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30226g;
+    public boolean f30326g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30227h;
+    public boolean f30327h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TTGlobalAppDownloadListener f30228i;
+    public TTGlobalAppDownloadListener f30328i;
     public final Set<Integer> j;
     public boolean k;
     public Bitmap l;
-    public com.bytedance.sdk.openadsdk.r.a m;
+    public com.bytedance.sdk.openadsdk.q.a m;
     public TTDownloadEventLogger n;
     public TTSecAbs o;
     public String[] p;
     public TTCustomController q;
     public String r;
     public String s;
-    public boolean t;
-    public com.bytedance.sdk.openadsdk.d.c v;
-    public com.bytedance.sdk.openadsdk.core.h.c w;
+    public HashMap<String, Object> t;
+    public boolean u;
+    public com.bytedance.sdk.openadsdk.d.b w;
+    public com.bytedance.sdk.openadsdk.core.h.c x;
 
     static {
         InterceptResult invokeClinit;
@@ -95,7 +99,7 @@ public class h {
                 return;
             }
         }
-        x = new TTCustomController() { // from class: com.bytedance.sdk.openadsdk.core.h.1
+        y = new TTCustomController() { // from class: com.bytedance.sdk.openadsdk.core.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -128,17 +132,18 @@ public class h {
                 return;
             }
         }
-        this.f30225f = 0;
-        this.f30226g = true;
-        this.f30227h = false;
+        this.f30325f = 0;
+        this.f30326g = true;
+        this.f30327h = false;
         this.j = Collections.synchronizedSet(new HashSet());
         this.k = false;
         this.l = null;
-        this.m = new com.bytedance.sdk.openadsdk.r.a();
-        this.t = false;
+        this.m = new com.bytedance.sdk.openadsdk.q.a();
+        this.t = new HashMap<>();
+        this.u = false;
         Context a2 = o.a();
         if (a2 != null) {
-            com.bytedance.sdk.openadsdk.o.g.a.a(a2);
+            com.bytedance.sdk.openadsdk.n.g.a.a(a2);
         }
         this.j.add(4);
         if (a2 instanceof Application) {
@@ -148,7 +153,10 @@ public class h {
         }
         if (Build.VERSION.SDK_INT >= 26) {
             try {
-                this.t = ((ShortcutManager) o.a().getSystemService(ShortcutManager.class)).isRequestPinShortcutSupported();
+                ShortcutManager shortcutManager = (ShortcutManager) o.a().getSystemService(ShortcutManager.class);
+                if (shortcutManager != null) {
+                    this.u = shortcutManager.isRequestPinShortcutSupported();
+                }
             } catch (Throwable unused) {
             }
         }
@@ -157,15 +165,15 @@ public class h {
     public static h d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (u == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (v == null) {
                 synchronized (h.class) {
-                    if (u == null) {
-                        u = new h();
+                    if (v == null) {
+                        v = new h();
                     }
                 }
             }
-            return u;
+            return v;
         }
         return (h) invokeV.objValue;
     }
@@ -177,7 +185,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "sdk_key_theme_status", 0);
             }
-            return com.bytedance.sdk.component.utils.s.a((String) null, o.a()).b("sdk_key_theme_status", 0);
+            return com.bytedance.sdk.component.utils.u.a((String) null, o.a()).b("sdk_key_theme_status", 0);
         }
         return invokeV.intValue;
     }
@@ -191,13 +199,13 @@ public class h {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.t : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.u : invokeV.booleanValue;
     }
 
-    public com.bytedance.sdk.openadsdk.r.a c() {
+    public com.bytedance.sdk.openadsdk.q.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.m : (com.bytedance.sdk.openadsdk.r.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.m : (com.bytedance.sdk.openadsdk.q.a) invokeV.objValue;
     }
 
     public void e() {
@@ -206,14 +214,14 @@ public class h {
         if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (f2 = f()) == null) {
             return;
         }
-        com.bytedance.sdk.openadsdk.p.a.b(7, String.valueOf(f2.isCanUseLocation() ? 1 : 0));
-        com.bytedance.sdk.openadsdk.p.a.b(8, String.valueOf(f2.getTTLocation() == null ? 0 : 1));
-        com.bytedance.sdk.openadsdk.p.a.b(9, String.valueOf(f2.isCanUsePhoneState() ? 1 : 0));
-        com.bytedance.sdk.openadsdk.p.a.b(10, String.valueOf(!TextUtils.isEmpty(f2.getDevImei()) ? 1 : 0));
-        com.bytedance.sdk.openadsdk.p.a.b(11, String.valueOf(f2.isCanUseWifiState() ? 1 : 0));
-        com.bytedance.sdk.openadsdk.p.a.b(12, String.valueOf(f2.isCanUseWriteExternal() ? 1 : 0));
-        com.bytedance.sdk.openadsdk.p.a.b(13, String.valueOf(!TextUtils.isEmpty(f2.getDevOaid()) ? 1 : 0));
-        com.bytedance.sdk.openadsdk.p.a.b(14, String.valueOf(d().u() ? 1 : 0));
+        com.bytedance.sdk.openadsdk.o.a.b(7, String.valueOf(f2.isCanUseLocation() ? 1 : 0));
+        com.bytedance.sdk.openadsdk.o.a.b(8, String.valueOf(f2.getTTLocation() == null ? 0 : 1));
+        com.bytedance.sdk.openadsdk.o.a.b(9, String.valueOf(f2.isCanUsePhoneState() ? 1 : 0));
+        com.bytedance.sdk.openadsdk.o.a.b(10, String.valueOf(!TextUtils.isEmpty(f2.getDevImei()) ? 1 : 0));
+        com.bytedance.sdk.openadsdk.o.a.b(11, String.valueOf(f2.isCanUseWifiState() ? 1 : 0));
+        com.bytedance.sdk.openadsdk.o.a.b(12, String.valueOf(f2.isCanUseWriteExternal() ? 1 : 0));
+        com.bytedance.sdk.openadsdk.o.a.b(13, String.valueOf(!TextUtils.isEmpty(f2.getDevOaid()) ? 1 : 0));
+        com.bytedance.sdk.openadsdk.o.a.b(14, String.valueOf(d().u() ? 1 : 0));
     }
 
     @NonNull
@@ -221,11 +229,11 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            if (l.f30343b != null) {
-                return l.f30343b;
+            if (l.f30442b != null) {
+                return l.f30442b;
             }
             TTCustomController tTCustomController = this.q;
-            return tTCustomController == null ? x : tTCustomController;
+            return tTCustomController == null ? y : tTCustomController;
         }
         return (TTCustomController) invokeV.objValue;
     }
@@ -237,7 +245,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "sdk_activate_init", true);
             }
-            return com.bytedance.sdk.component.utils.s.a((String) null, o.a()).b("sdk_activate_init", true);
+            return com.bytedance.sdk.component.utils.u.a((String) null, o.a()).b("sdk_activate_init", true);
         }
         return invokeV.booleanValue;
     }
@@ -247,13 +255,13 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            if (!TextUtils.isEmpty(this.f30220a)) {
-                return this.f30220a;
+            if (!TextUtils.isEmpty(this.f30320a)) {
+                return this.f30320a;
             }
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "app_id", (String) null);
             }
-            return this.f30220a;
+            return this.f30320a;
         }
         return (String) invokeV.objValue;
     }
@@ -267,7 +275,7 @@ public class h {
                 h2 = String.valueOf(164362);
             }
             hashMap.put("host_appid", h2);
-            hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3.6.1.3");
+            hashMap.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3.7.0.3");
             AppLogHelper.getInstance().setHeaderInfo(hashMap);
         }
     }
@@ -280,7 +288,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "name", (String) null);
             }
-            return this.f30221b;
+            return this.f30321b;
         }
         return (String) invokeV.objValue;
     }
@@ -292,7 +300,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_paid", false);
             }
-            return this.f30222c;
+            return this.f30322c;
         }
         return invokeV.booleanValue;
     }
@@ -305,7 +313,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "keywords", (String) null);
             }
-            return this.f30223d;
+            return this.f30323d;
         }
         return (String) invokeV.objValue;
     }
@@ -318,79 +326,83 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "extra_data", (String) null);
             }
-            return this.f30224e;
+            return this.f30324e;
         }
         return (String) invokeV.objValue;
     }
 
-    public int n() {
+    public Map<String, Object> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", 0);
+            if (!this.t.isEmpty()) {
+                return this.t;
             }
-            return this.f30225f;
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                String b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "extra_internal_data", (String) null);
+                this.t.putAll(TextUtils.isEmpty(b2) ? e(b2) : new HashMap<>());
+            }
+            return this.t;
         }
-        return invokeV.intValue;
+        return (Map) invokeV.objValue;
     }
 
-    public boolean o() {
+    public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", 0);
+            }
+            return this.f30325f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_show_notify", true);
             }
-            return this.f30226g;
+            return this.f30326g;
         }
         return invokeV.booleanValue;
     }
 
-    public TTDownloadEventLogger p() {
+    public TTDownloadEventLogger q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.n : (TTDownloadEventLogger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.n : (TTDownloadEventLogger) invokeV.objValue;
     }
 
-    public TTSecAbs q() {
+    public TTSecAbs r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.o : (TTSecAbs) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.o : (TTSecAbs) invokeV.objValue;
     }
 
-    public com.bytedance.sdk.openadsdk.d.c r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            if (this.v == null) {
-                this.v = new com.bytedance.sdk.openadsdk.d.c(10, 8);
-            }
-            return this.v;
-        }
-        return (com.bytedance.sdk.openadsdk.d.c) invokeV.objValue;
-    }
-
-    public com.bytedance.sdk.openadsdk.d.c s() {
+    public com.bytedance.sdk.openadsdk.d.b s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            if (this.v == null) {
-                this.v = new com.bytedance.sdk.openadsdk.d.c(10, 8, true);
+            if (this.w == null) {
+                this.w = new com.bytedance.sdk.openadsdk.d.b(10, 8, true);
             }
-            return this.v;
+            return this.w;
         }
-        return (com.bytedance.sdk.openadsdk.d.c) invokeV.objValue;
+        return (com.bytedance.sdk.openadsdk.d.b) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.core.h.c t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            if (this.w == null) {
-                this.w = new com.bytedance.sdk.openadsdk.core.h.c(10, 8);
+            if (this.x == null) {
+                this.x = new com.bytedance.sdk.openadsdk.core.h.c(10, 8);
             }
-            return this.w;
+            return this.x;
         }
         return (com.bytedance.sdk.openadsdk.core.h.c) invokeV.objValue;
     }
@@ -435,13 +447,13 @@ public class h {
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? "5001121".equals(this.f30220a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? "5001121".equals(this.f30320a) : invokeV.booleanValue;
     }
 
     public boolean y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? "com.union_test.toutiao".equals(com.bytedance.sdk.openadsdk.r.o.d()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? "com.union_test.toutiao".equals(com.bytedance.sdk.openadsdk.q.q.d()) : invokeV.booleanValue;
     }
 
     public String z() {
@@ -451,13 +463,13 @@ public class h {
             if (!TextUtils.isEmpty(this.s)) {
                 return this.s;
             }
-            String a2 = com.bytedance.sdk.openadsdk.r.d.a();
+            String a2 = com.bytedance.sdk.openadsdk.q.e.a();
             this.s = a2;
             if (!TextUtils.isEmpty(a2)) {
                 return this.s;
             }
             String valueOf = String.valueOf(System.currentTimeMillis());
-            com.bytedance.sdk.openadsdk.r.d.a(valueOf);
+            com.bytedance.sdk.openadsdk.q.e.a(valueOf);
             this.s = valueOf;
             return valueOf;
         }
@@ -473,22 +485,22 @@ public class h {
     public void b(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            f(str);
+            g(str);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "name", str);
             }
-            this.f30221b = str;
+            this.f30321b = str;
         }
     }
 
     public void c(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            g(str);
+            h(str);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "keywords", str);
             }
-            this.f30223d = str;
+            this.f30323d = str;
         }
     }
 
@@ -502,77 +514,27 @@ public class h {
 
     public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
-            com.bytedance.sdk.component.utils.n.a(str, "name不能为空");
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            com.bytedance.sdk.component.utils.p.a(str, "appid不能为空");
         }
     }
 
     public static void g(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        com.bytedance.sdk.component.utils.n.a(str.length() <= 1000, "keyword超长, 最长为1000");
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "sdk_activate_init", Boolean.valueOf(z));
-            }
-            com.bytedance.sdk.component.utils.s.a((String) null, o.a()).a("sdk_activate_init", z);
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            com.bytedance.sdk.component.utils.p.a(str, "name不能为空");
         }
     }
 
-    public static void h(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        com.bytedance.sdk.component.utils.n.a(str.length() <= 1000, "data超长, 最长为1000");
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_paid", Boolean.valueOf(z));
-            }
-            this.f30222c = z;
-        }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_show_notify", Boolean.valueOf(z));
-            }
-            this.f30226g = z;
-        }
-    }
-
-    public void d(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            h(str);
-            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "extra_data", str);
-            }
-            this.f30224e = str;
-        }
-    }
-
-    public static JSONObject i(String str) {
+    public static JSONObject j(String str) {
         InterceptResult invokeL;
         String b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", str, (String) null);
             } else {
-                b2 = com.bytedance.sdk.component.utils.s.a((String) null, o.a()).b(str, (String) null);
+                b2 = com.bytedance.sdk.component.utils.u.a((String) null, o.a()).b(str, (String) null);
             }
             if (TextUtils.isEmpty(b2)) {
                 return null;
@@ -587,14 +549,103 @@ public class h {
         return (JSONObject) invokeL.objValue;
     }
 
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "sdk_activate_init", Boolean.valueOf(z));
+            }
+            com.bytedance.sdk.component.utils.u.a((String) null, o.a()).a("sdk_activate_init", z);
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        com.bytedance.sdk.component.utils.p.a(str.length() <= 1000, "keyword超长, 最长为1000");
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_paid", Boolean.valueOf(z));
+            }
+            this.f30322c = z;
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_show_notify", Boolean.valueOf(z));
+            }
+            this.f30326g = z;
+        }
+    }
+
+    public void d(@Nullable String str) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            i(str);
+            try {
+                jSONArray = TextUtils.isEmpty(str) ? new JSONArray() : new JSONArray(str);
+            } catch (Exception unused) {
+                jSONArray = new JSONArray();
+            }
+            HashMap hashMap = new HashMap();
+            JSONArray jSONArray2 = new JSONArray();
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                if (optJSONObject != null) {
+                    if (!optJSONObject.isNull("__name__")) {
+                        String optString = optJSONObject.optString("__name__");
+                        String optString2 = optJSONObject.optString("value");
+                        if (!TextUtils.isEmpty(optString)) {
+                            hashMap.put(optString, optString2);
+                        }
+                    } else {
+                        jSONArray2.put(optJSONObject);
+                    }
+                }
+            }
+            if ((jSONArray2.length() == 0 && hashMap.isEmpty()) || jSONArray2.length() != 0) {
+                this.f30324e = jSONArray2.toString();
+                if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "extra_data", jSONArray2.toString());
+                }
+                this.f30324e = jSONArray2.toString();
+            }
+            if (hashMap.isEmpty()) {
+                return;
+            }
+            this.t.putAll(hashMap);
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "extra_internal_data", a(this.t));
+            }
+        }
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65546, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        com.bytedance.sdk.component.utils.p.a(str.length() <= 1000, "data超长, 最长为1000");
+    }
+
     public void a(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            e(str);
+            f(str);
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "app_id", str);
             }
-            this.f30220a = str;
+            this.f30320a = str;
         }
     }
 
@@ -629,18 +680,8 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "sdk_key_theme_status", Integer.valueOf(i2));
             } else {
-                com.bytedance.sdk.component.utils.s.a((String) null, o.a()).a("sdk_key_theme_status", i2);
+                com.bytedance.sdk.component.utils.u.a((String) null, o.a()).a("sdk_key_theme_status", i2);
             }
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_lp_when_screen_lock", Boolean.valueOf(z));
-            }
-            this.f30227h = z;
         }
     }
 
@@ -650,14 +691,14 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", Integer.valueOf(i2));
             }
-            this.f30225f = i2;
+            this.f30325f = i2;
         }
     }
 
     public void a(TTGlobalAppDownloadListener tTGlobalAppDownloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tTGlobalAppDownloadListener) == null) {
-            this.f30228i = tTGlobalAppDownloadListener;
+            this.f30328i = tTGlobalAppDownloadListener;
         }
     }
 
@@ -675,11 +716,29 @@ public class h {
         }
     }
 
-    public static void e(String str) {
+    public static final HashMap<String, Object> e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            com.bytedance.sdk.component.utils.n.a(str, "appid不能为空");
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new HashMap<>();
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        hashMap.put(next, jSONObject.opt(next));
+                    }
+                }
+                return hashMap;
+            } catch (Exception unused) {
+                return new HashMap<>();
+            }
         }
+        return (HashMap) invokeL.objValue;
     }
 
     public void a(int... iArr) {
@@ -717,6 +776,38 @@ public class h {
             }
             this.k = z;
         }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_lp_when_screen_lock", Boolean.valueOf(z));
+            }
+            this.f30327h = z;
+        }
+    }
+
+    public static final String a(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            if (map == null || map.isEmpty()) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                if (!TextUtils.isEmpty(entry.getKey())) {
+                    try {
+                        jSONObject.putOpt(entry.getKey(), entry.getValue());
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     public void a(Bitmap bitmap) {
@@ -759,7 +850,7 @@ public class h {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         try {
@@ -769,9 +860,8 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", str, jSONObject.toString());
             } else {
-                com.bytedance.sdk.component.utils.s.a((String) null, o.a()).a(str, jSONObject.toString());
+                com.bytedance.sdk.component.utils.u.a((String) null, o.a()).a(str, jSONObject.toString());
             }
-            com.bytedance.sdk.component.utils.j.b("GlobalInfo", "update cache", str, " value = ", str2);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -779,27 +869,27 @@ public class h {
 
     public static String a(String str, long j) {
         InterceptResult invokeLJ;
-        JSONObject i2;
+        JSONObject j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             try {
-                i2 = i(str);
+                j2 = j(str);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (i2 == null) {
-                com.bytedance.sdk.component.utils.j.b("GlobalInfo", "without cache key=", str);
+            if (j2 == null) {
+                com.bytedance.sdk.component.utils.k.b("GlobalInfo", "without cache key=", str);
                 return null;
             }
-            if (System.currentTimeMillis() - i2.getLong("time") <= j) {
-                String string = i2.getString("value");
-                com.bytedance.sdk.component.utils.j.b("GlobalInfo", "use cache key=", str, " value = ", string);
+            if (System.currentTimeMillis() - j2.getLong("time") <= j) {
+                String string = j2.getString("value");
+                com.bytedance.sdk.component.utils.k.b("GlobalInfo", "use cache key=", str, " value = ", string);
                 return string;
             }
-            com.bytedance.sdk.component.utils.j.b("GlobalInfo", "without cache key=", str);
+            com.bytedance.sdk.component.utils.k.b("GlobalInfo", "without cache key=", str);
             return null;
         }
         return (String) invokeLJ.objValue;

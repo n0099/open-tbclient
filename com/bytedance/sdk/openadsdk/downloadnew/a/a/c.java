@@ -20,7 +20,7 @@ public class c implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f31100a;
+    public final WeakReference<Context> f31282a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c implements g {
                 return;
             }
         }
-        this.f31100a = new WeakReference<>(context);
+        this.f31282a = new WeakReference<>(context);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x009c */
@@ -65,7 +65,7 @@ public class c implements g {
                 c2 = 65535;
             }
             if (c2 == 0) {
-                getExecutor = com.bytedance.sdk.openadsdk.l.e.b().c().getGetExecutor();
+                getExecutor = com.bytedance.sdk.openadsdk.k.d.b().c().getGetExecutor();
                 if (map != null) {
                     for (Map.Entry<String, Object> entry : map.entrySet()) {
                         getExecutor.addParams(entry.getKey(), entry.getValue().toString());
@@ -74,7 +74,7 @@ public class c implements g {
             } else if (c2 != 1) {
                 getExecutor = 0;
             } else {
-                getExecutor = com.bytedance.sdk.openadsdk.l.e.b().c().getPostExecutor();
+                getExecutor = com.bytedance.sdk.openadsdk.k.d.b().c().getPostExecutor();
                 HashMap hashMap = new HashMap();
                 for (Map.Entry<String, Object> entry2 : map.entrySet()) {
                     hashMap.put(entry2.getKey(), entry2.getValue().toString());
@@ -92,7 +92,14 @@ public class c implements g {
     public void a(String str, byte[] bArr, String str2, int i2, r rVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, bArr, str2, Integer.valueOf(i2), rVar}) == null) {
-            PostExecutor postExecutor = com.bytedance.sdk.openadsdk.l.e.b().c().getPostExecutor();
+            if (bArr == null) {
+                if (rVar != null) {
+                    rVar.a(new Exception("request data is null"));
+                    return;
+                }
+                return;
+            }
+            PostExecutor postExecutor = com.bytedance.sdk.openadsdk.k.d.b().c().getPostExecutor();
             postExecutor.setUrl(str);
             postExecutor.setRequestBody(str2, bArr);
             a(postExecutor.execute(), rVar);

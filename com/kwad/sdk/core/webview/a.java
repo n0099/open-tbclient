@@ -17,33 +17,33 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35098a;
+    public int f35287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f35099b;
+    public AdTemplate f35288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f35100c;
+    public AdBaseFrameLayout f35289c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f35101d;
+    public JSONObject f35290d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f35102e;
+    public ViewGroup f35291e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebView f35103f;
+    public WebView f35292f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public y f35104g;
+    public y f35293g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f35105h;
+    public boolean f35294h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f35106i;
+    public boolean f35295i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class a {
                 return;
             }
         }
-        this.f35105h = true;
-        this.f35106i = true;
+        this.f35294h = true;
+        this.f35295i = true;
     }
 }

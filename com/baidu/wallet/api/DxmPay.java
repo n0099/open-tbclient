@@ -25,7 +25,7 @@ public class DxmPay {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final DxmPay f23894a;
+        public static final DxmPay f24052a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,7 +41,7 @@ public class DxmPay {
                     return;
                 }
             }
-            f23894a = new DxmPay();
+            f24052a = new DxmPay();
         }
     }
 
@@ -63,7 +63,7 @@ public class DxmPay {
     public static DxmPay getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f23894a : (DxmPay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f24052a : (DxmPay) invokeV.objValue;
     }
 
     public void initWallet(Context context) {
@@ -75,10 +75,10 @@ public class DxmPay {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f23892a;
+                public final /* synthetic */ Context f24050a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DxmPay f23893b;
+                public final /* synthetic */ DxmPay f24051b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -95,15 +95,15 @@ public class DxmPay {
                             return;
                         }
                     }
-                    this.f23893b = this;
-                    this.f23892a = context;
+                    this.f24051b = this;
+                    this.f24050a = context;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && SafePay.getInstance().prepareCompleted()) {
-                        d.d.a.a.a.g(this.f23892a.getApplicationContext(), StatConfig.getInstance(this.f23892a.getApplicationContext()));
+                        d.d.a.a.a.g(this.f24050a.getApplicationContext(), StatConfig.getInstance(this.f24050a.getApplicationContext()));
                         d.d.a.a.a.x(new SensorsSyncHttpImpl());
                     }
                 }

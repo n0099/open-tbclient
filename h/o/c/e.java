@@ -11,24 +11,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.g;
 import h.k;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e extends h.g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f72624a;
+    public static final e f73078a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class a extends g.a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.u.a f72625e;
+        public final h.u.a f73079e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f72626f;
+        public final /* synthetic */ e f73080f;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public final class e extends h.g {
                     return;
                 }
             }
-            this.f72626f = eVar;
-            this.f72625e = new h.u.a();
+            this.f73080f = eVar;
+            this.f73079e = new h.u.a();
         }
 
         @Override // h.g.a
@@ -64,21 +64,21 @@ public final class e extends h.g {
         public k c(h.n.a aVar, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j), timeUnit})) == null) ? b(new i(aVar, this, this.f72626f.now() + timeUnit.toMillis(j))) : (k) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j), timeUnit})) == null) ? b(new i(aVar, this, this.f73080f.now() + timeUnit.toMillis(j))) : (k) invokeCommon.objValue;
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72625e.isUnsubscribed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73079e.isUnsubscribed() : invokeV.booleanValue;
         }
 
         @Override // h.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f72625e.unsubscribe();
+                this.f73079e.unsubscribe();
             }
         }
     }
@@ -96,7 +96,7 @@ public final class e extends h.g {
                 return;
             }
         }
-        f72624a = new e();
+        f73078a = new e();
     }
 
     public e() {

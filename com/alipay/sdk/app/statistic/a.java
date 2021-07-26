@@ -12,10 +12,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1819a = "alipay_cashier_statistic_record";
+    public static final String f1852a = "alipay_cashier_statistic_record";
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f1820b;
+    public static c f1853b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -34,8 +34,8 @@ public class a {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f1820b == null) {
-            f1820b = new c(context);
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f1853b == null) {
+            f1853b = new c(context);
         }
     }
 
@@ -43,11 +43,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
             synchronized (a.class) {
-                if (f1820b == null) {
+                if (f1853b == null) {
                     return;
                 }
-                a(context, f1820b.a(str));
-                f1820b = null;
+                a(context, f1853b.a(str));
+                f1853b = null;
             }
         }
     }
@@ -61,16 +61,16 @@ public class a {
 
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, th) == null) || f1820b == null || th == null || th.getClass() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, th) == null) || f1853b == null || th == null || th.getClass() == null) {
             return;
         }
-        f1820b.a(str, th.getClass().getSimpleName(), th);
+        f1853b.a(str, th.getClass().getSimpleName(), th);
     }
 
     public static void a(String str, String str2, Throwable th, String str3) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th, str3) == null) || (cVar = f1820b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th, str3) == null) || (cVar = f1853b) == null) {
             return;
         }
         cVar.a(str, str2, th, str3);
@@ -79,7 +79,7 @@ public class a {
     public static void a(String str, String str2, Throwable th) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) || (cVar = f1820b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) || (cVar = f1853b) == null) {
             return;
         }
         cVar.a(str, str2, th);
@@ -88,7 +88,7 @@ public class a {
     public static void a(String str, String str2, String str3) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) || (cVar = f1820b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) || (cVar = f1853b) == null) {
             return;
         }
         cVar.a(str, str2, str3);

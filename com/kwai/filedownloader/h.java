@@ -20,7 +20,7 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<a.b> f36860a;
+    public final ArrayList<a.b> f37049a;
 
     /* renamed from: com.kwai.filedownloader.h$1  reason: invalid class name */
     /* loaded from: classes6.dex */
@@ -34,7 +34,7 @@ public class h {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final h f36861a;
+        public static final h f37050a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public class h {
                     return;
                 }
             }
-            f36861a = new h(null);
+            f37050a = new h(null);
         }
     }
 
@@ -67,7 +67,7 @@ public class h {
                 return;
             }
         }
-        this.f36860a = new ArrayList<>();
+        this.f37049a = new ArrayList<>();
     }
 
     public /* synthetic */ h(AnonymousClass1 anonymousClass1) {
@@ -77,7 +77,7 @@ public class h {
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36861a : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f37050a : (h) invokeV.objValue;
     }
 
     public int a(int i2) {
@@ -85,8 +85,8 @@ public class h {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            synchronized (this.f36860a) {
-                Iterator<a.b> it = this.f36860a.iterator();
+            synchronized (this.f37049a) {
+                Iterator<a.b> it = this.f37049a.iterator();
                 i3 = 0;
                 while (it.hasNext()) {
                     if (it.next().b(i2)) {
@@ -102,15 +102,15 @@ public class h {
     public void a(List<a.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this.f36860a) {
-                Iterator<a.b> it = this.f36860a.iterator();
+            synchronized (this.f37049a) {
+                Iterator<a.b> it = this.f37049a.iterator();
                 while (it.hasNext()) {
                     a.b next = it.next();
                     if (!list.contains(next)) {
                         list.add(next);
                     }
                 }
-                this.f36860a.clear();
+                this.f37049a.clear();
             }
         }
     }
@@ -118,7 +118,7 @@ public class h {
     public boolean a(a.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) ? this.f36860a.isEmpty() || !this.f36860a.contains(bVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) ? this.f37049a.isEmpty() || !this.f37049a.contains(bVar) : invokeL.booleanValue;
     }
 
     public boolean a(a.b bVar, MessageSnapshot messageSnapshot) {
@@ -127,11 +127,11 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bVar, messageSnapshot)) == null) {
             byte b2 = messageSnapshot.b();
-            synchronized (this.f36860a) {
-                remove = this.f36860a.remove(bVar);
+            synchronized (this.f37049a) {
+                remove = this.f37049a.remove(bVar);
             }
-            if (com.kwai.filedownloader.f.d.f36845a && this.f36860a.size() == 0) {
-                com.kwai.filedownloader.f.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b2), Integer.valueOf(this.f36860a.size()));
+            if (com.kwai.filedownloader.f.d.f37034a && this.f37049a.size() == 0) {
+                com.kwai.filedownloader.f.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b2), Integer.valueOf(this.f37049a.size()));
             }
             if (remove) {
                 s d2 = bVar.G().d();
@@ -155,7 +155,7 @@ public class h {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36860a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37049a.size() : invokeV.intValue;
     }
 
     public List<a.b> b(int i2) {
@@ -164,8 +164,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
             ArrayList arrayList = new ArrayList();
-            synchronized (this.f36860a) {
-                Iterator<a.b> it = this.f36860a.iterator();
+            synchronized (this.f37049a) {
+                Iterator<a.b> it = this.f37049a.iterator();
                 while (it.hasNext()) {
                     a.b next = it.next();
                     if (next.b(i2) && !next.H() && (v = next.F().v()) != 0 && v != 10) {
@@ -195,8 +195,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
             ArrayList arrayList = new ArrayList();
-            synchronized (this.f36860a) {
-                Iterator<a.b> it = this.f36860a.iterator();
+            synchronized (this.f37049a) {
+                Iterator<a.b> it = this.f37049a.iterator();
                 while (it.hasNext()) {
                     a.b next = it.next();
                     if (next.b(i2) && !next.H()) {
@@ -214,14 +214,14 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) || bVar.K()) {
             return;
         }
-        synchronized (this.f36860a) {
-            if (this.f36860a.contains(bVar)) {
+        synchronized (this.f37049a) {
+            if (this.f37049a.contains(bVar)) {
                 com.kwai.filedownloader.f.d.d(this, "already has %s", bVar);
             } else {
                 bVar.L();
-                this.f36860a.add(bVar);
-                if (com.kwai.filedownloader.f.d.f36845a) {
-                    com.kwai.filedownloader.f.d.e(this, "add list in all %s %d %d", bVar, Byte.valueOf(bVar.F().v()), Integer.valueOf(this.f36860a.size()));
+                this.f37049a.add(bVar);
+                if (com.kwai.filedownloader.f.d.f37034a) {
+                    com.kwai.filedownloader.f.d.e(this, "add list in all %s %d %d", bVar, Byte.valueOf(bVar.F().v()), Integer.valueOf(this.f37049a.size()));
                 }
             }
         }

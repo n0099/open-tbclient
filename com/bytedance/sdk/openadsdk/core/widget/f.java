@@ -18,39 +18,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.component.utils.t;
+import com.bytedance.sdk.openadsdk.q.s;
 /* loaded from: classes5.dex */
 public class f extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f30855a;
+    public TextView f31038a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f30856b;
+    public TextView f31039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f30857c;
+    public Button f31040c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f30858d;
+    public Button f31041d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f30859e;
+    public Context f31042e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30860f;
+    public String f31043f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30861g;
+    public String f31044g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30862h;
+    public String f31045h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30863i;
+    public String f31046i;
     public Drawable j;
     public a k;
 
@@ -63,7 +63,7 @@ public class f extends AlertDialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context) {
-        super(context, r.g(context, "tt_custom_dialog"));
+        super(context, t.g(context, "tt_custom_dialog"));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,20 +80,20 @@ public class f extends AlertDialog {
                 return;
             }
         }
-        this.f30859e = context;
+        this.f31042e = context;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            TextView textView = this.f30855a;
+            TextView textView = this.f31038a;
             if (textView != null) {
-                textView.setText(this.f30860f);
+                textView.setText(this.f31043f);
                 Drawable drawable = this.j;
                 if (drawable != null) {
                     int intrinsicWidth = drawable.getIntrinsicWidth();
                     int intrinsicHeight = this.j.getIntrinsicHeight();
-                    int d2 = q.d(this.f30859e, 45.0f);
+                    int d2 = s.d(this.f31042e, 45.0f);
                     if (intrinsicWidth > d2 || intrinsicWidth < d2) {
                         intrinsicWidth = d2;
                     }
@@ -101,21 +101,21 @@ public class f extends AlertDialog {
                         intrinsicHeight = d2;
                     }
                     this.j.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-                    this.f30855a.setCompoundDrawables(this.j, null, null, null);
-                    this.f30855a.setCompoundDrawablePadding(q.d(this.f30859e, 10.0f));
+                    this.f31038a.setCompoundDrawables(this.j, null, null, null);
+                    this.f31038a.setCompoundDrawablePadding(s.d(this.f31042e, 10.0f));
                 }
             }
-            TextView textView2 = this.f30856b;
+            TextView textView2 = this.f31039b;
             if (textView2 != null) {
-                textView2.setText(this.f30861g);
+                textView2.setText(this.f31044g);
             }
-            Button button = this.f30857c;
+            Button button = this.f31040c;
             if (button != null) {
-                button.setText(this.f30862h);
+                button.setText(this.f31045h);
             }
-            Button button2 = this.f30858d;
+            Button button2 = this.f31041d;
             if (button2 != null) {
-                button2.setText(this.f30863i);
+                button2.setText(this.f31046i);
             }
         }
     }
@@ -124,7 +124,7 @@ public class f extends AlertDialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.f30862h = str;
+            this.f31045h = str;
             return this;
         }
         return (f) invokeL.objValue;
@@ -134,7 +134,7 @@ public class f extends AlertDialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f30863i = str;
+            this.f31046i = str;
             return this;
         }
         return (f) invokeL.objValue;
@@ -145,7 +145,7 @@ public class f extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(r.f(this.f30859e, "tt_install_dialog_layout"));
+            setContentView(t.f(this.f31042e, "tt_install_dialog_layout"));
             setCanceledOnTouchOutside(true);
             a();
         }
@@ -163,16 +163,16 @@ public class f extends AlertDialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f30855a = (TextView) findViewById(r.e(this.f30859e, "tt_install_title"));
-            this.f30856b = (TextView) findViewById(r.e(this.f30859e, "tt_install_content"));
-            this.f30857c = (Button) findViewById(r.e(this.f30859e, "tt_install_btn_yes"));
-            this.f30858d = (Button) findViewById(r.e(this.f30859e, "tt_install_btn_no"));
-            this.f30857c.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.f.1
+            this.f31038a = (TextView) findViewById(t.e(this.f31042e, "tt_install_title"));
+            this.f31039b = (TextView) findViewById(t.e(this.f31042e, "tt_install_content"));
+            this.f31040c = (Button) findViewById(t.e(this.f31042e, "tt_install_btn_yes"));
+            this.f31041d = (Button) findViewById(t.e(this.f31042e, "tt_install_btn_no"));
+            this.f31040c.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.f.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f30864a;
+                public final /* synthetic */ f f31047a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -189,26 +189,26 @@ public class f extends AlertDialog {
                             return;
                         }
                     }
-                    this.f30864a = this;
+                    this.f31047a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f30864a.dismiss();
-                        if (this.f30864a.k != null) {
-                            this.f30864a.k.a(this.f30864a);
+                        this.f31047a.dismiss();
+                        if (this.f31047a.k != null) {
+                            this.f31047a.k.a(this.f31047a);
                         }
                     }
                 }
             });
-            this.f30858d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.f.2
+            this.f31041d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.f.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f30865a;
+                public final /* synthetic */ f f31048a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -225,16 +225,16 @@ public class f extends AlertDialog {
                             return;
                         }
                     }
-                    this.f30865a = this;
+                    this.f31048a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f30865a.dismiss();
-                        if (this.f30865a.k != null) {
-                            this.f30865a.k.b(this.f30865a);
+                        this.f31048a.dismiss();
+                        if (this.f31048a.k != null) {
+                            this.f31048a.k.b(this.f31048a);
                         }
                     }
                 }
@@ -246,7 +246,7 @@ public class f extends AlertDialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f30860f = str;
+            this.f31043f = str;
             return this;
         }
         return (f) invokeL.objValue;
@@ -286,7 +286,7 @@ public class f extends AlertDialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f30861g = str;
+            this.f31044g = str;
             return this;
         }
         return (f) invokeL.objValue;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.f1.e.c;
+import d.a.o0.a.f1.e.c;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {

@@ -47,7 +47,7 @@ public class PullTidSocketResponseMessage extends SocketResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             try {
-                this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20421a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
+                this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20539a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
             } catch (Throwable unused) {
             }
         }

@@ -15,7 +15,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24666a = "HttpCache";
+    public static final String f24824a = "HttpCache";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -38,7 +38,7 @@ public class a {
             try {
                 HttpResponseCache.install(new File(context.getCacheDir(), "http"), Config.FULL_TRACE_LOG_LIMIT);
             } catch (IOException e2) {
-                LogUtil.i(f24666a, "HTTP response cache installation failed:" + e2);
+                LogUtil.i(f24824a, "HTTP response cache installation failed:" + e2);
             }
         }
     }

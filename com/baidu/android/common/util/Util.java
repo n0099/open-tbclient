@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.k.f;
+import d.a.l.f;
 /* loaded from: classes.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2584a = false;
+    public static final boolean f2610a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2585b = "Util";
+    public static final String f2611b = "Util";
     public transient /* synthetic */ FieldHolder $fh;
 
     public Util() {

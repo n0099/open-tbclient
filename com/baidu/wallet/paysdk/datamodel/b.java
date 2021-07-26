@@ -15,10 +15,10 @@ public class b extends BeanRequestBase {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26056a;
+    public String f26214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26057b;
+    public String f26215b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class b extends BeanRequestBase {
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f26056a) || TextUtils.isEmpty(this.f26057b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f26214a) || TextUtils.isEmpty(this.f26215b)) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.core.beans.BeanRequestBase

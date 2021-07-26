@@ -47,10 +47,10 @@ public class RotateLoadingLayout extends LoadingLayout {
             }
         }
         this.u = typedArray.getBoolean(R$styleable.PullToRefresh_tb_ptrRotateDrawableWhilePulling, true);
-        this.f13485f.setScaleType(ImageView.ScaleType.MATRIX);
+        this.f13534f.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
         this.r = matrix;
-        this.f13485f.setImageMatrix(matrix);
+        this.f13534f.setImageMatrix(matrix);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
         this.q = rotateAnimation;
         rotateAnimation.setInterpolator(LoadingLayout.p);
@@ -74,7 +74,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
             this.r.setRotate(this.u ? f2 * 90.0f : Math.max(0.0f, Math.min(180.0f, (f2 * 360.0f) - 180.0f)), this.s, this.t);
-            this.f13485f.setImageMatrix(this.r);
+            this.f13534f.setImageMatrix(this.r);
         }
     }
 
@@ -89,7 +89,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f13485f.startAnimation(this.q);
+            this.f13534f.startAnimation(this.q);
         }
     }
 
@@ -111,7 +111,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f13485f.clearAnimation();
+            this.f13534f.clearAnimation();
             l();
         }
     }
@@ -123,6 +123,6 @@ public class RotateLoadingLayout extends LoadingLayout {
             return;
         }
         matrix.reset();
-        this.f13485f.setImageMatrix(this.r);
+        this.f13534f.setImageMatrix(this.r);
     }
 }

@@ -20,20 +20,20 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Writer f31837a;
+    public static final Writer f32038a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final q f31838b;
+    public static final q f32039b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<com.bytedance.sdk.openadsdk.preload.a.l> f31839c;
+    public final List<com.bytedance.sdk.openadsdk.preload.a.l> f32040c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31840d;
+    public String f32041d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.a.l f31841e;
+    public com.bytedance.sdk.openadsdk.preload.a.l f32042e;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
                 return;
             }
         }
-        f31837a = new Writer() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.f.1
+        f32038a = new Writer() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,12 +90,12 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
                 }
             }
         };
-        f31838b = new q("closed");
+        f32039b = new q("closed");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f() {
-        super(f31837a);
+        super(f32038a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,15 +109,15 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
                 return;
             }
         }
-        this.f31839c = new ArrayList();
-        this.f31841e = com.bytedance.sdk.openadsdk.preload.a.n.f32062a;
+        this.f32040c = new ArrayList();
+        this.f32042e = com.bytedance.sdk.openadsdk.preload.a.n.f32263a;
     }
 
     private com.bytedance.sdk.openadsdk.preload.a.l j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f31839c;
+            List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f32040c;
             return list.get(list.size() - 1);
         }
         return (com.bytedance.sdk.openadsdk.preload.a.l) invokeV.objValue;
@@ -127,10 +127,10 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f31839c.isEmpty()) {
-                return this.f31841e;
+            if (this.f32040c.isEmpty()) {
+                return this.f32042e;
             }
-            throw new IllegalStateException("Expected one JSON element but was " + this.f31839c);
+            throw new IllegalStateException("Expected one JSON element but was " + this.f32040c);
         }
         return (com.bytedance.sdk.openadsdk.preload.a.l) invokeV.objValue;
     }
@@ -142,7 +142,7 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.i iVar = new com.bytedance.sdk.openadsdk.preload.a.i();
             a(iVar);
-            this.f31839c.add(iVar);
+            this.f32040c.add(iVar);
             return this;
         }
         return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeV.objValue;
@@ -153,9 +153,9 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!this.f31839c.isEmpty() && this.f31840d == null) {
+            if (!this.f32040c.isEmpty() && this.f32041d == null) {
                 if (j() instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
-                    List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f31839c;
+                    List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f32040c;
                     list.remove(list.size() - 1);
                     return this;
                 }
@@ -170,8 +170,8 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.f31839c.isEmpty()) {
-                this.f31839c.add(f31838b);
+            if (this.f32040c.isEmpty()) {
+                this.f32040c.add(f32039b);
                 return;
             }
             throw new IOException("Incomplete document");
@@ -185,7 +185,7 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             o oVar = new o();
             a(oVar);
-            this.f31839c.add(oVar);
+            this.f32040c.add(oVar);
             return this;
         }
         return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeV.objValue;
@@ -196,9 +196,9 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (!this.f31839c.isEmpty() && this.f31840d == null) {
+            if (!this.f32040c.isEmpty() && this.f32041d == null) {
                 if (j() instanceof o) {
-                    List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f31839c;
+                    List<com.bytedance.sdk.openadsdk.preload.a.l> list = this.f32040c;
                     list.remove(list.size() - 1);
                     return this;
                 }
@@ -214,7 +214,7 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            a(com.bytedance.sdk.openadsdk.preload.a.n.f32062a);
+            a(com.bytedance.sdk.openadsdk.preload.a.n.f32263a);
             return this;
         }
         return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeV.objValue;
@@ -230,13 +230,13 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
     private void a(com.bytedance.sdk.openadsdk.preload.a.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, lVar) == null) {
-            if (this.f31840d != null) {
+            if (this.f32041d != null) {
                 if (!lVar.j() || i()) {
-                    ((o) j()).a(this.f31840d, lVar);
+                    ((o) j()).a(this.f32041d, lVar);
                 }
-                this.f31840d = null;
-            } else if (this.f31839c.isEmpty()) {
-                this.f31841e = lVar;
+                this.f32041d = null;
+            } else if (this.f32040c.isEmpty()) {
+                this.f32042e = lVar;
             } else {
                 com.bytedance.sdk.openadsdk.preload.a.l j = j();
                 if (j instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
@@ -268,9 +268,9 @@ public final class f extends com.bytedance.sdk.openadsdk.preload.a.d.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (str != null) {
-                if (!this.f31839c.isEmpty() && this.f31840d == null) {
+                if (!this.f32040c.isEmpty() && this.f32041d == null) {
                     if (j() instanceof o) {
-                        this.f31840d = str;
+                        this.f32041d = str;
                         return this;
                     }
                     throw new IllegalStateException();

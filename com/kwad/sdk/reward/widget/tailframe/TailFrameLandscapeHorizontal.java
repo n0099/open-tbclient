@@ -31,31 +31,31 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f36275a;
+    public ImageView f36464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TailFrameBarAppLandscape f36276b;
+    public TailFrameBarAppLandscape f36465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TailFrameBarH5Landscape f36277c;
+    public TailFrameBarH5Landscape f36466c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f36278d;
+    public b f36467d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f36279e;
+    public AdTemplate f36468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f36280f;
+    public AdInfo f36469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f36281g;
+    public JSONObject f36470g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f36282h;
+    public com.kwad.sdk.core.download.b.b f36471h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextProgressBar f36283i;
+    public TextProgressBar f36472i;
     public KsLogoView j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -126,7 +126,7 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.ksad_video_tf_view_landscape_horizontal, this);
-            this.f36275a = (ImageView) findViewById(R.id.ksad_video_thumb_img);
+            this.f36464a = (ImageView) findViewById(R.id.ksad_video_thumb_img);
             this.j = (KsLogoView) findViewById(R.id.ksad_video_tf_logo);
         }
     }
@@ -134,32 +134,32 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            if (!com.kwad.sdk.core.response.b.a.v(this.f36280f)) {
+            if (!com.kwad.sdk.core.response.b.a.v(this.f36469f)) {
                 TailFrameBarH5Landscape tailFrameBarH5Landscape = (TailFrameBarH5Landscape) findViewById(R.id.ksad_video_h5_tail_frame);
-                this.f36277c = tailFrameBarH5Landscape;
-                tailFrameBarH5Landscape.setModel(this.f36279e);
-                this.f36277c.setVisibility(0);
+                this.f36466c = tailFrameBarH5Landscape;
+                tailFrameBarH5Landscape.setModel(this.f36468e);
+                this.f36466c.setVisibility(0);
                 return;
             }
             TailFrameBarAppLandscape tailFrameBarAppLandscape = (TailFrameBarAppLandscape) findViewById(R.id.ksad_video_app_tail_frame);
-            this.f36276b = tailFrameBarAppLandscape;
-            tailFrameBarAppLandscape.setModel(this.f36279e);
-            this.f36276b.setVisibility(0);
-            this.f36283i = this.f36276b.getTextProgressBar();
+            this.f36465b = tailFrameBarAppLandscape;
+            tailFrameBarAppLandscape.setModel(this.f36468e);
+            this.f36465b.setVisibility(0);
+            this.f36472i = this.f36465b.getTextProgressBar();
             e();
-            this.f36283i.setOnClickListener(this);
+            this.f36472i.setOnClickListener(this);
         }
     }
 
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.f36282h = new com.kwad.sdk.core.download.b.b(this.f36279e, this.f36281g, new c(this) { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.1
+            this.f36471h = new com.kwad.sdk.core.download.b.b(this.f36468e, this.f36470g, new c(this) { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ TailFrameLandscapeHorizontal f36284b;
+                public final /* synthetic */ TailFrameLandscapeHorizontal f36473b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -176,7 +176,7 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
                             return;
                         }
                     }
-                    this.f36284b = this;
+                    this.f36473b = this;
                 }
 
                 @Override // com.kwad.sdk.core.download.b.c
@@ -184,8 +184,8 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                         super.a(i2);
-                        this.f36284b.f36276b.a(com.kwad.sdk.core.response.b.c.i(this.f36284b.f36279e));
-                        this.f36284b.f36283i.a(com.kwad.sdk.core.response.b.a.b(i2), i2);
+                        this.f36473b.f36465b.a(com.kwad.sdk.core.response.b.c.i(this.f36473b.f36468e));
+                        this.f36473b.f36472i.a(com.kwad.sdk.core.response.b.a.b(i2), i2);
                     }
                 }
 
@@ -193,8 +193,8 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
                 public void onDownloadFailed() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f36284b.f36276b.a(com.kwad.sdk.core.response.b.c.i(this.f36284b.f36279e));
-                        this.f36284b.f36283i.a(com.kwad.sdk.core.response.b.a.u(this.f36284b.f36280f), 0);
+                        this.f36473b.f36465b.a(com.kwad.sdk.core.response.b.c.i(this.f36473b.f36468e));
+                        this.f36473b.f36472i.a(com.kwad.sdk.core.response.b.a.u(this.f36473b.f36469f), 0);
                     }
                 }
 
@@ -202,8 +202,8 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
                 public void onDownloadFinished() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f36284b.f36276b.a(com.kwad.sdk.core.response.b.c.i(this.f36284b.f36279e));
-                        this.f36284b.f36283i.a(com.kwad.sdk.core.response.b.a.a(this.f36284b.f36279e), 0);
+                        this.f36473b.f36465b.a(com.kwad.sdk.core.response.b.c.i(this.f36473b.f36468e));
+                        this.f36473b.f36472i.a(com.kwad.sdk.core.response.b.a.a(this.f36473b.f36468e), 0);
                     }
                 }
 
@@ -211,8 +211,8 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
                 public void onIdle() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                        this.f36284b.f36276b.a(com.kwad.sdk.core.response.b.c.i(this.f36284b.f36279e));
-                        this.f36284b.f36283i.a(com.kwad.sdk.core.response.b.a.u(this.f36284b.f36280f), 0);
+                        this.f36473b.f36465b.a(com.kwad.sdk.core.response.b.c.i(this.f36473b.f36468e));
+                        this.f36473b.f36472i.a(com.kwad.sdk.core.response.b.a.u(this.f36473b.f36469f), 0);
                     }
                 }
 
@@ -220,8 +220,8 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
                 public void onInstalled() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                        this.f36284b.f36276b.a(com.kwad.sdk.core.response.b.c.i(this.f36284b.f36279e));
-                        this.f36284b.f36283i.a(com.kwad.sdk.core.response.b.a.j(this.f36284b.f36280f), 0);
+                        this.f36473b.f36465b.a(com.kwad.sdk.core.response.b.c.i(this.f36473b.f36468e));
+                        this.f36473b.f36472i.a(com.kwad.sdk.core.response.b.a.j(this.f36473b.f36469f), 0);
                     }
                 }
 
@@ -229,8 +229,8 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
                 public void onProgressUpdate(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                        this.f36284b.f36276b.a(com.kwad.sdk.core.response.b.c.i(this.f36284b.f36279e));
-                        this.f36284b.f36283i.a(com.kwad.sdk.core.response.b.a.a(i2), i2);
+                        this.f36473b.f36465b.a(com.kwad.sdk.core.response.b.c.i(this.f36473b.f36468e));
+                        this.f36473b.f36472i.a(com.kwad.sdk.core.response.b.a.a(i2), i2);
                     }
                 }
             });
@@ -241,7 +241,7 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             setOnClickListener(null);
-            this.f36282h = null;
+            this.f36471h = null;
         }
     }
 
@@ -256,12 +256,12 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
     public void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, jSONObject, bVar) == null) {
-            this.f36279e = adTemplate;
-            this.f36280f = com.kwad.sdk.core.response.b.c.i(adTemplate);
-            this.f36281g = jSONObject;
-            this.f36278d = bVar;
-            this.j.a(this.f36279e);
-            KSImageLoader.loadImage(this.f36275a, com.kwad.sdk.core.response.b.a.f(this.f36280f), this.f36279e);
+            this.f36468e = adTemplate;
+            this.f36469f = com.kwad.sdk.core.response.b.c.i(adTemplate);
+            this.f36470g = jSONObject;
+            this.f36467d = bVar;
+            this.j.a(this.f36468e);
+            KSImageLoader.loadImage(this.f36464a, com.kwad.sdk.core.response.b.a.f(this.f36469f), this.f36468e);
             d();
             setOnClickListener(this);
         }
@@ -270,15 +270,15 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TailFrameBarAppLandscape tailFrameBarAppLandscape = this.f36276b;
+            TailFrameBarAppLandscape tailFrameBarAppLandscape = this.f36465b;
             if (tailFrameBarAppLandscape != null) {
                 tailFrameBarAppLandscape.a();
-                this.f36276b.setVisibility(8);
+                this.f36465b.setVisibility(8);
             }
-            TailFrameBarH5Landscape tailFrameBarH5Landscape = this.f36277c;
+            TailFrameBarH5Landscape tailFrameBarH5Landscape = this.f36466c;
             if (tailFrameBarH5Landscape != null) {
                 tailFrameBarH5Landscape.a();
-                this.f36277c.setVisibility(8);
+                this.f36466c.setVisibility(8);
             }
             f();
         }
@@ -288,12 +288,12 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f36279e, new a.InterfaceC0413a(this) { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.2
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f36468e, new a.InterfaceC0415a(this) { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TailFrameLandscapeHorizontal f36285a;
+                public final /* synthetic */ TailFrameLandscapeHorizontal f36474a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -310,18 +310,18 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
                             return;
                         }
                     }
-                    this.f36285a = this;
+                    this.f36474a = this;
                 }
 
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0413a
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0415a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f36285a.f36278d == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f36474a.f36467d == null) {
                         return;
                     }
-                    this.f36285a.f36278d.a();
+                    this.f36474a.f36467d.a();
                 }
-            }, this.f36282h, view == this.f36283i);
+            }, this.f36471h, view == this.f36472i);
         }
     }
 }

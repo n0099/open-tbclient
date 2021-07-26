@@ -11,10 +11,10 @@ public class t extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f35819h;
+    public long f36008h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f35820i;
+    public long f36009i;
     public int j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,20 +42,20 @@ public class t extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f35789a != 9) {
+            if (dVar.f35978a != 9) {
                 throw new PngjException("bad chunk length " + dVar);
             }
-            long c2 = com.kwad.sdk.pngencrypt.n.c(dVar.f35792d, 0);
-            this.f35819h = c2;
+            long c2 = com.kwad.sdk.pngencrypt.n.c(dVar.f35981d, 0);
+            this.f36008h = c2;
             if (c2 < 0) {
-                this.f35819h = c2 + 4294967296L;
+                this.f36008h = c2 + 4294967296L;
             }
-            long c3 = com.kwad.sdk.pngencrypt.n.c(dVar.f35792d, 4);
-            this.f35820i = c3;
+            long c3 = com.kwad.sdk.pngencrypt.n.c(dVar.f35981d, 4);
+            this.f36009i = c3;
             if (c3 < 0) {
-                this.f35820i = c3 + 4294967296L;
+                this.f36009i = c3 + 4294967296L;
             }
-            this.j = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, 8);
+            this.j = com.kwad.sdk.pngencrypt.n.a(dVar.f35981d, 8);
         }
     }
 }

@@ -35,19 +35,19 @@ public abstract class a extends l {
         }
     }
 
-    public final int h(int i2) {
+    public final int g(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.k[i2] : invokeI.intValue;
     }
 
-    public final b i() {
+    public final b h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (b) invokeV.objValue;
     }
 
-    public void j(b bVar) {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.j = bVar;

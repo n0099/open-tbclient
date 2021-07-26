@@ -31,19 +31,19 @@ public class ConcernSelectView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18693e;
+    public Context f18778e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f18694f;
+    public LinearLayout f18779f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f18695g;
+    public ImageView f18780g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18696h;
+    public TextView f18781h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18697i;
+    public TextView f18782i;
     public TextView j;
     public View k;
     public LinearLayout l;
@@ -59,7 +59,7 @@ public class ConcernSelectView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConcernSelectView f18698e;
+        public final /* synthetic */ ConcernSelectView f18783e;
 
         public a(ConcernSelectView concernSelectView) {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class ConcernSelectView extends FrameLayout {
                     return;
                 }
             }
-            this.f18698e = concernSelectView;
+            this.f18783e = concernSelectView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -84,8 +84,8 @@ public class ConcernSelectView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(new StatisticItem("c12774").param("obj_locate", "1"));
-                int i2 = this.f18698e.l.getVisibility() == 0 ? 1 : 0;
-                ConcernSelectView concernSelectView = this.f18698e;
+                int i2 = this.f18783e.l.getVisibility() == 0 ? 1 : 0;
+                ConcernSelectView concernSelectView = this.f18783e;
                 concernSelectView.g(concernSelectView.l, i2);
             }
         }
@@ -97,7 +97,7 @@ public class ConcernSelectView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConcernSelectView f18699e;
+        public final /* synthetic */ ConcernSelectView f18784e;
 
         public b(ConcernSelectView concernSelectView) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class ConcernSelectView extends FrameLayout {
                     return;
                 }
             }
-            this.f18699e = concernSelectView;
+            this.f18784e = concernSelectView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -122,17 +122,17 @@ public class ConcernSelectView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(new StatisticItem("c12774").param("obj_locate", "2"));
-                SkinManager.setViewTextColor(this.f18699e.f18697i, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f18699e.j, R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.f18784e.f18782i, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f18784e.j, R.color.CAM_X0107);
                 if (FollowListSwitch.isOn()) {
-                    this.f18699e.f18696h.setText(R.string.self_attention);
+                    this.f18784e.f18781h.setText(R.string.self_attention);
                 } else {
-                    this.f18699e.f18696h.setText(R.string.all_concerned);
+                    this.f18784e.f18781h.setText(R.string.all_concerned);
                 }
-                if (this.f18699e.p != null) {
-                    this.f18699e.p.a(0);
+                if (this.f18784e.p != null) {
+                    this.f18784e.p.a(0);
                 }
-                ConcernSelectView concernSelectView = this.f18699e;
+                ConcernSelectView concernSelectView = this.f18784e;
                 concernSelectView.g(concernSelectView.l, 1);
             }
         }
@@ -144,7 +144,7 @@ public class ConcernSelectView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConcernSelectView f18700e;
+        public final /* synthetic */ ConcernSelectView f18785e;
 
         public c(ConcernSelectView concernSelectView) {
             Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public class ConcernSelectView extends FrameLayout {
                     return;
                 }
             }
-            this.f18700e = concernSelectView;
+            this.f18785e = concernSelectView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -169,13 +169,13 @@ public class ConcernSelectView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(new StatisticItem("c12774").param("obj_locate", "3"));
-                SkinManager.setViewTextColor(this.f18700e.f18697i, R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.f18700e.j, R.color.CAM_X0105);
-                this.f18700e.f18696h.setText(R.string.each_concerned);
-                if (this.f18700e.p != null) {
-                    this.f18700e.p.a(1);
+                SkinManager.setViewTextColor(this.f18785e.f18782i, R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.f18785e.j, R.color.CAM_X0105);
+                this.f18785e.f18781h.setText(R.string.each_concerned);
+                if (this.f18785e.p != null) {
+                    this.f18785e.p.a(1);
                 }
-                ConcernSelectView concernSelectView = this.f18700e;
+                ConcernSelectView concernSelectView = this.f18785e;
                 concernSelectView.g(concernSelectView.l, 1);
             }
         }
@@ -187,13 +187,13 @@ public class ConcernSelectView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f18701a;
+        public final /* synthetic */ int f18786a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f18702b;
+        public final /* synthetic */ View f18787b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ConcernSelectView f18703c;
+        public final /* synthetic */ ConcernSelectView f18788c;
 
         public d(ConcernSelectView concernSelectView, int i2, View view) {
             Interceptable interceptable = $ic;
@@ -210,9 +210,9 @@ public class ConcernSelectView extends FrameLayout {
                     return;
                 }
             }
-            this.f18703c = concernSelectView;
-            this.f18701a = i2;
-            this.f18702b = view;
+            this.f18788c = concernSelectView;
+            this.f18786a = i2;
+            this.f18787b = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -220,12 +220,12 @@ public class ConcernSelectView extends FrameLayout {
             View view;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                boolean z = this.f18701a == 0;
-                if (z && (view = this.f18702b) != null && (view.getParent() instanceof ListView)) {
-                    ListView listView = (ListView) this.f18702b.getParent();
-                    int bottom = this.f18702b.getBottom();
+                boolean z = this.f18786a == 0;
+                if (z && (view = this.f18787b) != null && (view.getParent() instanceof ListView)) {
+                    ListView listView = (ListView) this.f18787b.getParent();
+                    int bottom = this.f18787b.getBottom();
                     Rect rect = new Rect();
-                    boolean globalVisibleRect = this.f18702b.getGlobalVisibleRect(rect);
+                    boolean globalVisibleRect = this.f18787b.getGlobalVisibleRect(rect);
                     Rect rect2 = new Rect();
                     listView.getGlobalVisibleRect(rect2);
                     if (!globalVisibleRect) {
@@ -234,8 +234,8 @@ public class ConcernSelectView extends FrameLayout {
                         listView.smoothScrollBy(bottom, 260);
                     }
                 }
-                if (this.f18703c.p != null) {
-                    this.f18703c.p.onExpand(z);
+                if (this.f18788c.p != null) {
+                    this.f18788c.p.onExpand(z);
                 }
             }
         }
@@ -261,7 +261,7 @@ public class ConcernSelectView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConcernSelectView f18704a;
+        public final /* synthetic */ ConcernSelectView f18789a;
 
         public e(ConcernSelectView concernSelectView) {
             Interceptable interceptable = $ic;
@@ -278,7 +278,7 @@ public class ConcernSelectView extends FrameLayout {
                     return;
                 }
             }
-            this.f18704a = concernSelectView;
+            this.f18789a = concernSelectView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -292,7 +292,7 @@ public class ConcernSelectView extends FrameLayout {
         public void onAnimationRepeat(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-                this.f18704a.o = false;
+                this.f18789a.o = false;
             }
         }
 
@@ -310,7 +310,7 @@ public class ConcernSelectView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConcernSelectView f18705a;
+        public final /* synthetic */ ConcernSelectView f18790a;
 
         public f(ConcernSelectView concernSelectView) {
             Interceptable interceptable = $ic;
@@ -327,14 +327,14 @@ public class ConcernSelectView extends FrameLayout {
                     return;
                 }
             }
-            this.f18705a = concernSelectView;
+            this.f18790a = concernSelectView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f18705a.o = true;
+                this.f18790a.o = true;
             }
         }
 
@@ -379,7 +379,7 @@ public class ConcernSelectView extends FrameLayout {
             }
         }
         this.q = 3;
-        this.f18693e = context;
+        this.f18778e = context;
         k();
     }
 
@@ -393,16 +393,16 @@ public class ConcernSelectView extends FrameLayout {
         if (childCount < 0) {
             childCount = 0;
         }
-        d.a.p0.z1.a aVar = new d.a.p0.z1.a(view, i2, (((int) this.f18693e.getResources().getDimension(R.dimen.tbds80)) + ((int) this.f18693e.getResources().getDimension(R.dimen.ds1))) * childCount);
+        d.a.q0.z1.a aVar = new d.a.q0.z1.a(view, i2, (((int) this.f18778e.getResources().getDimension(R.dimen.tbds80)) + ((int) this.f18778e.getResources().getDimension(R.dimen.ds1))) * childCount);
         if (i2 == 0 && view.getVisibility() != 0) {
             view.setVisibility(0);
         }
         aVar.setDuration(260L);
         aVar.setAnimationListener(new d(this, i2, view));
         view.startAnimation(aVar);
-        ImageView imageView = this.f18695g;
+        ImageView imageView = this.f18780g;
         if (imageView != null) {
-            if (imageView.getAnimation() == null || this.f18695g.getAnimation().hasEnded()) {
+            if (imageView.getAnimation() == null || this.f18780g.getAnimation().hasEnded()) {
                 if (i2 == 0) {
                     if (this.m == null) {
                         j();
@@ -411,7 +411,7 @@ public class ConcernSelectView extends FrameLayout {
                     if (animation != null) {
                         animation.cancel();
                     }
-                    this.f18695g.startAnimation(this.m);
+                    this.f18780g.startAnimation(this.m);
                     return;
                 }
                 if (this.n == null) {
@@ -421,7 +421,7 @@ public class ConcernSelectView extends FrameLayout {
                 if (animation2 != null) {
                     animation2.cancel();
                 }
-                this.f18695g.startAnimation(this.n);
+                this.f18780g.startAnimation(this.n);
             }
         }
     }
@@ -438,7 +438,7 @@ public class ConcernSelectView extends FrameLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f18693e, R.anim.rotate_collapse);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f18778e, R.anim.rotate_collapse);
             this.n = loadAnimation;
             loadAnimation.setAnimationListener(new e(this));
         }
@@ -447,7 +447,7 @@ public class ConcernSelectView extends FrameLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f18693e, R.anim.rotate_expand);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f18778e, R.anim.rotate_expand);
             this.m = loadAnimation;
             loadAnimation.setAnimationListener(new f(this));
         }
@@ -456,20 +456,20 @@ public class ConcernSelectView extends FrameLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.f18693e).inflate(R.layout.concern_select_layout, this);
-            this.f18694f = (LinearLayout) findViewById(R.id.expandable_area);
-            this.f18695g = (ImageView) findViewById(R.id.expandable_btn);
+            LayoutInflater.from(this.f18778e).inflate(R.layout.concern_select_layout, this);
+            this.f18779f = (LinearLayout) findViewById(R.id.expandable_area);
+            this.f18780g = (ImageView) findViewById(R.id.expandable_btn);
             this.l = (LinearLayout) findViewById(R.id.menu_list);
-            this.f18696h = (TextView) findViewById(R.id.menu_title);
-            this.f18697i = (TextView) findViewById(R.id.all_concerned_item);
+            this.f18781h = (TextView) findViewById(R.id.menu_title);
+            this.f18782i = (TextView) findViewById(R.id.all_concerned_item);
             if (FollowListSwitch.isOn()) {
-                this.f18696h.setText(R.string.self_attention);
-                this.f18697i.setText(R.string.self_attention);
+                this.f18781h.setText(R.string.self_attention);
+                this.f18782i.setText(R.string.self_attention);
             }
             this.j = (TextView) findViewById(R.id.each_concerned_item);
             this.k = findViewById(R.id.item_divider_line);
-            this.f18694f.setOnClickListener(new a(this));
-            this.f18697i.setOnClickListener(new b(this));
+            this.f18779f.setOnClickListener(new a(this));
+            this.f18782i.setOnClickListener(new b(this));
             this.j.setOnClickListener(new c(this));
             m(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -486,13 +486,13 @@ public class ConcernSelectView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || this.q == i2) {
             return;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18695g, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f18696h, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f18697i, R.color.CAM_X0105);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18780g, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f18781h, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f18782i, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0107);
         SkinManager.setBackgroundResource(this.l, R.drawable.concern_item_bg);
-        SkinManager.setBackgroundResource(this.f18696h, R.color.CAM_X0201);
-        SkinManager.setBackgroundResource(this.f18697i, R.drawable.concern_item_menu_select_bg);
+        SkinManager.setBackgroundResource(this.f18781h, R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.f18782i, R.drawable.concern_item_menu_select_bg);
         SkinManager.setBackgroundResource(this.j, R.drawable.concern_item_menu_select_bg);
         SkinManager.setBackgroundResource(this.k, R.color.CAM_X0204);
     }
@@ -524,7 +524,7 @@ public class ConcernSelectView extends FrameLayout {
             }
         }
         this.q = 3;
-        this.f18693e = context;
+        this.f18778e = context;
         k();
     }
 
@@ -548,7 +548,7 @@ public class ConcernSelectView extends FrameLayout {
             }
         }
         this.q = 3;
-        this.f18693e = context;
+        this.f18778e = context;
         k();
     }
 }

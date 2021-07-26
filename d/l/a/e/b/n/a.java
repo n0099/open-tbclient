@@ -9,22 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ss.android.socialbase.downloader.constants.g;
+import com.ss.android.socialbase.downloader.constants.EnqueueType;
+import com.ss.android.socialbase.downloader.constants.f;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.l.a.e.b.f.d;
-import d.l.a.e.b.f.q;
+import d.l.a.e.b.f.e;
 import d.l.a.e.b.f.r;
-import d.l.a.e.b.f.t;
-import d.l.a.e.b.f.v;
-import d.l.a.e.b.f.x;
+import d.l.a.e.b.f.s;
+import d.l.a.e.b.f.u;
+import d.l.a.e.b.f.w;
 import d.l.a.e.b.f.y;
 import d.l.a.e.b.f.z;
-import d.l.a.e.b.g.e;
-import d.l.a.e.b.g.f;
 import d.l.a.e.b.g.i;
 import d.l.a.e.b.g.j;
-import d.l.a.e.b.g.s;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -36,52 +33,52 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadInfo f72003a;
+    public DownloadInfo f72457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f72004b;
+    public i f72458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f72005c;
+    public j f72459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<g, d.l.a.e.b.f.b> f72006d;
+    public final Map<f, d.l.a.e.b.f.c> f72460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SparseArray<g> f72007e;
+    public final SparseArray<f> f72461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<d.l.a.e.b.f.b> f72008f;
+    public final SparseArray<d.l.a.e.b.f.c> f72462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<d.l.a.e.b.f.b> f72009g;
+    public final SparseArray<d.l.a.e.b.f.c> f72463g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<d.l.a.e.b.f.b> f72010h;
+    public final SparseArray<d.l.a.e.b.f.c> f72464h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f72011i;
-    public y j;
-    public r k;
+    public e f72465i;
+    public d.l.a.e.b.f.b j;
+    public s k;
     public z l;
     public DownloadInfo.b m;
-    public x n;
-    public t o;
-    public s p;
-    public d.l.a.e.b.f.i q;
+    public y n;
+    public u o;
+    public d.l.a.e.b.g.s p;
+    public d.l.a.e.b.f.j q;
     public boolean r;
-    public v s;
-    public final List<q> t;
+    public w s;
+    public final List<r> t;
     public int u;
     public boolean v;
 
     /* renamed from: d.l.a.e.b.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C2046a implements j {
+    public class C2045a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2046a(a aVar) {
+        public C2045a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,22 +118,22 @@ public class a {
                 return;
             }
         }
-        this.f72006d = new ConcurrentHashMap();
-        this.f72007e = new SparseArray<>();
+        this.f72460d = new ConcurrentHashMap();
+        this.f72461e = new SparseArray<>();
         this.r = false;
         this.t = new ArrayList();
         this.v = true;
         this.m = new DownloadInfo.b();
-        this.f72008f = new SparseArray<>();
-        this.f72009g = new SparseArray<>();
-        this.f72010h = new SparseArray<>();
+        this.f72462f = new SparseArray<>();
+        this.f72463g = new SparseArray<>();
+        this.f72464h = new SparseArray<>();
     }
 
-    public a A(x xVar) {
+    public a A(y yVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xVar)) == null) {
-            this.n = xVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yVar)) == null) {
+            this.n = yVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -175,10 +172,10 @@ public class a {
     public i C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72004b : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72458b : (i) invokeV.objValue;
     }
 
-    public a C0(s sVar) {
+    public a C0(d.l.a.e.b.g.s sVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sVar)) == null) {
@@ -191,7 +188,7 @@ public class a {
     public j D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f72005c : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f72459c : (j) invokeV.objValue;
     }
 
     public a D0(String str) {
@@ -204,10 +201,10 @@ public class a {
         return (a) invokeL.objValue;
     }
 
-    public r E() {
+    public s E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : (s) invokeV.objValue;
     }
 
     public a E0(boolean z) {
@@ -220,21 +217,21 @@ public class a {
         return (a) invokeZ.objValue;
     }
 
-    public t F() {
+    public u F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.o : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.o : (u) invokeV.objValue;
     }
 
     public final void F0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f72003a.getThrottleNetSpeed() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f72457a.getThrottleNetSpeed() <= 0) {
             return;
         }
-        l(new C2046a(this));
+        l(new C2045a(this));
     }
 
-    public q G(int i2) {
+    public r G(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
@@ -245,16 +242,16 @@ public class a {
                 return null;
             }
         }
-        return (q) invokeI.objValue;
+        return (r) invokeI.objValue;
     }
 
-    public a G0(List<q> list) {
+    public a G0(List<r> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, list)) == null) {
             if (list != null && !list.isEmpty()) {
-                for (q qVar : list) {
-                    b(qVar);
+                for (r rVar : list) {
+                    b(rVar);
                 }
             }
             return this;
@@ -263,29 +260,29 @@ public class a {
     }
 
     @NonNull
-    public List<q> H() {
+    public List<r> H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.t : (List) invokeV.objValue;
     }
 
-    public void H0(SparseArray<d.l.a.e.b.f.b> sparseArray, g gVar) {
+    public void H0(SparseArray<d.l.a.e.b.f.c> sparseArray, f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048591, this, sparseArray, gVar) == null) || sparseArray == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048591, this, sparseArray, fVar) == null) || sparseArray == null) {
             return;
         }
         try {
-            if (gVar == g.f38474a) {
-                synchronized (this.f72008f) {
-                    n(this.f72008f, sparseArray);
+            if (fVar == f.f38646a) {
+                synchronized (this.f72462f) {
+                    n(this.f72462f, sparseArray);
                 }
-            } else if (gVar == g.f38475b) {
-                synchronized (this.f72009g) {
-                    n(this.f72009g, sparseArray);
+            } else if (fVar == f.f38647b) {
+                synchronized (this.f72463g) {
+                    n(this.f72463g, sparseArray);
                 }
-            } else if (gVar == g.f38476c) {
-                synchronized (this.f72010h) {
-                    n(this.f72010h, sparseArray);
+            } else if (fVar == f.f38648c) {
+                synchronized (this.f72464h) {
+                    n(this.f72464h, sparseArray);
                 }
             }
         } catch (Throwable th) {
@@ -297,7 +294,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            DownloadInfo downloadInfo = this.f72003a;
+            DownloadInfo downloadInfo = this.f72457a;
             if (downloadInfo == null) {
                 return 0;
             }
@@ -316,21 +313,21 @@ public class a {
     public DownloadInfo J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f72003a : (DownloadInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f72457a : (DownloadInfo) invokeV.objValue;
     }
 
-    public void J0(d dVar) {
+    public void J0(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, dVar) == null) {
-            this.f72011i = dVar;
+        if (interceptable == null || interceptable.invokeL(1048595, this, eVar) == null) {
+            this.f72465i = eVar;
         }
     }
 
-    public d.l.a.e.b.f.b K(g gVar, int i2) {
+    public d.l.a.e.b.f.c K(f fVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, gVar, i2)) == null) {
-            SparseArray<d.l.a.e.b.f.b> M = M(gVar);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, fVar, i2)) == null) {
+            SparseArray<d.l.a.e.b.f.c> M = M(fVar);
             if (M == null || i2 < 0) {
                 return null;
             }
@@ -341,7 +338,7 @@ public class a {
                 return null;
             }
         }
-        return (d.l.a.e.b.f.b) invokeLI.objValue;
+        return (d.l.a.e.b.f.c) invokeLI.objValue;
     }
 
     public a K0(boolean z) {
@@ -354,12 +351,12 @@ public class a {
         return (a) invokeZ.objValue;
     }
 
-    public int L(g gVar) {
+    public int L(f fVar) {
         InterceptResult invokeL;
         int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, gVar)) == null) {
-            SparseArray<d.l.a.e.b.f.b> M = M(gVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, fVar)) == null) {
+            SparseArray<d.l.a.e.b.f.c> M = M(fVar);
             if (M == null) {
                 return 0;
             }
@@ -381,35 +378,35 @@ public class a {
         return (a) invokeZ.objValue;
     }
 
-    public SparseArray<d.l.a.e.b.f.b> M(g gVar) {
+    public SparseArray<d.l.a.e.b.f.c> M(f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, gVar)) == null) {
-            if (gVar == g.f38474a) {
-                return this.f72008f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, fVar)) == null) {
+            if (fVar == f.f38646a) {
+                return this.f72462f;
             }
-            if (gVar == g.f38475b) {
-                return this.f72009g;
+            if (fVar == f.f38647b) {
+                return this.f72463g;
             }
-            if (gVar == g.f38476c) {
-                return this.f72010h;
+            if (fVar == f.f38648c) {
+                return this.f72464h;
             }
             return null;
         }
         return (SparseArray) invokeL.objValue;
     }
 
-    public a M0(int i2, d.l.a.e.b.f.b bVar) {
+    public a M0(int i2, d.l.a.e.b.f.c cVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i2, bVar)) == null) {
-            if (bVar != null) {
-                synchronized (this.f72009g) {
-                    this.f72009g.put(i2, bVar);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i2, cVar)) == null) {
+            if (cVar != null) {
+                synchronized (this.f72463g) {
+                    this.f72463g.put(i2, cVar);
                 }
-                this.f72006d.put(g.f38475b, bVar);
-                synchronized (this.f72007e) {
-                    this.f72007e.put(i2, g.f38475b);
+                this.f72460d.put(f.f38647b, cVar);
+                synchronized (this.f72461e) {
+                    this.f72461e.put(i2, f.f38647b);
                 }
             }
             return this;
@@ -417,10 +414,10 @@ public class a {
         return (a) invokeIL.objValue;
     }
 
-    public v N() {
+    public w N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.s : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.s : (w) invokeV.objValue;
     }
 
     public a N0(long j) {
@@ -433,10 +430,10 @@ public class a {
         return (a) invokeJ.objValue;
     }
 
-    public x O() {
+    public y O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.n : (x) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.n : (y) invokeV.objValue;
     }
 
     public a O0(String str) {
@@ -465,10 +462,10 @@ public class a {
         return (a) invokeL.objValue;
     }
 
-    public y Q() {
+    public d.l.a.e.b.f.b Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.j : (y) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.j : (d.l.a.e.b.f.b) invokeV.objValue;
     }
 
     public z R() {
@@ -477,28 +474,28 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.l : (z) invokeV.objValue;
     }
 
-    public d.l.a.e.b.f.i S() {
+    public d.l.a.e.b.f.j S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.q : (d.l.a.e.b.f.i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.q : (d.l.a.e.b.f.j) invokeV.objValue;
     }
 
-    public d T() {
+    public e T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f72011i : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f72465i : (e) invokeV.objValue;
     }
 
-    public s U() {
+    public d.l.a.e.b.g.s U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.p : (s) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.p : (d.l.a.e.b.g.s) invokeV.objValue;
     }
 
-    public d.l.a.e.b.f.b V(g gVar) {
+    public d.l.a.e.b.f.c V(f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, gVar)) == null) ? this.f72006d.get(gVar) : (d.l.a.e.b.f.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, fVar)) == null) ? this.f72460d.get(fVar) : (d.l.a.e.b.f.c) invokeL.objValue;
     }
 
     public a W(boolean z) {
@@ -521,11 +518,11 @@ public class a {
         return (a) invokeL.objValue;
     }
 
-    public a Y(y yVar) {
+    public a Y(d.l.a.e.b.f.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, yVar)) == null) {
-            this.j = yVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, bVar)) == null) {
+            this.j = bVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -555,14 +552,14 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.r : invokeV.booleanValue;
     }
 
-    public a b(q qVar) {
+    public a b(r rVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, qVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, rVar)) == null) {
             synchronized (this.t) {
-                if (qVar != null) {
-                    if (!this.t.contains(qVar)) {
-                        this.t.add(qVar);
+                if (rVar != null) {
+                    if (!this.t.contains(rVar)) {
+                        this.t.add(rVar);
                         return this;
                     }
                 }
@@ -572,51 +569,51 @@ public class a {
         return (a) invokeL.objValue;
     }
 
-    public a b0(d.l.a.e.b.f.b bVar) {
+    public a b0(d.l.a.e.b.f.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, bVar)) == null) {
-            if (bVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, cVar)) == null) {
+            if (cVar == null) {
                 return this;
             }
-            c0(bVar.hashCode(), bVar);
+            c0(cVar.hashCode(), cVar);
             return this;
         }
         return (a) invokeL.objValue;
     }
 
-    public void c(int i2, d.l.a.e.b.f.b bVar, g gVar, boolean z) {
-        Map<g, d.l.a.e.b.f.b> map;
+    public void c(int i2, d.l.a.e.b.f.c cVar, f fVar, boolean z) {
+        Map<f, d.l.a.e.b.f.c> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Integer.valueOf(i2), bVar, gVar, Boolean.valueOf(z)}) == null) || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Integer.valueOf(i2), cVar, fVar, Boolean.valueOf(z)}) == null) || cVar == null) {
             return;
         }
-        if (z && (map = this.f72006d) != null) {
-            map.put(gVar, bVar);
-            synchronized (this.f72007e) {
-                this.f72007e.put(i2, gVar);
+        if (z && (map = this.f72460d) != null) {
+            map.put(fVar, cVar);
+            synchronized (this.f72461e) {
+                this.f72461e.put(i2, fVar);
             }
         }
-        SparseArray<d.l.a.e.b.f.b> M = M(gVar);
+        SparseArray<d.l.a.e.b.f.c> M = M(fVar);
         if (M == null) {
             return;
         }
         synchronized (M) {
-            M.put(i2, bVar);
+            M.put(i2, cVar);
         }
     }
 
-    public a c0(int i2, d.l.a.e.b.f.b bVar) {
+    public a c0(int i2, d.l.a.e.b.f.c cVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048623, this, i2, bVar)) == null) {
-            if (bVar != null) {
-                synchronized (this.f72008f) {
-                    this.f72008f.put(i2, bVar);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048623, this, i2, cVar)) == null) {
+            if (cVar != null) {
+                synchronized (this.f72462f) {
+                    this.f72462f.put(i2, cVar);
                 }
-                this.f72006d.put(g.f38474a, bVar);
-                synchronized (this.f72007e) {
-                    this.f72007e.put(i2, g.f38474a);
+                this.f72460d.put(f.f38646a, cVar);
+                synchronized (this.f72461e) {
+                    this.f72461e.put(i2, f.f38646a);
                 }
             }
             return this;
@@ -628,13 +625,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
             d.l.a.e.b.c.a.g("DownloadTask", "same task just tryDownloading, so add listener in last task instead of tryDownload");
-            DownloadInfo downloadInfo = this.f72003a;
+            DownloadInfo downloadInfo = this.f72457a;
             if (downloadInfo != null && !downloadInfo.isAddListenerToSameTask()) {
-                this.f72003a.setAddListenerToSameTask(true);
+                this.f72457a.setAddListenerToSameTask(true);
             }
-            e(g.f38474a);
-            e(g.f38475b);
-            d.l.a.e.b.e.a.e(this.l, this.f72003a, new BaseException(1003, "has another same task, add Listener to old task"), 0);
+            e(f.f38646a);
+            e(f.f38647b);
+            d.l.a.e.b.e.a.e(this.l, this.f72457a, new BaseException(1003, "has another same task, add Listener to old task"), 0);
         }
     }
 
@@ -648,15 +645,15 @@ public class a {
         return (a) invokeI.objValue;
     }
 
-    public final void e(g gVar) {
+    public final void e(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, gVar) == null) {
-            SparseArray<d.l.a.e.b.f.b> M = M(gVar);
+        if (interceptable == null || interceptable.invokeL(1048626, this, fVar) == null) {
+            SparseArray<d.l.a.e.b.f.c> M = M(fVar);
             synchronized (M) {
                 for (int i2 = 0; i2 < M.size(); i2++) {
-                    d.l.a.e.b.f.b bVar = M.get(M.keyAt(i2));
-                    if (bVar != null) {
-                        f.c().q(I(), bVar, gVar, false);
+                    d.l.a.e.b.f.c cVar = M.get(M.keyAt(i2));
+                    if (cVar != null) {
+                        d.l.a.e.b.g.f.c().q(I(), cVar, fVar, false);
                     }
                 }
             }
@@ -679,9 +676,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
             synchronized (this) {
-                d.l.a.e.b.f.b V = V(g.f38474a);
+                d.l.a.e.b.f.c V = V(f.f38646a);
                 if (V == null) {
-                    V = V(g.f38475b);
+                    V = V(f.f38647b);
                 }
                 if (V != null) {
                     this.u = V.hashCode();
@@ -767,7 +764,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
-            DownloadInfo downloadInfo = this.f72003a;
+            DownloadInfo downloadInfo = this.f72457a;
             if (downloadInfo != null) {
                 return downloadInfo.canShowNotification();
             }
@@ -790,7 +787,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, iVar)) == null) {
-            this.f72004b = iVar;
+            this.f72458b = iVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -810,7 +807,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, jVar)) == null) {
-            this.f72005c = jVar;
+            this.f72459c = jVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -829,28 +826,28 @@ public class a {
     public void m(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048642, this, aVar) == null) {
-            for (Map.Entry<g, d.l.a.e.b.f.b> entry : aVar.f72006d.entrySet()) {
-                if (entry != null && !this.f72006d.containsKey(entry.getKey())) {
-                    this.f72006d.put(entry.getKey(), entry.getValue());
+            for (Map.Entry<f, d.l.a.e.b.f.c> entry : aVar.f72460d.entrySet()) {
+                if (entry != null && !this.f72460d.containsKey(entry.getKey())) {
+                    this.f72460d.put(entry.getKey(), entry.getValue());
                 }
             }
             try {
-                if (aVar.f72008f.size() != 0) {
-                    synchronized (this.f72008f) {
-                        y0(this.f72008f, aVar.f72008f);
-                        a(aVar.f72008f, this.f72008f);
+                if (aVar.f72462f.size() != 0) {
+                    synchronized (this.f72462f) {
+                        y0(this.f72462f, aVar.f72462f);
+                        a(aVar.f72462f, this.f72462f);
                     }
                 }
-                if (aVar.f72009g.size() != 0) {
-                    synchronized (this.f72009g) {
-                        y0(this.f72009g, aVar.f72009g);
-                        a(aVar.f72009g, this.f72009g);
+                if (aVar.f72463g.size() != 0) {
+                    synchronized (this.f72463g) {
+                        y0(this.f72463g, aVar.f72463g);
+                        a(aVar.f72463g, this.f72463g);
                     }
                 }
-                if (aVar.f72010h.size() != 0) {
-                    synchronized (this.f72010h) {
-                        y0(this.f72010h, aVar.f72010h);
-                        a(aVar.f72010h, this.f72010h);
+                if (aVar.f72464h.size() != 0) {
+                    synchronized (this.f72464h) {
+                        y0(this.f72464h, aVar.f72464h);
+                        a(aVar.f72464h, this.f72464h);
                     }
                 }
             } catch (Throwable th) {
@@ -869,15 +866,15 @@ public class a {
         return (a) invokeZ.objValue;
     }
 
-    public final void n(SparseArray<d.l.a.e.b.f.b> sparseArray, SparseArray<d.l.a.e.b.f.b> sparseArray2) {
+    public final void n(SparseArray<d.l.a.e.b.f.c> sparseArray, SparseArray<d.l.a.e.b.f.c> sparseArray2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048644, this, sparseArray, sparseArray2) == null) {
             sparseArray.clear();
             for (int i2 = 0; i2 < sparseArray2.size(); i2++) {
                 int keyAt = sparseArray2.keyAt(i2);
-                d.l.a.e.b.f.b bVar = sparseArray2.get(keyAt);
-                if (bVar != null) {
-                    sparseArray.put(keyAt, bVar);
+                d.l.a.e.b.f.c cVar = sparseArray2.get(keyAt);
+                if (cVar != null) {
+                    sparseArray.put(keyAt, cVar);
                 }
             }
         }
@@ -893,11 +890,11 @@ public class a {
         return (a) invokeZ.objValue;
     }
 
-    public a o(r rVar) {
+    public a o(s sVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, rVar)) == null) {
-            this.k = rVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, sVar)) == null) {
+            this.k = sVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -913,11 +910,11 @@ public class a {
         return (a) invokeZ.objValue;
     }
 
-    public a p(t tVar) {
+    public a p(u uVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, tVar)) == null) {
-            this.o = tVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, uVar)) == null) {
+            this.o = uVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -957,17 +954,17 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
-            this.f72003a = this.m.E();
-            DownloadInfo b2 = e.M0().b(this.f72003a.getId());
+            this.f72457a = this.m.E();
+            DownloadInfo b2 = d.l.a.e.b.g.e.M0().b(this.f72457a.getId());
             if (b2 == null) {
-                this.f72003a.generateTaskId();
+                this.f72457a.generateTaskId();
                 d.l.a.e.b.e.a.i(this, null, 0);
             } else {
-                this.f72003a.copyTaskIdFromCacheData(b2);
+                this.f72457a.copyTaskIdFromCacheData(b2);
             }
             F0();
-            f.c().j(this);
-            DownloadInfo downloadInfo = this.f72003a;
+            d.l.a.e.b.g.f.c().j(this);
+            DownloadInfo downloadInfo = this.f72457a;
             if (downloadInfo == null) {
                 return 0;
             }
@@ -996,31 +993,31 @@ public class a {
         return (a) invokeL.objValue;
     }
 
-    public a s0(d.l.a.e.b.f.i iVar) {
+    public a s0(d.l.a.e.b.f.j jVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, iVar)) == null) {
-            this.q = iVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, jVar)) == null) {
+            this.q = jVar;
             return this;
         }
         return (a) invokeL.objValue;
     }
 
-    public a t(com.ss.android.socialbase.downloader.constants.f fVar) {
+    public a t(EnqueueType enqueueType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, fVar)) == null) {
-            this.m.z(fVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, enqueueType)) == null) {
+            this.m.z(enqueueType);
             return this;
         }
         return (a) invokeL.objValue;
     }
 
-    public a t0(d dVar) {
+    public a t0(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048657, this, dVar)) == null) {
-            this.f72011i = dVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048657, this, eVar)) == null) {
+            this.f72465i = eVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -1036,14 +1033,14 @@ public class a {
         return (a) invokeI.objValue;
     }
 
-    public a u0(d.l.a.e.b.f.b bVar) {
+    public a u0(d.l.a.e.b.f.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, bVar)) == null) {
-            if (bVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, cVar)) == null) {
+            if (cVar == null) {
                 return this;
             }
-            v0(bVar.hashCode(), bVar);
+            v0(cVar.hashCode(), cVar);
             return this;
         }
         return (a) invokeL.objValue;
@@ -1059,17 +1056,17 @@ public class a {
         return (a) invokeJ.objValue;
     }
 
-    public a v0(int i2, d.l.a.e.b.f.b bVar) {
+    public a v0(int i2, d.l.a.e.b.f.c cVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048661, this, i2, bVar)) == null) {
-            if (bVar != null) {
-                synchronized (this.f72010h) {
-                    this.f72010h.put(i2, bVar);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048661, this, i2, cVar)) == null) {
+            if (cVar != null) {
+                synchronized (this.f72464h) {
+                    this.f72464h.put(i2, cVar);
                 }
-                this.f72006d.put(g.f38476c, bVar);
-                synchronized (this.f72007e) {
-                    this.f72007e.put(i2, g.f38476c);
+                this.f72460d.put(f.f38648c, cVar);
+                synchronized (this.f72461e) {
+                    this.f72461e.put(i2, f.f38648c);
                 }
             }
             return this;
@@ -1138,44 +1135,44 @@ public class a {
         }
     }
 
-    public a z(v vVar) {
+    public a z(w wVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048668, this, vVar)) == null) {
-            this.s = vVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048668, this, wVar)) == null) {
+            this.s = wVar;
             return this;
         }
         return (a) invokeL.objValue;
     }
 
-    public void z0(int i2, d.l.a.e.b.f.b bVar, g gVar, boolean z) {
+    public void z0(int i2, d.l.a.e.b.f.c cVar, f fVar, boolean z) {
         int indexOfValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048669, this, new Object[]{Integer.valueOf(i2), bVar, gVar, Boolean.valueOf(z)}) == null) {
-            SparseArray<d.l.a.e.b.f.b> M = M(gVar);
+        if (interceptable == null || interceptable.invokeCommon(1048669, this, new Object[]{Integer.valueOf(i2), cVar, fVar, Boolean.valueOf(z)}) == null) {
+            SparseArray<d.l.a.e.b.f.c> M = M(fVar);
             if (M == null) {
-                if (z && this.f72006d.containsKey(gVar)) {
-                    this.f72006d.remove(gVar);
+                if (z && this.f72460d.containsKey(fVar)) {
+                    this.f72460d.remove(fVar);
                     return;
                 }
                 return;
             }
             synchronized (M) {
                 if (z) {
-                    if (this.f72006d.containsKey(gVar)) {
-                        bVar = this.f72006d.get(gVar);
-                        this.f72006d.remove(gVar);
+                    if (this.f72460d.containsKey(fVar)) {
+                        cVar = this.f72460d.get(fVar);
+                        this.f72460d.remove(fVar);
                     }
-                    if (bVar != null && (indexOfValue = M.indexOfValue(bVar)) >= 0 && indexOfValue < M.size()) {
+                    if (cVar != null && (indexOfValue = M.indexOfValue(cVar)) >= 0 && indexOfValue < M.size()) {
                         M.removeAt(indexOfValue);
                     }
                 } else {
                     M.remove(i2);
-                    synchronized (this.f72007e) {
-                        g gVar2 = this.f72007e.get(i2);
-                        if (gVar2 != null && this.f72006d.containsKey(gVar2)) {
-                            this.f72006d.remove(gVar2);
-                            this.f72007e.remove(i2);
+                    synchronized (this.f72461e) {
+                        f fVar2 = this.f72461e.get(i2);
+                        if (fVar2 != null && this.f72460d.containsKey(fVar2)) {
+                            this.f72460d.remove(fVar2);
+                            this.f72461e.remove(i2);
                         }
                     }
                 }
@@ -1201,6 +1198,6 @@ public class a {
                 return;
             }
         }
-        this.f72003a = downloadInfo;
+        this.f72457a = downloadInfo;
     }
 }

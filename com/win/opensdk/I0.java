@@ -1,27 +1,25 @@
 package com.win.opensdk;
 
+import android.util.Log;
+import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class I0 implements Runnable {
+public class I0 implements ViewTreeObserver.OnWindowFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Info f39372a;
+    public final /* synthetic */ O0 f39584a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ K0 f39373b;
-
-    public I0(K0 k0, Info info) {
+    public I0(O0 o0) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k0, info};
+            Object[] objArr = {o0};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,17 +29,18 @@ public class I0 implements Runnable {
                 return;
             }
         }
-        this.f39373b = k0;
-        this.f39372a = info;
+        this.f39584a = o0;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        L0 l0;
+    @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
+    public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (l0 = this.f39373b.f39399g) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            Log.e("register", "onWindowFocusChanged:" + z);
+            if (this.f39584a.f39610c != null) {
+                Log.e("register", "FocusChange000");
+                this.f39584a.f39610c.a(z);
+            }
         }
-        l0.a(this.f39372a);
     }
 }

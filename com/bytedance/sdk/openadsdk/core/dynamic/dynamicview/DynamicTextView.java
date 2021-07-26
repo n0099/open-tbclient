@@ -56,7 +56,7 @@ public class DynamicTextView extends DynamicBaseWidgetImp {
             if (Build.VERSION.SDK_INT >= 16) {
                 this.n.setBackground(getBackgroundDrawable());
             }
-            if (!this.j.o()) {
+            if (!this.j.p()) {
                 ((TextView) this.n).setMaxLines(1);
                 ((TextView) this.n).setEllipsize(TextUtils.TruncateAt.END);
             }

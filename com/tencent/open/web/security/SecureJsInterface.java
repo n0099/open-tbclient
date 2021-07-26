@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.a;
-import com.tencent.open.a.f;
+import com.tencent.open.log.SLog;
 /* loaded from: classes6.dex */
 public class SecureJsInterface extends a.b {
     public static /* synthetic */ Interceptable $ic;
@@ -17,7 +17,7 @@ public class SecureJsInterface extends a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39039a;
+    public String f39259a;
 
     static {
         InterceptResult invokeClinit;
@@ -51,11 +51,11 @@ public class SecureJsInterface extends a.b {
     public void clearAllEdit() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f.c("openSDK_LOG.SecureJsInterface", "-->clear all edit.");
+            SLog.i("openSDK_LOG.SecureJsInterface", "-->clear all edit.");
             try {
                 JniInterface.clearAllPWD();
             } catch (Exception e2) {
-                f.e("openSDK_LOG.SecureJsInterface", "-->clear all edit exception: " + e2.getMessage());
+                SLog.e("openSDK_LOG.SecureJsInterface", "-->clear all edit exception: " + e2.getMessage());
                 throw new RuntimeException(e2);
             }
         }
@@ -65,27 +65,27 @@ public class SecureJsInterface extends a.b {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            f.b("openSDK_LOG.SecureJsInterface", "-->curPosFromJS: " + str);
+            SLog.d("openSDK_LOG.SecureJsInterface", "-->curPosFromJS: " + str);
             try {
                 i2 = Integer.parseInt(str);
             } catch (NumberFormatException e2) {
-                f.b("openSDK_LOG.SecureJsInterface", "-->curPosFromJS number format exception.", e2);
+                SLog.e("openSDK_LOG.SecureJsInterface", "-->curPosFromJS number format exception.", e2);
                 i2 = -1;
             }
             if (i2 >= 0) {
-                boolean z = a.f39042c;
-                boolean z2 = a.f39041b;
+                boolean z = a.f39262c;
+                boolean z2 = a.f39261b;
                 if (z2) {
                     if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i2)).booleanValue()) {
-                        a.f39041b = false;
+                        a.f39261b = false;
                         return;
                     }
                     return;
                 }
-                String str2 = a.f39040a;
-                this.f39039a = str2;
+                String str2 = a.f39260a;
+                this.f39259a = str2;
                 JniInterface.insetTextToArray(i2, str2, str2.length());
-                f.a("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f39039a);
+                SLog.v("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f39259a);
                 return;
             }
             throw new RuntimeException("position is illegal.");
@@ -106,13 +106,13 @@ public class SecureJsInterface extends a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            f.c("openSDK_LOG.SecureJsInterface", "-->get md5 form native");
+            SLog.i("openSDK_LOG.SecureJsInterface", "-->get md5 form native");
             try {
                 String pWDKeyToMD5 = JniInterface.getPWDKeyToMD5(null);
-                f.a("openSDK_LOG.SecureJsInterface", "-->getMD5FromNative, MD5= " + pWDKeyToMD5);
+                SLog.v("openSDK_LOG.SecureJsInterface", "-->getMD5FromNative, MD5= " + pWDKeyToMD5);
                 return pWDKeyToMD5;
             } catch (Exception e2) {
-                f.e("openSDK_LOG.SecureJsInterface", "-->get md5 form native exception: " + e2.getMessage());
+                SLog.e("openSDK_LOG.SecureJsInterface", "-->get md5 form native exception: " + e2.getMessage());
                 throw new RuntimeException(e2);
             }
         }
@@ -123,11 +123,11 @@ public class SecureJsInterface extends a.b {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            f.c("openSDK_LOG.SecureJsInterface", "-->is pswd edit, flag: " + str);
+            SLog.i("openSDK_LOG.SecureJsInterface", "-->is pswd edit, flag: " + str);
             try {
                 i2 = Integer.parseInt(str);
             } catch (Exception e2) {
-                f.e("openSDK_LOG.SecureJsInterface", "-->is pswd edit exception: " + e2.getMessage());
+                SLog.e("openSDK_LOG.SecureJsInterface", "-->is pswd edit exception: " + e2.getMessage());
                 i2 = -1;
             }
             if (i2 != 0 && i2 != 1) {

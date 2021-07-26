@@ -16,7 +16,7 @@ public abstract class j extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f69889i;
+    public byte[] f70343i;
     public int j;
     public volatile boolean k;
 
@@ -39,7 +39,7 @@ public abstract class j extends c {
                 return;
             }
         }
-        this.f69889i = bArr;
+        this.f70343i = bArr;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
@@ -47,21 +47,21 @@ public abstract class j extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f69867h.a(this.f69860a);
+                this.f70321h.a(this.f70314a);
                 int i2 = 0;
                 this.j = 0;
                 while (i2 != -1 && !this.k) {
-                    h();
-                    i2 = this.f69867h.read(this.f69889i, this.j, 16384);
+                    g();
+                    i2 = this.f70321h.read(this.f70343i, this.j, 16384);
                     if (i2 != -1) {
                         this.j += i2;
                     }
                 }
                 if (!this.k) {
-                    f(this.f69889i, this.j);
+                    e(this.f70343i, this.j);
                 }
             } finally {
-                v.h(this.f69867h);
+                v.h(this.f70321h);
             }
         }
     }
@@ -73,37 +73,37 @@ public abstract class j extends c {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
-    @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public final void c() {
+    @Override // d.f.b.a.d0.u.c
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.Loader.c
+    public final void cancelLoad() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.k = true;
         }
     }
 
-    @Override // d.f.b.a.d0.u.c
-    public long d() {
+    public abstract void e(byte[] bArr, int i2) throws IOException;
+
+    public byte[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f70343i : (byte[]) invokeV.objValue;
     }
 
-    public abstract void f(byte[] bArr, int i2) throws IOException;
-
-    public byte[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69889i : (byte[]) invokeV.objValue;
-    }
-
-    public final void h() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            byte[] bArr = this.f69889i;
+            byte[] bArr = this.f70343i;
             if (bArr == null) {
-                this.f69889i = new byte[16384];
+                this.f70343i = new byte[16384];
             } else if (bArr.length < this.j + 16384) {
-                this.f69889i = Arrays.copyOf(bArr, bArr.length + 16384);
+                this.f70343i = Arrays.copyOf(bArr, bArr.length + 16384);
             }
         }
     }

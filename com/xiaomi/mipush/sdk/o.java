@@ -38,19 +38,19 @@ public class o {
         }
         if ((context instanceof Activity) && intent != null) {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f40056a;
+            ecVar = ec.f40328a;
         } else if (!(context instanceof Service) || intent == null) {
             if (uri == null || TextUtils.isEmpty(uri.toString())) {
                 return;
             }
-            ea.a(context.getApplicationContext()).a(ec.f40059d, context, (Intent) null, uri.toString());
+            ea.a(context.getApplicationContext()).a(ec.f40331d, context, (Intent) null, uri.toString());
             return;
         } else if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f40058c;
+            ecVar = ec.f40330c;
         } else {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f40057b;
+            ecVar = ec.f40329b;
         }
         a2.a(ecVar, context, intent, (String) null);
     }

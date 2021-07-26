@@ -77,7 +77,7 @@ public class UMHGuideGroup extends BaseItemLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ UMHGuideGroup f25264a;
+                public final /* synthetic */ UMHGuideGroup f25422a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,14 +94,14 @@ public class UMHGuideGroup extends BaseItemLayout {
                             return;
                         }
                     }
-                    this.f25264a = this;
+                    this.f25422a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f25264a.getWalletInterface().jump(this.f25264a.mConfigData.stat != null ? this.f25264a.mConfigData.stat.getName() : this.f25264a.mConfigData.getGroup_name(), this.f25264a.mConfigData.getGroup_type(), this.f25264a.mConfigData.getGroup_link(), this.f25264a.mConfigData.getGroup_prevlogin());
+                        this.f25422a.getWalletInterface().jump(this.f25422a.mConfigData.stat != null ? this.f25422a.mConfigData.stat.getName() : this.f25422a.mConfigData.getGroup_name(), this.f25422a.mConfigData.getGroup_type(), this.f25422a.mConfigData.getGroup_link(), this.f25422a.mConfigData.getGroup_prevlogin());
                     }
                 }
             });

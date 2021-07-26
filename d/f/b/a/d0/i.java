@@ -18,19 +18,19 @@ public final class i implements l, h.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Uri f69806e;
+    public final Uri f70260e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.a f69807f;
+    public final e.a f70261f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.f.b.a.a0.h f69808g;
+    public final d.f.b.a.a0.h f70262g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f69809h;
+    public final int f70263h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Handler f69810i;
+    public final Handler f70264i;
     public final a j;
     public final String k;
     public final int l;
@@ -99,8 +99,8 @@ public final class i implements l, h.f {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bVar, bVar2)) == null) {
-            d.f.b.a.i0.a.a(bVar.f69812a == 0);
-            return new h(this.f69806e, this.f69807f.a(), this.f69808g.a(), this.f69809h, this.f69810i, this.j, this, bVar2, this.k, this.l);
+            d.f.b.a.i0.a.a(bVar.f70266a == 0);
+            return new h(this.f70260e, this.f70261f.a(), this.f70262g.a(), this.f70263h, this.f70264i, this.j, this, bVar2, this.k, this.l);
         }
         return (k) invokeLL.objValue;
     }
@@ -166,11 +166,11 @@ public final class i implements l, h.f {
                 return;
             }
         }
-        this.f69806e = uri;
-        this.f69807f = aVar;
-        this.f69808g = hVar;
-        this.f69809h = i2;
-        this.f69810i = handler;
+        this.f70260e = uri;
+        this.f70261f = aVar;
+        this.f70262g = hVar;
+        this.f70263h = i2;
+        this.f70264i = handler;
         this.j = aVar2;
         this.k = str;
         this.l = i3;

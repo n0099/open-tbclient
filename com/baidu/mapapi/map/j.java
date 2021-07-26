@@ -10,16 +10,16 @@ public class j implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f7174a;
+    public final /* synthetic */ int f7200a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f7175b;
+    public final /* synthetic */ int f7201b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f7176c;
+    public final /* synthetic */ int f7202c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ HeatMap f7177d;
+    public final /* synthetic */ HeatMap f7203d;
 
     public j(HeatMap heatMap, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -36,17 +36,17 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f7177d = heatMap;
-        this.f7174a = i2;
-        this.f7175b = i3;
-        this.f7176c = i4;
+        this.f7203d = heatMap;
+        this.f7200a = i2;
+        this.f7201b = i3;
+        this.f7202c = i4;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f7177d.b(this.f7174a, this.f7175b, this.f7176c);
+            this.f7203d.b(this.f7200a, this.f7201b, this.f7202c);
         }
     }
 }

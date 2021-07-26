@@ -16,7 +16,7 @@ public final class w extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f40710a;
+    public final /* synthetic */ ib f40982a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ XMPushService f980a;
@@ -25,7 +25,7 @@ public final class w extends XMPushService.i {
     public final /* synthetic */ String f981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40711b;
+    public final /* synthetic */ String f40983b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(int i2, XMPushService xMPushService, ib ibVar, String str, String str2) {
@@ -46,9 +46,9 @@ public final class w extends XMPushService.i {
             }
         }
         this.f980a = xMPushService;
-        this.f40710a = ibVar;
+        this.f40982a = ibVar;
         this.f981a = str;
-        this.f40711b = str2;
+        this.f40983b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -63,9 +63,9 @@ public final class w extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ib a2 = q.a((Context) this.f980a, this.f40710a);
+                ib a2 = q.a((Context) this.f980a, this.f40982a);
                 a2.f632a.a("error", this.f981a);
-                a2.f632a.a("reason", this.f40711b);
+                a2.f632a.a("reason", this.f40983b);
                 y.a(this.f980a, a2);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

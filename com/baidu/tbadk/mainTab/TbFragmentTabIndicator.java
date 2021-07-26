@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.b;
+import d.a.d.e.m.b;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes3.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
@@ -23,19 +23,19 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13110e;
+    public boolean f13159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13111f;
+    public float f13160f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13112g;
+    public float f13161g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13113h;
+    public int f13162h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13114i;
+    public int f13163i;
     public ThemeColorInfo j;
 
     /* loaded from: classes3.dex */
@@ -44,22 +44,22 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f13115a;
+        public View f13164a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f13116b;
+        public boolean f13165b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f13117c;
+        public int f13166c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f13118d;
+        public int f13167d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13119e;
+        public int f13168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f13120f;
+        public TbFragmentTabIndicator f13169f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -74,8 +74,8 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                     return;
                 }
             }
-            this.f13116b = true;
-            this.f13119e = R.color.common_color_10225;
+            this.f13165b = true;
+            this.f13168e = R.color.common_color_10225;
         }
 
         public final int a(TextView textView) {
@@ -85,7 +85,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if (textView == null) {
                     return -1;
                 }
-                String charSequence = ((TextView) this.f13115a).getText().toString();
+                String charSequence = ((TextView) this.f13164a).getText().toString();
                 if ("   ".equals(charSequence)) {
                     return 100;
                 }
@@ -97,26 +97,26 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                int i3 = this.f13118d;
+                int i3 = this.f13167d;
                 if (i3 != 0) {
-                    SkinManager.setBackgroundResource(this.f13115a, i3);
+                    SkinManager.setBackgroundResource(this.f13164a, i3);
                 }
-                View view = this.f13115a;
+                View view = this.f13164a;
                 if (view instanceof TextView) {
-                    int i4 = this.f13119e;
+                    int i4 = this.f13168e;
                     if (i4 != 0) {
                         SkinManager.setViewTextColor(view, i4, 1);
                     }
-                    int a2 = a((TextView) this.f13115a);
+                    int a2 = a((TextView) this.f13164a);
                     if (a2 > 0 && a2 < 10) {
-                        SkinManager.setBackgroundResource(this.f13115a, R.drawable.icon_news_head_prompt_one);
+                        SkinManager.setBackgroundResource(this.f13164a, R.drawable.icon_news_head_prompt_one);
                     } else if (a2 >= 10 && a2 < 100) {
-                        SkinManager.setBackgroundResource(this.f13115a, R.drawable.icon_news_head_prompt_two);
+                        SkinManager.setBackgroundResource(this.f13164a, R.drawable.icon_news_head_prompt_two);
                     } else if (a2 >= 100) {
-                        SkinManager.setBackgroundResource(this.f13115a, R.drawable.icon_news_head_prompt_more);
+                        SkinManager.setBackgroundResource(this.f13164a, R.drawable.icon_news_head_prompt_more);
                     }
                 }
-                View view2 = this.f13115a;
+                View view2 = this.f13164a;
                 if (view2 instanceof MessageRedDotView) {
                     ((MessageRedDotView) view2).e();
                 }
@@ -142,11 +142,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 return;
             }
         }
-        this.f13110e = false;
-        this.f13111f = 0.0f;
-        this.f13112g = 0.0f;
-        this.f13113h = 0;
-        this.f13114i = 0;
+        this.f13159e = false;
+        this.f13160f = 0.0f;
+        this.f13161g = 0.0f;
+        this.f13162h = 0;
+        this.f13163i = 0;
     }
 
     public void a(String str, a aVar) {
@@ -224,28 +224,28 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setContentDefaultTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f13114i = i2;
+            this.f13163i = i2;
         }
     }
 
     public void setContentDefaultTextSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            this.f13112g = f2;
+            this.f13161g = f2;
         }
     }
 
     public void setContentSelectTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f13113h = i2;
+            this.f13162h = i2;
         }
     }
 
     public void setContentSelectTextSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.f13111f = f2;
+            this.f13160f = f2;
         }
     }
 
@@ -276,7 +276,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setIsContentSelectBold(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f13110e = z;
+            this.f13159e = z;
         }
     }
 
@@ -342,11 +342,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 return;
             }
         }
-        this.f13110e = false;
-        this.f13111f = 0.0f;
-        this.f13112g = 0.0f;
-        this.f13113h = 0;
-        this.f13114i = 0;
+        this.f13159e = false;
+        this.f13160f = 0.0f;
+        this.f13161g = 0.0f;
+        this.f13162h = 0;
+        this.f13163i = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -368,10 +368,10 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 return;
             }
         }
-        this.f13110e = false;
-        this.f13111f = 0.0f;
-        this.f13112g = 0.0f;
-        this.f13113h = 0;
-        this.f13114i = 0;
+        this.f13159e = false;
+        this.f13160f = 0.0f;
+        this.f13161g = 0.0f;
+        this.f13162h = 0;
+        this.f13163i = 0;
     }
 }

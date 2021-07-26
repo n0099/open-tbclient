@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.c.k.e.n;
-import d.a.p0.e1.g.e.a;
-import d.a.p0.e1.g.h.c;
+import d.a.d.k.e.n;
+import d.a.q0.e1.g.e.a;
+import d.a.q0.e1.g.h.c;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
@@ -38,7 +38,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
         }
     }
 
-    @Override // d.a.p0.e1.g.e.a
+    @Override // d.a.q0.e1.g.e.a
     public List<n> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

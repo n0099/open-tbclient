@@ -17,10 +17,10 @@ public abstract class k0<SERVICE> implements v0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f68794a;
+    public final String f69248a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j0<Boolean> f68795b;
+    public j0<Boolean> f69249b;
 
     /* loaded from: classes8.dex */
     public class a extends j0<Boolean> {
@@ -28,7 +28,7 @@ public abstract class k0<SERVICE> implements v0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ k0 f68796b;
+        public final /* synthetic */ k0 f69250b;
 
         public a(k0 k0Var) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public abstract class k0<SERVICE> implements v0 {
                     return;
                 }
             }
-            this.f68796b = k0Var;
+            this.f69250b = k0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public abstract class k0<SERVICE> implements v0 {
         public Boolean a(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) ? Boolean.valueOf(p0.b((Context) objArr[0], this.f68796b.f68794a)) : (Boolean) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) ? Boolean.valueOf(p0.b((Context) objArr[0], this.f69250b.f69248a)) : (Boolean) invokeL.objValue;
         }
     }
 
@@ -73,8 +73,8 @@ public abstract class k0<SERVICE> implements v0 {
                 return;
             }
         }
-        this.f68795b = new a(this);
-        this.f68794a = str;
+        this.f69249b = new a(this);
+        this.f69248a = str;
     }
 
     @Override // d.b.a.v0
@@ -85,7 +85,7 @@ public abstract class k0<SERVICE> implements v0 {
             if (context == null) {
                 return false;
             }
-            return this.f68795b.b(context).booleanValue();
+            return this.f69249b.b(context).booleanValue();
         }
         return invokeL.booleanValue;
     }
@@ -109,7 +109,7 @@ public abstract class k0<SERVICE> implements v0 {
                 return null;
             }
             v0.a aVar = new v0.a();
-            aVar.f68867a = str;
+            aVar.f69321a = str;
             return aVar;
         }
         return (v0.a) invokeL.objValue;

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.n.a;
+import d.a.d.e.n.a;
 /* loaded from: classes.dex */
 public class AlaRefreshScoreModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;

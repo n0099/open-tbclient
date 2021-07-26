@@ -20,10 +20,10 @@ public class o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f28039a = false;
+    public static boolean f28137a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f28040b = "VNetLog";
+    public static String f28138b = "VNetLog";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,34 +39,34 @@ public class o {
                 return;
             }
         }
-        f28039a = Log.isLoggable("VNetLog", 2);
+        f28137a = Log.isLoggable("VNetLog", 2);
     }
 
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && f28039a) {
-            Log.v(f28040b, e(str, objArr));
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && f28137a) {
+            Log.v(f28138b, e(str, objArr));
         }
     }
 
     public static void b(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) {
-            Log.d(f28040b, e(str, objArr));
+            Log.d(f28138b, e(str, objArr));
         }
     }
 
     public static void c(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, objArr) == null) {
-            Log.e(f28040b, e(str, objArr));
+            Log.e(f28138b, e(str, objArr));
         }
     }
 
     public static void d(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, objArr) == null) {
-            Log.wtf(f28040b, e(str, objArr));
+            Log.wtf(f28138b, e(str, objArr));
         }
     }
 
@@ -101,7 +101,7 @@ public class o {
     public static void a(Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, th, str, objArr) == null) {
-            Log.e(f28040b, e(str, objArr), th);
+            Log.e(f28138b, e(str, objArr), th);
         }
     }
 
@@ -110,31 +110,31 @@ public class o {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f28041a;
+        public static final boolean f28139a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<C0315a> f28042b;
+        public final List<C0316a> f28140b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f28043c;
+        public boolean f28141c;
 
         /* renamed from: com.bytedance.sdk.component.adnet.core.o$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0315a {
+        public static class C0316a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f28044a;
+            public final String f28142a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f28045b;
+            public final long f28143b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final long f28046c;
+            public final long f28144c;
 
-            public C0315a(String str, long j, long j2) {
+            public C0316a(String str, long j, long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,9 +149,9 @@ public class o {
                         return;
                     }
                 }
-                this.f28044a = str;
-                this.f28045b = j;
-                this.f28046c = j2;
+                this.f28142a = str;
+                this.f28143b = j;
+                this.f28144c = j2;
             }
         }
 
@@ -168,7 +168,7 @@ public class o {
                     return;
                 }
             }
-            f28041a = o.f28039a;
+            f28139a = o.f28137a;
         }
 
         public a() {
@@ -184,16 +184,16 @@ public class o {
                     return;
                 }
             }
-            this.f28042b = new ArrayList();
-            this.f28043c = false;
+            this.f28140b = new ArrayList();
+            this.f28141c = false;
         }
 
         public synchronized void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
                 synchronized (this) {
-                    if (!this.f28043c) {
-                        this.f28042b.add(new C0315a(str, j, SystemClock.elapsedRealtime()));
+                    if (!this.f28141c) {
+                        this.f28140b.add(new C0316a(str, j, SystemClock.elapsedRealtime()));
                     } else {
                         throw new IllegalStateException("Marker added to finished log");
                     }
@@ -203,7 +203,7 @@ public class o {
 
         public void finalize() throws Throwable {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f28043c) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f28141c) {
                 return;
             }
             a("Request on the loose");
@@ -214,16 +214,16 @@ public class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 synchronized (this) {
-                    this.f28043c = true;
+                    this.f28141c = true;
                     long a2 = a();
                     if (a2 <= 0) {
                         return;
                     }
-                    long j = this.f28042b.get(0).f28046c;
+                    long j = this.f28140b.get(0).f28144c;
                     o.b("(%-4d ms) %s", Long.valueOf(a2), str);
-                    for (C0315a c0315a : this.f28042b) {
-                        long j2 = c0315a.f28046c;
-                        o.b("(+%-4d) [%2d] %s", Long.valueOf(j2 - j), Long.valueOf(c0315a.f28045b), c0315a.f28044a);
+                    for (C0316a c0316a : this.f28140b) {
+                        long j2 = c0316a.f28144c;
+                        o.b("(+%-4d) [%2d] %s", Long.valueOf(j2 - j), Long.valueOf(c0316a.f28143b), c0316a.f28142a);
                         j = j2;
                     }
                 }
@@ -234,12 +234,12 @@ public class o {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                if (this.f28042b.size() == 0) {
+                if (this.f28140b.size() == 0) {
                     return 0L;
                 }
-                long j = this.f28042b.get(0).f28046c;
-                List<C0315a> list = this.f28042b;
-                return list.get(list.size() - 1).f28046c - j;
+                long j = this.f28140b.get(0).f28144c;
+                List<C0316a> list = this.f28140b;
+                return list.get(list.size() - 1).f28144c - j;
             }
             return invokeV.longValue;
         }

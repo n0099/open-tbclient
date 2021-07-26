@@ -15,11 +15,11 @@ public class z1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile z1 f73153b;
+    public static volatile z1 f73607b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f73154a;
+    public Throwable f73608a;
 
     public z1() {
         Interceptable interceptable = $ic;
@@ -34,30 +34,43 @@ public class z1 {
                 return;
             }
         }
-        this.f73154a = null;
+        this.f73608a = null;
     }
 
-    public static z1 b() {
+    public static z1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f73153b == null) {
+            if (f73607b == null) {
                 synchronized (z1.class) {
-                    if (f73153b == null) {
-                        f73153b = new z1();
+                    if (f73607b == null) {
+                        f73607b = new z1();
                     }
                 }
             }
-            return f73153b;
+            return f73607b;
         }
         return (z1) invokeV.objValue;
     }
 
-    public List<Method> a(Class cls, String str) {
+    public synchronized Throwable a() {
+        InterceptResult invokeV;
+        Throwable th;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                th = this.f73608a;
+            }
+            return th;
+        }
+        return (Throwable) invokeV.objValue;
+    }
+
+    public List<Method> b(Class cls, String str) {
         InterceptResult invokeLL;
         Method[] declaredMethods;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, str)) == null) {
             ArrayList arrayList = new ArrayList();
             if (cls != null && !TextUtils.isEmpty(str)) {
                 for (Method method : cls.getDeclaredMethods()) {
@@ -69,18 +82,5 @@ public class z1 {
             return arrayList;
         }
         return (List) invokeLL.objValue;
-    }
-
-    public synchronized Throwable c() {
-        InterceptResult invokeV;
-        Throwable th;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                th = this.f73154a;
-            }
-            return th;
-        }
-        return (Throwable) invokeV.objValue;
     }
 }

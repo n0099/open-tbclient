@@ -26,31 +26,31 @@ public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5331a = "cu";
+    public static final String f5357a = "cu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5332b = "cu2";
+    public static final String f5358b = "cu2";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5333c = "ua";
+    public static final String f5359c = "ua";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5334d = "op";
+    public static final String f5360d = "op";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5335e = "bs";
+    public static final String f5361e = "bs";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5336f = "bk";
+    public static final String f5362f = "bk";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5337g = "lc";
+    public static final String f5363g = "lc";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5338h = "sd";
+    public static final String f5364h = "sd";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5339i = "j";
+    public static final String f5365i = "j";
     public transient /* synthetic */ FieldHolder $fh;
     public Pattern j;
 
@@ -59,7 +59,7 @@ public class j {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static j f5340a;
+        public static j f5366a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -75,7 +75,7 @@ public class j {
                     return;
                 }
             }
-            f5340a = new j(null);
+            f5366a = new j(null);
         }
 
         public a() {
@@ -115,7 +115,7 @@ public class j {
     public static j c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f5340a : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f5366a : (j) invokeV.objValue;
     }
 
     private String d(Context context) {
@@ -205,7 +205,7 @@ public class j {
             try {
                 return new JSONObject().toString();
             } catch (Throwable th) {
-                LogUtil.d(f5339i, th.toString());
+                LogUtil.d(f5365i, th.toString());
                 return null;
             }
         }

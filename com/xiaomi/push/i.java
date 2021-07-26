@@ -31,7 +31,7 @@ public class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40374a = null;
+    public static String f40646a = null;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile boolean f616a = false;
@@ -40,22 +40,22 @@ public class i {
     public static final String[] f617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40375b = null;
+    public static String f40647b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40376c = "";
+    public static String f40648c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40377d;
+    public static String f40649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f40378e;
+    public static String f40650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f40379f;
+    public static final String f40651f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f40380g;
+    public static String f40652g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -71,9 +71,9 @@ public class i {
                 return;
             }
         }
-        f40379f = String.valueOf((char) 2);
+        f40651f = String.valueOf((char) 2);
         f617a = new String[]{"--", "a-", "u-", "v-", "o-", "g-"};
-        f40380g = null;
+        f40652g = null;
         f616a = false;
     }
 
@@ -198,7 +198,7 @@ public class i {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65545, null, context, z)) == null) {
-            if (f40377d == null) {
+            if (f40649d == null) {
                 String e2 = e(context);
                 String f2 = !l.d() ? z ? f(context) : o(context) : "";
                 String d2 = d(context);
@@ -228,13 +228,13 @@ public class i {
                 }
                 com.xiaomi.channel.commonutils.logger.b.b("devid rule select:" + i2);
                 if (i2 == 3) {
-                    f40377d = e2;
+                    f40649d = e2;
                 } else {
-                    f40377d = m436a(i2) + bm.b(e2);
+                    f40649d = m436a(i2) + bm.b(e2);
                 }
-                b(context, f40377d);
+                b(context, f40649d);
             }
-            return f40377d;
+            return f40649d;
         }
         return (String) invokeLZ.objValue;
     }
@@ -247,7 +247,7 @@ public class i {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            f40380g = str;
+            f40652g = str;
             u uVar = null;
             try {
                 try {
@@ -259,9 +259,9 @@ public class i {
                         File file2 = new File(file, ".vdevid");
                         uVar = u.a(context, file2);
                         y.m642a(file2);
-                        y.a(file2, f40380g);
+                        y.a(file2, f40652g);
                     }
-                    y.a(new File(context.getFilesDir(), ".vdevid"), f40380g);
+                    y.a(new File(context.getFilesDir(), ".vdevid"), f40652g);
                     if (uVar == null) {
                         return;
                     }
@@ -396,20 +396,20 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
             u uVar = null;
             if (m442c(context)) {
-                if (TextUtils.isEmpty(f40380g)) {
+                if (TextUtils.isEmpty(f40652g)) {
                     String a2 = y.a(new File(context.getFilesDir(), ".vdevid"));
-                    f40380g = a2;
+                    f40652g = a2;
                     try {
                         if (TextUtils.isEmpty(a2)) {
                             try {
                                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), ".vdevid");
                                 uVar = u.a(context, file);
-                                f40380g = "";
+                                f40652g = "";
                                 String a3 = y.a(file);
                                 if (a3 != null) {
-                                    f40380g = a3;
+                                    f40652g = a3;
                                 }
-                                String str = f40380g;
+                                String str = f40652g;
                                 if (uVar != null) {
                                     uVar.a();
                                 }
@@ -419,10 +419,10 @@ public class i {
                                 if (uVar != null) {
                                     uVar.a();
                                 }
-                                return f40380g;
+                                return f40652g;
                             }
                         }
-                        return f40380g;
+                        return f40652g;
                     } catch (Throwable th) {
                         if (uVar != null) {
                             uVar.a();
@@ -430,7 +430,7 @@ public class i {
                         throw th;
                     }
                 }
-                return f40380g;
+                return f40652g;
             }
             return null;
         }
@@ -460,7 +460,7 @@ public class i {
                         }
                         uVar = u.a(context, file2);
                         y.m642a(file2);
-                        y.a(file2, f40377d + f40379f + a(f40377d));
+                        y.a(file2, f40649d + f40651f + a(f40649d));
                         com.xiaomi.channel.commonutils.logger.b.b("lvdd write succ.");
                     } else {
                         com.xiaomi.channel.commonutils.logger.b.m70a("not support write lvdd.");
@@ -588,7 +588,7 @@ public class i {
                 com.xiaomi.channel.commonutils.logger.b.m70a("empty local vid");
                 return "F*";
             }
-            f40380g = a2;
+            f40652g = a2;
             if (TextUtils.isEmpty(str) || str.length() > 128) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("recover vid :" + str);
                 a(context, a2);
@@ -596,7 +596,7 @@ public class i {
                 com.xiaomi.channel.commonutils.logger.b.m70a("vid changed, need sync");
                 return str;
             }
-            com.xiaomi.channel.commonutils.logger.b.c("vdevid = " + f40380g + " " + str);
+            com.xiaomi.channel.commonutils.logger.b.c("vdevid = " + f40652g + " " + str);
             return null;
         }
         return (String) invokeL.objValue;
@@ -666,16 +666,16 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
-            String str = f40375b;
+            String str = f40647b;
             if (str != null) {
                 return str;
             }
             try {
-                f40375b = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                f40647b = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
             } catch (Throwable th) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("failure to get androidId: " + th);
             }
-            return f40375b;
+            return f40647b;
         }
         return (String) invokeL.objValue;
     }
@@ -714,7 +714,7 @@ public class i {
             if (l.d()) {
                 return "";
             }
-            String str2 = f40374a;
+            String str2 = f40646a;
             if (str2 != null) {
                 return str2;
             }
@@ -738,7 +738,7 @@ public class i {
                     str = null;
                 }
                 if (c(str)) {
-                    f40374a = str;
+                    f40646a = str;
                     return str;
                 }
                 return "";
@@ -779,9 +779,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
             if (!l.d() && Build.VERSION.SDK_INT >= 22) {
-                if (TextUtils.isEmpty(f40376c)) {
+                if (TextUtils.isEmpty(f40648c)) {
                     g(context);
-                    if (TextUtils.isEmpty(f40374a)) {
+                    if (TextUtils.isEmpty(f40646a)) {
                         return "";
                     }
                     try {
@@ -799,20 +799,20 @@ public class i {
                                         if (2 == telephonyManager.getPhoneType()) {
                                             a2 = bh.a((Object) telephonyManager, "getMeid", Integer.valueOf(i2));
                                         }
-                                        if (!TextUtils.isEmpty(str) && !TextUtils.equals(f40374a, str) && c(str)) {
-                                            f40376c += str + ",";
+                                        if (!TextUtils.isEmpty(str) && !TextUtils.equals(f40646a, str) && c(str)) {
+                                            f40648c += str + ",";
                                         }
                                     }
                                     str = (String) a2;
                                     if (!TextUtils.isEmpty(str)) {
-                                        f40376c += str + ",";
+                                        f40648c += str + ",";
                                     }
                                 }
-                                int length = f40376c.length();
+                                int length = f40648c.length();
                                 if (length > 0) {
-                                    f40376c = f40376c.substring(0, length - 1);
+                                    f40648c = f40648c.substring(0, length - 1);
                                 }
-                                return f40376c;
+                                return f40648c;
                             }
                         }
                         return "";
@@ -821,7 +821,7 @@ public class i {
                         return "";
                     }
                 }
-                return f40376c;
+                return f40648c;
             }
             return "";
         }
@@ -834,10 +834,10 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
             i(context);
             String str = "";
-            if (TextUtils.isEmpty(f40376c)) {
+            if (TextUtils.isEmpty(f40648c)) {
                 return "";
             }
-            for (String str2 : f40376c.split(",")) {
+            for (String str2 : f40648c.split(",")) {
                 if (c(str2)) {
                     str = str + bm.a(str2) + ",";
                 }
@@ -853,13 +853,13 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
             synchronized (i.class) {
-                if (f40378e != null) {
-                    return f40378e;
+                if (f40650e != null) {
+                    return f40650e;
                 }
                 String e2 = e(context);
                 String d2 = d(context);
                 String b2 = bm.b(e2 + d2);
-                f40378e = b2;
+                f40650e = b2;
                 return b2;
             }
         }
@@ -929,7 +929,7 @@ public class i {
                         try {
                             String a3 = y.a(file);
                             if (!TextUtils.isEmpty(a3)) {
-                                String[] split = a3.split(f40379f);
+                                String[] split = a3.split(f40651f);
                                 if (split.length == 2) {
                                     String str3 = split[0];
                                     try {

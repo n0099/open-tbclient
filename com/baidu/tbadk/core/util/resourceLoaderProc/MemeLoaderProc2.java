@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.a.d;
-import d.a.c.e.a.f.c;
-import d.a.c.e.l.b;
-import d.a.c.e.l.e;
-import d.a.c.e.p.j;
-import d.a.c.e.p.l;
-import d.a.c.k.d.a;
-import d.a.o0.r.k;
+import d.a.d.e.a.d;
+import d.a.d.e.a.f.c;
+import d.a.d.e.l.b;
+import d.a.d.e.l.e;
+import d.a.d.e.p.j;
+import d.a.d.e.p.l;
+import d.a.d.k.d.a;
+import d.a.p0.s.k;
 /* loaded from: classes3.dex */
 public class MemeLoaderProc2 implements e<a> {
     public static /* synthetic */ Interceptable $ic;
@@ -84,14 +84,14 @@ public class MemeLoaderProc2 implements e<a> {
         return (a) invokeLL.objValue;
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ImageLoadSpeedRecorder.sharedInstance().getAsyncTaskParallel() : (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class MemeLoaderProc2 implements e<a> {
         return invokeV.intValue;
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class MemeLoaderProc2 implements e<a> {
                     if (bVar != null) {
                         DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                         diskCancelWorker.setOperate(cVar);
-                        bVar.f41276a = diskCancelWorker;
+                        bVar.f41780a = diskCancelWorker;
                     }
                 }
             }
@@ -149,7 +149,7 @@ public class MemeLoaderProc2 implements e<a> {
         }
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && obj != null && (obj instanceof a)) {
@@ -157,14 +157,14 @@ public class MemeLoaderProc2 implements e<a> {
             if (aVar.u()) {
                 aVar.A(i2);
                 aVar.z(i3);
-                d.a.o0.a0.c.k().d(str, aVar);
+                d.a.p0.b0.c.k().d(str, aVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class MemeLoaderProc2 implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(cVar);
-                bVar.f41276a = diskCancelWorker;
+                bVar.f41780a = diskCancelWorker;
             }
             if (d.g().a(cVar)) {
                 int i4 = j.H() ? 300 : 2000;
@@ -202,12 +202,12 @@ public class MemeLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
-            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, d.a.o0.a0.c.k().m(str), i2, i3);
+            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, d.a.p0.b0.c.k().m(str), i2, i3);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
@@ -218,7 +218,7 @@ public class MemeLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         int lastIndexOf;
@@ -245,12 +245,12 @@ public class MemeLoaderProc2 implements e<a> {
             String str4 = str3;
             WebClient webClient = new WebClient();
             if (bVar != null) {
-                bVar.f41276a = webClient;
+                bVar.f41780a = webClient;
             }
             byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
             boolean needCache = webClient.needCache();
-            if (downloadImageBytes != null || webClient.getResponse().f41222a) {
-                d.a.o0.a0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
+            if (downloadImageBytes != null || webClient.getResponse().f41726a) {
+                d.a.p0.b0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
                 return storeBitmap(str4, str2, bVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), e2, e3), (webClient.isGif || l.B(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
             }
             return null;

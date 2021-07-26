@@ -1,55 +1,71 @@
 package com.win.opensdk;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.concurrent.Executors;
 /* loaded from: classes6.dex */
-public class H1 implements X1 {
+public class H1 {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ I1 f39370a;
+    public static HashMap f39583a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public H1(I1 i1) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {i1};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1639739002, "Lcom/win/opensdk/H1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1639739002, "Lcom/win/opensdk/H1;");
                 return;
             }
         }
-        this.f39370a = i1;
+        Executors.newFixedThreadPool(1);
+        f39583a = new HashMap();
     }
 
-    @Override // com.win.opensdk.X1
-    public void a() {
+    public static synchronized void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            synchronized (H1.class) {
+                f39583a.remove(str);
+            }
         }
     }
 
-    @Override // com.win.opensdk.X1
-    public void onLoaded() {
+    public static synchronized void a(String str, G1 g1) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f39370a.k.removeMessages(11);
-            this.f39370a.f39376c = true;
-            x0.a(this.f39370a.f39375b).a(new y0(this.f39370a.f39379f), 200, System.currentTimeMillis() - this.f39370a.j).a();
-            I1 i1 = this.f39370a;
-            if (i1.f39378e) {
-                return;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, g1) == null) {
+            synchronized (H1.class) {
+                HashSet hashSet = (HashSet) f39583a.get(str);
+                if (hashSet == null) {
+                    hashSet = new HashSet();
+                    f39583a.put(str, hashSet);
+                }
+                hashSet.add(g1);
             }
-            i1.f39381h.onLoaded();
+        }
+    }
+
+    public static void a(String str, String str2, Object obj) {
+        HashSet hashSet;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || (hashSet = (HashSet) f39583a.get(str)) == null || hashSet.size() <= 0) {
+            return;
+        }
+        Iterator it = hashSet.iterator();
+        while (it.hasNext()) {
+            ((G1) it.next()).a(str, str2, obj);
         }
     }
 }

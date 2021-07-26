@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.k;
+import d.a.o0.a.k;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
 public final class ResType {
@@ -86,7 +86,7 @@ public final class ResType {
                 }
                 i2++;
             }
-            if (k.f45831a) {
+            if (k.f46335a) {
                 Log.d("ResType", "res type - " + resType.name());
             }
             return resType;

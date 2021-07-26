@@ -25,31 +25,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1538a;
+    public String f1571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1539b;
+    public String f1572b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1540c;
+    public String f1573c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1541d;
+    public String f1574d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1542e;
+    public String f1575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1543f;
+    public String f1576f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1544g;
+    public String f1577g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f1545h;
+    public String f1578h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f1546i;
+    public String f1579i;
     public String j;
     public String k;
     public String l;
@@ -80,20 +80,20 @@ public class b {
             }
         }
         this.t = new StringBuffer();
-        this.f1540c = "";
-        this.f1542e = "";
+        this.f1573c = "";
+        this.f1575e = "";
         this.n = "";
         this.m = "";
         this.p = "";
-        this.f1538a = "1.1";
+        this.f1571a = "1.1";
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;
-        this.f1539b = a(currentTimeMillis);
-        this.f1541d = "";
-        this.f1543f = "";
-        this.f1544g = Build.BRAND;
-        this.f1545h = Build.MODEL;
-        this.f1546i = "Android";
+        this.f1572b = a(currentTimeMillis);
+        this.f1574d = "";
+        this.f1576f = "";
+        this.f1577g = Build.BRAND;
+        this.f1578h = Build.MODEL;
+        this.f1579i = "Android";
         this.j = Build.VERSION.RELEASE;
         this.k = "SDK-JJ-v3.6.2";
         this.l = str;
@@ -128,7 +128,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f1541d = str;
+            this.f1574d = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -148,7 +148,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f1542e = str;
+            this.f1575e = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -158,7 +158,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f1543f = str;
+            this.f1576f = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -227,15 +227,15 @@ public class b {
                 this.v = currentTimeMillis;
                 this.r = currentTimeMillis - this.u;
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("v", this.f1538a);
-                jSONObject.put("t", this.f1539b);
-                jSONObject.put("tag", this.f1540c);
-                jSONObject.put("ai", this.f1541d);
-                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f1542e);
-                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f1543f);
-                jSONObject.put("br", this.f1544g);
-                jSONObject.put("ml", this.f1545h);
-                jSONObject.put(IAdRequestParam.OS, this.f1546i);
+                jSONObject.put("v", this.f1571a);
+                jSONObject.put("t", this.f1572b);
+                jSONObject.put("tag", this.f1573c);
+                jSONObject.put("ai", this.f1574d);
+                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f1575e);
+                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f1576f);
+                jSONObject.put("br", this.f1577g);
+                jSONObject.put("ml", this.f1578h);
+                jSONObject.put(IAdRequestParam.OS, this.f1579i);
                 jSONObject.put(SearchJsBridge.COOKIE_OV, this.j);
                 jSONObject.put("sv", this.k);
                 jSONObject.put("ri", this.l);

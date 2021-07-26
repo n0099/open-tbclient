@@ -28,16 +28,16 @@ public class ContactInfoPresenter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f25599a;
+    public Activity f25757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LightappBusinessClient f25600b;
+    public LightappBusinessClient f25758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25601c;
+    public int f25759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25602d;
+    public String f25760d;
 
     public ContactInfoPresenter(Activity activity, LightappBusinessClient lightappBusinessClient) {
         Interceptable interceptable = $ic;
@@ -54,35 +54,35 @@ public class ContactInfoPresenter {
                 return;
             }
         }
-        this.f25602d = "";
-        this.f25599a = activity;
-        this.f25600b = lightappBusinessClient;
-        this.f25601c = a();
+        this.f25760d = "";
+        this.f25757a = activity;
+        this.f25758b = lightappBusinessClient;
+        this.f25759c = a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f25599a = null;
-            this.f25600b = null;
+            this.f25757a = null;
+            this.f25758b = null;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ResUtils.getString(this.f25599a, "wallet_base_select_phone_fail") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ResUtils.getString(this.f25757a, "wallet_base_select_phone_fail") : (String) invokeV.objValue;
     }
 
     public void onModuleEvent(EventBus.Event event) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, event) == null) && event != null && "read_contact".equals(event.mEventKey)) {
             String str = (String) event.mEventObj;
-            LightappBusinessClient lightappBusinessClient = this.f25600b;
+            LightappBusinessClient lightappBusinessClient = this.f25758b;
             if (lightappBusinessClient != null) {
-                String[] strArr = {StringUtils.trimAll(this.f25602d), StringUtils.trimAll(str)};
-                lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f25601c + "");
+                String[] strArr = {StringUtils.trimAll(this.f25760d), StringUtils.trimAll(str)};
+                lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f25759c + "");
                 c();
             }
         }
@@ -92,10 +92,10 @@ public class ContactInfoPresenter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f25599a == null) {
+            if (this.f25757a == null) {
                 return 0;
             }
-            return ContactManager.getIContactsImpl().countOfContacts(this.f25599a);
+            return ContactManager.getIContactsImpl().countOfContacts(this.f25757a);
         }
         return invokeV.intValue;
     }
@@ -105,7 +105,7 @@ public class ContactInfoPresenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri) == null) {
             ArrayList arrayList = new ArrayList();
-            Activity activity = this.f25599a;
+            Activity activity = this.f25757a;
             if (activity == null) {
                 c();
                 return;
@@ -117,23 +117,23 @@ public class ContactInfoPresenter {
                     cursor = contentResolver.query(uri, new String[]{"data1", "display_name", "data2"}, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
                         String string = cursor.getString(cursor.getColumnIndex("data1"));
-                        this.f25602d = cursor.getString(cursor.getColumnIndex("display_name"));
+                        this.f25760d = cursor.getString(cursor.getColumnIndex("display_name"));
                         int i2 = cursor.getInt(cursor.getColumnIndex("data2"));
                         ContactInfo.Phone phone = new ContactInfo.Phone();
                         phone.number = string;
                         phone.type = i2;
                         arrayList.add(phone);
                     }
-                    a(this.f25602d, arrayList);
+                    a(this.f25760d, arrayList);
                     if (cursor == null) {
                         return;
                     }
                 } catch (Exception e2) {
                     PayStatisticsUtil.onEventWithValue("read_contact_exception", a(e2));
-                    if (this.f25600b != null) {
-                        LightappBusinessClient lightappBusinessClient = this.f25600b;
+                    if (this.f25758b != null) {
+                        LightappBusinessClient lightappBusinessClient = this.f25758b;
                         String b2 = b();
-                        lightappBusinessClient.onContactsSelected("", 1, null, b2, this.f25601c + "");
+                        lightappBusinessClient.onContactsSelected("", 1, null, b2, this.f25759c + "");
                     }
                     c();
                     if (cursor == null) {
@@ -169,13 +169,13 @@ public class ContactInfoPresenter {
     private void a(String str, List<ContactInfo.Phone> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, list) == null) {
-            PhoneNumberSelectDialog phoneNumberSelectDialog = new PhoneNumberSelectDialog(this.f25599a);
+            PhoneNumberSelectDialog phoneNumberSelectDialog = new PhoneNumberSelectDialog(this.f25757a);
             if (list != null && list.size() != 0) {
                 if (list.size() == 1) {
-                    LightappBusinessClient lightappBusinessClient = this.f25600b;
+                    LightappBusinessClient lightappBusinessClient = this.f25758b;
                     if (lightappBusinessClient != null) {
                         String[] strArr = {StringUtils.trimAll(str), StringUtils.trimAll(list.get(0).number)};
-                        lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f25601c + "");
+                        lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f25759c + "");
                     }
                     c();
                     return;
@@ -187,10 +187,10 @@ public class ContactInfoPresenter {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PhoneNumberSelectDialog f25603a;
+                    public final /* synthetic */ PhoneNumberSelectDialog f25761a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ContactInfoPresenter f25604b;
+                    public final /* synthetic */ ContactInfoPresenter f25762b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -207,16 +207,16 @@ public class ContactInfoPresenter {
                                 return;
                             }
                         }
-                        this.f25604b = this;
-                        this.f25603a = phoneNumberSelectDialog;
+                        this.f25762b = this;
+                        this.f25761a = phoneNumberSelectDialog;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f25603a.dismiss();
-                            this.f25604b.c();
+                            this.f25761a.dismiss();
+                            this.f25762b.c();
                         }
                     }
                 });
@@ -224,10 +224,10 @@ public class ContactInfoPresenter {
                 phoneNumberSelectDialog.show();
                 return;
             }
-            LightappBusinessClient lightappBusinessClient2 = this.f25600b;
+            LightappBusinessClient lightappBusinessClient2 = this.f25758b;
             if (lightappBusinessClient2 != null) {
                 String b2 = b();
-                lightappBusinessClient2.onContactsSelected("", 1, null, b2, this.f25601c + "");
+                lightappBusinessClient2.onContactsSelected("", 1, null, b2, this.f25759c + "");
             }
             c();
         }

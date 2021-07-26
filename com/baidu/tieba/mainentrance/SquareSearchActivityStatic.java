@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.mainentrance.searchSuggestList.SearchListHttpResMessage;
-import com.baidu.tieba.mainentrance.searchSuggestList.SearchListSocketResMessage;
+import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListHttpResMessage;
+import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListSocketResMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s1.f;
+import d.a.q0.s1.f;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -94,7 +94,7 @@ public class SquareSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009002, d.a.p0.h3.n0.a.k());
+                return new CustomResponsedMessage<>(2009002, d.a.q0.h3.n0.a.k());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -127,7 +127,7 @@ public class SquareSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009001, d.a.p0.h3.n0.a.m());
+                return new CustomResponsedMessage<>(2009001, d.a.q0.h3.n0.a.m());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -222,10 +222,10 @@ public class SquareSearchActivityStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015003, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        d.a.p0.h3.d0.a.b(2001190, f.class);
-        d.a.p0.h3.d0.a.b(2001191, d.a.p0.s1.e.class);
+        d.a.q0.h3.d0.a.b(2001190, f.class);
+        d.a.q0.h3.d0.a.b(2001191, d.a.q0.s1.e.class);
         e();
-        d.a.p0.h3.d0.a.f(303116, HotForumSocketResponseMessage.class, false);
+        d.a.q0.h3.d0.a.f(303116, HotForumSocketResponseMessage.class, false);
         f();
         b();
         a();
@@ -280,7 +280,7 @@ public class SquareSearchActivityStatic {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, d.a.p0.h3.d0.a.a(TbConfig.GET_HOT_FORUM_URL, 303116));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, d.a.q0.h3.d0.a.a(TbConfig.GET_HOT_FORUM_URL, 303116));
             tbHttpMessageTask.setResponsedClass(HotForumHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -289,13 +289,13 @@ public class SquareSearchActivityStatic {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            d.a.o0.v0.b bVar = new d.a.o0.v0.b(309438);
+            d.a.p0.x0.b bVar = new d.a.p0.x0.b(309438);
             bVar.setResponsedClass(SearchListSocketResMessage.class);
             bVar.g(true);
             bVar.h(false);
             bVar.f(SocketMessageTask.DupLicateMode.NONE);
             MessageManager.getInstance().registerTask(bVar);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_LIST, d.a.p0.h3.d0.a.a("c/s/searchSug", 309438));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_LIST, d.a.q0.h3.d0.a.a("c/s/searchSug", 309438));
             tbHttpMessageTask.setResponsedClass(SearchListHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

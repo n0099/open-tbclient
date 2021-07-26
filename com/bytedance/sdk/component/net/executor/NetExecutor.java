@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.net.executor;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,6 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.b.b.e;
 import com.bytedance.sdk.component.b.b.n;
 import com.bytedance.sdk.component.b.b.w;
+import com.bytedance.sdk.component.b.b.z;
 import com.bytedance.sdk.component.net.NetResponse;
 import com.bytedance.sdk.component.net.callback.NetCallback;
 import java.util.HashMap;
@@ -141,6 +143,23 @@ public abstract class NetExecutor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.url = str;
+        }
+    }
+
+    public void traverseHeadMapToRequestBuilder(z.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) || aVar == null || this.requestHeadsMap.size() <= 0) {
+            return;
+        }
+        for (Map.Entry<String, String> entry : this.requestHeadsMap.entrySet()) {
+            String key = entry.getKey();
+            if (!TextUtils.isEmpty(key)) {
+                String value = entry.getValue();
+                if (value == null) {
+                    value = "";
+                }
+                aVar.b(key, value);
+            }
         }
     }
 }

@@ -18,20 +18,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes4.dex */
 public class ProfessionDialogLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnClickListener f16233e;
+    public View.OnClickListener f16288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f16234f;
+    public View.OnClickListener f16289f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f16235g;
+    public Context f16290g;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -39,7 +39,7 @@ public class ProfessionDialogLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ProfessionDialogLayout f16236e;
+        public final /* synthetic */ ProfessionDialogLayout f16291e;
 
         public a(ProfessionDialogLayout professionDialogLayout) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class ProfessionDialogLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f16236e = professionDialogLayout;
+            this.f16291e = professionDialogLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16236e.f16234f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16291e.f16289f == null) {
                 return;
             }
-            this.f16236e.f16234f.onClick(view);
+            this.f16291e.f16289f.onClick(view);
         }
     }
 
@@ -75,7 +75,7 @@ public class ProfessionDialogLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ProfessionDialogLayout f16237e;
+        public final /* synthetic */ ProfessionDialogLayout f16292e;
 
         public b(ProfessionDialogLayout professionDialogLayout) {
             Interceptable interceptable = $ic;
@@ -92,16 +92,16 @@ public class ProfessionDialogLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f16237e = professionDialogLayout;
+            this.f16292e = professionDialogLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16237e.f16233e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16292e.f16288e == null) {
                 return;
             }
-            this.f16237e.f16233e.onClick(view);
+            this.f16292e.f16288e.onClick(view);
         }
     }
 
@@ -130,18 +130,18 @@ public class ProfessionDialogLayout extends LinearLayout {
         int k;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, tbImageView) == null) {
-            int g2 = l.g(this.f16235g, R.dimen.ds40);
-            if (UtilHelper.getRealScreenOrientation(this.f16235g) == 2) {
-                k = l.i(this.f16235g);
+            int g2 = l.g(this.f16290g, R.dimen.ds40);
+            if (UtilHelper.getRealScreenOrientation(this.f16290g) == 2) {
+                k = l.i(this.f16290g);
             } else {
-                k = l.k(this.f16235g);
+                k = l.k(this.f16290g);
             }
             int i2 = k - (g2 * 2);
             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = (i2 * 558) / 992;
             tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setRadius(l.g(this.f16235g, R.dimen.ds16));
+            tbImageView.setRadius(l.g(this.f16290g, R.dimen.ds16));
             tbImageView.setConrers(3);
             tbImageView.setIsBitmapPic(true);
         }
@@ -150,7 +150,7 @@ public class ProfessionDialogLayout extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f16235g = context;
+            this.f16290g = context;
             LayoutInflater.from(context).inflate(R.layout.profession_dialog_layout, this);
             setOrientation(1);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.img_bg);
@@ -169,14 +169,14 @@ public class ProfessionDialogLayout extends LinearLayout {
     public void setButtonClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f16233e = onClickListener;
+            this.f16288e = onClickListener;
         }
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f16234f = onClickListener;
+            this.f16289f = onClickListener;
         }
     }
 

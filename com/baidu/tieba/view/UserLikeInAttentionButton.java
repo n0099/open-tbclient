@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.f0.t.b;
+import d.a.p0.s.f0.t.b;
 /* loaded from: classes4.dex */
 public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +45,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void a(View view) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         aVar.a(view);
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -63,7 +63,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void c(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
@@ -71,14 +71,14 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void e(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -101,13 +101,13 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
+                d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
                 bVar.o(R.color.CAM_X0613, R.color.CAM_X0103);
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                d.a.o0.r.f0.n.b bVar2 = new d.a.o0.r.f0.n.b();
+                d.a.p0.s.f0.n.b bVar2 = new d.a.p0.s.f0.n.b();
                 bVar2.o(R.color.CAM_X0302, R.color.CAM_X0101);
                 setConfig(bVar2);
                 setClickable(true);
@@ -164,7 +164,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
                 return;
             }
         }
-        d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
+        d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
         bVar.o(R.color.CAM_X0302, R.color.CAM_X0101);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));

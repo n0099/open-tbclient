@@ -1,81 +1,134 @@
 package com.bytedance.sdk.component.utils;
 
-import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class t {
+public final class t {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f29011a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Resources f29012b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public t() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1410335446, "Lcom/bytedance/sdk/component/utils/t;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1410335446, "Lcom/bytedance/sdk/component/utils/t;");
         }
     }
 
-    public static Method a(String str, String str2, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, clsArr)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            try {
-                Class<?> a2 = a(str);
-                if (a2 != null) {
-                    return a2.getMethod(str2, clsArr);
-                }
-                return null;
-            } catch (Throwable th) {
-                j.a("TTClassLoader", "get method: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2, th);
-                return null;
-            }
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Class<?> a(String str) {
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                try {
-                    try {
-                        return Class.forName(str, true, a());
-                    } catch (ClassNotFoundException unused) {
-                        return Class.forName(str);
-                    }
-                } catch (ClassNotFoundException unused2) {
-                    return null;
-                }
-            } catch (ClassNotFoundException unused3) {
-                return Class.forName(str, true, t.class.getClassLoader());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (f29011a == null) {
+                f29011a = context.getPackageName();
             }
+            return f29011a;
         }
-        return (Class) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static ClassLoader a() {
-        InterceptResult invokeV;
+    public static int b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
-            return contextClassLoader == null ? t.class.getClassLoader() : contextClassLoader;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? a(context, str, "string") : invokeLL.intValue;
+    }
+
+    public static Drawable c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) ? context.getResources().getDrawable(d(context, str)) : (Drawable) invokeLL.objValue;
+    }
+
+    public static int d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) ? a(context, str, "drawable") : invokeLL.intValue;
+    }
+
+    public static int e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) ? a(context, str, "id") : invokeLL.intValue;
+    }
+
+    public static int f(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) ? a(context, str, "layout") : invokeLL.intValue;
+    }
+
+    public static int g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) ? a(context, str, "style") : invokeLL.intValue;
+    }
+
+    public static int h(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? a(context, str, "dimen") : invokeLL.intValue;
+    }
+
+    public static int i(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) ? context.getResources().getColor(j(context, str)) : invokeLL.intValue;
+    }
+
+    public static int j(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) ? a(context, str, "color") : invokeLL.intValue;
+    }
+
+    public static int k(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) ? a(context, str, "integer") : invokeLL.intValue;
+    }
+
+    public static int l(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, str)) == null) ? context.getResources().getInteger(k(context, str)) : invokeLL.intValue;
+    }
+
+    public static int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
+            if (f29012b == null) {
+                f29012b = context.getResources();
+            }
+            return f29012b.getIdentifier(str, str2, a(context));
         }
-        return (ClassLoader) invokeV.objValue;
+        return invokeLLL.intValue;
+    }
+
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) ? context.getResources().getString(b(context, str)) : (String) invokeLL.objValue;
     }
 }

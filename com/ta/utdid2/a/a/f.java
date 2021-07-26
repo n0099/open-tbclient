@@ -11,7 +11,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f38672a;
+    public static final Pattern f38844a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class f {
                 return;
             }
         }
-        f38672a = Pattern.compile("([\t\r\n])+");
+        f38844a = Pattern.compile("([\t\r\n])+");
     }
 
     public static int hashCode(String str) {

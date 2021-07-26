@@ -49,12 +49,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.c.a.g;
-import d.a.c.a.i;
-import d.a.c.h.f.a;
-import d.a.c.h.j.g.d;
-import d.a.c.k.e.q;
+import d.a.d.a.f;
+import d.a.d.a.g;
+import d.a.d.a.i;
+import d.a.d.h.f.a;
+import d.a.d.h.j.g.d;
+import d.a.d.k.e.q;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -424,7 +424,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.c.a.g
+    @Override // d.a.d.a.g
     public f getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

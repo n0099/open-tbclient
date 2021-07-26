@@ -11,7 +11,7 @@ public class iu {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final jb f40496a;
+    public final jb f40768a;
 
     /* renamed from: a  reason: collision with other field name */
     public final jk f800a;
@@ -51,7 +51,7 @@ public class iu {
         }
         jk jkVar = new jk();
         this.f800a = jkVar;
-        this.f40496a = jdVar.a(jkVar);
+        this.f40768a = jdVar.a(jkVar);
     }
 
     public void a(iq iqVar, byte[] bArr) {
@@ -59,9 +59,9 @@ public class iu {
         if (interceptable == null || interceptable.invokeLL(1048576, this, iqVar, bArr) == null) {
             try {
                 this.f800a.a(bArr);
-                iqVar.a(this.f40496a);
+                iqVar.a(this.f40768a);
             } finally {
-                this.f40496a.k();
+                this.f40768a.k();
             }
         }
     }

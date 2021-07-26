@@ -15,7 +15,7 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3537a;
+    public Context f3563a;
 
     /* renamed from: com.baidu.android.pushservice.message.a.k$1  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class k {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3538a;
+        public static final /* synthetic */ int[] f3564a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,41 +40,41 @@ public class k {
                 }
             }
             int[] iArr = new int[l.a().length];
-            f3538a = iArr;
+            f3564a = iArr;
             try {
-                iArr[l.f3540b.ordinal()] = 1;
+                iArr[l.f3566b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f3538a[l.f3541c.ordinal()] = 2;
+                f3564a[l.f3567c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f3538a[l.f3545g.ordinal()] = 3;
+                f3564a[l.f3571g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f3538a[l.f3542d.ordinal()] = 4;
+                f3564a[l.f3568d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f3538a[l.f3543e.ordinal()] = 5;
+                f3564a[l.f3569e.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f3538a[l.f3544f.ordinal()] = 6;
+                f3564a[l.f3570f.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f3538a[l.f3546h.ordinal()] = 7;
+                f3564a[l.f3572h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f3538a[l.f3547i.ordinal()] = 8;
+                f3564a[l.f3573i.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f3538a[l.j.ordinal()] = 9;
+                f3564a[l.j.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
         }
@@ -95,32 +95,32 @@ public class k {
                 return;
             }
         }
-        this.f3537a = context;
+        this.f3563a = context;
     }
 
     public d a(l lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lVar)) == null) {
-            switch (AnonymousClass1.f3538a[lVar.ordinal()]) {
+            switch (AnonymousClass1.f3564a[lVar.ordinal()]) {
                 case 1:
                 case 2:
-                    return new g(this.f3537a);
+                    return new g(this.f3563a);
                 case 3:
-                    return new h(this.f3537a);
+                    return new h(this.f3563a);
                 case 4:
                 case 5:
-                    return new i(this.f3537a);
+                    return new i(this.f3563a);
                 case 6:
-                    return new e(this.f3537a);
+                    return new e(this.f3563a);
                 case 7:
-                    return new b(this.f3537a);
+                    return new b(this.f3563a);
                 case 8:
-                    return new c(this.f3537a);
+                    return new c(this.f3563a);
                 case 9:
-                    return new a(this.f3537a);
+                    return new a(this.f3563a);
                 default:
-                    m.a(">>> Unknown msg_type : " + lVar, this.f3537a);
+                    m.a(">>> Unknown msg_type : " + lVar, this.f3563a);
                     return null;
             }
         }

@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
+import d.a.d.a.f;
 /* loaded from: classes4.dex */
 public class VoiceSendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f17665e;
+    public a f17721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f17666f;
+    public b f17722f;
 
     /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
@@ -28,16 +28,16 @@ public class VoiceSendModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17667a;
+        public String f17723a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ChatMessage f17668b;
+        public ChatMessage f17724b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.a.p0.i1.s.b f17669c;
+        public d.a.q0.i1.s.b f17725c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ VoiceSendModel f17670d;
+        public final /* synthetic */ VoiceSendModel f17726d;
 
         public a(VoiceSendModel voiceSendModel, String str, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class VoiceSendModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f17670d = voiceSendModel;
-            this.f17667a = str;
-            this.f17668b = chatMessage;
-            this.f17669c = new d.a.p0.i1.s.b();
+            this.f17726d = voiceSendModel;
+            this.f17723a = str;
+            this.f17724b = chatMessage;
+            this.f17725c = new d.a.q0.i1.s.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +67,7 @@ public class VoiceSendModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 try {
-                    return this.f17669c.a(this.f17667a);
+                    return this.f17725c.a(this.f17723a);
                 } catch (Exception unused) {
                     return null;
                 }
@@ -81,8 +81,8 @@ public class VoiceSendModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((a) str);
-                if (this.f17670d.f17666f != null) {
-                    this.f17670d.f17666f.a(str, this.f17668b);
+                if (this.f17726d.f17722f != null) {
+                    this.f17726d.f17722f.a(str, this.f17724b);
                 }
             }
         }
@@ -136,7 +136,7 @@ public class VoiceSendModel extends BdBaseModel {
     public void x(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f17666f = bVar;
+            this.f17722f = bVar;
         }
     }
 
@@ -144,7 +144,7 @@ public class VoiceSendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, chatMessage) == null) {
             a aVar = new a(this, str, chatMessage);
-            this.f17665e = aVar;
+            this.f17721e = aVar;
             aVar.execute(new Object[0]);
         }
     }

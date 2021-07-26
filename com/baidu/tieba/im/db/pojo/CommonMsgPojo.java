@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.b;
-import d.a.c.e.p.k;
-import d.a.p0.i1.s.a;
-import d.a.p0.i1.w.c;
+import d.a.d.e.m.b;
+import d.a.d.e.p.k;
+import d.a.q0.i1.s.a;
+import d.a.q0.i1.w.c;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
@@ -622,7 +622,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.f58618i);
+                this.gid = String.valueOf(a.f59232i);
             } else if (chatMessage instanceof OfficialChatMessage) {
                 this.gid = String.valueOf(a.j);
             }

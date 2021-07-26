@@ -16,10 +16,10 @@ public class ag extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f8630a;
+    public Paint f8656a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PaintFlagsDrawFilter f8631b;
+    public PaintFlagsDrawFilter f8657b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ag(Context context) {
@@ -39,18 +39,18 @@ public class ag extends TextView {
                 return;
             }
         }
-        this.f8630a = new Paint();
-        this.f8631b = new PaintFlagsDrawFilter(0, 3);
-        this.f8630a.setColor(-1);
-        this.f8630a.setAntiAlias(true);
+        this.f8656a = new Paint();
+        this.f8657b = new PaintFlagsDrawFilter(0, 3);
+        this.f8656a.setColor(-1);
+        this.f8656a.setAntiAlias(true);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.setDrawFilter(this.f8631b);
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f8630a);
+            canvas.setDrawFilter(this.f8657b);
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f8656a);
             super.draw(canvas);
         }
     }
@@ -69,7 +69,7 @@ public class ag extends TextView {
     public void setBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f8630a.setColor(i2);
+            this.f8656a.setColor(i2);
         }
     }
 }

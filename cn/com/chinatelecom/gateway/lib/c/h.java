@@ -14,7 +14,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1602a = "h";
+    public static final String f1635a = "h";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +56,7 @@ public class h {
                 jSONObject.put("msg", str);
                 return jSONObject.toString();
             } catch (Throwable th) {
-                CtAuth.warn(f1602a, "Json parse error", th);
+                CtAuth.warn(f1635a, "Json parse error", th);
                 return "";
             }
         }

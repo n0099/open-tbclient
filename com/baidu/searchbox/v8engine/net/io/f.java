@@ -12,10 +12,10 @@ public final class f {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f10227a;
+    public static e f10253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f10228b;
+    public static long f10254b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -37,11 +37,11 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (f.class) {
-                if (f10227a != null) {
-                    e eVar = f10227a;
-                    f10227a = eVar.f10225f;
-                    eVar.f10225f = null;
-                    f10228b -= 8192;
+                if (f10253a != null) {
+                    e eVar = f10253a;
+                    f10253a = eVar.f10251f;
+                    eVar.f10251f = null;
+                    f10254b -= 8192;
                     return eVar;
                 }
                 return new e();
@@ -53,19 +53,19 @@ public final class f {
     public static void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, eVar) == null) {
-            if (eVar.f10225f == null && eVar.f10226g == null) {
-                if (eVar.f10223d) {
+            if (eVar.f10251f == null && eVar.f10252g == null) {
+                if (eVar.f10249d) {
                     return;
                 }
                 synchronized (f.class) {
-                    if (f10228b + 8192 > 65536) {
+                    if (f10254b + 8192 > 65536) {
                         return;
                     }
-                    f10228b += 8192;
-                    eVar.f10225f = f10227a;
-                    eVar.f10222c = 0;
-                    eVar.f10221b = 0;
-                    f10227a = eVar;
+                    f10254b += 8192;
+                    eVar.f10251f = f10253a;
+                    eVar.f10248c = 0;
+                    eVar.f10247b = 0;
+                    f10253a = eVar;
                     return;
                 }
             }

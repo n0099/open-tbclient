@@ -58,7 +58,7 @@ public final class PackageInstallUtil {
     public static final boolean isInstallAlipay(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? isInstalled(context, n.f1995a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? isInstalled(context, n.f2028a) : invokeL.booleanValue;
     }
 
     @JvmStatic
@@ -72,7 +72,7 @@ public final class PackageInstallUtil {
     public static final boolean isInstallQQLite(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? isInstalled(context, "com.tencent.qqlite") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? isInstalled(context, Constants.PACKAGE_QQ_SPEED) : invokeL.booleanValue;
     }
 
     @JvmStatic

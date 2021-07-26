@@ -33,7 +33,7 @@ public class bs implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.c> 
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        cVar.f35124a = jSONObject.optBoolean("isEnd");
+        cVar.f35313a = jSONObject.optBoolean("isEnd");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,7 +45,7 @@ public class bs implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.c> 
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "isEnd", cVar.f35124a);
+            com.kwad.sdk.utils.q.a(jSONObject, "isEnd", cVar.f35313a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

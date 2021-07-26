@@ -1,53 +1,164 @@
 package com.bytedance.sdk.component.a;
 
+import android.webkit.WebView;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.component.a.d;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class r extends Exception {
+public class r {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27788a;
+    public static w f27940a;
+    public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
 
-    public r(int i2) {
+    /* renamed from: b  reason: collision with root package name */
+    public final a f27941b;
+    @Nullable
+
+    /* renamed from: c  reason: collision with root package name */
+    public final WebView f27942c;
+    @NonNull
+
+    /* renamed from: d  reason: collision with root package name */
+    public final j f27943d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final List<n> f27944e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public o f27945f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public volatile boolean f27946g;
+
+    public r(j jVar) {
+        w wVar;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {jVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27788a = i2;
+        this.f27944e = new ArrayList();
+        this.f27946g = false;
+        this.f27943d = jVar;
+        v a2 = (!jVar.f27922h || (wVar = f27940a) == null) ? null : wVar.a(jVar.k);
+        if (jVar.f27915a != null) {
+            a aVar = jVar.f27916b;
+            if (aVar == null) {
+                this.f27941b = new z();
+            } else {
+                this.f27941b = aVar;
+            }
+        } else {
+            this.f27941b = jVar.f27916b;
+        }
+        this.f27941b.a(jVar, a2);
+        this.f27942c = jVar.f27915a;
+        this.f27944e.add(jVar.j);
+        i.a(jVar.f27920f);
+        y.a(jVar.f27921g);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(int i2, String str) {
-        super(str);
+    public static j a(@NonNull WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webView)) == null) ? new j(webView) : (j) invokeL.objValue;
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f27946g) {
+            i.a(new IllegalStateException("JsBridge2 is already released!!!"));
+        }
+    }
+
+    @AnyThread
+    public <T> void a(@NonNull String str, @Nullable T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, t) == null) {
+            b();
+            this.f27941b.a(str, (String) t);
+        }
+    }
+
+    public r a(String str, @NonNull e<?, ?> eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, eVar)) == null) ? a(str, (String) null, eVar) : (r) invokeLL.objValue;
+    }
+
+    @NonNull
+    @UiThread
+    public r a(@NonNull String str, @Nullable String str2, @NonNull e<?, ?> eVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, eVar)) == null) {
+            b();
+            this.f27941b.f27884g.a(str, eVar);
+            o oVar = this.f27945f;
+            if (oVar != null) {
+                oVar.a(str);
+            }
+            return this;
+        }
+        return (r) invokeLLL.objValue;
+    }
+
+    public r a(String str, @NonNull d.b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bVar)) == null) ? a(str, (String) null, bVar) : (r) invokeLL.objValue;
+    }
+
+    @NonNull
+    @UiThread
+    public r a(@NonNull String str, @Nullable String str2, @NonNull d.b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, bVar)) == null) {
+            b();
+            this.f27941b.f27884g.a(str, bVar);
+            o oVar = this.f27945f;
+            if (oVar != null) {
+                oVar.a(str);
+            }
+            return this;
+        }
+        return (r) invokeLLL.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f27946g) {
+            return;
+        }
+        this.f27941b.b();
+        this.f27946g = true;
+        for (n nVar : this.f27944e) {
+            if (nVar != null) {
+                nVar.a();
             }
         }
-        this.f27788a = i2;
     }
 }

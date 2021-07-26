@@ -28,7 +28,7 @@ public interface a extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f7530a;
+            public IBinder f7556a;
 
             public C0115a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f7530a = iBinder;
+                this.f7556a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.a
@@ -57,7 +57,7 @@ public interface a extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IMapOpenService");
                         obtain.writeStrongBinder(bVar != null ? bVar.asBinder() : null);
-                        this.f7530a.transact(1, obtain, obtain2, 0);
+                        this.f7556a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -70,7 +70,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7530a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7556a : (IBinder) invokeV.objValue;
             }
         }
 

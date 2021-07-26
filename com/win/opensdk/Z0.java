@@ -1,101 +1,135 @@
 package com.win.opensdk;
 
+import android.content.Context;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import org.json.JSONStringer;
 /* loaded from: classes6.dex */
-public final class Z0 implements Runnable {
+public class Z0 {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a */
+    public static final String[] f39719a;
+
+    /* renamed from: b */
+    public static final String[] f39720b;
+
+    /* renamed from: c */
+    public static final String[] f39721c;
+
+    /* renamed from: d */
+    public static final String[] f39722d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ byte[] f39529a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1639721735, "Lcom/win/opensdk/Z0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1639721735, "Lcom/win/opensdk/Z0;");
+                return;
+            }
+        }
+        f39719a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
+        f39720b = new String[]{"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
+        f39721c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
+        f39722d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f39530b;
-
-    public Z0(byte[] bArr, String str) {
+    public Z0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f39529a = bArr;
-        this.f39530b = str;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        FileOutputStream fileOutputStream;
+    public static Y0 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.f39529a;
-            String str = this.f39530b;
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            File file = new File(str);
-            String substring = str.substring(0, str.lastIndexOf("/"));
-            if (!file.exists()) {
-                new File(substring).mkdir();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            try {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new Y0(new Z0(), context) : (Y0) invokeL.objValue;
+    }
+
+    public static /* synthetic */ JSONStringer a(String str, a1 a1Var) {
+        JSONStringer d2 = d();
+        d2.key("e").value(str).key("timeis").value(c());
+        if (a1Var != null) {
+            d2.key("pid").value(a1Var.f39726a);
+            if (a1Var.f39727b != null) {
+                JSONStringer key = d2.key("traceid");
+                String traceid = a1Var.f39727b.getTraceid();
                 try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                        return;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
+                    traceid = N.a(traceid);
+                } catch (Exception unused) {
                 }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr2 = new byte[1024];
-                while (true) {
-                    int read = byteArrayInputStream.read(bArr2);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr2, 0, read);
+                JSONStringer key2 = key.value(traceid).key(IAdRequestParam.CELL_ID);
+                String id = a1Var.f39727b.getId();
+                try {
+                    id = N.a(id);
+                } catch (Exception unused2) {
                 }
-                fileOutputStream.flush();
-                fileOutputStream.close();
-            } catch (Exception e4) {
-                e = e4;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
+                key2.value(id).key("type").value(a1Var.f39727b.getType());
             }
         }
+        return d2;
+    }
+
+    public static /* synthetic */ String b() {
+        String valueOf = String.valueOf(System.currentTimeMillis());
+        try {
+            return N.a(valueOf);
+        } catch (Exception unused) {
+            return valueOf;
+        }
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            try {
+                return N.a(valueOf);
+            } catch (Exception unused) {
+                return valueOf;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static JSONStringer d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new JSONStringer().object() : (JSONStringer) invokeV.objValue;
+    }
+
+    public static /* synthetic */ String a(String str) {
+        try {
+            return N.a(str);
+        } catch (Exception unused) {
+            return str;
+        }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.win.opensdk.Y0.a(int, long):com.win.opensdk.Y0] */
+    public static /* synthetic */ JSONStringer a() {
+        return new JSONStringer().object();
     }
 }

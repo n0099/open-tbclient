@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.o0.a.c0.b;
+import d.a.p0.a.c0.b;
 import tbclient.ActiveConfig.ActiveConfigResIdl;
 import tbclient.Error;
 /* loaded from: classes3.dex */

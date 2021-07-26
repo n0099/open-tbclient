@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a0.e0.m;
-import d.a.p0.a0.e0.n;
+import d.a.q0.a0.e0.m;
+import d.a.q0.a0.e0.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +30,10 @@ public class RecommendTopicData {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12260a;
+    public String f12290a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendTopicListData> f12261b;
+    public List<RecommendTopicListData> f12291b;
 
     /* loaded from: classes3.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
@@ -131,9 +131,9 @@ public class RecommendTopicData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 m mVar = new m();
-                mVar.f53820c = this.tag;
-                mVar.f53818a = this.topicId;
-                mVar.f53819b = this.topicName;
+                mVar.f54363c = this.tag;
+                mVar.f54361a = this.topicId;
+                mVar.f54362b = this.topicName;
                 return mVar;
             }
             return (m) invokeV.objValue;
@@ -261,7 +261,7 @@ public class RecommendTopicData {
                 return;
             }
         }
-        this.f12261b = new ArrayList();
+        this.f12291b = new ArrayList();
     }
 
     public n a() {
@@ -270,10 +270,10 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             n nVar = new n();
-            nVar.f53823g = b();
-            if (this.f12261b != null) {
+            nVar.f54366g = b();
+            if (this.f12291b != null) {
                 arrayList = new ArrayList();
-                for (RecommendTopicListData recommendTopicListData : this.f12261b) {
+                for (RecommendTopicListData recommendTopicListData : this.f12291b) {
                     if (recommendTopicListData != null) {
                         arrayList.add(recommendTopicListData.getConvertedCardData());
                     }
@@ -281,7 +281,7 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            nVar.f53824h = arrayList;
+            nVar.f54367h = arrayList;
             return nVar;
         }
         return (n) invokeV.objValue;
@@ -291,10 +291,10 @@ public class RecommendTopicData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (StringUtils.isNull(this.f12260a)) {
+            if (StringUtils.isNull(this.f12290a)) {
                 return TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title);
             }
-            return this.f12260a;
+            return this.f12290a;
         }
         return (String) invokeV.objValue;
     }
@@ -310,14 +310,14 @@ public class RecommendTopicData {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, recomTopicInfo) == null) || recomTopicInfo == null) {
             return;
         }
-        this.f12260a = recomTopicInfo.recom_title;
+        this.f12290a = recomTopicInfo.recom_title;
         if (ListUtils.getCount(recomTopicInfo.topic_list) > 0) {
             for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                 if (recomTopicList != null) {
                     RecommendTopicListData recommendTopicListData = new RecommendTopicListData();
                     recommendTopicListData.parserProtoBuf(recomTopicList);
                     if (!c(recommendTopicListData)) {
-                        this.f12261b.add(recommendTopicListData);
+                        this.f12291b.add(recommendTopicListData);
                     }
                 }
             }

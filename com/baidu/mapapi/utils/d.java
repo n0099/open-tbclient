@@ -46,22 +46,22 @@ public final class d implements ServiceConnection {
                 thread2 = b.v;
                 thread2.interrupt();
             }
-            str = b.f7502c;
+            str = b.f7528c;
             Log.d(str, "onServiceConnected " + componentName);
             try {
-                aVar2 = b.f7503d;
+                aVar2 = b.f7529d;
                 if (aVar2 != null) {
-                    com.baidu.mapframework.open.aidl.a unused = b.f7503d = null;
+                    com.baidu.mapframework.open.aidl.a unused = b.f7529d = null;
                 }
-                com.baidu.mapframework.open.aidl.a unused2 = b.f7503d = a.AbstractBinderC0114a.a(iBinder);
-                aVar3 = b.f7503d;
+                com.baidu.mapframework.open.aidl.a unused2 = b.f7529d = a.AbstractBinderC0114a.a(iBinder);
+                aVar3 = b.f7529d;
                 aVar3.a(new e(this));
             } catch (RemoteException e2) {
-                str2 = b.f7502c;
+                str2 = b.f7528c;
                 Log.d(str2, "getComOpenClient ", e2);
-                aVar = b.f7503d;
+                aVar = b.f7529d;
                 if (aVar != null) {
-                    com.baidu.mapframework.open.aidl.a unused3 = b.f7503d = null;
+                    com.baidu.mapframework.open.aidl.a unused3 = b.f7529d = null;
                 }
             }
         }
@@ -73,11 +73,11 @@ public final class d implements ServiceConnection {
         com.baidu.mapframework.open.aidl.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            str = b.f7502c;
+            str = b.f7528c;
             Log.d(str, "onServiceDisconnected " + componentName);
-            aVar = b.f7503d;
+            aVar = b.f7529d;
             if (aVar != null) {
-                com.baidu.mapframework.open.aidl.a unused = b.f7503d = null;
+                com.baidu.mapframework.open.aidl.a unused = b.f7529d = null;
                 boolean unused2 = b.u = false;
             }
         }

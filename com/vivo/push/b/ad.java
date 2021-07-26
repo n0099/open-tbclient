@@ -15,7 +15,7 @@ public final class ad extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f39067a;
+    public ArrayList<String> f39288a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(boolean z, String str, String str2, ArrayList<String> arrayList) {
@@ -36,7 +36,7 @@ public final class ad extends c {
                 return;
             }
         }
-        this.f39067a = arrayList;
+        this.f39288a = arrayList;
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
@@ -44,7 +44,7 @@ public final class ad extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a(CommandMessage.TYPE_TAGS, (Serializable) this.f39067a);
+            aVar.a(CommandMessage.TYPE_TAGS, (Serializable) this.f39288a);
         }
     }
 
@@ -53,7 +53,7 @@ public final class ad extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
-            this.f39067a = aVar.b(CommandMessage.TYPE_TAGS);
+            this.f39288a = aVar.b(CommandMessage.TYPE_TAGS);
         }
     }
 

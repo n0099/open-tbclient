@@ -16,13 +16,13 @@ public final class a0 implements v0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f68748a;
+    public static Object f69202a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f68749b;
+    public static Class<?> f69203b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f68750c;
+    public static Method f69204c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,9 +40,9 @@ public final class a0 implements v0 {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f68749b = cls;
-            f68748a = cls.newInstance();
-            f68750c = f68749b.getMethod("getOAID", Context.class);
+            f69203b = cls;
+            f69202a = cls.newInstance();
+            f69204c = f69203b.getMethod("getOAID", Context.class);
         } catch (Exception e2) {
             String str = u0.j;
             o0.g(str, "Api#static reflect exception! " + e2.getMessage());
@@ -66,7 +66,7 @@ public final class a0 implements v0 {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f68749b == null || f68748a == null || f68750c == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f69203b == null || f69202a == null || f69204c == null) ? false : true : invokeV.booleanValue;
     }
 
     @Override // d.b.a.v0
@@ -80,7 +80,7 @@ public final class a0 implements v0 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-            Object obj = f68748a;
+            Object obj = f69202a;
             if (obj == null || method == null) {
                 return null;
             }
@@ -104,7 +104,7 @@ public final class a0 implements v0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             try {
                 v0.a aVar = new v0.a();
-                aVar.f68867a = a(context, f68750c);
+                aVar.f69321a = a(context, f69204c);
                 return aVar;
             } catch (Exception e2) {
                 e2.printStackTrace();

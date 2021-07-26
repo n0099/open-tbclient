@@ -15,7 +15,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f69005a = -1;
+    public static long f69459a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -23,7 +23,7 @@ public class j {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static long f69006a = -1;
+        public static long f69460a = -1;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,10 +45,10 @@ public class j {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (j.f69005a == -1) {
-                    long unused = j.f69005a = 1000 / d();
+                if (j.f69459a == -1) {
+                    long unused = j.f69459a = 1000 / d();
                 }
-                return j.f69005a;
+                return j.f69459a;
             }
             return invokeV.longValue;
         }
@@ -58,7 +58,7 @@ public class j {
             long c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-                long j2 = f69006a;
+                long j2 = f69460a;
                 if (j2 > 0) {
                     return j2;
                 }
@@ -71,7 +71,7 @@ public class j {
                 if (c2 > 0) {
                     j = c2;
                 }
-                f69006a = j;
+                f69460a = j;
                 return j;
             }
             return invokeJ.longValue;

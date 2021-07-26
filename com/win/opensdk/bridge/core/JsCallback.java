@@ -18,10 +18,10 @@ public class JsCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference f39554a;
+    public WeakReference f39756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39555b;
+    public String f39757b;
 
     /* loaded from: classes6.dex */
     public class JsCallbackException extends Exception {
@@ -64,8 +64,8 @@ public class JsCallback {
                 return;
             }
         }
-        this.f39554a = new WeakReference(webView);
-        this.f39555b = str;
+        this.f39756a = new WeakReference(webView);
+        this.f39757b = str;
     }
 
     public static void invokeJsCallback(JsCallback jsCallback, boolean z, JSONObject jSONObject, String str) {
@@ -89,7 +89,7 @@ public class JsCallback {
     public void call(boolean z, JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), jSONObject, str}) == null) {
-            WebView webView = (WebView) this.f39554a.get();
+            WebView webView = (WebView) this.f39756a.get();
             if (webView == null) {
                 throw new JsCallbackException("The WebView related to the JsCallback has been recycled!");
             }
@@ -109,7 +109,7 @@ public class JsCallback {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f39555b, jSONObject2.toString());
+            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f39757b, jSONObject2.toString());
             if (AsyncTaskExecutor.isMainThread()) {
                 webView.loadUrl(format);
             } else {
@@ -118,10 +118,10 @@ public class JsCallback {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ WebView f39556a;
+                    public final /* synthetic */ WebView f39758a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f39557b;
+                    public final /* synthetic */ String f39759b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -138,15 +138,15 @@ public class JsCallback {
                                 return;
                             }
                         }
-                        this.f39556a = webView;
-                        this.f39557b = format;
+                        this.f39758a = webView;
+                        this.f39759b = format;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f39556a.loadUrl(this.f39557b);
+                            this.f39758a.loadUrl(this.f39759b);
                         }
                     }
                 });

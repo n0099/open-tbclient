@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a0.b;
-import d.a.p0.v.e.b.a;
+import d.a.q0.a0.b;
+import d.a.q0.v.e.b.a;
 /* loaded from: classes4.dex */
 public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     public static /* synthetic */ Interceptable $ic;
@@ -76,14 +76,14 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_frs_game_live_no_data_view : invokeV.intValue;
     }
 
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     public void m(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.p == i2) {
@@ -102,7 +102,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.p0.a0.b
+    @Override // d.a.q0.a0.b
     /* renamed from: q */
     public void l(a aVar) {
         Interceptable interceptable = $ic;

@@ -13,6 +13,10 @@ public interface UBVI extends ApkDownloadComplianceInterface {
 
     void fetchAd();
 
+    int getECPM();
+
+    String getECPMLevel();
+
     void onWindowFocusChanged(boolean z);
 
     void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy);

@@ -12,13 +12,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f32122a;
+    public final int f32323a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c f32123b;
+    public final c f32324b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f32124c;
+    public final b f32325c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a.a$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -29,20 +29,20 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0364a {
+    public static final class C0367a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f32125a;
+        public int f32326a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f32126b;
+        public b f32327b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f32127c;
+        public c f32328c;
 
-        public C0364a() {
+        public C0367a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,30 +55,30 @@ public class a {
                     return;
                 }
             }
-            this.f32126b = b.f32128a;
+            this.f32327b = b.f32329a;
         }
 
-        public C0364a a(int i2) {
+        public C0367a a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f32125a = i2;
+                this.f32326a = i2;
                 return this;
             }
-            return (C0364a) invokeI.objValue;
+            return (C0367a) invokeI.objValue;
         }
 
-        public C0364a a(b bVar) {
+        public C0367a a(b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
                 if (bVar == null) {
-                    bVar = b.f32128a;
+                    bVar = b.f32329a;
                 }
-                this.f32126b = bVar;
+                this.f32327b = bVar;
                 return this;
             }
-            return (C0364a) invokeL.objValue;
+            return (C0367a) invokeL.objValue;
         }
 
         public a a() {
@@ -88,34 +88,34 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C0364a c0364a, AnonymousClass1 anonymousClass1) {
-        this(c0364a);
+    public /* synthetic */ a(C0367a c0367a, AnonymousClass1 anonymousClass1) {
+        this(c0367a);
     }
 
     public b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32124c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32325c : (b) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32122a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32323a : invokeV.intValue;
     }
 
     public c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32123b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32324b : (c) invokeV.objValue;
     }
 
-    public a(C0364a c0364a) {
+    public a(C0367a c0367a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0364a};
+            Object[] objArr = {c0367a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -125,8 +125,8 @@ public class a {
                 return;
             }
         }
-        this.f32122a = c0364a.f32125a;
-        this.f32124c = c0364a.f32126b;
-        this.f32123b = c0364a.f32127c;
+        this.f32323a = c0367a.f32326a;
+        this.f32325c = c0367a.f32327b;
+        this.f32324b = c0367a.f32328c;
     }
 }

@@ -15,13 +15,13 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9353a = "e";
+    public static final String f9379a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f9354b;
+    public static final Pattern f9380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f9355c;
+    public static boolean f9381c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +37,8 @@ public class e {
                 return;
             }
         }
-        f9354b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
-        f9355c = false;
+        f9380b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f9381c = false;
     }
 
     public e() {
@@ -57,7 +57,7 @@ public class e {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f9355c) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f9381c) {
             Log.e(str, str2);
         }
     }
@@ -65,13 +65,13 @@ public class e {
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f9354b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f9380b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a(f9353a, str);
+            a(f9379a, str);
         }
     }
 }

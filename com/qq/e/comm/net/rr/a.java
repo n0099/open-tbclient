@@ -24,29 +24,29 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f38053a;
+    public static final byte[] f38247a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Cipher f38054b;
+    public static Cipher f38248b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Cipher f38055c;
+    public static Cipher f38249c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f38056d;
+    public static String f38250d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static byte[] f38057e;
+    public static byte[] f38251e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0479a extends Exception {
+    public static class C0481a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0479a(String str, Throwable th) {
+        public C0481a(String str, Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -107,29 +107,29 @@ public final class a {
                 return;
             }
         }
-        f38053a = new byte[]{91, -62};
-        f38054b = null;
-        f38055c = null;
-        f38056d = String.format("AES/%s/PKCS7Padding", "ECB");
-        f38057e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
+        f38247a = new byte[]{91, -62};
+        f38248b = null;
+        f38249c = null;
+        f38250d = String.format("AES/%s/PKCS7Padding", "ECB");
+        f38251e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
     }
 
     @SuppressLint({"TrulyRandom"})
-    public static synchronized Cipher a() throws C0479a {
+    public static synchronized Cipher a() throws C0481a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
-                if (f38054b != null) {
-                    return f38054b;
+                if (f38248b != null) {
+                    return f38248b;
                 }
                 try {
-                    Cipher cipher = Cipher.getInstance(f38056d);
-                    cipher.init(1, new SecretKeySpec(f38057e, "AES"));
-                    f38054b = cipher;
+                    Cipher cipher = Cipher.getInstance(f38250d);
+                    cipher.init(1, new SecretKeySpec(f38251e, "AES"));
+                    f38248b = cipher;
                     return cipher;
                 } catch (Exception e2) {
-                    throw new C0479a("Fail To Init Cipher", e2);
+                    throw new C0481a("Fail To Init Cipher", e2);
                 }
             }
         }
@@ -143,7 +143,7 @@ public final class a {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
             try {
-                dataOutputStream.write(f38053a);
+                dataOutputStream.write(f38247a);
                 dataOutputStream.writeByte(1);
                 dataOutputStream.writeByte(2);
                 dataOutputStream.write(c(com.qq.e.comm.a.a(bArr)));
@@ -156,21 +156,21 @@ public final class a {
         return (byte[]) invokeL.objValue;
     }
 
-    public static synchronized Cipher b() throws C0479a {
+    public static synchronized Cipher b() throws C0481a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (a.class) {
-                if (f38055c != null) {
-                    return f38055c;
+                if (f38249c != null) {
+                    return f38249c;
                 }
                 try {
-                    Cipher cipher = Cipher.getInstance(f38056d);
-                    cipher.init(2, new SecretKeySpec(f38057e, "AES"));
-                    f38055c = cipher;
+                    Cipher cipher = Cipher.getInstance(f38250d);
+                    cipher.init(2, new SecretKeySpec(f38251e, "AES"));
+                    f38249c = cipher;
                     return cipher;
                 } catch (Exception e2) {
-                    throw new C0479a("Fail To Init Cipher", e2);
+                    throw new C0481a("Fail To Init Cipher", e2);
                 }
             }
         }
@@ -188,7 +188,7 @@ public final class a {
             try {
                 byte[] bArr2 = new byte[4];
                 new DataInputStream(new ByteArrayInputStream(bArr)).read(bArr2);
-                if (f38053a[0] == bArr2[0] && f38053a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
+                if (f38247a[0] == bArr2[0] && f38247a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
                     return com.qq.e.comm.a.b(d(Arrays.copyOfRange(bArr, 4, bArr.length)));
                 }
                 throw new b("S2SS Package Magic/Version FormatError", null);
@@ -199,27 +199,27 @@ public final class a {
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] c(byte[] bArr) throws C0479a {
+    public static byte[] c(byte[] bArr) throws C0481a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
             try {
                 return a().doFinal(bArr);
             } catch (Exception e2) {
-                throw new C0479a("Exception While encrypt byte array", e2);
+                throw new C0481a("Exception While encrypt byte array", e2);
             }
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] d(byte[] bArr) throws C0479a {
+    public static byte[] d(byte[] bArr) throws C0481a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) {
             try {
                 return b().doFinal(bArr);
             } catch (Exception e2) {
-                throw new C0479a("Exception While dencrypt byte array", e2);
+                throw new C0481a("Exception While dencrypt byte array", e2);
             }
         }
         return (byte[]) invokeL.objValue;

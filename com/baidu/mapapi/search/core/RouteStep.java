@@ -21,13 +21,13 @@ public class RouteStep implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7261a;
+    public int f7287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7262b;
+    public int f7288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7263c;
+    public String f7289c;
     public List<LatLng> mWayPoints;
 
     static {
@@ -75,9 +75,9 @@ public class RouteStep implements Parcelable {
                 return;
             }
         }
-        this.f7261a = parcel.readInt();
-        this.f7262b = parcel.readInt();
-        this.f7263c = parcel.readString();
+        this.f7287a = parcel.readInt();
+        this.f7288b = parcel.readInt();
+        this.f7289c = parcel.readString();
         ArrayList arrayList = new ArrayList();
         this.mWayPoints = arrayList;
         parcel.readList(arrayList, LatLng.class.getClassLoader());
@@ -99,19 +99,19 @@ public class RouteStep implements Parcelable {
     public int getDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7261a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7287a : invokeV.intValue;
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7262b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7288b : invokeV.intValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7263c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7289c : (String) invokeV.objValue;
     }
 
     public List<LatLng> getWayPoints() {
@@ -123,21 +123,21 @@ public class RouteStep implements Parcelable {
     public void setDistance(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f7261a = i2;
+            this.f7287a = i2;
         }
     }
 
     public void setDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f7262b = i2;
+            this.f7288b = i2;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f7263c = str;
+            this.f7289c = str;
         }
     }
 
@@ -152,9 +152,9 @@ public class RouteStep implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
-            parcel.writeInt(this.f7261a);
-            parcel.writeInt(this.f7262b);
-            parcel.writeString(this.f7263c);
+            parcel.writeInt(this.f7287a);
+            parcel.writeInt(this.f7288b);
+            parcel.writeString(this.f7289c);
             parcel.writeList(this.mWayPoints);
         }
     }

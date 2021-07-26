@@ -9,5 +9,5 @@ public abstract class e<T> extends d<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TypeVariable<?> f70947a;
+    public final TypeVariable<?> f71401a;
 }

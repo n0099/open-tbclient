@@ -1,34 +1,46 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class j1 {
+public class j1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ PBError f39848a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ m1 f39849b;
+
+    public j1(m1 m1Var, PBError pBError) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            String i2 = s1.i(context);
-            if (TextUtils.isEmpty(i2)) {
-                try {
-                    h1 a2 = i1.a(context);
-                    String str = a2 == null ? null : a2.f39592a;
-                    if (TextUtils.isEmpty(str)) {
-                        s1.f(context, str);
-                    }
-                    return str;
-                } catch (Exception unused) {
-                    return null;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {m1Var, pBError};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i2;
         }
-        return (String) invokeL.objValue;
+        this.f39849b = m1Var;
+        this.f39848a = pBError;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        n1 n1Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (n1Var = this.f39849b.f39878g) == null) {
+            return;
+        }
+        n1Var.onFail(this.f39848a);
     }
 }

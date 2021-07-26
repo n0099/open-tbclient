@@ -13,13 +13,13 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f32780a;
+    public static Object f32969a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f32781b;
+    public static Class<?> f32970b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f32782c;
+    public static Method f32971c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,12 +37,12 @@ public class m {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f32781b = cls;
-            f32780a = cls.newInstance();
-            f32781b.getMethod("getUDID", Context.class);
-            f32782c = f32781b.getMethod("getOAID", Context.class);
-            f32781b.getMethod("getVAID", Context.class);
-            f32781b.getMethod("getAAID", Context.class);
+            f32970b = cls;
+            f32969a = cls.newInstance();
+            f32970b.getMethod("getUDID", Context.class);
+            f32971c = f32970b.getMethod("getOAID", Context.class);
+            f32970b.getMethod("getVAID", Context.class);
+            f32970b.getMethod("getAAID", Context.class);
         } catch (Exception e2) {
             Log.e("IdentifierManager", "reflect exception!", e2);
         }

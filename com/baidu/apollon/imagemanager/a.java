@@ -19,20 +19,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f3793a = 52428800;
+    public static final long f3819a = 52428800;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final InterfaceC0062a f3794b;
+    public final InterfaceC0062a f3820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f3795c;
+    public final String f3821c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f3796d;
+    public File f3822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f3797e;
+    public long f3823e;
 
     /* renamed from: com.baidu.apollon.imagemanager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -85,17 +85,17 @@ public class a {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.f3797e >= 0) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.f3823e >= 0) {
             return;
         }
-        this.f3797e = 52428800 - c();
+        this.f3823e = 52428800 - c();
     }
 
     private long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            File[] listFiles = this.f3796d.listFiles();
+            File[] listFiles = this.f3822d.listFiles();
             long j = 0;
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
@@ -122,29 +122,29 @@ public class a {
                 return;
             }
         }
-        this.f3797e = Long.MIN_VALUE;
-        this.f3795c = str2;
+        this.f3823e = Long.MIN_VALUE;
+        this.f3821c = str2;
         if (CheckUtils.isExternalStorageWriteable(context)) {
             File externalFilesDir = context.getExternalFilesDir(null);
             if (externalFilesDir != null) {
-                this.f3796d = new File(externalFilesDir, str);
+                this.f3822d = new File(externalFilesDir, str);
             } else {
-                this.f3796d = new File(context.getCacheDir(), str);
+                this.f3822d = new File(context.getCacheDir(), str);
             }
         } else {
-            this.f3796d = new File(context.getCacheDir(), str);
+            this.f3822d = new File(context.getCacheDir(), str);
         }
-        if (!this.f3796d.exists()) {
-            this.f3796d.mkdirs();
+        if (!this.f3822d.exists()) {
+            this.f3822d.mkdirs();
         }
-        this.f3794b = interfaceC0062a;
+        this.f3820b = interfaceC0062a;
     }
 
     private String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            return String.valueOf(str.hashCode()) + this.f3795c;
+            return String.valueOf(str.hashCode()) + this.f3821c;
         }
         return (String) invokeL.objValue;
     }
@@ -169,14 +169,14 @@ public class a {
             a(a3.getParentFile());
             a(bArr, a3);
             b();
-            long length = this.f3797e - a(str).length();
-            if (length < 0 && (interfaceC0062a = this.f3794b) != null && (a2 = interfaceC0062a.a(this.f3796d)) != null) {
+            long length = this.f3823e - a(str).length();
+            if (length < 0 && (interfaceC0062a = this.f3820b) != null && (a2 = interfaceC0062a.a(this.f3822d)) != null) {
                 for (File file : a2) {
                     length += file.length();
                     file.delete();
                 }
             }
-            this.f3797e = length;
+            this.f3823e = length;
         }
     }
 
@@ -184,7 +184,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            File file = new File(this.f3796d, b(str));
+            File file = new File(this.f3822d, b(str));
             if (file.exists()) {
                 file.setLastModified(System.currentTimeMillis());
             }
@@ -196,7 +196,7 @@ public class a {
     public void a() {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (listFiles = this.f3796d.listFiles()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (listFiles = this.f3822d.listFiles()) == null) {
             return;
         }
         for (File file : listFiles) {

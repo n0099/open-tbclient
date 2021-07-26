@@ -16,34 +16,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.f.a f72132a;
+    public com.yxcorp.kuaishou.addfp.a.b.f.a f72586a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72133b;
+    public String f72587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f72134c;
+    public String f72588c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f72135d;
+    public com.yxcorp.kuaishou.addfp.a.b.b f72589d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f72136e;
+    public Context f72590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CountDownLatch f72137f;
+    public CountDownLatch f72591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ServiceConnection f72138g;
+    public ServiceConnection f72592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f72139h;
+    public boolean f72593h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -58,12 +58,12 @@ public final class a {
                 return;
             }
         }
-        this.f72132a = null;
-        this.f72133b = null;
-        this.f72134c = null;
-        this.f72137f = new CountDownLatch(1);
-        this.f72138g = new b(this);
-        this.f72139h = false;
+        this.f72586a = null;
+        this.f72587b = null;
+        this.f72588c = null;
+        this.f72591f = new CountDownLatch(1);
+        this.f72592g = new b(this);
+        this.f72593h = false;
     }
 
     public static boolean h(Context context) {
@@ -85,8 +85,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                if (!TextUtils.isEmpty(this.f72134c) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f72133b)) {
-                    String a2 = this.f72132a.a(this.f72133b, this.f72134c, str);
+                if (!TextUtils.isEmpty(this.f72588c) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f72587b)) {
+                    String a2 = this.f72586a.a(this.f72587b, this.f72588c, str);
                     return TextUtils.isEmpty(a2) ? "" : a2;
                 }
                 return "";
@@ -101,7 +101,7 @@ public final class a {
     public final void d(Context context) {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || (serviceConnection = this.f72138g) == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || (serviceConnection = this.f72592g) == null || context == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -112,10 +112,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, bVar) == null) {
             try {
-                this.f72135d = bVar;
-                this.f72136e = context;
+                this.f72589d = bVar;
+                this.f72590e = context;
                 boolean h2 = h(context);
-                this.f72139h = h2;
+                this.f72593h = h2;
                 if (!h2) {
                     f(false);
                     return;
@@ -123,14 +123,14 @@ public final class a {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                if (!context.bindService(intent, this.f72138g, 1)) {
+                if (!context.bindService(intent, this.f72592g, 1)) {
                     f(false);
                     return;
                 }
-                if (TextUtils.isEmpty(this.f72133b)) {
-                    this.f72133b = context.getPackageName();
+                if (TextUtils.isEmpty(this.f72587b)) {
+                    this.f72587b = context.getPackageName();
                 }
-                if (TextUtils.isEmpty(this.f72134c) && (signatureArr = context.getPackageManager().getPackageInfo(this.f72133b, 64).signatures) != null && signatureArr.length > 0) {
+                if (TextUtils.isEmpty(this.f72588c) && (signatureArr = context.getPackageManager().getPackageInfo(this.f72587b, 64).signatures) != null && signatureArr.length > 0) {
                     byte[] byteArray = signatureArr[0].toByteArray();
                     MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
                     if (messageDigest != null) {
@@ -139,11 +139,11 @@ public final class a {
                         for (byte b2 : digest) {
                             sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
                         }
-                        this.f72134c = sb.toString();
+                        this.f72588c = sb.toString();
                     }
                 }
-                this.f72137f.await(10L, TimeUnit.SECONDS);
-                if (this.f72132a != null) {
+                this.f72591f.await(10L, TimeUnit.SECONDS);
+                if (this.f72586a != null) {
                     f(true);
                 } else {
                     f(false);
@@ -162,7 +162,7 @@ public final class a {
                 try {
                     String b2 = b("OUID");
                     if (!TextUtils.isEmpty(b2)) {
-                        this.f72135d.a(b2);
+                        this.f72589d.a(b2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -170,13 +170,13 @@ public final class a {
                     return;
                 }
             }
-            this.f72135d.e();
+            this.f72589d.e();
         }
     }
 
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72139h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72593h : invokeV.booleanValue;
     }
 }

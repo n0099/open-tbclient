@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
-import d.a.m.c.a;
-import d.a.m.c.b;
-import d.a.m.c.c;
-import d.a.m.c.d;
-import d.a.m.c.f;
-import d.a.m.c.h;
-import d.a.m.c.i;
+import d.a.n.c.a;
+import d.a.n.c.b;
+import d.a.n.c.c;
+import d.a.n.c.d;
+import d.a.n.c.f;
+import d.a.n.c.h;
+import d.a.n.c.i;
 /* loaded from: classes2.dex */
 public final class CommonUrlParamManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -147,7 +147,7 @@ public final class CommonUrlParamManager {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, this, str, str2, str3, str4, str5)) == null) {
             c a2 = a.a();
             String a3 = this.mUaParam.a();
-            String a4 = d.a.m.b.a.b().a();
+            String a4 = d.a.n.b.a.b().a();
             String sid = a2.getSid();
             String bDVCInfo = a2.getBDVCInfo();
             String a5 = this.mDeviceInfoParam.a();
@@ -156,10 +156,10 @@ public final class CommonUrlParamManager {
             String schemeHeader = a2.getSchemeHeader();
             String b2 = a.b().b();
             if (TextUtils.isEmpty(from)) {
-                from = d.a.m.a.a.b().a();
+                from = d.a.n.a.a.b().a();
             }
             if (TextUtils.isEmpty(cfrom)) {
-                cfrom = d.a.m.a.a.b().c();
+                cfrom = d.a.n.a.a.b().c();
             }
             String addParam = addParam(addParam(this.mNetworkParam.a(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str5, "appname", a4), "sid", sid), "ut", a5), "ua", a3), "bdvc", bDVCInfo), "zid", str2), "uid", str), PARAM_IID, str4), "cfrom", cfrom), "from", from), "scheme", schemeHeader), true), "c3_aid", str3), PARAM_MATRIXSTYLE, b2);
             a2.a(addParam, true);

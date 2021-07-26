@@ -12,16 +12,16 @@ public class u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32799a;
+    public Context f32988a;
 
     /* renamed from: b  reason: collision with root package name */
-    public s f32800b;
+    public s f32989b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f32801c;
+    public ServiceConnection f32990c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f32802d;
+    public a f32991d;
 
     /* loaded from: classes5.dex */
     public interface a<T> {
@@ -40,7 +40,7 @@ public class u {
                 return;
             }
         }
-        this.f32799a = null;
-        this.f32802d = null;
+        this.f32988a = null;
+        this.f32991d = null;
     }
 }

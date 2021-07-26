@@ -66,10 +66,8 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     String getIconUrl();
 
-    @Deprecated
     List<String> getImgList();
 
-    @Deprecated
     String getImgUrl();
 
     int getPictureHeight();
@@ -94,6 +92,8 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     @Deprecated
     boolean isSkippable();
+
+    boolean isWeChatCanvasAd();
 
     void negativeFeedback();
 

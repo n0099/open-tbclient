@@ -51,13 +51,13 @@ public class an {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static an f39776a;
+    public static an f40048a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final ArrayList<a> f66a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f39777b;
+    public static boolean f40049b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -85,7 +85,7 @@ public class an {
     public boolean f74a;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39778c;
+    public boolean f40050c;
 
     /* loaded from: classes6.dex */
     public static class a<T extends iq<T, ?>> {
@@ -93,7 +93,7 @@ public class an {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public hf f39779a;
+        public hf f40051a;
 
         /* renamed from: a  reason: collision with other field name */
         public T f75a;
@@ -150,13 +150,13 @@ public class an {
         this.f74a = false;
         this.f69a = null;
         this.f73a = new ArrayList();
-        this.f39778c = false;
+        this.f40050c = false;
         this.f68a = null;
         this.f71a = null;
         this.f67a = context.getApplicationContext();
         this.f72a = null;
         this.f74a = m99c();
-        f39777b = m100d();
+        f40049b = m100d();
         this.f69a = new ao(this, Looper.getMainLooper());
         if (com.xiaomi.push.l.m536a(context)) {
             com.xiaomi.push.service.d.a(new ap(this));
@@ -205,10 +205,10 @@ public class an {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             synchronized (an.class) {
-                if (f39776a == null) {
-                    f39776a = new an(context);
+                if (f40048a == null) {
+                    f40048a = new an(context);
                 }
-                anVar = f39776a;
+                anVar = f40048a;
             }
             return anVar;
         }
@@ -249,7 +249,7 @@ public class an {
                 ieVar2.a(str);
                 ieVar = z ? new ie(str, true) : null;
             }
-            switch (as.f39784a[atVar.ordinal()]) {
+            switch (as.f40056a[atVar.ordinal()]) {
                 case 1:
                     ieVar2.c(hp.E.f509a);
                     ieVar.c(hp.E.f509a);
@@ -284,14 +284,14 @@ public class an {
             com.xiaomi.channel.commonutils.logger.b.e("type:" + atVar + StringUtil.ARRAY_ELEMENT_SEPARATOR + str);
             ieVar2.b(b.m111a(this.f67a).m112a());
             ieVar2.d(this.f67a.getPackageName());
-            a((an) ieVar2, hf.f40258i, false, (hs) null);
+            a((an) ieVar2, hf.f40530i, false, (hs) null);
             if (z) {
                 ieVar.b(b.m111a(this.f67a).m112a());
                 ieVar.d(this.f67a.getPackageName());
                 Context context = this.f67a;
-                byte[] a2 = ip.a(ah.a(context, ieVar, hf.f40258i, false, context.getPackageName(), b.m111a(this.f67a).m112a()));
+                byte[] a2 = ip.a(ah.a(context, ieVar, hf.f40530i, false, context.getPackageName(), b.m111a(this.f67a).m112a()));
                 if (a2 != null) {
-                    cy.a(this.f67a.getPackageName(), this.f67a, ieVar, hf.f40258i, a2.length);
+                    cy.a(this.f67a.getPackageName(), this.f67a, ieVar, hf.f40530i, a2.length);
                     m94a.putExtra("mipush_payload", a2);
                     m94a.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", true);
                     m94a.putExtra("mipush_app_id", b.m111a(this.f67a).m112a());
@@ -362,10 +362,10 @@ public class an {
     private void c(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, intent) == null) {
-            int a2 = com.xiaomi.push.service.aq.a(this.f67a).a(hk.T.a(), hg.f40259a.a());
+            int a2 = com.xiaomi.push.service.aq.a(this.f67a).a(hk.T.a(), hg.f40531a.a());
             int a3 = a();
-            boolean z = a2 == hg.f40260b.a() && f39777b;
-            int a4 = (z ? hg.f40260b : hg.f40259a).a();
+            boolean z = a2 == hg.f40532b.a() && f40049b;
+            int a4 = (z ? hg.f40532b : hg.f40531a).a();
             if (a4 != a3) {
                 m105a(a4);
             }
@@ -414,7 +414,7 @@ public class an {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, this, intent) == null) {
             synchronized (this) {
-                if (this.f39778c) {
+                if (this.f40050c) {
                     Message a2 = a(intent);
                     if (this.f73a.size() >= 50) {
                         this.f73a.remove(0);
@@ -424,7 +424,7 @@ public class an {
                 }
                 if (this.f70a == null) {
                     this.f67a.bindService(intent, new ar(this), 1);
-                    this.f39778c = true;
+                    this.f40050c = true;
                     this.f73a.clear();
                     this.f73a.add(a(intent));
                 } else {
@@ -432,7 +432,7 @@ public class an {
                         this.f70a.send(a(intent));
                     } catch (RemoteException unused) {
                         this.f70a = null;
-                        this.f39778c = false;
+                        this.f40050c = false;
                     }
                 }
             }
@@ -571,7 +571,7 @@ public class an {
             this.f68a = null;
             b.m111a(this.f67a).f81a = cif.a();
             Intent m94a = m94a();
-            byte[] a2 = ip.a(ah.a(this.f67a, cif, hf.f40250a));
+            byte[] a2 = ip.a(ah.a(this.f67a, cif, hf.f40522a));
             if (a2 == null) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("register fail, because msgBytes is null.");
                 return;
@@ -593,7 +593,7 @@ public class an {
     public final void a(il ilVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, ilVar) == null) {
-            byte[] a2 = ip.a(ah.a(this.f67a, ilVar, hf.f40251b));
+            byte[] a2 = ip.a(ah.a(this.f67a, ilVar, hf.f40523b));
             if (a2 == null) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("unregister fail, because msgBytes is null.");
                 return;
@@ -609,7 +609,7 @@ public class an {
     public final <T extends iq<T, ?>> void a(T t, hf hfVar, hs hsVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, t, hfVar, hsVar) == null) {
-            a((an) t, hfVar, !hfVar.equals(hf.f40250a), hsVar);
+            a((an) t, hfVar, !hfVar.equals(hf.f40522a), hsVar);
         }
     }
 
@@ -618,7 +618,7 @@ public class an {
         if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, t, hfVar, z) == null) {
             a aVar = new a();
             aVar.f75a = t;
-            aVar.f39779a = hfVar;
+            aVar.f40051a = hfVar;
             aVar.f76a = z;
             synchronized (f66a) {
                 f66a.add(aVar);
@@ -720,13 +720,13 @@ public class an {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048593, this, z, str) == null) {
             if (z) {
-                ae.a(this.f67a).a(at.f39785a, "syncing");
-                ae.a(this.f67a).a(at.f39786b, "");
-                atVar = at.f39785a;
+                ae.a(this.f67a).a(at.f40057a, "syncing");
+                ae.a(this.f67a).a(at.f40058b, "");
+                atVar = at.f40057a;
             } else {
-                ae.a(this.f67a).a(at.f39786b, "syncing");
-                ae.a(this.f67a).a(at.f39785a, "");
-                atVar = at.f39786b;
+                ae.a(this.f67a).a(at.f40058b, "syncing");
+                ae.a(this.f67a).a(at.f40057a, "");
+                atVar = at.f40058b;
             }
             a(str, atVar, true, (HashMap<String, String>) null);
         }
@@ -754,7 +754,7 @@ public class an {
                 HashMap hashMap = new HashMap();
                 ieVar.f650a = hashMap;
                 hashMap.put("boot_mode", i2 + "");
-                a(this.f67a).a((an) ieVar, hf.f40258i, false, (hs) null);
+                a(this.f67a).a((an) ieVar, hf.f40530i, false, (hs) null);
                 return true;
             }
             return false;
@@ -825,7 +825,7 @@ public class an {
                 Iterator<a> it = f66a.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
-                    a(next.f75a, next.f39779a, next.f76a, false, null, true);
+                    a(next.f75a, next.f40051a, next.f76a, false, null, true);
                     if (!z) {
                         try {
                             Thread.sleep(100L);

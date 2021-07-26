@@ -14,10 +14,10 @@ public class d extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.b.b.c f36169b;
+    public com.kwad.sdk.reward.b.b.c f36358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36170c;
+    public boolean f36359c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             j().findViewById(R.id.ksad_video_play_bar_h5).setVisibility(8);
             super.a();
-            if (this.f36170c) {
-                this.f36169b.a(((com.kwad.sdk.reward.d) this).f36214a);
+            if (this.f36359c) {
+                this.f36358b.a(((com.kwad.sdk.reward.d) this).f36403a);
             }
         }
     }
@@ -49,9 +49,9 @@ public class d extends a {
     public void a(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            float f2 = ((com.kwad.sdk.reward.d) this).f36214a.f35889g.getResources().getDisplayMetrics().density;
-            aVar.f35162a = (int) ((((com.kwad.sdk.reward.d) this).f36214a.f35889g.getResources().getDisplayMetrics().widthPixels / f2) + 0.5f);
-            aVar.f35163b = (int) ((((com.kwad.sdk.reward.d) this).f36214a.f35889g.getResources().getDisplayMetrics().heightPixels / f2) + 0.5f);
+            float f2 = ((com.kwad.sdk.reward.d) this).f36403a.f36078g.getResources().getDisplayMetrics().density;
+            aVar.f35351a = (int) ((((com.kwad.sdk.reward.d) this).f36403a.f36078g.getResources().getDisplayMetrics().widthPixels / f2) + 0.5f);
+            aVar.f35352b = (int) ((((com.kwad.sdk.reward.d) this).f36403a.f36078g.getResources().getDisplayMetrics().heightPixels / f2) + 0.5f);
         }
     }
 
@@ -61,7 +61,7 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.b();
             com.kwad.sdk.reward.b.b.c cVar = new com.kwad.sdk.reward.b.b.c();
-            this.f36169b = cVar;
+            this.f36358b = cVar;
             cVar.a(j());
             j().findViewById(f()).setVisibility(0);
         }
@@ -72,8 +72,8 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.c();
-            if (this.f36170c) {
-                this.f36169b.g();
+            if (this.f36359c) {
+                this.f36358b.g();
             }
         }
     }
@@ -96,8 +96,8 @@ public class d extends a {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f36169b.a(((com.kwad.sdk.reward.d) this).f36214a);
-            this.f36170c = true;
+            this.f36358b.a(((com.kwad.sdk.reward.d) this).f36403a);
+            this.f36359c = true;
         }
     }
 }

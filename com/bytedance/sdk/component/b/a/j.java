@@ -17,19 +17,19 @@ public final class j implements s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28099a;
+    public int f28193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f28100b;
+    public final e f28194b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Inflater f28101c;
+    public final Inflater f28195c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final k f28102d;
+    public final k f28196d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CRC32 f28103e;
+    public final CRC32 f28197e;
 
     public j(s sVar) {
         Interceptable interceptable = $ic;
@@ -46,13 +46,13 @@ public final class j implements s {
                 return;
             }
         }
-        this.f28099a = 0;
-        this.f28103e = new CRC32();
+        this.f28193a = 0;
+        this.f28197e = new CRC32();
         if (sVar != null) {
-            this.f28101c = new Inflater(true);
+            this.f28195c = new Inflater(true);
             e a2 = l.a(sVar);
-            this.f28100b = a2;
-            this.f28102d = new k(a2, this.f28101c);
+            this.f28194b = a2;
+            this.f28196d = new k(a2, this.f28195c);
             return;
         }
         throw new IllegalArgumentException("source == null");
@@ -61,51 +61,51 @@ public final class j implements s {
     private void b() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f28100b.a(10L);
-            byte b2 = this.f28100b.c().b(3L);
+            this.f28194b.a(10L);
+            byte b2 = this.f28194b.c().b(3L);
             boolean z = ((b2 >> 1) & 1) == 1;
             if (z) {
-                a(this.f28100b.c(), 0L, 10L);
+                a(this.f28194b.c(), 0L, 10L);
             }
-            a("ID1ID2", 8075, this.f28100b.i());
-            this.f28100b.h(8L);
+            a("ID1ID2", 8075, this.f28194b.i());
+            this.f28194b.h(8L);
             if (((b2 >> 2) & 1) == 1) {
-                this.f28100b.a(2L);
+                this.f28194b.a(2L);
                 if (z) {
-                    a(this.f28100b.c(), 0L, 2L);
+                    a(this.f28194b.c(), 0L, 2L);
                 }
-                long k = this.f28100b.c().k();
-                this.f28100b.a(k);
+                long k = this.f28194b.c().k();
+                this.f28194b.a(k);
                 if (z) {
-                    a(this.f28100b.c(), 0L, k);
+                    a(this.f28194b.c(), 0L, k);
                 }
-                this.f28100b.h(k);
+                this.f28194b.h(k);
             }
             if (((b2 >> 3) & 1) == 1) {
-                long a2 = this.f28100b.a((byte) 0);
+                long a2 = this.f28194b.a((byte) 0);
                 if (a2 != -1) {
                     if (z) {
-                        a(this.f28100b.c(), 0L, a2 + 1);
+                        a(this.f28194b.c(), 0L, a2 + 1);
                     }
-                    this.f28100b.h(a2 + 1);
+                    this.f28194b.h(a2 + 1);
                 } else {
                     throw new EOFException();
                 }
             }
             if (((b2 >> 4) & 1) == 1) {
-                long a3 = this.f28100b.a((byte) 0);
+                long a3 = this.f28194b.a((byte) 0);
                 if (a3 != -1) {
                     if (z) {
-                        a(this.f28100b.c(), 0L, a3 + 1);
+                        a(this.f28194b.c(), 0L, a3 + 1);
                     }
-                    this.f28100b.h(a3 + 1);
+                    this.f28194b.h(a3 + 1);
                 } else {
                     throw new EOFException();
                 }
             }
             if (z) {
-                a("FHCRC", this.f28100b.k(), (short) this.f28103e.getValue());
-                this.f28103e.reset();
+                a("FHCRC", this.f28194b.k(), (short) this.f28197e.getValue());
+                this.f28197e.reset();
             }
         }
     }
@@ -113,8 +113,8 @@ public final class j implements s {
     private void c() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            a("CRC", this.f28100b.l(), (int) this.f28103e.getValue());
-            a("ISIZE", this.f28100b.l(), (int) this.f28101c.getBytesWritten());
+            a("CRC", this.f28194b.l(), (int) this.f28197e.getValue());
+            a("ISIZE", this.f28194b.l(), (int) this.f28195c.getBytesWritten());
         }
     }
 
@@ -129,23 +129,23 @@ public final class j implements s {
             } else if (i2 == 0) {
                 return 0L;
             } else {
-                if (this.f28099a == 0) {
+                if (this.f28193a == 0) {
                     b();
-                    this.f28099a = 1;
+                    this.f28193a = 1;
                 }
-                if (this.f28099a == 1) {
-                    long j2 = cVar.f28089b;
-                    long a2 = this.f28102d.a(cVar, j);
+                if (this.f28193a == 1) {
+                    long j2 = cVar.f28183b;
+                    long a2 = this.f28196d.a(cVar, j);
                     if (a2 != -1) {
                         a(cVar, j2, a2);
                         return a2;
                     }
-                    this.f28099a = 2;
+                    this.f28193a = 2;
                 }
-                if (this.f28099a == 2) {
+                if (this.f28193a == 2) {
                     c();
-                    this.f28099a = 3;
-                    if (!this.f28100b.e()) {
+                    this.f28193a = 3;
+                    if (!this.f28194b.e()) {
                         throw new IOException("gzip finished without exhausting source");
                     }
                 }
@@ -159,7 +159,7 @@ public final class j implements s {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28102d.close();
+            this.f28196d.close();
         }
     }
 
@@ -167,28 +167,28 @@ public final class j implements s {
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28100b.a() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28194b.a() : (t) invokeV.objValue;
     }
 
     private void a(c cVar, long j, long j2) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{cVar, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            o oVar = cVar.f28088a;
+            o oVar = cVar.f28182a;
             while (true) {
-                int i3 = oVar.f28123c;
-                int i4 = oVar.f28122b;
+                int i3 = oVar.f28217c;
+                int i4 = oVar.f28216b;
                 if (j < i3 - i4) {
                     break;
                 }
                 j -= i3 - i4;
-                oVar = oVar.f28126f;
+                oVar = oVar.f28220f;
             }
             while (j2 > 0) {
-                int min = (int) Math.min(oVar.f28123c - i2, j2);
-                this.f28103e.update(oVar.f28121a, (int) (oVar.f28122b + j), min);
+                int min = (int) Math.min(oVar.f28217c - i2, j2);
+                this.f28197e.update(oVar.f28215a, (int) (oVar.f28216b + j), min);
                 j2 -= min;
-                oVar = oVar.f28126f;
+                oVar = oVar.f28220f;
                 j = 0;
             }
         }

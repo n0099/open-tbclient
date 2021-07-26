@@ -40,36 +40,36 @@ public final class CronetUrlRequest implements UrlRequest {
     @GuardedBy("mUrlRequestAdapterLock")
 
     /* renamed from: a  reason: collision with root package name */
-    public long f23081a;
+    public long f23239a;
     @GuardedBy("mUrlRequestAdapterLock")
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23082b;
+    public boolean f23240b;
     @GuardedBy("mUrlRequestAdapterLock")
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f23083c;
+    public boolean f23241c;
     @GuardedBy("mUrlRequestAdapterLock")
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f23084d;
+    public boolean f23242d;
     @Nullable
     @GuardedBy("mUrlRequestAdapterLock")
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f23085e;
+    public final i f23243e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f23086f;
+    public final Object f23244f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final CronetUrlRequestContext f23087g;
+    public final CronetUrlRequestContext f23245g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Executor f23088h;
+    public final Executor f23246h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<String> f23089i;
+    public final List<String> f23247i;
     public long j;
     public final UrlRequest.Callback k;
     public RequestTimeInfo l;
@@ -138,7 +138,7 @@ public final class CronetUrlRequest implements UrlRequest {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CronetUrlRequest f23090e;
+        public final /* synthetic */ CronetUrlRequest f23248e;
 
         public a(CronetUrlRequest cronetUrlRequest) {
             Interceptable interceptable = $ic;
@@ -155,20 +155,20 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
             }
-            this.f23090e = cronetUrlRequest;
+            this.f23248e = cronetUrlRequest;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23090e.C.o();
-                synchronized (this.f23090e.f23086f) {
-                    if (this.f23090e.C()) {
+                this.f23248e.C.o();
+                synchronized (this.f23248e.f23244f) {
+                    if (this.f23248e.C()) {
                         return;
                     }
-                    this.f23090e.C.k(this.f23090e.f23081a);
-                    this.f23090e.H();
+                    this.f23248e.C.k(this.f23248e.f23239a);
+                    this.f23248e.H();
                 }
             }
         }
@@ -180,10 +180,10 @@ public final class CronetUrlRequest implements UrlRequest {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UrlRequestException f23091e;
+        public final /* synthetic */ UrlRequestException f23249e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CronetUrlRequest f23092f;
+        public final /* synthetic */ CronetUrlRequest f23250f;
 
         public b(CronetUrlRequest cronetUrlRequest, UrlRequestException urlRequestException) {
             Interceptable interceptable = $ic;
@@ -200,23 +200,23 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
             }
-            this.f23092f = cronetUrlRequest;
-            this.f23091e = urlRequestException;
+            this.f23250f = cronetUrlRequest;
+            this.f23249e = urlRequestException;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f23092f.f23086f) {
-                    if (this.f23092f.C()) {
+                synchronized (this.f23250f.f23244f) {
+                    if (this.f23250f.C()) {
                         return;
                     }
-                    this.f23092f.A(false);
+                    this.f23250f.A(false);
                     try {
-                        this.f23092f.k.b(this.f23092f, this.f23092f.D, this.f23091e);
+                        this.f23250f.k.b(this.f23250f, this.f23250f.D, this.f23249e);
                     } catch (Exception e2) {
-                        d.a.q0.a.a.c("ChromiumNetwork", "Exception in onError method", e2);
+                        d.a.r0.a.a.c("ChromiumNetwork", "Exception in onError method", e2);
                     }
                 }
             }
@@ -229,13 +229,13 @@ public final class CronetUrlRequest implements UrlRequest {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UrlResponseInfo f23093e;
+        public final /* synthetic */ UrlResponseInfo f23251e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f23094f;
+        public final /* synthetic */ String f23252f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CronetUrlRequest f23095g;
+        public final /* synthetic */ CronetUrlRequest f23253g;
 
         public c(CronetUrlRequest cronetUrlRequest, UrlResponseInfo urlResponseInfo, String str) {
             Interceptable interceptable = $ic;
@@ -252,24 +252,24 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
             }
-            this.f23095g = cronetUrlRequest;
-            this.f23093e = urlResponseInfo;
-            this.f23094f = str;
+            this.f23253g = cronetUrlRequest;
+            this.f23251e = urlResponseInfo;
+            this.f23252f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f23095g.f23086f) {
-                    if (this.f23095g.C()) {
+                synchronized (this.f23253g.f23244f) {
+                    if (this.f23253g.C()) {
                         return;
                     }
-                    this.f23095g.f23083c = true;
+                    this.f23253g.f23241c = true;
                     try {
-                        this.f23095g.k.d(this.f23095g, this.f23093e, this.f23094f);
+                        this.f23253g.k.d(this.f23253g, this.f23251e, this.f23252f);
                     } catch (Exception e2) {
-                        this.f23095g.D(e2);
+                        this.f23253g.D(e2);
                     }
                 }
             }
@@ -282,7 +282,7 @@ public final class CronetUrlRequest implements UrlRequest {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CronetUrlRequest f23096e;
+        public final /* synthetic */ CronetUrlRequest f23254e;
 
         public d(CronetUrlRequest cronetUrlRequest) {
             Interceptable interceptable = $ic;
@@ -299,25 +299,25 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
             }
-            this.f23096e = cronetUrlRequest;
+            this.f23254e = cronetUrlRequest;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f23096e.f23086f) {
-                    if (this.f23096e.C()) {
+                synchronized (this.f23254e.f23244f) {
+                    if (this.f23254e.C()) {
                         return;
                     }
-                    if (this.f23096e.f23085e != null) {
-                        this.f23096e.f23085e.f();
+                    if (this.f23254e.f23243e != null) {
+                        this.f23254e.f23243e.f();
                     }
-                    this.f23096e.f23084d = true;
+                    this.f23254e.f23242d = true;
                     try {
-                        this.f23096e.k.e(this.f23096e, this.f23096e.D);
+                        this.f23254e.k.e(this.f23254e, this.f23254e.D);
                     } catch (Exception e2) {
-                        this.f23096e.D(e2);
+                        this.f23254e.D(e2);
                     }
                 }
             }
@@ -330,7 +330,7 @@ public final class CronetUrlRequest implements UrlRequest {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CronetUrlRequest f23097e;
+        public final /* synthetic */ CronetUrlRequest f23255e;
 
         public e(CronetUrlRequest cronetUrlRequest) {
             Interceptable interceptable = $ic;
@@ -347,22 +347,22 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
             }
-            this.f23097e = cronetUrlRequest;
+            this.f23255e = cronetUrlRequest;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f23097e.f23086f) {
-                    if (this.f23097e.C()) {
+                synchronized (this.f23255e.f23244f) {
+                    if (this.f23255e.C()) {
                         return;
                     }
-                    this.f23097e.A(false);
+                    this.f23255e.A(false);
                     try {
-                        this.f23097e.k.f(this.f23097e, this.f23097e.D);
+                        this.f23255e.k.f(this.f23255e, this.f23255e.D);
                     } catch (Exception e2) {
-                        d.a.q0.a.a.c("ChromiumNetwork", "Exception in onComplete method", e2);
+                        d.a.r0.a.a.c("ChromiumNetwork", "Exception in onComplete method", e2);
                     }
                 }
             }
@@ -375,7 +375,7 @@ public final class CronetUrlRequest implements UrlRequest {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CronetUrlRequest f23098e;
+        public final /* synthetic */ CronetUrlRequest f23256e;
 
         public f(CronetUrlRequest cronetUrlRequest) {
             Interceptable interceptable = $ic;
@@ -392,7 +392,7 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
             }
-            this.f23098e = cronetUrlRequest;
+            this.f23256e = cronetUrlRequest;
         }
 
         @Override // java.lang.Runnable
@@ -400,10 +400,10 @@ public final class CronetUrlRequest implements UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    d.a.q0.a.a.c("ChromiumNetwork", "****** onCanceled, url is: %s", this.f23098e.D.h());
-                    this.f23098e.k.a(this.f23098e, this.f23098e.D);
+                    d.a.r0.a.a.c("ChromiumNetwork", "****** onCanceled, url is: %s", this.f23256e.D.h());
+                    this.f23256e.k.a(this.f23256e, this.f23256e.D);
                 } catch (Exception e2) {
-                    d.a.q0.a.a.c("ChromiumNetwork", "Exception in onCanceled method", e2);
+                    d.a.r0.a.a.c("ChromiumNetwork", "Exception in onCanceled method", e2);
                 }
             }
         }
@@ -415,10 +415,10 @@ public final class CronetUrlRequest implements UrlRequest {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UrlRequest.StatusListener f23099e;
+        public final /* synthetic */ UrlRequest.StatusListener f23257e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f23100f;
+        public final /* synthetic */ int f23258f;
 
         public g(CronetUrlRequest cronetUrlRequest, UrlRequest.StatusListener statusListener, int i2) {
             Interceptable interceptable = $ic;
@@ -435,15 +435,15 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
             }
-            this.f23099e = statusListener;
-            this.f23100f = i2;
+            this.f23257e = statusListener;
+            this.f23258f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23099e.a(UrlRequest.Status.a(this.f23100f));
+                this.f23257e.a(UrlRequest.Status.a(this.f23258f));
             }
         }
     }
@@ -454,10 +454,10 @@ public final class CronetUrlRequest implements UrlRequest {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ByteBuffer f23101e;
+        public ByteBuffer f23259e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CronetUrlRequest f23102f;
+        public final /* synthetic */ CronetUrlRequest f23260f;
 
         public h(CronetUrlRequest cronetUrlRequest) {
             Interceptable interceptable = $ic;
@@ -474,25 +474,25 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
             }
-            this.f23102f = cronetUrlRequest;
+            this.f23260f = cronetUrlRequest;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ByteBuffer byteBuffer = this.f23101e;
-                this.f23101e = null;
+                ByteBuffer byteBuffer = this.f23259e;
+                this.f23259e = null;
                 try {
-                    synchronized (this.f23102f.f23086f) {
-                        if (this.f23102f.C()) {
+                    synchronized (this.f23260f.f23244f) {
+                        if (this.f23260f.C()) {
                             return;
                         }
-                        this.f23102f.f23084d = true;
-                        this.f23102f.k.c(this.f23102f, this.f23102f.D, byteBuffer);
+                        this.f23260f.f23242d = true;
+                        this.f23260f.k.c(this.f23260f, this.f23260f.D, byteBuffer);
                     }
                 } catch (Exception e2) {
-                    this.f23102f.D(e2);
+                    this.f23260f.D(e2);
                 }
             }
         }
@@ -509,15 +509,15 @@ public final class CronetUrlRequest implements UrlRequest {
         @Nullable
 
         /* renamed from: a  reason: collision with root package name */
-        public Long f23103a;
+        public Long f23261a;
         @Nullable
 
         /* renamed from: b  reason: collision with root package name */
-        public Long f23104b;
+        public Long f23262b;
         @Nullable
 
         /* renamed from: c  reason: collision with root package name */
-        public Long f23105c;
+        public Long f23263c;
 
         public i(CronetUrlRequest cronetUrlRequest) {
             Interceptable interceptable = $ic;
@@ -537,16 +537,16 @@ public final class CronetUrlRequest implements UrlRequest {
 
         public final void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f23103a != null && this.f23105c == null) {
-                this.f23105c = Long.valueOf(SystemClock.elapsedRealtime() - this.f23103a.longValue());
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f23261a != null && this.f23263c == null) {
+                this.f23263c = Long.valueOf(SystemClock.elapsedRealtime() - this.f23261a.longValue());
             }
         }
 
         public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f23103a == null) {
-                    this.f23103a = Long.valueOf(SystemClock.elapsedRealtime());
+                if (this.f23261a == null) {
+                    this.f23261a = Long.valueOf(SystemClock.elapsedRealtime());
                     return;
                 }
                 throw new IllegalStateException("onRequestStarted called repeatedly");
@@ -555,8 +555,8 @@ public final class CronetUrlRequest implements UrlRequest {
 
         public final void f() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f23103a != null && this.f23104b == null) {
-                this.f23104b = Long.valueOf(SystemClock.elapsedRealtime() - this.f23103a.longValue());
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f23261a != null && this.f23262b == null) {
+                this.f23262b = Long.valueOf(SystemClock.elapsedRealtime() - this.f23261a.longValue());
             }
         }
 
@@ -595,11 +595,11 @@ public final class CronetUrlRequest implements UrlRequest {
                 return;
             }
         }
-        this.f23082b = false;
-        this.f23083c = false;
-        this.f23084d = false;
-        this.f23086f = new Object();
-        this.f23089i = new ArrayList();
+        this.f23240b = false;
+        this.f23241c = false;
+        this.f23242d = false;
+        this.f23244f = new Object();
+        this.f23247i = new ArrayList();
         this.p = new HeadersList(null);
         if (str == null) {
             throw new NullPointerException("URL is required");
@@ -611,13 +611,13 @@ public final class CronetUrlRequest implements UrlRequest {
             throw new NullPointerException("Executor is required");
         }
         if (collection != null) {
-            this.f23087g = cronetUrlRequestContext;
+            this.f23245g = cronetUrlRequestContext;
             this.m = str;
-            this.f23089i.add(str);
+            this.f23247i.add(str);
             this.n = z(i2);
             this.k = callback;
-            this.f23088h = executor;
-            this.f23085e = z ? new i(this, null) : null;
+            this.f23246h = executor;
+            this.f23243e = z ? new i(this, null) : null;
             this.q = z2;
             this.r = z3;
             this.s = z4;
@@ -630,7 +630,7 @@ public final class CronetUrlRequest implements UrlRequest {
             this.z = null;
             this.A = null;
             this.B = null;
-            this.D = new UrlResponseInfo(new ArrayList(this.f23089i), 0, "", new HeadersList(null), false, "", "");
+            this.D = new UrlResponseInfo(new ArrayList(this.f23247i), 0, "", new HeadersList(null), false, "", "");
             return;
         }
         throw new NullPointerException("requestAnnotations is required");
@@ -748,7 +748,7 @@ public final class CronetUrlRequest implements UrlRequest {
                 }
                 byteBuffer.position(i3 + i2);
                 h hVar = this.E;
-                hVar.f23101e = byteBuffer;
+                hVar.f23259e = byteBuffer;
                 F(hVar);
                 return;
             }
@@ -764,7 +764,7 @@ public final class CronetUrlRequest implements UrlRequest {
             long j2 = this.j + j;
             this.j = j2;
             G.j(j2);
-            this.f23089i.add(str);
+            this.f23247i.add(str);
             F(new c(this, G, str));
         }
     }
@@ -820,36 +820,36 @@ public final class CronetUrlRequest implements UrlRequest {
     public final void A(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            synchronized (this.f23086f) {
-                if (this.f23081a == 0) {
+            synchronized (this.f23244f) {
+                if (this.f23239a == 0) {
                     return;
                 }
-                nativeGetDNSNameServers(this.f23081a).isEmpty();
-                nativeGetDNSResults(this.f23081a).isEmpty();
-                nativeGetDNSErrorCode(this.f23081a).isEmpty();
-                nativeGetConnectionAttempts(this.f23081a, false).isEmpty();
-                nativeGetConnectionAttempts(this.f23081a, true).isEmpty();
-                nativeGetRemoteEndpoint(this.f23081a).isEmpty();
-                nativeGetSuperPipeInfo(this.f23081a).isEmpty();
-                int i2 = (nativeRequestTimeGap(this.f23081a, 1) > 0L ? 1 : (nativeRequestTimeGap(this.f23081a, 1) == 0L ? 0 : -1));
-                int i3 = (nativeRequestTimeGap(this.f23081a, 2) > 0L ? 1 : (nativeRequestTimeGap(this.f23081a, 2) == 0L ? 0 : -1));
-                int i4 = (nativeRequestTimeGap(this.f23081a, 3) > 0L ? 1 : (nativeRequestTimeGap(this.f23081a, 3) == 0L ? 0 : -1));
-                int i5 = (nativeRequestTimeGap(this.f23081a, 4) > 0L ? 1 : (nativeRequestTimeGap(this.f23081a, 4) == 0L ? 0 : -1));
-                int i6 = (nativeRequestTimeGap(this.f23081a, 5) > 0L ? 1 : (nativeRequestTimeGap(this.f23081a, 5) == 0L ? 0 : -1));
-                RequestTimeInfo nativeGetRequestTimeInfo = nativeGetRequestTimeInfo(this.f23081a);
+                nativeGetDNSNameServers(this.f23239a).isEmpty();
+                nativeGetDNSResults(this.f23239a).isEmpty();
+                nativeGetDNSErrorCode(this.f23239a).isEmpty();
+                nativeGetConnectionAttempts(this.f23239a, false).isEmpty();
+                nativeGetConnectionAttempts(this.f23239a, true).isEmpty();
+                nativeGetRemoteEndpoint(this.f23239a).isEmpty();
+                nativeGetSuperPipeInfo(this.f23239a).isEmpty();
+                int i2 = (nativeRequestTimeGap(this.f23239a, 1) > 0L ? 1 : (nativeRequestTimeGap(this.f23239a, 1) == 0L ? 0 : -1));
+                int i3 = (nativeRequestTimeGap(this.f23239a, 2) > 0L ? 1 : (nativeRequestTimeGap(this.f23239a, 2) == 0L ? 0 : -1));
+                int i4 = (nativeRequestTimeGap(this.f23239a, 3) > 0L ? 1 : (nativeRequestTimeGap(this.f23239a, 3) == 0L ? 0 : -1));
+                int i5 = (nativeRequestTimeGap(this.f23239a, 4) > 0L ? 1 : (nativeRequestTimeGap(this.f23239a, 4) == 0L ? 0 : -1));
+                int i6 = (nativeRequestTimeGap(this.f23239a, 5) > 0L ? 1 : (nativeRequestTimeGap(this.f23239a, 5) == 0L ? 0 : -1));
+                RequestTimeInfo nativeGetRequestTimeInfo = nativeGetRequestTimeInfo(this.f23239a);
                 this.l = nativeGetRequestTimeInfo;
                 if (nativeGetRequestTimeInfo == null) {
                     this.l = new RequestTimeInfo();
                 }
-                if (this.f23085e != null) {
-                    this.f23085e.d();
+                if (this.f23243e != null) {
+                    this.f23243e.d();
                 }
-                nativeDestroy(this.f23081a, z);
+                nativeDestroy(this.f23239a, z);
                 if (this.z != null) {
-                    this.f23087g.x(this);
+                    this.f23245g.x(this);
                 }
-                this.f23087g.s();
-                this.f23081a = 0L;
+                this.f23245g.s();
+                this.f23239a = 0L;
                 if (this.F != null) {
                     this.F.run();
                 }
@@ -868,15 +868,15 @@ public final class CronetUrlRequest implements UrlRequest {
     public final boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23082b && this.f23081a == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23240b && this.f23239a == 0 : invokeV.booleanValue;
     }
 
     public final void D(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
             UrlRequestException urlRequestException = new UrlRequestException("Exception received from UrlRequest.Callback", exc);
-            d.a.q0.a.a.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
-            synchronized (this.f23086f) {
+            d.a.r0.a.a.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
+            synchronized (this.f23244f) {
                 if (C()) {
                     return;
                 }
@@ -884,7 +884,7 @@ public final class CronetUrlRequest implements UrlRequest {
                 try {
                     this.k.b(this, this.D, urlRequestException);
                 } catch (Exception e2) {
-                    d.a.q0.a.a.c("ChromiumNetwork", "Exception notifying of failed request", e2);
+                    d.a.r0.a.a.c("ChromiumNetwork", "Exception notifying of failed request", e2);
                 }
             }
         }
@@ -894,7 +894,7 @@ public final class CronetUrlRequest implements UrlRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
             UrlRequestException urlRequestException = new UrlRequestException("Exception received from UploadDataProvider", th);
-            d.a.q0.a.a.c("ChromiumNetwork", "Exception in upload method", th);
+            d.a.r0.a.a.c("ChromiumNetwork", "Exception in upload method", th);
             B(urlRequestException);
         }
     }
@@ -903,9 +903,9 @@ public final class CronetUrlRequest implements UrlRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
             try {
-                this.f23088h.execute(runnable);
+                this.f23246h.execute(runnable);
             } catch (RejectedExecutionException e2) {
-                d.a.q0.a.a.c("ChromiumNetwork", "Exception posting task to executor", e2);
+                d.a.r0.a.a.c("ChromiumNetwork", "Exception posting task to executor", e2);
                 A(false);
             }
         }
@@ -919,7 +919,7 @@ public final class CronetUrlRequest implements UrlRequest {
             for (int i3 = 0; i3 < strArr.length; i3 += 2) {
                 headersList.add(new AbstractMap.SimpleImmutableEntry(strArr[i3], strArr[i3 + 1]));
             }
-            return new UrlResponseInfo(new ArrayList(this.f23089i), i2, str, headersList, z, str2, str3);
+            return new UrlResponseInfo(new ArrayList(this.f23247i), i2, str, headersList, z, str2, str3);
         }
         return (UrlResponseInfo) invokeCommon.objValue;
     }
@@ -928,11 +928,11 @@ public final class CronetUrlRequest implements UrlRequest {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            i iVar = this.f23085e;
+            i iVar = this.f23243e;
             if (iVar != null) {
                 iVar.e();
             }
-            nativeStart(this.f23081a);
+            nativeStart(this.f23239a);
         }
     }
 
@@ -983,9 +983,9 @@ public final class CronetUrlRequest implements UrlRequest {
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            synchronized (this.f23086f) {
-                d.a.q0.a.a.h("ChromiumNetwork", "****** Request cancel, url is: %s", this.m);
-                if (!C() && this.f23082b) {
+            synchronized (this.f23244f) {
+                d.a.r0.a.a.h("ChromiumNetwork", "****** Request cancel, url is: %s", this.m);
+                if (!C() && this.f23240b) {
                     A(true);
                 }
             }
@@ -996,13 +996,13 @@ public final class CronetUrlRequest implements UrlRequest {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            synchronized (this.f23086f) {
-                if (this.f23083c) {
-                    this.f23083c = false;
+            synchronized (this.f23244f) {
+                if (this.f23241c) {
+                    this.f23241c = false;
                     if (C()) {
                         return;
                     }
-                    nativeFollowDeferredRedirect(this.f23081a);
+                    nativeFollowDeferredRedirect(this.f23239a);
                     return;
                 }
                 throw new IllegalStateException("No redirect to follow.");
@@ -1103,18 +1103,18 @@ public final class CronetUrlRequest implements UrlRequest {
     public void read(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, byteBuffer) == null) {
-            d.a.q0.b.b.b(byteBuffer);
-            d.a.q0.b.b.a(byteBuffer);
-            synchronized (this.f23086f) {
-                if (this.f23084d) {
-                    this.f23084d = false;
+            d.a.r0.b.b.b(byteBuffer);
+            d.a.r0.b.b.a(byteBuffer);
+            synchronized (this.f23244f) {
+                if (this.f23242d) {
+                    this.f23242d = false;
                     if (C()) {
                         return;
                     }
-                    if (nativeReadData(this.f23081a, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
+                    if (nativeReadData(this.f23239a, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
                         return;
                     }
-                    this.f23084d = true;
+                    this.f23242d = true;
                     throw new IllegalArgumentException("Unable to call native read");
                 }
                 throw new IllegalStateException("Unexpected read attempt.");
@@ -1126,41 +1126,41 @@ public final class CronetUrlRequest implements UrlRequest {
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            synchronized (this.f23086f) {
-                d.a.q0.a.a.h("ChromiumNetwork", "****** Request start, url is: %s", this.m);
+            synchronized (this.f23244f) {
+                d.a.r0.a.a.h("ChromiumNetwork", "****** Request start, url is: %s", this.m);
                 y();
                 try {
-                    this.f23081a = nativeCreateRequestAdapter(this.f23087g.q(), this.m, this.n, this.q, this.r, this.s);
-                    this.f23087g.t();
-                    if (this.o != null && !nativeSetHttpMethod(this.f23081a, this.o)) {
+                    this.f23239a = nativeCreateRequestAdapter(this.f23245g.q(), this.m, this.n, this.q, this.r, this.s);
+                    this.f23245g.t();
+                    if (this.o != null && !nativeSetHttpMethod(this.f23239a, this.o)) {
                         throw new IllegalArgumentException("Invalid http method " + this.o);
                     }
                     if (this.z != null) {
-                        this.f23087g.m(this);
+                        this.f23245g.m(this);
                     }
                     if (this.t) {
-                        nativeDisableResponseAutoUngzip(this.f23081a);
+                        nativeDisableResponseAutoUngzip(this.f23239a);
                     }
                     if (this.u) {
-                        nativeEnableBrotliByRequest(this.f23081a);
+                        nativeEnableBrotliByRequest(this.f23239a);
                     }
                     if (this.v > 0) {
-                        nativeSetTimeout(this.f23081a, this.v);
+                        nativeSetTimeout(this.f23239a, this.v);
                     }
                     if (this.w > 0) {
-                        nativeSetTCPConnectTimeout(this.f23081a, this.w);
+                        nativeSetTCPConnectTimeout(this.f23239a, this.w);
                     }
                     if (this.x > 0) {
-                        nativeSetResponseHeaderRecvTimeout(this.f23081a, this.x);
+                        nativeSetResponseHeaderRecvTimeout(this.f23239a, this.x);
                     }
                     if (this.y > 0) {
-                        nativeSetResponseBodyReadTimeout(this.f23081a, this.y);
+                        nativeSetResponseBodyReadTimeout(this.f23239a, this.y);
                     }
                     if (!TextUtils.isEmpty(this.A)) {
-                        nativeSetDestinationAddress(this.f23081a, this.A);
+                        nativeSetDestinationAddress(this.f23239a, this.A);
                     }
                     if (!TextUtils.isEmpty(this.B)) {
-                        nativeSetRequestTag(this.f23081a, this.B);
+                        nativeSetRequestTag(this.f23239a, this.B);
                     }
                     Iterator<Map.Entry<String, String>> it = this.p.iterator();
                     boolean z = false;
@@ -1169,15 +1169,15 @@ public final class CronetUrlRequest implements UrlRequest {
                         if (next.getKey().equalsIgnoreCase("Content-Type") && !next.getValue().isEmpty()) {
                             z = true;
                         }
-                        if (!nativeAddRequestHeader(this.f23081a, next.getKey(), next.getValue())) {
+                        if (!nativeAddRequestHeader(this.f23239a, next.getKey(), next.getValue())) {
                             throw new IllegalArgumentException("Invalid header " + next.getKey() + "=" + next.getValue());
                         }
                     }
                     if (this.C == null) {
-                        this.f23082b = true;
+                        this.f23240b = true;
                         H();
                     } else if (z) {
-                        this.f23082b = true;
+                        this.f23240b = true;
                         this.C.q(new a(this));
                     } else {
                         throw new IllegalArgumentException("Requests with upload data must have a Content-Type.");
@@ -1193,8 +1193,8 @@ public final class CronetUrlRequest implements UrlRequest {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            synchronized (this.f23086f) {
-                if (this.f23082b || C()) {
+            synchronized (this.f23244f) {
+                if (this.f23240b || C()) {
                     throw new IllegalStateException("Request is already started.");
                 }
             }

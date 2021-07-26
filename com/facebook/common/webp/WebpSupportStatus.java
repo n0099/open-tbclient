@@ -54,7 +54,7 @@ public class WebpSupportStatus {
         sIsExtendedWebpSupported = isExtendedWebpSupported();
         sWebpBitmapFactory = null;
         sWebpLibraryChecked = false;
-        WEBP_RIFF_BYTES = asciiBytes(b.f23950e);
+        WEBP_RIFF_BYTES = asciiBytes(b.f24108e);
         WEBP_NAME_BYTES = asciiBytes("WEBP");
         WEBP_VP8_BYTES = asciiBytes(WebpUtil.VP8_HEADER);
         WEBP_VP8L_BYTES = asciiBytes(WebpUtil.VP8L_HEADER);

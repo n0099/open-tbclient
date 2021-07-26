@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.k.d.a;
-import d.a.o0.a0.c;
+import d.a.d.k.d.a;
+import d.a.p0.b0.c;
 /* loaded from: classes3.dex */
 public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.c.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.d.e.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && (obj instanceof a)) {
@@ -44,14 +44,14 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
                 aVar.A(i2);
                 aVar.z(i3);
                 c.k().f(str, aVar);
-                d.a.c.e.l.a.l(true, System.currentTimeMillis() - currentTimeMillis);
+                d.a.d.e.l.a.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.c.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.d.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
             long currentTimeMillis = System.currentTimeMillis();
             a o = c.k().o(str);
             if (z) {
-                d.a.c.e.l.a.i(o != null, System.currentTimeMillis() - currentTimeMillis);
+                d.a.d.e.l.a.i(o != null, System.currentTimeMillis() - currentTimeMillis);
             }
             return o;
         }

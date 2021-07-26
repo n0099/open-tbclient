@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.j.f;
-import d.a.n0.j.o.b;
-import d.a.n0.j.o.c;
+import d.a.o0.j.f;
+import d.a.o0.j.o.b;
+import d.a.o0.j.o.c;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -22,22 +22,22 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11996a;
+    public Context f12022a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f11997b;
+    public RecyclerView f12023b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c> f11998c;
+    public List<c> f12024c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f11999d;
+    public b f12025d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12000e;
+    public boolean f12026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12001f;
+    public String f12027f;
 
     public LocationDetailAdapter(Context context, RecyclerView recyclerView, b bVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -54,23 +54,23 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 return;
             }
         }
-        this.f11997b = recyclerView;
-        this.f11996a = context;
-        this.f11999d = bVar;
-        this.f12000e = z;
+        this.f12023b = recyclerView;
+        this.f12022a = context;
+        this.f12025d = bVar;
+        this.f12026e = z;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f12001f) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f12027f) : invokeV.booleanValue;
     }
 
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RecyclerView recyclerView = this.f11997b;
+            RecyclerView recyclerView = this.f12023b;
             return recyclerView != null && recyclerView.computeVerticalScrollOffset() > 0;
         }
         return invokeV.booleanValue;
@@ -79,8 +79,8 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (c cVar : this.f11998c) {
-                cVar.f50520b = false;
+            for (c cVar : this.f12024c) {
+                cVar.f51024b = false;
             }
         }
     }
@@ -90,8 +90,8 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, str) == null) || list == null) {
             return;
         }
-        this.f11998c = list;
-        this.f12001f = str;
+        this.f12024c = list;
+        this.f12027f = str;
         notifyDataSetChanged();
     }
 
@@ -100,11 +100,11 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<c> list = this.f11998c;
+            List<c> list = this.f12024c;
             if (list == null) {
                 return 0;
             }
-            return list.size() + (this.f12000e ? 1 : 0);
+            return list.size() + (this.f12026e ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -113,7 +113,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public int getItemViewType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (!this.f12000e || i2 < getItemCount() + (-1)) ? 100 : 101 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (!this.f12026e || i2 < getItemCount() + (-1)) ? 100 : 101 : invokeI.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -121,7 +121,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i2) == null) {
             if (viewHolder.getItemViewType() != 101) {
-                ((LocationDetailViewHolder) viewHolder).c(this.f11998c.get(i2), this.f12001f, d());
+                ((LocationDetailViewHolder) viewHolder).c(this.f12024c.get(i2), this.f12027f, d());
             } else {
                 ((LocationFooterViewHolder) viewHolder).b(e());
             }
@@ -134,9 +134,9 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i2)) == null) {
             if (i2 != 101) {
-                return new LocationDetailViewHolder(LayoutInflater.from(this.f11996a).inflate(f.ai_apps_location_item, viewGroup, false), this, this.f11999d);
+                return new LocationDetailViewHolder(LayoutInflater.from(this.f12022a).inflate(f.ai_apps_location_item, viewGroup, false), this, this.f12025d);
             }
-            return new LocationFooterViewHolder(LayoutInflater.from(this.f11996a).inflate(f.ai_apps_location_footer, viewGroup, false));
+            return new LocationFooterViewHolder(LayoutInflater.from(this.f12022a).inflate(f.ai_apps_location_footer, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

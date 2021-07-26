@@ -1,58 +1,107 @@
 package com.bytedance.sdk.component.a;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes5.dex */
-public class x {
+public final class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f27820a;
+    public static final x f27975a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final x f27976b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final x f27977c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final /* synthetic */ x[] f27978d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2131109258, "Lcom/bytedance/sdk/component/a/x;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2131109258, "Lcom/bytedance/sdk/component/a/x;");
+                return;
+            }
+        }
+        f27975a = new x("PUBLIC", 0);
+        f27976b = new x("PROTECTED", 1);
+        x xVar = new x("PRIVATE", 2);
+        f27977c = xVar;
+        f27978d = new x[]{f27975a, f27976b, xVar};
+    }
+
+    public x(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static x a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return f27975a;
+            }
+            String lowerCase = str.toLowerCase();
+            if (TextUtils.equals("protected", lowerCase)) {
+                return f27976b;
+            }
+            if (TextUtils.equals(PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE, lowerCase)) {
+                return f27977c;
+            }
+            return f27975a;
+        }
+        return (x) invokeL.objValue;
+    }
+
+    public static x valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (x) Enum.valueOf(x.class, str) : (x) invokeL.objValue;
+    }
+
+    public static x[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (x[]) f27978d.clone() : (x[]) invokeV.objValue;
     }
 
-    public static String a(@Nullable Throwable th) {
-        InterceptResult invokeL;
+    @Override // java.lang.Enum
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("{\"code\":");
-            sb.append(th instanceof r ? ((r) th).f27788a : 0);
-            sb.append("}");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "{\"code\":1}";
-            }
-            String substring = f27820a ? str.substring(1, str.length() - 1) : "";
-            String str2 = "{\"code\":1,\"__data\":" + str;
-            if (!substring.isEmpty()) {
-                return str2 + "," + substring + "}";
-            }
-            return str2 + "}";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            f27820a = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == f27977c ? PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE : this == f27976b ? "protected" : "public" : (String) invokeV.objValue;
     }
 }

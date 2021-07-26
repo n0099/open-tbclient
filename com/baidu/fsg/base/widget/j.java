@@ -11,7 +11,7 @@ public class j implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardUtil f5546a;
+    public final /* synthetic */ SafeKeyBoardUtil f5572a;
 
     public j(SafeKeyBoardUtil safeKeyBoardUtil) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f5546a = safeKeyBoardUtil;
+        this.f5572a = safeKeyBoardUtil;
     }
 
     @Override // java.lang.Runnable
@@ -36,11 +36,11 @@ public class j implements Runnable {
         SafeScrollView safeScrollView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f5546a.mPopupWindow;
+            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f5572a.mPopupWindow;
             if (safeKeyBoardPopupWindow != null && safeKeyBoardPopupWindow.isShowing()) {
-                safeScrollView = this.f5546a.f5522e;
+                safeScrollView = this.f5572a.f5548e;
                 if (safeScrollView.hasWindowFocus()) {
-                    this.f5546a.a();
+                    this.f5572a.a();
                     return;
                 }
             }

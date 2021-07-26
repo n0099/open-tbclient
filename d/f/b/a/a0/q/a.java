@@ -115,35 +115,35 @@ public abstract class a {
     public static final int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f69307b;
+    public static final int f69761b;
     public static final int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f69308c;
+    public static final int f69762c;
     public static final int c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f69309d;
+    public static final int f69763d;
     public static final int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f69310e;
+    public static final int f69764e;
     public static final int e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f69311f;
+    public static final int f69765f;
     public static final int f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f69312g;
+    public static final int f69766g;
     public static final int g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f69313h;
+    public static final int f69767h;
     public static final int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f69314i;
+    public static final int f69768i;
     public static final int i0;
     public static final int j;
     public static final int j0;
@@ -182,19 +182,19 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f69315a;
+    public final int f69769a;
 
     /* renamed from: d.f.b.a.a0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C1972a extends a {
+    public static final class C1971a extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long P0;
         public final List<b> Q0;
-        public final List<C1972a> R0;
+        public final List<C1971a> R0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1972a(int i2, long j) {
+        public C1971a(int i2, long j) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -216,10 +216,10 @@ public abstract class a {
             this.R0 = new ArrayList();
         }
 
-        public void d(C1972a c1972a) {
+        public void d(C1971a c1971a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c1972a) == null) {
-                this.R0.add(c1972a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, c1971a) == null) {
+                this.R0.add(c1971a);
             }
         }
 
@@ -230,20 +230,20 @@ public abstract class a {
             }
         }
 
-        public C1972a f(int i2) {
+        public C1971a f(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 int size = this.R0.size();
                 for (int i3 = 0; i3 < size; i3++) {
-                    C1972a c1972a = this.R0.get(i3);
-                    if (c1972a.f69315a == i2) {
-                        return c1972a;
+                    C1971a c1971a = this.R0.get(i3);
+                    if (c1971a.f69769a == i2) {
+                        return c1971a;
                     }
                 }
                 return null;
             }
-            return (C1972a) invokeI.objValue;
+            return (C1971a) invokeI.objValue;
         }
 
         public b g(int i2) {
@@ -253,7 +253,7 @@ public abstract class a {
                 int size = this.Q0.size();
                 for (int i3 = 0; i3 < size; i3++) {
                     b bVar = this.Q0.get(i3);
-                    if (bVar.f69315a == i2) {
+                    if (bVar.f69769a == i2) {
                         return bVar;
                     }
                 }
@@ -267,7 +267,7 @@ public abstract class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return a.a(this.f69315a) + " leaves: " + Arrays.toString(this.Q0.toArray()) + " containers: " + Arrays.toString(this.R0.toArray());
+                return a.a(this.f69769a) + " leaves: " + Arrays.toString(this.Q0.toArray()) + " containers: " + Arrays.toString(this.R0.toArray());
             }
             return (String) invokeV.objValue;
         }
@@ -314,14 +314,14 @@ public abstract class a {
                 return;
             }
         }
-        f69307b = v.q("ftyp");
-        f69308c = v.q(VisualSampleEntry.TYPE3);
-        f69309d = v.q(VisualSampleEntry.TYPE4);
-        f69310e = v.q("hvc1");
-        f69311f = v.q("hev1");
-        f69312g = v.q(VisualSampleEntry.TYPE2);
-        f69313h = v.q("d263");
-        f69314i = v.q(MediaDataBox.TYPE);
+        f69761b = v.q("ftyp");
+        f69762c = v.q(VisualSampleEntry.TYPE3);
+        f69763d = v.q(VisualSampleEntry.TYPE4);
+        f69764e = v.q("hvc1");
+        f69765f = v.q("hev1");
+        f69766g = v.q(VisualSampleEntry.TYPE2);
+        f69767h = v.q("d263");
+        f69768i = v.q(MediaDataBox.TYPE);
         j = v.q(AudioSampleEntry.TYPE3);
         k = v.q(EmotionResourceProvider.EMOTION_SOUND_SUFFIX);
         l = v.q(AppleWaveBox.TYPE);
@@ -424,7 +424,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f69315a = i2;
+        this.f69769a = i2;
     }
 
     public static String a(int i2) {
@@ -451,6 +451,6 @@ public abstract class a {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f69315a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f69769a) : (String) invokeV.objValue;
     }
 }

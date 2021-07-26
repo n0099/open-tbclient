@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.q.d.e;
+import d.a.q0.q.d.e;
 /* loaded from: classes3.dex */
 public class AppNotificationReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;

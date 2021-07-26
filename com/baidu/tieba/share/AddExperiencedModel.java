@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.c.e.m.e;
+import d.a.d.a.f;
+import d.a.d.e.m.e;
 /* loaded from: classes4.dex */
 public class AddExperiencedModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -30,16 +30,16 @@ public class AddExperiencedModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f20874e;
+    public c f20992e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ContriInfo f20875f;
+    public ContriInfo f20993f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f20876g;
+    public Runnable f20994g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f20877h;
+    public HttpMessageListener f20995h;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -47,7 +47,7 @@ public class AddExperiencedModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddExperiencedModel f20878e;
+        public final /* synthetic */ AddExperiencedModel f20996e;
 
         public a(AddExperiencedModel addExperiencedModel) {
             Interceptable interceptable = $ic;
@@ -64,16 +64,16 @@ public class AddExperiencedModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f20878e = addExperiencedModel;
+            this.f20996e = addExperiencedModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20878e.f20874e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20996e.f20992e == null) {
                 return;
             }
-            this.f20878e.f20874e.a(this.f20878e.f20875f);
+            this.f20996e.f20992e.a(this.f20996e.f20993f);
         }
     }
 
@@ -83,7 +83,7 @@ public class AddExperiencedModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddExperiencedModel f20879a;
+        public final /* synthetic */ AddExperiencedModel f20997a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AddExperiencedModel addExperiencedModel, int i2, boolean z) {
@@ -104,7 +104,7 @@ public class AddExperiencedModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f20879a = addExperiencedModel;
+            this.f20997a = addExperiencedModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,8 +112,8 @@ public class AddExperiencedModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                this.f20879a.f20875f = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                e.a().postDelayed(this.f20879a.f20876g, 2000L);
+                this.f20997a.f20993f = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                e.a().postDelayed(this.f20997a.f20994g, 2000L);
             }
         }
     }
@@ -156,16 +156,16 @@ public class AddExperiencedModel extends BdBaseModel {
                 return;
             }
         }
-        this.f20876g = new a(this);
-        this.f20877h = new b(this, CmdConfigHttp.CMD_ADD_EXPERIENCED, true);
+        this.f20994g = new a(this);
+        this.f20995h = new b(this, CmdConfigHttp.CMD_ADD_EXPERIENCED, true);
         registerTask();
-        registerListener(this.f20877h);
+        registerListener(this.f20995h);
     }
 
     public static boolean B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? d.a.c.e.m.b.f(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? d.a.d.e.m.b.f(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
     }
 
     public void A(String str, String str2) {
@@ -201,7 +201,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e.a().removeCallbacks(this.f20876g);
+            e.a().removeCallbacks(this.f20994g);
         }
     }
 

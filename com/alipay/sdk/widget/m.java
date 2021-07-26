@@ -12,13 +12,13 @@ public class m extends j.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WebViewWindow f2044a;
+    public final /* synthetic */ WebViewWindow f2077a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f2045b;
+    public final /* synthetic */ String f2078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ j f2046c;
+    public final /* synthetic */ j f2079c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(j jVar, WebViewWindow webViewWindow, String str) {
@@ -39,9 +39,9 @@ public class m extends j.a {
                 return;
             }
         }
-        this.f2046c = jVar;
-        this.f2044a = webViewWindow;
-        this.f2045b = str;
+        this.f2079c = jVar;
+        this.f2077a = webViewWindow;
+        this.f2078b = str;
     }
 
     @Override // com.alipay.sdk.widget.j.a, android.view.animation.Animation.AnimationListener
@@ -49,10 +49,10 @@ public class m extends j.a {
         WebViewWindow webViewWindow;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-            this.f2046c.removeView(this.f2044a);
-            webViewWindow = this.f2046c.x;
-            webViewWindow.a(this.f2045b);
-            this.f2046c.v = false;
+            this.f2079c.removeView(this.f2077a);
+            webViewWindow = this.f2079c.x;
+            webViewWindow.a(this.f2078b);
+            this.f2079c.v = false;
         }
     }
 }

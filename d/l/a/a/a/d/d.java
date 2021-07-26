@@ -1,6 +1,6 @@
 package d.l.a.a.a.d;
 
-import d.l.a.e.b.f.v;
+import d.l.a.e.b.f.w;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
@@ -12,7 +12,7 @@ public interface d {
 
     boolean C();
 
-    v D();
+    w D();
 
     boolean E();
 

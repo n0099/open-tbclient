@@ -9,7 +9,7 @@ import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface d {
     InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
 

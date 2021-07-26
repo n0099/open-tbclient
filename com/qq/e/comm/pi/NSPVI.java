@@ -22,6 +22,8 @@ public interface NSPVI extends ApkDownloadComplianceInterface {
 
     String getAdNetWorkName();
 
+    int getECPM();
+
     String getECPMLevel();
 
     Bitmap getZoomOutBitmap();
@@ -46,6 +48,7 @@ public interface NSPVI extends ApkDownloadComplianceInterface {
     @Deprecated
     void setPreloadView(View view);
 
+    @Deprecated
     void setSkipView(View view);
 
     void setSupportZoomOut(boolean z);

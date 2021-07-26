@@ -1,28 +1,23 @@
 package com.win.opensdk;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j implements P {
+public class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f39611a;
+    public final /* synthetic */ k f39843a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f39612b;
-
-    public j(PBSplash pBSplash, Bitmap.CompressFormat compressFormat) {
+    public j(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pBSplash, compressFormat};
+            Object[] objArr = {kVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,24 +27,15 @@ public class j implements P {
                 return;
             }
         }
-        this.f39612b = pBSplash;
-        this.f39611a = compressFormat;
+        this.f39843a = kVar;
     }
 
-    public void a(int i2) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f39843a.f39851a.f39869b.f39620c.onFail(PBError.NO_FILL);
+            this.f39843a.f39851a.f39869b.f39621d = true;
         }
-    }
-
-    public void a(O o) {
-        PBSplash pBSplash;
-        PBSplashListener pBSplashListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o) == null) || (pBSplashListener = (pBSplash = this.f39612b).f39446e) == null || pBSplash.j) {
-            return;
-        }
-        pBSplashListener.onFail(PBError.NO_RESUOURCE);
-        PBSplash.d(this.f39612b, true);
     }
 }

@@ -19,16 +19,16 @@ public final class ez extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f23644a;
+    public Paint f23802a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23645b;
+    public int f23803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23646c;
+    public int f23804c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f23647d;
+    public Paint f23805d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ez(Context context) {
@@ -48,18 +48,18 @@ public final class ez extends ImageView {
                 return;
             }
         }
-        this.f23645b = 5;
-        this.f23646c = 5;
+        this.f23803b = 5;
+        this.f23804c = 5;
         float f2 = context.getResources().getDisplayMetrics().density;
-        this.f23645b = (int) (this.f23645b * f2);
-        this.f23646c = (int) (this.f23646c * f2);
+        this.f23803b = (int) (this.f23803b * f2);
+        this.f23804c = (int) (this.f23804c * f2);
         Paint paint = new Paint();
-        this.f23644a = paint;
+        this.f23802a = paint;
         paint.setColor(-1);
-        this.f23644a.setAntiAlias(true);
-        this.f23644a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f23802a.setAntiAlias(true);
+        this.f23802a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
-        this.f23647d = paint2;
+        this.f23805d = paint2;
         paint2.setXfermode(null);
     }
 
@@ -71,34 +71,34 @@ public final class ez extends ImageView {
             Canvas canvas2 = new Canvas(createBitmap);
             super.draw(canvas2);
             Path path = new Path();
-            path.moveTo(0.0f, this.f23646c);
+            path.moveTo(0.0f, this.f23804c);
             path.lineTo(0.0f, 0.0f);
-            path.lineTo(this.f23645b, 0.0f);
-            path.arcTo(new RectF(0.0f, 0.0f, this.f23645b * 2, this.f23646c * 2), -90.0f, -90.0f);
+            path.lineTo(this.f23803b, 0.0f);
+            path.arcTo(new RectF(0.0f, 0.0f, this.f23803b * 2, this.f23804c * 2), -90.0f, -90.0f);
             path.close();
-            canvas2.drawPath(path, this.f23644a);
+            canvas2.drawPath(path, this.f23802a);
             Path path2 = new Path();
-            path2.moveTo(getWidth(), this.f23646c);
+            path2.moveTo(getWidth(), this.f23804c);
             path2.lineTo(getWidth(), 0.0f);
-            path2.lineTo(getWidth() - this.f23645b, 0.0f);
-            path2.arcTo(new RectF(getWidth() - (this.f23645b * 2), 0.0f, getWidth(), (this.f23646c * 2) + 0), -90.0f, 90.0f);
+            path2.lineTo(getWidth() - this.f23803b, 0.0f);
+            path2.arcTo(new RectF(getWidth() - (this.f23803b * 2), 0.0f, getWidth(), (this.f23804c * 2) + 0), -90.0f, 90.0f);
             path2.close();
-            canvas2.drawPath(path2, this.f23644a);
+            canvas2.drawPath(path2, this.f23802a);
             Path path3 = new Path();
-            path3.moveTo(0.0f, getHeight() - this.f23646c);
+            path3.moveTo(0.0f, getHeight() - this.f23804c);
             path3.lineTo(0.0f, getHeight());
-            path3.lineTo(this.f23645b, getHeight());
-            path3.arcTo(new RectF(0.0f, getHeight() - (this.f23646c * 2), (this.f23645b * 2) + 0, getHeight()), 90.0f, 90.0f);
+            path3.lineTo(this.f23803b, getHeight());
+            path3.arcTo(new RectF(0.0f, getHeight() - (this.f23804c * 2), (this.f23803b * 2) + 0, getHeight()), 90.0f, 90.0f);
             path3.close();
-            canvas2.drawPath(path3, this.f23644a);
+            canvas2.drawPath(path3, this.f23802a);
             Path path4 = new Path();
-            path4.moveTo(getWidth() - this.f23645b, getHeight());
+            path4.moveTo(getWidth() - this.f23803b, getHeight());
             path4.lineTo(getWidth(), getHeight());
-            path4.lineTo(getWidth(), getHeight() - this.f23646c);
-            path4.arcTo(new RectF(getWidth() - (this.f23645b * 2), getHeight() - (this.f23646c * 2), getWidth(), getHeight()), 0.0f, 90.0f);
+            path4.lineTo(getWidth(), getHeight() - this.f23804c);
+            path4.arcTo(new RectF(getWidth() - (this.f23803b * 2), getHeight() - (this.f23804c * 2), getWidth(), getHeight()), 0.0f, 90.0f);
             path4.close();
-            canvas2.drawPath(path4, this.f23644a);
-            canvas.drawBitmap(createBitmap, 0.0f, 0.0f, this.f23647d);
+            canvas2.drawPath(path4, this.f23802a);
+            canvas.drawBitmap(createBitmap, 0.0f, 0.0f, this.f23805d);
             createBitmap.recycle();
         }
     }

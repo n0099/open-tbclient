@@ -29,13 +29,13 @@ public abstract class k implements IBeanResponseCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f26247a;
+    public Handler f26405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayBaseBeanActivity f26248b;
+    public PayBaseBeanActivity f26406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LoginBackListenerProxy f26249c;
+    public LoginBackListenerProxy f26407c;
 
     public k(PayBaseBeanActivity payBaseBeanActivity) {
         Interceptable interceptable = $ic;
@@ -52,17 +52,17 @@ public abstract class k implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f26248b = payBaseBeanActivity;
+        this.f26406b = payBaseBeanActivity;
     }
 
     private Handler f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.f26247a == null) {
-                this.f26247a = new Handler(this.f26248b.getMainLooper());
+            if (this.f26405a == null) {
+                this.f26405a = new Handler(this.f26406b.getMainLooper());
             }
-            return this.f26247a;
+            return this.f26405a;
         }
         return (Handler) invokeV.objValue;
     }
@@ -106,16 +106,16 @@ public abstract class k implements IBeanResponseCallback {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f26254a;
+                public final /* synthetic */ int f26412a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f26255b;
+                public final /* synthetic */ int f26413b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f26256c;
+                public final /* synthetic */ String f26414c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ k f26257d;
+                public final /* synthetic */ k f26415d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,17 +132,17 @@ public abstract class k implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f26257d = this;
-                    this.f26254a = i2;
-                    this.f26255b = i3;
-                    this.f26256c = str;
+                    this.f26415d = this;
+                    this.f26412a = i2;
+                    this.f26413b = i3;
+                    this.f26414c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f26257d.a(this.f26254a, this.f26255b, this.f26256c);
+                        this.f26415d.a(this.f26412a, this.f26413b, this.f26414c);
                     }
                 }
             });
@@ -158,16 +158,16 @@ public abstract class k implements IBeanResponseCallback {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f26250a;
+                public final /* synthetic */ int f26408a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f26251b;
+                public final /* synthetic */ Object f26409b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f26252c;
+                public final /* synthetic */ String f26410c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ k f26253d;
+                public final /* synthetic */ k f26411d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -184,17 +184,17 @@ public abstract class k implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f26253d = this;
-                    this.f26250a = i2;
-                    this.f26251b = obj;
-                    this.f26252c = str;
+                    this.f26411d = this;
+                    this.f26408a = i2;
+                    this.f26409b = obj;
+                    this.f26410c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f26253d.a(this.f26250a, this.f26251b, this.f26252c);
+                        this.f26411d.a(this.f26408a, this.f26409b, this.f26410c);
                     }
                 }
             });
@@ -206,16 +206,16 @@ public abstract class k implements IBeanResponseCallback {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
             if (i3 != 100035 && i3 != 100036) {
                 if (i3 == 5003) {
-                    AccountManager.getInstance(this.f26248b).logout();
+                    AccountManager.getInstance(this.f26406b).logout();
                     WalletLoginHelper.getInstance().logout(false);
                     if (WalletLoginHelper.getInstance().isInnerPassLogin()) {
-                        GlobalUtils.toast(this.f26248b, str);
-                        this.f26249c = new LoginBackListenerProxy(this.f26248b, new ILoginBackListener(this) { // from class: com.baidu.wallet.paysdk.presenter.k.4
+                        GlobalUtils.toast(this.f26406b, str);
+                        this.f26407c = new LoginBackListenerProxy(this.f26406b, new ILoginBackListener(this) { // from class: com.baidu.wallet.paysdk.presenter.k.4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ k f26259a;
+                            public final /* synthetic */ k f26417a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -232,14 +232,14 @@ public abstract class k implements IBeanResponseCallback {
                                         return;
                                     }
                                 }
-                                this.f26259a = this;
+                                this.f26417a = this;
                             }
 
                             @Override // com.baidu.wallet.api.ILoginBackListener
                             public void onFail(int i4, String str2) {
                                 Interceptable interceptable2 = $ic;
                                 if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str2) == null) && i4 == 603) {
-                                    WalletLoginHelper.getInstance().onlyLogin(this.f26259a.f26249c);
+                                    WalletLoginHelper.getInstance().onlyLogin(this.f26417a.f26407c);
                                 }
                             }
 
@@ -247,20 +247,20 @@ public abstract class k implements IBeanResponseCallback {
                             public void onSuccess(int i4, String str2) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str2) == null) {
-                                    this.f26259a.c();
+                                    this.f26417a.c();
                                 }
                             }
                         });
-                        WalletLoginHelper.getInstance().login(this.f26249c);
+                        WalletLoginHelper.getInstance().login(this.f26407c);
                         return;
                     }
                     WalletLoginHelper.getInstance().handlerWalletError(5003);
-                } else if (ThirdPartyLoginUtil.getInstance().checkThirdPartyLogin(this.f26248b.getActivity(), i3, str, new WalletApiExtListener.ThirdPartyLoginListener(this) { // from class: com.baidu.wallet.paysdk.presenter.k.5
+                } else if (ThirdPartyLoginUtil.getInstance().checkThirdPartyLogin(this.f26406b.getActivity(), i3, str, new WalletApiExtListener.ThirdPartyLoginListener(this) { // from class: com.baidu.wallet.paysdk.presenter.k.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ k f26260a;
+                    public final /* synthetic */ k f26418a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -277,15 +277,15 @@ public abstract class k implements IBeanResponseCallback {
                                 return;
                             }
                         }
-                        this.f26260a = this;
+                        this.f26418a = this;
                     }
 
                     @Override // com.baidu.wallet.api.WalletApiExtListener.ThirdPartyLoginListener
                     public void onCallFail(int i4, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str2) == null) {
-                            PayCallBackManager.callBackClientCancel(this.f26260a.f26248b.getActivity(), "WelcomeBaseActivity.onPrepareDialog().1");
-                            this.f26260a.f26248b.finish();
+                            PayCallBackManager.callBackClientCancel(this.f26418a.f26406b.getActivity(), "WelcomeBaseActivity.onPrepareDialog().1");
+                            this.f26418a.f26406b.finish();
                         }
                     }
 
@@ -293,22 +293,22 @@ public abstract class k implements IBeanResponseCallback {
                     public void onCallSuccess(int i4, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str2) == null) {
-                            this.f26260a.c();
+                            this.f26418a.c();
                         }
                     }
                 })) {
                     return;
                 }
-                GlobalUtils.toast(this.f26248b, str);
+                GlobalUtils.toast(this.f26406b, str);
                 e();
                 return;
             }
-            PassUtil.passNormalized(this.f26248b, str, i3 == 100036 ? 2 : 1, new PassUtil.PassNormalize(this) { // from class: com.baidu.wallet.paysdk.presenter.k.3
+            PassUtil.passNormalized(this.f26406b, str, i3 == 100036 ? 2 : 1, new PassUtil.PassNormalize(this) { // from class: com.baidu.wallet.paysdk.presenter.k.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ k f26258a;
+                public final /* synthetic */ k f26416a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -325,7 +325,7 @@ public abstract class k implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f26258a = this;
+                    this.f26416a = this;
                 }
 
                 @Override // com.baidu.wallet.core.utils.PassUtil.PassNormalize, com.baidu.wallet.core.utils.PassUtil.IPassNormalize
@@ -334,10 +334,10 @@ public abstract class k implements IBeanResponseCallback {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, context, i4, map)) == null) {
                         if (super.onNormalize(context, i4, map)) {
-                            this.f26258a.c();
+                            this.f26416a.c();
                             return false;
                         }
-                        this.f26258a.e();
+                        this.f26416a.e();
                         return false;
                     }
                     return invokeLIL.booleanValue;

@@ -15,7 +15,7 @@ public final class ProgressStatus {
     public static final ProgressStatus GO;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ ProgressStatus[] f9262a;
+    public static final /* synthetic */ ProgressStatus[] f9288a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class ProgressStatus {
         GO = new ProgressStatus("GO", 0);
         ProgressStatus progressStatus = new ProgressStatus("BACK", 1);
         BACK = progressStatus;
-        f9262a = new ProgressStatus[]{GO, progressStatus};
+        f9288a = new ProgressStatus[]{GO, progressStatus};
     }
 
     public ProgressStatus(String str, int i2) {
@@ -65,6 +65,6 @@ public final class ProgressStatus {
     public static ProgressStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ProgressStatus[]) f9262a.clone() : (ProgressStatus[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ProgressStatus[]) f9288a.clone() : (ProgressStatus[]) invokeV.objValue;
     }
 }

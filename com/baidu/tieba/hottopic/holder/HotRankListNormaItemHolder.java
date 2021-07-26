@@ -16,31 +16,31 @@ public class HotRankListNormaItemHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17104a;
+    public int f17160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f17105b;
+    public TextView f17161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f17106c;
+    public TextView f17162c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f17107d;
+    public TextView f17163d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f17108e;
+    public View f17164e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f17109f;
+    public View f17165f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f17110g;
+    public ImageView f17166g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f17111h;
+    public LinearLayout f17167h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17112i;
+    public TextView f17168i;
     public TextView j;
     public LinearLayout k;
     public LinearLayout l;
@@ -63,26 +63,26 @@ public class HotRankListNormaItemHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f17104a = 3;
-        this.f17105b = null;
-        this.f17106c = null;
-        this.f17107d = null;
-        this.f17108e = null;
-        this.f17109f = null;
-        this.f17110g = null;
-        this.f17111h = null;
-        this.f17112i = null;
+        this.f17160a = 3;
+        this.f17161b = null;
+        this.f17162c = null;
+        this.f17163d = null;
+        this.f17164e = null;
+        this.f17165f = null;
+        this.f17166g = null;
+        this.f17167h = null;
+        this.f17168i = null;
         this.j = null;
         this.k = null;
         this.l = null;
-        this.f17105b = (TextView) view.findViewById(R.id.hot_topic_rank);
-        this.f17106c = (TextView) view.findViewById(R.id.hot_topic_title);
-        this.f17107d = (TextView) view.findViewById(R.id.hot_topic_num);
-        this.f17108e = view.findViewById(R.id.devide_line_top);
-        this.f17109f = view.findViewById(R.id.topic_devide_line_bottom);
-        this.f17110g = (ImageView) view.findViewById(R.id.hot_topic_pic);
-        this.f17111h = (LinearLayout) view.findViewById(R.id.tip_info_item);
-        this.f17112i = (TextView) view.findViewById(R.id.tip_info_title);
+        this.f17161b = (TextView) view.findViewById(R.id.hot_topic_rank);
+        this.f17162c = (TextView) view.findViewById(R.id.hot_topic_title);
+        this.f17163d = (TextView) view.findViewById(R.id.hot_topic_num);
+        this.f17164e = view.findViewById(R.id.devide_line_top);
+        this.f17165f = view.findViewById(R.id.topic_devide_line_bottom);
+        this.f17166g = (ImageView) view.findViewById(R.id.hot_topic_pic);
+        this.f17167h = (LinearLayout) view.findViewById(R.id.tip_info_item);
+        this.f17168i = (TextView) view.findViewById(R.id.tip_info_title);
         this.j = (TextView) view.findViewById(R.id.tip_info_rule);
         this.k = (LinearLayout) view.findViewById(R.id.topic_normal_item);
         this.l = (LinearLayout) view.findViewById(R.id.tip_rule_container);

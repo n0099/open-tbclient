@@ -13,22 +13,22 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f38455a;
+    public static final a f38631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f38456b;
+    public static final a f38632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f38457c;
+    public static final a f38633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f38458d;
+    public static final a f38634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f38459e;
+    public static final a f38635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ a[] f38460f;
+    public static final /* synthetic */ a[] f38636f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,13 +44,13 @@ public final class a {
                 return;
             }
         }
-        f38455a = new a("ASYNC_HANDLE_NONE", 0);
-        f38456b = new a("ASYNC_HANDLE_WAITING", 1);
-        f38457c = new a("ASYNC_HANDLE_RESTART", 2);
-        f38458d = new a("ASYNC_HANDLE_DOWNLOADING", 3);
+        f38631a = new a("ASYNC_HANDLE_NONE", 0);
+        f38632b = new a("ASYNC_HANDLE_WAITING", 1);
+        f38633c = new a("ASYNC_HANDLE_RESTART", 2);
+        f38634d = new a("ASYNC_HANDLE_DOWNLOADING", 3);
         a aVar = new a("ASYNC_HANDLE_DOWNLOADED", 4);
-        f38459e = aVar;
-        f38460f = new a[]{f38455a, f38456b, f38457c, f38458d, aVar};
+        f38635e = aVar;
+        f38636f = new a[]{f38631a, f38632b, f38633c, f38634d, aVar};
     }
 
     public a(String str, int i2) {
@@ -81,6 +81,6 @@ public final class a {
     public static a[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f38460f.clone() : (a[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f38636f.clone() : (a[]) invokeV.objValue;
     }
 }

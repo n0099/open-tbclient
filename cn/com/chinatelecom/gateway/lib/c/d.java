@@ -34,7 +34,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1590a = "d";
+    public static final String f1623a = "d";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -132,7 +132,7 @@ public class d {
                                         th = th;
                                         bufferedReader = bufferedReader3;
                                         try {
-                                            CtAuth.warn(f1590a, "doGet error", th);
+                                            CtAuth.warn(f1623a, "doGet error", th);
                                             if (bufferedReader != null) {
                                                 bufferedReader.close();
                                             }
@@ -166,7 +166,7 @@ public class d {
                             } catch (Throwable th3) {
                                 th = th3;
                                 bufferedReader = null;
-                                CtAuth.warn(f1590a, "doGet error", th);
+                                CtAuth.warn(f1623a, "doGet error", th);
                                 if (bufferedReader != null) {
                                 }
                                 if (inputStreamReader != null) {
@@ -179,7 +179,7 @@ public class d {
                             th = th4;
                             inputStreamReader = null;
                             bufferedReader = null;
-                            CtAuth.warn(f1590a, "doGet error", th);
+                            CtAuth.warn(f1623a, "doGet error", th);
                             if (bufferedReader != null) {
                             }
                             if (inputStreamReader != null) {
@@ -336,7 +336,7 @@ public class d {
                                         e = e2;
                                         bufferedReader4 = bufferedReader6;
                                         str5 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
-                                        String str6 = f1590a;
+                                        String str6 = f1623a;
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append("sendRequest SocketTimeoutException-preauth-");
                                         sb2.append(e.getMessage());
@@ -352,7 +352,7 @@ public class d {
                                         e = e3;
                                         bufferedReader3 = bufferedReader6;
                                         str5 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
-                                        String str7 = f1590a;
+                                        String str7 = f1623a;
                                         StringBuilder sb4 = new StringBuilder();
                                         sb4.append("sendRequest UnknownHostException-preauth-");
                                         sb4.append(e.getMessage());
@@ -368,7 +368,7 @@ public class d {
                                         e = e4;
                                         bufferedReader2 = bufferedReader6;
                                         str5 = "{\"result\":80007,\"msg\":\"IO异常\"}";
-                                        String str8 = f1590a;
+                                        String str8 = f1623a;
                                         StringBuilder sb6 = new StringBuilder();
                                         sb6.append("sendRequest IOException-preauth-");
                                         sb6.append(e.getMessage());
@@ -384,7 +384,7 @@ public class d {
                                         th = th;
                                         bufferedReader = bufferedReader6;
                                         str5 = "{\"result\":80001,\"msg\":\"请求异常\"}";
-                                        String str9 = f1590a;
+                                        String str9 = f1623a;
                                         StringBuilder sb8 = new StringBuilder();
                                         sb8.append("sendRequest Throwable-preauth-");
                                         sb8.append(th.getMessage());
@@ -406,7 +406,7 @@ public class d {
                                 e = e5;
                                 bufferedReader4 = null;
                                 str5 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
-                                String str62 = f1590a;
+                                String str62 = f1623a;
                                 StringBuilder sb22 = new StringBuilder();
                                 sb22.append("sendRequest SocketTimeoutException-preauth-");
                                 sb22.append(e.getMessage());
@@ -423,7 +423,7 @@ public class d {
                                 e = e6;
                                 bufferedReader3 = null;
                                 str5 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
-                                String str72 = f1590a;
+                                String str72 = f1623a;
                                 StringBuilder sb42 = new StringBuilder();
                                 sb42.append("sendRequest UnknownHostException-preauth-");
                                 sb42.append(e.getMessage());
@@ -440,7 +440,7 @@ public class d {
                                 e = e7;
                                 bufferedReader2 = null;
                                 str5 = "{\"result\":80007,\"msg\":\"IO异常\"}";
-                                String str82 = f1590a;
+                                String str82 = f1623a;
                                 StringBuilder sb62 = new StringBuilder();
                                 sb62.append("sendRequest IOException-preauth-");
                                 sb62.append(e.getMessage());
@@ -457,7 +457,7 @@ public class d {
                                 th = th2;
                                 bufferedReader = null;
                                 str5 = "{\"result\":80001,\"msg\":\"请求异常\"}";
-                                String str92 = f1590a;
+                                String str92 = f1623a;
                                 StringBuilder sb82 = new StringBuilder();
                                 sb82.append("sendRequest Throwable-preauth-");
                                 sb82.append(th.getMessage());

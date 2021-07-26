@@ -61,10 +61,10 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public FeedbackInfo f26888a;
+        public FeedbackInfo f27046a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f26889b;
+        public b f27047b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -94,10 +94,10 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f26890a;
+        public int f27048a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f26891b;
+        public String[] f27049b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -162,8 +162,8 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public void initDialog(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.mFeedbackInfo = aVar.f26888a;
-            this.mListener = aVar.f26889b;
+            this.mFeedbackInfo = aVar.f27046a;
+            this.mListener = aVar.f27047b;
             this.mCloseButton.setOnClickListener(this);
             this.mSubmit.setOnClickListener(this);
             FeedbackInfo feedbackInfo = this.mFeedbackInfo;
@@ -240,7 +240,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_FEEDBACK_SUBMIT_CLICK, this.isEntryClicked);
                 if (this.mListener != null) {
                     c cVar = new c();
-                    cVar.f26890a = this.mRatingBar.getRating();
+                    cVar.f27048a = this.mRatingBar.getRating();
                     ArrayList arrayList = new ArrayList();
                     Iterator<TagButton> it = this.mTags.iterator();
                     while (it.hasNext()) {
@@ -250,7 +250,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
                         }
                     }
                     String[] strArr = new String[arrayList.size()];
-                    cVar.f26891b = strArr;
+                    cVar.f27049b = strArr;
                     arrayList.toArray(strArr);
                     this.mListener.a(cVar);
                 }

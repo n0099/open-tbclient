@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.c1.b.e;
+import d.a.p0.e1.b.e;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class HomePageYoungsterTopView extends RelativeLayout {
@@ -30,16 +30,16 @@ public class HomePageYoungsterTopView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16806e;
+    public TextView f16862e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16807f;
+    public ImageView f16863f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f16808g;
+    public c f16864g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f16809h;
+    public b f16865h;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -47,7 +47,7 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageYoungsterTopView f16810e;
+        public final /* synthetic */ HomePageYoungsterTopView f16866e;
 
         public a(HomePageYoungsterTopView homePageYoungsterTopView) {
             Interceptable interceptable = $ic;
@@ -64,16 +64,16 @@ public class HomePageYoungsterTopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f16810e = homePageYoungsterTopView;
+            this.f16866e = homePageYoungsterTopView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16810e.f16809h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16866e.f16865h == null) {
                 return;
             }
-            this.f16810e.f16809h.onDelete();
+            this.f16866e.f16865h.onDelete();
         }
     }
 
@@ -88,7 +88,7 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Context> f16811e;
+        public WeakReference<Context> f16867e;
 
         public c(Context context) {
             Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class HomePageYoungsterTopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f16811e = new WeakReference<>(context);
+            this.f16867e = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Context context;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (context = this.f16811e.get()) != null && e.d()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (context = this.f16867e.get()) != null && e.d()) {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
@@ -154,15 +154,15 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-            this.f16806e = (TextView) findViewById(R.id.youngster_top_text);
-            this.f16807f = (ImageView) findViewById(R.id.youngster_top_delete);
+            this.f16862e = (TextView) findViewById(R.id.youngster_top_text);
+            this.f16863f = (ImageView) findViewById(R.id.youngster_top_delete);
             SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
             c cVar = new c(getContext());
-            this.f16808g = cVar;
+            this.f16864g = cVar;
             spannableString.setSpan(cVar, 9, 13, 33);
-            this.f16806e.setText(spannableString);
-            this.f16806e.setMovementMethod(LinkMovementMethod.getInstance());
-            this.f16807f.setOnClickListener(new a(this));
+            this.f16862e.setText(spannableString);
+            this.f16862e.setMovementMethod(LinkMovementMethod.getInstance());
+            this.f16863f.setOnClickListener(new a(this));
             c();
         }
     }
@@ -171,15 +171,15 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.f16806e, R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f16807f, R.drawable.icon_home_card_delete);
+            SkinManager.setViewTextColor(this.f16862e, R.color.CAM_X0107);
+            SkinManager.setImageResource(this.f16863f, R.drawable.icon_home_card_delete);
         }
     }
 
     public void setOnDeleteClick(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f16809h = bVar;
+            this.f16865h = bVar;
         }
     }
 

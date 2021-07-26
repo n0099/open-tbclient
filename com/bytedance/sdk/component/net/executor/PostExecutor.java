@@ -72,9 +72,7 @@ public class PostExecutor extends NetExecutor {
                     }
                     return;
                 }
-                for (Map.Entry<String, String> entry : this.requestHeadsMap.entrySet()) {
-                    aVar.b(entry.getKey(), entry.getValue());
-                }
+                traverseHeadMapToRequestBuilder(aVar);
                 aVar.a((Object) getTag());
                 this.okHttpClient.a(aVar.a(this.requestBody).d()).a(new f(this, netCallback) { // from class: com.bytedance.sdk.component.net.executor.PostExecutor.1
                     public static /* synthetic */ Interceptable $ic;
@@ -151,9 +149,7 @@ public class PostExecutor extends NetExecutor {
                     NetLog.i(TAG, "RequestBody is null, content type is not support!!");
                     return null;
                 }
-                for (Map.Entry<String, String> entry : this.requestHeadsMap.entrySet()) {
-                    aVar.b(entry.getKey(), entry.getValue());
-                }
+                traverseHeadMapToRequestBuilder(aVar);
                 aVar.a((Object) getTag());
                 try {
                     ab b2 = this.okHttpClient.a(aVar.a(this.requestBody).d()).b();

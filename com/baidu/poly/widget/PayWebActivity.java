@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d0.f;
-import d.a.d0.g;
+import d.a.e0.f;
+import d.a.e0.g;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 /* loaded from: classes2.dex */
@@ -36,7 +36,7 @@ public class PayWebActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f9452i;
+    public ImageView f9478i;
     public boolean j;
     public String k;
     public Bundle l;
@@ -48,7 +48,7 @@ public class PayWebActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f9453e;
+        public final /* synthetic */ PayWebActivity f9479e;
 
         public a(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -65,15 +65,15 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f9453e = payWebActivity;
+            this.f9479e = payWebActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f9453e.setResult(0);
-                this.f9453e.finish();
+                this.f9479e.setResult(0);
+                this.f9479e.finish();
             }
         }
     }
@@ -107,7 +107,7 @@ public class PayWebActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             ImageView imageView = (ImageView) findViewById(f.iv_pay_back);
-            this.f9452i = imageView;
+            this.f9478i = imageView;
             imageView.setOnClickListener(new a(this));
             WebView webView = (WebView) findViewById(f.webView);
             this.webView = webView;
@@ -208,7 +208,7 @@ public class PayWebActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f9454a;
+        public final /* synthetic */ PayWebActivity f9480a;
 
         public b(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -225,7 +225,7 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f9454a = payWebActivity;
+            this.f9480a = payWebActivity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -262,7 +262,7 @@ public class PayWebActivity extends Activity {
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 }
-                return this.f9454a.m(str);
+                return this.f9480a.m(str);
             }
             return invokeLL.booleanValue;
         }
@@ -279,7 +279,7 @@ public class PayWebActivity extends Activity {
                     } catch (UnsupportedEncodingException e2) {
                         e2.printStackTrace();
                     }
-                    return this.f9454a.m(uri);
+                    return this.f9480a.m(uri);
                 }
                 return true;
             }

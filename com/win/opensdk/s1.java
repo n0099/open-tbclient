@@ -1,365 +1,177 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.sapi2.SapiOptions;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.StreamCorruptedException;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
+import com.win.opensdk.core.Info;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class s1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: a */
+    public static String f39933a = "https://pp.xdplt.com/";
+
+    /* renamed from: b */
+    public static final String f39934b;
+
+    /* renamed from: c */
+    public static final String f39935c;
+
+    /* renamed from: d */
+    public static String f39936d;
+
+    /* renamed from: e */
+    public static String f39937e;
+
+    /* renamed from: f */
+    public static String f39938f;
+
+    /* renamed from: g */
+    public static String f39939g;
+
+    /* renamed from: h */
+    public static String f39940h;
+
+    /* renamed from: i */
+    public static String f39941i;
+    public static String j;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(Context context, String str, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, Float.valueOf(f2)})) == null) ? context.getSharedPreferences("_prefs", 0).getFloat(str, f2) : invokeCommon.floatValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1639697679, "Lcom/win/opensdk/s1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1639697679, "Lcom/win/opensdk/s1;");
+                return;
+            }
+        }
+        f39934b = f39933a + "behavior?";
+        f39935c = f39933a + "report?";
+        f39936d = "https://cd.xdplt.com/";
+        f39937e = "jy/da?";
+        f39938f = "?";
+        f39939g = "jy/da?";
+        f39940h = "jy/da?";
+        f39941i = "jy/da?";
+        j = "jy/da?";
     }
 
-    public static long a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getLong("bdts", 0L) : invokeL.longValue;
-    }
-
-    public static void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putString(str, "");
-            edit.commit();
+    public static /* synthetic */ void a(r1 r1Var) {
+        String str;
+        if (r1Var != null) {
+            str = r1Var.f39929c;
+            if (TextUtils.isEmpty(str) || r1Var.f39927a == null || TextUtils.isEmpty(r1Var.f39928b)) {
+                return;
+            }
+            W1.a(new q1(r1Var));
         }
     }
 
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            String trim = str.toUpperCase().trim();
-            if (trim.length() % 2 != 0) {
-                return null;
+    public static /* synthetic */ void a(r1 r1Var, HashMap hashMap) {
+        if (r1Var.f39928b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+            hashMap.put("lo_timeout", String.valueOf(U1.d(r1Var.f39927a)));
+            float a2 = U1.a(r1Var.f39927a, "splash_width", 0.0f);
+            if (a2 > 0.0f) {
+                hashMap.put("sp_w", String.valueOf(a2));
             }
-            byte[] bArr = new byte[trim.length() / 2];
-            int i4 = 0;
-            while (i4 < trim.length()) {
-                char charAt = trim.charAt(i4);
-                if (charAt < '0' || charAt > '9') {
-                    if (charAt >= 'A' && charAt <= 'F') {
-                        i2 = charAt - '7';
-                    }
-                    return null;
-                }
-                i2 = charAt - '0';
-                int i5 = i2 * 16;
-                int i6 = i4 + 1;
-                char charAt2 = trim.charAt(i6);
-                if (charAt2 < '0' || charAt2 > '9') {
-                    if (charAt2 >= 'A' && charAt2 <= 'F') {
-                        i3 = charAt2 - '7';
-                    }
-                    return null;
-                }
-                i3 = charAt2 - '0';
-                bArr[i6 / 2] = (byte) (i5 + i3);
-                i4 = i6 + 1;
+            float a3 = U1.a(r1Var.f39927a, "splash_height", 0.0f);
+            if (a3 > 0.0f) {
+                hashMap.put("sp_h", String.valueOf(a3));
             }
-            return bArr;
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static Object b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+    public static /* synthetic */ K a(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("_prefs", 0);
-                if (sharedPreferences.contains(str)) {
-                    String string = sharedPreferences.getString(str, "");
-                    if (TextUtils.isEmpty(string)) {
-                        return null;
-                    }
-                    return new ObjectInputStream(new ByteArrayInputStream(a(string))).readObject();
-                }
-            } catch (StreamCorruptedException e2) {
-                e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            } catch (ClassNotFoundException e4) {
-                e4.printStackTrace();
-            }
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getString("bp", "") : (String) invokeL.objValue;
-    }
-
-    public static long c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getLong("ck_al", 0L) : invokeL.longValue;
-    }
-
-    public static long d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getLong("spl_dev_timeout", 2000L) : invokeL.longValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getString("p_i", "") : (String) invokeL.objValue;
-    }
-
-    public static int f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getInt("bro_high", 0) : invokeL.intValue;
-    }
-
-    public static int g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getInt("jumpsw", 0) : invokeL.intValue;
-    }
-
-    public static long h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getLong("lu_date", 0L) : invokeL.longValue;
-    }
-
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getString("oaid", "") : (String) invokeL.objValue;
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getString("oid", "") : (String) invokeL.objValue;
-    }
-
-    public static String k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getString(TiebaStatic.Params.PID_MERGE, "[]") : (String) invokeL.objValue;
-    }
-
-    public static int l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getInt("re_pro", 4) : invokeL.intValue;
-    }
-
-    public static long m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getLong("las", 12L) * 3600 * 1000 : invokeL.longValue;
-    }
-
-    public static String n(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getString("key_show_institial_adid", "") : (String) invokeL.objValue;
-    }
-
-    public static String o(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getString("key_show_native_adid", "") : (String) invokeL.objValue;
-    }
-
-    public static long p(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getLong("spl_timeout", 1000L) : invokeL.longValue;
-    }
-
-    public static int q(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) ? context.getSharedPreferences("_prefs", 0).getInt("timeout_sec", 5) : invokeL.intValue;
-    }
-
-    public static void r(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65570, null, context) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putLong("bdts", currentTimeMillis);
-            edit.apply();
-        }
-    }
-
-    public static void a(Context context, String str, Object obj) {
-        String stringBuffer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, obj) == null) {
-            try {
-                SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                new ObjectOutputStream(byteArrayOutputStream).writeObject(obj);
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                if (byteArray == null) {
-                    stringBuffer = null;
-                } else if (byteArray.length == 0) {
-                    stringBuffer = "";
-                } else {
-                    StringBuffer stringBuffer2 = new StringBuffer(byteArray.length);
-                    for (byte b2 : byteArray) {
-                        String hexString = Integer.toHexString(b2 & 255);
-                        if (hexString.length() < 2) {
-                            stringBuffer2.append(0);
+                if (jSONObject.length() != 0) {
+                    K k = new K();
+                    k.f39592c = jSONObject.optString("traceid", "");
+                    k.f39591b = jSONObject.optString("pid", "");
+                    jSONObject.optString("bt", "");
+                    JSONArray optJSONArray = jSONObject.optJSONArray("list");
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                            if (optJSONObject != null && optJSONObject.length() > 0) {
+                                Info info = new Info();
+                                info.setTraceid(k.f39592c);
+                                info.setPid(k.a());
+                                info.setId(optJSONObject.optString("id", ""));
+                                info.setLoad(optJSONObject.optString("load", ""));
+                                info.setLoad_type(optJSONObject.optString("load_type", ""));
+                                info.setXn(optJSONObject.optInt("xn", 1));
+                                info.setType(optJSONObject.optInt("type", 0));
+                                info.setCache(optJSONObject.optInt(SapiOptions.KEY_CACHE, 3600));
+                                info.setCb(optJSONObject.optInt("cb", 0));
+                                int optInt = optJSONObject.optInt("cdt", 0);
+                                if (optInt > 30) {
+                                    optInt = 30;
+                                }
+                                info.setCdt(optInt);
+                                int optInt2 = optJSONObject.optInt("wt", 10);
+                                if (optInt2 < 5) {
+                                    optInt2 = 5;
+                                }
+                                info.setWt(optInt2);
+                                info.setPs(optJSONObject.optInt("ps", 0));
+                                info.setVertical(optJSONObject.optBoolean("vertical", true));
+                                info.setNat(optJSONObject.optBoolean("nat", true));
+                                info.setHo_c_sw(optJSONObject.optBoolean("ho_c_sw", true));
+                                info.setOpen(optJSONObject.optString("open", ""));
+                                info.setTitle(optJSONObject.optString("title", ""));
+                                info.setDesc(optJSONObject.optString("desc", ""));
+                                info.setIcon(optJSONObject.optString("icon", ""));
+                                info.setImage(optJSONObject.optString("image", ""));
+                                info.setBtndesc(optJSONObject.optString("btndesc", ""));
+                                info.setOpent(optJSONObject.optInt("opent", 0));
+                                info.setDl_pkg(optJSONObject.optString("dl_pkg", ""));
+                                info.setDl_name(optJSONObject.optString("dl_name", ""));
+                                info.setDpl(optJSONObject.optString("dpl", ""));
+                                info.setDl_vsc(optJSONObject.optInt("dl_vsc", 0));
+                                info.setVvamount(optJSONObject.optLong("vvamount", 0L));
+                                info.setSpet(optJSONObject.optLong("spet", 1100L));
+                                info.setCountdown(optJSONObject.optLong("countdown", 5000L));
+                                info.setLo_timeout(optJSONObject.optLong("lo_timeout", 1000L));
+                                info.setVvt(optJSONObject.optInt("vvt", 0));
+                                info.setSper(optJSONObject.optDouble("sper", 0.5d));
+                                info.setImp_urls(optJSONObject.optString("imp_urls"));
+                                info.setClick_urls(optJSONObject.optString("click_urls"));
+                                info.setVv_click_urls(optJSONObject.optString("vv_click_urls"));
+                                info.setVv_downf_urls(optJSONObject.optString("vv_downf_urls"));
+                                info.setVv_downs_urls(optJSONObject.optString("vv_downs_urls"));
+                                info.setVv_finish_urls(optJSONObject.optString("vv_finish_urls"));
+                                info.setVv_ins_urls(optJSONObject.optString("vv_ins_urls"));
+                                info.setVv_show_urls(optJSONObject.optString("vv_show_urls"));
+                                info.setVv_start_urls(optJSONObject.optString("vv_start_urls"));
+                                info.setW(optJSONObject.optInt("w", 0));
+                                info.setH(optJSONObject.optInt("h", 0));
+                                info.setEvents(optJSONObject.optString("events"));
+                                arrayList.add(info);
+                            }
                         }
-                        stringBuffer2.append(hexString.toUpperCase());
                     }
-                    stringBuffer = stringBuffer2.toString();
+                    k.f39590a = arrayList;
+                    return k;
                 }
-                edit.putString(str, stringBuffer);
-                edit.commit();
-            } catch (IOException e2) {
-                e2.printStackTrace();
-                Log.e("", "保存obj失败");
+            } catch (Exception unused) {
             }
         }
-    }
-
-    public static void b(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65547, null, context, j) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putLong("lu_date", j);
-            edit.apply();
-        }
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65551, null, context, str) == null) || context.getSharedPreferences("_prefs", 0).contains("sever_tk")) {
-            return;
-        }
-        SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-        edit.putString("sever_tk", str);
-        edit.apply();
-    }
-
-    public static void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65553, null, context, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-        edit.putString("p_i", str);
-        edit.apply();
-    }
-
-    public static void e(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, context, str) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putString("lcss", str);
-            edit.apply();
-        }
-    }
-
-    public static void f(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, null, context, str) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putString("oaid", str);
-            edit.apply();
-        }
-    }
-
-    public static void g(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65559, null, context, str) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putString("oid", str);
-            edit.apply();
-        }
-    }
-
-    public static void b(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65548, null, context, str, z) == null) {
-            String o = o(context);
-            if (!TextUtils.isEmpty(o) && !z) {
-                str = o + "," + str;
-            }
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putString("key_show_native_adid", str);
-            edit.apply();
-        }
-    }
-
-    public static void a(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, null, context, j) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putLong("spl_dev_timeout", j);
-            edit.apply();
-        }
-    }
-
-    public static void b(Context context, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65546, null, context, f2) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putFloat("splash_width", f2);
-            edit.apply();
-        }
-    }
-
-    public static void c(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65550, null, context, j) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putLong("spl_timeout", j);
-            edit.apply();
-        }
-    }
-
-    public static void a(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, context, str, z) == null) {
-            String n = n(context);
-            if (!TextUtils.isEmpty(n) && !z) {
-                str = n + "," + str;
-            }
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putString("key_show_institial_adid", str);
-            edit.apply();
-        }
-    }
-
-    public static void a(Context context, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65538, null, context, f2) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putFloat("splash_height", f2);
-            edit.apply();
-        }
+        return null;
     }
 }

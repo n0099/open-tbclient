@@ -37,19 +37,19 @@ public class i implements h.s.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f71375a;
+    public long f71829a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.f f71376b;
+    public c.f f71830b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f71377c;
+    public boolean f71831c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f71378d;
+    public g f71832d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f71379e;
+    public e f71833e;
 
     /* loaded from: classes8.dex */
     public class a implements t {
@@ -57,10 +57,10 @@ public class i implements h.s.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t f71380a;
+        public final /* synthetic */ t f71834a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ i f71381b;
+        public final /* synthetic */ i f71835b;
 
         public a(i iVar, t tVar) {
             Interceptable interceptable = $ic;
@@ -77,15 +77,15 @@ public class i implements h.s.a {
                     return;
                 }
             }
-            this.f71381b = iVar;
-            this.f71380a = tVar;
+            this.f71835b = iVar;
+            this.f71834a = tVar;
         }
 
         @Override // d.l.a.a.a.c.t
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f71380a.a();
+                this.f71834a.a();
             }
         }
 
@@ -93,9 +93,9 @@ public class i implements h.s.a {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                l.p().a(1, l.a(), this.f71381b.f71376b.f71277b, "您已禁止使用存储权限，请授权后再下载", null, 1);
-                e.c.a().t(this.f71381b.f71375a, 1);
-                this.f71380a.a(str);
+                l.p().a(1, l.a(), this.f71835b.f71830b.f71731b, "您已禁止使用存储权限，请授权后再下载", null, 1);
+                e.c.a().t(this.f71835b.f71829a, 1);
+                this.f71834a.a(str);
             }
         }
     }
@@ -106,7 +106,7 @@ public class i implements h.s.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f71383a;
+        public final /* synthetic */ i f71837a;
 
         public c(i iVar) {
             Interceptable interceptable = $ic;
@@ -123,25 +123,25 @@ public class i implements h.s.a {
                     return;
                 }
             }
-            this.f71383a = iVar;
+            this.f71837a = iVar;
         }
 
         @Override // d.l.a.d.b.i.e
         public void a(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-                e.c.a().d(this.f71383a.f71375a, 2, downloadInfo);
+                e.c.a().d(this.f71837a.f71829a, 2, downloadInfo);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class d extends d.l.a.e.b.f.c {
+    public static class d extends d.l.a.e.b.f.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public h.s f71384b;
+        public h.s f71838b;
 
         public d(h.s sVar) {
             Interceptable interceptable = $ic;
@@ -158,10 +158,10 @@ public class i implements h.s.a {
                     return;
                 }
             }
-            this.f71384b = sVar;
+            this.f71838b = sVar;
         }
 
-        @Override // d.l.a.e.b.f.u
+        @Override // d.l.a.e.b.f.v
         public void a(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
@@ -169,7 +169,7 @@ public class i implements h.s.a {
             }
         }
 
-        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.b
+        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.c
         public void b(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
@@ -177,7 +177,7 @@ public class i implements h.s.a {
             }
         }
 
-        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.b
+        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.c
         public void c(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) {
@@ -185,7 +185,7 @@ public class i implements h.s.a {
             }
         }
 
-        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.b
+        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.c
         public void e(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) {
@@ -193,7 +193,7 @@ public class i implements h.s.a {
             }
         }
 
-        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.b
+        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.c
         public void f(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) {
@@ -201,7 +201,7 @@ public class i implements h.s.a {
             }
         }
 
-        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.b
+        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.c
         public void g(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
@@ -209,7 +209,7 @@ public class i implements h.s.a {
             }
         }
 
-        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.b
+        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.c
         public void h(DownloadInfo downloadInfo, BaseException baseException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, downloadInfo, baseException) == null) {
@@ -217,7 +217,7 @@ public class i implements h.s.a {
             }
         }
 
-        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.b
+        @Override // d.l.a.e.b.f.a, d.l.a.e.b.f.c
         public void l(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, downloadInfo) == null) {
@@ -232,7 +232,7 @@ public class i implements h.s.a {
                 obtain.what = 3;
                 obtain.obj = downloadInfo;
                 obtain.arg1 = i2;
-                this.f71384b.sendMessage(obtain);
+                this.f71838b.sendMessage(obtain);
             }
         }
     }
@@ -257,8 +257,8 @@ public class i implements h.s.a {
                 return;
             }
         }
-        this.f71377c = false;
-        this.f71378d = gVar;
+        this.f71831c = false;
+        this.f71832d = gVar;
     }
 
     @NonNull
@@ -313,14 +313,14 @@ public class i implements h.s.a {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadInfo)) == null) ? downloadInfo != null && downloadInfo.getStatus() == -3 && d.l.a.e.b.l.f.E0(downloadInfo.getSavePath(), downloadInfo.getName()) : invokeL.booleanValue;
     }
 
-    public int a(Context context, d.l.a.e.b.f.b bVar) {
+    public int a(Context context, d.l.a.e.b.f.c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cVar)) == null) {
             if (context == null) {
                 return 0;
             }
-            Map<String, String> j = this.f71376b.f71277b.j();
+            Map<String, String> j = this.f71830b.f71731b.j();
             ArrayList arrayList = new ArrayList();
             if (j != null) {
                 for (Map.Entry<String, String> entry : j.entrySet()) {
@@ -329,38 +329,38 @@ public class i implements h.s.a {
                     }
                 }
             }
-            String a2 = h.j.a(String.valueOf(this.f71376b.f71277b.d()), this.f71376b.f71277b.c(), this.f71376b.f71277b.k(), String.valueOf(this.f71376b.f71277b.A()));
-            d.l.a.e.b.j.a g2 = h.k.g(this.f71376b.f71277b);
-            JSONObject e2 = h.k.e(this.f71376b.f71277b);
-            if (!this.f71376b.f71279d.h()) {
+            String a2 = h.j.a(String.valueOf(this.f71830b.f71731b.d()), this.f71830b.f71731b.c(), this.f71830b.f71731b.k(), String.valueOf(this.f71830b.f71731b.A()));
+            d.l.a.e.b.j.a g2 = h.k.g(this.f71830b.f71731b);
+            JSONObject e2 = h.k.e(this.f71830b.f71731b);
+            if (!this.f71830b.f71733d.h()) {
                 e2 = h.r.n(e2);
                 h.r.q(e2, "ah_plans", new JSONArray());
             }
-            this.f71376b.f71277b.F();
-            int i2 = (this.f71376b.f71277b.t() || j.i(this.f71376b.f71277b)) ? 4 : 4;
+            this.f71830b.f71731b.F();
+            int i2 = (this.f71830b.f71731b.t() || j.i(this.f71830b.f71731b)) ? 4 : 4;
             String c2 = c(g2);
-            DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(d.l.a.e.b.g.e.w(this.f71376b.f71277b.a(), c2));
-            if (f2 != null && 3 == this.f71376b.f71277b.A()) {
+            DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(d.l.a.e.b.g.e.w(this.f71830b.f71731b.a(), c2));
+            if (f2 != null && 3 == this.f71830b.f71731b.A()) {
                 f2.setFirstDownload(true);
             }
-            d.l.a.e.a.i iVar = new d.l.a.e.a.i(context, this.f71376b.f71277b.a());
-            iVar.V(this.f71376b.f71277b.b());
-            iVar.H(this.f71376b.f71277b.h());
+            d.l.a.e.a.i iVar = new d.l.a.e.a.i(context, this.f71830b.f71731b.a());
+            iVar.V(this.f71830b.f71731b.b());
+            iVar.H(this.f71830b.f71731b.h());
             iVar.c0(a2);
             iVar.I(arrayList);
-            iVar.K(this.f71376b.f71277b.l());
-            iVar.Z(this.f71376b.f71277b.m());
-            iVar.U(this.f71376b.f71277b.o());
+            iVar.K(this.f71830b.f71731b.l());
+            iVar.Z(this.f71830b.f71731b.m());
+            iVar.U(this.f71830b.f71731b.o());
             iVar.Y(c2);
-            iVar.w0(this.f71376b.f71277b.w());
-            iVar.n0(this.f71376b.f71277b.e());
-            iVar.t0(this.f71376b.f71277b.I());
-            iVar.B(this.f71376b.f71277b.f());
-            iVar.D(bVar);
-            iVar.B0(this.f71376b.f71277b.q() || g2.b("need_independent_process", 0) == 1);
-            iVar.G(this.f71376b.f71277b.D());
-            iVar.W(this.f71376b.f71277b.C());
-            iVar.k0(this.f71376b.f71277b.v());
+            iVar.w0(this.f71830b.f71731b.w());
+            iVar.n0(this.f71830b.f71731b.e());
+            iVar.t0(this.f71830b.f71731b.I());
+            iVar.B(this.f71830b.f71731b.f());
+            iVar.D(cVar);
+            iVar.B0(this.f71830b.f71731b.q() || g2.b("need_independent_process", 0) == 1);
+            iVar.G(this.f71830b.f71731b.D());
+            iVar.W(this.f71830b.f71731b.C());
+            iVar.k0(this.f71830b.f71731b.v());
             iVar.b0(1000);
             iVar.f0(100);
             iVar.J(e2);
@@ -376,10 +376,10 @@ public class i implements h.s.a {
             iVar.q0(g2.t("retry_delay_time_array"));
             iVar.z0(g2.b("need_reuse_runnable", 0) == 1);
             iVar.j0(i2);
-            iVar.J0(this.f71376b.f71277b.J());
-            iVar.H0(this.f71376b.f71277b.K());
-            if (!TextUtils.isEmpty(this.f71376b.f71277b.i())) {
-                iVar.g0(this.f71376b.f71277b.i());
+            iVar.J0(this.f71830b.f71731b.J());
+            iVar.H0(this.f71830b.f71731b.K());
+            if (!TextUtils.isEmpty(this.f71830b.f71731b.i())) {
+                iVar.g0(this.f71830b.f71731b.i());
             } else {
                 iVar.g0("application/vnd.android.package-archive");
             }
@@ -387,14 +387,14 @@ public class i implements h.s.a {
                 iVar.K(false);
                 iVar.W(true);
             }
-            d.b bVar2 = null;
+            d.b bVar = null;
             if (g2.b("clear_space_use_disk_handler", 0) == 1) {
-                bVar2 = new d.b();
-                iVar.F(bVar2);
+                bVar = new d.b();
+                iVar.F(bVar);
             }
-            int a3 = j.a(this.f71376b, u(), iVar);
-            if (bVar2 != null) {
-                bVar2.c(a3);
+            int a3 = j.a(this.f71830b, u(), iVar);
+            if (bVar != null) {
+                bVar.c(a3);
             }
             return a3;
         }
@@ -412,10 +412,10 @@ public class i implements h.s.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-            if (!TextUtils.isEmpty(this.f71376b.f71277b.n())) {
-                return this.f71376b.f71277b.n();
+            if (!TextUtils.isEmpty(this.f71830b.f71731b.n())) {
+                return this.f71830b.f71731b.n();
             }
-            DownloadInfo e2 = d.l.a.e.a.e.G().e(l.a(), this.f71376b.f71277b.a());
+            DownloadInfo e2 = d.l.a.e.a.e.G().e(l.a(), this.f71830b.f71731b.a());
             boolean e3 = h.p.e(StorageUtils.EXTERNAL_STORAGE_PERMISSION);
             String p = p();
             if (e2 != null && !TextUtils.isEmpty(e2.getSavePath())) {
@@ -440,7 +440,7 @@ public class i implements h.s.a {
             } catch (JSONException e5) {
                 e5.printStackTrace();
             }
-            e.c.a().r("label_external_permission", jSONObject, this.f71376b);
+            e.c.a().r("label_external_permission", jSONObject, this.f71830b);
             String str = null;
             try {
                 str = d.l.a.e.a.d.F();
@@ -469,17 +469,17 @@ public class i implements h.s.a {
 
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f71379e == null) {
-            this.f71379e = new c(this);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f71833e == null) {
+            this.f71833e = new c(this);
         }
     }
 
     public void f(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.f71375a = j;
+            this.f71829a = j;
             c.f v = c.g.e().v(j);
-            this.f71376b = v;
+            this.f71830b = v;
             if (v.x()) {
                 f.e.b().d("setAdId ModelBox notValid");
             }
@@ -495,8 +495,8 @@ public class i implements h.s.a {
             if (i2 != 1 && i2 != 6 && i2 == 2) {
                 if (downloadInfo.getIsFirstDownload()) {
                     d.l.a.d.g b2 = d.l.a.d.g.b();
-                    c.f fVar = this.f71376b;
-                    b2.f(fVar.f71277b, fVar.f71279d, fVar.f71278c);
+                    c.f fVar = this.f71830b;
+                    b2.f(fVar.f71731b, fVar.f71733d, fVar.f71732c);
                     downloadInfo.setFirstDownload(false);
                 }
                 e.c.a().h(downloadInfo);
@@ -507,9 +507,9 @@ public class i implements h.s.a {
             long totalBytes = downloadInfo.getTotalBytes();
             int i3 = (totalBytes > 0L ? 1 : (totalBytes == 0L ? 0 : -1));
             int curBytes = i3 > 0 ? (int) ((downloadInfo.getCurBytes() * 100) / totalBytes) : 0;
-            if ((i3 > 0 || d.l.a.e.b.j.a.r().l("fix_click_start")) && (eVar2 = this.f71379e) != null) {
+            if ((i3 > 0 || d.l.a.e.b.j.a.r().l("fix_click_start")) && (eVar2 = this.f71833e) != null) {
                 eVar2.a(downloadInfo);
-                this.f71379e = null;
+                this.f71833e = null;
             }
             for (d.l.a.a.a.d.e eVar3 : d(map)) {
                 if (b3 != 1) {
@@ -521,7 +521,7 @@ public class i implements h.s.a {
                         } else if (downloadInfo.getStatus() == -1) {
                             eVar3.a(eVar);
                         } else if (downloadInfo.getStatus() == -3) {
-                            if (h.r.v(this.f71376b.f71277b)) {
+                            if (h.r.v(this.f71830b.f71731b)) {
                                 eVar3.b(eVar);
                             } else {
                                 eVar3.c(eVar);
@@ -542,8 +542,8 @@ public class i implements h.s.a {
     public void h(@NonNull t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, tVar) == null) {
-            if (!TextUtils.isEmpty(this.f71376b.f71277b.n())) {
-                String n = this.f71376b.f71277b.n();
+            if (!TextUtils.isEmpty(this.f71830b.f71731b.n())) {
+                String n = this.f71830b.f71731b.n();
                 if (n.startsWith(Environment.getDataDirectory().getAbsolutePath())) {
                     tVar.a();
                     return;
@@ -563,7 +563,7 @@ public class i implements h.s.a {
     public void i(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadInfo) == null) {
-            this.f71377c = false;
+            this.f71831c = false;
             s(downloadInfo);
         }
     }
@@ -593,8 +593,8 @@ public class i implements h.s.a {
                     switch (downloadInfo.getStatus()) {
                         case -4:
                         case 0:
-                            if (h.r.v(this.f71376b.f71277b)) {
-                                eVar.f71135b = -3;
+                            if (h.r.v(this.f71830b.f71731b)) {
+                                eVar.f71589b = -3;
                                 eVar2.b(eVar);
                                 break;
                             } else {
@@ -602,7 +602,7 @@ public class i implements h.s.a {
                                 break;
                             }
                         case -3:
-                            if (h.r.v(this.f71376b.f71277b)) {
+                            if (h.r.v(this.f71830b.f71731b)) {
                                 eVar2.b(eVar);
                                 break;
                             } else {
@@ -652,42 +652,42 @@ public class i implements h.s.a {
 
     public void k(DownloadInfo downloadInfo, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048586, this, downloadInfo, z) == null) || this.f71376b.f71277b == null || downloadInfo == null || downloadInfo.getId() == 0) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048586, this, downloadInfo, z) == null) || this.f71830b.f71731b == null || downloadInfo == null || downloadInfo.getId() == 0) {
             return;
         }
         int status = downloadInfo.getStatus();
         if (status != -1 && status != -4) {
-            if (j.f(this.f71376b.f71277b)) {
-                e.c.a().c(this.f71375a, 2);
-            } else if (z && e.C2031e.a().f() && (status == -2 || status == -3)) {
-                e.c.a().c(this.f71375a, 2);
+            if (j.f(this.f71830b.f71731b)) {
+                e.c.a().c(this.f71829a, 2);
+            } else if (z && e.C2030e.a().f() && (status == -2 || status == -3)) {
+                e.c.a().c(this.f71829a, 2);
             }
         } else {
-            e.c.a().c(this.f71375a, 2);
+            e.c.a().c(this.f71829a, 2);
         }
         switch (status) {
             case -4:
             case -1:
                 e();
                 c.g e2 = c.g.e();
-                c.f fVar = this.f71376b;
-                e2.j(new d.l.a.b.a.c.b(fVar.f71277b, fVar.f71278c, fVar.f71279d, downloadInfo.getId()));
+                c.f fVar = this.f71830b;
+                e2.j(new d.l.a.b.a.c.b(fVar.f71731b, fVar.f71732c, fVar.f71733d, downloadInfo.getId()));
                 return;
             case -3:
-                if (h.r.v(this.f71376b.f71277b)) {
+                if (h.r.v(this.f71830b.f71731b)) {
                     f.e.b().g("SUCCESSED isInstalledApp");
                     return;
                 }
-                e.c.a().d(this.f71375a, 5, downloadInfo);
-                if (z && e.C2031e.a().c() && !e.C2031e.a().d(this.f71375a, this.f71376b.f71277b.u())) {
-                    e.c.a().c(this.f71375a, 2);
+                e.c.a().d(this.f71829a, 5, downloadInfo);
+                if (z && e.C2030e.a().c() && !e.C2030e.a().d(this.f71829a, this.f71830b.f71731b.u())) {
+                    e.c.a().c(this.f71829a, 2);
                     return;
                 }
                 return;
             case -2:
-                e.c.a().d(this.f71375a, 4, downloadInfo);
-                if (z && e.C2031e.a().c() && !e.C2031e.a().d(this.f71375a, this.f71376b.f71277b.u())) {
-                    e.c.a().c(this.f71375a, 2);
+                e.c.a().d(this.f71829a, 4, downloadInfo);
+                if (z && e.C2030e.a().c() && !e.C2030e.a().d(this.f71829a, this.f71830b.f71731b.u())) {
+                    e.c.a().c(this.f71829a, 2);
                     return;
                 }
                 return;
@@ -702,7 +702,7 @@ public class i implements h.s.a {
             case 5:
             case 7:
             case 8:
-                e.c.a().d(this.f71375a, 3, downloadInfo);
+                e.c.a().d(this.f71829a, 3, downloadInfo);
                 return;
         }
     }
@@ -711,10 +711,10 @@ public class i implements h.s.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            if (this.f71376b.f71279d.b() == 2 && i2 == 2) {
+            if (this.f71830b.f71733d.b() == 2 && i2 == 2) {
                 return true;
             }
-            return this.f71376b.f71279d.b() == 2 && i2 == 1 && l.v().optInt("disable_lp_if_market", 0) == 1;
+            return this.f71830b.f71733d.b() == 2 && i2 == 1 && l.v().optInt("disable_lp_if_market", 0) == 1;
         }
         return invokeI.booleanValue;
     }
@@ -723,17 +723,17 @@ public class i implements h.s.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (h.r.v(this.f71376b.f71277b)) {
-                d.l.a.b.a.c.b u = c.g.e().u(this.f71376b.f71276a);
+            if (h.r.v(this.f71830b.f71731b)) {
+                d.l.a.b.a.c.b u = c.g.e().u(this.f71830b.f71730a);
                 if (u != null) {
                     d.l.a.e.b.p.b.a().m(u.s());
                 }
-                return c.d.g(this.f71376b);
-            } else if (l(i2) && !TextUtils.isEmpty(this.f71376b.f71277b.v()) && l.v().optInt("disable_market") != 1) {
-                return c.d.h(this.f71376b, i2);
+                return c.d.g(this.f71830b);
+            } else if (l(i2) && !TextUtils.isEmpty(this.f71830b.f71731b.v()) && l.v().optInt("disable_market") != 1) {
+                return c.d.h(this.f71830b, i2);
             } else {
-                if (z && this.f71376b.f71279d.b() == 4 && !this.f71378d.D()) {
-                    this.f71378d.w(true);
+                if (z && this.f71830b.f71733d.b() == 4 && !this.f71832d.D()) {
+                    this.f71832d.w(true);
                     return true;
                 }
                 return false;
@@ -745,7 +745,7 @@ public class i implements h.s.a {
     public boolean n(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) ? !z && this.f71376b.f71279d.b() == 1 : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) ? !z && this.f71830b.f71733d.b() == 1 : invokeZ.booleanValue;
     }
 
     @Nullable
@@ -782,18 +782,18 @@ public class i implements h.s.a {
     public void s(@Nullable DownloadInfo downloadInfo) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, downloadInfo) == null) || (eVar = this.f71379e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, downloadInfo) == null) || (eVar = this.f71833e) == null) {
             return;
         }
         eVar.a(downloadInfo);
-        this.f71379e = null;
+        this.f71833e = null;
     }
 
     public void t(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, downloadInfo) == null) && j.f(this.f71376b.f71277b) && !this.f71377c) {
-            e.c.a().j("file_status", (downloadInfo == null || !h.r.D(downloadInfo.getTargetFilePath())) ? 2 : 1, this.f71376b);
-            this.f71377c = true;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, downloadInfo) == null) && j.f(this.f71830b.f71731b) && !this.f71831c) {
+            e.c.a().j("file_status", (downloadInfo == null || !h.r.D(downloadInfo.getTargetFilePath())) ? 2 : 1, this.f71830b);
+            this.f71831c = true;
         }
     }
 
@@ -807,8 +807,8 @@ public class i implements h.s.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            d.l.a.a.a.d.d dVar = this.f71376b.f71277b;
-            return (dVar == null || TextUtils.isEmpty(dVar.v()) || TextUtils.isEmpty(this.f71376b.f71277b.a())) ? false : true;
+            d.l.a.a.a.d.d dVar = this.f71830b.f71731b;
+            return (dVar == null || TextUtils.isEmpty(dVar.v()) || TextUtils.isEmpty(this.f71830b.f71731b.a())) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -822,19 +822,19 @@ public class i implements h.s.a {
     public final boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f71376b.f71279d.d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f71830b.f71733d.d() : invokeV.booleanValue;
     }
 
     public final boolean y(DownloadInfo downloadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, downloadInfo)) == null) ? !h.r.v(this.f71376b.f71277b) && A(downloadInfo) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, downloadInfo)) == null) ? !h.r.v(this.f71830b.f71731b) && A(downloadInfo) : invokeL.booleanValue;
     }
 
     public final boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? h.r.v(this.f71376b.f71277b) && j.e(this.f71376b.f71279d.a()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? h.r.v(this.f71830b.f71731b) && j.e(this.f71830b.f71733d.a()) : invokeV.booleanValue;
     }
 
     /* loaded from: classes8.dex */
@@ -843,7 +843,7 @@ public class i implements h.s.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t f71382a;
+        public final /* synthetic */ t f71836a;
 
         public b(i iVar, t tVar) {
             Interceptable interceptable = $ic;
@@ -860,14 +860,14 @@ public class i implements h.s.a {
                     return;
                 }
             }
-            this.f71382a = tVar;
+            this.f71836a = tVar;
         }
 
         @Override // d.l.a.d.h.p.a
         public void a() {
             t tVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tVar = this.f71382a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tVar = this.f71836a) == null) {
                 return;
             }
             tVar.a();
@@ -877,7 +877,7 @@ public class i implements h.s.a {
         public void a(String str) {
             t tVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (tVar = this.f71382a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (tVar = this.f71836a) == null) {
                 return;
             }
             tVar.a(str);

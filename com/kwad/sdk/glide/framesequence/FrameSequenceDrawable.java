@@ -177,7 +177,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ FrameSequenceDrawable f35706a;
+            public final /* synthetic */ FrameSequenceDrawable f35895a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -194,7 +194,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                         return;
                     }
                 }
-                this.f35706a = this;
+                this.f35895a = this;
             }
 
             @Override // java.lang.Runnable
@@ -203,20 +203,20 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                 Bitmap bitmap;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.f35706a.mLock) {
-                        if (this.f35706a.mDestroyed) {
+                    synchronized (this.f35895a.mLock) {
+                        if (this.f35895a.mDestroyed) {
                             return;
                         }
-                        int i4 = this.f35706a.mNextFrameToDecode;
+                        int i4 = this.f35895a.mNextFrameToDecode;
                         if (i4 < 0) {
                             return;
                         }
-                        Bitmap bitmap2 = this.f35706a.mBackBitmap;
-                        this.f35706a.mState = 2;
+                        Bitmap bitmap2 = this.f35895a.mBackBitmap;
+                        this.f35895a.mState = 2;
                         long j = 0;
                         boolean z2 = true;
                         try {
-                            j = this.f35706a.mFrameSequenceState.getFrame(i4, bitmap2, i4 - 2);
+                            j = this.f35895a.mFrameSequenceState.getFrame(i4, bitmap2, i4 - 2);
                             z = false;
                         } catch (Exception e2) {
                             Log.e(FrameSequenceDrawable.TAG, "exception during decode: " + e2);
@@ -225,24 +225,24 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                         if (j < 20) {
                             j = 100;
                         }
-                        synchronized (this.f35706a.mLock) {
+                        synchronized (this.f35895a.mLock) {
                             bitmap = null;
-                            if (this.f35706a.mDestroyed) {
-                                Bitmap bitmap3 = this.f35706a.mBackBitmap;
-                                this.f35706a.mBackBitmap = null;
+                            if (this.f35895a.mDestroyed) {
+                                Bitmap bitmap3 = this.f35895a.mBackBitmap;
+                                this.f35895a.mBackBitmap = null;
                                 bitmap = bitmap3;
-                            } else if (this.f35706a.mNextFrameToDecode >= 0 && this.f35706a.mState == 2) {
-                                this.f35706a.mNextSwap = z ? Long.MAX_VALUE : j + this.f35706a.mLastSwap;
-                                this.f35706a.mState = 3;
+                            } else if (this.f35895a.mNextFrameToDecode >= 0 && this.f35895a.mState == 2) {
+                                this.f35895a.mNextSwap = z ? Long.MAX_VALUE : j + this.f35895a.mLastSwap;
+                                this.f35895a.mState = 3;
                             }
                             z2 = false;
                         }
                         if (z2) {
-                            FrameSequenceDrawable frameSequenceDrawable = this.f35706a;
+                            FrameSequenceDrawable frameSequenceDrawable = this.f35895a;
                             frameSequenceDrawable.scheduleSelf(frameSequenceDrawable, frameSequenceDrawable.mNextSwap);
                         }
                         if (bitmap != null) {
-                            this.f35706a.mBitmapProvider.a(bitmap);
+                            this.f35895a.mBitmapProvider.a(bitmap);
                         }
                     }
                 }
@@ -253,7 +253,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ FrameSequenceDrawable f35707a;
+            public final /* synthetic */ FrameSequenceDrawable f35896a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -270,19 +270,19 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                         return;
                     }
                 }
-                this.f35707a = this;
+                this.f35896a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.f35707a.mLock) {
-                        this.f35707a.mNextFrameToDecode = -1;
-                        this.f35707a.mState = 0;
+                    synchronized (this.f35896a.mLock) {
+                        this.f35896a.mNextFrameToDecode = -1;
+                        this.f35896a.mState = 0;
                     }
-                    if (this.f35707a.mOnFinishedListener != null) {
-                        this.f35707a.mOnFinishedListener.a(this.f35707a);
+                    if (this.f35896a.mOnFinishedListener != null) {
+                        this.f35896a.mOnFinishedListener.a(this.f35896a);
                     }
                 }
             }

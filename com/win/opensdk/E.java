@@ -1,47 +1,30 @@
 package com.win.opensdk;
 
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
-public class E implements Runnable {
+public class E implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39347a;
+    public A1 f39563a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39348b;
+    public F f39564b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public String f39349c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public G f39350d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public C f39351e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f39352f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f39353g;
-
-    public E(String str, String str2, G g2) {
+    public E(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, g2};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -51,57 +34,53 @@ public class E implements Runnable {
                 return;
             }
         }
-        this.f39347a = 0;
-        this.f39352f = false;
-        this.f39348b = str;
-        this.f39349c = str2;
-        this.f39350d = g2;
-        this.f39351e = new C(this);
-        this.f39352f = true;
+        A1 a1 = new A1(context, str);
+        this.f39563a = a1;
+        a1.f39544f = new D(this);
     }
 
-    public final void a() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Thread.currentThread().isInterrupted()) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                if (this.f39563a != null) {
+                    this.f39563a.a();
+                    this.f39563a = null;
+                }
+                if (this.f39564b != null) {
+                    this.f39564b = null;
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public void a(View view, PBMediaView pBMediaView) {
+        A1 a1;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, pBMediaView) == null) || (a1 = this.f39563a) == null) {
             return;
         }
-        try {
-            URL url = new URL(this.f39348b);
-            HttpURLConnection httpURLConnection = url.toString().startsWith("https://") ? (HttpsURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection();
-            httpURLConnection.setConnectTimeout(3000);
-            httpURLConnection.setReadTimeout(3000);
-            httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setRequestProperty("Range", "bytes=" + this.f39347a + "-");
-            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            httpURLConnection.connect();
-            this.f39353g = (long) httpURLConnection.getContentLength();
-            if (Thread.currentThread().isInterrupted()) {
-                return;
-            }
-            if (this.f39351e != null && this.f39353g > 10) {
-                this.f39351e.a(httpURLConnection.getInputStream());
-            } else if (this.f39350d != null) {
-                this.f39350d.a();
-            }
-        } catch (IOException e2) {
-            if (!Thread.currentThread().isInterrupted()) {
-                throw e2;
-            }
-        }
+        a1.a(view, pBMediaView);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                a();
-            } catch (Exception unused) {
-                C c2 = this.f39351e;
-                if (c2 != null) {
-                    c2.b(c2.a(1, new Object[]{D.f39333b}));
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            A1 a1 = this.f39563a;
+            return (a1 == null || !a1.b()) ? "" : a1.f39541c.getLoad_type();
         }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            A1 a1 = this.f39563a;
+            return a1 != null && a1.b();
+        }
+        return invokeV.booleanValue;
     }
 }

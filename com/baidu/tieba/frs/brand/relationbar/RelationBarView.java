@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
@@ -26,13 +26,13 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15537e;
+    public int f15585e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f15538f;
+    public RecyclerView f15586f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelationBarAdapter f15539g;
+    public RelationBarAdapter f15587g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelationBarView(Context context) {
@@ -52,7 +52,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f15537e = 3;
+        this.f15585e = 3;
         a(context);
     }
 
@@ -61,14 +61,14 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
             setOrientation(1);
-            this.f15538f = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
+            this.f15586f = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
             RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
-            this.f15539g = relationBarAdapter;
-            this.f15538f.setAdapter(relationBarAdapter);
-            this.f15538f.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            this.f15538f.setItemAnimator(new DefaultItemAnimator());
+            this.f15587g = relationBarAdapter;
+            this.f15586f.setAdapter(relationBarAdapter);
+            this.f15586f.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            this.f15586f.setItemAnimator(new DefaultItemAnimator());
             int g2 = l.g(context, R.dimen.tbds44);
-            this.f15538f.addItemDecoration(new RelationSpaceItemDecoration(g2, l.g(context, R.dimen.tbds26), g2));
+            this.f15586f.addItemDecoration(new RelationSpaceItemDecoration(g2, l.g(context, R.dimen.tbds26), g2));
             b();
         }
     }
@@ -76,12 +76,12 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public void b() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f15537e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f15585e) {
             return;
         }
-        this.f15537e = skinType;
+        this.f15585e = skinType;
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        this.f15539g.notifyDataSetChanged();
+        this.f15587g.notifyDataSetChanged();
     }
 
     public void setData(List<OriForumInfo> list) {
@@ -92,8 +92,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
             setVisibility(0);
-            this.f15539g.setData(list);
-            this.f15539g.notifyDataSetChanged();
+            this.f15587g.setData(list);
+            this.f15587g.notifyDataSetChanged();
         }
     }
 
@@ -116,7 +116,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f15537e = 3;
+        this.f15585e = 3;
         a(context);
     }
 
@@ -139,7 +139,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f15537e = 3;
+        this.f15585e = 3;
         a(context);
     }
 }

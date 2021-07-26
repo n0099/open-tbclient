@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.f;
-import d.a.n0.a.g;
-import d.a.n0.a.k;
-import d.a.n0.a.p.e.c;
-import d.a.n0.a.p.e.e;
-import d.a.n0.a.v2.n0;
-import d.a.n0.a.v2.v;
+import d.a.o0.a.f;
+import d.a.o0.a.g;
+import d.a.o0.a.k;
+import d.a.o0.a.p.e.c;
+import d.a.o0.a.p.e.e;
+import d.a.o0.a.v2.n0;
+import d.a.o0.a.v2.v;
 /* loaded from: classes3.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -41,7 +41,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppScopeDetailActivity f10590e;
+        public final /* synthetic */ SwanAppScopeDetailActivity f10616e;
 
         public a(SwanAppScopeDetailActivity swanAppScopeDetailActivity) {
             Interceptable interceptable = $ic;
@@ -58,25 +58,25 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                     return;
                 }
             }
-            this.f10590e = swanAppScopeDetailActivity;
+            this.f10616e = swanAppScopeDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f10590e.finish();
+                this.f10616e.finish();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends d.a.n0.a.h0.j.a {
+    public class b extends d.a.o0.a.h0.j.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppScopeDetailActivity f10591c;
+        public final /* synthetic */ SwanAppScopeDetailActivity f10617c;
 
         public b(SwanAppScopeDetailActivity swanAppScopeDetailActivity) {
             Interceptable interceptable = $ic;
@@ -93,10 +93,10 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                     return;
                 }
             }
-            this.f10591c = swanAppScopeDetailActivity;
+            this.f10617c = swanAppScopeDetailActivity;
         }
 
-        @Override // d.a.n0.a.h0.j.a, d.a.n0.a.h0.j.d
+        @Override // d.a.o0.a.h0.j.a, d.a.o0.a.h0.j.d
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -104,7 +104,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                ((TextView) this.f10591c.findViewById(f.title)).setText(str);
+                ((TextView) this.f10617c.findViewById(f.title)).setText(str);
             }
         }
     }
@@ -122,7 +122,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 return;
             }
         }
-        DEBUG = k.f45831a;
+        DEBUG = k.f46335a;
     }
 
     public SwanAppScopeDetailActivity() {
@@ -149,13 +149,13 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [d.a.n0.a.p.e.c] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [d.a.o0.a.p.e.c] */
     private void initWebView() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || TextUtils.isEmpty(this.mUrl)) {
             return;
         }
-        e h2 = new d.a.n0.a.p.e.j.b().h(this);
+        e h2 = new d.a.o0.a.p.e.j.b().h(this);
         h2.Z(new b(this));
         this.mNgWebView = h2.u();
         h2.loadUrl(this.mUrl);
@@ -183,11 +183,11 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.a.n0.o.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.a.o0.o.a.a.f, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            setPendingTransition(d.a.n0.a.a.aiapps_hold, d.a.n0.a.a.aiapps_slide_out_to_right);
+            setPendingTransition(d.a.o0.a.a.aiapps_hold, d.a.o0.a.a.aiapps_slide_out_to_right);
             super.onCreate(bundle);
             setContentView(g.swanapp_scope_detail_activity);
             n0.a(this);

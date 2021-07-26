@@ -36,13 +36,19 @@ public final class R {
     /* loaded from: classes6.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int win_black_circle = 0x7f081d1c;
-        public static final int win_btn_close_dark = 0x7f081d1d;
-        public static final int win_btn_op = 0x7f081d1e;
-        public static final int win_close_parent_bg = 0x7f081d1f;
-        public static final int win_downloadicon = 0x7f081d20;
-        public static final int win_progress_bar_states = 0x7f081d21;
-        public static final int win_w_sw = 0x7f081d22;
+        public static final int win_black_circle = 0x7f081c75;
+        public static final int win_btn_close_dark = 0x7f081c76;
+        public static final int win_btn_op = 0x7f081c77;
+        public static final int win_close_parent_bg = 0x7f081c78;
+        public static final int win_default_app_icon = 0x7f081c79;
+        public static final int win_downloadicon = 0x7f081c7a;
+        public static final int win_draw_card_close = 0x7f081c7b;
+        public static final int win_draw_card_white_bg = 0x7f081c7c;
+        public static final int win_draw_concert_light_bg = 0x7f081c7d;
+        public static final int win_draw_convert_light_press = 0x7f081c7e;
+        public static final int win_draw_convert_light_unpress = 0x7f081c7f;
+        public static final int win_progress_bar_states = 0x7f081c80;
+        public static final int win_w_sw = 0x7f081c81;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -63,21 +69,31 @@ public final class R {
     /* loaded from: classes6.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int win_close_parent = 0x7f092849;
-        public static final int win_gifImageView = 0x7f09284a;
-        public static final int win_h5_open_webview = 0x7f09284b;
-        public static final int win_h5_open_webview_process = 0x7f09284c;
-        public static final int win_iv_clct = 0x7f09284d;
-        public static final int win_iv_close = 0x7f09284e;
-        public static final int win_parent = 0x7f09284f;
-        public static final int win_parent_close = 0x7f092850;
-        public static final int win_splash_iv = 0x7f092851;
-        public static final int win_splash_logo = 0x7f092852;
-        public static final int win_splash_main = 0x7f092853;
-        public static final int win_splash_skip = 0x7f092854;
-        public static final int win_splash_view = 0x7f092855;
-        public static final int win_tv_area = 0x7f092856;
-        public static final int wn_tv_cdt = 0x7f09285b;
+        public static final int win_ad_video_view = 0x7f092633;
+        public static final int win_card_app_close = 0x7f092634;
+        public static final int win_card_app_desc = 0x7f092635;
+        public static final int win_card_app_icon = 0x7f092636;
+        public static final int win_card_app_name = 0x7f092637;
+        public static final int win_card_app_score_container = 0x7f092638;
+        public static final int win_card_h5_open_btn = 0x7f092639;
+        public static final int win_close_parent = 0x7f09263a;
+        public static final int win_draw_video_main = 0x7f09263b;
+        public static final int win_draw_video_view = 0x7f09263c;
+        public static final int win_gifImageView = 0x7f09263d;
+        public static final int win_h5_open_webview = 0x7f09263e;
+        public static final int win_h5_open_webview_process = 0x7f09263f;
+        public static final int win_iv_clct = 0x7f092640;
+        public static final int win_iv_close = 0x7f092641;
+        public static final int win_layout_draw_ad_card = 0x7f092642;
+        public static final int win_parent = 0x7f092643;
+        public static final int win_parent_close = 0x7f092644;
+        public static final int win_splash_iv = 0x7f092645;
+        public static final int win_splash_logo = 0x7f092646;
+        public static final int win_splash_main = 0x7f092647;
+        public static final int win_splash_skip = 0x7f092648;
+        public static final int win_splash_view = 0x7f092649;
+        public static final int win_tv_area = 0x7f09264a;
+        public static final int wn_tv_cdt = 0x7f09264f;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -98,10 +114,11 @@ public final class R {
     /* loaded from: classes6.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int win_layout_activity_h5 = 0x7f0c0962;
-        public static final int win_layout_close = 0x7f0c0963;
-        public static final int win_layout_h5_open_activity = 0x7f0c0964;
-        public static final int win_layout_win_splash = 0x7f0c0965;
+        public static final int win_layout_activity_h5 = 0x7f0c0944;
+        public static final int win_layout_close = 0x7f0c0945;
+        public static final int win_layout_h5_open_activity = 0x7f0c0946;
+        public static final int win_layout_win_draw_video = 0x7f0c0947;
+        public static final int win_layout_win_splash = 0x7f0c0948;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -122,7 +139,7 @@ public final class R {
     /* loaded from: classes6.dex */
     public static final class raw {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int win_mraid = 0x7f110081;
+        public static final int win_mraid = 0x7f110082;
         public transient /* synthetic */ FieldHolder $fh;
 
         public raw() {
@@ -143,25 +160,25 @@ public final class R {
     /* loaded from: classes6.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int win_cancel = 0x7f0f1791;
-        public static final int win_cyc_process_color = 0x7f0f1792;
-        public static final int win_cyclecolor = 0x7f0f1793;
-        public static final int win_jump_title = 0x7f0f1794;
-        public static final int win_loadp_error = 0x7f0f1795;
-        public static final int win_store_picture_accept = 0x7f0f1796;
-        public static final int win_store_picture_decline = 0x7f0f1797;
-        public static final int win_store_picture_message = 0x7f0f1798;
-        public static final int win_store_picture_title = 0x7f0f1799;
-        public static final int win_toast_network_error = 0x7f0f179a;
-        public static final int win_toast_network_error2 = 0x7f0f179b;
-        public static final int win_wdownload_download_finish = 0x7f0f179c;
-        public static final int win_wdownload_failed = 0x7f0f179d;
-        public static final int win_wdownload_failed_msg = 0x7f0f179e;
-        public static final int win_wdownload_loading = 0x7f0f179f;
-        public static final int win_wdownload_no_netwrok = 0x7f0f17a0;
-        public static final int win_wdownload_processing = 0x7f0f17a1;
-        public static final int win_wdownload_start = 0x7f0f17a2;
-        public static final int win_wdownload_start_load = 0x7f0f17a3;
+        public static final int win_cancel = 0x7f0f1710;
+        public static final int win_cyc_process_color = 0x7f0f1711;
+        public static final int win_cyclecolor = 0x7f0f1712;
+        public static final int win_jump_title = 0x7f0f1713;
+        public static final int win_loadp_error = 0x7f0f1714;
+        public static final int win_store_picture_accept = 0x7f0f1715;
+        public static final int win_store_picture_decline = 0x7f0f1716;
+        public static final int win_store_picture_message = 0x7f0f1717;
+        public static final int win_store_picture_title = 0x7f0f1718;
+        public static final int win_toast_network_error = 0x7f0f1719;
+        public static final int win_toast_network_error2 = 0x7f0f171a;
+        public static final int win_wdownload_download_finish = 0x7f0f171b;
+        public static final int win_wdownload_failed = 0x7f0f171c;
+        public static final int win_wdownload_failed_msg = 0x7f0f171d;
+        public static final int win_wdownload_loading = 0x7f0f171e;
+        public static final int win_wdownload_no_netwrok = 0x7f0f171f;
+        public static final int win_wdownload_processing = 0x7f0f1720;
+        public static final int win_wdownload_start = 0x7f0f1721;
+        public static final int win_wdownload_start_load = 0x7f0f1722;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

@@ -18,19 +18,19 @@ public class DressupItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18555e;
+    public Context f18640e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18556f;
+    public View f18641f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18557g;
+    public TbImageView f18642g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f18558h;
+    public TbImageView f18643h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18559i;
+    public TextView f18644i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,22 +51,22 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18555e = context;
+        this.f18640e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f18555e).inflate(R.layout.index_dressup_item, this);
-            this.f18556f = inflate;
-            this.f18557g = (TbImageView) inflate.findViewById(R.id.bg_image);
-            TbImageView tbImageView = (TbImageView) this.f18556f.findViewById(R.id.permission_icon);
-            this.f18558h = tbImageView;
+            View inflate = LayoutInflater.from(this.f18640e).inflate(R.layout.index_dressup_item, this);
+            this.f18641f = inflate;
+            this.f18642g = (TbImageView) inflate.findViewById(R.id.bg_image);
+            TbImageView tbImageView = (TbImageView) this.f18641f.findViewById(R.id.permission_icon);
+            this.f18643h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f18558h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f18559i = (TextView) this.f18556f.findViewById(R.id.txt_type);
-            this.j = (TextView) this.f18556f.findViewById(R.id.txt_name);
+            this.f18643h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f18644i = (TextView) this.f18641f.findViewById(R.id.txt_type);
+            this.j = (TextView) this.f18641f.findViewById(R.id.txt_name);
         }
     }
 
@@ -89,7 +89,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18555e = context;
+        this.f18640e = context;
         a();
     }
 
@@ -112,7 +112,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18555e = context;
+        this.f18640e = context;
         a();
     }
 }

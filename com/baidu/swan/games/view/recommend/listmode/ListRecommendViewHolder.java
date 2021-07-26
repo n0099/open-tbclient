@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-import d.a.n0.f.e;
+import d.a.o0.f.e;
 /* loaded from: classes3.dex */
 public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SimpleDraweeView f11952a;
+    public SimpleDraweeView f11978a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f11953b;
+    public TextView f11979b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f11954c;
+    public TextView f11980c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f11955d;
+    public Button f11981d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ListRecommendViewHolder(View view) {
@@ -45,9 +45,9 @@ public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f11952a = (SimpleDraweeView) view.findViewById(e.swangame_recommend_item_icon);
-        this.f11953b = (TextView) view.findViewById(e.swangame_recommend_item_name);
-        this.f11954c = (TextView) view.findViewById(e.swangame_recommend_item_detail);
-        this.f11955d = (Button) view.findViewById(e.swangame_recommend_item_play);
+        this.f11978a = (SimpleDraweeView) view.findViewById(e.swangame_recommend_item_icon);
+        this.f11979b = (TextView) view.findViewById(e.swangame_recommend_item_name);
+        this.f11980c = (TextView) view.findViewById(e.swangame_recommend_item_detail);
+        this.f11981d = (Button) view.findViewById(e.swangame_recommend_item_play);
     }
 }

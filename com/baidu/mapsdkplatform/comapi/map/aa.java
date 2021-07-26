@@ -13,17 +13,17 @@ public final class aa {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final aa f7657a;
+    public static final aa f7683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final aa f7658b;
+    public static final aa f7684b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ aa[] f7659d;
+    public static final /* synthetic */ aa[] f7685d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f7660c;
+    public final int f7686c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,10 +38,10 @@ public final class aa {
                 return;
             }
         }
-        f7657a = new aa("GLSurfaceView", 0, 1);
+        f7683a = new aa("GLSurfaceView", 0, 1);
         aa aaVar = new aa("TextureView", 1, 2);
-        f7658b = aaVar;
-        f7659d = new aa[]{f7657a, aaVar};
+        f7684b = aaVar;
+        f7685d = new aa[]{f7683a, aaVar};
     }
 
     public aa(String str, int i2, int i3) {
@@ -62,7 +62,7 @@ public final class aa {
                 return;
             }
         }
-        this.f7660c = i3;
+        this.f7686c = i3;
     }
 
     public static aa valueOf(String str) {
@@ -74,6 +74,6 @@ public final class aa {
     public static aa[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (aa[]) f7659d.clone() : (aa[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (aa[]) f7685d.clone() : (aa[]) invokeV.objValue;
     }
 }

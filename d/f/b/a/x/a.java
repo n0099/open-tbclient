@@ -26,27 +26,27 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f70650a;
+    public static final int[] f71104a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f70651b;
+    public static final int[] f71105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f70652c;
+    public static final int[] f71106c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f70653d;
+    public static final int[] f71107d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f70654e;
+    public static final int[] f71108e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int[] f70655f;
+    public static final int[] f71109f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.f.b.a.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C1993a {
+    public static /* synthetic */ class C1992a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -57,21 +57,21 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f70656a;
+        public final String f71110a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f70657b;
+        public final int f71111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f70658c;
+        public final int f71112c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f70659d;
+        public final int f71113d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f70660e;
+        public final int f71114e;
 
-        public /* synthetic */ b(String str, int i2, int i3, int i4, int i5, int i6, C1993a c1993a) {
+        public /* synthetic */ b(String str, int i2, int i3, int i4, int i5, int i6, C1992a c1992a) {
             this(str, i2, i3, i4, i5, i6);
         }
 
@@ -90,11 +90,11 @@ public final class a {
                     return;
                 }
             }
-            this.f70656a = str;
-            this.f70658c = i3;
-            this.f70657b = i4;
-            this.f70659d = i5;
-            this.f70660e = i6;
+            this.f71110a = str;
+            this.f71112c = i3;
+            this.f71111b = i4;
+            this.f71113d = i5;
+            this.f71114e = i6;
         }
     }
 
@@ -111,12 +111,12 @@ public final class a {
                 return;
             }
         }
-        f70650a = new int[]{1, 2, 3, 6};
-        f70651b = new int[]{MediaEncodeParams.AUDIO_SAMPLE_RATE, 44100, 32000};
-        f70652c = new int[]{24000, 22050, 16000};
-        f70653d = new int[]{2, 1, 2, 3, 3, 4, 4, 5};
-        f70654e = new int[]{32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384, FileUtils.S_IRWXU, 512, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE, 640};
-        f70655f = new int[]{69, 87, 104, 121, 139, 174, 208, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, 278, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, SDKLogTypeConstants.TYPE_OAID_STATUS, 975, 1114, 1253, 1393};
+        f71104a = new int[]{1, 2, 3, 6};
+        f71105b = new int[]{MediaEncodeParams.AUDIO_SAMPLE_RATE, 44100, 32000};
+        f71106c = new int[]{24000, 22050, 16000};
+        f71107d = new int[]{2, 1, 2, 3, 3, 4, 4, 5};
+        f71108e = new int[]{32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384, FileUtils.S_IRWXU, 512, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE, 640};
+        f71109f = new int[]{69, 87, 104, 121, 139, 174, 208, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, 278, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, SDKLogTypeConstants.TYPE_OAID_STATUS, 975, 1114, 1253, 1393};
     }
 
     public static int a() {
@@ -131,11 +131,11 @@ public final class a {
         if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
             int i4 = i3 / 2;
             if (i2 >= 0) {
-                int[] iArr = f70651b;
+                int[] iArr = f71105b;
                 if (i2 >= iArr.length || i3 < 0) {
                     return -1;
                 }
-                int[] iArr2 = f70655f;
+                int[] iArr2 = f71109f;
                 if (i4 >= iArr2.length) {
                     return -1;
                 }
@@ -143,7 +143,7 @@ public final class a {
                 if (i5 == 44100) {
                     return (iArr2[i4] + (i3 % 2)) * 2;
                 }
-                int i6 = f70654e[i4];
+                int i6 = f71108e[i4];
                 return i5 == 32000 ? i6 * 6 : i6 * 4;
             }
             return -1;
@@ -155,9 +155,9 @@ public final class a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, lVar, str, str2, drmInitData)) == null) {
-            int i2 = f70651b[(lVar.x() & 192) >> 6];
+            int i2 = f71105b[(lVar.x() & 192) >> 6];
             int x = lVar.x();
-            int i3 = f70653d[(x & 56) >> 3];
+            int i3 = f71107d[(x & 56) >> 3];
             if ((x & 4) != 0) {
                 i3++;
             }
@@ -189,10 +189,10 @@ public final class a {
                 int g3 = (kVar.g(11) + 1) * 2;
                 int g4 = kVar.g(2);
                 if (g4 == 3) {
-                    i7 = f70652c[kVar.g(2)];
+                    i7 = f71106c[kVar.g(2)];
                 } else {
-                    i8 = f70650a[kVar.g(2)];
-                    i7 = f70651b[g4];
+                    i8 = f71104a[kVar.g(2)];
+                    i7 = f71105b[g4];
                 }
                 i4 = kVar.g(3);
                 i5 = g2;
@@ -215,14 +215,14 @@ public final class a {
                 if (g6 == 2) {
                     kVar.n(2);
                 }
-                i2 = f70651b[g5];
+                i2 = f71105b[g5];
                 i3 = b2;
                 i4 = g6;
                 str = "audio/ac3";
                 i5 = -1;
                 i6 = PureJavaCrc32C.T8_6_start;
             }
-            return new b(str, i5, f70653d[i4] + (kVar.f() ? 1 : 0), i2, i3, i6, null);
+            return new b(str, i5, f71107d[i4] + (kVar.f() ? 1 : 0), i2, i3, i6, null);
         }
         return (b) invokeL.objValue;
     }
@@ -244,9 +244,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, lVar, str, str2, drmInitData)) == null) {
             lVar.K(2);
-            int i2 = f70651b[(lVar.x() & 192) >> 6];
+            int i2 = f71105b[(lVar.x() & 192) >> 6];
             int x = lVar.x();
-            int i3 = f70653d[(x & 14) >> 1];
+            int i3 = f71107d[(x & 14) >> 1];
             if ((x & 1) != 0) {
                 i3++;
             }
@@ -262,7 +262,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
-            return (((byteBuffer.get(byteBuffer.position() + 4) & 192) >> 6) != 3 ? f70650a[(byteBuffer.get(byteBuffer.position() + 4) & 48) >> 4] : 6) * 256;
+            return (((byteBuffer.get(byteBuffer.position() + 4) & 192) >> 6) != 3 ? f71104a[(byteBuffer.get(byteBuffer.position() + 4) & 48) >> 4] : 6) * 256;
         }
         return invokeL.intValue;
     }

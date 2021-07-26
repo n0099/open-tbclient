@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.p0.a;
+import d.a.p0.r0.a;
 /* loaded from: classes2.dex */
 public class DownloadProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;

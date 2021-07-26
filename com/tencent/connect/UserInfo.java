@@ -10,7 +10,7 @@ import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.auth.c;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.open.utils.HttpUtils;
-import com.tencent.open.utils.e;
+import com.tencent.open.utils.f;
 import com.tencent.tauth.IUiListener;
 /* loaded from: classes6.dex */
 public class UserInfo extends BaseApi {
@@ -41,14 +41,14 @@ public class UserInfo extends BaseApi {
     public void getOpenId(IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.f38790b, e.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f39004c, f.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 
     public void getUserInfo(IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.f38790b, e.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f39004c, f.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 

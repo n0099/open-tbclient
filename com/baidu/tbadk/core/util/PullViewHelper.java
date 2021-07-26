@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.h;
-import d.a.c.e.p.m;
-import d.a.c.e.p.q;
-import d.a.o0.r.d0.b;
+import d.a.d.e.m.h;
+import d.a.d.e.p.m;
+import d.a.d.e.p.q;
+import d.a.p0.s.d0.b;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -744,7 +744,7 @@ public class PullViewHelper {
             b.j().t("pullview_should_show_3d_loading", false);
             setShouldShowLoadingView(false);
             String p = b.j().p("pull_image_url", "");
-            int d2 = d.a.c.e.m.b.d(str3, 0);
+            int d2 = d.a.d.e.m.b.d(str3, 0);
             if (str.equals(p)) {
                 if (isImagesExist(d2)) {
                     buildDrawablesAsync();
@@ -802,7 +802,7 @@ public class PullViewHelper {
                     return;
                 }
             }
-            startDownloadAsync(str, str2, d.a.c.e.m.b.d(str3, 0));
+            startDownloadAsync(str, str2, d.a.d.e.m.b.d(str3, 0));
         }
     }
 

@@ -35,11 +35,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.f;
-import d.a.c.a.j;
-import d.a.c.c.f.b;
-import d.a.o0.l.a;
-import d.a.o0.r.u.c;
+import d.a.d.a.f;
+import d.a.d.a.j;
+import d.a.d.c.f.b;
+import d.a.p0.m.a;
+import d.a.p0.s.u.c;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
@@ -150,7 +150,7 @@ public class FullBrowseHelper {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.a.c.c.f.f
+                @Override // d.a.d.c.f.f
                 public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -160,7 +160,7 @@ public class FullBrowseHelper {
                             if ((data instanceof IntentConfig) && ((IntentConfig) data).getContext() != null) {
                                 Class<?> cls = data.getClass();
                                 if (LoginActivityConfig.class == cls) {
-                                    FullBrowseHelper.showDialog(j.a(d.a.c.a.b.f().b()), new IAcceptPrivacyConfirm(this, customMessage) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5.1
+                                    FullBrowseHelper.showDialog(j.a(d.a.d.a.b.f().b()), new IAcceptPrivacyConfirm(this, customMessage) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass5 this$0;
@@ -200,12 +200,12 @@ public class FullBrowseHelper {
                                     return null;
                                 } else if (MainTabActivityConfig.class != cls && PbActivityConfig.class != cls && FrsActivityConfig.class != cls && ImageViewerConfig.class != cls && LogoActivityConfig.class != cls) {
                                     if (InterestGuideActivityConfig.class != cls && NewUserRedPackageActivityConfig.class != cls) {
-                                        FullBrowseHelper.showDialog(j.a(d.a.c.a.b.f().b()), null);
+                                        FullBrowseHelper.showDialog(j.a(d.a.d.a.b.f().b()), null);
                                     }
                                     return null;
                                 }
                             } else if (customMessage.getCmd() == 2002015 || customMessage.getCmd() == 2921361) {
-                                FullBrowseHelper.showDialog(j.a(d.a.c.a.b.f().b()), null);
+                                FullBrowseHelper.showDialog(j.a(d.a.d.a.b.f().b()), null);
                                 return null;
                             }
                         }
@@ -305,7 +305,7 @@ public class FullBrowseHelper {
             }
             textView2.setMovementMethod(LinkMovementMethod.getInstance());
             textView2.setText(spannableString);
-            d.a.o0.r.s.a aVar = new d.a.o0.r.s.a(fVar.getPageActivity());
+            d.a.p0.s.s.a aVar = new d.a.p0.s.s.a(fVar.getPageActivity());
             aVar.setContentView(inflate);
             aVar.setContentViewSize(8);
             aVar.setCanceledOnTouchOutside(false);
@@ -321,7 +321,7 @@ public class FullBrowseHelper {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IAcceptPrivacyConfirm val$acceptPrivacyConfirm;
-                public final /* synthetic */ d.a.o0.r.s.a val$mPrivateDialog;
+                public final /* synthetic */ d.a.p0.s.s.a val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -362,7 +362,7 @@ public class FullBrowseHelper {
             textView4.setOnClickListener(new View.OnClickListener(aVar) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ d.a.o0.r.s.a val$mPrivateDialog;
+                public final /* synthetic */ d.a.p0.s.s.a val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;

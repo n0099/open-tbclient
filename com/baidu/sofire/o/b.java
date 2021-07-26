@@ -22,31 +22,31 @@ public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f10477a;
+        public static final a f10503a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f10478b;
+        public static final a f10504b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f10479c;
+        public static final a f10505c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f10480d;
+        public static final a f10506d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f10481e;
+        public static final a f10507e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f10482f;
+        public static final a f10508f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f10483g;
+        public static final a f10509g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f10484h;
+        public static final a f10510h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final a f10485i;
+        public static final a f10511i;
         public static final a j;
         public static final a k;
         public static final a l;
@@ -68,20 +68,20 @@ public final class b {
                     return;
                 }
             }
-            f10477a = new a("UNSUPPORT", 0, -1, "unsupport");
-            f10478b = new a("HUA_WEI", 1, 0, "HUAWEI");
-            f10479c = new a("XIAOMI", 2, 1, "Xiaomi");
-            f10480d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-            f10481e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-            f10482f = new a("MOTO", 5, 4, "motorola");
-            f10483g = new a("LENOVO", 6, 5, "lenovo");
-            f10484h = new a("ASUS", 7, 6, "asus");
-            f10485i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
+            f10503a = new a("UNSUPPORT", 0, -1, "unsupport");
+            f10504b = new a("HUA_WEI", 1, 0, "HUAWEI");
+            f10505c = new a("XIAOMI", 2, 1, "Xiaomi");
+            f10506d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+            f10507e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+            f10508f = new a("MOTO", 5, 4, "motorola");
+            f10509g = new a("LENOVO", 6, 5, "lenovo");
+            f10510h = new a("ASUS", 7, 6, "asus");
+            f10511i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
             j = new a("MEIZU", 9, 8, "meizu");
             k = new a("ALPS", 10, 9, "alps");
             a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
             l = aVar;
-            o = new a[]{f10477a, f10478b, f10479c, f10480d, f10481e, f10482f, f10483g, f10484h, f10485i, j, k, aVar};
+            o = new a[]{f10503a, f10504b, f10505c, f10506d, f10507e, f10508f, f10509g, f10510h, f10511i, j, k, aVar};
         }
 
         public a(String str, int i2, int i3, String str2) {
@@ -112,14 +112,14 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
-                    return f10477a;
+                    return f10503a;
                 }
                 for (a aVar : values()) {
                     if (aVar.n.equalsIgnoreCase(str)) {
                         return aVar;
                     }
                 }
-                return f10477a;
+                return f10503a;
             }
             return (a) invokeL.objValue;
         }

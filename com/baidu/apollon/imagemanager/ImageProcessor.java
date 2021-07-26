@@ -16,11 +16,11 @@ public class ImageProcessor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3791a = -1;
+    public static final int f3817a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f3792b;
+    public final int f3818b;
 
     public ImageProcessor(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class ImageProcessor {
                 return;
             }
         }
-        this.f3792b = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
+        this.f3818b = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
     }
 
     public static int a(BitmapFactory.Options options, int i2, int i3) {
@@ -92,7 +92,7 @@ public class ImageProcessor {
                     options.inJustDecodeBounds = true;
                     BitmapFactory.decodeFile(file.getPath(), options);
                     if (!options.mCancel && options.outWidth != -1 && options.outHeight != -1) {
-                        options.inSampleSize = a(options, -1, this.f3792b);
+                        options.inSampleSize = a(options, -1, this.f3818b);
                         options.inJustDecodeBounds = false;
                         options.inDensity = i2;
                         options.inDither = false;

@@ -38,19 +38,19 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PluginCenterBannerGallery f73785e;
+    public PluginCenterBannerGallery f74241e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RadioGroup f73786f;
+    public RadioGroup f74242f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<BannerConfigItem.BannerInfo> f73787g;
+    public final List<BannerConfigItem.BannerInfo> f74243g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f73788h;
+    public View f74244h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f73789i;
+    public float f74245i;
     public final AdapterView.OnItemSelectedListener j;
 
     /* loaded from: classes9.dex */
@@ -59,7 +59,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterTopBanner f73790e;
+        public final /* synthetic */ PluginCenterTopBanner f74246e;
 
         public a(PluginCenterTopBanner pluginCenterTopBanner) {
             Interceptable interceptable = $ic;
@@ -76,14 +76,14 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                     return;
                 }
             }
-            this.f73790e = pluginCenterTopBanner;
+            this.f74246e = pluginCenterTopBanner;
         }
 
         @Override // android.widget.RadioGroup.OnCheckedChangeListener
         public final void onCheckedChanged(RadioGroup radioGroup, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, radioGroup, i2) == null) {
-                int size = this.f73790e.f73787g.size();
+                int size = this.f74246e.f74243g.size();
                 for (int i3 = 0; i3 < size; i3++) {
                     View childAt = radioGroup.getChildAt(i3);
                     if (childAt == null) {
@@ -101,7 +101,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterTopBanner f73791e;
+        public final /* synthetic */ PluginCenterTopBanner f74247e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public b(PluginCenterTopBanner pluginCenterTopBanner) {
@@ -119,27 +119,27 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                     return;
                 }
             }
-            this.f73791e = pluginCenterTopBanner;
+            this.f74247e = pluginCenterTopBanner;
         }
 
         @Override // android.widget.AdapterView.OnItemSelectedListener
         public void onItemSelected(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || i2 >= i.a.a.e.o.c.b.f72920a.a(PluginCenterTopBanner.b(this.f73791e).getData())) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || i2 >= i.a.a.e.o.c.b.f73374a.a(PluginCenterTopBanner.b(this.f74247e).getData())) {
                 return;
             }
-            RLog.debug("PluginCenterTopBanner", "banner display position = " + i2 + " id = " + PluginCenterTopBanner.b(this.f73791e).getData().get(i2).id);
-            RadioGroup radioGroup = this.f73791e.f73786f;
+            RLog.debug("PluginCenterTopBanner", "banner display position = " + i2 + " id = " + PluginCenterTopBanner.b(this.f74247e).getData().get(i2).id);
+            RadioGroup radioGroup = this.f74247e.f74242f;
             if (radioGroup == null) {
                 Intrinsics.throwNpe();
             }
-            List<BannerConfigItem.BannerInfo> data = PluginCenterTopBanner.b(this.f73791e).getData();
+            List<BannerConfigItem.BannerInfo> data = PluginCenterTopBanner.b(this.f74247e).getData();
             if (data == null) {
                 Intrinsics.throwNpe();
             }
             View childAt = radioGroup.getChildAt(i2 % data.size());
             if (childAt != null) {
-                RadioGroup radioGroup2 = this.f73791e.f73786f;
+                RadioGroup radioGroup2 = this.f74247e.f74242f;
                 if (radioGroup2 == null) {
                     Intrinsics.throwNpe();
                 }
@@ -192,7 +192,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     }
 
     public static final /* synthetic */ PluginCenterBannerGallery b(PluginCenterTopBanner pluginCenterTopBanner) {
-        PluginCenterBannerGallery pluginCenterBannerGallery = pluginCenterTopBanner.f73785e;
+        PluginCenterBannerGallery pluginCenterBannerGallery = pluginCenterTopBanner.f74241e;
         if (pluginCenterBannerGallery == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mGallery");
         }
@@ -202,7 +202,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final void d(List<? extends BannerConfigItem.BannerInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            RadioGroup radioGroup = this.f73786f;
+            RadioGroup radioGroup = this.f74242f;
             if (radioGroup == null) {
                 Intrinsics.throwNpe();
             }
@@ -214,13 +214,13 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                 Context context = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
                 radioButton.setButtonDrawable(context.getResources().getDrawable(c.pay_ui_hp_top_banner_selector_newstyle));
-                RadioGroup radioGroup2 = this.f73786f;
+                RadioGroup radioGroup2 = this.f74242f;
                 if (radioGroup2 == null) {
                     Intrinsics.throwNpe();
                 }
                 radioGroup2.addView(radioButton, e());
             }
-            RadioGroup radioGroup3 = this.f73786f;
+            RadioGroup radioGroup3 = this.f74242f;
             if (radioGroup3 == null) {
                 Intrinsics.throwNpe();
             }
@@ -242,17 +242,17 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet, i2) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.Pay_Ui_Banner, i2, 0);
-            this.f73789i = obtainStyledAttributes.getFloat(h.Pay_Ui_Banner_playUiAspectRatio, 0.0f);
+            this.f74245i = obtainStyledAttributes.getFloat(h.Pay_Ui_Banner_playUiAspectRatio, 0.0f);
             obtainStyledAttributes.recycle();
             LayoutInflater.from(context).inflate(e.pay_ui_layout_plugincenter_top_banner, (ViewGroup) this, true);
             View findViewById = findViewById(d.lbb_top_banner_gallery);
             if (findViewById != null) {
-                this.f73785e = (PluginCenterBannerGallery) findViewById;
+                this.f74241e = (PluginCenterBannerGallery) findViewById;
                 View findViewById2 = findViewById(d.lbb_radio_top_banner);
                 if (findViewById2 != null) {
-                    this.f73786f = (RadioGroup) findViewById2;
-                    this.f73788h = findViewById(d.banner_placeholder);
-                    PluginCenterBannerGallery pluginCenterBannerGallery = this.f73785e;
+                    this.f74242f = (RadioGroup) findViewById2;
+                    this.f74244h = findViewById(d.banner_placeholder);
+                    PluginCenterBannerGallery pluginCenterBannerGallery = this.f74241e;
                     if (pluginCenterBannerGallery == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mGallery");
                     }
@@ -268,15 +268,15 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final List<BannerConfigItem.BannerInfo> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73787g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74243g : (List) invokeV.objValue;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            if (this.f73789i > 0) {
-                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) / this.f73789i), 1073741824);
+            if (this.f74245i > 0) {
+                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) / this.f74245i), 1073741824);
             }
             super.onMeasure(i2, i3);
         }
@@ -284,37 +284,37 @@ public final class PluginCenterTopBanner extends RelativeLayout {
 
     public final void setData(List<? extends BannerConfigItem.BannerInfo> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || Intrinsics.areEqual(this.f73787g, list) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || Intrinsics.areEqual(this.f74243g, list) || list == null) {
             return;
         }
-        this.f73787g.clear();
-        this.f73787g.addAll(list);
-        if (this.f73786f != null) {
-            if (this.f73787g.size() <= 1) {
-                RadioGroup radioGroup = this.f73786f;
+        this.f74243g.clear();
+        this.f74243g.addAll(list);
+        if (this.f74242f != null) {
+            if (this.f74243g.size() <= 1) {
+                RadioGroup radioGroup = this.f74242f;
                 if (radioGroup == null) {
                     Intrinsics.throwNpe();
                 }
                 radioGroup.setVisibility(8);
             } else {
-                RadioGroup radioGroup2 = this.f73786f;
+                RadioGroup radioGroup2 = this.f74242f;
                 if (radioGroup2 == null) {
                     Intrinsics.throwNpe();
                 }
                 radioGroup2.setVisibility(0);
             }
         }
-        PluginCenterBannerGallery pluginCenterBannerGallery = this.f73785e;
+        PluginCenterBannerGallery pluginCenterBannerGallery = this.f74241e;
         if (pluginCenterBannerGallery == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mGallery");
         }
         pluginCenterBannerGallery.setData(list);
         d(list);
-        RadioGroup radioGroup3 = this.f73786f;
+        RadioGroup radioGroup3 = this.f74242f;
         if (radioGroup3 == null) {
             Intrinsics.throwNpe();
         }
-        RadioGroup radioGroup4 = this.f73786f;
+        RadioGroup radioGroup4 = this.f74242f;
         if (radioGroup4 == null) {
             Intrinsics.throwNpe();
         }
@@ -326,7 +326,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final void setFlipInterval(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            PluginCenterBannerGallery pluginCenterBannerGallery = this.f73785e;
+            PluginCenterBannerGallery pluginCenterBannerGallery = this.f74241e;
             if (pluginCenterBannerGallery == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mGallery");
             }
@@ -337,7 +337,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final void setImageLoaderSupplier(ImageLoaderSupplier imageLoaderSupplier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, imageLoaderSupplier) == null) {
-            PluginCenterBannerGallery pluginCenterBannerGallery = this.f73785e;
+            PluginCenterBannerGallery pluginCenterBannerGallery = this.f74241e;
             if (pluginCenterBannerGallery == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mGallery");
             }
@@ -348,7 +348,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onItemClickListener) == null) {
-            PluginCenterBannerGallery pluginCenterBannerGallery = this.f73785e;
+            PluginCenterBannerGallery pluginCenterBannerGallery = this.f74241e;
             if (pluginCenterBannerGallery == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mGallery");
             }
@@ -359,7 +359,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final void setOnPlaceHolderClickListener(View.OnClickListener onClickListener) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) || (view = this.f73788h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) || (view = this.f74244h) == null) {
             return;
         }
         view.setOnClickListener(onClickListener);
@@ -369,14 +369,14 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             if (z) {
-                View view = this.f73788h;
+                View view = this.f74244h;
                 if (view != null) {
                     view.setVisibility(0);
                     return;
                 }
                 return;
             }
-            View view2 = this.f73788h;
+            View view2 = this.f74244h;
             if (view2 != null) {
                 view2.setVisibility(8);
             }
@@ -423,7 +423,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                 return;
             }
         }
-        this.f73787g = new ArrayList();
+        this.f74243g = new ArrayList();
         this.j = new b(this);
         f(context, attributeSet, i2);
     }

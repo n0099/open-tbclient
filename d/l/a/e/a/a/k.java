@@ -40,7 +40,7 @@ public class k extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Intent intent = new Intent("com.android.filemanager.OPEN_FOLDER");
-            intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.f71570c);
+            intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.f72024c);
             intent.putExtra("com.iqoo.secure", true);
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             intent.addFlags(32768);

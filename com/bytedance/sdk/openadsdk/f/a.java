@@ -12,10 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.e.e;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.d.e;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.h;
+import com.bytedance.sdk.openadsdk.core.j;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.e.d;
 import com.bytedance.sdk.openadsdk.preload.geckox.a.a.a;
@@ -24,34 +25,34 @@ import com.bytedance.sdk.openadsdk.preload.geckox.h.b;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.CheckRequestBodyModel;
 import java.io.File;
 import java.io.InputStream;
+import java.security.SecureRandom;
 import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Random;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f31312a;
+    public static String[] f31556a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f31313b;
+    public File f31557b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map.Entry<String, JSONObject> f31314c;
+    public Map.Entry<String, JSONObject> f31558c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0350a {
+    public static class C0354a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f31317a;
+        public static a f31561a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -67,7 +68,7 @@ public class a {
                     return;
                 }
             }
-            f31317a = new a();
+            f31561a = new a();
         }
     }
 
@@ -84,13 +85,13 @@ public class a {
                 return;
             }
         }
-        f31312a = new String[]{"gecko-pangle-lf.snssdk.com", "gecko-pangle-hl.snssdk.com", "gecko-pangle-lq.snssdk.com"};
+        f31556a = new String[]{"gecko-pangle-lf.snssdk.com", "gecko-pangle-hl.snssdk.com", "gecko-pangle-lq.snssdk.com"};
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0350a.f31317a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0354a.f31561a : (a) invokeV.objValue;
     }
 
     private String c() {
@@ -101,15 +102,15 @@ public class a {
             StringBuilder sb = new StringBuilder();
             sb.append("GeckoLog:get gecko hosts from settings ");
             sb.append(I == null ? 0 : I.length);
-            j.b("GeckoHub", sb.toString());
+            k.b("GeckoHub", sb.toString());
             if (I == null) {
-                I = f31312a;
+                I = f31556a;
             }
-            String str = I[new Random().nextInt(I.length)];
+            String str = I[new SecureRandom().nextInt(I.length)];
             if (TextUtils.isEmpty(str)) {
-                str = f31312a[new Random().nextInt(f31312a.length)];
+                str = f31556a[new SecureRandom().nextInt(f31556a.length)];
             }
-            j.b("GeckoHub", "GeckoLog:random host " + str);
+            k.b("GeckoHub", "GeckoLog:random host " + str);
             return str;
         }
         return (String) invokeV.objValue;
@@ -120,9 +121,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return new com.bytedance.sdk.openadsdk.preload.falconx.a.a(o.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f31313b);
+                return new com.bytedance.sdk.openadsdk.preload.falconx.a.a(o.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f31557b);
             } catch (Throwable th) {
-                j.c("GeckoHub", "getGeckoResLoader error", th);
+                k.c("GeckoHub", "getGeckoResLoader error", th);
                 return null;
             }
         }
@@ -142,7 +143,7 @@ public class a {
                 return;
             }
         }
-        this.f31313b = new File(o.a().getCacheDir() + File.separator + "gecko");
+        this.f31557b = new File(o.a().getCacheDir() + File.separator + "gecko");
         if (h.d().x()) {
             b.a();
         }
@@ -151,20 +152,20 @@ public class a {
     public void a(Map<String, m> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            String a2 = com.bytedance.sdk.openadsdk.core.j.a(o.a());
+            String a2 = j.a(o.a());
             if (TextUtils.isEmpty(a2)) {
-                j.b("GeckoHub", "no did so don't preload");
+                k.b("GeckoHub", "no did so don't preload");
                 return;
             }
-            com.bytedance.sdk.openadsdk.preload.geckox.a a3 = com.bytedance.sdk.openadsdk.preload.geckox.a.a(new b.a(o.a()).b("4ab312f7094810afa84659d3dc6cf0fe").a("4ab312f7094810afa84659d3dc6cf0fe").a(Long.parseLong("1371")).b(a2).a("9999999.0.0").a(new a.C0364a().a(20).a(com.bytedance.sdk.openadsdk.preload.geckox.a.a.b.f32130c).a()).a(this.f31313b).a(false).c(c()).b(e.a()).a(e.a()).a(new com.bytedance.sdk.openadsdk.preload.geckox.statistic.a(this, map) { // from class: com.bytedance.sdk.openadsdk.f.a.1
+            com.bytedance.sdk.openadsdk.preload.geckox.a a3 = com.bytedance.sdk.openadsdk.preload.geckox.a.a(new b.a(o.a()).b("4ab312f7094810afa84659d3dc6cf0fe").a("4ab312f7094810afa84659d3dc6cf0fe").a(Long.parseLong("1371")).b(a2).a("9999999.0.0").a(new a.C0367a().a(20).a(com.bytedance.sdk.openadsdk.preload.geckox.a.a.b.f32331c).a()).a(this.f31557b).a(false).c(c()).b(e.a()).a(e.a()).a(new com.bytedance.sdk.openadsdk.preload.geckox.statistic.a(this, map) { // from class: com.bytedance.sdk.openadsdk.f.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Map f31315a;
+                public final /* synthetic */ Map f31559a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f31316b;
+                public final /* synthetic */ a f31560b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -181,15 +182,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f31316b = this;
-                    this.f31315a = map;
+                    this.f31560b = this;
+                    this.f31559a = map;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.preload.geckox.statistic.a
                 public void a(String str, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, str, jSONObject) == null) && "geckosdk_update_stats".equals(str)) {
-                        m mVar = (m) this.f31315a.get(jSONObject.optString("channel"));
+                        m mVar = (m) this.f31559a.get(jSONObject.optString("channel"));
                         if (mVar != null) {
                             d.a.a(str, jSONObject, mVar);
                         }
@@ -238,17 +239,17 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2)) == null) {
             if (str != null && str2 != null) {
                 try {
-                    if (this.f31314c == null || !str.equals(this.f31314c.getKey())) {
-                        j.b("GeckoHub", "refresh cache manifest");
-                        com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar = new com.bytedance.sdk.openadsdk.preload.falconx.a.a(o.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f31313b);
-                        String a2 = com.bytedance.sdk.openadsdk.o.g.a.a(aVar.a(str + "/manifest.json"));
+                    if (this.f31558c == null || !str.equals(this.f31558c.getKey())) {
+                        k.b("GeckoHub", "refresh cache manifest");
+                        com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar = new com.bytedance.sdk.openadsdk.preload.falconx.a.a(o.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f31557b);
+                        String a2 = com.bytedance.sdk.openadsdk.n.g.a.a(aVar.a(str + "/manifest.json"));
                         if (TextUtils.isEmpty(a2)) {
-                            j.f("GeckoHub", "getFileInfoInManifest error null");
+                            k.f("GeckoHub", "getFileInfoInManifest error null");
                             return null;
                         }
-                        this.f31314c = new AbstractMap.SimpleEntry(str, new JSONObject(a2));
+                        this.f31558c = new AbstractMap.SimpleEntry(str, new JSONObject(a2));
                     }
-                    JSONObject value = this.f31314c.getValue();
+                    JSONObject value = this.f31558c.getValue();
                     String a3 = com.bytedance.sdk.component.utils.e.a(str2);
                     if (value.has(a3)) {
                         return value.getJSONObject(a3);
@@ -263,7 +264,7 @@ public class a {
                     }
                     return null;
                 } catch (Throwable th) {
-                    j.c("GeckoHub", "getFileInfoInManifest error", th);
+                    k.c("GeckoHub", "getFileInfoInManifest error", th);
                 }
             }
             return null;
@@ -279,12 +280,13 @@ public class a {
         try {
             aVar.a();
         } catch (Throwable th) {
-            j.c("GeckoHub", "releaseGeckoResLoader error", th);
+            k.c("GeckoHub", "releaseGeckoResLoader error", th);
         }
     }
 
     public WebResourceResponse a(com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar, String str, String str2) {
         InterceptResult invokeLLL;
+        JSONObject a2;
         String optString;
         InputStream b2;
         Interceptable interceptable = $ic;
@@ -293,8 +295,7 @@ public class a {
                 return null;
             }
             try {
-                JSONObject a2 = a(str, str2);
-                if (a2 == null || (optString = a2.optString("fileName", null)) == null) {
+                if (TextUtils.isEmpty(str) || (a2 = a(str, str2)) == null || (optString = a2.optString("fileName", null)) == null) {
                     return null;
                 }
                 JSONObject jSONObject = a2.has("respHeader") ? a2.getJSONObject("respHeader") : null;
@@ -309,7 +310,7 @@ public class a {
                 }
                 return com.bytedance.sdk.openadsdk.preload.falconx.b.a.a(b2, hashMap);
             } catch (Throwable th) {
-                j.c("GeckoHub", "findRes error", th);
+                k.c("GeckoHub", "findRes error", th);
                 return null;
             }
         }

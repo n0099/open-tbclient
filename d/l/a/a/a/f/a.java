@@ -13,26 +13,26 @@ public class a {
 
     /* renamed from: d.l.a.a.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C2011a {
+    public static class C2010a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f71091a;
+        public String f71545a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71092b;
+        public String f71546b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f71093c;
+        public String f71547c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f71094d;
+        public String f71548d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f71095e;
+        public String f71549e;
 
-        public C2011a() {
+        public C2010a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,14 +46,14 @@ public class a {
             }
         }
 
-        public C2011a a(String str) {
+        public C2010a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f71091a = str;
+                this.f71545a = str;
                 return this;
             }
-            return (C2011a) invokeL.objValue;
+            return (C2010a) invokeL.objValue;
         }
 
         public a b() {
@@ -62,43 +62,43 @@ public class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (a) invokeV.objValue;
         }
 
-        public C2011a d(String str) {
+        public C2010a d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f71092b = str;
+                this.f71546b = str;
                 return this;
             }
-            return (C2011a) invokeL.objValue;
+            return (C2010a) invokeL.objValue;
         }
 
-        public C2011a f(String str) {
+        public C2010a f(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f71094d = str;
+                this.f71548d = str;
                 return this;
             }
-            return (C2011a) invokeL.objValue;
+            return (C2010a) invokeL.objValue;
         }
 
-        public C2011a h(String str) {
+        public C2010a h(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f71095e = str;
+                this.f71549e = str;
                 return this;
             }
-            return (C2011a) invokeL.objValue;
+            return (C2010a) invokeL.objValue;
         }
     }
 
-    public a(C2011a c2011a) {
+    public a(C2010a c2010a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c2011a};
+            Object[] objArr = {c2010a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -108,10 +108,10 @@ public class a {
                 return;
             }
         }
-        String unused = c2011a.f71091a;
-        String unused2 = c2011a.f71092b;
-        String unused3 = c2011a.f71093c;
-        String unused4 = c2011a.f71094d;
-        String unused5 = c2011a.f71095e;
+        String unused = c2010a.f71545a;
+        String unused2 = c2010a.f71546b;
+        String unused3 = c2010a.f71547c;
+        String unused4 = c2010a.f71548d;
+        String unused5 = c2010a.f71549e;
     }
 }

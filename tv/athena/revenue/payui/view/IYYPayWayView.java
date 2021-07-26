@@ -88,22 +88,22 @@ public interface IYYPayWayView extends i.a.a.e.o.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<PayWayInfo> f73734a;
+        public List<PayWayInfo> f74190a;
 
         /* renamed from: b  reason: collision with root package name */
-        public i.a.a.e.l.a f73735b;
+        public i.a.a.e.l.a f74191b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AppCustomExpand f73736c;
+        public AppCustomExpand f74192c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f73737d;
+        public boolean f74193d;
 
         /* renamed from: e  reason: collision with root package name */
-        public AbsViewEventHandler f73738e;
+        public AbsViewEventHandler f74194e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PaySource f73739f;
+        public PaySource f74195f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public interface IYYPayWayView extends i.a.a.e.o.a {
                     return;
                 }
             }
-            this.f73737d = false;
-            this.f73739f = PaySource.UNKNOW;
+            this.f74193d = false;
+            this.f74195f = PaySource.UNKNOW;
         }
     }
 

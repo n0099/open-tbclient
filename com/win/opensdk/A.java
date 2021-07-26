@@ -1,61 +1,50 @@
 package com.win.opensdk;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes6.dex */
-public class A {
+public class A extends Handler {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static A f39315d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f39316a;
+    public final /* synthetic */ PBSplash f39536a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public E f39317b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f39318c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1471125638, "Lcom/win/opensdk/A;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1471125638, "Lcom/win/opensdk/A;");
-                return;
-            }
-        }
-        f39315d = new A();
-    }
-
-    public A() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public A(PBSplash pBSplash, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pBSplash, looper};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39318c = false;
-        this.f39316a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+        this.f39536a = pBSplash;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        PBSplash pBSplash;
+        PBSplashListener pBSplashListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBSplashListener = (pBSplash = this.f39536a).f39639e) == null || pBSplash.f39643i) {
+            return;
+        }
+        pBSplashListener.onFail(PBError.LOAD_TIME_OUT);
+        this.f39536a.j = true;
     }
 }

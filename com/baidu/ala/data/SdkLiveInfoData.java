@@ -219,7 +219,7 @@ public class SdkLiveInfoData {
             }
             this.sid = jSONObject.optString("sid");
             this.ssid = jSONObject.optString("ssid");
-            this.templateId = jSONObject.optString("template_id");
+            this.templateId = jSONObject.optString(TiebaStatic.Params.TEMPLATE_ID);
             this.yyUid = jSONObject.optString("yy_uid");
             this.isYYGame = jSONObject.optInt("is_yy_game");
         }

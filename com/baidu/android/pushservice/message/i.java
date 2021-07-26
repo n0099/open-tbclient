@@ -19,31 +19,31 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3568a;
+    public String f3594a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3569b;
+    public String f3595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3570c;
+    public String f3596c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3571d;
+    public String f3597d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3572e;
+    public String f3598e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3573f;
+    public String f3599f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3574g;
+    public String f3600g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3575h;
+    public String f3601h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f3576i;
+    public String f3602i;
     public String j;
     public int k;
     public String l;
@@ -71,17 +71,17 @@ public class i {
             PublicMsg publicMsg = new PublicMsg();
             try {
                 publicMsg.mMsgId = this.j;
-                publicMsg.mAppId = this.f3576i;
-                if (TextUtils.isEmpty(this.f3574g) && TextUtils.isEmpty(this.f3575h)) {
-                    publicMsg.mTitle = this.f3572e;
-                    publicMsg.mDescription = this.f3573f;
-                    publicMsg.mUrl = this.f3568a;
-                    str = this.f3570c;
+                publicMsg.mAppId = this.f3602i;
+                if (TextUtils.isEmpty(this.f3600g) && TextUtils.isEmpty(this.f3601h)) {
+                    publicMsg.mTitle = this.f3598e;
+                    publicMsg.mDescription = this.f3599f;
+                    publicMsg.mUrl = this.f3594a;
+                    str = this.f3596c;
                 } else {
-                    publicMsg.mTitle = this.f3574g;
-                    publicMsg.mDescription = this.f3575h;
-                    publicMsg.mUrl = this.f3569b;
-                    str = this.f3571d;
+                    publicMsg.mTitle = this.f3600g;
+                    publicMsg.mDescription = this.f3601h;
+                    publicMsg.mUrl = this.f3595b;
+                    str = this.f3597d;
                 }
                 publicMsg.mPkgContent = str;
                 return publicMsg;
@@ -132,7 +132,7 @@ public class i {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     if (!jSONObject.isNull("Appid")) {
-                        this.f3576i = jSONObject.getString("Appid");
+                        this.f3602i = jSONObject.getString("Appid");
                     }
                     if (!jSONObject.isNull("Msgid")) {
                         this.j = jSONObject.getString("Msgid");

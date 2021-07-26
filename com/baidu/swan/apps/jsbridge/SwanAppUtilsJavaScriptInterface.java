@@ -20,15 +20,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.base.LightappJsNativeClient;
-import d.a.n0.a.a2.e;
-import d.a.n0.a.c1.d.i;
-import d.a.n0.a.e0.d;
-import d.a.n0.a.f1.e.b;
-import d.a.n0.a.j2.c;
-import d.a.n0.a.k;
-import d.a.n0.a.r1.k.f;
-import d.a.n0.a.v2.q0;
-import d.a.n0.a.v2.w;
+import d.a.o0.a.a2.e;
+import d.a.o0.a.c1.d.i;
+import d.a.o0.a.e0.d;
+import d.a.o0.a.f1.e.b;
+import d.a.o0.a.j2.c;
+import d.a.o0.a.k;
+import d.a.o0.a.r1.k.f;
+import d.a.o0.a.v2.q0;
+import d.a.o0.a.v2.w;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
@@ -52,7 +52,7 @@ public class SwanAppUtilsJavaScriptInterface {
     public Context mContext;
     public boolean mIsForceLight;
     public String mSource;
-    public d.a.n0.a.h0.f.a mWebView;
+    public d.a.o0.a.h0.f.a mWebView;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -60,10 +60,10 @@ public class SwanAppUtilsJavaScriptInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11036e;
+        public final /* synthetic */ String f11062e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f11037f;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f11063f;
 
         public a(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str) {
             Interceptable interceptable = $ic;
@@ -80,22 +80,22 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f11037f = swanAppUtilsJavaScriptInterface;
-            this.f11036e = str;
+            this.f11063f = swanAppUtilsJavaScriptInterface;
+            this.f11062e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = this.f11036e;
+                String str = this.f11062e;
                 if (!str.startsWith("javascript:")) {
                     str = "javascript:" + str;
                 }
                 if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                     Log.d(SwanAppUtilsJavaScriptInterface.TAG, "share result:" + str);
                 }
-                this.f11037f.mWebView.evaluateJavascript(str, null);
+                this.f11063f.mWebView.evaluateJavascript(str, null);
             }
         }
     }
@@ -106,13 +106,13 @@ public class SwanAppUtilsJavaScriptInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f11038a;
+        public final /* synthetic */ String f11064a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f11039b;
+        public final /* synthetic */ String f11065b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f11040c;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f11066c;
 
         public b(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -129,24 +129,24 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f11040c = swanAppUtilsJavaScriptInterface;
-            this.f11038a = str;
-            this.f11039b = str2;
+            this.f11066c = swanAppUtilsJavaScriptInterface;
+            this.f11064a = str;
+            this.f11065b = str2;
         }
 
-        @Override // d.a.n0.a.c1.d.i.a
+        @Override // d.a.o0.a.c1.d.i.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11040c.notifyCallback(this.f11039b, String.valueOf(false));
+                this.f11066c.notifyCallback(this.f11065b, String.valueOf(false));
             }
         }
 
-        @Override // d.a.n0.a.c1.d.i.a
+        @Override // d.a.o0.a.c1.d.i.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f11040c.notifyCallback(this.f11038a, String.valueOf(true));
+                this.f11066c.notifyCallback(this.f11064a, String.valueOf(true));
             }
         }
     }
@@ -157,10 +157,10 @@ public class SwanAppUtilsJavaScriptInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11041e;
+        public final /* synthetic */ String f11067e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f11042f;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f11068f;
 
         public c(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str) {
             Interceptable interceptable = $ic;
@@ -177,8 +177,8 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f11042f = swanAppUtilsJavaScriptInterface;
-            this.f11041e = str;
+            this.f11068f = swanAppUtilsJavaScriptInterface;
+            this.f11067e = str;
         }
 
         @Override // java.lang.Runnable
@@ -188,7 +188,7 @@ public class SwanAppUtilsJavaScriptInterface {
                 if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                     Log.d(SwanAppUtilsJavaScriptInterface.TAG, "ubcEvent in thread pool");
                 }
-                this.f11042f.doUbcEvent(this.f11041e);
+                this.f11068f.doUbcEvent(this.f11067e);
             }
         }
     }
@@ -206,11 +206,11 @@ public class SwanAppUtilsJavaScriptInterface {
                 return;
             }
         }
-        DEBUG = k.f45831a;
-        SWAN_UBC_LOG_MAX_SIZE_BYTES = d.a.n0.a.c1.a.Z().x() * 1024;
+        DEBUG = k.f46335a;
+        SWAN_UBC_LOG_MAX_SIZE_BYTES = d.a.o0.a.c1.a.Z().x() * 1024;
     }
 
-    public SwanAppUtilsJavaScriptInterface(Context context, d.a.n0.a.h0.f.a aVar) {
+    public SwanAppUtilsJavaScriptInterface(Context context, d.a.o0.a.h0.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -248,7 +248,7 @@ public class SwanAppUtilsJavaScriptInterface {
                 if ((TextUtils.isEmpty(optString) ? 0L : Long.valueOf(optString).longValue()) < UBC_MIN_VERSION) {
                     return;
                 }
-                d.a.n0.a.j2.b.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
+                d.a.o0.a.j2.b.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
                 f.j().i().d(jSONObject);
             } catch (NumberFormatException | JSONException e2) {
                 if (DEBUG) {
@@ -281,10 +281,10 @@ public class SwanAppUtilsJavaScriptInterface {
         try {
             JSONObject jSONObject = new JSONObject();
             b.a L = Q.L();
-            SwanCoreVersion N = d.a.n0.a.g1.f.V().N();
+            SwanCoreVersion N = d.a.o0.a.g1.f.V().N();
             int l = Q.l();
             jSONObject.putOpt("scheme", L.W());
-            jSONObject.putOpt(KEY_EXT_SWAN_JS, d.a.n0.a.m2.b.i(N, l));
+            jSONObject.putOpt(KEY_EXT_SWAN_JS, d.a.o0.a.m2.b.i(N, l));
             if (str != null && str.length() > 1024) {
                 jSONObject.putOpt("params", str.substring(0, 1024));
             }
@@ -338,7 +338,7 @@ public class SwanAppUtilsJavaScriptInterface {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            d.a.n0.a.c1.a.Y().a(context, d2, new b(this, str3, str4));
+            d.a.o0.a.c1.a.Y().a(context, d2, new b(this, str3, str4));
         }
     }
 
@@ -373,8 +373,8 @@ public class SwanAppUtilsJavaScriptInterface {
             reportUbcBusinessEvent(str);
             return;
         }
-        d.a.n0.a.h0.f.a aVar = this.mWebView;
-        if (d.a.n0.a.h0.l.g.f.a(aVar, "ubcEvent - " + str)) {
+        d.a.o0.a.h0.f.a aVar = this.mWebView;
+        if (d.a.o0.a.h0.l.g.f.a(aVar, "ubcEvent - " + str)) {
             return;
         }
         ExecutorUtilsExt.postOnElastic(new c(this, str), "ubcEvent", 3);

@@ -12,16 +12,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.adnet.b.b;
-import com.bytedance.sdk.component.adnet.err.VAdError;
+import com.bytedance.sdk.component.net.NetResponse;
+import com.bytedance.sdk.component.net.callback.NetCallback;
+import com.bytedance.sdk.component.net.executor.DownloadExecutor;
+import com.bytedance.sdk.component.net.executor.NetExecutor;
 import com.bytedance.sdk.component.utils.f;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.n;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.e.q;
 import com.bytedance.sdk.openadsdk.core.e.x;
 import com.bytedance.sdk.openadsdk.core.g;
-import com.bytedance.sdk.openadsdk.core.h;
 import com.bytedance.sdk.openadsdk.core.o;
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +38,7 @@ public class c {
     public static void a(m mVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65545, null, mVar, i2) == null) {
-            int c2 = com.bytedance.sdk.component.utils.m.c(o.a());
+            int c2 = n.c(o.a());
             int i3 = 6;
             if (c2 == 2) {
                 i3 = 2;
@@ -101,35 +103,38 @@ public class c {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.putOpt("available_type", Integer.valueOf(i2));
                 jSONObject.putOpt("creative_check_duration", Long.valueOf(j2));
-                com.bytedance.sdk.openadsdk.k.a.a().n(com.bytedance.sdk.openadsdk.k.a.c.b().a(4).c(adSlot.getCodeId()).b((int) j).b(jSONObject.toString()));
+                com.bytedance.sdk.openadsdk.j.a.a().m(com.bytedance.sdk.openadsdk.j.a.c.b().a(4).c(adSlot.getCodeId()).b((int) j).b(jSONObject.toString()));
             } catch (Throwable unused) {
             }
         }
     }
 
-    public static void a(com.bytedance.sdk.openadsdk.k.a.c cVar, String str) {
+    public static void a(com.bytedance.sdk.openadsdk.j.a.c cVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, cVar, str) == null) {
-            com.bytedance.sdk.openadsdk.k.a.a().f(cVar.b(-7).h(g.a(-7)).j(str));
+            com.bytedance.sdk.openadsdk.j.a.a().f(cVar.b(-7).g(g.a(-7)).i(str));
         }
     }
 
-    public static void a(long j, boolean z, boolean z2, m mVar, long j2, com.bytedance.sdk.component.adnet.core.m mVar2) {
-        VAdError vAdError;
+    public static void a(long j, boolean z, boolean z2, m mVar, long j2, NetResponse netResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), mVar, Long.valueOf(j2), mVar2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), mVar, Long.valueOf(j2), netResponse}) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime() - j;
             String str = z ? z2 ? "load_video_success" : "load_video_error" : z2 ? "download_video_image_success" : "download_video_image_fail";
-            String message = (z2 || mVar2 == null || (vAdError = mVar2.f28033c) == null) ? null : vAdError.getMessage();
+            String str2 = null;
+            if (!z2 && netResponse != null && netResponse.getMessage() != null) {
+                str2 = netResponse.getMessage();
+            }
+            String str3 = str2;
             if (z) {
-                Map<String, Object> a2 = com.bytedance.sdk.openadsdk.r.o.a(z2, mVar, elapsedRealtime, j2, message);
+                Map<String, Object> a2 = com.bytedance.sdk.openadsdk.q.q.a(z2, mVar, elapsedRealtime, j2, str3);
                 a2.put("splash_show_type", 1);
-                com.bytedance.sdk.openadsdk.e.d.f(o.a(), mVar, "splash_ad", str, a2);
+                com.bytedance.sdk.openadsdk.e.d.e(o.a(), mVar, "splash_ad", str, a2);
                 return;
             }
-            Map<String, Object> b2 = com.bytedance.sdk.openadsdk.r.o.b(z2, mVar, elapsedRealtime, j2, message);
+            Map<String, Object> b2 = com.bytedance.sdk.openadsdk.q.q.b(z2, mVar, elapsedRealtime, j2, str3);
             b2.put("splash_show_type", 2);
-            com.bytedance.sdk.openadsdk.e.d.e(o.a(), mVar, "splash_ad", str, b2);
+            com.bytedance.sdk.openadsdk.e.d.d(o.a(), mVar, "splash_ad", str, b2);
         }
     }
 
@@ -137,7 +142,7 @@ public class c {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, null, aVar) == null) && b(aVar)) {
             m mVar = aVar.c().get(0);
-            int d2 = com.bytedance.sdk.openadsdk.r.o.d(mVar.ao());
+            int d2 = com.bytedance.sdk.openadsdk.q.q.d(mVar.ao());
             x V = mVar.V();
             if (V != null) {
                 long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -151,45 +156,44 @@ public class c {
                 if (TextUtils.isEmpty(l)) {
                     l = com.bytedance.sdk.component.utils.e.a(i2);
                 }
-                String str = l;
                 boolean aN = mVar.aN();
-                File a2 = a(str, d2, aN);
-                if (o.h().e(String.valueOf(d2)) && !com.bytedance.sdk.component.utils.m.d(o.a())) {
-                    if (str == null || !a2.exists()) {
+                File a2 = a(l, d2, aN);
+                if (o.h().e(String.valueOf(d2)) && !n.d(o.a())) {
+                    if (l == null || !a2.exists()) {
                         return;
                     }
-                    j.b("preLoadVideo", "非wifi环境，已缓存相同url的视频文件也是可以播放的");
+                    k.b("preLoadVideo", "非wifi环境，已缓存相同url的视频文件也是可以播放的");
                     a.a(o.a()).b(new q(aVar, mVar, null));
                     return;
                 }
-                com.bytedance.sdk.openadsdk.l.e.b().a(i2, new b.a(aN, a2, str, aVar, mVar, elapsedRealtime) { // from class: com.bytedance.sdk.openadsdk.component.splash.c.1
+                DownloadExecutor downloadExecutor = com.bytedance.sdk.openadsdk.k.d.b().c().getDownloadExecutor();
+                downloadExecutor.setUrl(i2);
+                downloadExecutor.setFileInfo(a2.getParent(), a2.getName());
+                downloadExecutor.enqueue(new NetCallback(aN, a2, aVar, mVar, elapsedRealtime) { // from class: com.bytedance.sdk.openadsdk.component.splash.c.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f29737a;
+                    public final /* synthetic */ boolean f29833a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ File f29738b;
+                    public final /* synthetic */ File f29834b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f29739c;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f29835c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f29740d;
+                    public final /* synthetic */ m f29836d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ m f29741e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ long f29742f;
+                    public final /* synthetic */ long f29837e;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {Boolean.valueOf(aN), a2, str, aVar, mVar, Long.valueOf(elapsedRealtime)};
+                            Object[] objArr = {Boolean.valueOf(aN), a2, aVar, mVar, Long.valueOf(elapsedRealtime)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i3 = newInitContext.flag;
                             if ((i3 & 1) != 0) {
@@ -199,83 +203,36 @@ public class c {
                                 return;
                             }
                         }
-                        this.f29737a = aN;
-                        this.f29738b = a2;
-                        this.f29739c = str;
-                        this.f29740d = aVar;
-                        this.f29741e = mVar;
-                        this.f29742f = elapsedRealtime;
+                        this.f29833a = aN;
+                        this.f29834b = a2;
+                        this.f29835c = aVar;
+                        this.f29836d = mVar;
+                        this.f29837e = elapsedRealtime;
                     }
 
-                    @Override // com.bytedance.sdk.component.adnet.b.b.a
-                    public File a(String str2) {
-                        InterceptResult invokeL;
+                    @Override // com.bytedance.sdk.component.net.callback.NetCallback
+                    public void onFailure(NetExecutor netExecutor, IOException iOException) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str2)) == null) {
-                            try {
-                                if (this.f29737a && this.f29738b.exists() && this.f29738b.length() > 0) {
-                                    j.b("SplashUtils", "get ad from brand video cache！");
-                                    return this.f29738b;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
+                            c.a(this.f29837e, true, false, this.f29836d, -2L, new NetResponse(false, -2, iOException.getMessage(), null, null, this.f29837e, SystemClock.elapsedRealtime()));
+                        }
+                    }
+
+                    @Override // com.bytedance.sdk.component.net.callback.NetCallback
+                    public void onResponse(NetExecutor netExecutor, NetResponse netResponse) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
+                            if (netResponse.isSuccess() && netResponse.getFile() != null && netResponse.getFile().exists()) {
+                                if (!this.f29833a) {
+                                    c.a(this.f29834b);
+                                    a.a(o.a()).a(this.f29834b);
                                 }
-                                File parentFile = this.f29738b.getParentFile();
-                                if (parentFile == null || !parentFile.exists()) {
-                                    return null;
-                                }
-                                j.f("splashLoadAd", "SplashUtils preLoadVideo getFile  s " + str2);
-                                c.a(this.f29738b);
-                                return h.d().r().a(this.f29739c, parentFile);
-                            } catch (IOException e2) {
-                                j.f("SplashUtils", "datastoreGet throw IOException : " + e2.toString());
-                                return null;
-                            }
-                        }
-                        return (File) invokeL.objValue;
-                    }
-
-                    @Override // com.bytedance.sdk.component.adnet.b.c.a
-                    public void a(long j, long j2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                        }
-                    }
-
-                    @Override // com.bytedance.sdk.component.adnet.b.b.a
-                    public File b(String str2) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, str2)) == null) ? this.f29738b : (File) invokeL.objValue;
-                    }
-
-                    @Override // com.bytedance.sdk.component.adnet.core.m.a
-                    public void b(com.bytedance.sdk.component.adnet.core.m<File> mVar2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048581, this, mVar2) == null) {
-                            c.a(this.f29742f, true, false, this.f29741e, mVar2 == null ? -2L : mVar2.f28038h, mVar2);
-                        }
-                    }
-
-                    @Override // com.bytedance.sdk.component.adnet.b.b.a
-                    public void a(String str2, File file) {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLL(1048579, this, str2, file) == null) || file == null || this.f29737a) {
-                            return;
-                        }
-                        j.f("splashLoadAd", "SplashUtils preLoadVideo putFile  s " + str2 + " file " + file.getPath());
-                        c.a(file);
-                        a.a(o.a()).a(file);
-                    }
-
-                    @Override // com.bytedance.sdk.component.adnet.core.m.a
-                    public void a(com.bytedance.sdk.component.adnet.core.m<File> mVar2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar2) == null) {
-                            if (mVar2 != null && mVar2.f28031a != null) {
-                                a.a(o.a()).b(new q(this.f29740d, this.f29741e, null));
-                                a.a(o.a()).a(new q(this.f29740d, this.f29741e, null));
-                                c.a(this.f29742f, true, true, this.f29741e, 0L, mVar2);
+                                a.a(o.a()).b(new q(this.f29835c, this.f29836d, null));
+                                a.a(o.a()).a(new q(this.f29835c, this.f29836d, null));
+                                c.a(this.f29837e, true, true, this.f29836d, 0L, netResponse);
                                 return;
                             }
-                            c.a(this.f29742f, true, false, this.f29741e, mVar2 == null ? -3L : mVar2.f28038h, mVar2);
+                            c.a(this.f29837e, true, false, this.f29836d, netResponse.getCode(), netResponse);
                         }
                     }
                 });
@@ -326,10 +283,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
             if (o.h().C() == 1) {
-                j.f("splashLoadAd", "视频存储使用内部存储");
+                k.f("splashLoadAd", "视频存储使用内部存储");
                 return f.b(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
             }
-            j.f("splashLoadAd", "视频存储使用外存储");
+            k.f("splashLoadAd", "视频存储使用外存储");
             return f.a(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
         }
         return (File) invokeLLL.objValue;
@@ -352,7 +309,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mVar)) == null) {
             if (mVar != null) {
-                return com.bytedance.sdk.openadsdk.r.o.d(mVar.ao());
+                return com.bytedance.sdk.openadsdk.q.q.d(mVar.ao());
             }
             return 0;
         }

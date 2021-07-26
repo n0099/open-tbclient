@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h2.h.b;
+import d.a.q0.h2.h.b;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {

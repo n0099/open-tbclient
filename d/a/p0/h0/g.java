@@ -1,74 +1,67 @@
 package d.a.p0.h0;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.ContentResolver;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes8.dex */
-public class g extends BdAsyncTask<Collection<String>, Void, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
+/* loaded from: classes7.dex */
+public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public g() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? d.a.p0.s.d0.b.j().h() : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> doInBackground(Collection<String>... collectionArr) {
-        InterceptResult invokeL;
-        Collection<String> collection;
+    public static ContentResolver b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collectionArr)) == null) {
-            if (collectionArr == null || collectionArr.length != 1 || (collection = collectionArr[0]) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.a.p0.s.d0.b.j().i() : (ContentResolver) invokeV.objValue;
+    }
+
+    public static OrmObject c(String str, Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, cls)) == null) {
+            if (str == null || cls == null) {
                 return null;
             }
-            HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap = new HashMap<>(collection.size());
-            for (String str : collection) {
-                try {
-                    InetAddress[] allByName = InetAddress.getAllByName(str);
-                    if (allByName != null) {
-                        ArrayList arrayList = new ArrayList(allByName.length);
-                        for (InetAddress inetAddress : allByName) {
-                            if (inetAddress != null) {
-                                DnsProxyResponseData.DnsProxyIpData dnsProxyIpData = new DnsProxyResponseData.DnsProxyIpData();
-                                dnsProxyIpData.setIp(inetAddress.getHostAddress());
-                                arrayList.add(dnsProxyIpData);
-                            }
-                        }
-                        hashMap.put(str, arrayList);
-                    }
-                } catch (UnknownHostException e2) {
-                    BdLog.detailException(e2);
-                    d.c().a("sysdns_get", e2.getMessage());
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                    d.c().a("sysdns_get", th.getMessage());
-                }
-            }
-            return hashMap;
+            return OrmObject.objectWithJsonStr(d(str), cls);
         }
-        return (HashMap) invokeL.objValue;
+        return (OrmObject) invokeLL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return e(Uri.parse(a() + str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(Uri uri) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                str = b().getType(uri);
+            } catch (SecurityException e2) {
+                BdLog.detailException(e2);
+                str = null;
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            f.f("getValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

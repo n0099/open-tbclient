@@ -11,7 +11,7 @@ public class cg extends RuntimeException {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8926a;
+    public int f8952a;
 
     public cg(int i2) {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public class cg extends RuntimeException {
                 return;
             }
         }
-        this.f8926a = i2;
+        this.f8952a = i2;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8926a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8952a : invokeV.intValue;
     }
 
     public cg() {
@@ -50,6 +50,6 @@ public class cg extends RuntimeException {
                 return;
             }
         }
-        this.f8926a = 0;
+        this.f8952a = 0;
     }
 }

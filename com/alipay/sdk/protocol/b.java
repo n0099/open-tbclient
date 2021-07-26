@@ -18,13 +18,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f1926a;
+    public a f1959a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1927b;
+    public String f1960b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f1928c;
+    public String[] f1961c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        this.f1927b = str;
+        this.f1960b = str;
     }
 
     public static void a(b bVar) {
@@ -73,7 +73,7 @@ public class b {
     public String[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1928c : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1961c : (String[]) invokeV.objValue;
     }
 
     public b(String str, a aVar) {
@@ -91,14 +91,14 @@ public class b {
                 return;
             }
         }
-        this.f1927b = str;
-        this.f1926a = aVar;
+        this.f1960b = str;
+        this.f1959a = aVar;
     }
 
     public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1926a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1959a : (a) invokeV.objValue;
     }
 
     public static List<b> a(JSONObject jSONObject) {
@@ -112,9 +112,9 @@ public class b {
             String[] b2 = b(jSONObject.optString("name", ""));
             for (int i2 = 0; i2 < b2.length; i2++) {
                 a a2 = a.a(b2[i2]);
-                if (a2 != a.f1918a) {
+                if (a2 != a.f1951a) {
                     b bVar = new b(b2[i2], a2);
-                    bVar.f1928c = a(b2[i2]);
+                    bVar.f1961c = a(b2[i2]);
                     arrayList.add(bVar);
                 }
             }
@@ -144,6 +144,6 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1927b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1960b : (String) invokeV.objValue;
     }
 }

@@ -11,7 +11,7 @@ public final class ed implements ey {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f23596a;
+    public final /* synthetic */ FeedbackReportActivity f23754a;
 
     public ed(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class ed implements ey {
                 return;
             }
         }
-        this.f23596a = feedbackReportActivity;
+        this.f23754a = feedbackReportActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.ey
@@ -36,8 +36,8 @@ public final class ed implements ey {
         Button button;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f23596a.F = str;
-            button = this.f23596a.m;
+            this.f23754a.F = str;
+            button = this.f23754a.m;
             int i2 = com.baidu.ufosdk.b.v;
             int i3 = com.baidu.ufosdk.b.y;
             int i4 = com.baidu.ufosdk.b.v;

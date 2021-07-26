@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.l.d;
-import d.a.c.e.m.e;
-import d.a.c.e.p.k;
+import d.a.d.e.l.d;
+import d.a.d.e.m.e;
+import d.a.d.e.p.k;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrameAnimationView extends TbImageView {
@@ -40,7 +40,7 @@ public class FrameAnimationView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrameAnimationView f22070e;
+        public final /* synthetic */ FrameAnimationView f22228e;
 
         public a(FrameAnimationView frameAnimationView) {
             Interceptable interceptable = $ic;
@@ -57,16 +57,16 @@ public class FrameAnimationView extends TbImageView {
                     return;
                 }
             }
-            this.f22070e = frameAnimationView;
+            this.f22228e = frameAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f22070e.F0);
-                if (this.f22070e.B0 != null) {
-                    this.f22070e.W();
+                e.a().removeCallbacks(this.f22228e.F0);
+                if (this.f22228e.B0 != null) {
+                    this.f22228e.V();
                 }
             }
         }
@@ -110,7 +110,7 @@ public class FrameAnimationView extends TbImageView {
             String frameUrl = getFrameUrl();
             this.x0++;
             if (!k.isEmpty(frameUrl)) {
-                d.a.c.k.d.a aVar = (d.a.c.k.d.a) d.h().n(frameUrl, 10, new Object[0]);
+                d.a.d.k.d.a aVar = (d.a.d.k.d.a) d.h().n(frameUrl, 10, new Object[0]);
                 if (aVar != null) {
                     return aVar.p();
                 }
@@ -134,7 +134,7 @@ public class FrameAnimationView extends TbImageView {
         return (String) invokeV.objValue;
     }
 
-    public final void W() {
+    public final void V() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.B0 == null) {
             return;
@@ -171,7 +171,7 @@ public class FrameAnimationView extends TbImageView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.B0 == null) {
             return;
         }
-        W();
+        V();
     }
 
     public void Z() {

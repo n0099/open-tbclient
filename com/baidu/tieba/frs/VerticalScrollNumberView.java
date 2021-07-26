@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 import org.apache.commons.codec.digest4util.Sha2Crypt;
 /* loaded from: classes4.dex */
 public class VerticalScrollNumberView extends LinearLayout {
@@ -20,19 +20,19 @@ public class VerticalScrollNumberView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15466e;
+    public Context f15514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15467f;
+    public int f15515f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15468g;
+    public int f15516g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15469h;
+    public int f15517h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15470i;
+    public int f15518i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VerticalScrollNumberView(Context context) {
@@ -52,14 +52,14 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f15466e = null;
+        this.f15514e = null;
         b(context);
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ScrollTextView scrollTextView = new ScrollTextView(this.f15466e);
+            ScrollTextView scrollTextView = new ScrollTextView(this.f15514e);
             scrollTextView.setText(str);
             scrollTextView.setGravity(17);
             SkinManager.setBackgroundResource(scrollTextView, R.drawable.lottery_number_bg);
@@ -70,8 +70,8 @@ public class VerticalScrollNumberView extends LinearLayout {
             scrollTextView.setMaxLines(1);
             scrollTextView.setContinuousScrolling(false);
             scrollTextView.setSpeed((float) ((Math.random() * 5.0d) + 10.0d));
-            scrollTextView.setWidth(this.f15467f);
-            scrollTextView.setHeight(this.f15468g);
+            scrollTextView.setWidth(this.f15515f);
+            scrollTextView.setHeight(this.f15516g);
             addView(scrollTextView);
         }
     }
@@ -79,11 +79,11 @@ public class VerticalScrollNumberView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f15466e = context;
-            this.f15467f = l.g(context, R.dimen.ds30);
-            this.f15468g = l.g(this.f15466e, R.dimen.ds40);
-            this.f15469h = l.g(this.f15466e, R.dimen.ds2);
-            this.f15470i = l.g(this.f15466e, R.dimen.ds8);
+            this.f15514e = context;
+            this.f15515f = l.g(context, R.dimen.ds30);
+            this.f15516g = l.g(this.f15514e, R.dimen.ds40);
+            this.f15517h = l.g(this.f15514e, R.dimen.ds2);
+            this.f15518i = l.g(this.f15514e, R.dimen.ds8);
         }
     }
 
@@ -108,10 +108,10 @@ public class VerticalScrollNumberView extends LinearLayout {
                 if (getChildAt(childCount) instanceof ScrollTextView) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     if (i4 == 2) {
-                        layoutParams.setMargins(this.f15470i, 0, 0, 0);
+                        layoutParams.setMargins(this.f15518i, 0, 0, 0);
                         i4 = 0;
                     } else {
-                        layoutParams.setMargins(this.f15469h, 0, 0, 0);
+                        layoutParams.setMargins(this.f15517h, 0, 0, 0);
                         i4++;
                     }
                     getChildAt(childCount).setLayoutParams(layoutParams);
@@ -139,7 +139,7 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f15466e = null;
+        this.f15514e = null;
         b(context);
     }
 
@@ -162,7 +162,7 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f15466e = null;
+        this.f15514e = null;
         b(context);
     }
 }

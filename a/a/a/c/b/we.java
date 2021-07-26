@@ -12,7 +12,7 @@ public class we implements Executor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Handler f1458a;
+    public final /* synthetic */ Handler f1491a;
 
     public we(trw trwVar, Handler handler) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class we implements Executor {
                 return;
             }
         }
-        this.f1458a = handler;
+        this.f1491a = handler;
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f1458a.post(runnable);
+            this.f1491a.post(runnable);
         }
     }
 }

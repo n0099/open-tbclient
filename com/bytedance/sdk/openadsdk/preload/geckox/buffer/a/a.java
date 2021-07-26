@@ -15,10 +15,10 @@ public class a extends InputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f32157a;
+    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f32358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32158b;
+    public long f32359b;
 
     public a(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class a extends InputStream {
                 return;
             }
         }
-        this.f32157a = aVar;
+        this.f32358a = aVar;
     }
 
     @Override // java.io.InputStream
@@ -43,7 +43,7 @@ public class a extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long b2 = this.f32157a.b() - this.f32157a.c();
+            long b2 = this.f32358a.b() - this.f32358a.c();
             if (b2 > 2147483647L) {
                 return Integer.MAX_VALUE;
             }
@@ -64,7 +64,7 @@ public class a extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             synchronized (this) {
-                this.f32158b = i2;
+                this.f32359b = i2;
             }
         }
     }
@@ -83,7 +83,7 @@ public class a extends InputStream {
     public int read(byte[] bArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) ? this.f32157a.b(bArr) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) ? this.f32358a.b(bArr) : invokeL.intValue;
     }
 
     @Override // java.io.InputStream
@@ -91,7 +91,7 @@ public class a extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                this.f32157a.b(this.f32158b);
+                this.f32358a.b(this.f32359b);
             }
         }
     }
@@ -100,20 +100,20 @@ public class a extends InputStream {
     public long skip(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) ? this.f32157a.a(j) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) ? this.f32358a.a(j) : invokeJ.longValue;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i2, int i3) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) ? this.f32157a.b(bArr, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) ? this.f32358a.b(bArr, i2, i3) : invokeLII.intValue;
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32157a.d() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32358a.d() : invokeV.intValue;
     }
 }

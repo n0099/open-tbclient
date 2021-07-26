@@ -1,31 +1,21 @@
 package com.bytedance.sdk.component.utils;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, s> f28914a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static Object f29009a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f28915b;
+    public static Method f29010b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
@@ -40,205 +30,38 @@ public class s {
                 return;
             }
         }
-        f28914a = new HashMap();
-    }
-
-    public s(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (context != null) {
-            this.f28915b = context.getApplicationContext().getSharedPreferences(str, 0);
+        try {
+            Method declaredMethod = Class.class.getDeclaredMethod("forName", String.class);
+            Method declaredMethod2 = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+            Class cls = (Class) declaredMethod.invoke(null, "dalvik.system.VMRuntime");
+            f29010b = (Method) declaredMethod2.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
+            f29009a = ((Method) declaredMethod2.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
+        } catch (Throwable th) {
+            k.b("Reflection", "reflect bootstrap failed:", th);
         }
     }
 
-    public static s a(String str, Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, context)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "tt_ad_sdk_sp";
-            }
-            s sVar = f28914a.get(str);
-            if (sVar == null) {
-                s sVar2 = new s(str, context);
-                f28914a.put(str, sVar2);
-                return sVar2;
-            }
-            return sVar;
-        }
-        return (s) invokeLL.objValue;
-    }
-
-    public String b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
-            try {
-                return this.f28915b.getString(str, str2);
-            } catch (Throwable unused) {
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public int b(@NonNull String str, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
-            try {
-                return this.f28915b.getInt(str, i2);
-            } catch (Throwable unused) {
-                return i2;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public long b(@NonNull String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
-            try {
-                return this.f28915b.getLong(str, j);
-            } catch (Throwable unused) {
-                return j;
-            }
-        }
-        return invokeLJ.longValue;
-    }
-
-    public float b(@NonNull String str, float f2) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, str, f2)) == null) {
-            try {
-                return this.f28915b.getFloat(str, f2);
-            } catch (Throwable unused) {
-                return f2;
-            }
-        }
-        return invokeLF.floatValue;
-    }
-
-    public void a(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            try {
-                this.f28915b.edit().putString(str, str2).apply();
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public boolean b(@NonNull String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, str, z)) == null) {
-            try {
-                return this.f28915b.getBoolean(str, z);
-            } catch (Throwable unused) {
-                return z;
-            }
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public String a(@NonNull String str) {
+    public static boolean a(String... strArr) {
         InterceptResult invokeL;
+        Method method;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                return b(str, "");
-            } catch (Throwable unused) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, strArr)) == null) {
+            Object obj = f29009a;
+            if (obj != null && (method = f29010b) != null) {
+                try {
+                    method.invoke(obj, strArr);
+                    return true;
+                } catch (Throwable unused) {
+                }
             }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public Set<String> b(@NonNull String str, @NonNull Set<String> set) {
-        InterceptResult invokeLL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, set)) == null) {
-            try {
-                return this.f28915b.getStringSet(str, set);
-            } catch (Throwable unused) {
-                return set;
-            }
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    public void a(@NonNull String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            try {
-                this.f28915b.edit().putInt(str, i2).apply();
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void b(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            try {
-                this.f28915b.edit().remove(str).apply();
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void a(@NonNull String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
-            try {
-                this.f28915b.edit().putLong(str, j).apply();
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void a(@NonNull String str, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f2) == null) {
-            try {
-                this.f28915b.edit().putFloat(str, f2).apply();
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void a(@NonNull String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
-            try {
-                this.f28915b.edit().putBoolean(str, z).apply();
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void a(@NonNull String str, @NonNull Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, set) == null) {
-            try {
-                this.f28915b.edit().putStringSet(str, set).apply();
-            } catch (Throwable unused) {
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a("L") : invokeV.booleanValue;
     }
 }

@@ -10,35 +10,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f72070a;
+    public final f f72524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f72071b;
+    public volatile boolean f72525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicReference<com.ss.android.socialbase.downloader.network.l> f72072c;
+    public final AtomicReference<com.ss.android.socialbase.downloader.network.l> f72526c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicReference<com.ss.android.socialbase.downloader.network.l> f72073d;
+    public AtomicReference<com.ss.android.socialbase.downloader.network.l> f72527d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<c> f72074e;
+    public final ArrayList<c> f72528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72075f;
+    public int f72529f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f72076a;
+        public static final /* synthetic */ int[] f72530a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,32 +55,32 @@ public class m {
                 }
             }
             int[] iArr = new int[com.ss.android.socialbase.downloader.network.l.values().length];
-            f72076a = iArr;
+            f72530a = iArr;
             try {
-                iArr[com.ss.android.socialbase.downloader.network.l.f38639a.ordinal()] = 1;
+                iArr[com.ss.android.socialbase.downloader.network.l.f38811a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f72076a[com.ss.android.socialbase.downloader.network.l.f38640b.ordinal()] = 2;
+                f72530a[com.ss.android.socialbase.downloader.network.l.f38812b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f72076a[com.ss.android.socialbase.downloader.network.l.f38641c.ordinal()] = 3;
+                f72530a[com.ss.android.socialbase.downloader.network.l.f38813c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f72076a[com.ss.android.socialbase.downloader.network.l.f38642d.ordinal()] = 4;
+                f72530a[com.ss.android.socialbase.downloader.network.l.f38814d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final m f72077a;
+        public static final m f72531a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -96,11 +96,11 @@ public class m {
                     return;
                 }
             }
-            f72077a = new m(null);
+            f72531a = new m(null);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void a(com.ss.android.socialbase.downloader.network.l lVar);
     }
@@ -127,7 +127,7 @@ public class m {
     public static m a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f72077a : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f72531a : (m) invokeV.objValue;
     }
 
     public final com.ss.android.socialbase.downloader.network.l b(double d2) {
@@ -135,18 +135,18 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)})) == null) {
             if (d2 < 0.0d) {
-                return com.ss.android.socialbase.downloader.network.l.f38643e;
+                return com.ss.android.socialbase.downloader.network.l.f38815e;
             }
             if (d2 < 150.0d) {
-                return com.ss.android.socialbase.downloader.network.l.f38639a;
+                return com.ss.android.socialbase.downloader.network.l.f38811a;
             }
             if (d2 < 550.0d) {
-                return com.ss.android.socialbase.downloader.network.l.f38640b;
+                return com.ss.android.socialbase.downloader.network.l.f38812b;
             }
             if (d2 < 2000.0d) {
-                return com.ss.android.socialbase.downloader.network.l.f38641c;
+                return com.ss.android.socialbase.downloader.network.l.f38813c;
             }
-            return com.ss.android.socialbase.downloader.network.l.f38642d;
+            return com.ss.android.socialbase.downloader.network.l.f38814d;
         }
         return (com.ss.android.socialbase.downloader.network.l) invokeCommon.objValue;
     }
@@ -161,27 +161,27 @@ public class m {
                     return;
                 }
                 try {
-                    this.f72070a.b(d3);
+                    this.f72524a.b(d3);
                     d2 = d();
                 } catch (Throwable unused) {
                 }
-                if (this.f72071b) {
-                    this.f72075f++;
-                    if (d2 != this.f72073d.get()) {
-                        this.f72071b = false;
-                        this.f72075f = 1;
+                if (this.f72525b) {
+                    this.f72529f++;
+                    if (d2 != this.f72527d.get()) {
+                        this.f72525b = false;
+                        this.f72529f = 1;
                     }
-                    if (this.f72075f >= 5.0d && e()) {
-                        this.f72071b = false;
-                        this.f72075f = 1;
-                        this.f72072c.set(this.f72073d.get());
+                    if (this.f72529f >= 5.0d && e()) {
+                        this.f72525b = false;
+                        this.f72529f = 1;
+                        this.f72526c.set(this.f72527d.get());
                         f();
                     }
                     return;
                 }
-                if (this.f72072c.get() != d2) {
-                    this.f72071b = true;
-                    this.f72073d = new AtomicReference<>(d2);
+                if (this.f72526c.get() != d2) {
+                    this.f72525b = true;
+                    this.f72527d = new AtomicReference<>(d2);
                 }
             }
         }
@@ -192,10 +192,10 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                if (this.f72070a == null) {
-                    return com.ss.android.socialbase.downloader.network.l.f38643e;
+                if (this.f72524a == null) {
+                    return com.ss.android.socialbase.downloader.network.l.f38815e;
                 }
-                return b(this.f72070a.a());
+                return b(this.f72524a.a());
             }
         }
         return (com.ss.android.socialbase.downloader.network.l) invokeV.objValue;
@@ -205,11 +205,11 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f72070a == null) {
+            if (this.f72524a == null) {
                 return false;
             }
             try {
-                int i2 = a.f72076a[this.f72072c.get().ordinal()];
+                int i2 = a.f72530a[this.f72526c.get().ordinal()];
                 double d2 = 2000.0d;
                 double d3 = 550.0d;
                 if (i2 == 1) {
@@ -225,7 +225,7 @@ public class m {
                     d2 = 3.4028234663852886E38d;
                     d3 = 2000.0d;
                 }
-                double a2 = this.f72070a.a();
+                double a2 = this.f72524a.a();
                 if (a2 > d2) {
                     if (a2 > d2 * 1.25d) {
                         return true;
@@ -245,9 +245,9 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                int size = this.f72074e.size();
+                int size = this.f72528e.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f72074e.get(i2).a(this.f72072c.get());
+                    this.f72528e.get(i2).a(this.f72526c.get());
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -268,9 +268,9 @@ public class m {
                 return;
             }
         }
-        this.f72070a = new f(0.05d);
-        this.f72071b = false;
-        this.f72072c = new AtomicReference<>(com.ss.android.socialbase.downloader.network.l.f38643e);
-        this.f72074e = new ArrayList<>();
+        this.f72524a = new f(0.05d);
+        this.f72525b = false;
+        this.f72526c = new AtomicReference<>(com.ss.android.socialbase.downloader.network.l.f38815e);
+        this.f72528e = new ArrayList<>();
     }
 }

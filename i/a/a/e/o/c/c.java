@@ -22,24 +22,24 @@ import i.a.a.e.e;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.payui.model.ImageLoaderSupplier;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageLoaderSupplier f72921g;
+    public ImageLoaderSupplier f73375g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f72922a;
+        public ImageView f73376a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f72923b;
+        public final /* synthetic */ c f73377b;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(c cVar) {
@@ -57,13 +57,13 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
                     return;
                 }
             }
-            this.f72923b = cVar;
+            this.f73377b = cVar;
         }
 
         public final ImageView a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72922a : (ImageView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73376a : (ImageView) invokeV.objValue;
         }
 
         public final void b(BannerConfigItem.BannerInfo bannerInfo, int i2, Context context) {
@@ -80,8 +80,8 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
                 sb.append(" jumpUrl = ");
                 sb.append(bannerInfo != null ? bannerInfo.jumpData : null);
                 RLog.debug("PluginCenterBannerAdapter", sb.toString());
-                ImageView imageView = this.f72922a;
-                if (imageView == null || (e2 = this.f72923b.e()) == null) {
+                ImageView imageView = this.f73376a;
+                if (imageView == null || (e2 = this.f73377b.e()) == null) {
                     return;
                 }
                 e2.onLoad(context, imageView, new ImageLoaderSupplier.ImageParam(bannerInfo != null ? bannerInfo.imageUrl : null, -1, -1));
@@ -91,7 +91,7 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
         public final void c(ImageView imageView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageView) == null) {
-                this.f72922a = imageView;
+                this.f73376a = imageView;
             }
         }
     }
@@ -153,7 +153,7 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
     public final ImageLoaderSupplier e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72921g : (ImageLoaderSupplier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73375g : (ImageLoaderSupplier) invokeV.objValue;
     }
 
     public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i2) {
@@ -162,7 +162,7 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
             return;
         }
         RLog.debug("PluginCenterBannerAdapter", "bind view holder position = " + i2);
-        Context mContext = this.f72919f;
+        Context mContext = this.f73373f;
         Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
         aVar.b(bannerInfo, i2, mContext);
     }
@@ -170,7 +170,7 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
     public final void g(ImageLoaderSupplier imageLoaderSupplier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, imageLoaderSupplier) == null) {
-            this.f72921g = imageLoaderSupplier;
+            this.f73375g = imageLoaderSupplier;
         }
     }
 
@@ -181,7 +181,7 @@ public final class c extends i.a.a.e.o.c.a<BannerConfigItem.BannerInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f72919f).inflate(e.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f73373f).inflate(e.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
                 if (view == null) {
                     Intrinsics.throwNpe();
                 }

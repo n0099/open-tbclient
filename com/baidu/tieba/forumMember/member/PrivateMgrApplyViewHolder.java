@@ -16,22 +16,22 @@ public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f15262a;
+    public TextView f15310a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15263b;
+    public TextView f15311b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f15264c;
+    public RelativeLayout f15312c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f15265d;
+    public View f15313d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15266e;
+    public LinearLayout f15314e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15267f;
+    public int f15315f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivateMgrApplyViewHolder(View view) {
@@ -51,11 +51,11 @@ public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15267f = 3;
-        this.f15266e = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
-        this.f15265d = view.findViewById(R.id.private_apply_line);
-        this.f15262a = (TextView) view.findViewById(R.id.private_apply_tip);
-        this.f15263b = (TextView) view.findViewById(R.id.private_left_tv);
-        this.f15264c = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
+        this.f15315f = 3;
+        this.f15314e = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
+        this.f15313d = view.findViewById(R.id.private_apply_line);
+        this.f15310a = (TextView) view.findViewById(R.id.private_apply_tip);
+        this.f15311b = (TextView) view.findViewById(R.id.private_left_tv);
+        this.f15312c = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
     }
 }

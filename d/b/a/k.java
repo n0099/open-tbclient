@@ -15,7 +15,7 @@ public class k extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f68793e;
+    public final Context f69247e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(Context context) {
@@ -36,7 +36,7 @@ public class k extends s1 {
                 return;
             }
         }
-        this.f68793e = context;
+        this.f69247e = context;
     }
 
     @Override // d.b.a.s1
@@ -49,7 +49,7 @@ public class k extends s1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             String str = null;
             try {
-                packageInfo = this.f68793e.getPackageManager().getPackageInfo(this.f68793e.getPackageName(), 64);
+                packageInfo = this.f69247e.getPackageManager().getPackageInfo(this.f69247e.getPackageName(), 64);
             } catch (Throwable th) {
                 h0.b(th);
                 packageInfo = null;

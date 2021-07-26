@@ -17,5 +17,9 @@ public interface UnifiedInterstitialADListener {
 
     void onNoAD(AdError adError);
 
+    void onRenderFail();
+
+    void onRenderSuccess();
+
     void onVideoCached();
 }

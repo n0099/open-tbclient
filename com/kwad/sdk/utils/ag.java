@@ -16,17 +16,17 @@ public class ag {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ag f36489a;
+    public static volatile ag f36678a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f36490b;
+    public volatile boolean f36679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f36491c;
+    public volatile long f36680c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile PowerManager f36492d;
+    public volatile PowerManager f36681d;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class ag {
                 return;
             }
         }
-        f36489a = new ag();
+        f36678a = new ag();
     }
 
     public ag() {
@@ -57,32 +57,32 @@ public class ag {
                 return;
             }
         }
-        this.f36491c = 0L;
+        this.f36680c = 0L;
     }
 
     public static ag a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36489a : (ag) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36678a : (ag) invokeV.objValue;
     }
 
     public boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f36491c <= 0 || SystemClock.elapsedRealtime() - this.f36491c >= 600) {
-                if (this.f36492d == null && context != null) {
+            if (this.f36680c <= 0 || SystemClock.elapsedRealtime() - this.f36680c >= 600) {
+                if (this.f36681d == null && context != null) {
                     synchronized (this) {
-                        if (this.f36492d == null) {
-                            this.f36492d = (PowerManager) context.getApplicationContext().getSystemService("power");
+                        if (this.f36681d == null) {
+                            this.f36681d = (PowerManager) context.getApplicationContext().getSystemService("power");
                         }
                     }
                 }
-                this.f36490b = this.f36492d != null ? Build.VERSION.SDK_INT >= 20 ? this.f36492d.isInteractive() : this.f36492d.isScreenOn() : false;
-                this.f36491c = SystemClock.elapsedRealtime();
-                return this.f36490b;
+                this.f36679b = this.f36681d != null ? Build.VERSION.SDK_INT >= 20 ? this.f36681d.isInteractive() : this.f36681d.isScreenOn() : false;
+                this.f36680c = SystemClock.elapsedRealtime();
+                return this.f36679b;
             }
-            return this.f36490b;
+            return this.f36679b;
         }
         return invokeL.booleanValue;
     }

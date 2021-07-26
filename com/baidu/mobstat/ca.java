@@ -29,32 +29,32 @@ public class ca implements by {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<cd> f8890a;
+    public static final List<cd> f8916a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8891b;
+    public static int f8917b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f8892c;
+    public static boolean f8918c;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ boolean f8893h;
+    public static final /* synthetic */ boolean f8919h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BlockingQueue<ByteBuffer> f8894d;
+    public final BlockingQueue<ByteBuffer> f8920d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<ByteBuffer> f8895e;
+    public final BlockingQueue<ByteBuffer> f8921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SelectionKey f8896f;
+    public SelectionKey f8922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteChannel f8897g;
+    public ByteChannel f8923g;
 
     /* renamed from: i  reason: collision with root package name */
-    public final cb f8898i;
+    public final cb f8924i;
     public volatile boolean j;
     public by.a k;
     public cd l;
@@ -80,13 +80,13 @@ public class ca implements by {
                 return;
             }
         }
-        f8893h = !ca.class.desiredAssertionStatus();
+        f8919h = !ca.class.desiredAssertionStatus();
         ArrayList arrayList = new ArrayList(4);
-        f8890a = arrayList;
-        f8891b = 16384;
-        f8892c = false;
+        f8916a = arrayList;
+        f8917b = 16384;
+        f8918c = false;
         arrayList.add(new cf());
-        f8890a.add(new ce());
+        f8916a.add(new ce());
     }
 
     public ca(cb cbVar, cd cdVar) {
@@ -105,7 +105,7 @@ public class ca implements by {
             }
         }
         this.j = false;
-        this.k = by.a.f8882a;
+        this.k = by.a.f8908a;
         this.l = null;
         this.n = null;
         this.o = ByteBuffer.allocate(0);
@@ -115,10 +115,10 @@ public class ca implements by {
         this.s = null;
         this.t = null;
         if (cbVar != null && cdVar != null) {
-            this.f8894d = new LinkedBlockingQueue();
-            this.f8895e = new LinkedBlockingQueue();
-            this.f8898i = cbVar;
-            this.m = by.b.f8888a;
+            this.f8920d = new LinkedBlockingQueue();
+            this.f8921e = new LinkedBlockingQueue();
+            this.f8924i = cbVar;
+            this.m = by.b.f8914a;
             if (cdVar != null) {
                 this.l = cdVar.c();
                 return;
@@ -157,9 +157,9 @@ public class ca implements by {
                 if (this.o.capacity() != 0) {
                 }
             }
-            if (this.l == null && e(byteBuffer2) == cd.b.f8918a) {
+            if (this.l == null && e(byteBuffer2) == cd.b.f8944a) {
                 try {
-                    f(ByteBuffer.wrap(dc.a(this.f8898i.a(this))));
+                    f(ByteBuffer.wrap(dc.a(this.f8924i.a(this))));
                     a(-3, "");
                 } catch (ch unused) {
                     c(1006, "remote peer closed connection before flashpolicy could be transmitted", true);
@@ -167,7 +167,7 @@ public class ca implements by {
                 return false;
             }
             try {
-                if (this.m == by.b.f8888a) {
+                if (this.m == by.b.f8914a) {
                     this.l.a(this.m);
                     cx d2 = this.l.d(byteBuffer2);
                     if (!(d2 instanceof cz)) {
@@ -175,16 +175,16 @@ public class ca implements by {
                         return false;
                     }
                     cz czVar = (cz) d2;
-                    if (this.l.a(this.p, czVar) == cd.b.f8918a) {
+                    if (this.l.a(this.p, czVar) == cd.b.f8944a) {
                         try {
-                            this.f8898i.a(this, this.p, czVar);
+                            this.f8924i.a(this, this.p, czVar);
                             a(czVar);
                             return true;
                         } catch (ch e3) {
                             b(e3.a(), e3.getMessage(), false);
                             return false;
                         } catch (RuntimeException e4) {
-                            this.f8898i.a(this, e4);
+                            this.f8924i.a(this, e4);
                             b(-1, e4.getMessage(), false);
                             return false;
                         }
@@ -200,7 +200,7 @@ public class ca implements by {
                 int a2 = e2.a();
                 if (a2 == 0) {
                     a2 = byteBuffer2.capacity() + 16;
-                } else if (!f8893h && e2.a() < byteBuffer2.remaining()) {
+                } else if (!f8919h && e2.a() < byteBuffer2.remaining()) {
                     throw new AssertionError();
                 }
                 ByteBuffer allocate2 = ByteBuffer.allocate(a2);
@@ -222,21 +222,21 @@ public class ca implements by {
         if (interceptable == null || interceptable.invokeL(65543, this, byteBuffer) == null) {
             try {
             } catch (ch e2) {
-                this.f8898i.a(this, e2);
+                this.f8924i.a(this, e2);
                 a(e2);
                 return;
             }
             for (cq cqVar : this.l.c(byteBuffer)) {
-                if (f8892c) {
+                if (f8918c) {
                     PrintStream printStream = System.out;
                     printStream.println("matched frame: " + cqVar);
                 }
                 cq.a f2 = cqVar.f();
                 boolean d2 = cqVar.d();
-                if (this.k == by.a.f8885d) {
+                if (this.k == by.a.f8911d) {
                     return;
                 }
-                if (f2 == cq.a.f8936f) {
+                if (f2 == cq.a.f8962f) {
                     int i2 = 1005;
                     String str = "";
                     if (cqVar instanceof cn) {
@@ -244,42 +244,42 @@ public class ca implements by {
                         i2 = cnVar.a();
                         str = cnVar.b();
                     }
-                    if (this.k == by.a.f8885d) {
+                    if (this.k == by.a.f8911d) {
                         a(i2, str, true);
-                    } else if (this.l.b() == cd.a.f8916c) {
+                    } else if (this.l.b() == cd.a.f8942c) {
                         c(i2, str, true);
                     } else {
                         b(i2, str, false);
                     }
-                } else if (f2 == cq.a.f8934d) {
-                    this.f8898i.b(this, cqVar);
-                } else if (f2 == cq.a.f8935e) {
-                    this.f8898i.c(this, cqVar);
+                } else if (f2 == cq.a.f8960d) {
+                    this.f8924i.b(this, cqVar);
+                } else if (f2 == cq.a.f8961e) {
+                    this.f8924i.c(this, cqVar);
                 } else {
-                    if (d2 && f2 != cq.a.f8931a) {
+                    if (d2 && f2 != cq.a.f8957a) {
                         if (this.n == null) {
-                            if (f2 == cq.a.f8932b) {
+                            if (f2 == cq.a.f8958b) {
                                 try {
-                                    this.f8898i.a(this, dc.a(cqVar.c()));
+                                    this.f8924i.a(this, dc.a(cqVar.c()));
                                 } catch (RuntimeException e3) {
-                                    this.f8898i.a(this, e3);
+                                    this.f8924i.a(this, e3);
                                 }
-                            } else if (f2 == cq.a.f8933c) {
+                            } else if (f2 == cq.a.f8959c) {
                                 try {
-                                    this.f8898i.a(this, cqVar.c());
+                                    this.f8924i.a(this, cqVar.c());
                                 } catch (RuntimeException e4) {
-                                    this.f8898i.a(this, e4);
+                                    this.f8924i.a(this, e4);
                                 }
                             } else {
                                 throw new ch(1002, "non control or continious frame expected");
                             }
-                            this.f8898i.a(this, e2);
+                            this.f8924i.a(this, e2);
                             a(e2);
                             return;
                         }
                         throw new ch(1002, "Continuous frame sequence not completed.");
                     }
-                    if (f2 != cq.a.f8931a) {
+                    if (f2 != cq.a.f8957a) {
                         if (this.n == null) {
                             this.n = cqVar;
                         } else {
@@ -287,7 +287,7 @@ public class ca implements by {
                         }
                     } else if (d2) {
                         if (this.n != null) {
-                            if (this.n.f() == cq.a.f8932b) {
+                            if (this.n.f() == cq.a.f8958b) {
                                 int max = Math.max(this.n.c().limit() - 64, 0);
                                 this.n.a(cqVar);
                                 if (!dc.a(this.n.c(), max)) {
@@ -301,10 +301,10 @@ public class ca implements by {
                     } else if (this.n == null) {
                         throw new ch(1002, "Continuous frame sequence was not started.");
                     }
-                    if (f2 == cq.a.f8932b && !dc.b(cqVar.c())) {
+                    if (f2 == cq.a.f8958b && !dc.b(cqVar.c())) {
                         throw new ch(1007);
                     }
-                    if (f2 == cq.a.f8931a && this.n != null && this.n.f() == cq.a.f8932b) {
+                    if (f2 == cq.a.f8957a && this.n != null && this.n.f() == cq.a.f8958b) {
                         int max2 = Math.max(this.n.c().limit() - 64, 0);
                         this.n.a(cqVar);
                         if (!dc.a(this.n.c(), max2)) {
@@ -312,9 +312,9 @@ public class ca implements by {
                         }
                     }
                     try {
-                        this.f8898i.a(this, cqVar);
+                        this.f8924i.a(this, cqVar);
                     } catch (RuntimeException e5) {
-                        this.f8898i.a(this, e5);
+                        this.f8924i.a(this, e5);
                     }
                 }
             }
@@ -326,21 +326,21 @@ public class ca implements by {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, byteBuffer)) == null) {
             byteBuffer.mark();
-            if (byteBuffer.limit() > cd.f8911c.length) {
-                return cd.b.f8919b;
+            if (byteBuffer.limit() > cd.f8937c.length) {
+                return cd.b.f8945b;
             }
-            if (byteBuffer.limit() >= cd.f8911c.length) {
+            if (byteBuffer.limit() >= cd.f8937c.length) {
                 int i2 = 0;
                 while (byteBuffer.hasRemaining()) {
-                    if (cd.f8911c[i2] != byteBuffer.get()) {
+                    if (cd.f8937c[i2] != byteBuffer.get()) {
                         byteBuffer.reset();
-                        return cd.b.f8919b;
+                        return cd.b.f8945b;
                     }
                     i2++;
                 }
-                return cd.b.f8918a;
+                return cd.b.f8944a;
             }
-            throw new cg(cd.f8911c.length);
+            throw new cg(cd.f8937c.length);
         }
         return (cd.b) invokeL.objValue;
     }
@@ -348,7 +348,7 @@ public class ca implements by {
     private void f(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, byteBuffer) == null) {
-            if (f8892c) {
+            if (f8918c) {
                 PrintStream printStream = System.out;
                 StringBuilder sb = new StringBuilder();
                 sb.append("write(");
@@ -358,18 +358,18 @@ public class ca implements by {
                 sb.append("}");
                 printStream.println(sb.toString());
             }
-            this.f8894d.add(byteBuffer);
-            this.f8898i.b(this);
+            this.f8920d.add(byteBuffer);
+            this.f8924i.b(this);
         }
     }
 
     public void a(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer) == null) {
-            if (!f8893h && !byteBuffer.hasRemaining()) {
+            if (!f8919h && !byteBuffer.hasRemaining()) {
                 throw new AssertionError();
             }
-            if (f8892c) {
+            if (f8918c) {
                 PrintStream printStream = System.out;
                 StringBuilder sb = new StringBuilder();
                 sb.append("process(");
@@ -379,10 +379,10 @@ public class ca implements by {
                 sb.append("}");
                 printStream.println(sb.toString());
             }
-            if (this.k != by.a.f8882a) {
+            if (this.k != by.a.f8908a) {
                 d(byteBuffer);
             } else if (c(byteBuffer)) {
-                if (!f8893h && this.o.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
+                if (!f8919h && this.o.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
                     throw new AssertionError();
                 }
                 if (byteBuffer.hasRemaining()) {
@@ -391,7 +391,7 @@ public class ca implements by {
                     d(this.o);
                 }
             }
-            if (!f8893h && !d() && !e() && byteBuffer.hasRemaining()) {
+            if (!f8919h && !d() && !e() && byteBuffer.hasRemaining()) {
                 throw new AssertionError();
             }
         }
@@ -433,11 +433,11 @@ public class ca implements by {
                 this.q = str;
                 this.s = Boolean.valueOf(z);
                 this.j = true;
-                this.f8898i.b(this);
+                this.f8924i.b(this);
                 try {
-                    this.f8898i.b(this, i2, str, z);
+                    this.f8924i.b(this, i2, str, z);
                 } catch (RuntimeException e2) {
-                    this.f8898i.a(this, e2);
+                    this.f8924i.a(this, e2);
                 }
                 if (this.l != null) {
                     this.l.a();
@@ -450,7 +450,7 @@ public class ca implements by {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.k == by.a.f8886e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.k == by.a.f8912e : invokeV.booleanValue;
     }
 
     public boolean e() {
@@ -470,30 +470,30 @@ public class ca implements by {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
             synchronized (this) {
-                if (this.k == by.a.f8886e) {
+                if (this.k == by.a.f8912e) {
                     return;
                 }
-                if (this.f8896f != null) {
-                    this.f8896f.cancel();
+                if (this.f8922f != null) {
+                    this.f8922f.cancel();
                 }
-                if (this.f8897g != null) {
+                if (this.f8923g != null) {
                     try {
-                        this.f8897g.close();
+                        this.f8923g.close();
                     } catch (IOException e2) {
-                        this.f8898i.a(this, e2);
+                        this.f8924i.a(this, e2);
                     }
                 }
                 try {
-                    this.f8898i.a(this, i2, str, z);
+                    this.f8924i.a(this, i2, str, z);
                 } catch (RuntimeException e3) {
-                    this.f8898i.a(this, e3);
+                    this.f8924i.a(this, e3);
                 }
                 if (this.l != null) {
                     this.l.a();
                 }
                 this.p = null;
-                this.k = by.a.f8886e;
-                this.f8894d.clear();
+                this.k = by.a.f8912e;
+                this.f8920d.clear();
             }
         }
     }
@@ -501,13 +501,13 @@ public class ca implements by {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (g() == by.a.f8882a) {
+            if (g() == by.a.f8908a) {
                 a(-1, true);
             } else if (this.j) {
                 a(this.r.intValue(), this.q, this.s.booleanValue());
-            } else if (this.l.b() == cd.a.f8914a) {
+            } else if (this.l.b() == cd.a.f8940a) {
                 a(1000, true);
-            } else if (this.l.b() == cd.a.f8915b) {
+            } else if (this.l.b() == cd.a.f8941b) {
                 a(1000, true);
             } else {
                 a(1006, true);
@@ -521,7 +521,7 @@ public class ca implements by {
             if (byteBuffer == null) {
                 throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
             }
-            a(this.l.a(byteBuffer, this.m == by.b.f8888a));
+            a(this.l.a(byteBuffer, this.m == by.b.f8914a));
         }
     }
 
@@ -570,7 +570,7 @@ public class ca implements by {
     public void a(cq cqVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cqVar) == null) {
-            if (f8892c) {
+            if (f8918c) {
                 PrintStream printStream = System.out;
                 printStream.println("send frame: " + cqVar);
             }
@@ -581,22 +581,22 @@ public class ca implements by {
     public void a(ct ctVar) throws cj {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, ctVar) == null) {
-            if (!f8893h && this.k == by.a.f8883b) {
+            if (!f8919h && this.k == by.a.f8909b) {
                 throw new AssertionError("shall only be called once");
             }
             this.p = this.l.a(ctVar);
             String a2 = ctVar.a();
             this.t = a2;
-            if (!f8893h && a2 == null) {
+            if (!f8919h && a2 == null) {
                 throw new AssertionError();
             }
             try {
-                this.f8898i.a((by) this, this.p);
+                this.f8924i.a((by) this, this.p);
                 a(this.l.a(this.p, this.m));
             } catch (ch unused) {
                 throw new cj("Handshake data rejected by client.");
             } catch (RuntimeException e2) {
-                this.f8898i.a(this, e2);
+                this.f8924i.a(this, e2);
                 throw new cj("rejected because of" + e2);
             }
         }
@@ -605,36 +605,36 @@ public class ca implements by {
     private void c(int i2, String str, boolean z) {
         by.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || (aVar = this.k) == by.a.f8885d || aVar == by.a.f8886e) {
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || (aVar = this.k) == by.a.f8911d || aVar == by.a.f8912e) {
             return;
         }
-        if (aVar == by.a.f8884c) {
+        if (aVar == by.a.f8910c) {
             if (i2 == 1006) {
-                if (!f8893h && z) {
+                if (!f8919h && z) {
                     throw new AssertionError();
                 }
-                this.k = by.a.f8885d;
+                this.k = by.a.f8911d;
                 b(i2, str, false);
                 return;
             }
-            if (this.l.b() != cd.a.f8914a) {
+            if (this.l.b() != cd.a.f8940a) {
                 try {
                     if (!z) {
                         try {
-                            this.f8898i.a(this, i2, str);
+                            this.f8924i.a(this, i2, str);
                         } catch (RuntimeException e2) {
-                            this.f8898i.a(this, e2);
+                            this.f8924i.a(this, e2);
                         }
                     }
                     a(new co(i2, str));
                 } catch (ch e3) {
-                    this.f8898i.a(this, e3);
+                    this.f8924i.a(this, e3);
                     b(1006, "generated frame is invalid", false);
                 }
             }
             b(i2, str, z);
         } else if (i2 == -3) {
-            if (!f8893h && !z) {
+            if (!f8919h && !z) {
                 throw new AssertionError();
             }
             b(-3, str, true);
@@ -644,7 +644,7 @@ public class ca implements by {
         if (i2 == 1002) {
             b(i2, str, z);
         }
-        this.k = by.a.f8885d;
+        this.k = by.a.f8911d;
         this.o = null;
     }
 
@@ -660,15 +660,15 @@ public class ca implements by {
     private void a(cx cxVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, cxVar) == null) {
-            if (f8892c) {
+            if (f8918c) {
                 PrintStream printStream = System.out;
                 printStream.println("open using draft: " + this.l.getClass().getSimpleName());
             }
-            this.k = by.a.f8884c;
+            this.k = by.a.f8910c;
             try {
-                this.f8898i.a(this, cxVar);
+                this.f8924i.a(this, cxVar);
             } catch (RuntimeException e2) {
-                this.f8898i.a(this, e2);
+                this.f8924i.a(this, e2);
             }
         }
     }
@@ -677,23 +677,23 @@ public class ca implements by {
     public InetSocketAddress a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8898i.c(this) : (InetSocketAddress) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8924i.c(this) : (InetSocketAddress) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k == by.a.f8885d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k == by.a.f8911d : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (!f8893h && this.k == by.a.f8884c && this.j) {
+            if (!f8919h && this.k == by.a.f8910c && this.j) {
                 throw new AssertionError();
             }
-            return this.k == by.a.f8884c;
+            return this.k == by.a.f8910c;
         }
         return invokeV.booleanValue;
     }

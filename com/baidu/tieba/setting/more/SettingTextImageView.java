@@ -26,19 +26,19 @@ public class SettingTextImageView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20814e;
+    public Context f20932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f20815f;
+    public LinearLayout f20933f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20816g;
+    public TextView f20934g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HeadImageView f20817h;
+    public HeadImageView f20935h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f20818i;
+    public ImageView f20936i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
@@ -59,7 +59,7 @@ public class SettingTextImageView extends FrameLayout {
                 return;
             }
         }
-        this.f20814e = context;
+        this.f20932e = context;
         d();
         c(attributeSet);
         f(TbadkCoreApplication.getInst().getSkinType());
@@ -68,7 +68,7 @@ public class SettingTextImageView extends FrameLayout {
     public void a() {
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (headImageView = this.f20817h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (headImageView = this.f20935h) == null) {
             return;
         }
         headImageView.setVisibility(0);
@@ -77,7 +77,7 @@ public class SettingTextImageView extends FrameLayout {
     public void b() {
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (headImageView = this.f20817h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (headImageView = this.f20935h) == null) {
             return;
         }
         headImageView.setVisibility(8);
@@ -86,29 +86,29 @@ public class SettingTextImageView extends FrameLayout {
     public final void c(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.f20814e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
+            TypedArray obtainStyledAttributes = this.f20932e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
             String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
             int color = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTextColor, -1);
             obtainStyledAttributes.recycle();
             if (string != null) {
-                this.f20816g.setText(string);
+                this.f20934g.setText(string);
             }
             if (color > -1) {
-                this.f20816g.setTextColor(color);
+                this.f20934g.setTextColor(color);
             }
-            this.f20815f.setClickable(false);
-            this.f20815f.setFocusable(false);
+            this.f20933f.setClickable(false);
+            this.f20933f.setFocusable(false);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.f20814e).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
-            this.f20815f = (LinearLayout) findViewById(R.id.container);
-            this.f20816g = (TextView) findViewById(R.id.text);
-            this.f20817h = (HeadImageView) findViewById(R.id.icon);
-            this.f20818i = (ImageView) findViewById(R.id.arrow);
+            LayoutInflater.from(this.f20932e).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
+            this.f20933f = (LinearLayout) findViewById(R.id.container);
+            this.f20934g = (TextView) findViewById(R.id.text);
+            this.f20935h = (HeadImageView) findViewById(R.id.icon);
+            this.f20936i = (ImageView) findViewById(R.id.arrow);
         }
     }
 
@@ -122,9 +122,9 @@ public class SettingTextImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
-            SkinManager.setViewTextColor(this.f20816g, R.color.CAM_X0105, 1);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20818i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            this.f20817h.invalidate();
+            SkinManager.setViewTextColor(this.f20934g, R.color.CAM_X0105, 1);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20936i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            this.f20935h.invalidate();
         }
     }
 
@@ -132,9 +132,9 @@ public class SettingTextImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
             if (z) {
-                this.f20817h.M(str, 26, false);
+                this.f20935h.M(str, 26, false);
             } else {
-                this.f20817h.M(str, 12, false);
+                this.f20935h.M(str, 12, false);
             }
         }
     }
@@ -142,7 +142,7 @@ public class SettingTextImageView extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f20816g.setText(str);
+            this.f20934g.setText(str);
         }
     }
 
@@ -164,7 +164,7 @@ public class SettingTextImageView extends FrameLayout {
                 return;
             }
         }
-        this.f20814e = context;
+        this.f20932e = context;
         d();
         f(TbadkCoreApplication.getInst().getSkinType());
     }

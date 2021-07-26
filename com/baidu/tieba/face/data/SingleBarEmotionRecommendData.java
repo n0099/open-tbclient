@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.o0.c.b;
+import d.a.q0.o0.c.b;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class SingleBarEmotionRecommendData implements Serializable, b {
@@ -31,14 +31,14 @@ public class SingleBarEmotionRecommendData implements Serializable, b {
         }
     }
 
-    @Override // d.a.p0.o0.c.b
+    @Override // d.a.q0.o0.c.b
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.cover) : invokeV.booleanValue;
     }
 
-    @Override // d.a.p0.o0.c.b
+    @Override // d.a.q0.o0.c.b
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -21,28 +21,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31028a;
+    public int f31210a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<FilterWord> f31029b;
+    public List<FilterWord> f31211b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PersonalizationPrompt f31030c;
+    public PersonalizationPrompt f31212c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31031d;
+    public String f31213d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f31032e;
+    public boolean f31214e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31033f;
+    public String f31215f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31034g;
+    public String f31216g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31035h;
+    public String f31217h;
 
     public b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -59,41 +59,41 @@ public class b {
                 return;
             }
         }
-        this.f31028a = 0;
-        this.f31029b = new ArrayList();
-        this.f31028a = jSONObject.optInt("dislike_control", 0);
-        this.f31032e = jSONObject.optBoolean("close_on_dislike", false);
+        this.f31210a = 0;
+        this.f31211b = new ArrayList();
+        this.f31210a = jSONObject.optInt("dislike_control", 0);
+        this.f31214e = jSONObject.optBoolean("close_on_dislike", false);
         JSONArray optJSONArray = jSONObject.optJSONArray("filter_words");
         if (optJSONArray != null) {
             for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
                 FilterWord parseFromJson = FilterWord.parseFromJson(optJSONArray.optJSONObject(i4));
                 if (parseFromJson != null && parseFromJson.isValid()) {
-                    this.f31029b.add(parseFromJson);
+                    this.f31211b.add(parseFromJson);
                 }
             }
         }
-        this.f31030c = PersonalizationPrompt.parseFromJson(jSONObject.optJSONObject("personalization_prompts"));
-        this.f31033f = jSONObject.optString(LegoListActivityConfig.AD_ID);
-        this.f31034g = jSONObject.optString("ext");
+        this.f31212c = PersonalizationPrompt.parseFromJson(jSONObject.optJSONObject("personalization_prompts"));
+        this.f31215f = jSONObject.optString(LegoListActivityConfig.AD_ID);
+        this.f31216g = jSONObject.optString("ext");
     }
 
     public PersonalizationPrompt a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31030c : (PersonalizationPrompt) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31212c : (PersonalizationPrompt) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f31031d = str;
+            this.f31213d = str;
         }
     }
 
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            jSONObject.put("dislike_control", this.f31028a);
+            jSONObject.put("dislike_control", this.f31210a);
             jSONObject.put("filter_words", g());
             jSONObject.put("personalization_prompts", h());
             jSONObject.put("close_on_dislike", j());
@@ -103,38 +103,38 @@ public class b {
     public List<FilterWord> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31029b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31211b : (List) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f31035h = str;
+            this.f31217h = str;
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31031d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31213d : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31033f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31215f : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31034g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31216g : (String) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31028a == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31210a == 1 : invokeV.booleanValue;
     }
 
     public JSONArray g() {
@@ -142,7 +142,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            List<FilterWord> list = this.f31029b;
+            List<FilterWord> list = this.f31211b;
             if (list != null) {
                 for (FilterWord filterWord : list) {
                     JSONObject json = filterWord.toJson();
@@ -160,7 +160,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            PersonalizationPrompt personalizationPrompt = this.f31030c;
+            PersonalizationPrompt personalizationPrompt = this.f31212c;
             if (personalizationPrompt != null) {
                 return personalizationPrompt.toJson();
             }
@@ -172,12 +172,12 @@ public class b {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31035h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31217h : (String) invokeV.objValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f31032e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f31214e : invokeV.booleanValue;
     }
 }

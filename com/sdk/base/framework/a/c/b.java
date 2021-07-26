@@ -10,25 +10,25 @@ public final class b extends Enum<b> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f38106a = 4;
+    public static final int f38281a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f38107b = 1;
+    public static int f38282b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f38108c = 2;
+    public static int f38283c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f38109d = 3;
+    public static int f38284d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f38110e = 5;
+    public static int f38285e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f38111f = 6;
+    public static int f38286f = 6;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f38112g = 7;
+    public static int f38287g = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

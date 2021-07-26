@@ -20,27 +20,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.a4.i;
+import d.a.d.e.p.l;
+import d.a.q0.a4.i;
 /* loaded from: classes4.dex */
 public class EmotionEditText extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f19969e;
+    public EditText f20087e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f19970f;
+    public ImageView f20088f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f19971g;
+    public ImageView f20089g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19972h;
+    public int f20090h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f19973i;
+    public float f20091i;
     public float j;
     public float k;
     public int l;
@@ -60,7 +60,7 @@ public class EmotionEditText extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditText f19974e;
+        public final /* synthetic */ EmotionEditText f20092e;
 
         public a(EmotionEditText emotionEditText) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class EmotionEditText extends FrameLayout {
                     return;
                 }
             }
-            this.f19974e = emotionEditText;
+            this.f20092e = emotionEditText;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -87,28 +87,28 @@ public class EmotionEditText extends FrameLayout {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f19974e.f19973i = motionEvent.getRawX();
-                    this.f19974e.j = motionEvent.getRawY();
-                    EmotionEditText emotionEditText = this.f19974e;
-                    emotionEditText.k = emotionEditText.f19973i;
+                    this.f20092e.f20091i = motionEvent.getRawX();
+                    this.f20092e.j = motionEvent.getRawY();
+                    EmotionEditText emotionEditText = this.f20092e;
+                    emotionEditText.k = emotionEditText.f20091i;
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                    layoutParams.setMargins(this.f19974e.getLeft(), this.f19974e.getTop(), 0, 0);
-                    this.f19974e.setLayoutParams(layoutParams);
+                    layoutParams.setMargins(this.f20092e.getLeft(), this.f20092e.getTop(), 0, 0);
+                    this.f20092e.setLayoutParams(layoutParams);
                     return true;
                 } else if (action != 2) {
                     return true;
                 } else {
                     float rawX = motionEvent.getRawX();
                     motionEvent.getRawY();
-                    float f2 = rawX - this.f19974e.k;
-                    if (!this.f19974e.s(motionEvent)) {
+                    float f2 = rawX - this.f20092e.k;
+                    if (!this.f20092e.s(motionEvent)) {
                         if (f2 > 0.0f) {
-                            this.f19974e.setSize(f2);
+                            this.f20092e.setSize(f2);
                         } else {
-                            this.f19974e.setSize(f2);
+                            this.f20092e.setSize(f2);
                         }
                     }
-                    this.f19974e.k = rawX;
+                    this.f20092e.k = rawX;
                     return true;
                 }
             }
@@ -122,7 +122,7 @@ public class EmotionEditText extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditText f19975e;
+        public final /* synthetic */ EmotionEditText f20093e;
 
         public b(EmotionEditText emotionEditText) {
             Interceptable interceptable = $ic;
@@ -139,15 +139,15 @@ public class EmotionEditText extends FrameLayout {
                     return;
                 }
             }
-            this.f19975e = emotionEditText;
+            this.f20093e = emotionEditText;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f19975e.f19969e.setText("");
-                this.f19975e.p.setText("");
+                this.f20093e.f20087e.setText("");
+                this.f20093e.p.setText("");
             }
         }
     }
@@ -158,7 +158,7 @@ public class EmotionEditText extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditText f19976e;
+        public final /* synthetic */ EmotionEditText f20094e;
 
         public c(EmotionEditText emotionEditText) {
             Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class EmotionEditText extends FrameLayout {
                     return;
                 }
             }
-            this.f19976e = emotionEditText;
+            this.f20094e = emotionEditText;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:22:0x0104  */
@@ -189,39 +189,39 @@ public class EmotionEditText extends FrameLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable == null) {
                 return;
             }
-            int width = (this.f19976e.n - this.f19976e.getWidth()) - this.f19976e.getLeft();
-            if (editable.toString().length() > this.f19976e.p.getText().toString().length()) {
-                float textSize = this.f19976e.p.getTextSize();
-                EmotionEditText emotionEditText = this.f19976e;
-                if (textSize > emotionEditText.v(emotionEditText.getContext(), this.f19976e.m)) {
-                    float textSize2 = this.f19976e.p.getTextSize();
-                    EmotionEditText emotionEditText2 = this.f19976e;
-                    if (textSize2 != emotionEditText2.v(emotionEditText2.getContext(), this.f19976e.l) && width == 0) {
-                        EmotionEditText emotionEditText3 = this.f19976e;
-                        emotionEditText3.setTextSize(2, emotionEditText3.t(emotionEditText3.getContext(), this.f19976e.p.getTextSize()) - 1);
-                        this.f19976e.p.setText(editable.toString());
+            int width = (this.f20094e.n - this.f20094e.getWidth()) - this.f20094e.getLeft();
+            if (editable.toString().length() > this.f20094e.p.getText().toString().length()) {
+                float textSize = this.f20094e.p.getTextSize();
+                EmotionEditText emotionEditText = this.f20094e;
+                if (textSize > emotionEditText.v(emotionEditText.getContext(), this.f20094e.m)) {
+                    float textSize2 = this.f20094e.p.getTextSize();
+                    EmotionEditText emotionEditText2 = this.f20094e;
+                    if (textSize2 != emotionEditText2.v(emotionEditText2.getContext(), this.f20094e.l) && width == 0) {
+                        EmotionEditText emotionEditText3 = this.f20094e;
+                        emotionEditText3.setTextSize(2, emotionEditText3.t(emotionEditText3.getContext(), this.f20094e.p.getTextSize()) - 1);
+                        this.f20094e.p.setText(editable.toString());
                         if (editable.toString().length() <= 0) {
-                            this.f19976e.f19969e.setHint("");
-                            this.f19976e.p.setHint("");
+                            this.f20094e.f20087e.setHint("");
+                            this.f20094e.p.setHint("");
                             return;
                         }
-                        EmotionEditText emotionEditText4 = this.f19976e;
+                        EmotionEditText emotionEditText4 = this.f20094e;
                         emotionEditText4.setTextSize(2, emotionEditText4.l);
-                        this.f19976e.f19969e.setHint(this.f19976e.getContext().getResources().getString(R.string.emotion_edit_hint));
-                        this.f19976e.p.setHint(this.f19976e.getContext().getResources().getString(R.string.emotion_edit_hint));
+                        this.f20094e.f20087e.setHint(this.f20094e.getContext().getResources().getString(R.string.emotion_edit_hint));
+                        this.f20094e.p.setHint(this.f20094e.getContext().getResources().getString(R.string.emotion_edit_hint));
                         return;
                     }
                 }
             }
-            if (editable.toString().length() < this.f19976e.p.getText().toString().length() && width > 0) {
-                float textSize3 = this.f19976e.p.getTextSize();
-                EmotionEditText emotionEditText5 = this.f19976e;
-                if (textSize3 != emotionEditText5.v(emotionEditText5.getContext(), this.f19976e.l)) {
-                    EmotionEditText emotionEditText6 = this.f19976e;
-                    emotionEditText6.setTextSize(2, emotionEditText6.t(emotionEditText6.getContext(), this.f19976e.p.getTextSize()) + 1);
+            if (editable.toString().length() < this.f20094e.p.getText().toString().length() && width > 0) {
+                float textSize3 = this.f20094e.p.getTextSize();
+                EmotionEditText emotionEditText5 = this.f20094e;
+                if (textSize3 != emotionEditText5.v(emotionEditText5.getContext(), this.f20094e.l)) {
+                    EmotionEditText emotionEditText6 = this.f20094e;
+                    emotionEditText6.setTextSize(2, emotionEditText6.t(emotionEditText6.getContext(), this.f20094e.p.getTextSize()) + 1);
                 }
             }
-            this.f19976e.p.setText(editable.toString());
+            this.f20094e.p.setText(editable.toString());
             if (editable.toString().length() <= 0) {
             }
         }
@@ -266,8 +266,8 @@ public class EmotionEditText extends FrameLayout {
     public void setSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65551, this, f2) == null) {
-            int width = getWidth() - (this.f19972h * 2);
-            int height = getHeight() - (this.f19972h * 2);
+            int width = getWidth() - (this.f20090h * 2);
+            int height = getHeight() - (this.f20090h * 2);
             if (this.t == 0 && this.u == 0) {
                 this.t = width;
                 this.u = height;
@@ -287,7 +287,7 @@ public class EmotionEditText extends FrameLayout {
     public View getEditText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19969e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20087e : (View) invokeV.objValue;
     }
 
     public String getText() {
@@ -320,10 +320,10 @@ public class EmotionEditText extends FrameLayout {
             return;
         }
         this.q = true;
-        this.f19969e.setVisibility(4);
+        this.f20087e.setVisibility(4);
         this.p.setVisibility(0);
-        this.f19970f.setVisibility(0);
-        this.f19971g.setVisibility(0);
+        this.f20088f.setVisibility(0);
+        this.f20089g.setVisibility(0);
         setEditTextEnable(false);
     }
 
@@ -331,12 +331,12 @@ public class EmotionEditText extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds20);
-            this.f19972h = dimensionPixelSize;
+            this.f20090h = dimensionPixelSize;
             this.r = dimensionPixelSize * 2;
             this.l = 24;
             this.m = 16;
             FrameLayout.LayoutParams q = q();
-            addView(this.f19969e, q);
+            addView(this.f20087e, q);
             r(q);
             o();
             p();
@@ -349,14 +349,14 @@ public class EmotionEditText extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ImageView imageView = new ImageView(getContext());
-            this.f19970f = imageView;
+            this.f20088f = imageView;
             imageView.setImageResource(R.drawable.icon_frame_close_n);
-            this.f19970f.setOnClickListener(new b(this));
+            this.f20088f.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            ImageView imageView2 = this.f19970f;
-            int i2 = this.f19972h;
+            ImageView imageView2 = this.f20088f;
+            int i2 = this.f20090h;
             imageView2.setPadding(i2, i2, i2, i2);
-            addView(this.f19970f, layoutParams);
+            addView(this.f20088f, layoutParams);
         }
     }
 
@@ -364,15 +364,15 @@ public class EmotionEditText extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ImageView imageView = new ImageView(getContext());
-            this.f19971g = imageView;
+            this.f20089g = imageView;
             imageView.setImageResource(R.drawable.icon_frame_enlarge_n);
-            this.f19971g.setOnTouchListener(new a(this));
+            this.f20089g.setOnTouchListener(new a(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
-            ImageView imageView2 = this.f19971g;
-            int i2 = this.f19972h;
+            ImageView imageView2 = this.f20089g;
+            int i2 = this.f20090h;
             imageView2.setPadding(0, 0, i2, i2);
-            addView(this.f19971g, layoutParams);
+            addView(this.f20089g, layoutParams);
         }
     }
 
@@ -381,22 +381,22 @@ public class EmotionEditText extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             EditText editText = new EditText(getContext());
-            this.f19969e = editText;
+            this.f20087e = editText;
             editText.setHint(getContext().getResources().getString(R.string.emotion_edit_hint));
-            this.f19969e.setBackgroundDrawable(null);
+            this.f20087e.setBackgroundDrawable(null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             int i2 = this.r;
             layoutParams.setMargins(i2, i2, i2, i2);
             layoutParams.gravity = 17;
-            EditText editText2 = this.f19969e;
-            int i3 = this.f19972h;
+            EditText editText2 = this.f20087e;
+            int i3 = this.f20090h;
             editText2.setPadding(i3, i3 / 2, i3, i3 / 2);
-            this.f19969e.setSingleLine();
-            this.f19969e.setIncludeFontPadding(false);
-            this.f19969e.getPaint().setFakeBoldText(true);
-            this.f19969e.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
-            i.e(this.f19969e, R.drawable.emotion_edittext_cursor);
-            this.f19969e.addTextChangedListener(new c(this));
+            this.f20087e.setSingleLine();
+            this.f20087e.setIncludeFontPadding(false);
+            this.f20087e.getPaint().setFakeBoldText(true);
+            this.f20087e.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
+            i.e(this.f20087e, R.drawable.emotion_edittext_cursor);
+            this.f20087e.addTextChangedListener(new c(this));
             return layoutParams;
         }
         return (FrameLayout.LayoutParams) invokeV.objValue;
@@ -410,7 +410,7 @@ public class EmotionEditText extends FrameLayout {
             textView.setHint(getContext().getResources().getString(R.string.emotion_edit_hint));
             this.p.setBackgroundResource(R.drawable.bg_emotion_edit);
             TextView textView2 = this.p;
-            int i2 = this.f19972h;
+            int i2 = this.f20090h;
             textView2.setPadding(i2, i2 / 2, i2, i2 / 2);
             this.p.setSingleLine();
             this.p.setIncludeFontPadding(false);
@@ -425,7 +425,7 @@ public class EmotionEditText extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
-            float abs = Math.abs(motionEvent.getRawX() - this.f19973i);
+            float abs = Math.abs(motionEvent.getRawX() - this.f20091i);
             float abs2 = Math.abs(motionEvent.getRawY() - this.j);
             float f2 = this.s;
             return abs < f2 && abs2 < f2;
@@ -437,13 +437,13 @@ public class EmotionEditText extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             if (z) {
-                this.f19969e.setFocusable(true);
-                this.f19969e.setFocusableInTouchMode(true);
-                this.f19969e.requestFocus();
+                this.f20087e.setFocusable(true);
+                this.f20087e.setFocusableInTouchMode(true);
+                this.f20087e.requestFocus();
                 return;
             }
-            this.f19969e.setFocusable(false);
-            this.f19969e.setFocusableInTouchMode(false);
+            this.f20087e.setFocusable(false);
+            this.f20087e.setFocusableInTouchMode(false);
         }
     }
 
@@ -461,7 +461,7 @@ public class EmotionEditText extends FrameLayout {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f19969e.setTextColor(i2);
+            this.f20087e.setTextColor(i2);
             this.p.setTextColor(i2);
         }
     }
@@ -469,8 +469,8 @@ public class EmotionEditText extends FrameLayout {
     public void setTextSize(int i2, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            if (this.f19969e.getTextSize() != f2) {
-                this.f19969e.setTextSize(i2, f2);
+            if (this.f20087e.getTextSize() != f2) {
+                this.f20087e.setTextSize(i2, f2);
             }
             if (this.p.getTextSize() != f2) {
                 this.p.setTextSize(i2, f2);
@@ -488,10 +488,10 @@ public class EmotionEditText extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.q) {
             this.q = false;
-            this.f19969e.setVisibility(0);
+            this.f20087e.setVisibility(0);
             this.p.setVisibility(4);
-            this.f19970f.setVisibility(4);
-            this.f19971g.setVisibility(4);
+            this.f20088f.setVisibility(4);
+            this.f20089g.setVisibility(4);
             setEditTextEnable(true);
         }
     }

@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.a.d;
-import d.a.c.e.l.b;
-import d.a.c.e.l.e;
-import d.a.c.k.d.a;
+import d.a.d.e.a.d;
+import d.a.d.e.l.b;
+import d.a.d.e.l.e;
+import d.a.d.k.d.a;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class EmotionShareLoaderProc implements e<EmotionShare> {
@@ -50,7 +50,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
     }
 
     /* loaded from: classes3.dex */
-    public static class ForceDeleteFileOperate extends DiskFileOperate implements d.a.c.e.a.a {
+    public static class ForceDeleteFileOperate extends DiskFileOperate implements d.a.d.e.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,7 +75,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
             }
         }
 
-        @Override // d.a.c.e.a.a
+        @Override // d.a.d.e.a.a
         public boolean compare(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -142,14 +142,14 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         return (EmotionShare) invokeLL.objValue;
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.impl.getAsyncTaskParallel() : (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public EmotionShare getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         return (EmotionShare) invokeCommon.objValue;
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         }
     }
 
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) {
@@ -194,7 +194,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public EmotionShare getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -215,7 +215,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.c.e.l.e
+    @Override // d.a.d.e.l.e
     public EmotionShare getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

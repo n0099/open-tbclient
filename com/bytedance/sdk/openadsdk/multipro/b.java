@@ -8,18 +8,18 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31599a;
+    public static boolean f31786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31600b;
+    public static boolean f31787b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_info", "is_support_multi_process", Boolean.TRUE);
-            f31599a = true;
-            f31600b = true;
+            f31786a = true;
+            f31787b = true;
         }
     }
 
@@ -27,11 +27,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!f31600b) {
-                f31599a = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_info", "is_support_multi_process", false);
-                f31600b = true;
+            if (!f31787b) {
+                f31786a = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_info", "is_support_multi_process", false);
+                f31787b = true;
             }
-            return f31599a;
+            return f31786a;
         }
         return invokeV.booleanValue;
     }

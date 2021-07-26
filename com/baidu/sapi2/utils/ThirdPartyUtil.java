@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ThirdPartyUtil {
@@ -74,7 +75,7 @@ public class ThirdPartyUtil {
             if (installedPackages != null) {
                 for (int i2 = 0; i2 < installedPackages.size(); i2++) {
                     String str = installedPackages.get(i2).packageName;
-                    if (str.equalsIgnoreCase("com.tencent.qqlite") || str.equalsIgnoreCase("com.tencent.mobileqq")) {
+                    if (str.equalsIgnoreCase(Constants.PACKAGE_QQ_SPEED) || str.equalsIgnoreCase("com.tencent.mobileqq")) {
                         return true;
                     }
                 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
+import d.a.p0.s.q.b2;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -60,7 +60,7 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                     if (optJSONObject != null) {
                         b2 b2Var = new b2();
-                        b2Var.H2(optJSONObject);
+                        b2Var.J2(optJSONObject);
                         this.liveList.add(b2Var);
                     }
                 }

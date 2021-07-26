@@ -12,10 +12,10 @@ public final class r implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ AtomicBoolean f70812e;
+    public final /* synthetic */ AtomicBoolean f71266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ q f70813f;
+    public final /* synthetic */ q f71267f;
 
     public r(q qVar, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public final class r implements Runnable {
                 return;
             }
         }
-        this.f70813f = qVar;
-        this.f70812e = atomicBoolean;
+        this.f71267f = qVar;
+        this.f71266e = atomicBoolean;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f70812e.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f71266e.getAndSet(true)) {
             return;
         }
         Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-        q qVar = this.f70813f;
-        l lVar = qVar.f70811g;
-        l.n(qVar.f70809e, qVar.f70810f);
+        q qVar = this.f71267f;
+        l lVar = qVar.f71265g;
+        l.n(qVar.f71263e, qVar.f71264f);
     }
 }

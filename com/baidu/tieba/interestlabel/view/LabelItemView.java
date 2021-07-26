@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.p0.l1.b.a;
+import d.a.d.e.p.l;
+import d.a.q0.l1.b.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LabelItemView extends LinearLayout {
@@ -30,16 +30,16 @@ public class LabelItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18076e;
+    public boolean f18132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18077f;
+    public int f18133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18078g;
+    public int f18134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f18079h;
+    public Paint f18135h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LabelItemView(Context context) {
@@ -74,11 +74,11 @@ public class LabelItemView extends LinearLayout {
             setWeightSum(3.0f);
             setOrientation(0);
             Paint paint = new Paint();
-            this.f18079h = paint;
+            this.f18135h = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f18079h.setColor(SkinManager.getColor(R.color.CAM_X0204));
-            this.f18079h.setStrokeWidth(1.0f);
-            this.f18078g = l.g(getContext(), R.dimen.ds46);
+            this.f18135h.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.f18135h.setStrokeWidth(1.0f);
+            this.f18134g = l.g(getContext(), R.dimen.ds46);
             for (int i2 = 0; i2 < 3; i2++) {
                 addView(a());
             }
@@ -92,15 +92,15 @@ public class LabelItemView extends LinearLayout {
             super.dispatchDraw(canvas);
             int width = getWidth() / 3;
             int height = getHeight();
-            for (int i2 = 1; i2 < this.f18077f; i2++) {
+            for (int i2 = 1; i2 < this.f18133f; i2++) {
                 int i3 = width * i2;
-                int i4 = this.f18078g;
-                canvas.drawLine(i3, (height - i4) / 2, i3 + 1, (i4 + height) / 2, this.f18079h);
+                int i4 = this.f18134g;
+                canvas.drawLine(i3, (height - i4) / 2, i3 + 1, (i4 + height) / 2, this.f18135h);
             }
-            if (this.f18076e) {
+            if (this.f18132e) {
                 return;
             }
-            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f18079h);
+            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f18135h);
         }
     }
 
@@ -110,11 +110,11 @@ public class LabelItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, list, z) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f18076e = z;
-        this.f18077f = Math.min(list.size(), 3);
+        this.f18132e = z;
+        this.f18133f = Math.min(list.size(), 3);
         int i3 = 0;
         while (true) {
-            i2 = this.f18077f;
+            i2 = this.f18133f;
             if (i3 >= i2) {
                 break;
             }
@@ -122,14 +122,14 @@ public class LabelItemView extends LinearLayout {
             if (aVar != null && (getChildAt(i3) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i3);
                 textView.setVisibility(0);
-                String str = aVar.f59964b;
-                if (!StringUtils.isNull(str) && aVar.f59964b.length() > 4) {
-                    str = aVar.f59964b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = aVar.f60578b;
+                if (!StringUtils.isNull(str) && aVar.f60578b.length() > 4) {
+                    str = aVar.f60578b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(aVar.f59965c);
+                textView.setSelected(aVar.f60579c);
                 textView.setTag(aVar);
             }
             i3++;

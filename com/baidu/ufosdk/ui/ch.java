@@ -13,7 +13,7 @@ public final class ch implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f23505a;
+    public final /* synthetic */ cg f23663a;
 
     public ch(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class ch implements View.OnClickListener {
                 return;
             }
         }
-        this.f23505a = cgVar;
+        this.f23663a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,8 +38,8 @@ public final class ch implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             try {
-                FeedbackInputActivity.f23400a = com.baidu.ufosdk.f.i.a(((ImageView) view).getDrawable());
-                this.f23505a.f23503a.startActivity(new Intent(this.f23505a.f23503a, FeedbackImageViewFlipperActivity.class));
+                FeedbackInputActivity.f23558a = com.baidu.ufosdk.f.i.a(((ImageView) view).getDrawable());
+                this.f23663a.f23661a.startActivity(new Intent(this.f23663a.f23661a, FeedbackImageViewFlipperActivity.class));
             } catch (Exception unused) {
             }
         }

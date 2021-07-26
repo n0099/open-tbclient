@@ -17,7 +17,7 @@ public class cp {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39947a;
+    public String f40219a;
 
     /* renamed from: a  reason: collision with other field name */
     public final ArrayList<co> f195a;
@@ -57,7 +57,7 @@ public class cp {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f39947a = str;
+        this.f40219a = str;
     }
 
     public synchronized co a() {
@@ -83,10 +83,10 @@ public class cp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             synchronized (this) {
-                this.f39947a = jSONObject.getString("host");
+                this.f40219a = jSONObject.getString("host");
                 JSONArray jSONArray = jSONObject.getJSONArray("fbs");
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    this.f195a.add(new co(this.f39947a).a(jSONArray.getJSONObject(i2)));
+                    this.f195a.add(new co(this.f40219a).a(jSONArray.getJSONObject(i2)));
                 }
             }
             return this;
@@ -98,7 +98,7 @@ public class cp {
     public String m223a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39947a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40219a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -116,7 +116,7 @@ public class cp {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 jSONObject = new JSONObject();
-                jSONObject.put("host", this.f39947a);
+                jSONObject.put("host", this.f40219a);
                 JSONArray jSONArray = new JSONArray();
                 Iterator<co> it = this.f195a.iterator();
                 while (it.hasNext()) {
@@ -177,7 +177,7 @@ public class cp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f39947a);
+            sb.append(this.f40219a);
             sb.append("\n");
             Iterator<co> it = this.f195a.iterator();
             while (it.hasNext()) {

@@ -33,31 +33,31 @@ public class BDResultStepsView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LayoutInflater f24132a;
+    public final LayoutInflater f24290a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f24133b;
+    public Context f24291b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f24134c;
+    public TextView f24292c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f24135d;
+    public TextView f24293d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f24136e;
+    public LinearLayout f24294e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f24137f;
+    public LinearLayout f24295f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f24138g;
+    public LinearLayout f24296g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f24139h;
+    public TextView f24297h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f24140i;
+    public TextView f24298i;
     public TextView j;
     public TextView k;
     public LinearLayout mRootLayout;
@@ -86,8 +86,8 @@ public class BDResultStepsView extends LinearLayout {
         }
         this.state = 0;
         Context applicationContext = context.getApplicationContext();
-        this.f24133b = applicationContext;
-        this.f24132a = LayoutInflater.from(applicationContext);
+        this.f24291b = applicationContext;
+        this.f24290a = LayoutInflater.from(applicationContext);
         a();
     }
 
@@ -141,12 +141,12 @@ public class BDResultStepsView extends LinearLayout {
             } else if (i2 == 6) {
                 a(this.mStep1Image.getLeft() + this.mStep1Image.getWidth() + this.mRootLayout.getLeft(), this.mStep1Image.getTop() + (this.mStep1Image.getHeight() / 2), this.mRootLayout.getRight() - this.mStep3Image.getWidth(), this.mStep3Image.getHeight() / 2, canvas, "wallet_base_separate2Color1");
             } else if (i2 == 17) {
-                this.mStep2Image.setImageResource(ResUtils.drawable(this.f24133b, "wallet_base_result_time_axis_wait"));
+                this.mStep2Image.setImageResource(ResUtils.drawable(this.f24291b, "wallet_base_result_time_axis_wait"));
                 a(canvas, "wallet_base_separate2Color1");
                 b(canvas, "wallet_base_separate2Color1");
             } else if (i2 != 18) {
             } else {
-                this.mStep3Image.setImageResource(ResUtils.drawable(this.f24133b, "wallet_base_result_time_axis_check_1"));
+                this.mStep3Image.setImageResource(ResUtils.drawable(this.f24291b, "wallet_base_result_time_axis_check_1"));
                 a(canvas, "wallet_base_mainColor1");
                 b(canvas, "wallet_base_mainColor1");
             }
@@ -156,25 +156,25 @@ public class BDResultStepsView extends LinearLayout {
     public LinearLayout getmStep2Layout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24137f : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24295f : (LinearLayout) invokeV.objValue;
     }
 
     public TextView getmTips1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24134c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24292c : (TextView) invokeV.objValue;
     }
 
     public TextView getmTips2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24135d : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24293d : (TextView) invokeV.objValue;
     }
 
     public TextView getmTips3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24139h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24297h : (TextView) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -205,15 +205,15 @@ public class BDResultStepsView extends LinearLayout {
     public void setStepTips(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
-            TextView textView = this.f24134c;
+            TextView textView = this.f24292c;
             if (textView != null) {
                 textView.setText(str);
             }
-            TextView textView2 = this.f24135d;
+            TextView textView2 = this.f24293d;
             if (textView2 != null) {
                 textView2.setText(str2);
             }
-            TextView textView3 = this.f24139h;
+            TextView textView3 = this.f24297h;
             if (textView3 != null) {
                 textView3.setText(str3);
             }
@@ -223,7 +223,7 @@ public class BDResultStepsView extends LinearLayout {
     public void setStepTipsTime(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3) == null) {
-            TextView textView = this.f24140i;
+            TextView textView = this.f24298i;
             if (textView != null) {
                 textView.setText(str);
             }
@@ -259,8 +259,8 @@ public class BDResultStepsView extends LinearLayout {
         }
         this.state = 0;
         Context applicationContext = context.getApplicationContext();
-        this.f24133b = applicationContext;
-        this.f24132a = LayoutInflater.from(applicationContext);
+        this.f24291b = applicationContext;
+        this.f24290a = LayoutInflater.from(applicationContext);
         a();
     }
 
@@ -275,19 +275,19 @@ public class BDResultStepsView extends LinearLayout {
             }
             ImageView imageView = this.mStep1Image;
             if (view == imageView) {
-                left = imageView.getLeft() + this.f24136e.getLeft();
+                left = imageView.getLeft() + this.f24294e.getLeft();
                 left2 = this.mRootLayout.getLeft();
             } else {
                 ImageView imageView2 = this.mStep2Image;
                 if (view == imageView2) {
-                    left = imageView2.getLeft() + this.f24137f.getLeft();
+                    left = imageView2.getLeft() + this.f24295f.getLeft();
                     left2 = this.mRootLayout.getLeft();
                 } else {
                     ImageView imageView3 = this.mStep3Image;
                     if (view != imageView3) {
                         return 0;
                     }
-                    left = imageView3.getLeft() + this.f24138g.getLeft();
+                    left = imageView3.getLeft() + this.f24296g.getLeft();
                     left2 = this.mRootLayout.getLeft();
                 }
             }
@@ -307,19 +307,19 @@ public class BDResultStepsView extends LinearLayout {
             }
             ImageView imageView = this.mStep1Image;
             if (view == imageView) {
-                top = imageView.getTop() + this.f24136e.getTop();
+                top = imageView.getTop() + this.f24294e.getTop();
                 top2 = this.mRootLayout.getTop();
             } else {
                 ImageView imageView2 = this.mStep2Image;
                 if (view == imageView2) {
-                    top = imageView2.getTop() + this.f24137f.getTop();
+                    top = imageView2.getTop() + this.f24295f.getTop();
                     top2 = this.mRootLayout.getTop();
                 } else {
                     ImageView imageView3 = this.mStep3Image;
                     if (view != imageView3) {
                         return 0;
                     }
-                    top = imageView3.getTop() + this.f24138g.getTop();
+                    top = imageView3.getTop() + this.f24296g.getTop();
                     top2 = this.mRootLayout.getTop();
                 }
             }
@@ -331,20 +331,20 @@ public class BDResultStepsView extends LinearLayout {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f24132a.inflate(ResUtils.layout(this.f24133b, "wallet_base_result_step_layout"), this);
-            this.mRootLayout = (LinearLayout) findViewById(ResUtils.id(this.f24133b, "root_layout"));
-            this.mStep1Image = (ImageView) findViewById(ResUtils.id(this.f24133b, "step_image_1"));
-            this.mStep2Image = (ImageView) findViewById(ResUtils.id(this.f24133b, "step_image_2"));
-            this.mStep3Image = (ImageView) findViewById(ResUtils.id(this.f24133b, "step_image_3"));
-            this.f24134c = (TextView) findViewById(ResUtils.id(this.f24133b, "step1_tips"));
-            this.f24135d = (TextView) findViewById(ResUtils.id(this.f24133b, "step2_tips"));
-            this.f24139h = (TextView) findViewById(ResUtils.id(this.f24133b, "step3_tips"));
-            this.f24140i = (TextView) findViewById(ResUtils.id(this.f24133b, "step1_tips_time"));
-            this.j = (TextView) findViewById(ResUtils.id(this.f24133b, "step2_tips_time"));
-            this.k = (TextView) findViewById(ResUtils.id(this.f24133b, "step3_tips_time"));
-            this.f24137f = (LinearLayout) findViewById(ResUtils.id(this.f24133b, "step_2_layout"));
-            this.f24136e = (LinearLayout) findViewById(ResUtils.id(this.f24133b, "step_1_layout"));
-            this.f24138g = (LinearLayout) findViewById(ResUtils.id(this.f24133b, "step_3_layout"));
+            this.f24290a.inflate(ResUtils.layout(this.f24291b, "wallet_base_result_step_layout"), this);
+            this.mRootLayout = (LinearLayout) findViewById(ResUtils.id(this.f24291b, "root_layout"));
+            this.mStep1Image = (ImageView) findViewById(ResUtils.id(this.f24291b, "step_image_1"));
+            this.mStep2Image = (ImageView) findViewById(ResUtils.id(this.f24291b, "step_image_2"));
+            this.mStep3Image = (ImageView) findViewById(ResUtils.id(this.f24291b, "step_image_3"));
+            this.f24292c = (TextView) findViewById(ResUtils.id(this.f24291b, "step1_tips"));
+            this.f24293d = (TextView) findViewById(ResUtils.id(this.f24291b, "step2_tips"));
+            this.f24297h = (TextView) findViewById(ResUtils.id(this.f24291b, "step3_tips"));
+            this.f24298i = (TextView) findViewById(ResUtils.id(this.f24291b, "step1_tips_time"));
+            this.j = (TextView) findViewById(ResUtils.id(this.f24291b, "step2_tips_time"));
+            this.k = (TextView) findViewById(ResUtils.id(this.f24291b, "step3_tips_time"));
+            this.f24295f = (LinearLayout) findViewById(ResUtils.id(this.f24291b, "step_2_layout"));
+            this.f24294e = (LinearLayout) findViewById(ResUtils.id(this.f24291b, "step_1_layout"));
+            this.f24296g = (LinearLayout) findViewById(ResUtils.id(this.f24291b, "step_3_layout"));
         }
     }
 

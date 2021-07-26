@@ -11,7 +11,7 @@ public final class cm implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f23512a;
+    public final /* synthetic */ cg f23670a;
 
     public cm(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public final class cm implements View.OnClickListener {
                 return;
             }
         }
-        this.f23512a = cgVar;
+        this.f23670a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23512a.f23503a.H) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23670a.f23661a.H) {
             return;
         }
         new Thread(new cn(this)).start();

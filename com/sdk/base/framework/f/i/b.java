@@ -12,7 +12,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38253a;
+    public static boolean f38428a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

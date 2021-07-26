@@ -1,7 +1,29 @@
 package d.a.o0.m;
-/* loaded from: classes7.dex */
-public interface a<T> {
-    void onError(int i2, String str);
 
-    void onSuccess(T t);
+import android.content.Context;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import java.util.List;
+import okhttp3.Interceptor;
+/* loaded from: classes7.dex */
+public interface a {
+    String a();
+
+    CookieManager g();
+
+    Context getAppContext();
+
+    int getReadTimeout();
+
+    int h();
+
+    boolean i();
+
+    boolean isDebug();
+
+    void j(String str, HttpRequestBuilder httpRequestBuilder);
+
+    List<Interceptor> k();
+
+    int l();
 }

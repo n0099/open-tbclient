@@ -27,22 +27,22 @@ public abstract class uiou implements a.a.a.c.a.bv {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1452a;
+    public String f1485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final bv f1453b;
+    public final bv f1486b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final lbvzx f1454c;
+    public final lbvzx f1487c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final bv.InterfaceC0007bv f1455d;
+    public final bv.InterfaceC0007bv f1488d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f1456e;
+    public volatile int f1489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f1457f;
+    public volatile int f1490f;
 
     public uiou(bv bvVar, lbvzx lbvzxVar, bv.InterfaceC0007bv interfaceC0007bv) {
         Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public abstract class uiou implements a.a.a.c.a.bv {
                 return;
             }
         }
-        this.f1457f = 0;
-        this.f1453b = bvVar;
-        this.f1454c = lbvzxVar;
-        this.f1455d = interfaceC0007bv;
+        this.f1490f = 0;
+        this.f1486b = bvVar;
+        this.f1487c = lbvzxVar;
+        this.f1488d = interfaceC0007bv;
         String c2 = c();
-        this.f1452a = c2;
+        this.f1485a = c2;
         if (TextUtils.isEmpty(c2)) {
-            this.f1452a = getClass().getSimpleName();
+            this.f1485a = getClass().getSimpleName();
         }
     }
 
@@ -82,7 +82,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
                 HttpURLConnection httpURLConnection2 = null;
                 try {
                     try {
-                        httpURLConnection = (HttpURLConnection) new URL(this.f1454c.f1436a).openConnection();
+                        httpURLConnection = (HttpURLConnection) new URL(this.f1487c.f1469a).openConnection();
                     } catch (Throwable th) {
                         th = th;
                     }
@@ -95,7 +95,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
                     httpURLConnection.setConnectTimeout(4000);
                     httpURLConnection.setReadTimeout(4000);
                     httpURLConnection.setRequestMethod("GET");
-                    a(a(this.f1454c), httpURLConnection);
+                    a(a(this.f1487c), httpURLConnection);
                     int responseCode = httpURLConnection.getResponseCode();
                     if (responseCode == b()) {
                         a(httpURLConnection);
@@ -128,21 +128,21 @@ public abstract class uiou implements a.a.a.c.a.bv {
         if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
             switch (downloadException.getErrorCode()) {
                 case 106:
-                    synchronized (this.f1455d) {
-                        this.f1456e = 106;
-                        ((shuoy) this.f1455d).d();
+                    synchronized (this.f1488d) {
+                        this.f1489e = 106;
+                        ((shuoy) this.f1488d).d();
                     }
                     return;
                 case 107:
-                    synchronized (this.f1455d) {
-                        this.f1456e = 107;
-                        ((shuoy) this.f1455d).c();
+                    synchronized (this.f1488d) {
+                        this.f1489e = 107;
+                        ((shuoy) this.f1488d).c();
                     }
                     return;
                 case 108:
-                    synchronized (this.f1455d) {
-                        this.f1456e = 108;
-                        ((shuoy) this.f1455d).b(downloadException);
+                    synchronized (this.f1488d) {
+                        this.f1489e = 108;
+                        ((shuoy) this.f1488d).b(downloadException);
                     }
                     return;
                 default:
@@ -169,9 +169,9 @@ public abstract class uiou implements a.a.a.c.a.bv {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, randomAccessFile) == null) {
             byte[] bArr = new byte[8192];
-            while (this.f1457f != 107) {
-                if (this.f1457f == 106) {
-                    c(this.f1454c);
+            while (this.f1490f != 107) {
+                if (this.f1490f == 106) {
+                    c(this.f1487c);
                     throw new DownloadException(106, "Download paused!");
                 }
                 try {
@@ -181,13 +181,13 @@ public abstract class uiou implements a.a.a.c.a.bv {
                     }
                     randomAccessFile.write(bArr, 0, read);
                     long j = read;
-                    this.f1454c.f1439d += j;
-                    synchronized (this.f1455d) {
-                        this.f1453b.f1435d += j;
-                        ((shuoy) this.f1455d).a(this.f1453b.f1435d, this.f1453b.f1434c);
+                    this.f1487c.f1472d += j;
+                    synchronized (this.f1488d) {
+                        this.f1486b.f1468d += j;
+                        ((shuoy) this.f1488d).a(this.f1486b.f1468d, this.f1486b.f1467c);
                     }
                 } catch (IOException e2) {
-                    c(this.f1454c);
+                    c(this.f1487c);
                     throw new DownloadException(108, e2);
                 }
             }
@@ -207,14 +207,14 @@ public abstract class uiou implements a.a.a.c.a.bv {
             try {
                 InputStream inputStream = httpURLConnection.getInputStream();
                 try {
-                    long j = this.f1454c.f1437b;
-                    long j2 = this.f1454c.f1439d;
+                    long j = this.f1487c.f1470b;
+                    long j2 = this.f1487c.f1472d;
                     try {
-                        File file = this.f1453b.f1433b;
+                        File file = this.f1486b.f1466b;
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        RandomAccessFile a2 = a(file, this.f1453b.f1432a, j + j2);
+                        RandomAccessFile a2 = a(file, this.f1486b.f1465a, j + j2);
                         a(inputStream, a2);
                         try {
                             a(inputStream);
@@ -269,7 +269,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f1456e == 104 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f1489e == 104 : invokeV.booleanValue;
     }
 
     @Override // java.lang.Runnable
@@ -277,14 +277,14 @@ public abstract class uiou implements a.a.a.c.a.bv {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             Process.setThreadPriority(10);
-            b(this.f1454c);
+            b(this.f1487c);
             try {
-                this.f1456e = 104;
+                this.f1489e = 104;
                 a();
-                synchronized (this.f1455d) {
-                    this.f1456e = 105;
-                    bv.InterfaceC0007bv interfaceC0007bv = this.f1455d;
-                    ((shuoy) interfaceC0007bv).a(this.f1453b.f1433b.getAbsolutePath() + File.separator + this.f1453b.f1432a);
+                synchronized (this.f1488d) {
+                    this.f1489e = 105;
+                    bv.InterfaceC0007bv interfaceC0007bv = this.f1488d;
+                    ((shuoy) interfaceC0007bv).a(this.f1486b.f1466b.getAbsolutePath() + File.separator + this.f1486b.f1465a);
                 }
             } catch (DownloadException e2) {
                 a(e2);

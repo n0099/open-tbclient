@@ -19,7 +19,7 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4722a;
+    public static String f4748a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,19 +42,19 @@ public final class g {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, context)) == null) {
-            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4705a.get(str);
+            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4731a.get(str);
             if ((hashMap == null || (obj = hashMap.get("sdk_imei")) == null) ? true : ((Boolean) obj).booleanValue()) {
-                String str2 = f4722a;
+                String str2 = f4748a;
                 if (str2 != null) {
                     return str2;
                 }
                 try {
-                    f4722a = b(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID));
+                    f4748a = b(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID));
                 } catch (Exception e2) {
                     com.baidu.crabsdk.lite.b.a.c(str, "getCUID fail," + e2);
-                    f4722a = "N/A";
+                    f4748a = "N/A";
                 }
-                return f4722a;
+                return f4748a;
             }
             return "N/A";
         }

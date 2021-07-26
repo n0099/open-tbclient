@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.f0.t.b;
+import d.a.p0.s.f0.t.b;
 /* loaded from: classes4.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
@@ -50,7 +50,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void a(View view) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         aVar.a(view);
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -68,7 +68,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void c(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
@@ -76,7 +76,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.o0.r.f0.t.b
+    @Override // d.a.p0.s.f0.t.b
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
@@ -106,13 +106,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (this.u) {
                 if (z) {
-                    d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
+                    d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
                     bVar.p();
                     setConfig(bVar);
                     setClickable(true);
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
                 } else {
-                    d.a.o0.r.f0.n.b bVar2 = new d.a.o0.r.f0.n.b();
+                    d.a.p0.s.f0.n.b bVar2 = new d.a.p0.s.f0.n.b();
                     bVar2.s(R.color.CAM_X0105);
                     bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                     bVar2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -122,13 +122,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
                     setText(TbadkCoreApplication.getInst().getString(R.string.attention));
                 }
             } else if (z) {
-                d.a.o0.r.f0.n.b bVar3 = new d.a.o0.r.f0.n.b();
+                d.a.p0.s.f0.n.b bVar3 = new d.a.p0.s.f0.n.b();
                 bVar3.r(R.color.CAM_X0109);
                 setConfig(bVar3);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                d.a.o0.r.f0.n.b bVar4 = new d.a.o0.r.f0.n.b();
+                d.a.p0.s.f0.n.b bVar4 = new d.a.p0.s.f0.n.b();
                 bVar4.q(R.color.CAM_X0302);
                 if (this.t) {
                     bVar4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
@@ -203,7 +203,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
                 return;
             }
         }
-        d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
+        d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
         bVar.q(R.color.CAM_X0302);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));

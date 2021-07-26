@@ -14,38 +14,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.r;
+import com.bytedance.sdk.component.utils.t;
 /* loaded from: classes5.dex */
 public class d extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f30831a;
+    public a f31014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f30832b;
+    public ImageView f31015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f30833c;
+    public TextView f31016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f30834d;
+    public TextView f31017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f30835e;
+    public Button f31018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f30836f;
+    public Button f31019f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f30837g;
+    public View f31020g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f30838h;
+    public Context f31021h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30839i;
+    public String f31022i;
     public String j;
     public String k;
     public String l;
@@ -61,7 +61,7 @@ public class d extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
-        super(context, r.g(context, "tt_custom_dialog"));
+        super(context, t.g(context, "tt_custom_dialog"));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,18 +80,18 @@ public class d extends Dialog {
         }
         this.m = -1;
         this.n = false;
-        this.f30838h = context;
+        this.f31021h = context;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f30836f.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.d.1
+            this.f31019f.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f30840a;
+                public final /* synthetic */ d f31023a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -108,25 +108,25 @@ public class d extends Dialog {
                             return;
                         }
                     }
-                    this.f30840a = this;
+                    this.f31023a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a aVar;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (aVar = this.f30840a.f30831a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (aVar = this.f31023a.f31014a) == null) {
                         return;
                     }
                     aVar.a();
                 }
             });
-            this.f30835e.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.d.2
+            this.f31018e.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.d.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f30841a;
+                public final /* synthetic */ d f31024a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -143,14 +143,14 @@ public class d extends Dialog {
                             return;
                         }
                     }
-                    this.f30841a = this;
+                    this.f31024a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a aVar;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (aVar = this.f30841a.f30831a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (aVar = this.f31024a.f31014a) == null) {
                         return;
                     }
                     aVar.b();
@@ -160,53 +160,67 @@ public class d extends Dialog {
     }
 
     private void b() {
+        Button button;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (!TextUtils.isEmpty(this.j)) {
-                this.f30833c.setText(this.j);
-                this.f30833c.setVisibility(0);
-            } else {
-                this.f30833c.setVisibility(8);
+            if (this.f31016c != null) {
+                if (!TextUtils.isEmpty(this.j)) {
+                    this.f31016c.setText(this.j);
+                    this.f31016c.setVisibility(0);
+                } else {
+                    this.f31016c.setVisibility(8);
+                }
             }
-            if (!TextUtils.isEmpty(this.f30839i)) {
-                this.f30834d.setText(this.f30839i);
+            if (this.f31017d != null && !TextUtils.isEmpty(this.f31022i)) {
+                this.f31017d.setText(this.f31022i);
             }
-            if (!TextUtils.isEmpty(this.k)) {
-                this.f30836f.setText(this.k);
-            } else {
-                this.f30836f.setText("确定");
+            if (this.f31019f != null) {
+                if (!TextUtils.isEmpty(this.k)) {
+                    this.f31019f.setText(this.k);
+                } else {
+                    this.f31019f.setText("确定");
+                }
             }
-            if (!TextUtils.isEmpty(this.l)) {
-                this.f30835e.setText(this.l);
-            } else {
-                this.f30835e.setText("取消");
+            if (this.f31018e != null) {
+                if (!TextUtils.isEmpty(this.l)) {
+                    this.f31018e.setText(this.l);
+                } else {
+                    this.f31018e.setText("取消");
+                }
             }
-            int i2 = this.m;
-            if (i2 != -1) {
-                this.f30832b.setImageResource(i2);
-                this.f30832b.setVisibility(0);
-            } else {
-                this.f30832b.setVisibility(8);
+            ImageView imageView = this.f31015b;
+            if (imageView != null) {
+                int i2 = this.m;
+                if (i2 != -1) {
+                    imageView.setImageResource(i2);
+                    this.f31015b.setVisibility(0);
+                } else {
+                    imageView.setVisibility(8);
+                }
             }
-            if (this.n) {
-                this.f30837g.setVisibility(8);
-                this.f30835e.setVisibility(8);
+            View view = this.f31020g;
+            if (view == null || (button = this.f31018e) == null) {
                 return;
             }
-            this.f30835e.setVisibility(0);
-            this.f30837g.setVisibility(0);
+            if (this.n) {
+                view.setVisibility(8);
+                this.f31018e.setVisibility(8);
+                return;
+            }
+            button.setVisibility(0);
+            this.f31020g.setVisibility(0);
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f30835e = (Button) findViewById(r.e(this.f30838h, "tt_negtive"));
-            this.f30836f = (Button) findViewById(r.e(this.f30838h, "tt_positive"));
-            this.f30833c = (TextView) findViewById(r.e(this.f30838h, "tt_title"));
-            this.f30834d = (TextView) findViewById(r.e(this.f30838h, "tt_message"));
-            this.f30832b = (ImageView) findViewById(r.e(this.f30838h, "tt_image"));
-            this.f30837g = findViewById(r.e(this.f30838h, "tt_column_line"));
+            this.f31018e = (Button) findViewById(t.e(this.f31021h, "tt_negtive"));
+            this.f31019f = (Button) findViewById(t.e(this.f31021h, "tt_positive"));
+            this.f31016c = (TextView) findViewById(t.e(this.f31021h, "tt_title"));
+            this.f31017d = (TextView) findViewById(t.e(this.f31021h, "tt_message"));
+            this.f31015b = (ImageView) findViewById(t.e(this.f31021h, "tt_image"));
+            this.f31020g = findViewById(t.e(this.f31021h, "tt_column_line"));
         }
     }
 
@@ -222,7 +236,7 @@ public class d extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(r.f(this.f30838h, "tt_custom_dailog_layout"));
+            setContentView(t.f(this.f31021h, "tt_custom_dailog_layout"));
             setCanceledOnTouchOutside(false);
             c();
             b();
@@ -243,7 +257,7 @@ public class d extends Dialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            this.f30831a = aVar;
+            this.f31014a = aVar;
             return this;
         }
         return (d) invokeL.objValue;
@@ -253,7 +267,7 @@ public class d extends Dialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f30839i = str;
+            this.f31022i = str;
             return this;
         }
         return (d) invokeL.objValue;

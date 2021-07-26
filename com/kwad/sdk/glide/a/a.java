@@ -23,7 +23,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f35705a;
+    public static final AtomicBoolean f35894a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,17 +39,17 @@ public class a {
                 return;
             }
         }
-        f35705a = new AtomicBoolean(false);
+        f35894a = new AtomicBoolean(false);
     }
 
     public static void a(Context context) {
         String x;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || f35705a.get() || KsAdSDKImpl.get().getIsExternal()) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || f35894a.get() || KsAdSDKImpl.get().getIsExternal()) {
             return;
         }
-        f35705a.set(true);
+        f35894a.set(true);
         if (AbiUtil.b()) {
             x = c.y();
             if (TextUtils.isEmpty(x)) {
@@ -65,11 +65,11 @@ public class a {
         }
         b.a(context);
         com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
-        bVar.f36981c = x;
-        bVar.f36983e = true;
-        bVar.f36979a = str;
-        bVar.f36980b = "3.0";
-        bVar.f36985g = false;
+        bVar.f37170c = x;
+        bVar.f37172e = true;
+        bVar.f37168a = str;
+        bVar.f37169b = "3.0";
+        bVar.f37174g = false;
         b.a(str, bVar, new b.a() { // from class: com.kwad.sdk.glide.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

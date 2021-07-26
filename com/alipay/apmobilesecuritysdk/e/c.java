@@ -10,19 +10,19 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1707a;
+    public String f1740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1708b;
+    public String f1741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1709c;
+    public String f1742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1710d;
+    public String f1743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1711e;
+    public String f1744e;
 
     public c(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
@@ -39,15 +39,15 @@ public final class c {
                 return;
             }
         }
-        this.f1707a = "";
-        this.f1708b = "";
-        this.f1709c = "";
-        this.f1710d = "";
-        this.f1711e = "";
-        this.f1707a = str;
-        this.f1708b = str2;
-        this.f1709c = str3;
-        this.f1710d = str4;
-        this.f1711e = str5;
+        this.f1740a = "";
+        this.f1741b = "";
+        this.f1742c = "";
+        this.f1743d = "";
+        this.f1744e = "";
+        this.f1740a = str;
+        this.f1741b = str2;
+        this.f1742c = str3;
+        this.f1743d = str4;
+        this.f1744e = str5;
     }
 }

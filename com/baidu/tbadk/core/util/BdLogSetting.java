@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.n.b;
+import d.a.d.e.n.b;
 /* loaded from: classes3.dex */
 public class BdLogSetting implements b {
     public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class BdLogSetting implements b {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkSettings.getInst().loadLong("log_stat_error_time", 0L) : invokeV.longValue;
     }
 
-    @Override // d.a.c.e.n.b
+    @Override // d.a.d.e.n.b
     public long getLogUploadTime(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class BdLogSetting implements b {
         }
     }
 
-    @Override // d.a.c.e.n.b
+    @Override // d.a.d.e.n.b
     public void setLogUploadTime(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j) == null) {

@@ -19,10 +19,10 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f5064a;
+    public g f5090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f5065b;
+    public boolean f5091b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class h {
                 return;
             }
         }
-        this.f5065b = false;
-        this.f5064a = new g();
+        this.f5091b = false;
+        this.f5090a = new g();
     }
 
     public synchronized String a() {
@@ -47,13 +47,13 @@ public class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 String str = null;
-                if (this.f5064a != null) {
+                if (this.f5090a != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         a.a().a(jSONObject);
                         jSONObject.put(DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_MONITOR);
                         JSONArray jSONArray = new JSONArray();
-                        jSONArray.put(this.f5064a.a());
+                        jSONArray.put(this.f5090a.a());
                         jSONObject.put("items", jSONArray);
                         str = jSONObject.toString();
                     } catch (JSONException e2) {
@@ -73,8 +73,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
             synchronized (this) {
-                if (this.f5064a != null) {
-                    this.f5064a.a(i2, str, String.valueOf(i3));
+                if (this.f5090a != null) {
+                    this.f5090a.a(i2, str, String.valueOf(i3));
                 }
             }
         }
@@ -84,8 +84,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}) == null) {
             synchronized (this) {
-                if (this.f5064a != null) {
-                    this.f5064a.a(i2, str, String.valueOf(j));
+                if (this.f5090a != null) {
+                    this.f5090a.a(i2, str, String.valueOf(j));
                 }
             }
         }
@@ -95,8 +95,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, str, str2) == null) {
             synchronized (this) {
-                if (this.f5064a != null) {
-                    this.f5064a.a(i2, str, str2);
+                if (this.f5090a != null) {
+                    this.f5090a.a(i2, str, str2);
                 }
             }
         }
@@ -106,18 +106,18 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, kVar) == null) {
             synchronized (this) {
-                if (this.f5064a != null && kVar != null) {
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_CURRENT_POSITION, String.valueOf(kVar.getCurrentPosition()));
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "decode_mode", String.valueOf(kVar.getDecodeMode()));
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_FILE_CACHE, "0");
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_P_ID, String.valueOf(kVar.b()));
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "network", DpNetworkUtils.getNetworkStatisticsData(CyberPlayerManager.getApplicationContext()));
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_NETWORK_STATUS, DpNetworkUtils.a(CyberPlayerManager.getApplicationContext()));
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "url", kVar.a());
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "timestamp", String.valueOf(kVar.b()));
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "duration", String.valueOf(kVar.getDuration()));
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_REAL_PLAY_TIME, String.valueOf(kVar.getPlayedTime()));
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_IS_USER_STARTED, kVar.c() ? "1" : "0");
+                if (this.f5090a != null && kVar != null) {
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_CURRENT_POSITION, String.valueOf(kVar.getCurrentPosition()));
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "decode_mode", String.valueOf(kVar.getDecodeMode()));
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_FILE_CACHE, "0");
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_P_ID, String.valueOf(kVar.b()));
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "network", DpNetworkUtils.getNetworkStatisticsData(CyberPlayerManager.getApplicationContext()));
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_NETWORK_STATUS, DpNetworkUtils.a(CyberPlayerManager.getApplicationContext()));
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "url", kVar.a());
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "timestamp", String.valueOf(kVar.b()));
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "duration", String.valueOf(kVar.getDuration()));
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_REAL_PLAY_TIME, String.valueOf(kVar.getPlayedTime()));
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_IS_USER_STARTED, kVar.c() ? "1" : "0");
                 }
             }
         }
@@ -127,9 +127,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) {
             synchronized (this) {
-                if (this.f5064a != null && kVar != null) {
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "width", String.valueOf(kVar.getVideoWidth()));
-                    this.f5064a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "height", String.valueOf(kVar.getVideoHeight()));
+                if (this.f5090a != null && kVar != null) {
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "width", String.valueOf(kVar.getVideoWidth()));
+                    this.f5090a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "height", String.valueOf(kVar.getVideoHeight()));
                 }
             }
         }
@@ -141,7 +141,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.f5065b;
+                z = this.f5091b;
             }
             return z;
         }
@@ -152,10 +152,10 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                if (this.f5064a != null) {
-                    this.f5064a.b();
+                if (this.f5090a != null) {
+                    this.f5090a.b();
                 }
-                this.f5065b = false;
+                this.f5091b = false;
             }
         }
     }
@@ -166,8 +166,8 @@ public class h {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kVar) == null) {
             synchronized (this) {
                 if (kVar != null) {
-                    if (this.f5064a != null && (a2 = a()) != null) {
-                        this.f5065b = true;
+                    if (this.f5090a != null && (a2 = a()) != null) {
+                        this.f5091b = true;
                         DpSessionDatasUploader.getInstance().upload(a2, "sailor_monitor");
                     }
                 }

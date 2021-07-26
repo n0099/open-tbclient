@@ -31,26 +31,26 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9340a = "HttpStack";
+    public static final String f9366a = "HttpStack";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9341b = "Set-Cookie";
+    public static final String f9367b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f9342c;
+    public static final char[] f9368c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9343d = "User-Agent";
+    public static final String f9369d = "User-Agent";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f9344e = 15000;
+    public static final int f9370e = 15000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9345f;
+    public String f9371f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9346g;
+    public boolean f9372g;
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +65,7 @@ public class b {
                 return;
             }
         }
-        f9342c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f9368c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public b() {
@@ -81,8 +81,8 @@ public class b {
                 return;
             }
         }
-        this.f9345f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
-        this.f9346g = false;
+        this.f9371f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+        this.f9372g = false;
     }
 
     private HttpURLConnection b(PassHttpParamDTO passHttpParamDTO) throws IOException {
@@ -118,7 +118,7 @@ public class b {
             return;
         }
         a();
-        int i2 = a.f9339a[passHttpClientRequest.method.ordinal()];
+        int i2 = a.f9365a[passHttpClientRequest.method.ordinal()];
         OutputStream outputStream = null;
         if (i2 == 1) {
             a2 = a(passHttpClientRequest.paramDTO);
@@ -201,7 +201,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, httpURLConnection, passHttpParamDTO)) == null) {
             HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
             if (httpHashMap instanceof MultipartHashMap) {
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f9345f);
+                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f9371f);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
                 if (httpHashMap2 != null) {
@@ -212,7 +212,7 @@ public class b {
                     }
                 }
                 MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-                a(byteArrayOutputStream, aVar.f9326a, aVar.f9327b, aVar.f9329d, aVar.f9328c);
+                a(byteArrayOutputStream, aVar.f9352a, aVar.f9353b, aVar.f9355d, aVar.f9354c);
                 a(byteArrayOutputStream);
                 return byteArrayOutputStream.toByteArray();
             } else if (httpHashMap instanceof HttpHashMap) {
@@ -327,10 +327,10 @@ public class b {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f9342c;
+                char[] cArr = f9368c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            this.f9345f = sb.toString();
+            this.f9371f = sb.toString();
         }
     }
 
@@ -340,13 +340,13 @@ public class b {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f9342c;
+                char[] cArr = f9368c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            byte[] bytes = ("\r\n--" + this.f9345f + Part.CRLF).getBytes();
-            if (!this.f9346g) {
-                this.f9346g = true;
-                byteArrayOutputStream.write(("--" + this.f9345f + Part.CRLF).getBytes());
+            byte[] bytes = ("\r\n--" + this.f9371f + Part.CRLF).getBytes();
+            if (!this.f9372g) {
+                this.f9372g = true;
+                byteArrayOutputStream.write(("--" + this.f9371f + Part.CRLF).getBytes());
                 return;
             }
             byteArrayOutputStream.write(bytes);

@@ -39,14 +39,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3422b;
+    public static b f3448b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public OkHttpClient f3423a;
+    public OkHttpClient f3449a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f3424c;
+    public Context f3450c;
 
     /* loaded from: classes.dex */
     public class a implements Interceptor {
@@ -54,7 +54,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f3427a;
+        public final /* synthetic */ b f3453a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class b {
                     return;
                 }
             }
-            this.f3427a = bVar;
+            this.f3453a = bVar;
         }
 
         private RequestBody a(RequestBody requestBody) {
@@ -82,10 +82,10 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RequestBody f3428a;
+                public final /* synthetic */ RequestBody f3454a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f3429b;
+                public final /* synthetic */ a f3455b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -102,8 +102,8 @@ public class b {
                             return;
                         }
                     }
-                    this.f3429b = this;
-                    this.f3428a = requestBody;
+                    this.f3455b = this;
+                    this.f3454a = requestBody;
                 }
 
                 @Override // okhttp3.RequestBody
@@ -120,7 +120,7 @@ public class b {
                 public MediaType contentType() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3428a.contentType() : (MediaType) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3454a.contentType() : (MediaType) invokeV.objValue;
                 }
 
                 @Override // okhttp3.RequestBody
@@ -129,7 +129,7 @@ public class b {
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
                         BufferedSink buffer = Okio.buffer(new GzipSink(bufferedSink));
                         try {
-                            this.f3428a.writeTo(buffer);
+                            this.f3454a.writeTo(buffer);
                             buffer.close();
                         } catch (IOException unused) {
                         }
@@ -172,18 +172,18 @@ public class b {
                 return;
             }
         }
-        this.f3423a = a();
-        this.f3424c = context;
+        this.f3449a = a();
+        this.f3450c = context;
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f3422b == null) {
-                f3422b = new b(context);
+            if (f3448b == null) {
+                f3448b = new b(context);
             }
-            return f3422b;
+            return f3448b;
         }
         return (b) invokeL.objValue;
     }
@@ -213,9 +213,9 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, bArr)) == null) {
             try {
                 a.c a2 = a.c.a(bArr);
-                if (this.f3423a.pingIntervalMillis() != a2.i()) {
-                    this.f3423a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
-                    this.f3423a = this.f3423a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
+                if (this.f3449a.pingIntervalMillis() != a2.i()) {
+                    this.f3449a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
+                    this.f3449a = this.f3449a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
                 }
                 return new String[]{String.valueOf(a2.d()), a2.f()};
             } catch (InvalidProtocolBufferException unused) {
@@ -235,7 +235,7 @@ public class b {
             }
             a.C0054a.C0055a build = e2.a(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return a.C0054a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f3424c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+            return a.C0054a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f3450c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }
@@ -244,18 +244,18 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, map, bArr, str, cVar) == null) {
             Request a2 = a(bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 1000.0d)));
-            if (this.f3423a == null) {
-                this.f3423a = a();
+            if (this.f3449a == null) {
+                this.f3449a = a();
             }
-            this.f3423a.newCall(a2).enqueue(new Callback(this, cVar) { // from class: com.baidu.android.pushservice.i.b.1
+            this.f3449a.newCall(a2).enqueue(new Callback(this, cVar) { // from class: com.baidu.android.pushservice.i.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f3425a;
+                public final /* synthetic */ c f3451a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f3426b;
+                public final /* synthetic */ b f3452b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -272,8 +272,8 @@ public class b {
                             return;
                         }
                     }
-                    this.f3426b = this;
-                    this.f3425a = cVar;
+                    this.f3452b = this;
+                    this.f3451a = cVar;
                 }
 
                 @Override // okhttp3.Callback
@@ -284,7 +284,7 @@ public class b {
                         if (iOException instanceof SocketException) {
                             str2 = "Request SocketException :" + iOException.toString();
                         }
-                        this.f3425a.a(-1, str2);
+                        this.f3451a.a(-1, str2);
                     }
                 }
 
@@ -296,16 +296,16 @@ public class b {
                         int i2 = 0;
                         try {
                             if (response.body() != null) {
-                                String[] a3 = this.f3426b.a(response.body().bytes());
+                                String[] a3 = this.f3452b.a(response.body().bytes());
                                 i2 = Integer.valueOf(a3[0]).intValue();
                                 str2 = a3[1];
                             }
                         } catch (IOException unused) {
                         } catch (Throwable th) {
-                            this.f3425a.a(i2, "ok");
+                            this.f3451a.a(i2, "ok");
                             throw th;
                         }
-                        this.f3425a.a(i2, str2);
+                        this.f3451a.a(i2, str2);
                     }
                 }
             });

@@ -10,42 +10,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.k.f;
-import d.a.k.g.a;
-import d.a.k.i.c;
-import d.a.k.j;
-import d.a.k.k;
-import d.a.k.l;
+import d.a.l.f;
+import d.a.l.g.a;
+import d.a.l.i.c;
+import d.a.l.j;
+import d.a.l.k;
+import d.a.l.l;
 import java.io.File;
 /* loaded from: classes.dex */
 public final class DeviceId {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2574a = "DeviceId";
+    public static final String f2600a = "DeviceId";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f2575b = false;
+    public static final boolean f2601b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static l.a f2576d = null;
+    public static l.a f2602d = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile DeviceId f2577g = null;
+    public static volatile DeviceId f2603g = null;
     public static boolean sDataCuidInfoShable = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f2578c;
+    public final Context f2604c;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f2579e;
+    public l f2605e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f2580f;
+    public k f2606f;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f2581h;
+    public f f2607h;
 
     static {
         InterceptResult invokeClinit;
@@ -77,10 +77,10 @@ public final class DeviceId {
                 return;
             }
         }
-        this.f2578c = context.getApplicationContext();
-        this.f2581h = new f();
-        this.f2579e = new l(this.f2578c, new a(this.f2578c), this.f2581h);
-        this.f2580f = new k(this.f2578c, this.f2581h);
+        this.f2604c = context.getApplicationContext();
+        this.f2607h = new f();
+        this.f2605e = new l(this.f2604c, new a(this.f2604c), this.f2607h);
+        this.f2606f = new k(this.f2604c, this.f2607h);
     }
 
     public static DeviceId a(Context context) {
@@ -89,10 +89,10 @@ public final class DeviceId {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (j.class) {
-                if (f2577g == null) {
-                    f2577g = new DeviceId(context);
+                if (f2603g == null) {
+                    f2603g = new DeviceId(context);
                 }
-                deviceId = f2577g;
+                deviceId = f2603g;
             }
             return deviceId;
         }
@@ -103,7 +103,7 @@ public final class DeviceId {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            l.a o = this.f2579e.o();
+            l.a o = this.f2605e.o();
             return o == null ? b(str) : o;
         }
         return (l.a) invokeL.objValue;
@@ -122,7 +122,7 @@ public final class DeviceId {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            this.f2579e.l();
+            this.f2605e.l();
             try {
                 l.a c2 = c();
                 if (c2 == null) {
@@ -134,7 +134,7 @@ public final class DeviceId {
                 a(c2);
                 return c2;
             } catch (Throwable th) {
-                this.f2579e.n();
+                this.f2605e.n();
                 throw th;
             }
         }
@@ -145,16 +145,16 @@ public final class DeviceId {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (f2576d == null) {
+            if (f2602d == null) {
                 synchronized (j.class) {
-                    if (f2576d == null) {
+                    if (f2602d == null) {
                         SystemClock.uptimeMillis();
-                        f2576d = a(context).b();
+                        f2602d = a(context).b();
                         SystemClock.uptimeMillis();
                     }
                 }
             }
-            return f2576d;
+            return f2602d;
         }
         return (l.a) invokeL.objValue;
     }
@@ -163,9 +163,9 @@ public final class DeviceId {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) {
-            j b2 = this.f2580f.b(str);
+            j b2 = this.f2606f.b(str);
             if (b2 != null) {
-                return this.f2579e.b(b2);
+                return this.f2605e.b(b2);
             }
             return null;
         }
@@ -180,10 +180,10 @@ public final class DeviceId {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ l.a f2582a;
+            public final /* synthetic */ l.a f2608a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ DeviceId f2583b;
+            public final /* synthetic */ DeviceId f2609b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -200,8 +200,8 @@ public final class DeviceId {
                         return;
                     }
                 }
-                this.f2583b = this;
-                this.f2582a = aVar;
+                this.f2609b = this;
+                this.f2608a = aVar;
             }
 
             @Override // java.lang.Runnable
@@ -209,9 +209,9 @@ public final class DeviceId {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        this.f2583b.c(this.f2582a);
+                        this.f2609b.c(this.f2608a);
                     } finally {
-                        this.f2583b.f2579e.n();
+                        this.f2609b.f2605e.n();
                     }
                 }
             }
@@ -231,7 +231,7 @@ public final class DeviceId {
     private l.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? this.f2579e.k(str) : (l.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? this.f2605e.k(str) : (l.a) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -242,16 +242,16 @@ public final class DeviceId {
                 throw new NullPointerException("cuidV270Info should not be null");
             }
             j l = aVar.l();
-            this.f2579e.j(aVar, true, false);
-            this.f2580f.c(l);
-            this.f2579e.i(aVar);
+            this.f2605e.j(aVar, true, false);
+            this.f2606f.c(l);
+            this.f2605e.i(aVar);
         }
     }
 
     private l.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? this.f2579e.a() : (l.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? this.f2605e.a() : (l.a) invokeV.objValue;
     }
 
     private l.a e() {
@@ -259,11 +259,11 @@ public final class DeviceId {
         j e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            File file = new File(this.f2578c.getFilesDir(), "libcuid.so");
+            File file = new File(this.f2604c.getFilesDir(), "libcuid.so");
             if (!file.exists() || (e2 = j.e(c.a(file))) == null) {
                 return null;
             }
-            return this.f2579e.b(e2);
+            return this.f2605e.b(e2);
         }
         return (l.a) invokeV.objValue;
     }
@@ -283,7 +283,7 @@ public final class DeviceId {
     public static boolean isMySelfTrusted(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) ? a(context).f2581h.d(context.getApplicationContext()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) ? a(context).f2607h.d(context.getApplicationContext()) : invokeL.booleanValue;
     }
 
     @Deprecated
@@ -296,6 +296,6 @@ public final class DeviceId {
     public l a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2579e : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2605e : (l) invokeV.objValue;
     }
 }

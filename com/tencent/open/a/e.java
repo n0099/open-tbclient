@@ -1,69 +1,36 @@
 package com.tencent.open.a;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class e extends i {
+public class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final e f38909a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2039279973, "Lcom/tencent/open/a/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(String str) {
+        InterceptResult invokeL;
+        int a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (com.tencent.open.utils.f.a() == null || (a2 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), str).a("Common_BusinessReportFrequency")) == 0) {
+                return 100;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2039279973, "Lcom/tencent/open/a/e;");
-                return;
-            }
+            return a2;
         }
-        f38909a = new e();
+        return invokeL.intValue;
     }
 
-    public e() {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            int a2 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Common_HttpRetryCount");
+            if (a2 == 0) {
+                return 2;
             }
+            return a2;
         }
-    }
-
-    @Override // com.tencent.open.a.i
-    public void a(int i2, Thread thread, long j, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j), str, str2, th}) == null) {
-            if (i2 == 1) {
-                Log.v(str, str2, th);
-            } else if (i2 == 2) {
-                Log.d(str, str2, th);
-            } else if (i2 == 4) {
-                Log.i(str, str2, th);
-            } else if (i2 == 8) {
-                Log.w(str, str2, th);
-            } else if (i2 == 16) {
-                Log.e(str, str2, th);
-            } else if (i2 != 32) {
-            } else {
-                Log.e(str, str2, th);
-            }
-        }
+        return invokeV.intValue;
     }
 }

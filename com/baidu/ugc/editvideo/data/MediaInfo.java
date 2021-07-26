@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.v0.t.t;
+import d.a.w0.t.t;
 /* loaded from: classes5.dex */
 public class MediaInfo {
     public static /* synthetic */ Interceptable $ic = null;
@@ -147,7 +147,7 @@ public class MediaInfo {
             if (j > 0) {
                 isMore3s = j2 >= j && isMore3s();
             }
-            if (t.f68261a) {
+            if (t.f68939a) {
                 return isMore3s;
             }
             return this.duration <= 15000;

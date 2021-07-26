@@ -31,7 +31,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIMIT_COUNT = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.p0.a4.o.a mAdapter;
+    public d.a.q0.a4.o.a mAdapter;
     public List<HotTopicBussinessData> mList;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
@@ -43,7 +43,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicChangeFourmActivity f22604e;
+        public final /* synthetic */ HotTopicChangeFourmActivity f22762e;
 
         public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
                     return;
                 }
             }
-            this.f22604e = hotTopicChangeFourmActivity;
+            this.f22762e = hotTopicChangeFourmActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -69,10 +69,10 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, i2);
-                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.f22604e.mList.get(i2)).getForumId());
-                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.f22604e.mList.get(i2)).getForumName());
-                this.f22604e.setResult(-1, intent);
-                this.f22604e.finish();
+                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.f22762e.mList.get(i2)).getForumId());
+                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.f22762e.mList.get(i2)).getForumName());
+                this.f22762e.setResult(-1, intent);
+                this.f22762e.finish();
             }
         }
     }
@@ -102,7 +102,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             SkinManager.setViewTextColor(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(R.string.change_fourm)), R.color.CAM_X0106);
             this.mListView = (BdListView) findViewById(R.id.hot_topic_listview);
-            this.mAdapter = new d.a.p0.a4.o.a(this);
+            this.mAdapter = new d.a.q0.a4.o.a(this);
             if (!this.mUseOriginList) {
                 int size = this.mList.size();
                 ArrayList arrayList = null;

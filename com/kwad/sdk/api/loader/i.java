@@ -17,10 +17,10 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f33821a;
+    public static final ExecutorService f34010a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f33822b;
+    public static final Handler f34011b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,13 +36,13 @@ public class i {
                 return;
             }
         }
-        f33821a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        f33822b = new Handler(Looper.getMainLooper());
+        f34010a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        f34011b = new Handler(Looper.getMainLooper());
     }
 
     public static Future<?> a(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, runnable)) == null) ? f33821a.submit(runnable) : (Future) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, runnable)) == null) ? f34010a.submit(runnable) : (Future) invokeL.objValue;
     }
 }

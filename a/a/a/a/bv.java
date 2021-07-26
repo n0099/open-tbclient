@@ -11,7 +11,7 @@ public class bv implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AudioFilter f1009a;
+    public final /* synthetic */ AudioFilter f1018a;
 
     public bv(AudioFilter audioFilter) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class bv implements Runnable {
                 return;
             }
         }
-        this.f1009a = audioFilter;
+        this.f1018a = audioFilter;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1009a.a();
+            this.f1018a.a();
         }
     }
 }

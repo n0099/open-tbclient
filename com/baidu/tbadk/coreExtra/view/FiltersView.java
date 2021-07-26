@@ -17,13 +17,13 @@ public class FiltersView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f12881e;
+    public Runnable f12930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12882f;
+    public View f12931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f12883g;
+    public View f12932g;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -31,7 +31,7 @@ public class FiltersView extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FiltersView f12884e;
+        public final /* synthetic */ FiltersView f12933e;
 
         public a(FiltersView filtersView) {
             Interceptable interceptable = $ic;
@@ -48,34 +48,34 @@ public class FiltersView extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f12884e = filtersView;
+            this.f12933e = filtersView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12884e.f12882f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12933e.f12931f == null) {
                 return;
             }
-            int childCount = ((LinearLayout) this.f12884e.getChildAt(0)).getChildCount();
+            int childCount = ((LinearLayout) this.f12933e.getChildAt(0)).getChildCount();
             int i3 = 0;
             while (true) {
                 if (i3 >= childCount) {
                     i2 = 0;
                     break;
                 }
-                View childAt = ((LinearLayout) this.f12884e.getChildAt(0)).getChildAt(i3);
-                if (childAt == this.f12884e.f12882f) {
+                View childAt = ((LinearLayout) this.f12933e.getChildAt(0)).getChildAt(i3);
+                if (childAt == this.f12933e.f12931f) {
                     i2 = childAt.getRight();
                     break;
                 }
                 i3++;
             }
-            this.f12884e.f12882f = null;
-            int width = i2 - this.f12884e.getWidth();
+            this.f12933e.f12931f = null;
+            int width = i2 - this.f12933e.getWidth();
             if (width > 0) {
-                this.f12884e.scrollBy(width, 0);
+                this.f12933e.scrollBy(width, 0);
             }
         }
     }
@@ -99,16 +99,16 @@ public class FiltersView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f12881e = new a(this);
-        this.f12882f = null;
-        this.f12883g = null;
+        this.f12930e = new a(this);
+        this.f12931f = null;
+        this.f12932g = null;
     }
 
     public String getSelectedFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View view = this.f12883g;
+            View view = this.f12932g;
             return view != null ? (String) ((View) view.getTag()).getTag() : "normal";
         }
         return (String) invokeV.objValue;
@@ -119,8 +119,8 @@ public class FiltersView extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f12882f != null) {
-                post(this.f12881e);
+            if (this.f12931f != null) {
+                post(this.f12930e);
             }
         }
     }

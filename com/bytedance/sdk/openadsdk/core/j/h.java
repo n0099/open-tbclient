@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.m;
-import com.bytedance.sdk.component.utils.s;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.n;
+import com.bytedance.sdk.component.utils.u;
 import com.bytedance.sdk.openadsdk.core.e.v;
 import com.bytedance.sdk.openadsdk.core.o;
 import java.util.ArrayList;
@@ -51,38 +51,38 @@ public class h implements c {
     public int Q;
     public volatile boolean R;
     public float S;
-    public final s T;
+    public final u T;
     public float U;
     public int V;
     public int W;
     public int X;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30306a;
+    public int f30405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30307b;
+    public int f30406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, a> f30308c;
+    public final Map<String, a> f30407c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, i> f30309d;
+    public Map<String, i> f30408d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30310e;
+    public String f30409e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<String> f30311f;
+    public final Set<String> f30410f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30312g;
+    public String f30411g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Set<String> f30313h;
+    public Set<String> f30412h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<e> f30314i;
+    public final List<e> f30413i;
     public String j;
     public int k;
     public int l;
@@ -114,13 +114,13 @@ public class h implements c {
                 return;
             }
         }
-        this.f30306a = Integer.MAX_VALUE;
-        this.f30307b = Integer.MAX_VALUE;
-        this.f30308c = new HashMap();
-        this.f30309d = new HashMap();
-        this.f30311f = new HashSet();
-        this.f30313h = Collections.synchronizedSet(new HashSet());
-        this.f30314i = new CopyOnWriteArrayList();
+        this.f30405a = Integer.MAX_VALUE;
+        this.f30406b = Integer.MAX_VALUE;
+        this.f30407c = new HashMap();
+        this.f30408d = new HashMap();
+        this.f30410f = new HashSet();
+        this.f30412h = Collections.synchronizedSet(new HashSet());
+        this.f30413i = new CopyOnWriteArrayList();
         this.k = Integer.MAX_VALUE;
         this.l = Integer.MAX_VALUE;
         this.m = Integer.MAX_VALUE;
@@ -156,10 +156,10 @@ public class h implements c {
         this.V = Integer.MAX_VALUE;
         this.W = Integer.MAX_VALUE;
         this.X = 2;
-        this.T = s.a("tt_sdk_settings", o.a());
+        this.T = u.a("tt_sdk_settings", o.a());
     }
 
-    private void P() {
+    private void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             this.r = null;
@@ -257,11 +257,11 @@ public class h implements c {
             for (int i2 = 0; i2 < length; i2++) {
                 e eVar = new e();
                 JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                eVar.f30293a = optJSONObject.optString("action");
-                eVar.f30294b = optJSONObject.optString("service");
-                eVar.f30295c = optJSONObject.optString(AsInstallService.SCHEME_PACKAGE_ADDED);
-                eVar.f30296d = optJSONObject.optInt("wakeup_interval");
-                this.f30314i.add(eVar);
+                eVar.f30392a = optJSONObject.optString("action");
+                eVar.f30393b = optJSONObject.optString("service");
+                eVar.f30394c = optJSONObject.optString(AsInstallService.SCHEME_PACKAGE_ADDED);
+                eVar.f30395d = optJSONObject.optInt("wakeup_interval");
+                this.f30413i.add(eVar);
             }
             d.c().d();
         } catch (Throwable th) {
@@ -443,32 +443,16 @@ public class h implements c {
         return invokeV.intValue;
     }
 
-    public List<e> K() {
+    public boolean K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f30314i.isEmpty()) {
-                if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    s(com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "push_config", (String) null));
-                } else {
-                    s(this.T.b("push_config", (String) null));
-                }
-            }
-            return this.f30314i;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.R : invokeV.booleanValue;
     }
 
     public boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.R : invokeV.booleanValue;
-    }
-
-    public boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (this.O == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.O = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_pre_connect", 0);
@@ -481,10 +465,10 @@ public class h implements c {
         return invokeV.booleanValue;
     }
 
-    public boolean N() {
+    public boolean M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (this.V == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.V = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "read_video_from_cache", 1);
@@ -497,16 +481,16 @@ public class h implements c {
         return invokeV.booleanValue;
     }
 
-    public int O() {
+    public int N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.X : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.X : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.j.c
     public synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             synchronized (this) {
                 this.R = true;
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
@@ -520,7 +504,7 @@ public class h implements c {
                     this.m = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_storage_internal", 1);
                     this.F = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "vbtt", 5);
                     this.G = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_template", 3600);
-                    this.f30312g = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "template_ids", (String) null);
+                    this.f30411g = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "template_ids", (String) null);
                     this.q = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_version", (String) null);
                     this.r = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_param", (String) null);
                     this.s = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_wifi_enable", 1);
@@ -530,7 +514,7 @@ public class h implements c {
                     this.w = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_check_type", 1);
                     this.B = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_both_open", 0);
                     this.C = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "support_tnc", 1);
-                    this.f30310e = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "tpl_infos", (String) null);
+                    this.f30409e = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "tpl_infos", (String) null);
                     this.O = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_pre_connect", 0);
                     this.U = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "global_rate", 1.0f);
                     this.x = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "app_list_control", 0);
@@ -546,8 +530,8 @@ public class h implements c {
                     this.L = a(b2);
                     this.y = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_time", 0L);
                     this.z.clear();
-                    this.f30306a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
-                    this.f30307b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
+                    this.f30405a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
+                    this.f30406b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
                     this.N = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", 0);
                     this.W = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "icon_show_time", 5);
                     this.M = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
@@ -571,11 +555,11 @@ public class h implements c {
                             JSONArray jSONArray = new JSONArray(b5);
                             int length = jSONArray.length();
                             if (length > 0) {
-                                this.f30308c.clear();
+                                this.f30407c.clear();
                                 for (int i2 = 0; i2 < length; i2++) {
                                     a b6 = b(jSONArray.optJSONObject(i2));
                                     if (b6 != null) {
-                                        this.f30308c.put(b6.f30271a, b6);
+                                        this.f30407c.put(b6.f30370a, b6);
                                     }
                                 }
                             }
@@ -610,7 +594,7 @@ public class h implements c {
                 this.q = this.T.a("ab_test_version");
                 this.r = this.T.a("ab_test_param");
                 this.F = this.T.b("vbtt", 5);
-                this.f30312g = this.T.b("template_ids", (String) null);
+                this.f30411g = this.T.b("template_ids", (String) null);
                 this.s = this.T.b("web_info_wifi_enable", 1);
                 this.t = this.T.b("web_info_page_count", 5);
                 this.u = this.T.b("pyload_h5", (String) null);
@@ -618,7 +602,7 @@ public class h implements c {
                 this.w = this.T.b("splash_check_type", 1);
                 this.B = this.T.b("if_both_open", 0);
                 this.C = this.T.b("support_tnc", 1);
-                this.f30310e = this.T.b("tpl_infos", (String) null);
+                this.f30409e = this.T.b("tpl_infos", (String) null);
                 this.O = this.T.b("if_pre_connect", 0);
                 this.U = this.T.b("global_rate", 1.0f);
                 this.x = this.T.b("app_list_control", 0);
@@ -634,8 +618,8 @@ public class h implements c {
                 this.L = a(b8);
                 this.y = this.T.b("hit_app_list_time", 0L);
                 this.z.clear();
-                this.f30306a = this.T.b("circle_splash_switch", 0);
-                this.f30307b = this.T.b("circle_load_splash_time", -1);
+                this.f30405a = this.T.b("circle_splash_switch", 0);
+                this.f30406b = this.T.b("circle_load_splash_time", -1);
                 this.M = this.T.b("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
                 this.N = this.T.b("sp_key_if_sp_cache", 0);
                 this.W = this.T.b("icon_show_time", 5);
@@ -659,11 +643,11 @@ public class h implements c {
                         JSONArray jSONArray2 = new JSONArray(b11);
                         int length2 = jSONArray2.length();
                         if (length2 > 0) {
-                            this.f30308c.clear();
+                            this.f30407c.clear();
                             for (int i3 = 0; i3 < length2; i3++) {
                                 a b12 = b(jSONArray2.optJSONObject(i3));
                                 if (b12 != null) {
-                                    this.f30308c.put(b12.f30271a, b12);
+                                    this.f30407c.put(b12.f30370a, b12);
                                 }
                             }
                         }
@@ -693,7 +677,7 @@ public class h implements c {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             if (TextUtils.isEmpty(this.I)) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.I = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "url_alog", "extlog.snssdk.com/service/2/app_log/");
@@ -712,7 +696,7 @@ public class h implements c {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             if (this.C == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.C = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "support_tnc", 1);
@@ -728,7 +712,7 @@ public class h implements c {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             if (this.k == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.k = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_network", 1);
@@ -744,7 +728,7 @@ public class h implements c {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             if (this.l == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.l = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_size", 30);
@@ -760,8 +744,8 @@ public class h implements c {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            if (TextUtils.isEmpty(this.q)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (this.q == null) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.q = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_version", (String) null);
                 } else {
@@ -776,8 +760,8 @@ public class h implements c {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            if (TextUtils.isEmpty(this.r)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            if (this.r == null) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.r = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_param", (String) null);
                 } else {
@@ -792,7 +776,7 @@ public class h implements c {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             if (TextUtils.isEmpty(this.j)) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.j = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "xpath", "");
@@ -808,7 +792,7 @@ public class h implements c {
     public long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             if (this.D == 2147483647L) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.D = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "duration", 10000L);
@@ -824,7 +808,7 @@ public class h implements c {
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             if (this.E == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.E = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max", 50);
@@ -840,7 +824,7 @@ public class h implements c {
     public float m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             if (this.S < 0.0f) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.S = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "call_stack_rate", 0.0f);
@@ -856,7 +840,7 @@ public class h implements c {
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
             if (this.t == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.t = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_page_count", 5);
@@ -872,7 +856,7 @@ public class h implements c {
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
             if (TextUtils.isEmpty(this.u)) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.u = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "pyload_h5", (String) null);
@@ -888,7 +872,7 @@ public class h implements c {
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
             if (TextUtils.isEmpty(this.v)) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.v = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "playableLoadH5Url", (String) null);
@@ -904,7 +888,7 @@ public class h implements c {
     public JSONObject q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
             if (this.o == null) {
                 String b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "download_sdk_config", "");
                 this.p = b2;
@@ -924,7 +908,7 @@ public class h implements c {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
             if (this.n == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.n = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "enable_download_opt", 0);
@@ -940,13 +924,13 @@ public class h implements c {
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? s() == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? s() == 1 : invokeV.booleanValue;
     }
 
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             if (this.s == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.s = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_wifi_enable", 1);
@@ -962,7 +946,7 @@ public class h implements c {
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
             if (this.U == 2.1474836E9f) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.U = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "global_rate", 1.0f);
@@ -978,7 +962,7 @@ public class h implements c {
     public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
             if (this.m == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.m = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_storage_internal", 1);
@@ -994,15 +978,15 @@ public class h implements c {
     public int x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
-            if (this.f30306a == Integer.MAX_VALUE) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+            if (this.f30405a == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    this.f30306a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
+                    this.f30405a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
                 } else {
-                    this.f30306a = this.T.b("circle_splash_switch", 0);
+                    this.f30405a = this.T.b("circle_splash_switch", 0);
                 }
             }
-            return this.f30306a;
+            return this.f30405a;
         }
         return invokeV.intValue;
     }
@@ -1010,15 +994,15 @@ public class h implements c {
     public int y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
-            if (this.f30307b == Integer.MAX_VALUE) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
+            if (this.f30406b == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    this.f30307b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
+                    this.f30406b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
                 } else {
-                    this.f30307b = this.T.b("circle_load_splash_time", -1);
+                    this.f30406b = this.T.b("circle_load_splash_time", -1);
                 }
             }
-            return this.f30307b;
+            return this.f30406b;
         }
         return invokeV.intValue;
     }
@@ -1026,7 +1010,7 @@ public class h implements c {
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
             if (TextUtils.isEmpty(this.M)) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.M = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
@@ -1043,14 +1027,14 @@ public class h implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) {
-            return a.a().a(str).n(1).o(!this.f30311f.contains(str) ? 1 : 0).p(2).q(1).r(100).s(0).u(1).m(3).l(-1).j(-1).i(2).k(-1).v(1).e(-1).a(-1).d(20).w(2).x(100).y(5).a(false).a((JSONArray) null);
+            return a.a().a(str).n(1).o(!this.f30410f.contains(str) ? 1 : 0).p(2).q(1).r(100).s(0).u(1).m(3).l(-1).j(-1).i(2).k(-1).v(1).e(-1).a(-1).d(20).w(2).x(100).y(5).a(false).a((JSONArray) null);
         }
         return (a) invokeL.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             this.H = "api-access.pangolin-sdk-toutiao-b.com";
         }
     }
@@ -1058,25 +1042,25 @@ public class h implements c {
     public int c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) ? q(String.valueOf(str)).s : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) ? q(String.valueOf(str)).s : invokeL.intValue;
     }
 
     public boolean c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? i2 != 0 && o.h().q(String.valueOf(i2)).n == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) ? i2 != 0 && o.h().q(String.valueOf(i2)).n == 1 : invokeI.booleanValue;
     }
 
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) ? str == null || o.h().q(String.valueOf(str)).p == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) ? str == null || o.h().q(String.valueOf(str)).p == 0 : invokeL.booleanValue;
     }
 
     public int f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
             if (str == null) {
                 return 1500;
             }
@@ -1088,13 +1072,13 @@ public class h implements c {
     public int g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) ? o.h().q(String.valueOf(str)).k : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) ? o.h().q(String.valueOf(str)).k : invokeL.intValue;
     }
 
     public JSONArray h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) {
             try {
                 Set<String> b2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.b(str);
                 if (b2 != null && b2.size() != 0) {
@@ -1120,7 +1104,7 @@ public class h implements c {
     public boolean i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) {
             try {
                 a q = o.h().q(String.valueOf(str));
                 if (q != null) {
@@ -1137,19 +1121,19 @@ public class h implements c {
     public int j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, str)) == null) ? q(String.valueOf(str)).f30278h : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, str)) == null) ? q(String.valueOf(str)).f30377h : invokeL.intValue;
     }
 
     public int k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, str)) == null) ? q(str).j : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, str)) == null) ? q(str).j : invokeL.intValue;
     }
 
     public int l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, str)) == null) {
             if (str == null) {
                 return 0;
             }
@@ -1161,14 +1145,14 @@ public class h implements c {
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, str)) == null) ? q(String.valueOf(str)).w == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) ? q(String.valueOf(str)).w == 0 : invokeL.booleanValue;
     }
 
     public int n(String str) {
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, str)) == null) {
             if (str != null && (i2 = o.h().q(String.valueOf(str)).t) > 0) {
                 return i2;
             }
@@ -1180,7 +1164,7 @@ public class h implements c {
     public int o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, str)) == null) {
             if (str == null) {
                 return -1;
             }
@@ -1192,7 +1176,7 @@ public class h implements c {
     public int p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
             if (str == null) {
                 return -1;
             }
@@ -1203,8 +1187,8 @@ public class h implements c {
 
     public void r(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
-            this.f30311f.add(str);
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+            this.f30410f.add(str);
         }
     }
 
@@ -1213,17 +1197,17 @@ public class h implements c {
         JSONArray jSONArray;
         int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, str)) == null) {
-            if (this.f30308c.size() == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, str)) == null) {
+            if (this.f30407c.size() == 0) {
                 String b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ad_slot_conf", (String) null);
                 if (!TextUtils.isEmpty(b2)) {
                     try {
-                        synchronized (this.f30308c) {
-                            if (this.f30308c.size() == 0 && (length = (jSONArray = new JSONArray(b2)).length()) > 0) {
+                        synchronized (this.f30407c) {
+                            if (this.f30407c.size() == 0 && (length = (jSONArray = new JSONArray(b2)).length()) > 0) {
                                 for (int i2 = 0; i2 < length; i2++) {
                                     a b3 = b(jSONArray.optJSONObject(i2));
                                     if (b3 != null) {
-                                        this.f30308c.put(b3.f30271a, b3);
+                                        this.f30407c.put(b3.f30370a, b3);
                                     }
                                 }
                             }
@@ -1232,7 +1216,7 @@ public class h implements c {
                     }
                 }
             }
-            a aVar = this.f30308c.get(str);
+            a aVar = this.f30407c.get(str);
             return aVar == null ? t(str) : aVar;
         }
         return (a) invokeL.objValue;
@@ -1241,19 +1225,19 @@ public class h implements c {
     public boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) ? str == null || o.h().q(String.valueOf(str)).o == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) ? str == null || o.h().q(String.valueOf(str)).o == 1 : invokeL.booleanValue;
     }
 
     public int e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i2)) == null) ? q(String.valueOf(i2)).f30279i : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) ? q(String.valueOf(i2)).f30378i : invokeI.intValue;
     }
 
     public int f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) {
             int i3 = q(String.valueOf(i2)).A;
             if (i3 == 0 || i3 == 1 || i3 == 2 || i3 == 3) {
                 return i3;
@@ -1266,25 +1250,25 @@ public class h implements c {
     public int g(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i2)) == null) ? q(String.valueOf(i2)).B : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) ? q(String.valueOf(i2)).B : invokeI.intValue;
     }
 
     public boolean i(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048618, this, i2)) == null) ? q(String.valueOf(i2)).y : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i2)) == null) ? q(String.valueOf(i2)).y : invokeI.booleanValue;
     }
 
     public int d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? q(String.valueOf(i2)).f30272b : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? q(String.valueOf(i2)).f30371b : invokeI.intValue;
     }
 
     public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
             if (this.w == Integer.MAX_VALUE) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.w = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_check_type", 1);
@@ -1300,14 +1284,14 @@ public class h implements c {
     public int h(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) ? q(String.valueOf(i2)).x : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? q(String.valueOf(i2)).x : invokeI.intValue;
     }
 
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             if (TextUtils.isEmpty(this.H)) {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     this.H = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "url_ads", "pangolin.snssdk.com");
@@ -1326,13 +1310,13 @@ public class h implements c {
     public boolean b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) ? q(String.valueOf(i2)).f30273c == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) ? q(String.valueOf(i2)).f30372c == 1 : invokeI.booleanValue;
     }
 
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) ? q(String.valueOf(str)).f30277g == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) ? q(String.valueOf(str)).f30376g == 1 : invokeL.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:78:0x0297  */
@@ -1344,7 +1328,7 @@ public class h implements c {
         String str;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, jSONObject) == null) {
             this.M = jSONObject.optString("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
             this.H = jSONObject.optString("ads_url", "pangolin.snssdk.com");
             this.I = jSONObject.optString("app_log_url", "extlog.snssdk.com/service/2/app_log/");
@@ -1361,7 +1345,7 @@ public class h implements c {
                 this.q = optJSONObject2.optString("version");
                 this.r = optJSONObject2.optString("param");
             } else {
-                P();
+                O();
             }
             this.V = jSONObject.optInt("read_video_from_cache", 1);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("web_info");
@@ -1381,7 +1365,7 @@ public class h implements c {
             this.u = jSONObject.optString("pyload_h5");
             this.v = jSONObject.optString("pure_pyload_h5");
             this.w = c(jSONObject);
-            j.f("splashLoad", "setting-》mSplashCheckType=" + this.w);
+            k.f("splashLoad", "setting-》mSplashCheckType=" + this.w);
             this.B = jSONObject.optInt("if_both_open", 0);
             this.C = jSONObject.optInt("support_tnc", 1);
             this.x = jSONObject.optInt("al", 0);
@@ -1389,8 +1373,8 @@ public class h implements c {
             JSONObject optJSONObject5 = jSONObject.optJSONObject("app_common_config");
             if (optJSONObject5 != null) {
                 this.K = optJSONObject5.optInt("fetch_tpl_timeout_ctrl", 3000);
-                this.f30306a = optJSONObject5.optInt("circle_splash", 0);
-                this.f30307b = optJSONObject5.optInt("circle_time", -1);
+                this.f30405a = optJSONObject5.optInt("circle_splash", 0);
+                this.f30406b = optJSONObject5.optInt("circle_time", -1);
                 this.N = optJSONObject5.optInt("if_sp_cache", 0);
                 this.O = optJSONObject5.optInt("if_pre_connect", 0);
                 this.P = optJSONObject5.optInt("webview_cache_count", 20);
@@ -1406,7 +1390,7 @@ public class h implements c {
                     }
                     this.L = a(this.L);
                 } catch (Throwable th) {
-                    j.b("GeckoLog: settings json error " + th);
+                    k.c("GeckoLog: settings json error " + th);
                 }
             }
             this.y = System.currentTimeMillis();
@@ -1457,11 +1441,11 @@ public class h implements c {
                             e eVar = new e();
                             JSONObject optJSONObject8 = optJSONArray5.optJSONObject(i5);
                             if (optJSONObject8 != null) {
-                                eVar.f30293a = optJSONObject8.optString("action");
-                                eVar.f30294b = optJSONObject8.optString("service");
-                                eVar.f30295c = optJSONObject8.optString(AsInstallService.SCHEME_PACKAGE_ADDED);
-                                eVar.f30296d = optJSONObject8.optInt("wakeup_interval");
-                                this.f30314i.add(eVar);
+                                eVar.f30392a = optJSONObject8.optString("action");
+                                eVar.f30393b = optJSONObject8.optString("service");
+                                eVar.f30394c = optJSONObject8.optString(AsInstallService.SCHEME_PACKAGE_ADDED);
+                                eVar.f30395d = optJSONObject8.optInt("wakeup_interval");
+                                this.f30413i.add(eVar);
                             }
                         }
                     } catch (Throwable th2) {
@@ -1470,6 +1454,7 @@ public class h implements c {
                         optJSONArray = jSONObject.optJSONArray("ad_slot_conf_list");
                         if (optJSONArray != null) {
                         }
+                        com.bytedance.sdk.openadsdk.o.a.b(15, this.H);
                         this.X = jSONObject.optInt("pre_cache_brand_count", this.X);
                         com.bytedance.sdk.openadsdk.downloadnew.a.g.c();
                         a(str2, str);
@@ -1487,17 +1472,18 @@ public class h implements c {
                 str2 = optJSONArray.toString();
                 int length4 = optJSONArray.length();
                 if (length4 > 0) {
-                    this.f30308c.clear();
+                    this.f30407c.clear();
                     for (int i6 = 0; i6 < length4; i6++) {
                         JSONObject optJSONObject9 = optJSONArray.optJSONObject(i6);
                         a b2 = b(optJSONObject9);
                         if (b2 != null) {
-                            this.f30308c.put(b2.f30271a, b2);
-                            com.bytedance.sdk.openadsdk.p.a.a(b2.f30271a, optJSONObject9);
+                            this.f30407c.put(b2.f30370a, b2);
+                            com.bytedance.sdk.openadsdk.o.a.a(b2.f30370a, optJSONObject9);
                         }
                     }
                 }
             }
+            com.bytedance.sdk.openadsdk.o.a.b(15, this.H);
             this.X = jSONObject.optInt("pre_cache_brand_count", this.X);
             com.bytedance.sdk.openadsdk.downloadnew.a.g.c();
             a(str2, str);
@@ -1534,8 +1520,8 @@ public class h implements c {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_time", Long.valueOf(this.y));
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_data", this.z);
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "scheme_list_data", this.A);
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", Integer.valueOf(this.f30306a));
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", Integer.valueOf(this.f30307b));
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", Integer.valueOf(this.f30405a));
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", Integer.valueOf(this.f30406b));
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", Integer.valueOf(this.N));
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "dyn_draw_engine_url", this.M);
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_sdk_config", this.p);
@@ -1554,11 +1540,11 @@ public class h implements c {
                 if (!TextUtils.isEmpty(str)) {
                     com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "ad_slot_conf", str);
                 }
-                if (!TextUtils.isEmpty(this.f30312g)) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "template_ids", this.f30312g);
+                if (!TextUtils.isEmpty(this.f30411g)) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "template_ids", this.f30411g);
                 }
-                if (!TextUtils.isEmpty(this.f30310e)) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "tpl_infos", this.f30310e);
+                if (!TextUtils.isEmpty(this.f30409e)) {
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "tpl_infos", this.f30409e);
                 }
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "call_stack_rate", Float.valueOf(this.S));
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_pre_connect", Integer.valueOf(this.O));
@@ -1593,8 +1579,8 @@ public class h implements c {
             this.T.a("hit_app_list_time", this.y);
             this.T.a("hit_app_list_data", this.z);
             this.T.a("scheme_list_data", this.A);
-            this.T.a("circle_splash_switch", this.f30306a);
-            this.T.a("circle_load_splash_time", this.f30307b);
+            this.T.a("circle_splash_switch", this.f30405a);
+            this.T.a("circle_load_splash_time", this.f30406b);
             this.T.a("dyn_draw_engine_url", this.M);
             this.T.a("sp_key_if_sp_cache", this.N);
             this.T.a("download_sdk_config", this.p);
@@ -1614,11 +1600,11 @@ public class h implements c {
             if (!TextUtils.isEmpty(str)) {
                 this.T.a("ad_slot_conf", str);
             }
-            if (!TextUtils.isEmpty(this.f30312g)) {
-                this.T.a("template_ids", this.f30312g);
+            if (!TextUtils.isEmpty(this.f30411g)) {
+                this.T.a("template_ids", this.f30411g);
             }
-            if (!TextUtils.isEmpty(this.f30310e)) {
-                this.T.a("tpl_infos", this.f30310e);
+            if (!TextUtils.isEmpty(this.f30409e)) {
+                this.T.a("tpl_infos", this.f30409e);
             }
             this.T.a("call_stack_rate", this.S);
             this.T.a("if_pre_connect", this.O);
@@ -1632,18 +1618,18 @@ public class h implements c {
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) ? f(i2) != 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? f(i2) != 0 : invokeI.booleanValue;
     }
 
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            int i2 = o.h().q(String.valueOf(str)).f30275e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            int i2 = o.h().q(String.valueOf(str)).f30374e;
             if (i2 != 1) {
-                return i2 == 2 && m.c(o.a()) != 0;
+                return i2 == 2 && n.c(o.a()) != 0;
             }
-            return m.d(o.a());
+            return n.d(o.a());
         }
         return invokeL.booleanValue;
     }
@@ -1651,7 +1637,7 @@ public class h implements c {
     public int a(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048591, this, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, str, z)) == null) {
             if (str == null) {
                 return a(z);
             }

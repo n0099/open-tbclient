@@ -26,7 +26,7 @@ public class HttpsCertVerifyUtil {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24742a = ",";
+    public static final String f24900a = ",";
     public transient /* synthetic */ FieldHolder $fh;
 
     public HttpsCertVerifyUtil() {

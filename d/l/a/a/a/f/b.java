@@ -12,10 +12,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71096a;
+    public String f71550a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71097b;
+    public String f71551b;
 
     public b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class b {
                 return;
             }
         }
-        this.f71097b = str;
-        this.f71096a = str2;
+        this.f71551b = str;
+        this.f71550a = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71096a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71550a : (String) invokeV.objValue;
     }
 
     public void b(long j) {
@@ -51,20 +51,20 @@ public class b {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f71096a = str;
+            this.f71550a = str;
         }
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71097b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71551b : (String) invokeV.objValue;
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f71097b = str;
+            this.f71551b = str;
         }
     }
 

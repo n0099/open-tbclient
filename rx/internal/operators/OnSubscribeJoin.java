@@ -20,19 +20,19 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<TLeft> f73205e;
+    public final d<TLeft> f73659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d<TRight> f73206f;
+    public final d<TRight> f73660f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final f<TLeft, d<TLeftDuration>> f73207g;
+    public final f<TLeft, d<TLeftDuration>> f73661g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final f<TRight, d<TRightDuration>> f73208h;
+    public final f<TRight, d<TRightDuration>> f73662h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g<TLeft, TRight, R> f73209i;
+    public final g<TLeft, TRight, R> f73663i;
 
     /* loaded from: classes9.dex */
     public final class ResultSink extends HashMap<Integer, TLeft> {
@@ -54,24 +54,24 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ResultSink f73210e;
+            public final /* synthetic */ ResultSink f73664e;
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
-            public final class C2097a extends j<TLeftDuration> {
+            public final class C2096a extends j<TLeftDuration> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final int f73211e;
+                public final int f73665e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public boolean f73212f;
+                public boolean f73666f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ a f73213g;
+                public final /* synthetic */ a f73667g;
 
-                public C2097a(a aVar, int i2) {
+                public C2096a(a aVar, int i2) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,17 +86,17 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                             return;
                         }
                     }
-                    this.f73213g = aVar;
-                    this.f73212f = true;
-                    this.f73211e = i2;
+                    this.f73667g = aVar;
+                    this.f73666f = true;
+                    this.f73665e = i2;
                 }
 
                 @Override // h.e
                 public void onCompleted() {
                     Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f73212f) {
-                        this.f73212f = false;
-                        this.f73213g.b(this.f73211e, this);
+                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f73666f) {
+                        this.f73666f = false;
+                        this.f73667g.b(this.f73665e, this);
                     }
                 }
 
@@ -104,7 +104,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 public void onError(Throwable th) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                        this.f73213g.onError(th);
+                        this.f73667g.onError(th);
                     }
                 }
 
@@ -132,22 +132,22 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         return;
                     }
                 }
-                this.f73210e = resultSink;
+                this.f73664e = resultSink;
             }
 
             public void b(int i2, k kVar) {
                 boolean z;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(1048576, this, i2, kVar) == null) {
-                    synchronized (this.f73210e) {
-                        z = this.f73210e.leftMap().remove(Integer.valueOf(i2)) != null && this.f73210e.leftMap().isEmpty() && this.f73210e.leftDone;
+                    synchronized (this.f73664e) {
+                        z = this.f73664e.leftMap().remove(Integer.valueOf(i2)) != null && this.f73664e.leftMap().isEmpty() && this.f73664e.leftDone;
                     }
                     if (z) {
-                        this.f73210e.subscriber.onCompleted();
-                        this.f73210e.subscriber.unsubscribe();
+                        this.f73664e.subscriber.onCompleted();
+                        this.f73664e.subscriber.unsubscribe();
                         return;
                     }
-                    this.f73210e.group.b(kVar);
+                    this.f73664e.group.b(kVar);
                 }
             }
 
@@ -156,19 +156,19 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 boolean z;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    synchronized (this.f73210e) {
+                    synchronized (this.f73664e) {
                         z = true;
-                        this.f73210e.leftDone = true;
-                        if (!this.f73210e.rightDone && !this.f73210e.leftMap().isEmpty()) {
+                        this.f73664e.leftDone = true;
+                        if (!this.f73664e.rightDone && !this.f73664e.leftMap().isEmpty()) {
                             z = false;
                         }
                     }
                     if (z) {
-                        this.f73210e.subscriber.onCompleted();
-                        this.f73210e.subscriber.unsubscribe();
+                        this.f73664e.subscriber.onCompleted();
+                        this.f73664e.subscriber.unsubscribe();
                         return;
                     }
-                    this.f73210e.group.b(this);
+                    this.f73664e.group.b(this);
                 }
             }
 
@@ -176,8 +176,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    this.f73210e.subscriber.onError(th);
-                    this.f73210e.subscriber.unsubscribe();
+                    this.f73664e.subscriber.onError(th);
+                    this.f73664e.subscriber.unsubscribe();
                 }
             }
 
@@ -189,27 +189,27 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 int i3;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, tleft) == null) {
-                    synchronized (this.f73210e) {
-                        ResultSink resultSink = this.f73210e;
+                    synchronized (this.f73664e) {
+                        ResultSink resultSink = this.f73664e;
                         i2 = resultSink.leftId;
                         resultSink.leftId = i2 + 1;
-                        this.f73210e.leftMap().put(Integer.valueOf(i2), tleft);
-                        i3 = this.f73210e.rightId;
+                        this.f73664e.leftMap().put(Integer.valueOf(i2), tleft);
+                        i3 = this.f73664e.rightId;
                     }
                     try {
-                        C2097a c2097a = new C2097a(this, i2);
-                        this.f73210e.group.a(c2097a);
-                        this.f73210e.this$0.f73207g.call(tleft).I(c2097a);
+                        C2096a c2096a = new C2096a(this, i2);
+                        this.f73664e.group.a(c2096a);
+                        this.f73664e.this$0.f73661g.call(tleft).I(c2096a);
                         ArrayList<Object> arrayList = new ArrayList();
-                        synchronized (this.f73210e) {
-                            for (Map.Entry<Integer, TRight> entry : this.f73210e.rightMap.entrySet()) {
+                        synchronized (this.f73664e) {
+                            for (Map.Entry<Integer, TRight> entry : this.f73664e.rightMap.entrySet()) {
                                 if (entry.getKey().intValue() < i3) {
                                     arrayList.add(entry.getValue());
                                 }
                             }
                         }
                         for (Object obj : arrayList) {
-                            this.f73210e.subscriber.onNext(this.f73210e.this$0.f73209i.a(tleft, obj));
+                            this.f73664e.subscriber.onNext(this.f73664e.this$0.f73663i.a(tleft, obj));
                         }
                     } catch (Throwable th) {
                         h.m.a.f(th, this);
@@ -224,7 +224,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ResultSink f73214e;
+            public final /* synthetic */ ResultSink f73668e;
 
             /* loaded from: classes9.dex */
             public final class a extends j<TRightDuration> {
@@ -232,13 +232,13 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final int f73215e;
+                public final int f73669e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public boolean f73216f;
+                public boolean f73670f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ b f73217g;
+                public final /* synthetic */ b f73671g;
 
                 public a(b bVar, int i2) {
                     Interceptable interceptable = $ic;
@@ -255,17 +255,17 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                             return;
                         }
                     }
-                    this.f73217g = bVar;
-                    this.f73216f = true;
-                    this.f73215e = i2;
+                    this.f73671g = bVar;
+                    this.f73670f = true;
+                    this.f73669e = i2;
                 }
 
                 @Override // h.e
                 public void onCompleted() {
                     Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f73216f) {
-                        this.f73216f = false;
-                        this.f73217g.b(this.f73215e, this);
+                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f73670f) {
+                        this.f73670f = false;
+                        this.f73671g.b(this.f73669e, this);
                     }
                 }
 
@@ -273,7 +273,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 public void onError(Throwable th) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                        this.f73217g.onError(th);
+                        this.f73671g.onError(th);
                     }
                 }
 
@@ -301,22 +301,22 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         return;
                     }
                 }
-                this.f73214e = resultSink;
+                this.f73668e = resultSink;
             }
 
             public void b(int i2, k kVar) {
                 boolean z;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(1048576, this, i2, kVar) == null) {
-                    synchronized (this.f73214e) {
-                        z = this.f73214e.rightMap.remove(Integer.valueOf(i2)) != null && this.f73214e.rightMap.isEmpty() && this.f73214e.rightDone;
+                    synchronized (this.f73668e) {
+                        z = this.f73668e.rightMap.remove(Integer.valueOf(i2)) != null && this.f73668e.rightMap.isEmpty() && this.f73668e.rightDone;
                     }
                     if (z) {
-                        this.f73214e.subscriber.onCompleted();
-                        this.f73214e.subscriber.unsubscribe();
+                        this.f73668e.subscriber.onCompleted();
+                        this.f73668e.subscriber.unsubscribe();
                         return;
                     }
-                    this.f73214e.group.b(kVar);
+                    this.f73668e.group.b(kVar);
                 }
             }
 
@@ -325,19 +325,19 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 boolean z;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    synchronized (this.f73214e) {
+                    synchronized (this.f73668e) {
                         z = true;
-                        this.f73214e.rightDone = true;
-                        if (!this.f73214e.leftDone && !this.f73214e.rightMap.isEmpty()) {
+                        this.f73668e.rightDone = true;
+                        if (!this.f73668e.leftDone && !this.f73668e.rightMap.isEmpty()) {
                             z = false;
                         }
                     }
                     if (z) {
-                        this.f73214e.subscriber.onCompleted();
-                        this.f73214e.subscriber.unsubscribe();
+                        this.f73668e.subscriber.onCompleted();
+                        this.f73668e.subscriber.unsubscribe();
                         return;
                     }
-                    this.f73214e.group.b(this);
+                    this.f73668e.group.b(this);
                 }
             }
 
@@ -345,8 +345,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    this.f73214e.subscriber.onError(th);
-                    this.f73214e.subscriber.unsubscribe();
+                    this.f73668e.subscriber.onError(th);
+                    this.f73668e.subscriber.unsubscribe();
                 }
             }
 
@@ -358,28 +358,28 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 int i3;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, tright) == null) {
-                    synchronized (this.f73214e) {
-                        ResultSink resultSink = this.f73214e;
+                    synchronized (this.f73668e) {
+                        ResultSink resultSink = this.f73668e;
                         i2 = resultSink.rightId;
                         resultSink.rightId = i2 + 1;
-                        this.f73214e.rightMap.put(Integer.valueOf(i2), tright);
-                        i3 = this.f73214e.leftId;
+                        this.f73668e.rightMap.put(Integer.valueOf(i2), tright);
+                        i3 = this.f73668e.leftId;
                     }
-                    this.f73214e.group.a(new h.u.d());
+                    this.f73668e.group.a(new h.u.d());
                     try {
                         a aVar = new a(this, i2);
-                        this.f73214e.group.a(aVar);
-                        this.f73214e.this$0.f73208h.call(tright).I(aVar);
+                        this.f73668e.group.a(aVar);
+                        this.f73668e.this$0.f73662h.call(tright).I(aVar);
                         ArrayList<Object> arrayList = new ArrayList();
-                        synchronized (this.f73214e) {
-                            for (Map.Entry<Integer, TLeft> entry : this.f73214e.leftMap().entrySet()) {
+                        synchronized (this.f73668e) {
+                            for (Map.Entry<Integer, TLeft> entry : this.f73668e.leftMap().entrySet()) {
                                 if (entry.getKey().intValue() < i3) {
                                     arrayList.add(entry.getValue());
                                 }
                             }
                         }
                         for (Object obj : arrayList) {
-                            this.f73214e.subscriber.onNext(this.f73214e.this$0.f73209i.a(obj, tright));
+                            this.f73668e.subscriber.onNext(this.f73668e.this$0.f73663i.a(obj, tright));
                         }
                     } catch (Throwable th) {
                         h.m.a.f(th, this);
@@ -423,8 +423,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 b bVar = new b(this);
                 this.group.a(aVar);
                 this.group.a(bVar);
-                this.this$0.f73205e.I(aVar);
-                this.this$0.f73206f.I(bVar);
+                this.this$0.f73659e.I(aVar);
+                this.this$0.f73660f.I(bVar);
             }
         }
     }

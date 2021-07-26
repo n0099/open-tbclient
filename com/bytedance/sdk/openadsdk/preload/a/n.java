@@ -13,7 +13,7 @@ public final class n extends l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final n f32062a;
+    public static final n f32263a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public final class n extends l {
                 return;
             }
         }
-        f32062a = new n();
+        f32263a = new n();
     }
 
     @Deprecated

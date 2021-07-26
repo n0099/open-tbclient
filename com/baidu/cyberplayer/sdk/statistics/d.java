@@ -29,13 +29,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5053a;
+    public String f5079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5054b;
+    public String f5080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5055c;
+    public String f5081c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class d {
                 return;
             }
         }
-        this.f5053a = null;
-        this.f5054b = null;
-        this.f5055c = null;
-        this.f5055c = "video_session";
+        this.f5079a = null;
+        this.f5080b = null;
+        this.f5081c = null;
+        this.f5081c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -72,10 +72,10 @@ public class d {
                 return;
             }
         }
-        this.f5053a = null;
-        this.f5054b = null;
-        this.f5055c = null;
-        this.f5055c = str;
+        this.f5079a = null;
+        this.f5080b = null;
+        this.f5081c = null;
+        this.f5081c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -239,15 +239,15 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f5053a) || TextUtils.isEmpty(this.f5054b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f5079a) || TextUtils.isEmpty(this.f5080b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f5053a;
+            String str = this.f5079a;
             if (b(str)) {
-                String str2 = this.f5054b;
+                String str2 = this.f5080b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -270,20 +270,20 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f5053a = b2 + File.separator + this.f5055c + "_" + coreVersion + ".bak";
-        this.f5054b = b2 + File.separator + this.f5055c + "_log_" + coreVersion + ".tmp";
+        this.f5079a = b2 + File.separator + this.f5081c + "_" + coreVersion + ".bak";
+        this.f5080b = b2 + File.separator + this.f5081c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f5053a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f5079a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                a(this.f5053a, bArr, Part.CRLF);
+                a(this.f5079a, bArr, Part.CRLF);
             } catch (AssertionError unused) {
                 CyberLog.e("DpStatFileWriter", "write data to file fail");
             }
@@ -302,7 +302,7 @@ public class d {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f5055c.equals("live_show_session") ? 24 : 1);
+                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f5081c.equals("live_show_session") ? 24 : 1);
                 if (TextUtils.isEmpty(a2)) {
                     z = true;
                 } else {

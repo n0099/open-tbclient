@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f72377a;
+    public final String f72831a;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class b implements a {
             }
         }
         if (str != null) {
-            this.f72377a = str;
+            this.f72831a = str;
             return;
         }
         throw new IllegalArgumentException();
@@ -49,7 +49,7 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             for (String str2 : str.replaceAll(" ", "").split(",")) {
-                if (this.f72377a.equals(str2)) {
+                if (this.f72831a.equals(str2)) {
                     return true;
                 }
             }
@@ -62,7 +62,7 @@ public class b implements a {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72377a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72831a : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -75,7 +75,7 @@ public class b implements a {
             if (obj == null || b.class != obj.getClass()) {
                 return false;
             }
-            return this.f72377a.equals(((b) obj).f72377a);
+            return this.f72831a.equals(((b) obj).f72831a);
         }
         return invokeL.booleanValue;
     }
@@ -83,7 +83,7 @@ public class b implements a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72377a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72831a.hashCode() : invokeV.intValue;
     }
 
     @Override // g.b.j.a

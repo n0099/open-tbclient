@@ -13,7 +13,7 @@ public class aj extends ai.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ai f39838a;
+    public final /* synthetic */ ai f40110a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f110a;
@@ -39,7 +39,7 @@ public class aj extends ai.b {
                 return;
             }
         }
-        this.f39838a = aiVar;
+        this.f40110a = aiVar;
         this.f111a = z;
         this.f110a = str;
     }
@@ -59,7 +59,7 @@ public class aj extends ai.b {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f111a) {
             return;
         }
-        sharedPreferences = this.f39838a.f106a;
+        sharedPreferences = this.f40110a.f106a;
         sharedPreferences.edit().putLong(this.f110a, System.currentTimeMillis()).commit();
     }
 }

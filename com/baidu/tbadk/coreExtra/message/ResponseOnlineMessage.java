@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.o0.c0.a;
+import d.a.p0.e0.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.ConfigVersion;

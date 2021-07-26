@@ -32,7 +32,7 @@ public class FlipLoadingLayout extends LoadingLayout {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13483a;
+        public static final /* synthetic */ int[] f13532a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,13 +49,13 @@ public class FlipLoadingLayout extends LoadingLayout {
                 }
             }
             int[] iArr = new int[PullToRefreshBase.Mode.values().length];
-            f13483a = iArr;
+            f13532a = iArr;
             try {
                 iArr[PullToRefreshBase.Mode.PULL_FROM_END.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13483a[PullToRefreshBase.Mode.PULL_FROM_START.ordinal()] = 2;
+                f13532a[PullToRefreshBase.Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -97,7 +97,7 @@ public class FlipLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            int i2 = a.f13483a[this.k.ordinal()];
+            int i2 = a.f13532a[this.k.ordinal()];
             return i2 != 1 ? (i2 == 2 && this.l == PullToRefreshBase.Orientation.HORIZONTAL) ? 270.0f : 0.0f : this.l == PullToRefreshBase.Orientation.HORIZONTAL ? 90.0f : 180.0f;
         }
         return invokeV.floatValue;
@@ -111,16 +111,16 @@ public class FlipLoadingLayout extends LoadingLayout {
         }
         int intrinsicHeight = drawable.getIntrinsicHeight();
         int intrinsicWidth = drawable.getIntrinsicWidth();
-        ViewGroup.LayoutParams layoutParams = this.f13485f.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f13534f.getLayoutParams();
         int max = Math.max(intrinsicHeight, intrinsicWidth);
         layoutParams.height = max;
         layoutParams.width = max;
-        this.f13485f.requestLayout();
-        this.f13485f.setScaleType(ImageView.ScaleType.MATRIX);
+        this.f13534f.requestLayout();
+        this.f13534f.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
         matrix.postTranslate((layoutParams.width - intrinsicWidth) / 2.0f, (layoutParams.height - intrinsicHeight) / 2.0f);
         matrix.postRotate(getDrawableRotationAngle(), layoutParams.width / 2.0f, layoutParams.height / 2.0f);
-        this.f13485f.setImageMatrix(matrix);
+        this.f13534f.setImageMatrix(matrix);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -133,8 +133,8 @@ public class FlipLoadingLayout extends LoadingLayout {
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.q == this.f13485f.getAnimation()) {
-            this.f13485f.startAnimation(this.r);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.q == this.f13534f.getAnimation()) {
+            this.f13534f.startAnimation(this.r);
         }
     }
 
@@ -142,8 +142,8 @@ public class FlipLoadingLayout extends LoadingLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f13485f.setVisibility(0);
-            this.f13486g.setVisibility(8);
+            this.f13534f.setVisibility(0);
+            this.f13535g.setVisibility(8);
         }
     }
 
@@ -158,7 +158,7 @@ public class FlipLoadingLayout extends LoadingLayout {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f13485f.startAnimation(this.q);
+            this.f13534f.startAnimation(this.q);
         }
     }
 
@@ -166,9 +166,9 @@ public class FlipLoadingLayout extends LoadingLayout {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f13485f.clearAnimation();
-            this.f13486g.setVisibility(8);
-            this.f13485f.setVisibility(0);
+            this.f13534f.clearAnimation();
+            this.f13535g.setVisibility(8);
+            this.f13534f.setVisibility(0);
         }
     }
 }

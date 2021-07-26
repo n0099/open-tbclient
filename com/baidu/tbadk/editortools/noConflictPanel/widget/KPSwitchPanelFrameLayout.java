@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.w.v.a;
-import d.a.o0.w.v.b;
+import d.a.p0.x.v.a;
+import d.a.p0.x.v.b;
 /* loaded from: classes3.dex */
 public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.o0.w.v.c.b f13031e;
+    public d.a.p0.x.v.c.b f13080e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchPanelFrameLayout(Context context) {
@@ -41,37 +41,37 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
         c(null);
     }
 
-    @Override // d.a.o0.w.v.b
+    @Override // d.a.p0.x.v.b
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f13031e.f(z);
+            this.f13080e.f(z);
         }
     }
 
-    @Override // d.a.o0.w.v.a
+    @Override // d.a.p0.x.v.a
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13031e.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13080e.b() : invokeV.booleanValue;
     }
 
     public final void c(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
-            this.f13031e = new d.a.o0.w.v.c.b(this, attributeSet);
+            this.f13080e = new d.a.p0.x.v.c.b(this, attributeSet);
         }
     }
 
-    @Override // d.a.o0.w.v.a
+    @Override // d.a.p0.x.v.a
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f13031e.handleHide();
+            this.f13080e.handleHide();
         }
     }
 
-    @Override // d.a.o0.w.v.a
+    @Override // d.a.p0.x.v.a
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -79,41 +79,41 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
         }
     }
 
-    @Override // d.a.o0.w.v.a
+    @Override // d.a.p0.x.v.a
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13031e.isVisible() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13080e.isVisible() : invokeV.booleanValue;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            int[] c2 = this.f13031e.c(i2, i3);
+            int[] c2 = this.f13080e.c(i2, i3);
             super.onMeasure(c2[0], c2[1]);
         }
     }
 
-    @Override // d.a.o0.w.v.b
+    @Override // d.a.p0.x.v.b
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f13031e.d(i2);
+            this.f13080e.d(i2);
         }
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f13031e.e(z);
+            this.f13080e.e(z);
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f13031e.a(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f13080e.a(i2)) {
             return;
         }
         super.setVisibility(i2);

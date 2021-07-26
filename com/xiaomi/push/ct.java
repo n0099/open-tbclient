@@ -11,7 +11,7 @@ public class ct implements cr {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cs f39953a;
+    public final /* synthetic */ cs f40225a;
 
     public ct(cs csVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class ct implements cr {
                 return;
             }
         }
-        this.f39953a = csVar;
+        this.f40225a = csVar;
     }
 
     @Override // com.xiaomi.push.cr

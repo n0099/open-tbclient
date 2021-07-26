@@ -14,7 +14,7 @@ public class bv {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f1473a;
+    public static byte[] f1506a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class bv {
                 return;
             }
         }
-        f1473a = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
+        f1506a = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
     }
 
     public static byte[] a(String str) {
@@ -66,7 +66,7 @@ public class bv {
             loop0: while (i6 < length) {
                 while (true) {
                     i2 = i6 + 1;
-                    b2 = f1473a[bytes[i6]];
+                    b2 = f1506a[bytes[i6]];
                     if (i2 >= length || b2 != -1) {
                         break;
                     }
@@ -77,7 +77,7 @@ public class bv {
                 }
                 while (true) {
                     i3 = i2 + 1;
-                    b3 = f1473a[bytes[i2]];
+                    b3 = f1506a[bytes[i2]];
                     if (i3 >= length || b3 != -1) {
                         break;
                     }
@@ -93,7 +93,7 @@ public class bv {
                     if (b6 == 61) {
                         break loop0;
                     }
-                    b4 = f1473a[b6];
+                    b4 = f1506a[b6];
                     if (i4 >= length || b4 != -1) {
                         break;
                     }
@@ -109,7 +109,7 @@ public class bv {
                     if (b7 == 61) {
                         break loop0;
                     }
-                    b5 = f1473a[b7];
+                    b5 = f1506a[b7];
                     if (i5 >= length || b5 != -1) {
                         break;
                     }

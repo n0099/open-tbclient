@@ -14,7 +14,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f3957a;
+    public HandlerThread f3983a;
 
     /* renamed from: com.baidu.apollon.statistics.b$1  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f3958a;
+        public static b f3984a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +44,7 @@ public class b {
                     return;
                 }
             }
-            f3958a = new b(null);
+            f3984a = new b(null);
         }
 
         public a() {
@@ -69,13 +69,13 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f3958a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f3984a : (b) invokeV.objValue;
     }
 
     public HandlerThread b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3957a : (HandlerThread) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3983a : (HandlerThread) invokeV.objValue;
     }
 
     public b() {
@@ -92,8 +92,8 @@ public class b {
             }
         }
         HandlerThread handlerThread = new HandlerThread("CacheThread");
-        this.f3957a = handlerThread;
+        this.f3983a = handlerThread;
         handlerThread.start();
-        this.f3957a.setPriority(10);
+        this.f3983a.setPriority(10);
     }
 }

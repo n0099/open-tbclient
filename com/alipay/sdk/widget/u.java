@@ -14,7 +14,7 @@ public class u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Stack<WebViewWindow> f2056a;
+    public Stack<WebViewWindow> f2089a;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -29,19 +29,19 @@ public class u {
                 return;
             }
         }
-        this.f2056a = new Stack<>();
+        this.f2089a = new Stack<>();
     }
 
     public WebViewWindow a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2056a.pop() : (WebViewWindow) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2089a.pop() : (WebViewWindow) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2056a.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2089a.isEmpty() : invokeV.booleanValue;
     }
 
     public void c() {
@@ -49,17 +49,17 @@ public class u {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || b()) {
             return;
         }
-        Iterator<WebViewWindow> it = this.f2056a.iterator();
+        Iterator<WebViewWindow> it = this.f2089a.iterator();
         while (it.hasNext()) {
             it.next().a();
         }
-        this.f2056a.clear();
+        this.f2089a.clear();
     }
 
     public void a(WebViewWindow webViewWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webViewWindow) == null) {
-            this.f2056a.push(webViewWindow);
+            this.f2089a.push(webViewWindow);
         }
     }
 }

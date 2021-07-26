@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.u.b.a.b;
+import a.a.a.a.r.b.a.b;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -21,7 +21,7 @@ public final class CSJNativeAdVerticalVideoView extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f32696f;
+    public FrameLayout f32885f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdVerticalVideoView(Context context) {
@@ -85,7 +85,7 @@ public final class CSJNativeAdVerticalVideoView extends b {
         }
     }
 
-    @Override // a.a.a.a.u.b.a.b
+    @Override // a.a.a.a.r.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, tTNativeAd, adInteractionListener) == null) {
@@ -95,18 +95,18 @@ public final class CSJNativeAdVerticalVideoView extends b {
                 ((ViewGroup) adView.getParent()).removeView(adView);
             }
             if (adView != null) {
-                this.f32696f.removeAllViews();
-                this.f32696f.addView(adView);
+                this.f32885f.removeAllViews();
+                this.f32885f.addView(adView);
             }
         }
     }
 
-    @Override // a.a.a.a.u.b.a.b, android.view.View
+    @Override // a.a.a.a.r.b.a.b, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32696f = (FrameLayout) findViewById(R.id.ad_video);
+            this.f32885f = (FrameLayout) findViewById(R.id.ad_video);
         }
     }
 }

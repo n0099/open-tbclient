@@ -16,7 +16,7 @@ public class LoadDraftResponsedMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17598a;
+        public String f17654a;
 
         public a() {
             Interceptable interceptable = $ic;

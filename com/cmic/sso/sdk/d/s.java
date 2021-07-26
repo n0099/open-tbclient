@@ -14,7 +14,7 @@ public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f32668a;
+    public static final char[] f32855a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class s {
                 return;
             }
         }
-        f32668a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f32855a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(byte[] bArr) {
@@ -44,7 +44,7 @@ public class s {
             int i2 = 0;
             for (byte b2 : bArr) {
                 int i3 = i2 + 1;
-                char[] cArr2 = f32668a;
+                char[] cArr2 = f32855a;
                 cArr[i2] = cArr2[(b2 >>> 4) & 15];
                 i2 = i3 + 1;
                 cArr[i3] = cArr2[b2 & 15];

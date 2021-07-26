@@ -14,10 +14,10 @@ public class ManitoHeaderItemViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f15223a;
+    public TextView f15271a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15224b;
+    public int f15272b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ManitoHeaderItemViewHolder(View view) {
@@ -37,7 +37,7 @@ public class ManitoHeaderItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15224b = 3;
-        this.f15223a = (TextView) view.findViewById(R.id.manito_header_title);
+        this.f15272b = 3;
+        this.f15271a = (TextView) view.findViewById(R.id.manito_header_title);
     }
 }

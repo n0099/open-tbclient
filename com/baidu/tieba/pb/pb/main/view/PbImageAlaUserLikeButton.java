@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.f0.t.b;
+import d.a.p0.s.f0.t.b;
 /* loaded from: classes4.dex */
 public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b {
     public static /* synthetic */ Interceptable $ic;
@@ -44,13 +44,13 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
+                d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
                 bVar.r(R.color.CAM_X0109);
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                d.a.o0.r.f0.n.b bVar2 = new d.a.o0.r.f0.n.b();
+                d.a.p0.s.f0.n.b bVar2 = new d.a.p0.s.f0.n.b();
                 bVar2.q(R.color.CAM_X0302);
                 bVar2.i(R.drawable.icon_pure_add10_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
                 bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));

@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
+import d.a.d.e.p.l;
 /* loaded from: classes3.dex */
 public class BdListViewHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f13196a;
+    public static final int f13245a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -94,7 +94,7 @@ public class BdListViewHelper {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13197a;
+        public static final /* synthetic */ int[] f13246a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -111,21 +111,21 @@ public class BdListViewHelper {
                 }
             }
             int[] iArr = new int[HeadType.values().length];
-            f13197a = iArr;
+            f13246a = iArr;
             try {
                 iArr[HeadType.DEFAULT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13197a[HeadType.HASTAB.ordinal()] = 2;
+                f13246a[HeadType.HASTAB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f13197a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
+                f13246a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f13197a[HeadType.TIP.ordinal()] = 4;
+                f13246a[HeadType.TIP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -144,7 +144,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        f13196a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+        f13245a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
     }
 
     public static int a(HeadType headType) {
@@ -152,7 +152,7 @@ public class BdListViewHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headType)) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
-            int i2 = a.f13197a[headType.ordinal()];
+            int i2 = a.f13246a[headType.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

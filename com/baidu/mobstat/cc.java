@@ -26,32 +26,32 @@ public abstract class cc extends bz implements by, Runnable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ boolean f8899c;
+    public static final /* synthetic */ boolean f8925c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ca f8900a;
+    public ca f8926a;
 
     /* renamed from: b  reason: collision with root package name */
-    public URI f8901b;
+    public URI f8927b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Socket f8902d;
+    public Socket f8928d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f8903e;
+    public InputStream f8929e;
 
     /* renamed from: f  reason: collision with root package name */
-    public OutputStream f8904f;
+    public OutputStream f8930f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Proxy f8905g;
+    public Proxy f8931g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Thread f8906h;
+    public Thread f8932h;
 
     /* renamed from: i  reason: collision with root package name */
-    public cd f8907i;
+    public cd f8933i;
     public Map<String, String> j;
     public CountDownLatch k;
     public CountDownLatch l;
@@ -70,7 +70,7 @@ public abstract class cc extends bz implements by, Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ cc f8908a;
+        public final /* synthetic */ cc f8934a;
 
         public a(cc ccVar) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public abstract class cc extends bz implements by, Runnable {
                     return;
                 }
             }
-            this.f8908a = ccVar;
+            this.f8934a = ccVar;
         }
 
         @Override // java.lang.Runnable
@@ -97,11 +97,11 @@ public abstract class cc extends bz implements by, Runnable {
                 Thread.currentThread().setName("WebsocketWriteThread");
                 while (!Thread.interrupted()) {
                     try {
-                        ByteBuffer take = this.f8908a.f8900a.f8894d.take();
-                        this.f8908a.f8904f.write(take.array(), 0, take.limit());
-                        this.f8908a.f8904f.flush();
+                        ByteBuffer take = this.f8934a.f8926a.f8920d.take();
+                        this.f8934a.f8930f.write(take.array(), 0, take.limit());
+                        this.f8934a.f8930f.flush();
                     } catch (IOException unused) {
-                        this.f8908a.f8900a.b();
+                        this.f8934a.f8926a.b();
                         return;
                     } catch (InterruptedException unused2) {
                         return;
@@ -128,7 +128,7 @@ public abstract class cc extends bz implements by, Runnable {
                 return;
             }
         }
-        f8899c = !cc.class.desiredAssertionStatus();
+        f8925c = !cc.class.desiredAssertionStatus();
     }
 
     public cc(URI uri, cd cdVar, Map<String, String> map, int i2) {
@@ -146,10 +146,10 @@ public abstract class cc extends bz implements by, Runnable {
                 return;
             }
         }
-        this.f8901b = null;
-        this.f8900a = null;
-        this.f8902d = null;
-        this.f8905g = Proxy.NO_PROXY;
+        this.f8927b = null;
+        this.f8926a = null;
+        this.f8928d = null;
+        this.f8931g = Proxy.NO_PROXY;
         this.k = new CountDownLatch(1);
         this.l = new CountDownLatch(1);
         this.m = 0;
@@ -157,11 +157,11 @@ public abstract class cc extends bz implements by, Runnable {
             throw new IllegalArgumentException();
         }
         if (cdVar != null) {
-            this.f8901b = uri;
-            this.f8907i = cdVar;
+            this.f8927b = uri;
+            this.f8933i = cdVar;
             this.j = map;
             this.m = i2;
-            this.f8900a = new ca(this, cdVar);
+            this.f8926a = new ca(this, cdVar);
             return;
         }
         throw new IllegalArgumentException("null as draft is permitted for `WebSocketServer` only!");
@@ -171,9 +171,9 @@ public abstract class cc extends bz implements by, Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            int port = this.f8901b.getPort();
+            int port = this.f8927b.getPort();
             if (port == -1) {
-                String scheme = this.f8901b.getScheme();
+                String scheme = this.f8927b.getScheme();
                 if (scheme.equals("wss")) {
                     return Constants.SOCKET_PORT_SSL;
                 }
@@ -190,15 +190,15 @@ public abstract class cc extends bz implements by, Runnable {
     private void i() throws cj {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            String rawPath = this.f8901b.getRawPath();
-            String rawQuery = this.f8901b.getRawQuery();
+            String rawPath = this.f8927b.getRawPath();
+            String rawQuery = this.f8927b.getRawQuery();
             rawPath = (rawPath == null || rawPath.length() == 0) ? "/" : "/";
             if (rawQuery != null) {
                 rawPath = rawPath + "?" + rawQuery;
             }
             int h2 = h();
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f8901b.getHost());
+            sb.append(this.f8927b.getHost());
             sb.append(h2 != 80 ? ":" + h2 : "");
             String sb2 = sb.toString();
             cv cvVar = new cv();
@@ -210,7 +210,7 @@ public abstract class cc extends bz implements by, Runnable {
                     cvVar.a(entry.getKey(), entry.getValue());
                 }
             }
-            this.f8900a.a((ct) cvVar);
+            this.f8926a.a((ct) cvVar);
         }
     }
 
@@ -259,35 +259,35 @@ public abstract class cc extends bz implements by, Runnable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             b();
             this.k.await();
-            return this.f8900a.c();
+            return this.f8926a.c();
         }
         return invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.f8906h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.f8932h == null) {
             return;
         }
-        this.f8900a.a(1000);
+        this.f8926a.a(1000);
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f8900a.e() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f8926a.e() : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f8900a.f() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f8926a.f() : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f8900a.d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f8926a.d() : invokeV.booleanValue;
     }
 
     @Override // java.lang.Runnable
@@ -296,38 +296,38 @@ public abstract class cc extends bz implements by, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             try {
-                if (this.f8902d == null) {
-                    this.f8902d = new Socket(this.f8905g);
-                } else if (this.f8902d.isClosed()) {
+                if (this.f8928d == null) {
+                    this.f8928d = new Socket(this.f8931g);
+                } else if (this.f8928d.isClosed()) {
                     throw new IOException();
                 }
-                if (!this.f8902d.isBound()) {
-                    this.f8902d.connect(new InetSocketAddress(this.f8901b.getHost(), h()), this.m);
+                if (!this.f8928d.isBound()) {
+                    this.f8928d.connect(new InetSocketAddress(this.f8927b.getHost(), h()), this.m);
                 }
-                this.f8903e = this.f8902d.getInputStream();
-                this.f8904f = this.f8902d.getOutputStream();
+                this.f8929e = this.f8928d.getInputStream();
+                this.f8930f = this.f8928d.getOutputStream();
                 i();
                 Thread thread = new Thread(new a(this, null));
-                this.f8906h = thread;
+                this.f8932h = thread;
                 thread.start();
-                byte[] bArr = new byte[ca.f8891b];
-                while (!g() && !f() && (read = this.f8903e.read(bArr)) != -1) {
+                byte[] bArr = new byte[ca.f8917b];
+                while (!g() && !f() && (read = this.f8929e.read(bArr)) != -1) {
                     try {
-                        this.f8900a.a(ByteBuffer.wrap(bArr, 0, read));
+                        this.f8926a.a(ByteBuffer.wrap(bArr, 0, read));
                     } catch (IOException unused) {
-                        this.f8900a.b();
+                        this.f8926a.b();
                     } catch (RuntimeException e2) {
                         a(e2);
-                        this.f8900a.b(1006, e2.getMessage());
+                        this.f8926a.b(1006, e2.getMessage());
                     }
                 }
-                this.f8900a.b();
-                if (!f8899c && !this.f8902d.isClosed()) {
+                this.f8926a.b();
+                if (!f8925c && !this.f8928d.isClosed()) {
                     throw new AssertionError();
                 }
             } catch (Exception e3) {
-                a(this.f8900a, e3);
-                this.f8900a.b(-1, e3.getMessage());
+                a(this.f8926a, e3);
+                this.f8926a.b(-1, e3.getMessage());
             }
         }
     }
@@ -335,16 +335,16 @@ public abstract class cc extends bz implements by, Runnable {
     public void a(byte[] bArr) throws NotYetConnectedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bArr) == null) {
-            this.f8900a.a(bArr);
+            this.f8926a.a(bArr);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (this.f8906h == null) {
+            if (this.f8932h == null) {
                 Thread thread = new Thread(this);
-                this.f8906h = thread;
+                this.f8932h = thread;
                 thread.start();
                 return;
             }
@@ -373,7 +373,7 @@ public abstract class cc extends bz implements by, Runnable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, byVar)) == null) {
-            Socket socket = this.f8902d;
+            Socket socket = this.f8928d;
             if (socket != null) {
                 return (InetSocketAddress) socket.getLocalSocketAddress();
             }
@@ -411,13 +411,13 @@ public abstract class cc extends bz implements by, Runnable {
     public final void a(by byVar, int i2, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{byVar, Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
-            Thread thread = this.f8906h;
+            Thread thread = this.f8932h;
             if (thread != null) {
                 thread.interrupt();
             }
             try {
-                if (this.f8902d != null) {
-                    this.f8902d.close();
+                if (this.f8928d != null) {
+                    this.f8928d.close();
                 }
             } catch (IOException e2) {
                 a(this, e2);
@@ -447,8 +447,8 @@ public abstract class cc extends bz implements by, Runnable {
     public void a(Socket socket) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, socket) == null) {
-            if (this.f8902d == null) {
-                this.f8902d = socket;
+            if (this.f8928d == null) {
+                this.f8928d = socket;
                 return;
             }
             throw new IllegalStateException("socket has already been set");
@@ -459,7 +459,7 @@ public abstract class cc extends bz implements by, Runnable {
     public void a(cq cqVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cqVar) == null) {
-            this.f8900a.a(cqVar);
+            this.f8926a.a(cqVar);
         }
     }
 
@@ -467,6 +467,6 @@ public abstract class cc extends bz implements by, Runnable {
     public InetSocketAddress a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8900a.a() : (InetSocketAddress) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8926a.a() : (InetSocketAddress) invokeV.objValue;
     }
 }

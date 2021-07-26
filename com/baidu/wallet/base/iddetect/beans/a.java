@@ -19,7 +19,7 @@ public class a extends BaseBean<IDDetectResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24072a;
+    public String f24230a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> a(Context context) {
@@ -39,13 +39,13 @@ public class a extends BaseBean<IDDetectResponse> {
                 return;
             }
         }
-        this.f24072a = "";
+        this.f24230a = "";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f24072a = str;
+            this.f24230a = str;
         }
     }
 
@@ -63,7 +63,7 @@ public class a extends BaseBean<IDDetectResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("id_pic", this.f24072a));
+            arrayList.add(new RestNameValuePair("id_pic", this.f24230a));
             return arrayList;
         }
         return (List) invokeV.objValue;

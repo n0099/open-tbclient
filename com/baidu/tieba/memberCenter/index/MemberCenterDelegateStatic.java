@@ -21,19 +21,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.e0.c;
-import d.a.o0.e0.d;
+import d.a.d.e.p.l;
+import d.a.p0.g0.c;
+import d.a.p0.g0.d;
 /* loaded from: classes4.dex */
-public class MemberCenterDelegateStatic extends d.a.o0.e0.b {
+public class MemberCenterDelegateStatic extends d.a.p0.g0.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f18560a;
+    public ImageView f18645a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f18561b;
+    public CustomMessageListener f18646b;
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -73,7 +73,7 @@ public class MemberCenterDelegateStatic extends d.a.o0.e0.b {
             if (((d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = memberCenterDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
-            fragmentTabStructure.f51956a.setArguments(new Bundle());
+            fragmentTabStructure.f52618a.setArguments(new Bundle());
         }
     }
 
@@ -83,7 +83,7 @@ public class MemberCenterDelegateStatic extends d.a.o0.e0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberCenterDelegateStatic f18562a;
+        public final /* synthetic */ MemberCenterDelegateStatic f18647a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MemberCenterDelegateStatic memberCenterDelegateStatic, int i2) {
@@ -103,7 +103,7 @@ public class MemberCenterDelegateStatic extends d.a.o0.e0.b {
                     return;
                 }
             }
-            this.f18562a = memberCenterDelegateStatic;
+            this.f18647a = memberCenterDelegateStatic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,16 +112,16 @@ public class MemberCenterDelegateStatic extends d.a.o0.e0.b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.f18562a.f18560a.setVisibility(8);
+                    this.f18647a.f18645a.setVisibility(8);
                 } else if (!TbadkCoreApplication.isLogin()) {
-                    this.f18562a.f18560a.setVisibility(8);
+                    this.f18647a.f18645a.setVisibility(8);
                 } else {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    d.a.o0.r.d0.b j = d.a.o0.r.d0.b.j();
+                    d.a.p0.s.d0.b j = d.a.p0.s.d0.b.j();
                     if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > j.l("maintab_member_center_red_tip_" + currentAccount, 0L)) {
-                        this.f18562a.f18560a.setVisibility(0);
+                        this.f18647a.f18645a.setVisibility(0);
                     } else {
-                        this.f18562a.f18560a.setVisibility(8);
+                        this.f18647a.f18645a.setVisibility(8);
                     }
                 }
             }
@@ -158,33 +158,33 @@ public class MemberCenterDelegateStatic extends d.a.o0.e0.b {
         }
     }
 
-    @Override // d.a.o0.e0.b
+    @Override // d.a.p0.g0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f51956a = new MemberCenterFragment();
-            cVar.f51960e = 14;
-            cVar.f51957b = R.string.member;
+            cVar.f52618a = new MemberCenterFragment();
+            cVar.f52622e = 14;
+            cVar.f52619b = R.string.member;
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // d.a.o0.e0.b
+    @Override // d.a.p0.g0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.f18560a = new ImageView(context);
+            this.f18645a = new ImageView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f13120f = this.mIndicator;
-            aVar.f13117c = l.e(context, 3.0f);
-            ImageView imageView = this.f18560a;
-            aVar.f13115a = imageView;
-            aVar.f13118d = R.drawable.icon_news_down_bar_one;
+            aVar.f13169f = this.mIndicator;
+            aVar.f13166c = l.e(context, 3.0f);
+            ImageView imageView = this.f18645a;
+            aVar.f13164a = imageView;
+            aVar.f13167d = R.drawable.icon_news_down_bar_one;
             imageView.setVisibility(8);
             this.mIndicator.a("member_center_red_tip", aVar);
             return this.mIndicator;
@@ -192,29 +192,29 @@ public class MemberCenterDelegateStatic extends d.a.o0.e0.b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // d.a.o0.e0.b
+    @Override // d.a.p0.g0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.MEMBER_CENTER_TAB_AVAILABLE : invokeV.booleanValue;
     }
 
-    @Override // d.a.o0.e0.b
+    @Override // d.a.p0.g0.b
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAdd();
-            this.f18561b = new b(this, 2016459);
+            this.f18646b = new b(this, 2016459);
         }
     }
 
-    @Override // d.a.o0.e0.b
+    @Override // d.a.p0.g0.b
     public void onRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onRemove();
-            this.f18560a = null;
-            MessageManager.getInstance().unRegisterListener(this.f18561b);
+            this.f18645a = null;
+            MessageManager.getInstance().unRegisterListener(this.f18646b);
         }
     }
 }

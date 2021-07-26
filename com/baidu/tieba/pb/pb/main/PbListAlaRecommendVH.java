@@ -26,12 +26,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.c.e.p.l;
-import d.a.o0.r.q.w0;
-import d.a.o0.r.u.c;
-import d.a.p0.h2.h.e;
-import d.a.p0.h2.k.e.a0;
+import d.a.d.e.p.k;
+import d.a.d.e.p.l;
+import d.a.p0.s.q.w0;
+import d.a.p0.s.u.c;
+import d.a.q0.h2.h.e;
+import d.a.q0.h2.k.e.a0;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View.OnClickListener {
@@ -39,19 +39,19 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19405e;
+    public int f19495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbActivity f19406f;
+    public AbsPbActivity f19496f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a0 f19407g;
+    public a0 f19497g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f19408h;
+    public View f19498h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f19409i;
+    public TbImageView f19499i;
     public TBLottieAnimationView j;
     public TextView k;
     public TextView l;
@@ -67,7 +67,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbListAlaRecommendVH f19410e;
+        public final /* synthetic */ PbListAlaRecommendVH f19500e;
 
         public a(PbListAlaRecommendVH pbListAlaRecommendVH) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
                     return;
                 }
             }
-            this.f19410e = pbListAlaRecommendVH;
+            this.f19500e = pbListAlaRecommendVH;
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f19410e.j.playAnimation();
+                this.f19500e.j.playAnimation();
             }
         }
 
@@ -99,7 +99,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         public void onViewDetachedFromWindow(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                this.f19410e.j.cancelAnimation();
+                this.f19500e.j.cancelAnimation();
             }
         }
     }
@@ -149,13 +149,13 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbListAlaRecommendVH(View view, PbActivity pbActivity) {
+    public PbListAlaRecommendVH(View view, AbsPbActivity absPbActivity) {
         super(view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, pbActivity};
+            Object[] objArr = {view, absPbActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -166,10 +166,10 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
                 return;
             }
         }
-        this.f19405e = 3;
-        this.f19406f = pbActivity;
-        this.f19408h = view.findViewById(R.id.rootLayout);
-        this.f19409i = (TbImageView) view.findViewById(R.id.coverView);
+        this.f19495e = 3;
+        this.f19496f = absPbActivity;
+        this.f19498h = view.findViewById(R.id.rootLayout);
+        this.f19499i = (TbImageView) view.findViewById(R.id.coverView);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view.findViewById(R.id.alaStateView);
         this.j = tBLottieAnimationView;
         tBLottieAnimationView.loop(true);
@@ -180,9 +180,9 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         this.m = (TextView) view.findViewById(R.id.audienceCountInfoView);
         this.o = (RelativeLayout) view.findViewById(R.id.layout_left);
         this.p = view.findViewById(R.id.ala_item_cross_line);
-        this.f19409i.setConrers(15);
-        this.f19409i.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds21));
-        this.f19409i.setPlaceHolder(2);
+        this.f19499i.setConrers(15);
+        this.f19499i.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds21));
+        this.f19499i.setPlaceHolder(2);
         this.j.playAnimation();
     }
 
@@ -193,18 +193,18 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
             if (a0Var == null) {
                 return;
             }
-            this.f19407g = a0Var;
-            this.f19408h.setOnClickListener(this);
-            this.f19409i.M(a0Var.f57055i, 10, false);
-            if (a0Var.f57052f == 1) {
+            this.f19497g = a0Var;
+            this.f19498h.setOnClickListener(this);
+            this.f19499i.M(a0Var.f57604i, 10, false);
+            if (a0Var.f57601f == 1) {
                 this.j.setVisibility(0);
             } else {
                 this.j.setVisibility(8);
             }
-            this.k.setText(a0Var.f57054h);
+            this.k.setText(a0Var.f57603h);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
-            if (!k.isEmpty(a0Var.f57051e)) {
-                this.l.setText(a0Var.f57051e);
+            if (!k.isEmpty(a0Var.f57600e)) {
+                this.l.setText(a0Var.f57600e);
                 this.l.setVisibility(0);
                 layoutParams.leftMargin = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
             } else {
@@ -212,7 +212,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
                 layoutParams.leftMargin = 0;
             }
             this.m.setLayoutParams(layoutParams);
-            this.m.setText(String.format(this.f19406f.getResources().getString(R.string.pb_ala_audience_count), StringHelper.numFormatOverWan(a0Var.f57053g)));
+            this.m.setText(String.format(this.f19496f.getResources().getString(R.string.pb_ala_audience_count), StringHelper.numFormatOverWan(a0Var.f57602g)));
             i(a0Var.q);
         }
     }
@@ -220,8 +220,8 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
     public final void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (this.f19405e != i2) {
-                SkinManager.setBackgroundSelector(this.f19408h, R.color.CAM_X0205, R.color.CAM_X0204, i2);
+            if (this.f19495e != i2) {
+                SkinManager.setBackgroundSelector(this.f19498h, R.color.CAM_X0205, R.color.CAM_X0204, i2);
                 SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1, i2);
                 SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1, i2);
                 SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1, i2);
@@ -235,17 +235,17 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
                 d2.f(R.color.CAM_X0310);
                 SkinManager.setBackgroundColor(this.p, R.color.CAM_X0203, i2);
             }
-            this.f19405e = i2;
+            this.f19495e = i2;
         }
     }
 
     public final void e(a0 a0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a0Var) == null) && a0Var != null && a0Var.f57052f == 1) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a0Var) == null) && a0Var != null && a0Var.f57601f == 1) {
             if (a0Var.l) {
                 f(a0Var.n, a0Var.m);
             } else if (a0Var.r != null) {
-                TbPageContext<BaseFragmentActivity> pageContext = this.f19406f.getPageContext();
+                TbPageContext<BaseFragmentActivity> pageContext = this.f19496f.getPageContext();
                 YyExtData yyExtData = a0Var.r;
                 YYLiveUtil.jumpToYYLiveRoom(pageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "", YYLiveUtil.SOURCE_PB_VIDEO_RECOMMEND_LIVE_CARD);
             }
@@ -256,7 +256,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             UrlManager urlManager = UrlManager.getInstance();
-            TbPageContext<BaseFragmentActivity> pageContext = this.f19406f.getPageContext();
+            TbPageContext<BaseFragmentActivity> pageContext = this.f19496f.getPageContext();
             urlManager.dealOneLink(pageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
         }
     }
@@ -275,19 +275,19 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
     public void h(e eVar) {
         a0 a0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) || eVar == null || eVar.m() == null || (a0Var = this.f19407g) == null || a0Var.p) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) || eVar == null || eVar.m() == null || (a0Var = this.f19497g) == null || a0Var.p) {
             return;
         }
         this.q = eVar;
         StatisticItem param = new StatisticItem("c13716").param("fid", eVar.m().getId()).param("fname", eVar.m().getName()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", eVar.P());
-        MetaData metaData = this.f19407g.j;
+        MetaData metaData = this.f19497g.j;
         TiebaStatic.log(param.param("obj_param1", metaData != null ? metaData.getUserId() : ""));
-        this.f19407g.p = true;
+        this.f19497g.p = true;
     }
 
     public final void i(w0 w0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, w0Var) == null) || this.f19406f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, w0Var) == null) || this.f19496f == null) {
             return;
         }
         if (w0Var == null) {
@@ -299,11 +299,11 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
             return;
         }
         if (this.n == null) {
-            this.n = new NEGFeedBackView(this.f19406f.getPageContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.g(this.f19406f, R.dimen.tbds50), l.g(this.f19406f, R.dimen.tbds50));
+            this.n = new NEGFeedBackView(this.f19496f.getPageContext());
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.g(this.f19496f, R.dimen.tbds50), l.g(this.f19496f, R.dimen.tbds50));
             layoutParams.addRule(11);
             layoutParams.addRule(3, R.id.descView);
-            layoutParams.topMargin = l.g(this.f19406f, R.dimen.tbds12);
+            layoutParams.topMargin = l.g(this.f19496f, R.dimen.tbds12);
             this.o.addView(this.n, layoutParams);
             this.n.setEventCallback(new b(this));
         }
@@ -318,10 +318,10 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
             int id = view.getId();
-            a0 a0Var = this.f19407g;
+            a0 a0Var = this.f19497g;
             if (a0Var != null && id == R.id.rootLayout) {
                 e(a0Var);
-                g(this.f19407g);
+                g(this.f19497g);
             }
         }
     }

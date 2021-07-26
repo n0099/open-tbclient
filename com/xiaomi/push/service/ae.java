@@ -16,7 +16,7 @@ public final class ae extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40580a;
+    public final /* synthetic */ int f40852a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Notification f881a;
@@ -28,7 +28,7 @@ public final class ae extends ai.a {
     public final /* synthetic */ String f883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40581b;
+    public final /* synthetic */ String f40853b;
 
     public ae(int i2, String str, Context context, String str2, Notification notification) {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public final class ae extends ai.a {
                 return;
             }
         }
-        this.f40580a = i2;
+        this.f40852a = i2;
         this.f883a = str;
         this.f882a = context;
-        this.f40581b = str2;
+        this.f40853b = str2;
         this.f881a = notification;
     }
 
@@ -59,7 +59,7 @@ public final class ae extends ai.a {
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b2 = ac.b(this.f40580a, this.f883a);
+            b2 = ac.b(this.f40852a, this.f883a);
             return b2;
         }
         return (String) invokeV.objValue;
@@ -70,7 +70,7 @@ public final class ae extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ac.b(this.f882a, this.f40581b, this.f40580a, this.f883a, this.f881a);
+            ac.b(this.f882a, this.f40853b, this.f40852a, this.f883a, this.f881a);
         }
     }
 }

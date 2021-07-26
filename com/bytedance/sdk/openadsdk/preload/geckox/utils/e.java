@@ -10,7 +10,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32273a;
+    public static boolean f32474a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,6 +31,6 @@ public class e {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32273a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32474a : invokeV.booleanValue;
     }
 }

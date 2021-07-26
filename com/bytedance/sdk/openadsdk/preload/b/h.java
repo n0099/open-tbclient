@@ -12,13 +12,13 @@ public final class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Class<? extends d> f32085a;
+    public Class<? extends d> f32286a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.b.b.a f32086b;
+    public com.bytedance.sdk.openadsdk.preload.b.b.a f32287b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object[] f32087c;
+    public Object[] f32288c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.b.h$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -33,13 +33,13 @@ public final class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Class<? extends d> f32088a;
+        public Class<? extends d> f32289a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.b.b.a f32089b;
+        public com.bytedance.sdk.openadsdk.preload.b.b.a f32290b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Object[] f32090c;
+        public Object[] f32291c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public final class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
                 if (cls != null) {
-                    this.f32088a = cls;
+                    this.f32289a = cls;
                     return this;
                 }
                 throw new IllegalArgumentException("interceptor class == null");
@@ -84,7 +84,7 @@ public final class h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                this.f32089b = aVar;
+                this.f32290b = aVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -95,7 +95,7 @@ public final class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr)) == null) {
                 if (objArr != null) {
-                    this.f32090c = objArr;
+                    this.f32291c = objArr;
                     return this;
                 }
                 throw new IllegalArgumentException("args == null");
@@ -111,19 +111,19 @@ public final class h {
     public Class<? extends d> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32085a : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32286a : (Class) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.preload.b.b.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32086b : (com.bytedance.sdk.openadsdk.preload.b.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32287b : (com.bytedance.sdk.openadsdk.preload.b.b.a) invokeV.objValue;
     }
 
     public Object[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32087c : (Object[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32288c : (Object[]) invokeV.objValue;
     }
 
     public h(a aVar) {
@@ -141,10 +141,10 @@ public final class h {
                 return;
             }
         }
-        this.f32085a = aVar.f32088a;
-        this.f32086b = aVar.f32089b;
-        this.f32087c = aVar.f32090c;
-        if (this.f32085a == null) {
+        this.f32286a = aVar.f32289a;
+        this.f32287b = aVar.f32290b;
+        this.f32288c = aVar.f32291c;
+        if (this.f32286a == null) {
             throw new IllegalArgumentException("Interceptor class == null");
         }
     }

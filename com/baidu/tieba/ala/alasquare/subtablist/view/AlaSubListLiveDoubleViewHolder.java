@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v.d.g.d.d;
+import d.a.q0.v.d.g.d.d;
 /* loaded from: classes4.dex */
 public class AlaSubListLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f14167a;
+    public d f14215a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSubListLiveDoubleViewHolder(d dVar) {
@@ -33,6 +33,6 @@ public class AlaSubListLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14167a = dVar;
+        this.f14215a = dVar;
     }
 }

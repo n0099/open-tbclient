@@ -22,10 +22,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32555a;
+    public String f32742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32556b;
+    public String f32743b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, bVar, aVar)) == null) {
             Map<String, List<String>> b2 = bVar.b();
-            if (TextUtils.isEmpty(this.f32555a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
-                this.f32555a = list.get(0);
+            if (TextUtils.isEmpty(this.f32742a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
+                this.f32742a = list.get(0);
             }
             s.b(aVar, String.valueOf(bVar.a()));
             List<String> list2 = b2.get("Location");
@@ -57,7 +57,7 @@ public class a {
             }
             if (list2 != null && list2.size() > 0) {
                 String str = list2.get(0);
-                this.f32556b = str;
+                this.f32743b = str;
                 if (!TextUtils.isEmpty(str)) {
                     String b3 = aVar.b("operatortype", "0");
                     if ("2".equals(b3)) {
@@ -69,8 +69,8 @@ public class a {
                     }
                 }
             }
-            Log.d("Location", this.f32556b);
-            c a2 = a(this.f32556b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
+            Log.d("Location", this.f32743b);
+            c a2 = a(this.f32743b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
             a2.a(cVar.h());
             return a2;
         }
@@ -98,9 +98,9 @@ public class a {
             } else {
                 dVar.b("pre");
             }
-            c a2 = a(e2 + this.f32555a, cVar.f(), "POST", dVar);
+            c a2 = a(e2 + this.f32742a, cVar.f(), "POST", dVar);
             a2.a(cVar.h());
-            this.f32555a = null;
+            this.f32742a = null;
             return a2;
         }
         return (c) invokeLLL.objValue;
@@ -122,6 +122,6 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32555a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32742a : (String) invokeV.objValue;
     }
 }

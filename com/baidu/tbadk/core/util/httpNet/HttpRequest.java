@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.j;
-import d.a.o0.f0.f;
-import d.a.o0.r.d0.b;
-import d.a.o0.r.l.c;
-import d.a.o0.r.l.e;
-import d.a.o0.s.b.a;
+import d.a.d.e.p.j;
+import d.a.p0.h0.f;
+import d.a.p0.s.d0.b;
+import d.a.p0.s.l.c;
+import d.a.p0.s.l.e;
+import d.a.p0.t.b.a;
 /* loaded from: classes3.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
@@ -150,8 +150,8 @@ public class HttpRequest {
                 }
                 z = false;
             }
-            d.a.c.e.j.b.a.s(z);
-            d.a.c.e.j.b.a.n(a2);
+            d.a.d.e.j.b.a.s(z);
+            d.a.d.e.j.b.a.n(a2);
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
                     iNetWorkCore.addPostData(TBS, f.d());
@@ -173,6 +173,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData("cmode", PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
+            iNetWorkCore.addPostData("is_teenager", d.a.p0.e1.b.e.d() ? "1" : "0");
         }
     }
 

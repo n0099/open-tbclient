@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h3.d0.a;
+import d.a.q0.h3.d0.a;
 /* loaded from: classes4.dex */
 public class GodSquareActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class GodSquareActivityStatic {
                 return;
             }
         }
-        a.b(2016446, d.a.p0.z0.c.c.a.class);
+        a.b(2016446, d.a.q0.z0.c.c.a.class);
         a.d(CmdConfigHttp.CMD_GET_HOT_GOD, 309315, TbConfig.GET_HOT_GOD, GodSquareHttpResponsedMsg.class, GodSquareSocketResponsedMsg.class);
         TbadkCoreApplication.getInst().RegisterIntent(GodSquareActivityConfig.class, GodSquareActivity.class);
     }

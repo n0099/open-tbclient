@@ -18,11 +18,11 @@ public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5277a = "logsender";
+    public static final String f5303a = "logsender";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f5278b;
+    public ConcurrentHashMap<String, Long> f5304b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -93,7 +93,7 @@ public class StatService {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f5279a;
+        public static StatService f5305a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -109,7 +109,7 @@ public class StatService {
                     return;
                 }
             }
-            f5279a = new StatService(null);
+            f5305a = new StatService(null);
         }
 
         public a() {
@@ -134,7 +134,7 @@ public class StatService {
     public static StatService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f5279a : (StatService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f5305a : (StatService) invokeV.objValue;
     }
 
     public static void b(String str, String str2, Collection<String> collection) {
@@ -162,7 +162,7 @@ public class StatService {
                 return;
             }
         }
-        this.f5278b = new ConcurrentHashMap<>();
+        this.f5304b = new ConcurrentHashMap<>();
     }
 
     public static synchronized void a(String str, ETag eTag, Collection<String> collection) {
@@ -231,7 +231,7 @@ public class StatService {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a().f5278b.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().f5304b.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
@@ -240,12 +240,12 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            Long l = a().f5278b.get(str);
+            Long l = a().f5304b.get(str);
             if (l == null) {
                 return null;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f5278b.remove(str);
+            a().f5304b.remove(str);
             arrayList.add(Long.toString(valueOf.longValue()));
             arrayList.add(str2);
             return arrayList;

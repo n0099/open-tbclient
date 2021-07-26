@@ -27,29 +27,29 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f28469a;
+    public static final byte[] f28563a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f28470b;
+    public static final String[] f28564b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f28471c;
+    public static final String[] f28565c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f28472d;
+    public static final a f28566d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicBoolean f28473e;
+    public final AtomicBoolean f28567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CountDownLatch f28474f;
+    public final CountDownLatch f28568f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f28475g;
+    public byte[] f28569g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f28476h;
+    public byte[] f28570h;
 
     static {
         InterceptResult invokeClinit;
@@ -64,10 +64,10 @@ public final class a {
                 return;
             }
         }
-        f28469a = new byte[]{42};
-        f28470b = new String[0];
-        f28471c = new String[]{"*"};
-        f28472d = new a();
+        f28563a = new byte[]{42};
+        f28564b = new String[0];
+        f28565c = new String[]{"*"};
+        f28566d = new a();
     }
 
     public a() {
@@ -83,14 +83,14 @@ public final class a {
                 return;
             }
         }
-        this.f28473e = new AtomicBoolean(false);
-        this.f28474f = new CountDownLatch(1);
+        this.f28567e = new AtomicBoolean(false);
+        this.f28568f = new CountDownLatch(1);
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f28472d : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f28566d : (a) invokeV.objValue;
     }
 
     private void b() {
@@ -138,10 +138,10 @@ public final class a {
             byte[] bArr2 = new byte[a2.j()];
             a2.a(bArr2);
             synchronized (this) {
-                this.f28475g = bArr;
-                this.f28476h = bArr2;
+                this.f28569g = bArr;
+                this.f28570h = bArr2;
             }
-            this.f28474f.countDown();
+            this.f28568f.countDown();
         } finally {
             c.a(a2);
         }
@@ -188,23 +188,23 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, strArr)) == null) {
             int i2 = 0;
-            if (!this.f28473e.get() && this.f28473e.compareAndSet(false, true)) {
+            if (!this.f28567e.get() && this.f28567e.compareAndSet(false, true)) {
                 b();
             } else {
                 try {
-                    this.f28474f.await();
+                    this.f28568f.await();
                 } catch (InterruptedException unused) {
                 }
             }
             synchronized (this) {
-                if (this.f28475g == null) {
+                if (this.f28569g == null) {
                     throw new IllegalStateException("Unable to load publicsuffixes.gz resource from the classpath.");
                 }
             }
             int length = strArr.length;
             byte[][] bArr = new byte[length];
             for (int i3 = 0; i3 < strArr.length; i3++) {
-                bArr[i3] = strArr[i3].getBytes(c.f28225e);
+                bArr[i3] = strArr[i3].getBytes(c.f28319e);
             }
             int i4 = 0;
             while (true) {
@@ -213,7 +213,7 @@ public final class a {
                     str2 = null;
                     break;
                 }
-                str2 = a(this.f28475g, bArr, i4);
+                str2 = a(this.f28569g, bArr, i4);
                 if (str2 != null) {
                     break;
                 }
@@ -222,8 +222,8 @@ public final class a {
             if (length > 1) {
                 byte[][] bArr2 = (byte[][]) bArr.clone();
                 for (int i5 = 0; i5 < bArr2.length - 1; i5++) {
-                    bArr2[i5] = f28469a;
-                    str3 = a(this.f28475g, bArr2, i5);
+                    bArr2[i5] = f28563a;
+                    str3 = a(this.f28569g, bArr2, i5);
                     if (str3 != null) {
                         break;
                     }
@@ -235,7 +235,7 @@ public final class a {
                     if (i2 >= length - 1) {
                         break;
                     }
-                    String a2 = a(this.f28476h, bArr, i2);
+                    String a2 = a(this.f28570h, bArr, i2);
                     if (a2 != null) {
                         str = a2;
                         break;
@@ -246,10 +246,10 @@ public final class a {
             if (str != null) {
                 return ("!" + str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             } else if (str2 == null && str3 == null) {
-                return f28471c;
+                return f28565c;
             } else {
-                String[] split = str2 != null ? str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f28470b;
-                String[] split2 = str3 != null ? str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f28470b;
+                String[] split = str2 != null ? str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f28564b;
+                String[] split2 = str3 != null ? str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f28564b;
                 return split.length > split2.length ? split : split2;
             }
         }
@@ -325,7 +325,7 @@ public final class a {
                         }
                         if (length2 >= i14) {
                             if (length2 <= i14) {
-                                return new String(bArr, i8, i10, c.f28225e);
+                                return new String(bArr, i8, i10, c.f28319e);
                             }
                         }
                     }

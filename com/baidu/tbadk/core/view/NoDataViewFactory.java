@@ -113,10 +113,10 @@ public class NoDataViewFactory {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View.OnClickListener f12472a;
+        public View.OnClickListener f12521a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12473b;
+        public String f12522b;
 
         public b(String str, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -133,8 +133,8 @@ public class NoDataViewFactory {
                     return;
                 }
             }
-            this.f12473b = str;
-            this.f12472a = onClickListener;
+            this.f12522b = str;
+            this.f12521a = onClickListener;
         }
     }
 
@@ -144,13 +144,13 @@ public class NoDataViewFactory {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f12474a;
+        public final b f12523a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f12475b;
+        public final b f12524b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f12476c;
+        public final int f12525c;
 
         /* loaded from: classes3.dex */
         public static class a {
@@ -158,13 +158,13 @@ public class NoDataViewFactory {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public b f12477a;
+            public b f12526a;
 
             /* renamed from: b  reason: collision with root package name */
-            public b f12478b;
+            public b f12527b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f12479c;
+            public int f12528c;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -179,16 +179,16 @@ public class NoDataViewFactory {
                         return;
                     }
                 }
-                this.f12477a = null;
-                this.f12478b = null;
-                this.f12479c = -1;
+                this.f12526a = null;
+                this.f12527b = null;
+                this.f12528c = -1;
             }
 
             public a d(int i2) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                    this.f12479c = i2;
+                    this.f12528c = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -204,7 +204,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-                    this.f12477a = bVar;
+                    this.f12526a = bVar;
                     return this;
                 }
                 return (a) invokeL.objValue;
@@ -253,9 +253,9 @@ public class NoDataViewFactory {
                     return;
                 }
             }
-            this.f12474a = aVar.f12477a;
-            this.f12475b = aVar.f12478b;
-            this.f12476c = aVar.f12479c;
+            this.f12523a = aVar.f12526a;
+            this.f12524b = aVar.f12527b;
+            this.f12525c = aVar.f12528c;
         }
     }
 
@@ -265,19 +265,19 @@ public class NoDataViewFactory {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImgType f12480a;
+        public final ImgType f12529a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f12481b;
+        public final int f12530b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f12482c;
+        public final int f12531c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f12483d;
+        public final int f12532d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12484e;
+        public final int f12533e;
 
         /* loaded from: classes3.dex */
         public static class a {
@@ -285,19 +285,19 @@ public class NoDataViewFactory {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public ImgType f12485a;
+            public ImgType f12534a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f12486b;
+            public int f12535b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f12487c;
+            public int f12536c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f12488d;
+            public int f12537d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f12489e;
+            public int f12538e;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -312,11 +312,11 @@ public class NoDataViewFactory {
                         return;
                     }
                 }
-                this.f12485a = ImgType.NONE;
-                this.f12486b = -1;
-                this.f12487c = -1;
-                this.f12488d = -1;
-                this.f12489e = -1;
+                this.f12534a = ImgType.NONE;
+                this.f12535b = -1;
+                this.f12536c = -1;
+                this.f12537d = -1;
+                this.f12538e = -1;
             }
 
             public d f() {
@@ -329,7 +329,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                    this.f12488d = i2;
+                    this.f12537d = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -339,7 +339,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                    this.f12487c = i2;
+                    this.f12536c = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -349,7 +349,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imgType)) == null) {
-                    this.f12485a = imgType;
+                    this.f12534a = imgType;
                     return this;
                 }
                 return (a) invokeL.objValue;
@@ -359,7 +359,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                    this.f12486b = i2;
+                    this.f12535b = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -369,7 +369,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                    this.f12489e = i2;
+                    this.f12538e = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -433,11 +433,11 @@ public class NoDataViewFactory {
                     return;
                 }
             }
-            this.f12480a = aVar.f12485a;
-            this.f12481b = aVar.f12486b;
-            this.f12482c = aVar.f12487c;
-            this.f12483d = aVar.f12488d;
-            this.f12484e = aVar.f12489e;
+            this.f12529a = aVar.f12534a;
+            this.f12530b = aVar.f12535b;
+            this.f12531c = aVar.f12536c;
+            this.f12532d = aVar.f12537d;
+            this.f12533e = aVar.f12538e;
         }
     }
 
@@ -447,19 +447,19 @@ public class NoDataViewFactory {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f12490a;
+        public final String f12539a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f12491b;
+        public final String f12540b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f12492c;
+        public final String f12541c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f12493d;
+        public final int f12542d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12494e;
+        public final int f12543e;
 
         /* loaded from: classes3.dex */
         public static class a {
@@ -467,19 +467,19 @@ public class NoDataViewFactory {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public String f12495a;
+            public String f12544a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f12496b;
+            public String f12545b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f12497c;
+            public String f12546c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f12498d;
+            public int f12547d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f12499e;
+            public int f12548e;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -494,11 +494,11 @@ public class NoDataViewFactory {
                         return;
                     }
                 }
-                this.f12495a = null;
-                this.f12496b = null;
-                this.f12497c = null;
-                this.f12498d = -1;
-                this.f12499e = 0;
+                this.f12544a = null;
+                this.f12545b = null;
+                this.f12546c = null;
+                this.f12547d = -1;
+                this.f12548e = 0;
             }
 
             public e f() {
@@ -511,7 +511,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                    this.f12496b = str;
+                    this.f12545b = str;
                     return this;
                 }
                 return (a) invokeL.objValue;
@@ -521,7 +521,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                    this.f12495a = str;
+                    this.f12544a = str;
                     return this;
                 }
                 return (a) invokeL.objValue;
@@ -531,7 +531,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                    this.f12498d = i2;
+                    this.f12547d = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -604,11 +604,11 @@ public class NoDataViewFactory {
                     return;
                 }
             }
-            this.f12490a = aVar.f12495a;
-            this.f12491b = aVar.f12496b;
-            this.f12492c = aVar.f12497c;
-            this.f12493d = aVar.f12498d;
-            this.f12494e = aVar.f12499e;
+            this.f12539a = aVar.f12544a;
+            this.f12540b = aVar.f12545b;
+            this.f12541c = aVar.f12546c;
+            this.f12542d = aVar.f12547d;
+            this.f12543e = aVar.f12548e;
         }
     }
 

@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v.i.e.e;
+import d.a.q0.v.i.e.e;
 /* loaded from: classes4.dex */
 public class FrsPageAlaVideoHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f14269a;
+    public e f14317a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaVideoHolder(e eVar) {
@@ -33,6 +33,6 @@ public class FrsPageAlaVideoHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14269a = eVar;
+        this.f14317a = eVar;
     }
 }

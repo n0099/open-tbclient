@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.k;
-import d.a.c.e.p.l;
+import d.a.d.e.p.k;
+import d.a.d.e.p.l;
 /* loaded from: classes4.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
@@ -53,7 +53,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
             if (z) {
                 this.j.setText("new");
-                this.j.setTextAppearance(this.f12917e, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
+                this.j.setTextAppearance(this.f12966e, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
                 SkinManager.setBackgroundResource(this.j, R.drawable.icon_news_text_prompt);
                 return;
             }
@@ -63,7 +63,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
             this.j.setText(version);
             this.j.setBackgroundDrawable(null);
-            this.j.setTextAppearance(this.f12917e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+            this.j.setTextAppearance(this.f12966e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
         }
     }
 }

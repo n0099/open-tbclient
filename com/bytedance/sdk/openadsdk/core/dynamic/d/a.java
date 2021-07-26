@@ -6,23 +6,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.core.b.c;
 import com.bytedance.sdk.openadsdk.core.e.k;
-import com.bytedance.sdk.openadsdk.core.nativeexpress.j;
-import com.bytedance.sdk.openadsdk.r.q;
+import com.bytedance.sdk.openadsdk.core.nativeexpress.o;
+import com.bytedance.sdk.openadsdk.q.s;
 import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class a extends com.bytedance.sdk.openadsdk.core.b.c {
+public class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<View> f29978a;
+    public WeakReference<View> f30077a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<View> f29979b;
+    public WeakReference<View> f30078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f29980c;
+    public o f30079c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,24 +39,24 @@ public class a extends com.bytedance.sdk.openadsdk.core.b.c {
         }
     }
 
-    public void a(j jVar) {
+    public void a(o oVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) {
-            this.f29980c = jVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oVar) == null) {
+            this.f30079c = oVar;
         }
     }
 
     public void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f29979b = new WeakReference<>(view);
+            this.f30078b = new WeakReference<>(view);
         }
     }
 
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f29978a = new WeakReference<>(view);
+            this.f30077a = new WeakReference<>(view);
         }
     }
 
@@ -69,16 +70,16 @@ public class a extends com.bytedance.sdk.openadsdk.core.b.c {
 
     private void a(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65537, this, i2) == null) || this.f29980c == null) {
+        if (!(interceptable == null || interceptable.invokeI(65537, this, i2) == null) || this.f30079c == null) {
             return;
         }
         int[] iArr = new int[2];
         int[] iArr2 = new int[2];
-        WeakReference<View> weakReference = this.f29979b;
+        WeakReference<View> weakReference = this.f30078b;
         if (weakReference != null) {
-            iArr = q.a(weakReference.get());
-            iArr2 = q.c(this.f29979b.get());
+            iArr = s.a(weakReference.get());
+            iArr2 = s.c(this.f30078b.get());
         }
-        this.f29980c.a(i2, new k.a().d(this.s).c(this.t).b(this.u).a(this.v).b(this.w).a(this.x).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
+        this.f30079c.a(i2, new k.a().d(this.t).c(this.u).b(this.v).a(this.w).b(this.x).a(this.y).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
     }
 }

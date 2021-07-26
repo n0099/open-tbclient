@@ -204,13 +204,13 @@ public class c extends e implements OrientationManager.OrientationListener, l {
 
     private void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65545, this, z) == null) || this.f4205f == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65545, this, z) == null) || this.f4231f == null) {
             return;
         }
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 10200);
         hashMap.put("front_camera", Integer.valueOf(!z ? 1 : 0));
-        this.f4205f.b(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+        this.f4231f.b(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arrender.f
@@ -887,11 +887,11 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     @Override // com.baidu.ar.arplay.core.engine.rotate.OrientationManager.OrientationListener
     public void onRotateOrientation(Orientation orientation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048630, this, orientation) == null) || this.f4205f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, orientation) == null) || this.f4231f == null) {
             return;
         }
         com.baidu.ar.h.b.c("ARRenderer", "sendOrientation2Render orientation = " + orientation);
-        this.f4205f.b(4001, com.baidu.ar.arrender.b.a(orientation));
+        this.f4231f.b(4001, com.baidu.ar.arrender.b.a(orientation));
     }
 
     @Override // com.baidu.ar.arrender.e, android.view.View.OnTouchListener

@@ -13,7 +13,7 @@ public class d extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f2026a;
+    public final /* synthetic */ a f2059a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(a aVar, Looper looper) {
@@ -33,14 +33,14 @@ public class d extends Handler {
                 return;
             }
         }
-        this.f2026a = aVar;
+        this.f2059a = aVar;
     }
 
     @Override // android.os.Handler
     public void dispatchMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            this.f2026a.c();
+            this.f2059a.c();
         }
     }
 }

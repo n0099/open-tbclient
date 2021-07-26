@@ -25,10 +25,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public InputStream f68993e;
+        public InputStream f69447e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<String> f68994f;
+        public List<String> f69448f;
 
         public a(InputStream inputStream, List<String> list) {
             Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class f {
                     return;
                 }
             }
-            this.f68993e = inputStream;
-            this.f68994f = list;
+            this.f69447e = inputStream;
+            this.f69448f = list;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f68993e));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f69447e));
                 int i2 = 32768;
                 while (true) {
                     try {
@@ -65,7 +65,7 @@ public class f {
                             if (i2 < 0) {
                                 break;
                             }
-                            this.f68994f.add(readLine);
+                            this.f69448f.add(readLine);
                         }
                     } catch (IOException unused) {
                     } catch (Throwable th) {
@@ -84,10 +84,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Process f68995e;
+        public Process f69449e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f68996f;
+        public long f69450f;
 
         public b(Process process, long j) {
             Interceptable interceptable = $ic;
@@ -104,8 +104,8 @@ public class f {
                     return;
                 }
             }
-            this.f68995e = process;
-            this.f68996f = j;
+            this.f69449e = process;
+            this.f69450f = j;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -113,11 +113,11 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Thread.sleep(this.f68996f);
+                    Thread.sleep(this.f69450f);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
-                Process process = this.f68995e;
+                Process process = this.f69449e;
                 if (process != null) {
                     process.destroy();
                 }

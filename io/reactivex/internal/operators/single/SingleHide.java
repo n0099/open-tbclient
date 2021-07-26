@@ -24,7 +24,7 @@ public final class SingleHide<T> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73063d;
+        public Disposable f73517d;
 
         public HideSingleObserver(SingleObserver<? super T> singleObserver) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public final class SingleHide<T> extends Single<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73063d.dispose();
+                this.f73517d.dispose();
             }
         }
 
@@ -56,7 +56,7 @@ public final class SingleHide<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73063d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73517d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -70,8 +70,8 @@ public final class SingleHide<T> extends Single<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f73063d, disposable)) {
-                this.f73063d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f73517d, disposable)) {
+                this.f73517d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

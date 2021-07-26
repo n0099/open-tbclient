@@ -18,10 +18,10 @@ public class NoTitlePromptDialog extends WalletDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnClickListener f24460a;
+    public View.OnClickListener f24618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ContentDialogModel f24461b;
+    public final ContentDialogModel f24619b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTitlePromptDialog(Context context) {
@@ -47,8 +47,8 @@ public class NoTitlePromptDialog extends WalletDialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            ContentDialogModel contentDialogModel = this.f24461b;
-            contentDialogModel.defaultListener = this.f24460a;
+            ContentDialogModel contentDialogModel = this.f24619b;
+            contentDialogModel.defaultListener = this.f24618a;
             setAdapter(new NoTitleContentDialogAdapter(contentDialogModel));
         }
     }
@@ -56,91 +56,91 @@ public class NoTitlePromptDialog extends WalletDialog {
     public void hideButtons() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f24461b.hideButtons = true;
+            this.f24619b.hideButtons = true;
         }
     }
 
     public void hideNegativeButton() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24461b.hideNegativeBtn = true;
+            this.f24619b.hideNegativeBtn = true;
         }
     }
 
     public void hidePositiveButton() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f24461b.hidePositiveBtn = true;
+            this.f24619b.hidePositiveBtn = true;
         }
     }
 
     public void setDialogBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f24461b.dialogBackgound = i2;
+            this.f24619b.dialogBackgound = i2;
         }
     }
 
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f24461b.messageId = i2;
+            this.f24619b.messageId = i2;
         }
     }
 
     public void setMessageBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f24461b.backgroundColor = i2;
+            this.f24619b.backgroundColor = i2;
         }
     }
 
     public void setMessageTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f24461b.messageSize = i2;
+            this.f24619b.messageSize = i2;
         }
     }
 
     public void setNegativeBtn(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
-            this.f24461b.negativeBtnClickListener = onClickListener;
+            this.f24619b.negativeBtnClickListener = onClickListener;
         }
     }
 
     public void setNegativeBtnTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f24461b.negativeBtnTextColor = i2;
+            this.f24619b.negativeBtnTextColor = i2;
         }
     }
 
     public void setNegativeBtnTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f24461b.negativeBtnTextSize = i2;
+            this.f24619b.negativeBtnTextSize = i2;
         }
     }
 
     public void setPositiveBtn(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
-            this.f24461b.positiveBtnClickListener = onClickListener;
+            this.f24619b.positiveBtnClickListener = onClickListener;
         }
     }
 
     public void setPositiveBtnTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f24461b.positiveBtnTextColor = i2;
+            this.f24619b.positiveBtnTextColor = i2;
         }
     }
 
     public void setPositiveBtnTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f24461b.positiveBtnTextSize = i2;
+            this.f24619b.positiveBtnTextSize = i2;
         }
     }
 
@@ -163,12 +163,12 @@ public class NoTitlePromptDialog extends WalletDialog {
                 return;
             }
         }
-        this.f24460a = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.NoTitlePromptDialog.1
+        this.f24618a = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.NoTitlePromptDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NoTitlePromptDialog f24462a;
+            public final /* synthetic */ NoTitlePromptDialog f24620a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -185,32 +185,32 @@ public class NoTitlePromptDialog extends WalletDialog {
                         return;
                     }
                 }
-                this.f24462a = this;
+                this.f24620a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f24462a.dismiss();
+                    this.f24620a.dismiss();
                 }
             }
         };
-        this.f24461b = new ContentDialogModel();
+        this.f24619b = new ContentDialogModel();
         a();
     }
 
     public void setMessage(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            this.f24461b.message = charSequence;
+            this.f24619b.message = charSequence;
         }
     }
 
     public void setNegativeBtn(int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24461b;
+            ContentDialogModel contentDialogModel = this.f24619b;
             contentDialogModel.negativeBtnClickListener = onClickListener;
             contentDialogModel.negativeBtnTextId = i2;
         }
@@ -219,7 +219,7 @@ public class NoTitlePromptDialog extends WalletDialog {
     public void setPositiveBtn(int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048590, this, i2, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24461b;
+            ContentDialogModel contentDialogModel = this.f24619b;
             contentDialogModel.positiveBtnClickListener = onClickListener;
             contentDialogModel.positiveBtnTextId = i2;
         }
@@ -228,7 +228,7 @@ public class NoTitlePromptDialog extends WalletDialog {
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24461b;
+            ContentDialogModel contentDialogModel = this.f24619b;
             contentDialogModel.negativeBtnClickListener = onClickListener;
             contentDialogModel.negativeBtnText = str;
         }
@@ -237,7 +237,7 @@ public class NoTitlePromptDialog extends WalletDialog {
     public void setPositiveBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, spannableString, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24461b;
+            ContentDialogModel contentDialogModel = this.f24619b;
             contentDialogModel.positiveBtnClickListener = onClickListener;
             contentDialogModel.positiveBtnText = spannableString;
         }
@@ -246,7 +246,7 @@ public class NoTitlePromptDialog extends WalletDialog {
     public void setNegativeBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, spannableString, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24461b;
+            ContentDialogModel contentDialogModel = this.f24619b;
             contentDialogModel.negativeBtnClickListener = onClickListener;
             contentDialogModel.negativeBtnText = spannableString;
         }
@@ -255,7 +255,7 @@ public class NoTitlePromptDialog extends WalletDialog {
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, str, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24461b;
+            ContentDialogModel contentDialogModel = this.f24619b;
             contentDialogModel.positiveBtnText = str;
             contentDialogModel.positiveBtnClickListener = onClickListener;
         }

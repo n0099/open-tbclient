@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.b;
-import d.a.c.a.h;
-import d.a.c.e.p.d;
-import d.a.c.g.c;
+import d.a.d.a.b;
+import d.a.d.a.h;
+import d.a.d.e.p.d;
+import d.a.d.g.c;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends Application {
@@ -50,7 +50,7 @@ public class BdBaseApplication extends Application {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdBaseApplication f2137a;
+        public final /* synthetic */ BdBaseApplication f2163a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdBaseApplication bdBaseApplication, Looper looper) {
@@ -70,14 +70,14 @@ public class BdBaseApplication extends Application {
                     return;
                 }
             }
-            this.f2137a = bdBaseApplication;
+            this.f2163a = bdBaseApplication;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f2137a.handleInitMessage(message);
+                this.f2163a.handleInitMessage(message);
             }
         }
     }
@@ -143,7 +143,7 @@ public class BdBaseApplication extends Application {
     private void initPlugin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            d.a.c.h.i.a.d().e();
+            d.a.d.h.i.a.d().e();
         }
     }
 

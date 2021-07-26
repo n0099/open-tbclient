@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.c.k.e.n;
-import d.a.p0.e1.k.b.c.a;
-import d.a.p0.e1.k.b.c.c;
+import d.a.d.k.e.n;
+import d.a.q0.e1.k.b.c.a;
+import d.a.q0.e1.k.b.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.DataRes;
@@ -73,13 +73,13 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                 aVar.O(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f55823e = R.dimen.tbds1;
-                cVar.f55824f = R.color.CAM_X0203;
+                cVar.f56367e = R.dimen.tbds1;
+                cVar.f56368f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f55823e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f56367e = 0;
     }
 }

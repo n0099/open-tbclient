@@ -15,17 +15,17 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f33813a;
+    public static File f34002a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static File a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (f33813a == null) {
-                f33813a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+            if (f34002a == null) {
+                f34002a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
             }
-            return f33813a;
+            return f34002a;
         }
         return (File) invokeL.objValue;
     }
@@ -132,10 +132,10 @@ public class g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f33814a;
+            public final /* synthetic */ Context f34003a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f33815b;
+            public final /* synthetic */ String f34004b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -152,8 +152,8 @@ public class g {
                         return;
                     }
                 }
-                this.f33814a = context;
-                this.f33815b = str;
+                this.f34003a = context;
+                this.f34004b = str;
             }
 
             @Override // java.lang.Runnable
@@ -161,12 +161,12 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        File[] listFiles = g.c(this.f33814a, this.f33815b).getParentFile().listFiles();
+                        File[] listFiles = g.c(this.f34003a, this.f34004b).getParentFile().listFiles();
                         if (listFiles == null || listFiles.length <= 0) {
                             return;
                         }
                         for (File file : listFiles) {
-                            if (f.a(this.f33815b, file.getName().substring(file.getName().indexOf("-") + 1))) {
+                            if (f.a(this.f34004b, file.getName().substring(file.getName().indexOf("-") + 1))) {
                                 g.a(file);
                             }
                         }

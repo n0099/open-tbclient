@@ -14,13 +14,13 @@ public abstract class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f70873a;
+    public static final o f71327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final o f70874b;
+    public static final o f71328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final o f70875c;
+    public static final o f71329c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -68,9 +68,9 @@ public abstract class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 if (i2 < 0) {
-                    return o.f70874b;
+                    return o.f71328b;
                 }
-                return i2 > 0 ? o.f70875c : o.f70873a;
+                return i2 > 0 ? o.f71329c : o.f71327a;
             }
             return (o) invokeI.objValue;
         }
@@ -82,7 +82,7 @@ public abstract class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f70876d;
+        public final int f71330d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i2) {
@@ -102,7 +102,7 @@ public abstract class o {
                     return;
                 }
             }
-            this.f70876d = i2;
+            this.f71330d = i2;
         }
 
         @Override // d.f.d.c.o
@@ -116,7 +116,7 @@ public abstract class o {
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70876d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71330d : invokeV.intValue;
         }
     }
 
@@ -133,9 +133,9 @@ public abstract class o {
                 return;
             }
         }
-        f70873a = new a();
-        f70874b = new b(-1);
-        f70875c = new b(1);
+        f71327a = new a();
+        f71328b = new b(-1);
+        f71329c = new b(1);
     }
 
     public /* synthetic */ o(a aVar) {
@@ -145,7 +145,7 @@ public abstract class o {
     public static o f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f70873a : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f71327a : (o) invokeV.objValue;
     }
 
     public abstract o d(Comparable<?> comparable, Comparable<?> comparable2);

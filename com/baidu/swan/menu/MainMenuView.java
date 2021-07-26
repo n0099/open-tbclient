@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.k.g;
-import d.a.n0.k.o;
+import d.a.o0.k.g;
+import d.a.o0.k.o;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MainMenuView extends BaseMenuView {
@@ -224,7 +224,7 @@ public class MainMenuView extends BaseMenuView {
         this.m = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.m.setPadding(0, (int) this.f12022e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
+        this.m.setPadding(0, (int) this.f12048e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
         this.j.addView(this.m, layoutParams);
         View view = new View(context);
         this.l = view;

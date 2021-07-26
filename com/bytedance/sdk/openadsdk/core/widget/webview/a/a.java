@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.component.e.g;
-import com.bytedance.sdk.component.utils.j;
+import com.bytedance.sdk.component.d.g;
+import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.e.u;
 import com.bytedance.sdk.openadsdk.core.e.v;
@@ -26,7 +26,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f30926a;
+    public static Object f31101a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f30926a = new Object();
+        f31101a = new Object();
     }
 
     public static void a() {
@@ -95,10 +95,22 @@ public class a {
         return (v) invokeL.objValue;
     }
 
-    public static boolean e() {
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? b.a().b() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (d() == null) {
+                return null;
+            }
+            return d().c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? b.a().b() : invokeV.booleanValue;
     }
 
     public static v c(m mVar) {
@@ -134,12 +146,12 @@ public class a {
     public static void a(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, vVar) == null) {
-            com.bytedance.sdk.component.e.e.a(new g("updateTmplTime", vVar) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.a.1
+            com.bytedance.sdk.component.d.e.a(new g("updateTmplTime", vVar) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ v f30927a;
+                public final /* synthetic */ v f31102a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -159,15 +171,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f30927a = vVar;
+                    this.f31102a = vVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (a.f30926a) {
-                            c.a().a(this.f30927a);
+                        synchronized (a.f31101a) {
+                            c.a().a(this.f31102a);
                         }
                     }
                 }
@@ -186,7 +198,7 @@ public class a {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, aVar, str2)) == null) {
-            if (e()) {
+            if (f()) {
                 Iterator<u.a> it = d().e().iterator();
                 while (true) {
                     if (!it.hasNext()) {
@@ -210,7 +222,7 @@ public class a {
                 try {
                     return new WebResourceResponse(aVar.a(), "utf-8", new FileInputStream(file));
                 } catch (Throwable th) {
-                    j.c("TTDynamic", "get html WebResourceResponse error", th);
+                    k.c("TTDynamic", "get html WebResourceResponse error", th);
                     return null;
                 }
             }

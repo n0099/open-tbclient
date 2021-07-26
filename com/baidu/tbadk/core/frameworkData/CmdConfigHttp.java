@@ -21,6 +21,7 @@ public class CmdConfigHttp {
     public static final int CMD_ADD_SUB_COMMENT = 1003380;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_AD_ASYNC_BATCH_REQUEST = 1003491;
+    public static final int CMD_AD_BILLING_LOG = 1003505;
     public static final int CMD_AD_CLOSE = 1003322;
     public static final int CMD_AD_UPLOAD = 1003062;
     public static final int CMD_AFD_REQUEST_ASYNC = 1003397;

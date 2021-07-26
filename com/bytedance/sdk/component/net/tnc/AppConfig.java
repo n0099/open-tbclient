@@ -41,6 +41,7 @@ public class AppConfig implements WeakHandler.IHandler {
     public static final String TAG = "AppConfig";
     public static AppConfig mInstance;
     public transient /* synthetic */ FieldHolder $fh;
+    public int mAid;
     public AtomicBoolean mConfigUpdating;
     public final Context mContext;
     public boolean mForceChanged;
@@ -60,12 +61,12 @@ public class AppConfig implements WeakHandler.IHandler {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -85,10 +86,10 @@ public class AppConfig implements WeakHandler.IHandler {
     private void addTncExecutorParams(GetExecutor getExecutor) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, getExecutor) == null) || getExecutor == null) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, getExecutor) == null) || getExecutor == null) {
             return;
         }
-        Address locationAdress = TNCManager.getInstance().getITTAdNetDepend() != null ? TNCManager.getInstance().getITTAdNetDepend().getLocationAdress(this.mContext) : null;
+        Address locationAdress = TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend() != null ? TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend().getLocationAdress(this.mContext) : null;
         if (locationAdress != null && locationAdress.hasLatitude() && locationAdress.hasLongitude()) {
             getExecutor.addParams("latitude", locationAdress.getLatitude() + "");
             getExecutor.addParams("longitude", locationAdress.getLongitude() + "");
@@ -110,19 +111,19 @@ public class AppConfig implements WeakHandler.IHandler {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        if (TNCManager.getInstance().getITTAdNetDepend() != null) {
-            getExecutor.addParams("aid", TNCManager.getInstance().getITTAdNetDepend().getAid() + "");
-            getExecutor.addParams("device_platform", TNCManager.getInstance().getITTAdNetDepend().getPlatform());
-            getExecutor.addParams("channel", TNCManager.getInstance().getITTAdNetDepend().getChannel());
-            getExecutor.addParams("version_code", TNCManager.getInstance().getITTAdNetDepend().getVersionCode() + "");
-            getExecutor.addParams("custom_info_1", TNCManager.getInstance().getITTAdNetDepend().getDid());
+        if (TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend() != null) {
+            getExecutor.addParams("aid", TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend().getAid() + "");
+            getExecutor.addParams("device_platform", TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend().getPlatform());
+            getExecutor.addParams("channel", TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend().getChannel());
+            getExecutor.addParams("version_code", TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend().getVersionCode() + "");
+            getExecutor.addParams("custom_info_1", TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend().getDid());
         }
     }
 
     private String buildUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -134,7 +135,7 @@ public class AppConfig implements WeakHandler.IHandler {
     private boolean getDomainInternal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             String[] configServers = getConfigServers();
             if (configServers != null && configServers.length != 0) {
                 getDomainInternalNext(0);
@@ -147,7 +148,7 @@ public class AppConfig implements WeakHandler.IHandler {
     /* JADX INFO: Access modifiers changed from: private */
     public void getDomainInternalNext(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
             String[] configServers = getConfigServers();
             if (configServers != null && configServers.length > i2) {
                 String str = configServers[i2];
@@ -249,7 +250,7 @@ public class AppConfig implements WeakHandler.IHandler {
         InterceptResult invokeL;
         AppConfig appConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             synchronized (AppConfig.class) {
                 if (mInstance == null) {
                     mInstance = new AppConfig(context.getApplicationContext(), ProcessUtils.isMainProcess(context));
@@ -264,7 +265,7 @@ public class AppConfig implements WeakHandler.IHandler {
     private NetClient getNetClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             if (this.mNetClient == null) {
                 this.mNetClient = new NetClient.Builder().connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).build();
             }
@@ -278,7 +279,7 @@ public class AppConfig implements WeakHandler.IHandler {
         InterceptResult invokeL;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, obj)) == null) {
             if (obj instanceof String) {
                 String str = (String) obj;
                 if (TextUtils.isEmpty(str)) {
@@ -300,8 +301,8 @@ public class AppConfig implements WeakHandler.IHandler {
                 edit.putLong(KEY_LAST_REFRESH_TIME, System.currentTimeMillis());
                 edit.apply();
             }
-            if (TNCManager.getInstance().getTNCConfigHandler() != null) {
-                TNCManager.getInstance().getTNCConfigHandler().handleConfigChanged(jSONObject2);
+            if (TncInstanceManager.getInstance().getTNCManager(this.mAid).getTNCConfigHandler() != null) {
+                TncInstanceManager.getInstance().getTNCManager(this.mAid).getTNCConfigHandler().handleConfigChanged(jSONObject2);
                 return true;
             }
             return true;
@@ -312,7 +313,7 @@ public class AppConfig implements WeakHandler.IHandler {
     public static void onActivityResume(Context context) {
         AppConfig appConfig;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, context) == null) || (appConfig = mInstance) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, null, context) == null) || (appConfig = mInstance) == null) {
             return;
         }
         if (ProcessUtils.isMainProcess(context)) {
@@ -326,7 +327,7 @@ public class AppConfig implements WeakHandler.IHandler {
     public void sendConfigUpdateMsg(int i2) {
         WeakHandler weakHandler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65548, this, i2) == null) || (weakHandler = this.mHandler) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65549, this, i2) == null) || (weakHandler = this.mHandler) == null) {
             return;
         }
         weakHandler.sendEmptyMessage(i2);
@@ -334,7 +335,7 @@ public class AppConfig implements WeakHandler.IHandler {
 
     private void tryRefreshDomainConfig(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65549, this, z) == null) || this.mLoading) {
+        if (!(interceptable == null || interceptable.invokeZ(65550, this, z) == null) || this.mLoading) {
             return;
         }
         if (this.mForceChanged) {
@@ -407,7 +408,7 @@ public class AppConfig implements WeakHandler.IHandler {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] configServers = TNCManager.getInstance().getITTAdNetDepend() != null ? TNCManager.getInstance().getITTAdNetDepend().getConfigServers() : null;
+            String[] configServers = TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend() != null ? TncInstanceManager.getInstance().getTNCManager(this.mAid).getITTAdNetDepend().getConfigServers() : null;
             return (configServers == null || configServers.length <= 0) ? new String[0] : configServers;
         }
         return (String[]) invokeV.objValue;
@@ -418,9 +419,13 @@ public class AppConfig implements WeakHandler.IHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.threadPoolExecutor == null) {
-                ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 2, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-                this.threadPoolExecutor = threadPoolExecutor;
-                threadPoolExecutor.allowCoreThreadTimeOut(true);
+                synchronized (AppConfig.class) {
+                    if (this.threadPoolExecutor == null) {
+                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 2, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+                        this.threadPoolExecutor = threadPoolExecutor;
+                        threadPoolExecutor.allowCoreThreadTimeOut(true);
+                    }
+                }
             }
             return this.threadPoolExecutor;
         }
@@ -476,8 +481,8 @@ public class AppConfig implements WeakHandler.IHandler {
                 if (System.currentTimeMillis() - this.mLastRefreshTime > 3600000) {
                     this.mLastRefreshTime = System.currentTimeMillis();
                     try {
-                        if (TNCManager.getInstance().getTNCConfigHandler() != null) {
-                            TNCManager.getInstance().getTNCConfigHandler().loadLocalConfigForOtherProcess();
+                        if (TncInstanceManager.getInstance().getTNCManager(this.mAid).getTNCConfigHandler() != null) {
+                            TncInstanceManager.getInstance().getTNCManager(this.mAid).getTNCConfigHandler().loadLocalConfigForOtherProcess();
                         }
                     } catch (Exception unused) {
                     }
@@ -500,8 +505,8 @@ public class AppConfig implements WeakHandler.IHandler {
                     j = currentTimeMillis;
                 }
                 this.mLastRefreshTime = j;
-                if (TNCManager.getInstance().getTNCConfigHandler() != null) {
-                    TNCManager.getInstance().getTNCConfigHandler().loadLocalConfig();
+                if (TncInstanceManager.getInstance().getTNCManager(this.mAid).getTNCConfigHandler() != null) {
+                    TncInstanceManager.getInstance().getTNCManager(this.mAid).getTNCConfigHandler().loadLocalConfig();
                 }
             }
         }
@@ -591,5 +596,34 @@ public class AppConfig implements WeakHandler.IHandler {
                 }
             }
         }
+    }
+
+    public AppConfig(Context context, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mForceSwitch = false;
+        this.mForceChanged = true;
+        this.mLoading = false;
+        this.mLastRefreshTime = 0L;
+        this.mLastTryRefreshTime = 0L;
+        this.threadPoolExecutor = null;
+        this.mConfigUpdating = new AtomicBoolean(false);
+        this.mLocalLoaded = false;
+        this.mHandler = new WeakHandler(Looper.getMainLooper(), this);
+        this.mContext = context;
+        this.mIsMainProcess = ProcessUtils.isMainProcess(context);
+        this.mAid = i2;
     }
 }

@@ -22,10 +22,10 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseIntArray f26962a;
+    public SparseIntArray f27120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Integer> f26963b;
+    public ArrayList<Integer> f27121b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragSortCursorAdapter(Context context, Cursor cursor) {
@@ -46,15 +46,15 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
                 return;
             }
         }
-        this.f26962a = new SparseIntArray();
-        this.f26963b = new ArrayList<>();
+        this.f27120a = new SparseIntArray();
+        this.f27121b = new ArrayList<>();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f26962a.clear();
-            this.f26963b.clear();
+            this.f27120a.clear();
+            this.f27121b.clear();
         }
     }
 
@@ -62,15 +62,15 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             ArrayList arrayList = new ArrayList();
-            int size = this.f26962a.size();
+            int size = this.f27120a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.f26962a.keyAt(i2) == this.f26962a.valueAt(i2)) {
-                    arrayList.add(Integer.valueOf(this.f26962a.keyAt(i2)));
+                if (this.f27120a.keyAt(i2) == this.f27120a.valueAt(i2)) {
+                    arrayList.add(Integer.valueOf(this.f27120a.keyAt(i2)));
                 }
             }
             int size2 = arrayList.size();
             for (int i3 = 0; i3 < size2; i3++) {
-                this.f26962a.delete(((Integer) arrayList.get(i3)).intValue());
+                this.f27120a.delete(((Integer) arrayList.get(i3)).intValue());
             }
         }
     }
@@ -97,23 +97,23 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
         if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || i2 == i3) {
             return;
         }
-        int i4 = this.f26962a.get(i2, i2);
+        int i4 = this.f27120a.get(i2, i2);
         if (i2 > i3) {
             while (i2 > i3) {
-                SparseIntArray sparseIntArray = this.f26962a;
+                SparseIntArray sparseIntArray = this.f27120a;
                 int i5 = i2 - 1;
                 sparseIntArray.put(i2, sparseIntArray.get(i5, i5));
                 i2--;
             }
         } else {
             while (i2 < i3) {
-                SparseIntArray sparseIntArray2 = this.f26962a;
+                SparseIntArray sparseIntArray2 = this.f27120a;
                 int i6 = i2 + 1;
                 sparseIntArray2.put(i2, sparseIntArray2.get(i6, i6));
                 i2 = i6;
             }
         }
-        this.f26962a.put(i3, i4);
+        this.f27120a.put(i3, i4);
         b();
         notifyDataSetChanged();
     }
@@ -122,13 +122,13 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? super.getCount() - this.f26963b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? super.getCount() - this.f27121b.size() : invokeV.intValue;
     }
 
     public int getCursorPosition(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f26962a.get(i2, i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f27120a.get(i2, i2) : invokeI.intValue;
     }
 
     public ArrayList<Integer> getCursorPositions() {
@@ -137,7 +137,7 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList<Integer> arrayList = new ArrayList<>();
             for (int i2 = 0; i2 < getCount(); i2++) {
-                arrayList.add(Integer.valueOf(this.f26962a.get(i2, i2)));
+                arrayList.add(Integer.valueOf(this.f27120a.get(i2, i2)));
             }
             return arrayList;
         }
@@ -148,32 +148,32 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
     public View getDropDownView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) ? super.getDropDownView(this.f26962a.get(i2, i2), view, viewGroup) : (View) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) ? super.getDropDownView(this.f27120a.get(i2, i2), view, viewGroup) : (View) invokeILL.objValue;
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? super.getItem(this.f26962a.get(i2, i2)) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? super.getItem(this.f27120a.get(i2, i2)) : invokeI.objValue;
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
     public long getItemId(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? super.getItemId(this.f26962a.get(i2, i2)) : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? super.getItemId(this.f27120a.get(i2, i2)) : invokeI.longValue;
     }
 
     public int getListPosition(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            if (this.f26963b.contains(Integer.valueOf(i2))) {
+            if (this.f27121b.contains(Integer.valueOf(i2))) {
                 return -1;
             }
-            int indexOfValue = this.f26962a.indexOfValue(i2);
-            return indexOfValue < 0 ? i2 : this.f26962a.keyAt(indexOfValue);
+            int indexOfValue = this.f27120a.indexOfValue(i2);
+            return indexOfValue < 0 ? i2 : this.f27120a.keyAt(indexOfValue);
         }
         return invokeI.intValue;
     }
@@ -182,25 +182,25 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i2, view, viewGroup)) == null) ? super.getView(this.f26962a.get(i2, i2), view, viewGroup) : (View) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i2, view, viewGroup)) == null) ? super.getView(this.f27120a.get(i2, i2), view, viewGroup) : (View) invokeILL.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.m
     public void remove(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            int i3 = this.f26962a.get(i2, i2);
-            if (!this.f26963b.contains(Integer.valueOf(i3))) {
-                this.f26963b.add(Integer.valueOf(i3));
+            int i3 = this.f27120a.get(i2, i2);
+            if (!this.f27121b.contains(Integer.valueOf(i3))) {
+                this.f27121b.add(Integer.valueOf(i3));
             }
             int count = getCount();
             while (i2 < count) {
-                SparseIntArray sparseIntArray = this.f26962a;
+                SparseIntArray sparseIntArray = this.f27120a;
                 int i4 = i2 + 1;
                 sparseIntArray.put(i2, sparseIntArray.get(i4, i4));
                 i2 = i4;
             }
-            this.f26962a.delete(count);
+            this.f27120a.delete(count);
             b();
             notifyDataSetChanged();
         }
@@ -245,8 +245,8 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
                 return;
             }
         }
-        this.f26962a = new SparseIntArray();
-        this.f26963b = new ArrayList<>();
+        this.f27120a = new SparseIntArray();
+        this.f27121b = new ArrayList<>();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -268,7 +268,7 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
                 return;
             }
         }
-        this.f26962a = new SparseIntArray();
-        this.f26963b = new ArrayList<>();
+        this.f27120a = new SparseIntArray();
+        this.f27121b = new ArrayList<>();
     }
 }

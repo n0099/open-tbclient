@@ -19,7 +19,7 @@ public class PersonalController {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f27077a;
+    public a f27235a;
 
     /* renamed from: com.baidu.wallet.personal.controllers.PersonalController$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -40,7 +40,7 @@ public class PersonalController {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PersonalController f27078a;
+        public static PersonalController f27236a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +56,7 @@ public class PersonalController {
                     return;
                 }
             }
-            f27078a = new PersonalController(null);
+            f27236a = new PersonalController(null);
         }
     }
 
@@ -67,13 +67,13 @@ public class PersonalController {
     public static PersonalController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f27078a : (PersonalController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f27236a : (PersonalController) invokeV.objValue;
     }
 
     public void onReceiveFailed(String str) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (aVar = this.f27077a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (aVar = this.f27235a) == null) {
             return;
         }
         aVar.a(str);
@@ -82,7 +82,7 @@ public class PersonalController {
     public void onReceiveSuccess(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (aVar = this.f27077a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (aVar = this.f27235a) == null) {
             return;
         }
         aVar.a(z);
@@ -91,7 +91,7 @@ public class PersonalController {
     public void receive(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, aVar) == null) {
-            this.f27077a = aVar;
+            this.f27235a = aVar;
             Intent intent = new Intent(context, WalletPayResultCommonActivity.class);
             intent.putExtra(BeanConstants.KEY_PAY_RESULT_TYPE, 3);
             context.startActivity(intent);
@@ -101,7 +101,7 @@ public class PersonalController {
     public void receiveWithSms(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, aVar) == null) {
-            this.f27077a = aVar;
+            this.f27235a = aVar;
             Intent intent = new Intent();
             intent.putExtra(BeanConstants.SMS_ACTIVITY_FROM_KEY, 3);
             intent.setClass(context, PersonWalletSmsActivity.class);
@@ -112,7 +112,7 @@ public class PersonalController {
     public void removeCallBack() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f27077a = null;
+            this.f27235a = null;
         }
     }
 

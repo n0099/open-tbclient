@@ -26,7 +26,7 @@ public class gq {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f40225a;
+    public static volatile int f40497a;
 
     /* renamed from: a  reason: collision with other field name */
     public static long f440a;
@@ -53,7 +53,7 @@ public class gq {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40226a;
+        public int f40498a;
 
         /* renamed from: a  reason: collision with other field name */
         public long f446a;
@@ -62,7 +62,7 @@ public class gq {
         public String f447a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40227b;
+        public int f40499b;
 
         /* renamed from: b  reason: collision with other field name */
         public long f448b;
@@ -87,14 +87,14 @@ public class gq {
             }
             this.f447a = "";
             this.f446a = 0L;
-            this.f40226a = -1;
-            this.f40227b = -1;
+            this.f40498a = -1;
+            this.f40499b = -1;
             this.f449b = "";
             this.f448b = 0L;
             this.f447a = str;
             this.f446a = j;
-            this.f40226a = i2;
-            this.f40227b = i3;
+            this.f40498a = i2;
+            this.f40499b = i3;
             this.f449b = str2;
             this.f448b = j2;
         }
@@ -102,7 +102,7 @@ public class gq {
         public boolean a(a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f447a, this.f447a) && TextUtils.equals(aVar.f449b, this.f449b) && aVar.f40226a == this.f40226a && aVar.f40227b == this.f40227b && Math.abs(aVar.f446a - this.f446a) <= 5000 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f447a, this.f447a) && TextUtils.equals(aVar.f449b, this.f449b) && aVar.f40498a == this.f40498a && aVar.f40499b == this.f40499b && Math.abs(aVar.f446a - this.f446a) <= 5000 : invokeL.booleanValue;
         }
     }
 
@@ -120,7 +120,7 @@ public class gq {
             }
         }
         f441a = new al(true);
-        f40225a = -1;
+        f40497a = -1;
         f440a = System.currentTimeMillis();
         f443a = new Object();
         f445a = Collections.synchronizedList(new ArrayList());
@@ -132,10 +132,10 @@ public class gq {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f40225a == -1) {
-                f40225a = b(context);
+            if (f40497a == -1) {
+                f40497a = b(context);
             }
-            return f40225a;
+            return f40497a;
         }
         return invokeL.intValue;
     }
@@ -201,7 +201,7 @@ public class gq {
     public static void m359a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
-            f40225a = b(context);
+            f40497a = b(context);
         }
     }
 
@@ -286,9 +286,9 @@ public class gq {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("package_name", aVar.f447a);
                             contentValues.put("message_ts", Long.valueOf(aVar.f446a));
-                            contentValues.put("network_type", Integer.valueOf(aVar.f40226a));
+                            contentValues.put("network_type", Integer.valueOf(aVar.f40498a));
                             contentValues.put("bytes", Long.valueOf(aVar.f448b));
-                            contentValues.put("rcv", Integer.valueOf(aVar.f40227b));
+                            contentValues.put("rcv", Integer.valueOf(aVar.f40499b));
                             contentValues.put(BaseStatisContent.IMSI, aVar.f449b);
                             writableDatabase.insert("traffic", null, contentValues);
                         }

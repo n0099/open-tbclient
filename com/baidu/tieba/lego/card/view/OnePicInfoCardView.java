@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h3.n0.d;
-import d.a.p0.n1.i;
-import d.a.p0.n1.o.f;
+import d.a.q0.h3.n0.d;
+import d.a.q0.n1.i;
+import d.a.q0.n1.o.f;
 /* loaded from: classes4.dex */
 public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
@@ -51,10 +51,10 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCard f18252a;
+        public final /* synthetic */ OnePicInfoCard f18308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCardView f18253b;
+        public final /* synthetic */ OnePicInfoCardView f18309b;
 
         public a(OnePicInfoCardView onePicInfoCardView, OnePicInfoCard onePicInfoCard) {
             Interceptable interceptable = $ic;
@@ -71,24 +71,24 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                     return;
                 }
             }
-            this.f18253b = onePicInfoCardView;
-            this.f18252a = onePicInfoCard;
+            this.f18309b = onePicInfoCardView;
+            this.f18308a = onePicInfoCard;
         }
 
         @Override // com.baidu.tbadk.widget.LineCountNotifyTextView.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int lineCount = this.f18253b.t.getLineCount();
-                if (this.f18253b.D != lineCount) {
+                int lineCount = this.f18309b.t.getLineCount();
+                if (this.f18309b.D != lineCount) {
                     if (lineCount == 1) {
-                        this.f18253b.u.setMaxLines(2);
+                        this.f18309b.u.setMaxLines(2);
                     } else {
-                        this.f18253b.u.setMaxLines(1);
+                        this.f18309b.u.setMaxLines(1);
                     }
                 }
-                this.f18253b.D = lineCount;
-                this.f18253b.u.setText(this.f18252a.getDesc());
+                this.f18309b.D = lineCount;
+                this.f18309b.u.setText(this.f18308a.getDesc());
             }
         }
     }
@@ -99,10 +99,10 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCard f18254e;
+        public final /* synthetic */ OnePicInfoCard f18310e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCardView f18255f;
+        public final /* synthetic */ OnePicInfoCardView f18311f;
 
         public b(OnePicInfoCardView onePicInfoCardView, OnePicInfoCard onePicInfoCard) {
             Interceptable interceptable = $ic;
@@ -119,15 +119,15 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                     return;
                 }
             }
-            this.f18255f = onePicInfoCardView;
-            this.f18254e = onePicInfoCard;
+            this.f18311f = onePicInfoCardView;
+            this.f18310e = onePicInfoCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18255f.o(this.f18254e);
+                this.f18311f.o(this.f18310e);
             }
         }
     }
@@ -159,29 +159,29 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, onePicInfoCard) == null) || this.v == null) {
             return;
         }
-        if (onePicInfoCard != null && !d.a.p0.n1.o.k.b.a(onePicInfoCard.gettBgColor()) && !d.a.p0.n1.o.k.b.a(onePicInfoCard.gettBgColorN())) {
+        if (onePicInfoCard != null && !d.a.q0.n1.o.k.b.a(onePicInfoCard.gettBgColor()) && !d.a.q0.n1.o.k.b.a(onePicInfoCard.gettBgColorN())) {
             this.v.setBackgroundColor(t() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
         } else {
             SkinManager.setBackgroundResource(this.v, R.drawable.label_bg_tie_n);
         }
     }
 
-    public final void L(TextView textView, TbImageView tbImageView, d.a.p0.n1.o.j.b bVar) {
+    public final void L(TextView textView, TbImageView tbImageView, d.a.q0.n1.o.j.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, textView, tbImageView, bVar) == null) {
-            String str = t() ? bVar.f60571b : bVar.f60570a;
+            String str = t() ? bVar.f61185b : bVar.f61184a;
             if (!TextUtils.isEmpty(str)) {
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 tbImageView.setVisibility(0);
                 tbImageView.M(str, 10, false);
             } else {
                 tbImageView.setVisibility(8);
-                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.a(bVar.f60572c)), (Drawable) null, (Drawable) null, (Drawable) null);
+                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.a(bVar.f61186c)), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             try {
-                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(bVar.f60573d)));
+                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(bVar.f61187d)));
             } catch (NumberFormatException unused) {
-                textView.setText(bVar.f60573d);
+                textView.setText(bVar.f61187d);
             }
         }
     }
@@ -193,7 +193,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         LineCountNotifyTextView lineCountNotifyTextView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onePicInfoCard, i2) == null) {
-            d.a.o0.s0.a.a(this.m, getRootView());
+            d.a.p0.u0.a.a(this.m, getRootView());
             SkinManager.setBackgroundResource(this.r, R.drawable.addresslist_item_bg);
             setTagBg(onePicInfoCard);
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0111);

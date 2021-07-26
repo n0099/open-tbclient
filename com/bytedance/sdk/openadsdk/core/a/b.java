@@ -16,7 +16,7 @@ public class b implements TTAdNative.DrawFeedAdListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TTAdNative.DrawFeedAdListener f29781a;
+    public TTAdNative.DrawFeedAdListener f29877a;
 
     public b(TTAdNative.DrawFeedAdListener drawFeedAdListener) {
         Interceptable interceptable = $ic;
@@ -33,27 +33,27 @@ public class b implements TTAdNative.DrawFeedAdListener {
                 return;
             }
         }
-        this.f29781a = drawFeedAdListener;
+        this.f29877a = drawFeedAdListener;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener
     public void onDrawFeedAdLoad(List<TTDrawFeedAd> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || this.f29781a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || this.f29877a == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f29781a.onDrawFeedAdLoad(list);
+            this.f29877a.onDrawFeedAdLoad(list);
         } else {
             l.d().post(new Runnable(this, list) { // from class: com.bytedance.sdk.openadsdk.core.a.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ List f29785a;
+                public final /* synthetic */ List f29881a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f29786b;
+                public final /* synthetic */ b f29882b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -70,15 +70,15 @@ public class b implements TTAdNative.DrawFeedAdListener {
                             return;
                         }
                     }
-                    this.f29786b = this;
-                    this.f29785a = list;
+                    this.f29882b = this;
+                    this.f29881a = list;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29786b.f29781a.onDrawFeedAdLoad(this.f29785a);
+                        this.f29882b.f29877a.onDrawFeedAdLoad(this.f29881a);
                     }
                 }
             });
@@ -88,27 +88,27 @@ public class b implements TTAdNative.DrawFeedAdListener {
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener, com.bytedance.sdk.openadsdk.c.b
     public void onError(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f29781a == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f29877a == null) {
             return;
         }
         if (str == null) {
             str = "未知异常";
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f29781a.onError(i2, str);
+            this.f29877a.onError(i2, str);
         } else {
             l.d().post(new Runnable(this, i2, str) { // from class: com.bytedance.sdk.openadsdk.core.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f29782a;
+                public final /* synthetic */ int f29878a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f29783b;
+                public final /* synthetic */ String f29879b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f29784c;
+                public final /* synthetic */ b f29880c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -125,16 +125,16 @@ public class b implements TTAdNative.DrawFeedAdListener {
                             return;
                         }
                     }
-                    this.f29784c = this;
-                    this.f29782a = i2;
-                    this.f29783b = str;
+                    this.f29880c = this;
+                    this.f29878a = i2;
+                    this.f29879b = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29784c.f29781a.onError(this.f29782a, this.f29783b);
+                        this.f29880c.f29877a.onError(this.f29878a, this.f29879b);
                     }
                 }
             });

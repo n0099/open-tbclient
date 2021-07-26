@@ -47,23 +47,23 @@ public final class m extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                long a2 = this.f69867h.a(this.f69860a.b(this.n));
+                long a2 = this.f70321h.a(this.f70314a.b(this.n));
                 if (a2 != -1) {
                     a2 += this.n;
                 }
-                d.f.b.a.a0.b bVar = new d.f.b.a.a0.b(this.f69867h, this.n, a2);
-                b i2 = i();
-                i2.c(0L);
-                d.f.b.a.a0.m a3 = i2.a(0, this.l);
+                d.f.b.a.a0.b bVar = new d.f.b.a.a0.b(this.f70321h, this.n, a2);
+                b h2 = h();
+                h2.c(0L);
+                d.f.b.a.a0.m a3 = h2.a(0, this.l);
                 a3.b(this.m);
-                for (int i3 = 0; i3 != -1; i3 = a3.d(bVar, Integer.MAX_VALUE, true)) {
-                    this.n += i3;
+                for (int i2 = 0; i2 != -1; i2 = a3.d(bVar, Integer.MAX_VALUE, true)) {
+                    this.n += i2;
                 }
-                a3.c(this.f69865f, 1, this.n, 0, null);
-                v.h(this.f69867h);
+                a3.c(this.f70319f, 1, this.n, 0, null);
+                v.h(this.f70321h);
                 this.p = true;
             } catch (Throwable th) {
-                v.h(this.f69867h);
+                v.h(this.f70321h);
                 throw th;
             }
         }
@@ -76,23 +76,23 @@ public final class m extends a {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.o : invokeV.booleanValue;
     }
 
-    @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public void c() {
+    @Override // d.f.b.a.d0.u.c
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.n : invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.Loader.c
+    public void cancelLoad() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.o = true;
         }
     }
 
-    @Override // d.f.b.a.d0.u.c
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.n : invokeV.longValue;
-    }
-
     @Override // d.f.b.a.d0.u.l
-    public boolean g() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.p : invokeV.booleanValue;

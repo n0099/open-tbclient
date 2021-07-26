@@ -21,13 +21,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34420a;
+    public Context f34609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f34421b;
+    public final LinkedBlockingQueue<IBinder> f34610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f34422c;
+    public ServiceConnection f34611c;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -44,13 +44,13 @@ public class f {
                 return;
             }
         }
-        this.f34421b = new LinkedBlockingQueue<>(1);
-        this.f34422c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.f.1
+        this.f34610b = new LinkedBlockingQueue<>(1);
+        this.f34611c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f34423a;
+            public final /* synthetic */ f f34612a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,7 +67,7 @@ public class f {
                         return;
                     }
                 }
-                this.f34423a = this;
+                this.f34612a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -76,7 +76,7 @@ public class f {
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "onServiceConnected");
                     try {
-                        this.f34423a.f34421b.put(iBinder);
+                        this.f34612a.f34610b.put(iBinder);
                     } catch (InterruptedException e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -90,7 +90,7 @@ public class f {
                 }
             }
         };
-        this.f34420a = context;
+        this.f34609a = context;
     }
 
     private String b() {
@@ -98,7 +98,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             try {
-                Signature[] signatureArr = this.f34420a.getPackageManager().getPackageInfo(this.f34420a.getPackageName(), 64).signatures;
+                Signature[] signatureArr = this.f34609a.getPackageManager().getPackageInfo(this.f34609a.getPackageName(), 64).signatures;
                 if (signatureArr == null || signatureArr.length <= 0) {
                     return null;
                 }
@@ -127,18 +127,18 @@ public class f {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                boolean bindService = this.f34420a.bindService(intent, this.f34422c, 1);
+                boolean bindService = this.f34609a.bindService(intent, this.f34611c, 1);
                 com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "getOAID isBin=" + bindService);
                 if (bindService) {
                     try {
-                        str = new d.a(this.f34421b.take()).a(this.f34420a.getPackageName(), b(), "OUID");
+                        str = new d.a(this.f34610b.take()).a(this.f34609a.getPackageName(), b(), "OUID");
                         com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "getOAID oaid" + str);
-                        context = this.f34420a;
-                        serviceConnection = this.f34422c;
+                        context = this.f34609a;
+                        serviceConnection = this.f34611c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f34420a;
-                        serviceConnection = this.f34422c;
+                        context = this.f34609a;
+                        serviceConnection = this.f34611c;
                     }
                     context.unbindService(serviceConnection);
                 }

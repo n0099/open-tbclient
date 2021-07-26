@@ -13,10 +13,10 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f3983a = 999;
+    public static final long f4009a = 999;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicLong f3984b;
+    public static AtomicLong f4010b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class f {
                 return;
             }
         }
-        f3984b = new AtomicLong(999L);
+        f4010b = new AtomicLong(999L);
     }
 
     public f() {
@@ -55,7 +55,7 @@ public class f {
             if (0 == j) {
                 j = 999;
             }
-            f3984b.set(j);
+            f4010b.set(j);
         }
     }
 
@@ -63,10 +63,10 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (0 == f3984b.incrementAndGet()) {
-                f3984b.set(999L);
+            if (0 == f4010b.incrementAndGet()) {
+                f4010b.set(999L);
             }
-            return f3984b.get();
+            return f4010b.get();
         }
         return invokeV.longValue;
     }

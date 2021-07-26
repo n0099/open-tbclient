@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.f.a;
-import d.a.c.e.f.b;
+import d.a.d.e.f.a;
+import d.a.d.e.f.b;
 /* loaded from: classes3.dex */
 public class KeepAliveSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,7 +31,7 @@ public class KeepAliveSwitch extends a {
         }
     }
 
-    @Override // d.a.c.e.f.a
+    @Override // d.a.d.e.f.a
     public void addToManager() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -43,14 +43,14 @@ public class KeepAliveSwitch extends a {
         }
     }
 
-    @Override // d.a.c.e.f.a
+    @Override // d.a.d.e.f.a
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
         }
     }
 
-    @Override // d.a.c.e.f.a
+    @Override // d.a.d.e.f.a
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class KeepAliveSwitch extends a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // d.a.c.e.f.a
+    @Override // d.a.d.e.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class KeepAliveSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // d.a.c.e.f.a
+    @Override // d.a.d.e.f.a
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class KeepAliveSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // d.a.c.e.f.a
+    @Override // d.a.d.e.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? KEEP_ALIVE_KEY : (String) invokeV.objValue;
     }
 
-    @Override // d.a.c.e.f.a
+    @Override // d.a.d.e.f.a
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

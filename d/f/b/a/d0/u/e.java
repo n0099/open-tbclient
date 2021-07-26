@@ -10,10 +10,10 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f69878a;
+    public c f70332a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69879b;
+    public boolean f70333b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class e {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f69878a = null;
-            this.f69879b = false;
+            this.f70332a = null;
+            this.f70333b = false;
         }
     }
 }

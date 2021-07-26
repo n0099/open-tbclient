@@ -19,10 +19,10 @@ public class c extends a.AbstractBinderC0091a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberExtractor f4900a;
+    public CyberExtractor f4926a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RemotePlayerService f4901b;
+    public RemotePlayerService f4927b;
 
     public c(RemotePlayerService remotePlayerService) {
         Interceptable interceptable = $ic;
@@ -39,21 +39,21 @@ public class c extends a.AbstractBinderC0091a {
                 return;
             }
         }
-        this.f4901b = remotePlayerService;
+        this.f4927b = remotePlayerService;
     }
 
     private CyberExtractor c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f4900a == null) {
+            if (this.f4926a == null) {
                 synchronized (this) {
-                    if (this.f4900a == null) {
-                        this.f4900a = new CyberExtractor(false);
+                    if (this.f4926a == null) {
+                        this.f4926a = new CyberExtractor(false);
                     }
                 }
             }
-            return this.f4900a;
+            return this.f4926a;
         }
         return (CyberExtractor) invokeV.objValue;
     }
@@ -87,12 +87,12 @@ public class c extends a.AbstractBinderC0091a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             CyberLog.i("RemoteExtractor", "release");
             synchronized (this) {
-                if (this.f4900a != null) {
-                    this.f4900a.release();
-                    this.f4900a = null;
+                if (this.f4926a != null) {
+                    this.f4926a.release();
+                    this.f4926a = null;
                 }
             }
-            this.f4901b = null;
+            this.f4927b = null;
         }
     }
 }

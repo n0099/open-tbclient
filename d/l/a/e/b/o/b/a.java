@@ -13,20 +13,20 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, c> f72020a;
+    public final Map<String, c> f72474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, d> f72021b;
+    public final Map<String, d> f72475b;
 
     /* renamed from: d.l.a.e.b.o.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C2047a {
+    public static /* synthetic */ class C2046a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -36,7 +36,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f72022a;
+        public static final a f72476a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,18 +52,18 @@ public class a {
                     return;
                 }
             }
-            f72022a = new a(null);
+            f72476a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C2047a c2047a) {
+    public /* synthetic */ a(C2046a c2046a) {
         this();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f72022a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f72476a : (a) invokeV.objValue;
     }
 
     public c b(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
@@ -71,8 +71,8 @@ public class a {
         c remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
-            synchronized (this.f72020a) {
-                remove = this.f72020a.remove(str);
+            synchronized (this.f72474a) {
+                remove = this.f72474a.remove(str);
             }
             if (remove != null) {
                 if (f.S(remove.k(), list)) {
@@ -106,8 +106,8 @@ public class a {
     public void d(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
-            synchronized (this.f72020a) {
-                this.f72020a.put(str, cVar);
+            synchronized (this.f72474a) {
+                this.f72474a.put(str, cVar);
             }
         }
     }
@@ -116,7 +116,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            c cVar = this.f72020a.get(str);
+            c cVar = this.f72474a.get(str);
             if (cVar != null) {
                 if (cVar.j()) {
                     return true;
@@ -133,8 +133,8 @@ public class a {
         d remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, list)) == null) {
-            synchronized (this.f72021b) {
-                remove = this.f72021b.remove(str);
+            synchronized (this.f72475b) {
+                remove = this.f72475b.remove(str);
             }
             if (remove != null) {
                 if (f.S(remove.f(), list)) {
@@ -172,7 +172,7 @@ public class a {
                 return;
             }
         }
-        this.f72020a = new HashMap();
-        this.f72021b = new LinkedHashMap(3);
+        this.f72474a = new HashMap();
+        this.f72475b = new LinkedHashMap(3);
     }
 }

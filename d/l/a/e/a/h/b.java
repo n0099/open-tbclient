@@ -22,7 +22,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, j.a> f71664a;
+    public static final HashMap<String, j.a> f72118a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class b {
                 return;
             }
         }
-        f71664a = new HashMap<>();
+        f72118a = new HashMap<>();
     }
 
     public static j.a a(String str) {
@@ -189,15 +189,15 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (f71664a.containsKey(str)) {
-                j.a aVar = f71664a.get(str);
+            if (f72118a.containsKey(str)) {
+                j.a aVar = f72118a.get(str);
                 if (aVar != null) {
                     return aVar;
                 }
                 return null;
             }
             j.a c2 = j.c(str);
-            f71664a.put(str, c2);
+            f72118a.put(str, c2);
             if (c2 != null) {
                 return c2;
             }

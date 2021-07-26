@@ -53,7 +53,7 @@ public class SlideActiviy extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SlideActiviy f9885a;
+        public final /* synthetic */ SlideActiviy f9911a;
 
         public PassSlideInterceptor(SlideActiviy slideActiviy) {
             Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class SlideActiviy extends BaseActivity {
                     return;
                 }
             }
-            this.f9885a = slideActiviy;
+            this.f9911a = slideActiviy;
         }
 
         @Override // com.baidu.searchbox.widget.SlideInterceptor
         public boolean isSlidable(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? this.f9885a.y : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? this.f9911a.y : invokeL.booleanValue;
         }
     }
 
@@ -201,7 +201,7 @@ public class SlideActiviy extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SlideActiviy f9882a;
+                public final /* synthetic */ SlideActiviy f9908a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -218,7 +218,7 @@ public class SlideActiviy extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9882a = this;
+                    this.f9908a = this;
                 }
 
                 @Override // com.baidu.searchbox.widget.OnTranslucentListener
@@ -262,7 +262,7 @@ public class SlideActiviy extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SlideActiviy f9880a;
+                public final /* synthetic */ SlideActiviy f9906a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -279,14 +279,14 @@ public class SlideActiviy extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9880a = this;
+                    this.f9906a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.LoadSlideWebViewCallback
                 public void loadSlideWebview(SapiWebView.LoadSlideWebViewResult loadSlideWebViewResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, loadSlideWebViewResult) == null) {
-                        this.f9880a.loadSlideWebview(loadSlideWebViewResult.page, loadSlideWebViewResult.url, loadSlideWebViewResult.adapter);
+                        this.f9906a.loadSlideWebview(loadSlideWebViewResult.page, loadSlideWebViewResult.url, loadSlideWebViewResult.adapter);
                     }
                 }
             });
@@ -295,7 +295,7 @@ public class SlideActiviy extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SlideActiviy f9881a;
+                public final /* synthetic */ SlideActiviy f9907a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -312,7 +312,7 @@ public class SlideActiviy extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9881a = this;
+                    this.f9907a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.StopSlideWebviewCallback
@@ -321,14 +321,14 @@ public class SlideActiviy extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
                         if (z) {
                             Log.d(SlideActiviy.A, "Slide should be opened now");
-                            this.f9881a.y = false;
+                            this.f9907a.y = false;
                         } else {
                             Log.d(SlideActiviy.A, "Slide should be closed now");
-                            this.f9881a.y = true;
+                            this.f9907a.y = true;
                         }
-                        SlideActiviy slideActiviy = this.f9881a;
+                        SlideActiviy slideActiviy = this.f9907a;
                         slideActiviy.w = new PassSlideInterceptor();
-                        SlideActiviy slideActiviy2 = this.f9881a;
+                        SlideActiviy slideActiviy2 = this.f9907a;
                         slideActiviy2.mSlideHelper.setSlideInterceptor(slideActiviy2.w);
                     }
                 }
@@ -367,10 +367,10 @@ public class SlideActiviy extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f9883a;
+                public final /* synthetic */ int f9909a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SlideActiviy f9884b;
+                public final /* synthetic */ SlideActiviy f9910b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -387,18 +387,18 @@ public class SlideActiviy extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9884b = this;
-                    this.f9883a = i2;
+                    this.f9910b = this;
+                    this.f9909a = i2;
                 }
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelClosed(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f9884b.x != null) {
-                            this.f9884b.x.onPanelClosed(view);
+                        if (this.f9910b.x != null) {
+                            this.f9910b.x.onPanelClosed(view);
                         }
-                        this.f9884b.a(0.0f);
+                        this.f9910b.a(0.0f);
                     }
                 }
 
@@ -406,13 +406,13 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelOpened(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        if (this.f9884b.x != null) {
-                            this.f9884b.x.onPanelOpened(view);
+                        if (this.f9910b.x != null) {
+                            this.f9910b.x.onPanelOpened(view);
                         }
-                        this.f9884b.a(0.0f);
-                        this.f9884b.mSlideHelper.setShadowDrawable(null);
-                        this.f9884b.finishActivityAfterSlideOver();
-                        this.f9884b.overridePendingTransition(0, 0);
+                        this.f9910b.a(0.0f);
+                        this.f9910b.mSlideHelper.setShadowDrawable(null);
+                        this.f9910b.finishActivityAfterSlideOver();
+                        this.f9910b.overridePendingTransition(0, 0);
                     }
                 }
 
@@ -420,7 +420,7 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelSlide(View view, float f2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                        View maskView = this.f9884b.mSlideHelper.getMaskView();
+                        View maskView = this.f9910b.mSlideHelper.getMaskView();
                         if (maskView != null) {
                             float f3 = 1.0f - f2;
                             if (f3 < 0.0f) {
@@ -428,11 +428,11 @@ public class SlideActiviy extends BaseActivity {
                             }
                             maskView.setAlpha(f3);
                         }
-                        if (this.f9884b.x != null) {
-                            this.f9884b.x.onPanelSlide(view, f2);
+                        if (this.f9910b.x != null) {
+                            this.f9910b.x.onPanelSlide(view, f2);
                         }
-                        float f4 = this.f9883a >> 2;
-                        this.f9884b.a((f2 * f4) - f4);
+                        float f4 = this.f9909a >> 2;
+                        this.f9910b.a((f2 * f4) - f4);
                     }
                 }
             });

@@ -14,7 +14,7 @@ public class g1 extends h1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f68776d;
+    public boolean f69230d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g1(j1 j1Var) {
@@ -50,14 +50,14 @@ public class g1 extends h1 {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68776d ? Long.MAX_VALUE : 0L : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69230d ? Long.MAX_VALUE : 0L : invokeV.longValue;
     }
 
     @Override // d.b.a.h1
     public long[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? n1.f68813d : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? n1.f69267d : (long[]) invokeV.objValue;
     }
 
     @Override // d.b.a.h1
@@ -65,15 +65,15 @@ public class g1 extends h1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f68781a.j().D() != 0) {
-                JSONObject c2 = this.f68781a.j().c();
+            if (this.f69235a.j().D() != 0) {
+                JSONObject c2 = this.f69235a.j().c();
                 if (c2 != null) {
-                    this.f68776d = n.g(o.a(this.f68781a.f(), this.f68781a.j().c(), this.f68781a.n().getActiveUri(), true, AppLog.getIAppParam()), c2);
+                    this.f69230d = n.g(o.a(this.f69235a.f(), this.f69235a.j().c(), this.f69235a.n().getActiveUri(), true, AppLog.getIAppParam()), c2);
                 } else {
                     h0.b(null);
                 }
             }
-            return this.f68776d;
+            return this.f69230d;
         }
         return invokeV.booleanValue;
     }

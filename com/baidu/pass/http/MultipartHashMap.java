@@ -18,16 +18,16 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9326a;
+        public String f9352a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9327b;
+        public String f9353b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9328c;
+        public String f9354c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InputStream f9329d;
+        public InputStream f9355d;
 
         public a(String str, InputStream inputStream, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -44,17 +44,17 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
                     return;
                 }
             }
-            this.f9326a = str;
-            this.f9329d = inputStream;
-            this.f9327b = str2;
-            this.f9328c = str3;
+            this.f9352a = str;
+            this.f9355d = inputStream;
+            this.f9353b = str2;
+            this.f9354c = str3;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String str = this.f9327b;
+                String str = this.f9353b;
                 return str != null ? str : "nofilename";
             }
             return (String) invokeV.objValue;

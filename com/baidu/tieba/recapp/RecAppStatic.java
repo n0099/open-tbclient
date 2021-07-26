@@ -17,15 +17,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
-import d.a.p0.e.e.e;
-import d.a.p0.w2.f;
-import d.a.p0.w2.h;
-import d.a.p0.w2.j;
-import d.a.p0.w2.l;
-import d.a.p0.w2.v;
-import d.a.p0.w2.w;
-import d.a.p0.w2.y;
+import d.a.p0.s.q.b2;
+import d.a.q0.e.e.e;
+import d.a.q0.w2.f;
+import d.a.q0.w2.h;
+import d.a.q0.w2.j;
+import d.a.q0.w2.l;
+import d.a.q0.w2.v;
+import d.a.q0.w2.w;
+import d.a.q0.w2.y;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,7 +53,7 @@ public class RecAppStatic {
             }
         }
 
-        @Override // d.a.p0.w2.l.a
+        @Override // d.a.q0.w2.l.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -143,13 +143,13 @@ public class RecAppStatic {
                 return;
             }
         }
-        w.f66057a.set(new y());
-        d.a.p0.w2.d0.a.f65884a.set(new v());
+        w.f66733a.set(new y());
+        d.a.q0.w2.d0.a.f66559a.set(new v());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        d.a.p0.q.a.l().e(new a());
+        d.a.q0.q.a.l().e(new a());
         e.b().c(1, new j());
         e.b().c(2, new h());
-        b2.B3.set(true);
+        b2.H3.set(true);
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
         b bVar = new b(inst);
@@ -158,7 +158,7 @@ public class RecAppStatic {
         inst.registerReceiver(bVar, intentFilter);
         f.t().b();
         f.t().f();
-        d.a.p0.q.d.i.a.f61476a.set(new d.a.p0.w2.c0.b());
+        d.a.q0.q.d.i.a.f62090a.set(new d.a.q0.w2.c0.b());
     }
 
     public RecAppStatic() {

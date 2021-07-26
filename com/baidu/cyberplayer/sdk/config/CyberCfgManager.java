@@ -94,19 +94,19 @@ public class CyberCfgManager {
     public static final String SR_REMAINING_INFO = "sr_remaining_info";
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<String> f4837a;
+    public static ArrayList<String> f4863a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4838b;
+    public static Context f4864b;
 
     /* renamed from: g  reason: collision with root package name */
-    public static CyberCfgManager f4839g;
+    public static CyberCfgManager f4865g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile boolean f4840h;
+    public static volatile boolean f4866h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile boolean f4841i;
+    public static volatile boolean f4867i;
     public static int j;
     public static ArrayList<String> m;
     public static ArrayList<String> n;
@@ -117,16 +117,16 @@ public class CyberCfgManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f4842c;
+    public Map<String, String> f4868c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f4843d;
+    public Map<String, String> f4869d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4844e;
+    public String f4870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f4845f;
+    public String f4871f;
     public String k;
     public String l;
 
@@ -143,21 +143,21 @@ public class CyberCfgManager {
                 return;
             }
         }
-        f4839g = new CyberCfgManager();
-        f4840h = false;
-        f4841i = false;
+        f4865g = new CyberCfgManager();
+        f4866h = false;
+        f4867i = false;
         j = 86400000;
-        f4837a = new ArrayList<>();
+        f4863a = new ArrayList<>();
         m = new ArrayList<>();
         n = new ArrayList<>();
         o = new ArrayList<>();
         p = new ArrayList<>();
         q = new ArrayList<>();
         r = new ArrayList<>();
-        f4837a.add("hwH60");
-        f4837a.add("hwp7");
-        f4837a.add("sp8830ec");
-        f4837a.add("Hisense M30T");
+        f4863a.add("hwH60");
+        f4863a.add("hwp7");
+        f4863a.add("sp8830ec");
+        f4863a.add("Hisense M30T");
         m.add("GT-I9500");
         m.add("GT-I9268");
         m.add("GT-I8268");
@@ -227,10 +227,10 @@ public class CyberCfgManager {
                 return;
             }
         }
-        this.f4842c = new ConcurrentHashMap();
-        this.f4843d = new ConcurrentHashMap();
-        this.f4844e = null;
-        this.f4845f = null;
+        this.f4868c = new ConcurrentHashMap();
+        this.f4869d = new ConcurrentHashMap();
+        this.f4870e = null;
+        this.f4871f = null;
     }
 
     public static int a(Map<String, String> map, String str, int i2) {
@@ -286,7 +286,7 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, map)) == null) {
             String a2 = a(map, "release_key", "");
-            return !TextUtils.isEmpty(a2) && a2.equalsIgnoreCase(this.f4844e);
+            return !TextUtils.isEmpty(a2) && a2.equalsIgnoreCase(this.f4870e);
         }
         return invokeL.booleanValue;
     }
@@ -301,14 +301,14 @@ public class CyberCfgManager {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.f4843d.clear();
+            this.f4869d.clear();
             d();
             c();
             e();
             f();
             synchronized (this) {
-                this.f4842c.clear();
-                this.f4842c.putAll(this.f4843d);
+                this.f4868c.clear();
+                this.f4868c.putAll(this.f4869d);
             }
         }
     }
@@ -352,19 +352,19 @@ public class CyberCfgManager {
             this.k = o.b() + File.separator + "config";
             Map<String, String> a2 = b.a(this.k + File.separator + "cybermedia.pro");
             if (a2 != null) {
-                this.f4843d.putAll(a2);
+                this.f4869d.putAll(a2);
             }
         }
     }
 
     private void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65550, this, str, str2) == null) && a(this.f4843d, str, -1) == -1) {
-            String a2 = a(this.f4843d, str2, "");
+        if ((interceptable == null || interceptable.invokeLL(65550, this, str, str2) == null) && a(this.f4869d, str, -1) == -1) {
+            String a2 = a(this.f4869d, str2, "");
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            this.f4843d.put(str, Integer.toString(a.a(a2, SDKVersion.VERSION).booleanValue() ? 1 : 0));
+            this.f4869d.put(str, Integer.toString(a.a(a2, SDKVersion.VERSION).booleanValue() ? 1 : 0));
         }
     }
 
@@ -428,7 +428,7 @@ public class CyberCfgManager {
                         CyberLog.d("CyberCfgManager", "ABTest key:" + key + " value:" + value);
                         Map<String, String> c2 = o.c(value);
                         if (c2 != null) {
-                            this.f4843d.putAll(c2);
+                            this.f4869d.putAll(c2);
                         }
                     }
                 }
@@ -441,8 +441,8 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             try {
-                if (f4838b != null) {
-                    this.l = o.a(f4838b);
+                if (f4864b != null) {
+                    this.l = o.a(f4864b);
                 }
                 if (TextUtils.isEmpty(this.l)) {
                     return;
@@ -451,7 +451,7 @@ public class CyberCfgManager {
                 if (a2 != null) {
                     b(a2);
                     if (a(a2)) {
-                        this.f4843d.putAll(a2);
+                        this.f4869d.putAll(a2);
                     }
                 }
             } catch (Exception unused) {
@@ -471,7 +471,7 @@ public class CyberCfgManager {
             m();
             n();
             k();
-            this.f4843d.put(KEY_INT_ENABLE_HW_DECODE, Integer.toString(!p()));
+            this.f4869d.put(KEY_INT_ENABLE_HW_DECODE, Integer.toString(!p()));
         }
     }
 
@@ -491,10 +491,10 @@ public class CyberCfgManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            if (f4838b == null) {
-                f4838b = CyberPlayerManager.getApplicationContext();
+            if (f4864b == null) {
+                f4864b = CyberPlayerManager.getApplicationContext();
             }
-            return f4839g;
+            return f4865g;
         }
         return (CyberCfgManager) invokeV.objValue;
     }
@@ -508,7 +508,7 @@ public class CyberCfgManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CyberCfgManager f4846a;
+                public final /* synthetic */ CyberCfgManager f4872a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -525,7 +525,7 @@ public class CyberCfgManager {
                             return;
                         }
                     }
-                    this.f4846a = this;
+                    this.f4872a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -535,12 +535,12 @@ public class CyberCfgManager {
                         try {
                             String f2 = c.a().f();
                             Properties properties = new Properties();
-                            o.b(this.f4846a.k);
-                            File file = new File(this.f4846a.k, "cybermedia.pro");
+                            o.b(this.f4872a.k);
+                            File file = new File(this.f4872a.k, "cybermedia.pro");
                             if (!file.exists() || !file.isFile()) {
                                 file.createNewFile();
                             }
-                            File file2 = new File(this.f4846a.k, "cybermedia.pro.tmp");
+                            File file2 = new File(this.f4872a.k, "cybermedia.pro.tmp");
                             if (!file2.exists() || !file2.isFile()) {
                                 file2.createNewFile();
                             }
@@ -560,14 +560,14 @@ public class CyberCfgManager {
                                     properties.store(fileWriter, "update");
                                     fileWriter.close();
                                 }
-                                if (file2.renameTo(file) && !TextUtils.isEmpty(a3) && !a3.equals(this.f4846a.getPrefStr("cloud_cfg_data_md5", ""))) {
-                                    this.f4846a.setPrefStr("cloud_cfg_data_md5", a3);
-                                    this.f4846a.b();
+                                if (file2.renameTo(file) && !TextUtils.isEmpty(a3) && !a3.equals(this.f4872a.getPrefStr("cloud_cfg_data_md5", ""))) {
+                                    this.f4872a.setPrefStr("cloud_cfg_data_md5", a3);
+                                    this.f4872a.b();
                                     d.h();
                                     CyberLog.d("CyberCfgManager", "updateCloudCfgProFile success!");
                                 }
                             }
-                            if (this.f4846a.getCfgBoolValue("delete_unuse_files", true)) {
+                            if (this.f4872a.getCfgBoolValue("delete_unuse_files", true)) {
                                 o.a(o.b() + File.separator + "cyberplayer");
                             }
                         } catch (Exception unused) {
@@ -582,16 +582,16 @@ public class CyberCfgManager {
         Map<String, String> map;
         String num;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65558, this) == null) && a(this.f4843d, "enable_upload_session_log", -1) == -1) {
-            String a2 = a(this.f4843d, "upload_session_log_ver", "");
+        if ((interceptable == null || interceptable.invokeV(65558, this) == null) && a(this.f4869d, "enable_upload_session_log", -1) == -1) {
+            String a2 = a(this.f4869d, "upload_session_log_ver", "");
             if (TextUtils.isEmpty(a2) || a.a(a2, SDKVersion.VERSION).booleanValue()) {
-                if (new Random().nextInt(10000) + 1 <= a(this.f4843d, VideoCloudSetting.PREF_KEY_SESSION_LOG_COLLECT_PERCENT, 10000)) {
-                    map = this.f4843d;
+                if (new Random().nextInt(10000) + 1 <= a(this.f4869d, VideoCloudSetting.PREF_KEY_SESSION_LOG_COLLECT_PERCENT, 10000)) {
+                    map = this.f4869d;
                     num = Integer.toString(1);
                     map.put("enable_upload_session_log", num);
                 }
             }
-            map = this.f4843d;
+            map = this.f4869d;
             num = Integer.toString(0);
             map.put("enable_upload_session_log", num);
         }
@@ -601,10 +601,10 @@ public class CyberCfgManager {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            String a2 = a(this.f4843d, "update_core_info", "");
+            String a2 = a(this.f4869d, "update_core_info", "");
             if (!TextUtils.isEmpty(a2) && (split = a2.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue() && b(split[1]) && isAllowUpdate("cyber-media-dex", split[1], SDKVersion.VERSION)) {
-                this.f4843d.put("update_core_ver", keepMainProcessVersion("cyber-media-dex", split[1]));
-                this.f4843d.put("update_core_enable_downgrade", split[2]);
+                this.f4869d.put("update_core_ver", keepMainProcessVersion("cyber-media-dex", split[1]));
+                this.f4869d.put("update_core_enable_downgrade", split[2]);
             }
         }
     }
@@ -613,7 +613,7 @@ public class CyberCfgManager {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            String a2 = a(this.f4843d, "update_lib_info", "");
+            String a2 = a(this.f4869d, "update_lib_info", "");
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
@@ -625,7 +625,7 @@ public class CyberCfgManager {
                         String next = keys.next();
                         String string = jSONObject.getString(next);
                         if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string) && (split = string.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue()) {
-                            this.f4843d.put(next, string);
+                            this.f4869d.put(next, string);
                         }
                     }
                 }
@@ -655,7 +655,7 @@ public class CyberCfgManager {
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, this) == null) {
-            String a2 = a(this.f4843d, "decode_mode_for_rom", "");
+            String a2 = a(this.f4869d, "decode_mode_for_rom", "");
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
@@ -666,7 +666,7 @@ public class CyberCfgManager {
                 }
                 for (String str : split[0].split(",")) {
                     if (Integer.parseInt(str) == Build.VERSION.SDK_INT) {
-                        this.f4843d.put("decode_mode", split[1]);
+                        this.f4869d.put("decode_mode", split[1]);
                         return;
                     }
                 }
@@ -676,7 +676,7 @@ public class CyberCfgManager {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x003a, code lost:
-        r8.f4843d.put("remote_forbidden", r0[1]);
+        r8.f4869d.put("remote_forbidden", r0[1]);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -684,7 +684,7 @@ public class CyberCfgManager {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            String a2 = a(this.f4843d, "remote_forbidden_by_rom", "16,17,18,19,20;1");
+            String a2 = a(this.f4869d, "remote_forbidden_by_rom", "16,17,18,19,20;1");
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     String[] split = a2.split(";");
@@ -704,10 +704,10 @@ public class CyberCfgManager {
                 } catch (Exception unused) {
                 }
             }
-            if (a(this.f4843d, "remote_forbidden", false) || !q()) {
+            if (a(this.f4869d, "remote_forbidden", false) || !q()) {
                 return;
             }
-            this.f4843d.put("remote_forbidden", Integer.toString(1));
+            this.f4869d.put("remote_forbidden", Integer.toString(1));
         }
     }
 
@@ -718,12 +718,12 @@ public class CyberCfgManager {
             if (!TextUtils.isEmpty(prefStr)) {
                 String[] split = prefStr.split(";");
                 if (split.length == 2) {
-                    this.f4843d.put("sr_last_run_time", split[0]);
-                    this.f4843d.put("sr_remaining_nb", split[1]);
+                    this.f4869d.put("sr_last_run_time", split[0]);
+                    this.f4869d.put("sr_remaining_nb", split[1]);
                 }
             }
-            if (a(this.f4843d, KEY_INT_ENABLE_SR, true)) {
-                this.f4843d.put(KEY_INT_ENABLE_SR, Integer.toString(o() ? 1 : 0));
+            if (a(this.f4869d, KEY_INT_ENABLE_SR, true)) {
+                this.f4869d.put(KEY_INT_ENABLE_SR, Integer.toString(o() ? 1 : 0));
             }
         }
     }
@@ -738,7 +738,7 @@ public class CyberCfgManager {
             if (a.a(q, r)) {
                 return true;
             }
-            String a2 = a(this.f4843d, "white_devices_for_sr", "");
+            String a2 = a(this.f4869d, "white_devices_for_sr", "");
             CyberLog.i("CyberCfgManager", "value : " + a2);
             if (TextUtils.isEmpty(a2)) {
                 return false;
@@ -757,8 +757,8 @@ public class CyberCfgManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 16 && !a.a(f4837a, m)) {
-                String a2 = a(this.f4843d, "black_devices_for_hw", "");
+            if (Build.VERSION.SDK_INT >= 16 && !a.a(f4863a, m)) {
+                String a2 = a(this.f4869d, "black_devices_for_hw", "");
                 if (TextUtils.isEmpty(a2)) {
                     return false;
                 }
@@ -781,7 +781,7 @@ public class CyberCfgManager {
             if (a.a(o, p)) {
                 return true;
             }
-            String a2 = a(this.f4843d, "remote_blacklist", "");
+            String a2 = a(this.f4869d, "remote_blacklist", "");
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
@@ -799,23 +799,23 @@ public class CyberCfgManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String packageName = f4838b.getPackageName();
+            String packageName = f4864b.getPackageName();
             String str2 = (str + File.separator + "videoconfig") + "?cmd=1&";
             StringBuilder sb = new StringBuilder();
             o.a(sb, "package_name", packageName);
             o.a(sb, "sdk_ver", SDKVersion.VERSION);
-            if (!TextUtils.isEmpty(this.f4845f)) {
-                o.a(sb, "appid", this.f4845f);
+            if (!TextUtils.isEmpty(this.f4871f)) {
+                o.a(sb, "appid", this.f4871f);
             }
             try {
-                PackageManager packageManager = f4838b.getPackageManager();
+                PackageManager packageManager = f4864b.getPackageManager();
                 if (packageManager != null) {
                     o.a(sb, "appversion", packageManager.getPackageInfo(packageName, 0).versionName);
                 }
             } catch (PackageManager.NameNotFoundException unused) {
             }
             o.a(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
-            o.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(f4838b));
+            o.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(f4864b));
             try {
                 o.a(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));
             } catch (Throwable th) {
@@ -829,21 +829,21 @@ public class CyberCfgManager {
     public String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? a(this.f4842c, str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? a(this.f4868c, str, str2) : (String) invokeLL.objValue;
     }
 
     public synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (f4840h) {
-                    if (f4841i) {
+                if (f4866h) {
+                    if (f4867i) {
                         if (System.currentTimeMillis() - getPrefLong("last_update_cloud_cfg_time", -1L) > j) {
                             h();
                         }
                     } else {
                         h();
-                        f4841i = true;
+                        f4867i = true;
                     }
                 }
             }
@@ -853,7 +853,7 @@ public class CyberCfgManager {
     public boolean a(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) ? a(this.f4842c, str, z ? 1 : 0) == 1 : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) ? a(this.f4868c, str, z ? 1 : 0) == 1 : invokeLZ.booleanValue;
     }
 
     @Keep
@@ -863,7 +863,7 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
             synchronized (this) {
-                z2 = a(this.f4842c, str, z ? 1 : 0) == 1;
+                z2 = a(this.f4868c, str, z ? 1 : 0) == 1;
             }
             return z2;
         }
@@ -877,7 +877,7 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
             synchronized (this) {
-                a2 = a(this.f4842c, str, i2);
+                a2 = a(this.f4868c, str, i2);
             }
             return a2;
         }
@@ -891,7 +891,7 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
             synchronized (this) {
-                a2 = a(this.f4842c, str, j2);
+                a2 = a(this.f4868c, str, j2);
             }
             return a2;
         }
@@ -911,7 +911,7 @@ public class CyberCfgManager {
                 } catch (Exception unused) {
                 }
                 try {
-                    hashMap.putAll(this.f4842c);
+                    hashMap.putAll(this.f4868c);
                 } catch (Exception unused2) {
                     hashMap2 = hashMap;
                     hashMap = hashMap2;
@@ -930,7 +930,7 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
             synchronized (this) {
-                a2 = a(this.f4842c, str, str2);
+                a2 = a(this.f4868c, str, str2);
             }
             return a2;
         }
@@ -943,8 +943,8 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i2)) == null) {
             synchronized (this) {
-                if (f4838b != null) {
-                    i2 = f4838b.getSharedPreferences("video_cfg", 0).getInt(str, i2);
+                if (f4864b != null) {
+                    i2 = f4864b.getSharedPreferences("video_cfg", 0).getInt(str, i2);
                 }
             }
             return i2;
@@ -958,8 +958,8 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j2)) == null) {
             synchronized (this) {
-                if (f4838b != null) {
-                    j2 = f4838b.getSharedPreferences("video_cfg", 0).getLong(str, j2);
+                if (f4864b != null) {
+                    j2 = f4864b.getSharedPreferences("video_cfg", 0).getLong(str, j2);
                 }
             }
             return j2;
@@ -973,8 +973,8 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
             synchronized (this) {
-                if (f4838b != null) {
-                    str2 = f4838b.getSharedPreferences("video_cfg", 0).getString(str, str2);
+                if (f4864b != null) {
+                    str2 = f4864b.getSharedPreferences("video_cfg", 0).getString(str, str2);
                 }
             }
             return str2;
@@ -987,11 +987,11 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             synchronized (this) {
-                if (!f4840h) {
-                    this.f4844e = CyberPlayerManager.getClientID();
-                    this.f4845f = CyberPlayerManager.getAppID();
+                if (!f4866h) {
+                    this.f4870e = CyberPlayerManager.getClientID();
+                    this.f4871f = CyberPlayerManager.getAppID();
                     b();
-                    f4840h = true;
+                    f4866h = true;
                 }
             }
         }
@@ -1043,7 +1043,7 @@ public class CyberCfgManager {
                 if (a.a(str, n)) {
                     return true;
                 }
-                String a2 = a(this.f4842c, "black_url_list_for_file_cache", "");
+                String a2 = a(this.f4868c, "black_url_list_for_file_cache", "");
                 if (TextUtils.isEmpty(a2)) {
                     return false;
                 }
@@ -1063,8 +1063,8 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             synchronized (this) {
-                if (f4838b != null) {
-                    SharedPreferences.Editor edit = f4838b.getSharedPreferences("video_cfg", 0).edit();
+                if (f4864b != null) {
+                    SharedPreferences.Editor edit = f4864b.getSharedPreferences("video_cfg", 0).edit();
                     edit.remove(str);
                     edit.commit();
                 }
@@ -1077,8 +1077,8 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, str, i2) == null) {
             synchronized (this) {
-                if (f4838b != null) {
-                    SharedPreferences.Editor edit = f4838b.getSharedPreferences("video_cfg", 0).edit();
+                if (f4864b != null) {
+                    SharedPreferences.Editor edit = f4864b.getSharedPreferences("video_cfg", 0).edit();
                     edit.putInt(str, i2);
                     edit.commit();
                 }
@@ -1091,8 +1091,8 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048593, this, str, j2) == null) {
             synchronized (this) {
-                if (f4838b != null) {
-                    SharedPreferences.Editor edit = f4838b.getSharedPreferences("video_cfg", 0).edit();
+                if (f4864b != null) {
+                    SharedPreferences.Editor edit = f4864b.getSharedPreferences("video_cfg", 0).edit();
                     edit.putLong(str, j2);
                     edit.commit();
                 }
@@ -1105,8 +1105,8 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) {
             synchronized (this) {
-                if (f4838b != null) {
-                    SharedPreferences.Editor edit = f4838b.getSharedPreferences("video_cfg", 0).edit();
+                if (f4864b != null) {
+                    SharedPreferences.Editor edit = f4864b.getSharedPreferences("video_cfg", 0).edit();
                     edit.putString(str, str2);
                     edit.commit();
                 }

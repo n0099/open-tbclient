@@ -13,7 +13,7 @@ public final class ah implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f40584a;
+    public final /* synthetic */ List f40856a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ boolean f887a;
@@ -33,7 +33,7 @@ public final class ah implements Runnable {
                 return;
             }
         }
-        this.f40584a = list;
+        this.f40856a = list;
         this.f887a = z;
     }
 
@@ -44,7 +44,7 @@ public final class ah implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             b2 = ag.b("www.baidu.com:80");
-            Iterator it = this.f40584a.iterator();
+            Iterator it = this.f40856a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

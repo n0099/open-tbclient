@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.f;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.q;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.s;
 import com.bytedance.sdk.openadsdk.multipro.b;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -38,31 +38,31 @@ public class GifView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Movie f30884a;
+    public Movie f31067a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30885b;
+    public long f31068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30886c;
+    public int f31069c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AnimatedImageDrawable f30887d;
+    public AnimatedImageDrawable f31070d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30888e;
+    public boolean f31071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30889f;
+    public boolean f31072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f30890g;
+    public float f31073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f30891h;
+    public float f31074h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f30892i;
+    public float f31075i;
     public int j;
     public int k;
     public volatile boolean l;
@@ -86,8 +86,8 @@ public class GifView extends ImageView {
                 return;
             }
         }
-        this.f30888e = Build.VERSION.SDK_INT >= 28;
-        this.f30889f = false;
+        this.f31071e = Build.VERSION.SDK_INT >= 28;
+        this.f31072f = false;
         this.m = true;
         a();
     }
@@ -101,11 +101,11 @@ public class GifView extends ImageView {
             if (bArr == null) {
                 return null;
             }
-            if (this.f30889f) {
+            if (this.f31072f) {
                 try {
                     source = (ImageDecoder.Source) ImageDecoder.class.getMethod("createSource", Resources.class, InputStream.class).invoke(null, getResources(), new ByteArrayInputStream(bArr));
                 } catch (Throwable th) {
-                    j.c("GifView", "GifView android P  : Use Reflection fail : ", th);
+                    k.c("GifView", "GifView android P  : Use Reflection fail : ", th);
                 }
             }
             if (source == null) {
@@ -138,7 +138,7 @@ public class GifView extends ImageView {
             } catch (Throwable th) {
                 th = th;
                 try {
-                    j.c("GifView", "GifView  getSourceByFile fail : ", th);
+                    k.c("GifView", "GifView  getSourceByFile fail : ", th);
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
@@ -165,12 +165,12 @@ public class GifView extends ImageView {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!this.f30888e) {
+            if (!this.f31071e) {
                 setLayerType(1, null);
                 return;
             }
-            this.f30889f = q.a();
-            j.b("GifView", "android p 反射解锁：exempt result: " + this.f30889f);
+            this.f31072f = s.a();
+            k.b("GifView", "android p 反射解锁：exempt result: " + this.f31072f);
         }
     }
 
@@ -178,7 +178,7 @@ public class GifView extends ImageView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            if (this.f30884a != null && !this.f30888e) {
+            if (this.f31067a != null && !this.f31071e) {
                 try {
                     if (!this.l) {
                         c();
@@ -189,7 +189,7 @@ public class GifView extends ImageView {
                     }
                     return;
                 } catch (Throwable th) {
-                    j.c("GifView", "onDraw->Throwable->", th);
+                    k.c("GifView", "onDraw->Throwable->", th);
                     return;
                 }
             }
@@ -202,9 +202,9 @@ public class GifView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (this.f30884a != null && !this.f30888e) {
-                this.f30890g = (getWidth() - this.j) / 2.0f;
-                this.f30891h = (getHeight() - this.k) / 2.0f;
+            if (this.f31067a != null && !this.f31071e) {
+                this.f31073g = (getWidth() - this.j) / 2.0f;
+                this.f31074h = (getHeight() - this.k) / 2.0f;
             }
             this.m = getVisibility() == 0;
         }
@@ -218,13 +218,13 @@ public class GifView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f30888e || (movie = this.f30884a) == null) {
+            if (this.f31071e || (movie = this.f31067a) == null) {
                 return;
             }
             int width = movie.width();
-            int height = this.f30884a.height();
+            int height = this.f31067a.height();
             float max = 1.0f / Math.max((View.MeasureSpec.getMode(i2) == 0 || width <= (size2 = View.MeasureSpec.getSize(i2))) ? 1.0f : width / size2, (View.MeasureSpec.getMode(i3) == 0 || height <= (size = View.MeasureSpec.getSize(i3))) ? 1.0f : height / size);
-            this.f30892i = max;
+            this.f31075i = max;
             int i4 = (int) (width * max);
             this.j = i4;
             int i5 = (int) (height * max);
@@ -239,7 +239,7 @@ public class GifView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onScreenStateChanged(i2);
-            if (this.f30884a != null) {
+            if (this.f31067a != null) {
                 this.m = i2 == 1;
                 b();
             }
@@ -252,7 +252,7 @@ public class GifView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, view, i2) == null) {
             super.onVisibilityChanged(view, i2);
-            if (this.f30884a != null) {
+            if (this.f31067a != null) {
                 this.m = i2 == 0;
                 b();
             }
@@ -264,7 +264,7 @@ public class GifView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            if (this.f30884a != null) {
+            if (this.f31067a != null) {
                 this.m = i2 == 0;
                 b();
             }
@@ -276,10 +276,10 @@ public class GifView extends ImageView {
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, z) == null) {
             this.l = z;
             if (bArr != null) {
-                if (!this.f30888e) {
-                    this.f30884a = a(bArr);
+                if (!this.f31071e) {
+                    this.f31067a = a(bArr);
                 } else {
-                    this.f30887d = b(bArr);
+                    this.f31070d = b(bArr);
                 }
             }
         }
@@ -304,15 +304,15 @@ public class GifView extends ImageView {
                 return;
             }
         }
-        this.f30888e = Build.VERSION.SDK_INT >= 28;
-        this.f30889f = false;
+        this.f31071e = Build.VERSION.SDK_INT >= 28;
+        this.f31072f = false;
         this.m = true;
         a();
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f30884a == null || this.f30888e || !this.m) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f31067a == null || this.f31071e || !this.m) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 16) {
@@ -329,7 +329,7 @@ public class GifView extends ImageView {
             try {
                 return Movie.decodeByteArray(bArr, 0, bArr.length);
             } catch (Throwable th) {
-                j.a("GifView", "createMovieWithByteArrayBySafely error1", th);
+                k.a("GifView", "createMovieWithByteArrayBySafely error1", th);
                 return null;
             }
         }
@@ -338,18 +338,18 @@ public class GifView extends ImageView {
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f30884a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f31067a == null) {
             return;
         }
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (this.f30885b == 0) {
-            this.f30885b = uptimeMillis;
+        if (this.f31068b == 0) {
+            this.f31068b = uptimeMillis;
         }
-        int duration = this.f30884a.duration();
+        int duration = this.f31067a.duration();
         if (duration == 0) {
             duration = 1000;
         }
-        this.f30886c = (int) ((uptimeMillis - this.f30885b) % duration);
+        this.f31069c = (int) ((uptimeMillis - this.f31068b) % duration);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -371,8 +371,8 @@ public class GifView extends ImageView {
                 return;
             }
         }
-        this.f30888e = Build.VERSION.SDK_INT >= 28;
-        this.f30889f = false;
+        this.f31071e = Build.VERSION.SDK_INT >= 28;
+        this.f31072f = false;
         this.m = true;
         a();
     }
@@ -394,7 +394,7 @@ public class GifView extends ImageView {
                 }
                 return null;
             } catch (Throwable th) {
-                j.a("GifView", "getAnimatedImageDrawable error", th);
+                k.a("GifView", "getAnimatedImageDrawable error", th);
                 return null;
             }
         }
@@ -421,8 +421,8 @@ public class GifView extends ImageView {
                 return;
             }
         }
-        this.f30888e = Build.VERSION.SDK_INT >= 28;
-        this.f30889f = false;
+        this.f31071e = Build.VERSION.SDK_INT >= 28;
+        this.f31072f = false;
         this.m = true;
         a();
     }
@@ -442,16 +442,16 @@ public class GifView extends ImageView {
     private void a(Canvas canvas) {
         Movie movie;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, canvas) == null) || (movie = this.f30884a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, this, canvas) == null) || (movie = this.f31067a) == null) {
             return;
         }
-        movie.setTime(this.f30886c);
-        float f2 = this.f30892i;
+        movie.setTime(this.f31069c);
+        float f2 = this.f31075i;
         canvas.scale(f2, f2);
-        Movie movie2 = this.f30884a;
-        float f3 = this.f30890g;
-        float f4 = this.f30892i;
-        movie2.draw(canvas, f3 / f4, this.f30891h / f4);
+        Movie movie2 = this.f31067a;
+        float f3 = this.f31073g;
+        float f4 = this.f31075i;
+        movie2.draw(canvas, f3 / f4, this.f31074h / f4);
         canvas.restore();
     }
 }

@@ -253,11 +253,11 @@ public class b {
 
     /* renamed from: com.kwad.sdk.collector.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0405b implements com.kwad.sdk.collector.a {
+    public static class C0407b implements com.kwad.sdk.collector.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0405b() {
+        public C0407b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -327,6 +327,6 @@ public class b {
     public static com.kwad.sdk.collector.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? com.kwad.sdk.core.config.c.ac() ? new C0405b() : new a() : (com.kwad.sdk.collector.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? com.kwad.sdk.core.config.c.ac() ? new C0407b() : new a() : (com.kwad.sdk.collector.a) invokeV.objValue;
     }
 }

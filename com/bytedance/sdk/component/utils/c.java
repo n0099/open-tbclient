@@ -16,7 +16,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, ArrayList<String>> f28893a;
+    public static HashMap<String, ArrayList<String>> f28989a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class c {
                 return;
             }
         }
-        f28893a = new HashMap<>();
+        f28989a = new HashMap<>();
     }
 
     public static ArrayList<String> a(Context context, String str) {
@@ -46,8 +46,8 @@ public class c {
                 if (packageName == null) {
                     return null;
                 }
-                if (f28893a.get(str) != null) {
-                    return f28893a.get(str);
+                if (f28989a.get(str) != null) {
+                    return f28989a.get(str);
                 }
                 arrayList = new ArrayList<>();
                 try {
@@ -63,9 +63,9 @@ public class c {
                         arrayList.add(str2);
                     }
                 } catch (Exception e2) {
-                    j.b(e2.toString());
+                    k.c(e2.toString());
                 }
-                f28893a.put(str, arrayList);
+                f28989a.put(str, arrayList);
             }
             return arrayList;
         }
@@ -79,7 +79,7 @@ public class c {
             try {
                 return context.getPackageManager().getPackageInfo(str, 64).signatures;
             } catch (Exception e2) {
-                j.b(e2.toString());
+                k.c(e2.toString());
                 return null;
             }
         }
@@ -123,7 +123,7 @@ public class c {
                 }
                 return "error!";
             } catch (Exception e2) {
-                j.b(e2.toString());
+                k.c(e2.toString());
                 return "error!";
             }
         }

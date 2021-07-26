@@ -12,25 +12,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f34656a;
+    public long f34845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f34657b;
+    public long f34846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f34658c;
+    public long f34847c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f34659d;
+    public long f34848d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f34660e;
+    public long f34849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34661f;
+    public String f34850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34662g;
+    public String f34851g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "NetworkMonitorInfo{requestTotalTime=" + this.f34656a + ", mRequestCreateTime" + this.f34657b + ", requestResponseTime=" + this.f34658c + ", requestParseDataTime=" + this.f34659d + ", requestCallbackTime=" + this.f34660e + ", requestFailReason='" + this.f34661f + "', requestUrl='" + this.f34662g + "'}";
+            return "NetworkMonitorInfo{requestTotalTime=" + this.f34845a + ", mRequestCreateTime" + this.f34846b + ", requestResponseTime=" + this.f34847c + ", requestParseDataTime=" + this.f34848d + ", requestCallbackTime=" + this.f34849e + ", requestFailReason='" + this.f34850f + "', requestUrl='" + this.f34851g + "'}";
         }
         return (String) invokeV.objValue;
     }

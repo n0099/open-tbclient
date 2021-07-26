@@ -1,43 +1,28 @@
 package d.l.a.e.b.f;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ss.android.socialbase.downloader.exception.BaseException;
+import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
-public abstract class c extends a implements u {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface c {
+    void b(DownloadInfo downloadInfo);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1799569280, "Ld/l/a/e/b/f/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1799569280, "Ld/l/a/e/b/f/c;");
-        }
-    }
+    void c(DownloadInfo downloadInfo);
 
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void d(DownloadInfo downloadInfo);
+
+    void e(DownloadInfo downloadInfo);
+
+    void f(DownloadInfo downloadInfo);
+
+    void g(DownloadInfo downloadInfo);
+
+    void h(DownloadInfo downloadInfo, BaseException baseException);
+
+    void i(DownloadInfo downloadInfo, BaseException baseException);
+
+    void j(DownloadInfo downloadInfo, BaseException baseException);
+
+    void k(DownloadInfo downloadInfo);
+
+    void l(DownloadInfo downloadInfo);
 }

@@ -1,62 +1,129 @@
 package com.tencent.open.utils;
 
+import android.annotation.TargetApi;
+import android.net.SSLCertificateSocketFactory;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.open.log.SLog;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSocket;
+import org.apache.http.conn.scheme.LayeredSocketFactory;
+import org.apache.http.conn.ssl.StrictHostnameVerifier;
+import org.apache.http.params.HttpParams;
+@TargetApi(17)
 /* loaded from: classes6.dex */
-public final class k implements Cloneable {
+public class k implements LayeredSocketFactory {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39037a;
+    public static final HostnameVerifier f39244a;
 
-    public k(long j) {
+    /* renamed from: b  reason: collision with root package name */
+    public static final SSLCertificateSocketFactory f39245b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2036590769, "Lcom/tencent/open/utils/k;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2036590769, "Lcom/tencent/open/utils/k;");
+                return;
+            }
+        }
+        f39244a = new StrictHostnameVerifier();
+        f39245b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
+    }
+
+    public k() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f39037a = j;
     }
 
-    public byte[] a() {
-        InterceptResult invokeV;
+    @Override // org.apache.http.conn.scheme.SocketFactory
+    public Socket connectSocket(Socket socket, String str, int i2, InetAddress inetAddress, int i3, HttpParams httpParams) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.f39037a;
-            return new byte[]{(byte) (255 & j), (byte) ((65280 & j) >> 8), (byte) ((16711680 & j) >> 16), (byte) ((j & 4278190080L) >> 24)};
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{socket, str, Integer.valueOf(i2), inetAddress, Integer.valueOf(i3), httpParams})) == null) {
+            socket.connect(new InetSocketAddress(str, i2));
+            return socket;
         }
-        return (byte[]) invokeV.objValue;
+        return (Socket) invokeCommon.objValue;
     }
 
-    public long b() {
+    @Override // org.apache.http.conn.scheme.SocketFactory
+    public Socket createSocket() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39037a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new Socket() : (Socket) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
+    @Override // org.apache.http.conn.scheme.SocketFactory
+    public boolean isSecure(Socket socket) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj != null && (obj instanceof k) && this.f39037a == ((k) obj).b() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, socket)) == null) {
+            if (socket instanceof SSLSocket) {
+                return ((SSLSocket) socket).isConnected();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    @Override // org.apache.http.conn.scheme.LayeredSocketFactory
+    public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) this.f39037a : invokeV.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            SLog.v("openSDK_LOG.SNISocketFactory", "createSocket " + socket.toString() + " host:" + str + " port:" + i2 + " autoClose:" + z);
+            InetAddress inetAddress = socket.getInetAddress();
+            if (z) {
+                socket.close();
+            }
+            SSLSocket sSLSocket = (SSLSocket) f39245b.createSocket(inetAddress, i2);
+            sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
+            if (Build.VERSION.SDK_INT >= 17) {
+                SLog.v("openSDK_LOG.SNISocketFactory", "Setting SNI hostname");
+                f39245b.setHostname(sSLSocket, str);
+            } else {
+                SLog.v("openSDK_LOG.SNISocketFactory", "No documented SNI support on Android <4.2, trying with reflection");
+                try {
+                    sSLSocket.getClass().getMethod("setHostname", String.class).invoke(sSLSocket, str);
+                } catch (Exception unused) {
+                    SLog.v("openSDK_LOG.SNISocketFactory", "SNI not useable");
+                }
+            }
+            if (f39244a.verify(str, sSLSocket.getSession())) {
+                return sSLSocket;
+            }
+            throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);
+        }
+        return (Socket) invokeCommon.objValue;
     }
 }

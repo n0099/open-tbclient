@@ -19,13 +19,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34410a;
+    public Context f34599a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f34411b;
+    public final LinkedBlockingQueue<IBinder> f34600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f34412c;
+    public ServiceConnection f34601c;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class b {
                 return;
             }
         }
-        this.f34411b = new LinkedBlockingQueue<>(1);
-        this.f34412c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.b.1
+        this.f34600b = new LinkedBlockingQueue<>(1);
+        this.f34601c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f34413a;
+            public final /* synthetic */ b f34602a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class b {
                         return;
                     }
                 }
-                this.f34413a = this;
+                this.f34602a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -74,7 +74,7 @@ public class b {
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
                         com.kwad.sdk.core.d.a.c("HWDeviceIDHelper", "onServiceConnected");
-                        this.f34413a.f34411b.put(iBinder);
+                        this.f34602a.f34600b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -88,7 +88,7 @@ public class b {
                 }
             }
         };
-        this.f34410a = context;
+        this.f34599a = context;
     }
 
     public String a() {
@@ -101,18 +101,18 @@ public class b {
             try {
                 Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
                 intent.setPackage("com.huawei.hwid");
-                if (this.f34410a.bindService(intent, this.f34412c, 1)) {
+                if (this.f34599a.bindService(intent, this.f34601c, 1)) {
                     try {
-                        b.a aVar = new b.a(this.f34411b.take());
+                        b.a aVar = new b.a(this.f34600b.take());
                         str = aVar.a();
                         boolean b2 = aVar.b();
                         com.kwad.sdk.core.d.a.c("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + b2);
-                        context = this.f34410a;
-                        serviceConnection = this.f34412c;
+                        context = this.f34599a;
+                        serviceConnection = this.f34601c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f34410a;
-                        serviceConnection = this.f34412c;
+                        context = this.f34599a;
+                        serviceConnection = this.f34601c;
                     }
                     context.unbindService(serviceConnection);
                 }

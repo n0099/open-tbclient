@@ -42,7 +42,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public k f26791a;
+    public k f26949a;
 
     public WelcomeActivity() {
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
         k kVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, obj}) == null) || (kVar = this.f26791a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, obj}) == null) || (kVar = this.f26949a) == null) {
             return;
         }
         kVar.a(i2, i3, str, obj);
@@ -113,27 +113,27 @@ public class WelcomeActivity extends PayBaseBeanActivity {
                 BindCardEntry.innerRun();
             } else {
                 k a2 = g.a(intExtra, this);
-                this.f26791a = a2;
+                this.f26949a = a2;
                 if (a2 != null) {
                     a2.a();
-                    if (!this.f26791a.a(bundle)) {
+                    if (!this.f26949a.a(bundle)) {
                         return;
                     }
                 }
             }
             a();
             PassUtil.onCreate();
-            if (this.f26791a != null) {
+            if (this.f26949a != null) {
                 if (intExtra == 3) {
-                    this.f26791a.a(intent.getStringExtra("orderExtraInfo"));
+                    this.f26949a.a(intent.getStringExtra("orderExtraInfo"));
                 }
                 PrecashierCreateOrderResponse precashierCreateOrderResponse = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
                 if (precashierCreateOrderResponse != null) {
-                    this.f26791a.a(precashierCreateOrderResponse);
+                    this.f26949a.a(precashierCreateOrderResponse);
                 } else {
-                    this.f26791a.b();
+                    this.f26949a.b();
                 }
-                this.f26791a.g();
+                this.f26949a.g();
             }
             if (PayDataCache.getInstance().isRemotePay()) {
                 StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_WELCOME_ACTIVITY, MissionEvent.MESSAGE_CREATE);
@@ -151,10 +151,10 @@ public class WelcomeActivity extends PayBaseBeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            k kVar = this.f26791a;
+            k kVar = this.f26949a;
             if (kVar != null) {
                 kVar.d();
-                this.f26791a = null;
+                this.f26949a = null;
             }
         }
     }
@@ -176,7 +176,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, intent) == null) {
             super.onNewIntent(intent);
-            k kVar = this.f26791a;
+            k kVar = this.f26949a;
             if (kVar != null) {
                 kVar.b();
             }
@@ -201,7 +201,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     public void onPrepareDialog(int i2, Dialog dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048585, this, i2, dialog) == null) {
-            k kVar = this.f26791a;
+            k kVar = this.f26949a;
             if (kVar != null) {
                 kVar.a(i2, dialog);
             } else {

@@ -15,7 +15,7 @@ public class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f32554a = "aes_key";
+        public static String f32741a = "aes_key";
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

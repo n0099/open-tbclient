@@ -19,23 +19,23 @@ public class a extends BaseBean {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5216a = "/risk/init/stat";
+    public static final String f5242a = "/risk/init/stat";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5217b = 1;
+    public static final int f5243b = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f5218c;
+    public Context f5244c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5219d;
+    public String f5245d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5220e;
+    public String f5246e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5221f;
+    public String f5247f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> a(Context context) {
@@ -55,15 +55,15 @@ public class a extends BaseBean {
                 return;
             }
         }
-        this.f5218c = context;
+        this.f5244c = context;
     }
 
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-            this.f5219d = str;
-            this.f5220e = str2;
-            this.f5221f = str3;
+            this.f5245d = str;
+            this.f5246e = str2;
+            this.f5247f = str3;
         }
     }
 
@@ -81,11 +81,11 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f5219d)) {
-                arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, this.f5219d));
+            if (!TextUtils.isEmpty(this.f5245d)) {
+                arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, this.f5245d));
             }
-            arrayList.add(new RestNameValuePair("ek", this.f5220e));
-            arrayList.add(new RestNameValuePair("ev", this.f5221f));
+            arrayList.add(new RestNameValuePair("ek", this.f5246e));
+            arrayList.add(new RestNameValuePair("ev", this.f5247f));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -106,7 +106,7 @@ public class a extends BaseBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return EnvConfig.getInstance(this.f5218c).getRimHttpsHost() + f5216a;
+            return EnvConfig.getInstance(this.f5244c).getRimHttpsHost() + f5242a;
         }
         return (String) invokeV.objValue;
     }

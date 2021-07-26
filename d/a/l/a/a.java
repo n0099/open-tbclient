@@ -1,34 +1,55 @@
 package d.a.l.a;
 
-import android.media.AudioRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f42880a;
+    public e[] f43225a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public AudioRecord f42881b;
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f43225a = new e[]{new f(8, 0), new g(0, 1), new g(1, 1), new f(7, 1)};
+    }
 
-    /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f42882c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f42883d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f42884e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f42885f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f42886g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public d.a.l.c.a f42887h;
+    public byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        d dVar = new d();
+        byte[] b2 = b.b(bArr, bArr.length + ((this.f43225a.length + 1) * d.f43226b));
+        b.a(b2, dVar.b(), bArr.length);
+        int i2 = 0;
+        while (true) {
+            e[] eVarArr = this.f43225a;
+            if (i2 >= eVarArr.length) {
+                return Arrays.copyOf(dVar.b(), d.f43226b);
+            }
+            e eVar = eVarArr[i2];
+            i2++;
+            int length = bArr.length + (d.f43226b * i2);
+            dVar.a(eVar.b(b2, 0, length), eVar.a(), eVar.c(), eVar.d());
+            b.a(b2, dVar.b(), length);
+        }
+    }
 }

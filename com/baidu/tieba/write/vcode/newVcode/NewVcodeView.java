@@ -22,41 +22,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.e;
-import d.a.o0.r.f0.a;
-import d.a.o0.r.f0.c;
-import d.a.p0.a4.s.a.a.b;
+import d.a.d.e.m.e;
+import d.a.p0.s.f0.a;
+import d.a.p0.s.f0.c;
+import d.a.q0.a4.s.a.a.b;
 /* loaded from: classes4.dex */
 public class NewVcodeView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f22629a;
+    public BaseActivity f22787a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f22630b;
+    public b f22788b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaseWebView f22631c;
+    public BaseWebView f22789c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f22632d;
+    public View f22790d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f22633e;
+    public View f22791e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f22634f;
+    public a f22792f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22635g;
+    public TextView f22793g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f22636h;
+    public c f22794h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f22637i;
+    public boolean f22795i;
     public Runnable j;
     public float k;
 
@@ -75,19 +75,19 @@ public class NewVcodeView {
                 return;
             }
         }
-        this.f22631c = null;
-        this.f22632d = null;
-        this.f22633e = null;
-        this.f22634f = null;
-        this.f22635g = null;
-        this.f22636h = null;
-        this.f22637i = false;
+        this.f22789c = null;
+        this.f22790d = null;
+        this.f22791e = null;
+        this.f22792f = null;
+        this.f22793g = null;
+        this.f22794h = null;
+        this.f22795i = false;
         this.j = new Runnable(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ NewVcodeView f22638e;
+            public final /* synthetic */ NewVcodeView f22796e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -104,19 +104,19 @@ public class NewVcodeView {
                         return;
                     }
                 }
-                this.f22638e = this;
+                this.f22796e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f22638e.f22631c == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f22796e.f22789c == null) {
                     return;
                 }
-                this.f22638e.showWebView(true);
+                this.f22796e.showWebView(true);
             }
         };
-        this.f22629a = newVcodeActivity;
+        this.f22787a = newVcodeActivity;
         if (initUI(newVcodeActivity)) {
             return;
         }
@@ -133,13 +133,13 @@ public class NewVcodeView {
             newVcodeActivity.setSwipeBackEnabled(false);
             newVcodeActivity.setContentView(R.layout.new_vcode_activity);
             View findViewById = newVcodeActivity.findViewById(R.id.new_vcode_black_layout);
-            this.f22632d = findViewById;
+            this.f22790d = findViewById;
             findViewById.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ NewVcodeView f22639e;
+                public final /* synthetic */ NewVcodeView f22797e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -156,40 +156,40 @@ public class NewVcodeView {
                             return;
                         }
                     }
-                    this.f22639e = this;
+                    this.f22797e = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f22639e.f22630b.d();
-                        this.f22639e.f22629a.finish();
+                        this.f22797e.f22788b.d();
+                        this.f22797e.f22787a.finish();
                     }
                 }
             });
             View findViewById2 = newVcodeActivity.findViewById(R.id.post_thread_loading_view);
-            this.f22633e = findViewById2;
+            this.f22791e = findViewById2;
             TextView textView = (TextView) findViewById2.findViewById(R.id.custom_loading_text);
-            this.f22635g = textView;
+            this.f22793g = textView;
             textView.setText(newVcodeActivity.getResources().getString(R.string.sending));
             c cVar = new c();
-            this.f22636h = cVar;
-            cVar.f52333a = 1000L;
-            if (this.f22631c == null) {
+            this.f22794h = cVar;
+            cVar.f52989a = 1000L;
+            if (this.f22789c == null) {
                 try {
-                    this.f22631c = (BaseWebView) newVcodeActivity.findViewById(R.id.new_vcode_webview);
-                    UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.f22631c, 1.2631578f);
-                    this.f22631c.setBackgroundColor(newVcodeActivity.getResources().getColor(17170443));
-                    this.f22631c.setInitialScale(100);
-                    this.f22631c.getSettings().setJavaScriptEnabled(true);
-                    this.f22631c.removeJavascriptInterface("searchBoxJavaBridge_");
-                    this.f22631c.setWebViewClient(new WebViewClient(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                    this.f22789c = (BaseWebView) newVcodeActivity.findViewById(R.id.new_vcode_webview);
+                    UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.f22789c, 1.2631578f);
+                    this.f22789c.setBackgroundColor(newVcodeActivity.getResources().getColor(17170443));
+                    this.f22789c.setInitialScale(100);
+                    this.f22789c.getSettings().setJavaScriptEnabled(true);
+                    this.f22789c.removeJavascriptInterface("searchBoxJavaBridge_");
+                    this.f22789c.setWebViewClient(new WebViewClient(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NewVcodeView f22640a;
+                        public final /* synthetic */ NewVcodeView f22798a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -206,7 +206,7 @@ public class NewVcodeView {
                                     return;
                                 }
                             }
-                            this.f22640a = this;
+                            this.f22798a = this;
                         }
 
                         @Override // android.webkit.WebViewClient
@@ -214,9 +214,9 @@ public class NewVcodeView {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
                                 super.onPageFinished(webView, str);
-                                this.f22640a.f22637i = true;
-                                if (this.f22640a.f22630b != null) {
-                                    this.f22640a.f22630b.onPageFinished(webView, str);
+                                this.f22798a.f22795i = true;
+                                if (this.f22798a.f22788b != null) {
+                                    this.f22798a.f22788b.onPageFinished(webView, str);
                                 }
                             }
                         }
@@ -226,9 +226,9 @@ public class NewVcodeView {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i2, str, str2) == null) {
                                 super.onReceivedError(webView, i2, str, str2);
-                                this.f22640a.h(false);
-                                this.f22640a.f22629a.showToast(R.string.neterror);
-                                this.f22640a.f22629a.finish();
+                                this.f22798a.h(false);
+                                this.f22798a.f22787a.showToast(R.string.neterror);
+                                this.f22798a.f22787a.finish();
                             }
                         }
 
@@ -240,17 +240,17 @@ public class NewVcodeView {
                                 if (StringUtils.isNull(str)) {
                                     return false;
                                 }
-                                if (!this.f22640a.f22637i) {
-                                    this.f22640a.f22637i = true;
-                                    e.a().postDelayed(this.f22640a.j, 500L);
-                                    if (this.f22640a.f22630b != null) {
-                                        this.f22640a.f22630b.onPageFinished(webView, str);
+                                if (!this.f22798a.f22795i) {
+                                    this.f22798a.f22795i = true;
+                                    e.a().postDelayed(this.f22798a.j, 500L);
+                                    if (this.f22798a.f22788b != null) {
+                                        this.f22798a.f22788b.onPageFinished(webView, str);
                                     }
                                 }
-                                if (this.f22640a.f22630b == null) {
+                                if (this.f22798a.f22788b == null) {
                                     return false;
                                 }
-                                return this.f22640a.f22630b.b(webView, str);
+                                return this.f22798a.f22788b.b(webView, str);
                             }
                             return invokeLL.booleanValue;
                         }
@@ -270,27 +270,27 @@ public class NewVcodeView {
     public BaseActivity getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22629a : (BaseActivity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22787a : (BaseActivity) invokeV.objValue;
     }
 
     public WebView getWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22631c : (WebView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22789c : (WebView) invokeV.objValue;
     }
 
     public final void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if (this.f22634f == null) {
-                a aVar = new a(this.f22629a.getPageContext());
-                this.f22634f = aVar;
+            if (this.f22792f == null) {
+                a aVar = new a(this.f22787a.getPageContext());
+                this.f22792f = aVar;
                 aVar.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ NewVcodeView f22641e;
+                    public final /* synthetic */ NewVcodeView f22799e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -307,19 +307,19 @@ public class NewVcodeView {
                                 return;
                             }
                         }
-                        this.f22641e = this;
+                        this.f22799e = this;
                     }
 
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            this.f22641e.f22629a.finish();
+                            this.f22799e.f22787a.finish();
                         }
                     }
                 });
             }
-            this.f22634f.h(z);
+            this.f22792f.h(z);
         }
     }
 
@@ -332,17 +332,17 @@ public class NewVcodeView {
 
     public void runJsMethod(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || this.f22631c == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || this.f22789c == null) {
             return;
         }
-        this.f22631c.loadUrl("javascript:window." + str + "(" + str2 + SmallTailInfo.EMOTION_SUFFIX);
+        this.f22789c.loadUrl("javascript:window." + str + "(" + str2 + SmallTailInfo.EMOTION_SUFFIX);
     }
 
     public void setPresenter(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f22630b = bVar;
-            this.f22637i = false;
+            this.f22788b = bVar;
+            this.f22795i = false;
         }
     }
 
@@ -356,7 +356,7 @@ public class NewVcodeView {
     public void showPostThreadLoadingView(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (view = this.f22633e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (view = this.f22791e) == null) {
             return;
         }
         if (z) {
@@ -370,9 +370,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, str) == null) {
             if (z) {
-                this.f22636h.c(str);
+                this.f22794h.c(str);
             } else {
-                this.f22636h.b(str);
+                this.f22794h.b(str);
             }
         }
     }
@@ -381,11 +381,11 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             h(!z);
-            BaseWebView baseWebView = this.f22631c;
+            BaseWebView baseWebView = this.f22789c;
             if (baseWebView != null) {
                 if (z) {
-                    UtilHelper.setSupportHeight(this.f22629a.getPageContext().getPageActivity(), this.f22631c, this.k);
-                    this.f22631c.setVisibility(0);
+                    UtilHelper.setSupportHeight(this.f22787a.getPageContext().getPageActivity(), this.f22789c, this.k);
+                    this.f22789c.setVisibility(0);
                     return;
                 }
                 baseWebView.setVisibility(8);

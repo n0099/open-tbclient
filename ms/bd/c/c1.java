@@ -31,8 +31,8 @@ public final class c1 extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Throwable c2 = z1.b().c();
-            return c2 != null ? Arrays.toString(c2.getStackTrace()) : "";
+            Throwable a2 = z1.c().a();
+            return a2 != null ? Arrays.toString(a2.getStackTrace()) : "";
         }
         return invokeCommon.objValue;
     }

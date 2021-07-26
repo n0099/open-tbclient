@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h2.h.c;
-import d.a.p0.h2.h.e;
-import d.a.p0.h2.k.e.k;
-import d.a.p0.w2.i0.b;
+import d.a.q0.h2.h.c;
+import d.a.q0.h2.h.e;
+import d.a.q0.h2.k.e.k;
+import d.a.q0.w2.i0.b;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
@@ -115,12 +115,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = cVar;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    cVar.f56887a = appealInfo.source;
-                    cVar.f56889c = appealInfo.appeal_url;
+                    cVar.f57431a = appealInfo.source;
+                    cVar.f57433c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f56888b = simpleForum.name;
+                    this.mAppealInfo.f57432b = simpleForum.name;
                     return;
                 }
                 return;

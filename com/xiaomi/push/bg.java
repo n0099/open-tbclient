@@ -44,13 +44,13 @@ public class bg {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f39891a;
+    public static final Pattern f40163a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f39892b;
+    public static final Pattern f40164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f39893c;
+    public static final Pattern f40165c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -59,7 +59,7 @@ public class bg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f39894a;
+        public boolean f40166a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(InputStream inputStream) {
@@ -87,8 +87,8 @@ public class bg {
             int read;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-                if (this.f39894a || (read = super.read(bArr, i2, i3)) == -1) {
-                    this.f39894a = true;
+                if (this.f40166a || (read = super.read(bArr, i2, i3)) == -1) {
+                    this.f40166a = true;
                     return -1;
                 }
                 return read;
@@ -103,7 +103,7 @@ public class bg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f39895a;
+        public int f40167a;
 
         /* renamed from: a  reason: collision with other field name */
         public Map<String, String> f151a;
@@ -111,7 +111,7 @@ public class bg {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f39895a), this.f151a.toString()) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f40167a), this.f151a.toString()) : (String) invokeV.objValue;
         }
     }
 
@@ -128,9 +128,9 @@ public class bg {
                 return;
             }
         }
-        f39891a = Pattern.compile("([^\\s;]+)(.*)");
-        f39892b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
-        f39893c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+        f40163a = Pattern.compile("([^\\s;]+)(.*)");
+        f40164b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+        f40165c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
     }
 
     public static int a(Context context) {
@@ -213,8 +213,8 @@ public class bg {
                                 throw new IOException(th.getMessage());
                             }
                         }
-                        beVar.f39890a = m173a.getResponseCode();
-                        Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + beVar.f39890a);
+                        beVar.f40162a = m173a.getResponseCode();
+                        Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + beVar.f40162a);
                         while (true) {
                             String headerFieldKey = m173a.getHeaderFieldKey(i2);
                             String headerField = m173a.getHeaderField(i2);
@@ -300,7 +300,7 @@ public class bg {
                             }
                         }
                         if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
-                            bVar.f39895a = m173a.getResponseCode();
+                            bVar.f40167a = m173a.getResponseCode();
                             if (bVar.f151a == null) {
                                 bVar.f151a = new HashMap();
                             }

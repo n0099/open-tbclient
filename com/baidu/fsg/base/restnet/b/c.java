@@ -21,7 +21,7 @@ public class c implements HostnameVerifier {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f5199a;
+    public final /* synthetic */ b f5225a;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class c implements HostnameVerifier {
                 return;
             }
         }
-        this.f5199a = bVar;
+        this.f5225a = bVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier
@@ -49,7 +49,7 @@ public class c implements HostnameVerifier {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
             try {
                 Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-                eVar = this.f5199a.f5195e;
+                eVar = this.f5225a.f5221e;
                 String v = eVar.b().v();
                 if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                     X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];

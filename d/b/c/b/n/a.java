@@ -19,11 +19,11 @@ public class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f69038b;
+    public static volatile a f69492b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Context f69039a;
+    public volatile Context f69493a;
 
     public a(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -40,17 +40,17 @@ public class a {
                 return;
             }
         }
-        this.f69039a = context;
+        this.f69493a = context;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f69038b == null) {
-                f69038b = new a(m.e());
+            if (f69492b == null) {
+                f69492b = new a(m.e());
             }
-            return f69038b;
+            return f69492b;
         }
         return (a) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             if (jSONObject != null && jSONObject.length() > 0) {
                 try {
-                    return l.e.b(l.i.a(this.f69039a), l.i.b(), com.bytedance.tea.crash.upload.b.f(m.a().a()), jSONObject, com.bytedance.tea.crash.upload.b.g());
+                    return l.e.b(l.i.a(this.f69493a), l.i.b(), com.bytedance.tea.crash.upload.b.f(m.a().a()), jSONObject, com.bytedance.tea.crash.upload.b.g());
                 } catch (Throwable unused) {
                 }
             }
@@ -76,7 +76,7 @@ public class a {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && jSONObject != null && jSONObject.length() > 0) {
             try {
                 String f2 = com.bytedance.tea.crash.upload.b.f(m.a().a());
-                String b2 = l.e.b(l.i.a(this.f69039a), l.i.d(), f2, jSONObject, com.bytedance.tea.crash.upload.b.k());
+                String b2 = l.e.b(l.i.a(this.f69493a), l.i.d(), f2, jSONObject, com.bytedance.tea.crash.upload.b.k());
                 jSONObject.put("upload_scene", "direct");
                 if (!com.bytedance.tea.crash.upload.b.j(f2, jSONObject.toString()).a()) {
                     return;

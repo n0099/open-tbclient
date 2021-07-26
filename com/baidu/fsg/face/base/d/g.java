@@ -20,19 +20,19 @@ public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5648a = false;
+    public static boolean f5674a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5649b = "SapiBioFileUtils";
+    public static final String f5675b = "SapiBioFileUtils";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5650c = "liveness_video.mp4";
+    public static final String f5676c = "liveness_video.mp4";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5651d = "liveness_action_video.mp4";
+    public static final String f5677d = "liveness_action_video.mp4";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5652e = "BI0_VIDEO";
+    public static final String f5678e = "BI0_VIDEO";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public class g {
                 return;
             }
         }
-        f5648a = ApollonConstants.VIDEO_DEBUG;
+        f5674a = ApollonConstants.VIDEO_DEBUG;
     }
 
     public g() {
@@ -68,15 +68,15 @@ public class g {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getDir(f5652e, 0).getAbsolutePath() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getDir(f5678e, 0).getAbsolutePath() : (String) invokeL.objValue;
     }
 
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            String a2 = f5648a ? a() : a(context);
-            return a2 + File.separator + f5650c;
+            String a2 = f5674a ? a() : a(context);
+            return a2 + File.separator + f5676c;
         }
         return (String) invokeL.objValue;
     }
@@ -85,8 +85,8 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            String a2 = f5648a ? a() : a(context);
-            return a2 + File.separator + f5651d;
+            String a2 = f5674a ? a() : a(context);
+            return a2 + File.separator + f5677d;
         }
         return (String) invokeL.objValue;
     }
@@ -94,7 +94,7 @@ public class g {
     public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? context.getDir(f5652e, 0).getAbsolutePath() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? context.getDir(f5678e, 0).getAbsolutePath() : (String) invokeL.objValue;
     }
 
     public static String a() {

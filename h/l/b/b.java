@@ -15,27 +15,27 @@ import h.r.f;
 import h.u.e;
 import java.util.concurrent.TimeUnit;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f72422a;
+    public final Handler f72876a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Handler f72423e;
+        public final Handler f72877e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.l.a.b f72424f;
+        public final h.l.a.b f72878f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f72425g;
+        public volatile boolean f72879g;
 
         public a(Handler handler) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class b extends g {
                     return;
                 }
             }
-            this.f72423e = handler;
-            this.f72424f = h.l.a.a.a().b();
+            this.f72877e = handler;
+            this.f72878f = h.l.a.a.a().b();
         }
 
         @Override // h.g.a
@@ -68,19 +68,19 @@ public class b extends g {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j), timeUnit})) == null) {
-                if (this.f72425g) {
+                if (this.f72879g) {
                     return e.c();
                 }
-                this.f72424f.c(aVar);
-                RunnableC2062b runnableC2062b = new RunnableC2062b(aVar, this.f72423e);
-                Message obtain = Message.obtain(this.f72423e, runnableC2062b);
+                this.f72878f.c(aVar);
+                RunnableC2061b runnableC2061b = new RunnableC2061b(aVar, this.f72877e);
+                Message obtain = Message.obtain(this.f72877e, runnableC2061b);
                 obtain.obj = this;
-                this.f72423e.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-                if (this.f72425g) {
-                    this.f72423e.removeCallbacks(runnableC2062b);
+                this.f72877e.sendMessageDelayed(obtain, timeUnit.toMillis(j));
+                if (this.f72879g) {
+                    this.f72877e.removeCallbacks(runnableC2061b);
                     return e.c();
                 }
-                return runnableC2062b;
+                return runnableC2061b;
             }
             return (k) invokeCommon.objValue;
         }
@@ -89,35 +89,35 @@ public class b extends g {
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72425g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72879g : invokeV.booleanValue;
         }
 
         @Override // h.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f72425g = true;
-                this.f72423e.removeCallbacksAndMessages(this);
+                this.f72879g = true;
+                this.f72877e.removeCallbacksAndMessages(this);
             }
         }
     }
 
     /* renamed from: h.l.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class RunnableC2062b implements Runnable, k {
+    /* loaded from: classes9.dex */
+    public static final class RunnableC2061b implements Runnable, k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.n.a f72426e;
+        public final h.n.a f72880e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Handler f72427f;
+        public final Handler f72881f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f72428g;
+        public volatile boolean f72882g;
 
-        public RunnableC2062b(h.n.a aVar, Handler handler) {
+        public RunnableC2061b(h.n.a aVar, Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,15 +132,15 @@ public class b extends g {
                     return;
                 }
             }
-            this.f72426e = aVar;
-            this.f72427f = handler;
+            this.f72880e = aVar;
+            this.f72881f = handler;
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72428g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72882g : invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
@@ -149,7 +149,7 @@ public class b extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    this.f72426e.call();
+                    this.f72880e.call();
                 } catch (Throwable th) {
                     if (th instanceof OnErrorNotImplementedException) {
                         illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
@@ -167,8 +167,8 @@ public class b extends g {
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f72428g = true;
-                this.f72427f.removeCallbacks(this);
+                this.f72882g = true;
+                this.f72881f.removeCallbacks(this);
             }
         }
     }
@@ -188,13 +188,13 @@ public class b extends g {
                 return;
             }
         }
-        this.f72422a = new Handler(looper);
+        this.f72876a = new Handler(looper);
     }
 
     @Override // h.g
     public g.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f72422a) : (g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f72876a) : (g.a) invokeV.objValue;
     }
 }

@@ -8,8 +8,8 @@ import android.webkit.WebView;
 import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.component.utils.j;
-import com.bytedance.sdk.component.utils.o;
+import com.bytedance.sdk.component.utils.k;
+import com.bytedance.sdk.component.utils.q;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class d {
                 }
             }
             WebView.setDataDirectorySuffix(packageName);
-            if (o.a(context)) {
+            if (q.a(context)) {
                 a(context, packageName);
             }
         } catch (Throwable th) {
@@ -47,7 +47,7 @@ public class d {
                 WebView.setDataDirectorySuffix(packageName);
             } catch (Throwable unused) {
             }
-            j.b(th.toString());
+            k.c(th.toString());
         }
     }
 

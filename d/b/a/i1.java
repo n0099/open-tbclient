@@ -47,14 +47,14 @@ public class i1 extends h1 {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68781a.i().I() + 21600000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69235a.i().I() + 21600000 : invokeV.longValue;
     }
 
     @Override // d.b.a.h1
     public long[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? n1.f68814e : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? n1.f69268e : (long[]) invokeV.objValue;
     }
 
     @Override // d.b.a.h1
@@ -62,18 +62,18 @@ public class i1 extends h1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject c2 = this.f68781a.j().c();
-            if (this.f68781a.j().D() == 0 || c2 == null || this.f68781a.i().I() + 21600000 > System.currentTimeMillis()) {
+            JSONObject c2 = this.f69235a.j().c();
+            if (this.f69235a.j().D() == 0 || c2 == null || this.f69235a.i().I() + 21600000 > System.currentTimeMillis()) {
                 return false;
             }
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("magic_tag", "ss_app_log");
             jSONObject.put("header", c2);
             jSONObject.put("_gen_time", System.currentTimeMillis());
-            JSONObject h2 = n.h(n.d(o.a(this.f68781a.f(), this.f68781a.j().c(), this.f68781a.n().getSettingUri(), true, AppLog.getIAppParam()), n.f68810e), jSONObject);
-            AppLog.getDataObserver().onRemoteConfigGet(!i0.g(h2, this.f68781a.i().H()), h2);
+            JSONObject h2 = n.h(n.d(o.a(this.f69235a.f(), this.f69235a.j().c(), this.f69235a.n().getSettingUri(), true, AppLog.getIAppParam()), n.f69264e), jSONObject);
+            AppLog.getDataObserver().onRemoteConfigGet(!i0.g(h2, this.f69235a.i().H()), h2);
             if (h2 != null) {
-                this.f68781a.i().v(h2);
+                this.f69235a.i().v(h2);
                 return true;
             }
             return false;

@@ -17,7 +17,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SequentialSubscription f73182e;
+    public final SequentialSubscription f73636e;
 
     /* loaded from: classes9.dex */
     public final class ConcatInnerSubscriber extends AtomicInteger implements c {
@@ -64,7 +64,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-                this.this$0.f73182e.set(kVar);
+                this.this$0.f73636e.set(kVar);
             }
         }
     }

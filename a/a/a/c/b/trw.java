@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.l.b.c.a;
-import d.a.l.b.c.b;
-import d.a.l.b.c.c;
+import d.a.m.b.c.a;
+import d.a.m.b.c.b;
+import d.a.m.b.c.c;
 import java.util.concurrent.Executor;
 /* loaded from: classes.dex */
 public class trw implements c {
@@ -17,7 +17,7 @@ public class trw implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Executor f1449a;
+    public Executor f1482a;
 
     /* loaded from: classes.dex */
     public static class bv implements Runnable {
@@ -25,10 +25,10 @@ public class trw implements c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f1450a;
+        public final b f1483a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final a f1451b;
+        public final a f1484b;
 
         public bv(b bVar) {
             Interceptable interceptable = $ic;
@@ -45,46 +45,46 @@ public class trw implements c {
                     return;
                 }
             }
-            this.f1450a = bVar;
-            this.f1451b = bVar.a();
+            this.f1483a = bVar;
+            this.f1484b = bVar.a();
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                switch (this.f1450a.h()) {
+                switch (this.f1483a.h()) {
                     case 102:
-                        d.a.l.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
-                        this.f1451b.onConnecting();
+                        d.a.m.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
+                        this.f1484b.onConnecting();
                         return;
                     case 103:
-                        d.a.l.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.f1450a.e() + " acceptRanges: " + this.f1450a.i());
-                        this.f1451b.onConnected(this.f1450a.e(), this.f1450a.i());
+                        d.a.m.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.f1483a.e() + " acceptRanges: " + this.f1483a.i());
+                        this.f1484b.onConnected(this.f1483a.e(), this.f1483a.i());
                         return;
                     case 104:
-                        d.a.l.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.f1450a.d() + " length: " + this.f1450a.e() + " percent: " + this.f1450a.f());
-                        this.f1451b.onProgress(this.f1450a.d(), this.f1450a.e(), this.f1450a.f());
+                        d.a.m.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.f1483a.d() + " length: " + this.f1483a.e() + " percent: " + this.f1483a.f());
+                        this.f1484b.onProgress(this.f1483a.d(), this.f1483a.e(), this.f1483a.f());
                         return;
                     case 105:
-                        d.a.l.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.f1450a.g());
-                        if (this.f1450a.b()) {
+                        d.a.m.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.f1483a.g());
+                        if (this.f1483a.b()) {
                             return;
                         }
-                        this.f1450a.l(true);
-                        this.f1451b.onCompleted(this.f1450a.g());
+                        this.f1483a.l(true);
+                        this.f1484b.onCompleted(this.f1483a.g());
                         return;
                     case 106:
-                        d.a.l.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
-                        this.f1451b.onDownloadPaused();
+                        d.a.m.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
+                        this.f1484b.onDownloadPaused();
                         return;
                     case 107:
-                        d.a.l.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
-                        this.f1451b.onDownloadCanceled();
+                        d.a.m.b.d.c.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
+                        this.f1484b.onDownloadCanceled();
                         return;
                     case 108:
-                        d.a.l.b.d.c.b(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.f1450a.c().getCause());
-                        this.f1451b.onFailed((DownloadException) this.f1450a.c());
+                        d.a.m.b.d.c.b(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.f1483a.c().getCause());
+                        this.f1484b.onFailed((DownloadException) this.f1483a.c());
                         return;
                     default:
                         return;
@@ -108,14 +108,14 @@ public class trw implements c {
                 return;
             }
         }
-        this.f1449a = new we(this, handler);
+        this.f1482a = new we(this, handler);
     }
 
-    @Override // d.a.l.b.c.c
+    @Override // d.a.m.b.c.c
     public void post(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f1449a.execute(new bv(bVar));
+            this.f1482a.execute(new bv(bVar));
         }
     }
 }

@@ -29,31 +29,31 @@ public class BdActionBar extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5487a;
+    public String f5513a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f5488b;
+    public View f5514b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f5489c;
+    public View f5515c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f5490d;
+    public ImageView f5516d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f5491e;
+    public TextView f5517e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f5492f;
+    public TextView f5518f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f5493g;
+    public View f5519g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f5494h;
+    public View f5520h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f5495i;
+    public ImageView f5521i;
     public View j;
     public ImageView k;
     public TextView l;
@@ -81,7 +81,7 @@ public class BdActionBar extends RelativeLayout {
                 return;
             }
         }
-        this.f5487a = "";
+        this.f5513a = "";
         a();
     }
 
@@ -94,7 +94,7 @@ public class BdActionBar extends RelativeLayout {
     public View getRightImgZone1ImgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5495i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5521i : (View) invokeV.objValue;
     }
 
     public View getRightImgZone2ImgView() {
@@ -118,7 +118,7 @@ public class BdActionBar extends RelativeLayout {
     public View getRightZone1View() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5494h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5520h : (View) invokeV.objValue;
     }
 
     public View getRightZoneView() {
@@ -130,20 +130,20 @@ public class BdActionBar extends RelativeLayout {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f5487a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f5513a : (String) invokeV.objValue;
     }
 
     public void hideLeftZone() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f5489c.setVisibility(8);
+            this.f5515c.setVisibility(8);
         }
     }
 
     public boolean isLeftZoneImageSelected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f5489c.isSelected() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f5515c.isSelected() : invokeV.booleanValue;
     }
 
     public void setBottomSeperatorvisible(boolean z) {
@@ -158,8 +158,8 @@ public class BdActionBar extends RelativeLayout {
     public void setCloseOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
-            this.f5493g.setVisibility(0);
-            this.f5493g.setOnClickListener(onClickListener);
+            this.f5519g.setVisibility(0);
+            this.f5519g.setOnClickListener(onClickListener);
             this.mTitleCenterText.setMaxEms(ResUtils.getInteger(getContext(), "wallet_base_titlebar_centertext_maxems_1"));
         }
     }
@@ -167,7 +167,7 @@ public class BdActionBar extends RelativeLayout {
     public void setImgZoneBackgroundResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f5494h.setBackgroundResource(i2);
+            this.f5520h.setBackgroundResource(i2);
             this.j.setBackgroundResource(i2);
         }
     }
@@ -176,27 +176,27 @@ public class BdActionBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048589, this, str, f2) == null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f5491e.setVisibility(0);
+                this.f5517e.setVisibility(0);
             }
             if (f2 < 0.0f) {
                 return;
             }
-            this.f5491e.setText(str);
-            this.f5491e.setTextSize(f2);
+            this.f5517e.setText(str);
+            this.f5517e.setTextSize(f2);
         }
     }
 
     public void setLeftImgZone2NotifyTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f5491e.setTextColor(i2);
+            this.f5517e.setTextColor(i2);
         }
     }
 
     public void setLeftImgZone2NotifyTextColorStateList(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, colorStateList) == null) {
-            this.f5491e.setTextColor(colorStateList);
+            this.f5517e.setTextColor(colorStateList);
         }
     }
 
@@ -213,46 +213,46 @@ public class BdActionBar extends RelativeLayout {
             if (drawable != null) {
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             }
-            this.f5490d.setImageDrawable(drawable);
+            this.f5516d.setImageDrawable(drawable);
         }
     }
 
     public void setLeftZoneOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
-            this.f5489c.setVisibility(0);
-            this.f5489c.setOnClickListener(onClickListener);
+            this.f5515c.setVisibility(0);
+            this.f5515c.setOnClickListener(onClickListener);
         }
     }
 
     public void setRightImgZone1Enable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f5495i.setEnabled(z);
-            this.f5494h.setEnabled(z);
+            this.f5521i.setEnabled(z);
+            this.f5520h.setEnabled(z);
         }
     }
 
     public void setRightImgZone1OnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, onClickListener) == null) {
-            this.f5494h.setOnClickListener(onClickListener);
+            this.f5520h.setOnClickListener(onClickListener);
         }
     }
 
     public void setRightImgZone1Src(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f5494h.setVisibility(0);
-            this.f5495i.setVisibility(0);
-            this.f5495i.setImageResource(i2);
+            this.f5520h.setVisibility(0);
+            this.f5521i.setVisibility(0);
+            this.f5521i.setImageResource(i2);
         }
     }
 
     public void setRightImgZone1Visibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.f5494h.setVisibility(i2);
+            this.f5520h.setVisibility(i2);
         }
     }
 
@@ -399,7 +399,7 @@ public class BdActionBar extends RelativeLayout {
     public void setTitlebgColor(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048620, this, i2) == null) || (view = this.f5488b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048620, this, i2) == null) || (view = this.f5514b) == null) {
             return;
         }
         view.setBackgroundColor(i2);
@@ -408,7 +408,7 @@ public class BdActionBar extends RelativeLayout {
     public void setbackBg(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, drawable) == null) {
-            this.f5489c.setBackgroundDrawable(drawable);
+            this.f5515c.setBackgroundDrawable(drawable);
         }
     }
 
@@ -416,26 +416,26 @@ public class BdActionBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), getLayoutId()), this);
-            this.f5488b = findViewById(ResUtils.id(getContext(), "title"));
-            this.f5489c = findViewById(ResUtils.id(getContext(), "title_left_imgzone2"));
-            this.f5490d = (ImageView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_img"));
-            this.f5492f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_titlebar_left_imgzone2_close"));
-            this.f5491e = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
-            this.f5489c.setOnTouchListener(new a(this));
+            this.f5514b = findViewById(ResUtils.id(getContext(), "title"));
+            this.f5515c = findViewById(ResUtils.id(getContext(), "title_left_imgzone2"));
+            this.f5516d = (ImageView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_img"));
+            this.f5518f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_titlebar_left_imgzone2_close"));
+            this.f5517e = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
+            this.f5515c.setOnTouchListener(new a(this));
             View findViewById = findViewById(ResUtils.id(getContext(), "title_close"));
-            this.f5493g = findViewById;
+            this.f5519g = findViewById;
             findViewById.setOnTouchListener(new b(this));
             this.mTitleCenterText = (TextView) findViewById(ResUtils.id(getContext(), "title_center_text"));
             this.m = findViewById(ResUtils.id(getContext(), "title_center_safe_layout"));
             this.n = (TextView) findViewById(ResUtils.id(getContext(), "title_center_safe_tip"));
             this.o = (ImageView) findViewById(ResUtils.id(getContext(), "safe_icon"));
-            this.f5494h = findViewById(ResUtils.id(getContext(), "title_right_imgzone1"));
-            this.f5495i = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img1"));
+            this.f5520h = findViewById(ResUtils.id(getContext(), "title_right_imgzone1"));
+            this.f5521i = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img1"));
             this.j = findViewById(ResUtils.id(getContext(), "title_right_imgzone2"));
             this.k = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img"));
             this.l = (TextView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify"));
-            if (!TextUtils.isEmpty(this.f5487a)) {
-                setTitle(this.f5487a);
+            if (!TextUtils.isEmpty(this.f5513a)) {
+                setTitle(this.f5513a);
             }
             this.p = (ImageView) findViewById(ResUtils.id(getContext(), "title_bottom_seperator"));
         }
@@ -444,7 +444,7 @@ public class BdActionBar extends RelativeLayout {
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
-            this.f5487a = str;
+            this.f5513a = str;
             this.mTitleCenterText.setText(str);
         }
     }
@@ -475,7 +475,7 @@ public class BdActionBar extends RelativeLayout {
                 return;
             }
         }
-        this.f5487a = "";
+        this.f5513a = "";
         a();
     }
 
@@ -485,15 +485,15 @@ public class BdActionBar extends RelativeLayout {
             if (drawable != null) {
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             }
-            this.f5490d.setImageDrawable(drawable);
+            this.f5516d.setImageDrawable(drawable);
         }
     }
 
     public void setRightImgZone1Src(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.f5494h.setVisibility(0);
-            this.f5495i.setVisibility(0);
+            this.f5520h.setVisibility(0);
+            this.f5521i.setVisibility(0);
         }
     }
 
@@ -516,7 +516,7 @@ public class BdActionBar extends RelativeLayout {
                 return;
             }
         }
-        this.f5487a = "";
+        this.f5513a = "";
         a();
     }
 }

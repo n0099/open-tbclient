@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.h;
+import d.a.o0.a.h;
 /* loaded from: classes3.dex */
 public class NetworkErrorView extends CommonEmptyView {
     public static /* synthetic */ Interceptable $ic;
@@ -24,7 +24,7 @@ public class NetworkErrorView extends CommonEmptyView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f11334a;
+        public Object f11360a;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class NetworkErrorView extends CommonEmptyView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, view) == null) {
             a aVar = new a(1);
-            aVar.f11334a = view;
+            aVar.f11360a = view;
             BdEventBus.Companion.getDefault().post(aVar);
         }
     }
@@ -76,7 +76,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f11306i.setVisibility(0);
+            this.f11332i.setVisibility(0);
             setTitle(getContext().getString(h.swanapp_tip_net_unavailable));
         }
     }
@@ -98,21 +98,21 @@ public class NetworkErrorView extends CommonEmptyView {
     public void setEmptyButtonVisiblity(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f11306i.setVisibility(i2);
+            this.f11332i.setVisibility(i2);
         }
     }
 
     public void setEmptyViewVisiblity(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f11302e.setVisibility(i2);
+            this.f11328e.setVisibility(i2);
         }
     }
 
     public void setNetworkButtonShow(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (textView = this.f11305h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (textView = this.f11331h) == null) {
             return;
         }
         textView.setVisibility(z ? 0 : 4);

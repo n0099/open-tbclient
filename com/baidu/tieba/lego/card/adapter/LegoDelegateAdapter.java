@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.n1.o.b;
-import d.a.p0.n1.o.g.a;
-import d.a.p0.n1.o.l.e;
+import d.a.q0.n1.o.b;
+import d.a.q0.n1.o.g.a;
+import d.a.q0.n1.o.l.e;
 /* loaded from: classes4.dex */
 public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -73,8 +73,8 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: g0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: f0 */
     public View I(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -86,8 +86,8 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
-    /* renamed from: h0 */
+    @Override // d.a.d.k.e.a
+    /* renamed from: g0 */
     public LegoDelegateViewHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.a
+    @Override // d.a.d.k.e.a
     /* renamed from: i0 */
     public View X(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoDelegateViewHolder legoDelegateViewHolder) {
         InterceptResult invokeCommon;
@@ -120,7 +120,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // d.a.p0.n1.f
+    @Override // d.a.q0.n1.f
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {

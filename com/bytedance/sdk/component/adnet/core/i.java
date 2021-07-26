@@ -18,22 +18,22 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f28014a;
+    public final int f28112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f28015b;
+    public final byte[] f28113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f28016c;
+    public final Map<String, String> f28114c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Header> f28017d;
+    public final List<Header> f28115d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f28018e;
+    public final boolean f28116e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f28019f;
+    public final long f28117f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
@@ -134,16 +134,16 @@ public class i {
                 return;
             }
         }
-        this.f28014a = i2;
-        this.f28015b = bArr;
-        this.f28016c = map;
+        this.f28112a = i2;
+        this.f28113b = bArr;
+        this.f28114c = map;
         if (list == null) {
-            this.f28017d = null;
+            this.f28115d = null;
         } else {
-            this.f28017d = Collections.unmodifiableList(list);
+            this.f28115d = Collections.unmodifiableList(list);
         }
-        this.f28018e = z;
-        this.f28019f = j;
+        this.f28116e = z;
+        this.f28117f = j;
     }
 
     public static List<Header> a(Map<String, String> map) {

@@ -1,44 +1,46 @@
 package com.win.opensdk;
 
-import android.view.View;
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.views.CloseParentView;
 /* loaded from: classes6.dex */
-public class N1 implements View.OnClickListener {
+public class N1 implements LocationListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CloseParentView f39428a;
-
-    public N1(CloseParentView closeParentView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {closeParentView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f39428a = closeParentView;
+    public /* synthetic */ N1(M1 m1) {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        O1 o1;
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (o1 = this.f39428a.f39690g) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
+            O1.f39613c.f39614a = location.getLatitude();
+            O1.f39613c.f39615b = location.getLongitude();
         }
-        ((t) o1).f39660a.finish();
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i2, bundle) == null) {
+        }
     }
 }

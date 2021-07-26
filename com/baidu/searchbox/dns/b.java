@@ -19,7 +19,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f10199i;
+    public static List<String> f10225i;
     public static boolean j;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -140,8 +140,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             synchronized (b.class) {
-                if (f10199i != null && f10199i.size() > 0) {
-                    for (String str : f10199i) {
+                if (f10225i != null && f10225i.size() > 0) {
+                    for (String str : f10225i) {
                         b(str);
                     }
                 }
@@ -167,11 +167,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
             synchronized (b.class) {
-                if (f10199i == null) {
-                    f10199i = new ArrayList(4);
+                if (f10225i == null) {
+                    f10225i = new ArrayList(4);
                 }
-                if (!f10199i.contains(str)) {
-                    f10199i.add(str);
+                if (!f10225i.contains(str)) {
+                    f10225i.add(str);
                 }
             }
         }

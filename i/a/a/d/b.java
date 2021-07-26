@@ -14,16 +14,16 @@ import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.api.pay.IMiddlePayService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements IMiddleRevenue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f72776a;
+    public final a f73230a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IRevenue f72777b;
+    public final IRevenue f73231b;
 
     public b(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
         Interceptable interceptable = $ic;
@@ -40,24 +40,24 @@ public final class b implements IMiddleRevenue {
                 return;
             }
         }
-        this.f72777b = iRevenue;
-        IAppPayService appPayService = this.f72777b.getAppPayService();
+        this.f73231b = iRevenue;
+        IAppPayService appPayService = this.f73231b.getAppPayService();
         Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
-        this.f72776a = new a(middleRevenueConfig, appPayService);
+        this.f73230a = new a(middleRevenueConfig, appPayService);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
     public IAppPayService getAppPayService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72776a : (IAppPayService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73230a : (IAppPayService) invokeV.objValue;
     }
 
     @Override // tv.athena.revenue.api.IMiddleRevenue
     public IMiddlePayService getMiddlePayService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72776a : (IMiddlePayService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73230a : (IMiddlePayService) invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
@@ -74,7 +74,7 @@ public final class b implements IMiddleRevenue {
     public void updateConfig(RevenueConfig revenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, revenueConfig) == null) {
-            this.f72777b.updateConfig(revenueConfig);
+            this.f73231b.updateConfig(revenueConfig);
         }
     }
 }

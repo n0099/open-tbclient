@@ -1,5 +1,4 @@
 package com.win.opensdk;
 /* loaded from: classes6.dex */
-public interface r extends PBListener {
-    void onDisplayed();
+public interface r {
 }

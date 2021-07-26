@@ -114,7 +114,7 @@ public final class ShareUtils {
                                 str2 = null;
                                 if (TextUtils.isEmpty(str2)) {
                                 }
-                                uri = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7762a).getFileDescriptor()));
+                                uri = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7788a).getFileDescriptor()));
                                 file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str + str2);
                                 if (file.exists()) {
                                 }
@@ -173,7 +173,7 @@ public final class ShareUtils {
                     sb.append(i2 == 0 ? "_sdk_temp.mp4" : "_sdk_temp.jpg");
                     str2 = sb.toString();
                 }
-                uri = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7762a).getFileDescriptor()));
+                uri = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f7788a).getFileDescriptor()));
             } catch (Throwable th3) {
                 th = th3;
             }

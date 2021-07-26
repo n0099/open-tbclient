@@ -1,7 +1,6 @@
 package com.tencent.open.web.security;
 
 import android.content.Context;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.auth.AuthAgent;
-import com.tencent.open.a.f;
-import com.tencent.open.utils.e;
+import com.tencent.open.log.SLog;
+import com.tencent.open.utils.f;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class JniInterface {
@@ -52,30 +51,34 @@ public class JniInterface {
 
     public static native boolean clearAllPWD();
 
+    public static native String d1(String str);
+
+    public static native String d2(String str);
+
     public static native String getPWDKeyToMD5(String str);
 
     public static native boolean insetTextToArray(int i2, String str, int i3);
 
     public static void loadSo() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || isJniOk) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || isJniOk) {
             return;
         }
         try {
-            Context a2 = e.a();
+            Context a2 = f.a();
             if (a2 != null) {
                 if (new File(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME).exists()) {
                     System.load(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME);
                     isJniOk = true;
-                    f.c("openSDK_LOG.JniInterface", "-->load lib success:" + AuthAgent.SECURE_LIB_NAME);
+                    SLog.i("openSDK_LOG.JniInterface", "-->load lib success:" + AuthAgent.SECURE_LIB_NAME);
                 } else {
-                    f.c("openSDK_LOG.JniInterface", "-->fail, because so is not exists:" + AuthAgent.SECURE_LIB_NAME);
+                    SLog.i("openSDK_LOG.JniInterface", "-->fail, because so is not exists:" + AuthAgent.SECURE_LIB_NAME);
                 }
             } else {
-                f.c("openSDK_LOG.JniInterface", "-->load lib fail, because context is null:" + AuthAgent.SECURE_LIB_NAME);
+                SLog.i("openSDK_LOG.JniInterface", "-->load lib fail, because context is null:" + AuthAgent.SECURE_LIB_NAME);
             }
         } catch (Throwable th) {
-            f.b("openSDK_LOG.JniInterface", "-->load lib error:" + AuthAgent.SECURE_LIB_NAME, th);
+            SLog.e("openSDK_LOG.JniInterface", "-->load lib error:" + AuthAgent.SECURE_LIB_NAME, th);
         }
     }
 }

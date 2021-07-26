@@ -15,7 +15,7 @@ public class BaseMapCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LongSparseArray<b> f8020a;
+    public static LongSparseArray<b> f8046a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class BaseMapCallback {
                 return;
             }
         }
-        f8020a = new LongSparseArray<>();
+        f8046a = new LongSparseArray<>();
     }
 
     public BaseMapCallback() {
@@ -52,9 +52,9 @@ public class BaseMapCallback {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bundle, Long.valueOf(j), Integer.valueOf(i2), bundle2})) == null) {
-            int size = f8020a.size();
+            int size = f8046a.size();
             for (int i3 = 0; i3 < size; i3++) {
-                b valueAt = f8020a.valueAt(i3);
+                b valueAt = f8046a.valueAt(i3);
                 if (valueAt != null && valueAt.a(j)) {
                     return valueAt.a(bundle, j, i2, bundle2);
                 }
@@ -67,14 +67,14 @@ public class BaseMapCallback {
     public static void addLayerDataInterface(long j, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(65539, null, j, bVar) == null) {
-            f8020a.put(j, bVar);
+            f8046a.put(j, bVar);
         }
     }
 
     public static void removeLayerDataInterface(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
-            f8020a.remove(j);
+            f8046a.remove(j);
         }
     }
 }

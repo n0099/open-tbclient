@@ -16,7 +16,7 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<?> f16150a;
+    public final TbPageContext<?> f16205a;
 
     public VideoMiddlePageViewModelFactory(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
                 return;
             }
         }
-        this.f16150a = tbPageContext;
+        this.f16205a = tbPageContext;
     }
 
     @Override // androidx.lifecycle.ViewModelProvider.Factory
@@ -42,7 +42,7 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
             if (cls.isAssignableFrom(VideoMiddlePageViewModel.class)) {
-                return new VideoMiddlePageViewModel(this.f16150a);
+                return new VideoMiddlePageViewModel(this.f16205a);
             }
             throw new RuntimeException("ViewModel create fail!:" + cls.getName());
         }

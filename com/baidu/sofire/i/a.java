@@ -19,7 +19,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f10431a = "a";
+    public static final String f10457a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

@@ -26,7 +26,7 @@ public class LBSTransPresenterFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSTransPresenterFactory f2670a;
+        public static LBSTransPresenterFactory f2696a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class LBSTransPresenterFactory {
                     return;
                 }
             }
-            f2670a = new LBSTransPresenterFactory(null);
+            f2696a = new LBSTransPresenterFactory(null);
         }
     }
 
@@ -53,7 +53,7 @@ public class LBSTransPresenterFactory {
     public static LBSTransPresenterFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f2670a : (LBSTransPresenterFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f2696a : (LBSTransPresenterFactory) invokeV.objValue;
     }
 
     public LBSTransPresenter getTransPresenter(LBSTransActivity lBSTransActivity, String str) {

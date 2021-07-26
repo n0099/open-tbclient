@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.a1;
-import com.win.opensdk.s1;
-import com.win.opensdk.z;
+import com.win.opensdk.C1;
+import com.win.opensdk.N;
+import com.win.opensdk.U1;
 /* loaded from: classes6.dex */
 public class PProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39664a;
+    public Context f39950a;
 
     public PProvider() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class PProvider extends ContentProvider {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && s1.g(this.f39664a) == 0) {
-            z.d(this.f39664a);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && U1.h(this.f39950a) == 0) {
+            N.d(this.f39950a);
         }
     }
 
@@ -81,15 +81,15 @@ public class PProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Context context = getContext();
-            this.f39664a = context;
+            this.f39950a = context;
             if (context != null) {
-                if (s1.g(context) == 0) {
-                    z.d(this.f39664a);
+                if (U1.h(context) == 0) {
+                    N.d(this.f39950a);
                     return true;
                 }
                 return true;
             }
-            new Handler(Looper.getMainLooper()).post(new a1(this));
+            new Handler(Looper.getMainLooper()).post(new C1(this));
             return true;
         }
         return invokeV.booleanValue;

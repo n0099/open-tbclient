@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.h.f.b;
+import d.a.d.h.f.b;
 /* loaded from: classes.dex */
 public class ThirdFragmentActivityProxy extends FragmentActivityProxy {
     public static /* synthetic */ Interceptable $ic;

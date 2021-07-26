@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.s.c.n;
-import d.a.o0.z0.p0;
+import d.a.p0.b1.p0;
+import d.a.p0.t.c.n;
 /* loaded from: classes4.dex */
 public class UtilityAppInfo implements TiebaUtilityAppInfoAuto.HostUtilityAppInfo {
     public static /* synthetic */ Interceptable $ic;

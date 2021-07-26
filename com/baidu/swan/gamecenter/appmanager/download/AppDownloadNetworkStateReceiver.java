@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.n0.a.a2.d;
-import d.a.n0.a.k;
-import d.a.n0.g.c.a;
-import d.a.n0.g.c.d.b;
-import d.a.n0.g.c.d.e;
+import d.a.o0.a.a2.d;
+import d.a.o0.a.k;
+import d.a.o0.g.c.a;
+import d.a.o0.g.c.d.b;
+import d.a.o0.g.c.d.e;
 /* loaded from: classes3.dex */
 public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -39,7 +39,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = k.f45831a;
+        DEBUG = k.f46335a;
     }
 
     public AppDownloadNetworkStateReceiver() {
@@ -70,7 +70,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
                 a.n().D();
                 return;
             }
-            d.a.n0.a.v1.c.e.a z = d.g().z();
+            d.a.o0.a.v1.c.e.a z = d.g().z();
             if (z != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString(KEY_OPERATION, "resumeAllDownload");
@@ -79,7 +79,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
         } else if (ProcessUtils.isMainProcess()) {
             a.n().u();
         } else {
-            d.a.n0.a.v1.c.e.a z2 = d.g().z();
+            d.a.o0.a.v1.c.e.a z2 = d.g().z();
             if (z2 != null) {
                 Bundle bundle2 = new Bundle();
                 bundle2.putString(KEY_OPERATION, "pauseAllDownload");

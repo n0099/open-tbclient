@@ -13,7 +13,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f36845a;
+    public static boolean f37034a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,7 +53,7 @@ public class d {
     public static void a(int i2, Object obj, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), obj, th, str, objArr}) == null) {
-            if ((i2 >= 5) || f36845a) {
+            if ((i2 >= 5) || f37034a) {
                 Log.println(i2, a(obj), f.a(str, objArr));
                 if (th != null) {
                     th.printStackTrace();

@@ -12,26 +12,26 @@ public final class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4731a;
+    public static Context f4757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4732b;
+    public static PackageManager f4758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PackageInfo f4733c;
+    public static PackageInfo f4759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4734d;
+    public static String f4760d;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) && f4731a == null) {
-            f4731a = context;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) && f4757a == null) {
+            f4757a = context;
             PackageManager packageManager = context.getPackageManager();
-            f4732b = packageManager;
+            f4758b = packageManager;
             try {
-                f4733c = packageManager.getPackageInfo(f4731a.getPackageName(), 0);
+                f4759c = packageManager.getPackageInfo(f4757a.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e2) {
                 com.baidu.crabsdk.lite.b.a.e(str, "PackageCollector.init fail.", e2);
             }
@@ -41,21 +41,21 @@ public final class n {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f4731a.getPackageName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f4757a.getPackageName() : (String) invokeV.objValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f4734d == null) {
-                PackageInfo packageInfo = f4733c;
+            if (f4760d == null) {
+                PackageInfo packageInfo = f4759c;
                 if (packageInfo == null) {
                     return "N/A";
                 }
-                f4734d = packageInfo.applicationInfo.loadLabel(f4732b).toString();
+                f4760d = packageInfo.applicationInfo.loadLabel(f4758b).toString();
             }
-            return f4734d;
+            return f4760d;
         }
         return (String) invokeV.objValue;
     }
@@ -64,7 +64,7 @@ public final class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            PackageInfo packageInfo = f4733c;
+            PackageInfo packageInfo = f4759c;
             return packageInfo == null ? "N/A" : packageInfo.versionName;
         }
         return (String) invokeV.objValue;
@@ -74,7 +74,7 @@ public final class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            PackageInfo packageInfo = f4733c;
+            PackageInfo packageInfo = f4759c;
             if (packageInfo == null) {
                 return 0;
             }

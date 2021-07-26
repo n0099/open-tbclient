@@ -39,31 +39,31 @@ public final class d implements o.a<c> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f70070a;
+    public static final Pattern f70524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f70071b;
+    public static final Pattern f70525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f70072c;
+    public static final Pattern f70526c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f70073d;
+    public static final Pattern f70527d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f70074e;
+    public static final Pattern f70528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f70075f;
+    public static final Pattern f70529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f70076g;
+    public static final Pattern f70530g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f70077h;
+    public static final Pattern f70531h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Pattern f70078i;
+    public static final Pattern f70532i;
     public static final Pattern j;
     public static final Pattern k;
     public static final Pattern l;
@@ -87,13 +87,13 @@ public final class d implements o.a<c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final BufferedReader f70079a;
+        public final BufferedReader f70533a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Queue<String> f70080b;
+        public final Queue<String> f70534b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f70081c;
+        public String f70535c;
 
         public a(Queue<String> queue, BufferedReader bufferedReader) {
             Interceptable interceptable = $ic;
@@ -110,8 +110,8 @@ public final class d implements o.a<c> {
                     return;
                 }
             }
-            this.f70080b = queue;
-            this.f70079a = bufferedReader;
+            this.f70534b = queue;
+            this.f70533a = bufferedReader;
         }
 
         public boolean a() throws IOException {
@@ -119,21 +119,21 @@ public final class d implements o.a<c> {
             String trim;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f70081c != null) {
+                if (this.f70535c != null) {
                     return true;
                 }
-                if (!this.f70080b.isEmpty()) {
-                    this.f70081c = this.f70080b.poll();
+                if (!this.f70534b.isEmpty()) {
+                    this.f70535c = this.f70534b.poll();
                     return true;
                 }
                 do {
-                    String readLine = this.f70079a.readLine();
-                    this.f70081c = readLine;
+                    String readLine = this.f70533a.readLine();
+                    this.f70535c = readLine;
                     if (readLine == null) {
                         return false;
                     }
                     trim = readLine.trim();
-                    this.f70081c = trim;
+                    this.f70535c = trim;
                 } while (trim.isEmpty());
                 return true;
             }
@@ -145,8 +145,8 @@ public final class d implements o.a<c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (a()) {
-                    String str = this.f70081c;
-                    this.f70081c = null;
+                    String str = this.f70535c;
+                    this.f70535c = null;
                     return str;
                 }
                 return null;
@@ -168,15 +168,15 @@ public final class d implements o.a<c> {
                 return;
             }
         }
-        f70070a = Pattern.compile("AVERAGE-BANDWIDTH=(\\d+)\\b");
-        f70071b = Pattern.compile("[^-]BANDWIDTH=(\\d+)\\b");
-        f70072c = Pattern.compile("CODECS=\"(.+?)\"");
-        f70073d = Pattern.compile("RESOLUTION=(\\d+x\\d+)");
-        f70074e = Pattern.compile("FRAME-RATE=([\\d\\.]+)\\b");
-        f70075f = Pattern.compile("#EXT-X-TARGETDURATION:(\\d+)\\b");
-        f70076g = Pattern.compile("#EXT-X-VERSION:(\\d+)\\b");
-        f70077h = Pattern.compile("#EXT-X-PLAYLIST-TYPE:(.+)\\b");
-        f70078i = Pattern.compile("#EXT-X-MEDIA-SEQUENCE:(\\d+)\\b");
+        f70524a = Pattern.compile("AVERAGE-BANDWIDTH=(\\d+)\\b");
+        f70525b = Pattern.compile("[^-]BANDWIDTH=(\\d+)\\b");
+        f70526c = Pattern.compile("CODECS=\"(.+?)\"");
+        f70527d = Pattern.compile("RESOLUTION=(\\d+x\\d+)");
+        f70528e = Pattern.compile("FRAME-RATE=([\\d\\.]+)\\b");
+        f70529f = Pattern.compile("#EXT-X-TARGETDURATION:(\\d+)\\b");
+        f70530g = Pattern.compile("#EXT-X-VERSION:(\\d+)\\b");
+        f70531h = Pattern.compile("#EXT-X-PLAYLIST-TYPE:(.+)\\b");
+        f70532i = Pattern.compile("#EXT-X-MEDIA-SEQUENCE:(\\d+)\\b");
         j = Pattern.compile("#EXTINF:([\\d\\.]+)\\b");
         k = Pattern.compile("TIME-OFFSET=(-?[\\d\\.]+)\\b");
         l = Pattern.compile("#EXT-X-BYTERANGE:(\\d+(?:@\\d+)?)\\b");
@@ -316,10 +316,10 @@ public final class d implements o.a<c> {
                                 if (j2 == null) {
                                     format = createAudioContainerFormat;
                                 } else {
-                                    arrayList2.add(new a.C1980a(j2, createAudioContainerFormat));
+                                    arrayList2.add(new a.C1979a(j2, createAudioContainerFormat));
                                 }
                             } else if (c2 == 1) {
-                                arrayList3.add(new a.C1980a(j2, Format.createTextContainerFormat(l2, "application/x-mpegURL", "text/vtt", null, -1, k2, j3)));
+                                arrayList3.add(new a.C1979a(j2, Format.createTextContainerFormat(l2, "application/x-mpegURL", "text/vtt", null, -1, k2, j3)));
                             } else if (c2 == 2) {
                                 String l4 = l(b2, u);
                                 if (l4.startsWith("CC")) {
@@ -352,14 +352,14 @@ public final class d implements o.a<c> {
                     }
                 } else if (b2.startsWith("#EXT-X-STREAM-INF")) {
                     z |= b2.contains("CLOSED-CAPTIONS=NONE");
-                    int g2 = g(b2, f70071b);
-                    String j4 = j(b2, f70070a);
+                    int g2 = g(b2, f70525b);
+                    String j4 = j(b2, f70524a);
                     if (j4 != null) {
                         g2 = Integer.parseInt(j4);
                     }
                     int i6 = g2;
-                    String j5 = j(b2, f70072c);
-                    String j6 = j(b2, f70073d);
+                    String j5 = j(b2, f70526c);
+                    String j6 = j(b2, f70527d);
                     if (j6 != null) {
                         String[] split = j6.split("x");
                         int parseInt2 = Integer.parseInt(split[0]);
@@ -376,11 +376,11 @@ public final class d implements o.a<c> {
                         i2 = -1;
                         i3 = -1;
                     }
-                    String j7 = j(b2, f70074e);
+                    String j7 = j(b2, f70528e);
                     float parseFloat = j7 != null ? Float.parseFloat(j7) : -1.0f;
                     String b3 = aVar.b();
                     if (hashSet.add(b3)) {
-                        arrayList.add(new a.C1980a(b3, Format.createVideoContainerFormat(Integer.toString(arrayList.size()), "application/x-mpegURL", null, j5, i6, i2, i3, parseFloat, null, 0)));
+                        arrayList.add(new a.C1979a(b3, Format.createVideoContainerFormat(Integer.toString(arrayList.size()), "application/x-mpegURL", null, j5, i6, i2, i3, parseFloat, null, 0)));
                     }
                 }
             }
@@ -423,7 +423,7 @@ public final class d implements o.a<c> {
                         arrayList2.add(b2);
                     }
                     if (b2.startsWith("#EXT-X-PLAYLIST-TYPE")) {
-                        String l2 = l(b2, f70077h);
+                        String l2 = l(b2, f70531h);
                         if ("VOD".equals(l2)) {
                             i3 = 1;
                         } else if ("EVENT".equals(l2)) {
@@ -445,12 +445,12 @@ public final class d implements o.a<c> {
                         j5 = 0;
                         j6 = -1;
                     } else if (b2.startsWith("#EXT-X-TARGETDURATION")) {
-                        j3 = 1000000 * g(b2, f70075f);
+                        j3 = 1000000 * g(b2, f70529f);
                     } else if (b2.startsWith("#EXT-X-MEDIA-SEQUENCE")) {
-                        i7 = g(b2, f70078i);
+                        i7 = g(b2, f70532i);
                         i5 = i7;
                     } else if (b2.startsWith("#EXT-X-VERSION")) {
-                        i6 = g(b2, f70076g);
+                        i6 = g(b2, f70530g);
                     } else if (b2.startsWith("#EXTINF")) {
                         j8 = (long) (f(b2, j) * 1000000.0d);
                     } else if (b2.startsWith("#EXT-X-KEY")) {
@@ -560,10 +560,10 @@ public final class d implements o.a<c> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
             if ("urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed".equals(str2)) {
                 String l2 = l(str, p);
-                return new DrmInitData.SchemeData(d.f.b.a.b.f69706d, "video/mp4", Base64.decode(l2.substring(l2.indexOf(44)), 0));
+                return new DrmInitData.SchemeData(d.f.b.a.b.f70160d, "video/mp4", Base64.decode(l2.substring(l2.indexOf(44)), 0));
             } else if ("com.widevine".equals(str2)) {
                 try {
-                    return new DrmInitData.SchemeData(d.f.b.a.b.f69706d, "hls", str.getBytes("UTF-8"));
+                    return new DrmInitData.SchemeData(d.f.b.a.b.f70160d, "hls", str.getBytes("UTF-8"));
                 } catch (UnsupportedEncodingException e2) {
                     throw new ParserException(e2);
                 }

@@ -21,11 +21,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f8307a;
+    public static final int[] f8333a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f8308b;
+    public final int f8334b;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class b {
                 return;
             }
         }
-        f8307a = c(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+        f8333a = c(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     }
 
     public b(int i2) {
@@ -58,7 +58,7 @@ public class b {
                 return;
             }
         }
-        this.f8308b = i2;
+        this.f8334b = i2;
     }
 
     public static int a(int i2, int i3) {
@@ -73,7 +73,7 @@ public class b {
             int remaining = byteBuffer2.remaining();
             int i2 = (remaining / 64) + 1;
             for (int i3 = 0; i3 < i2; i3++) {
-                ByteBuffer a2 = a(bArr, bArr2, this.f8308b + i3);
+                ByteBuffer a2 = a(bArr, bArr2, this.f8334b + i3);
                 if (i3 == i2 - 1) {
                     a.a(byteBuffer, byteBuffer2, a2, remaining % 64);
                 } else {
@@ -116,9 +116,9 @@ public class b {
     public static void a(int[] iArr, int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, iArr, iArr2) == null) {
-            int[] iArr3 = f8307a;
+            int[] iArr3 = f8333a;
             System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-            System.arraycopy(iArr2, 0, iArr, f8307a.length, 8);
+            System.arraycopy(iArr2, 0, iArr, f8333a.length, 8);
         }
     }
 

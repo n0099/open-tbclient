@@ -42,10 +42,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.a.j;
-import d.a.c.e.p.l;
-import d.a.o0.r.f0.n.b;
-import d.a.p0.n1.o.k.a;
+import d.a.d.a.j;
+import d.a.d.e.p.l;
+import d.a.p0.s.f0.n.b;
+import d.a.q0.n1.o.k.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActionControl;
@@ -67,19 +67,19 @@ public class AdCloseView extends FrameLayout {
     public View.OnClickListener K;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20598e;
+    public Context f20716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PopupWindow f20599f;
+    public PopupWindow f20717f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PopupWindow f20600g;
+    public PopupWindow f20718g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f20601h;
+    public LinearLayout f20719h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f20602i;
+    public TBSpecificationBtn f20720i;
     public b j;
     public TextView k;
     public RelativeLayout l;
@@ -116,9 +116,9 @@ public class AdCloseView extends FrameLayout {
                 return;
             }
         }
-        this.f20598e = null;
-        this.f20599f = null;
-        this.f20600g = null;
+        this.f20716e = null;
+        this.f20717f = null;
+        this.f20718g = null;
         this.p = R.drawable.icon_pure_card_close22;
         this.q = null;
         this.r = null;
@@ -130,7 +130,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20603e;
+            public final /* synthetic */ AdCloseView f20721e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -147,7 +147,7 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20603e = this;
+                this.f20721e = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -155,9 +155,9 @@ public class AdCloseView extends FrameLayout {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.f20603e.C > 500) {
-                        this.f20603e.r();
-                        this.f20603e.C = currentTimeMillis;
+                    if (currentTimeMillis - this.f20721e.C > 500) {
+                        this.f20721e.r();
+                        this.f20721e.C = currentTimeMillis;
                     }
                 }
             }
@@ -167,7 +167,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20604e;
+            public final /* synthetic */ AdCloseView f20722e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -184,33 +184,33 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20604e = this;
+                this.f20722e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    int n = this.f20604e.n();
+                    int n = this.f20722e.n();
                     if (n > 0) {
-                        AdCloseView adCloseView = this.f20604e;
-                        adCloseView.f20602i.setText(adCloseView.f20598e.getResources().getString(R.string.confirm));
+                        AdCloseView adCloseView = this.f20722e;
+                        adCloseView.f20720i.setText(adCloseView.f20716e.getResources().getString(R.string.confirm));
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                        spannableStringBuilder.append((CharSequence) this.f20604e.f20598e.getString(R.string.ad_close_title_prefix));
+                        spannableStringBuilder.append((CharSequence) this.f20722e.f20716e.getString(R.string.ad_close_title_prefix));
                         int color = SkinManager.getColor(R.color.CAM_X0105);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                         int length = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) String.valueOf(n));
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)), length, spannableStringBuilder.length(), 17);
                         int length2 = spannableStringBuilder.length();
-                        spannableStringBuilder.append((CharSequence) this.f20604e.f20598e.getString(R.string.ad_close_title_postfix));
+                        spannableStringBuilder.append((CharSequence) this.f20722e.f20716e.getString(R.string.ad_close_title_postfix));
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(color), length2, spannableStringBuilder.length(), 17);
-                        this.f20604e.k.setText(spannableStringBuilder);
+                        this.f20722e.k.setText(spannableStringBuilder);
                         return;
                     }
-                    AdCloseView adCloseView2 = this.f20604e;
-                    adCloseView2.f20602i.setText(adCloseView2.f20598e.getResources().getString(R.string.ad_no_interest));
-                    AdCloseView adCloseView3 = this.f20604e;
+                    AdCloseView adCloseView2 = this.f20722e;
+                    adCloseView2.f20720i.setText(adCloseView2.f20716e.getResources().getString(R.string.ad_no_interest));
+                    AdCloseView adCloseView3 = this.f20722e;
                     adCloseView3.k.setText(adCloseView3.u);
                 }
             }
@@ -220,7 +220,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20605e;
+            public final /* synthetic */ AdCloseView f20723e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -237,28 +237,28 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20605e = this;
+                this.f20723e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f20605e.r == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f20723e.r == null) {
                     return;
                 }
-                AdCloseView adCloseView = this.f20605e;
-                if (adCloseView.f20599f == null) {
+                AdCloseView adCloseView = this.f20723e;
+                if (adCloseView.f20717f == null) {
                     return;
                 }
                 String selectedResultJsonObj = adCloseView.getSelectedResultJsonObj();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016331, this.f20605e.r.L3));
-                this.f20605e.o();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016331, this.f20723e.r.R3));
+                this.f20723e.o();
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_CLOSE, "http://afd.baidu.com/afd/close");
                 tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
                 tbHttpMessageTask.setIsNeedAddCommenParam(true);
                 tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_AD_CLOSE);
-                int i4 = this.f20605e.E;
+                int i4 = this.f20723e.E;
                 if (i4 == 1) {
                     httpMessage.addParam("pi", PlaceId.FRS.value);
                 } else if (i4 == 2 || i4 == 3) {
@@ -267,7 +267,7 @@ public class AdCloseView extends FrameLayout {
                     httpMessage.addParam("pi", PlaceId.PB_BANNER.value);
                 }
                 httpMessage.addParam("cr", selectedResultJsonObj);
-                httpMessage.addParam("ext", this.f20605e.r.S3);
+                httpMessage.addParam("ext", this.f20723e.r.Y3);
                 httpMessage.addParam("ci", TbadkCoreApplication.getInst().getCuid());
                 MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
             }
@@ -277,7 +277,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20606e;
+            public final /* synthetic */ AdCloseView f20724e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -294,18 +294,18 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20606e = this;
+                this.f20724e = this;
             }
 
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
                 PopupWindow popupWindow;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (popupWindow = this.f20606e.f20600g) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (popupWindow = this.f20724e.f20718g) == null) {
                     return;
                 }
                 popupWindow.dismiss();
-                this.f20606e.f20600g = null;
+                this.f20724e.f20718g = null;
             }
         };
         this.J = new CustomMessageListener(this, 2016524) { // from class: com.baidu.tieba.recapp.view.AdCloseView.5
@@ -313,7 +313,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20607a;
+            public final /* synthetic */ AdCloseView f20725a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -333,7 +333,7 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20607a = this;
+                this.f20725a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -341,7 +341,7 @@ public class AdCloseView extends FrameLayout {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) {
-                    this.f20607a.o();
+                    this.f20725a.o();
                 }
             }
         };
@@ -350,7 +350,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20608e;
+            public final /* synthetic */ AdCloseView f20726e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -367,18 +367,18 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20608e = this;
+                this.f20726e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f20608e.p();
+                    this.f20726e.p();
                 }
             }
         };
-        this.f20598e = context;
+        this.f20716e = context;
         q();
     }
 
@@ -386,7 +386,7 @@ public class AdCloseView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            Context context = this.f20598e;
+            Context context = this.f20716e;
             if (context == null) {
                 return null;
             }
@@ -399,17 +399,17 @@ public class AdCloseView extends FrameLayout {
             if (!TextUtils.isEmpty(this.u)) {
                 this.k.setText(this.u);
             }
-            this.f20602i = (TBSpecificationBtn) inflate.findViewById(R.id.forbid_thread_btn);
+            this.f20720i = (TBSpecificationBtn) inflate.findViewById(R.id.forbid_thread_btn);
             b bVar = new b();
             this.j = bVar;
             bVar.q(R.color.CAM_X0304);
-            this.f20602i.setConfig(this.j);
+            this.f20720i.setConfig(this.j);
             if (!TextUtils.isEmpty(this.v)) {
-                this.f20602i.setText(this.v);
+                this.f20720i.setText(this.v);
             } else {
-                this.f20602i.setText(this.f20598e.getResources().getString(R.string.ad_no_interest));
+                this.f20720i.setText(this.f20716e.getResources().getString(R.string.ad_no_interest));
             }
-            this.f20602i.setOnClickListener(this.H);
+            this.f20720i.setOnClickListener(this.H);
             if (m()) {
                 this.m.setText(this.s.name);
                 findViewById.setVisibility(0);
@@ -418,7 +418,7 @@ public class AdCloseView extends FrameLayout {
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0107, 1);
             this.n.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_ad_dislike_arrow20_right_n));
-            this.f20601h = (LinearLayout) inflate.findViewById(R.id.reason_root_container);
+            this.f20719h = (LinearLayout) inflate.findViewById(R.id.reason_root_container);
             this.q = new ArrayList();
             return inflate;
         }
@@ -477,13 +477,13 @@ public class AdCloseView extends FrameLayout {
     public int getCloseViewHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l.g(this.f20598e, R.dimen.tbds72) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l.g(this.f20716e, R.dimen.tbds72) : invokeV.intValue;
     }
 
     public int getCloseViewWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? l.g(this.f20598e, R.dimen.tbds72) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? l.g(this.f20716e, R.dimen.tbds72) : invokeV.intValue;
     }
 
     public final void k() {
@@ -492,18 +492,18 @@ public class AdCloseView extends FrameLayout {
             return;
         }
         int k = a.k(this.t);
-        this.f20601h.setVisibility(0);
+        this.f20719h.setVisibility(0);
         int i2 = 0;
         for (int i3 = 0; i3 < Math.ceil(k / 2.0d); i3++) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f20598e).inflate(R.layout.ad_close_row_view, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f20716e).inflate(R.layout.ad_close_row_view, (ViewGroup) null);
             linearLayout.setOrientation(0);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 1;
             if (i3 != 0) {
-                layoutParams.topMargin = l.g(this.f20598e, R.dimen.M_H_X003);
+                layoutParams.topMargin = l.g(this.f20716e, R.dimen.M_H_X003);
             }
             linearLayout.setLayoutParams(layoutParams);
-            this.f20601h.addView(linearLayout);
+            this.f20719h.addView(linearLayout);
             for (int i4 = 0; i4 < linearLayout.getChildCount() && (i2 = i2 + 1) <= k; i4++) {
                 CheckBox checkBox = (CheckBox) linearLayout.getChildAt(i4);
                 checkBox.setOnClickListener(this.G);
@@ -576,15 +576,15 @@ public class AdCloseView extends FrameLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            PopupWindow popupWindow = this.f20599f;
+            PopupWindow popupWindow = this.f20717f;
             if (popupWindow != null) {
                 popupWindow.dismiss();
-                this.f20599f = null;
+                this.f20717f = null;
             }
-            PopupWindow popupWindow2 = this.f20600g;
+            PopupWindow popupWindow2 = this.f20718g;
             if (popupWindow2 != null) {
                 popupWindow2.dismiss();
-                this.f20600g = null;
+                this.f20718g = null;
             }
         }
     }
@@ -605,11 +605,11 @@ public class AdCloseView extends FrameLayout {
                 MessageManager.getInstance().unRegisterListener(this.J);
                 this.D = false;
             }
-            if (this.f20600g != null) {
-                PopupWindow popupWindow = this.f20599f;
+            if (this.f20718g != null) {
+                PopupWindow popupWindow = this.f20717f;
                 if (popupWindow == null || !popupWindow.isShowing()) {
-                    this.f20600g.dismiss();
-                    this.f20600g = null;
+                    this.f20718g.dismiss();
+                    this.f20718g = null;
                 }
             }
         }
@@ -618,7 +618,7 @@ public class AdCloseView extends FrameLayout {
     public final void p() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && m()) {
-            d.a.p0.q.a.l().c(getContext(), new String[]{this.s.url}, null);
+            d.a.q0.q.a.l().c(getContext(), new String[]{this.s.url}, null);
         }
     }
 
@@ -629,11 +629,11 @@ public class AdCloseView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.tbds72), getContext().getResources().getDimensionPixelSize(R.dimen.tbds72));
             layoutParams.gravity = 21;
             addView(this.o, layoutParams);
-            this.A = l.g(this.f20598e, R.dimen.M_W_X004);
-            this.B = l.g(this.f20598e, R.dimen.ds10);
-            this.w = l.g(this.f20598e, R.dimen.ds278);
-            this.x = l.k(this.f20598e) - (this.A * 2);
-            this.z = l.g(this.f20598e, R.dimen.ds120);
+            this.A = l.g(this.f20716e, R.dimen.M_W_X004);
+            this.B = l.g(this.f20716e, R.dimen.ds10);
+            this.w = l.g(this.f20716e, R.dimen.ds278);
+            this.x = l.k(this.f20716e) - (this.A * 2);
+            this.z = l.g(this.f20716e, R.dimen.ds120);
             setOnClickListener(this.F);
             this.o.setImageDrawable(WebPManager.getPureDrawable(this.p, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS));
         }
@@ -641,7 +641,7 @@ public class AdCloseView extends FrameLayout {
 
     public final void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f20598e == null || FullBrowseHelper.checkAndShowFullBrowseModeDialog(j.a(getContext()), null)) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f20716e == null || FullBrowseHelper.checkAndShowFullBrowseModeDialog(j.a(getContext()), null)) {
             return;
         }
         o();
@@ -652,40 +652,40 @@ public class AdCloseView extends FrameLayout {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0204));
-        gradientDrawable.setCornerRadius(l.g(this.f20598e, R.dimen.tbds31));
+        gradientDrawable.setCornerRadius(l.g(this.f20716e, R.dimen.tbds31));
         this.y.setBackgroundDrawable(gradientDrawable);
         PopupWindow popupWindow = new PopupWindow(contentView, this.x, this.w);
-        this.f20599f = popupWindow;
+        this.f20717f = popupWindow;
         popupWindow.setFocusable(true);
-        this.f20599f.setTouchable(true);
-        this.f20599f.setOnDismissListener(this.I);
+        this.f20717f.setTouchable(true);
+        this.f20717f.setOnDismissListener(this.I);
         if (Build.VERSION.SDK_INT >= 22) {
-            this.f20599f.setAttachedInDecor(false);
+            this.f20717f.setAttachedInDecor(false);
         }
         if (!this.D) {
             MessageManager.getInstance().registerListener(this.J);
             this.D = true;
         }
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f20598e).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
-        this.f20600g = popupWindow2;
+        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.f20716e).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+        this.f20718g = popupWindow2;
         popupWindow2.setFocusable(false);
-        this.f20600g.setTouchable(false);
+        this.f20718g.setTouchable(false);
         if (Build.VERSION.SDK_INT >= 22) {
-            this.f20600g.setAttachedInDecor(false);
+            this.f20718g.setAttachedInDecor(false);
         }
-        this.f20600g.showAtLocation(this, 0, 0, 0);
+        this.f20718g.showAtLocation(this, 0, 0, 0);
         int[] iArr = new int[2];
-        boolean l = l(this.f20598e, this, this.w, this.x, this.z, this.B, iArr);
+        boolean l = l(this.f20716e, this, this.w, this.x, this.z, this.B, iArr);
         if (iArr[0] == 0 && iArr[1] == 0) {
             return;
         }
-        this.f20599f.setBackgroundDrawable(new ColorDrawable(0));
+        this.f20717f.setBackgroundDrawable(new ColorDrawable(0));
         if (l) {
-            this.f20599f.setAnimationStyle(R.style.scale_rb2lt_anim);
+            this.f20717f.setAnimationStyle(R.style.scale_rb2lt_anim);
         } else {
-            this.f20599f.setAnimationStyle(R.style.scale_rt2lb_anim);
+            this.f20717f.setAnimationStyle(R.style.scale_rt2lb_anim);
         }
-        this.f20599f.showAtLocation(getRootView(), 0, iArr[0] - this.A, iArr[1]);
+        this.f20717f.showAtLocation(getRootView(), 0, iArr[0] - this.A, iArr[1]);
     }
 
     public void setData(AdvertAppInfo advertAppInfo, AdCloseInfo adCloseInfo) {
@@ -703,7 +703,7 @@ public class AdCloseView extends FrameLayout {
             String str2 = adCloseInfo.title;
             this.u = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.u = this.f20598e.getString(R.string.tell_us_reason);
+                this.u = this.f20716e.getString(R.string.tell_us_reason);
             }
             this.v = adCloseInfo.confirm_title;
         }
@@ -735,9 +735,9 @@ public class AdCloseView extends FrameLayout {
                 return;
             }
         }
-        this.f20598e = null;
-        this.f20599f = null;
-        this.f20600g = null;
+        this.f20716e = null;
+        this.f20717f = null;
+        this.f20718g = null;
         this.p = R.drawable.icon_pure_card_close22;
         this.q = null;
         this.r = null;
@@ -749,7 +749,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20603e;
+            public final /* synthetic */ AdCloseView f20721e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -766,7 +766,7 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20603e = this;
+                this.f20721e = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -774,9 +774,9 @@ public class AdCloseView extends FrameLayout {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.f20603e.C > 500) {
-                        this.f20603e.r();
-                        this.f20603e.C = currentTimeMillis;
+                    if (currentTimeMillis - this.f20721e.C > 500) {
+                        this.f20721e.r();
+                        this.f20721e.C = currentTimeMillis;
                     }
                 }
             }
@@ -786,7 +786,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20604e;
+            public final /* synthetic */ AdCloseView f20722e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -803,33 +803,33 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20604e = this;
+                this.f20722e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    int n = this.f20604e.n();
+                    int n = this.f20722e.n();
                     if (n > 0) {
-                        AdCloseView adCloseView = this.f20604e;
-                        adCloseView.f20602i.setText(adCloseView.f20598e.getResources().getString(R.string.confirm));
+                        AdCloseView adCloseView = this.f20722e;
+                        adCloseView.f20720i.setText(adCloseView.f20716e.getResources().getString(R.string.confirm));
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                        spannableStringBuilder.append((CharSequence) this.f20604e.f20598e.getString(R.string.ad_close_title_prefix));
+                        spannableStringBuilder.append((CharSequence) this.f20722e.f20716e.getString(R.string.ad_close_title_prefix));
                         int color = SkinManager.getColor(R.color.CAM_X0105);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                         int length = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) String.valueOf(n));
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)), length, spannableStringBuilder.length(), 17);
                         int length2 = spannableStringBuilder.length();
-                        spannableStringBuilder.append((CharSequence) this.f20604e.f20598e.getString(R.string.ad_close_title_postfix));
+                        spannableStringBuilder.append((CharSequence) this.f20722e.f20716e.getString(R.string.ad_close_title_postfix));
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(color), length2, spannableStringBuilder.length(), 17);
-                        this.f20604e.k.setText(spannableStringBuilder);
+                        this.f20722e.k.setText(spannableStringBuilder);
                         return;
                     }
-                    AdCloseView adCloseView2 = this.f20604e;
-                    adCloseView2.f20602i.setText(adCloseView2.f20598e.getResources().getString(R.string.ad_no_interest));
-                    AdCloseView adCloseView3 = this.f20604e;
+                    AdCloseView adCloseView2 = this.f20722e;
+                    adCloseView2.f20720i.setText(adCloseView2.f20716e.getResources().getString(R.string.ad_no_interest));
+                    AdCloseView adCloseView3 = this.f20722e;
                     adCloseView3.k.setText(adCloseView3.u);
                 }
             }
@@ -839,7 +839,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20605e;
+            public final /* synthetic */ AdCloseView f20723e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -856,28 +856,28 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20605e = this;
+                this.f20723e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f20605e.r == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f20723e.r == null) {
                     return;
                 }
-                AdCloseView adCloseView = this.f20605e;
-                if (adCloseView.f20599f == null) {
+                AdCloseView adCloseView = this.f20723e;
+                if (adCloseView.f20717f == null) {
                     return;
                 }
                 String selectedResultJsonObj = adCloseView.getSelectedResultJsonObj();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016331, this.f20605e.r.L3));
-                this.f20605e.o();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016331, this.f20723e.r.R3));
+                this.f20723e.o();
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_CLOSE, "http://afd.baidu.com/afd/close");
                 tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
                 tbHttpMessageTask.setIsNeedAddCommenParam(true);
                 tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_AD_CLOSE);
-                int i4 = this.f20605e.E;
+                int i4 = this.f20723e.E;
                 if (i4 == 1) {
                     httpMessage.addParam("pi", PlaceId.FRS.value);
                 } else if (i4 == 2 || i4 == 3) {
@@ -886,7 +886,7 @@ public class AdCloseView extends FrameLayout {
                     httpMessage.addParam("pi", PlaceId.PB_BANNER.value);
                 }
                 httpMessage.addParam("cr", selectedResultJsonObj);
-                httpMessage.addParam("ext", this.f20605e.r.S3);
+                httpMessage.addParam("ext", this.f20723e.r.Y3);
                 httpMessage.addParam("ci", TbadkCoreApplication.getInst().getCuid());
                 MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
             }
@@ -896,7 +896,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20606e;
+            public final /* synthetic */ AdCloseView f20724e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -913,18 +913,18 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20606e = this;
+                this.f20724e = this;
             }
 
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
                 PopupWindow popupWindow;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (popupWindow = this.f20606e.f20600g) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (popupWindow = this.f20724e.f20718g) == null) {
                     return;
                 }
                 popupWindow.dismiss();
-                this.f20606e.f20600g = null;
+                this.f20724e.f20718g = null;
             }
         };
         this.J = new CustomMessageListener(this, 2016524) { // from class: com.baidu.tieba.recapp.view.AdCloseView.5
@@ -932,7 +932,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20607a;
+            public final /* synthetic */ AdCloseView f20725a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -952,7 +952,7 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20607a = this;
+                this.f20725a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -960,7 +960,7 @@ public class AdCloseView extends FrameLayout {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) {
-                    this.f20607a.o();
+                    this.f20725a.o();
                 }
             }
         };
@@ -969,7 +969,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20608e;
+            public final /* synthetic */ AdCloseView f20726e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -986,18 +986,18 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20608e = this;
+                this.f20726e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f20608e.p();
+                    this.f20726e.p();
                 }
             }
         };
-        this.f20598e = context;
+        this.f20716e = context;
         q();
     }
 
@@ -1020,9 +1020,9 @@ public class AdCloseView extends FrameLayout {
                 return;
             }
         }
-        this.f20598e = null;
-        this.f20599f = null;
-        this.f20600g = null;
+        this.f20716e = null;
+        this.f20717f = null;
+        this.f20718g = null;
         this.p = R.drawable.icon_pure_card_close22;
         this.q = null;
         this.r = null;
@@ -1034,7 +1034,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20603e;
+            public final /* synthetic */ AdCloseView f20721e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1051,7 +1051,7 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20603e = this;
+                this.f20721e = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -1059,9 +1059,9 @@ public class AdCloseView extends FrameLayout {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.f20603e.C > 500) {
-                        this.f20603e.r();
-                        this.f20603e.C = currentTimeMillis;
+                    if (currentTimeMillis - this.f20721e.C > 500) {
+                        this.f20721e.r();
+                        this.f20721e.C = currentTimeMillis;
                     }
                 }
             }
@@ -1071,7 +1071,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20604e;
+            public final /* synthetic */ AdCloseView f20722e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1088,33 +1088,33 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20604e = this;
+                this.f20722e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    int n = this.f20604e.n();
+                    int n = this.f20722e.n();
                     if (n > 0) {
-                        AdCloseView adCloseView = this.f20604e;
-                        adCloseView.f20602i.setText(adCloseView.f20598e.getResources().getString(R.string.confirm));
+                        AdCloseView adCloseView = this.f20722e;
+                        adCloseView.f20720i.setText(adCloseView.f20716e.getResources().getString(R.string.confirm));
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                        spannableStringBuilder.append((CharSequence) this.f20604e.f20598e.getString(R.string.ad_close_title_prefix));
+                        spannableStringBuilder.append((CharSequence) this.f20722e.f20716e.getString(R.string.ad_close_title_prefix));
                         int color = SkinManager.getColor(R.color.CAM_X0105);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                         int length = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) String.valueOf(n));
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)), length, spannableStringBuilder.length(), 17);
                         int length2 = spannableStringBuilder.length();
-                        spannableStringBuilder.append((CharSequence) this.f20604e.f20598e.getString(R.string.ad_close_title_postfix));
+                        spannableStringBuilder.append((CharSequence) this.f20722e.f20716e.getString(R.string.ad_close_title_postfix));
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(color), length2, spannableStringBuilder.length(), 17);
-                        this.f20604e.k.setText(spannableStringBuilder);
+                        this.f20722e.k.setText(spannableStringBuilder);
                         return;
                     }
-                    AdCloseView adCloseView2 = this.f20604e;
-                    adCloseView2.f20602i.setText(adCloseView2.f20598e.getResources().getString(R.string.ad_no_interest));
-                    AdCloseView adCloseView3 = this.f20604e;
+                    AdCloseView adCloseView2 = this.f20722e;
+                    adCloseView2.f20720i.setText(adCloseView2.f20716e.getResources().getString(R.string.ad_no_interest));
+                    AdCloseView adCloseView3 = this.f20722e;
                     adCloseView3.k.setText(adCloseView3.u);
                 }
             }
@@ -1124,7 +1124,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20605e;
+            public final /* synthetic */ AdCloseView f20723e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1141,28 +1141,28 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20605e = this;
+                this.f20723e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f20605e.r == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f20723e.r == null) {
                     return;
                 }
-                AdCloseView adCloseView = this.f20605e;
-                if (adCloseView.f20599f == null) {
+                AdCloseView adCloseView = this.f20723e;
+                if (adCloseView.f20717f == null) {
                     return;
                 }
                 String selectedResultJsonObj = adCloseView.getSelectedResultJsonObj();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016331, this.f20605e.r.L3));
-                this.f20605e.o();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016331, this.f20723e.r.R3));
+                this.f20723e.o();
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_CLOSE, "http://afd.baidu.com/afd/close");
                 tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
                 tbHttpMessageTask.setIsNeedAddCommenParam(true);
                 tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_AD_CLOSE);
-                int i42 = this.f20605e.E;
+                int i42 = this.f20723e.E;
                 if (i42 == 1) {
                     httpMessage.addParam("pi", PlaceId.FRS.value);
                 } else if (i42 == 2 || i42 == 3) {
@@ -1171,7 +1171,7 @@ public class AdCloseView extends FrameLayout {
                     httpMessage.addParam("pi", PlaceId.PB_BANNER.value);
                 }
                 httpMessage.addParam("cr", selectedResultJsonObj);
-                httpMessage.addParam("ext", this.f20605e.r.S3);
+                httpMessage.addParam("ext", this.f20723e.r.Y3);
                 httpMessage.addParam("ci", TbadkCoreApplication.getInst().getCuid());
                 MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
             }
@@ -1181,7 +1181,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20606e;
+            public final /* synthetic */ AdCloseView f20724e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1198,18 +1198,18 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20606e = this;
+                this.f20724e = this;
             }
 
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
                 PopupWindow popupWindow;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (popupWindow = this.f20606e.f20600g) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (popupWindow = this.f20724e.f20718g) == null) {
                     return;
                 }
                 popupWindow.dismiss();
-                this.f20606e.f20600g = null;
+                this.f20724e.f20718g = null;
             }
         };
         this.J = new CustomMessageListener(this, 2016524) { // from class: com.baidu.tieba.recapp.view.AdCloseView.5
@@ -1217,7 +1217,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20607a;
+            public final /* synthetic */ AdCloseView f20725a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -1237,7 +1237,7 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20607a = this;
+                this.f20725a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1245,7 +1245,7 @@ public class AdCloseView extends FrameLayout {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) {
-                    this.f20607a.o();
+                    this.f20725a.o();
                 }
             }
         };
@@ -1254,7 +1254,7 @@ public class AdCloseView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdCloseView f20608e;
+            public final /* synthetic */ AdCloseView f20726e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1271,18 +1271,18 @@ public class AdCloseView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20608e = this;
+                this.f20726e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f20608e.p();
+                    this.f20726e.p();
                 }
             }
         };
-        this.f20598e = context;
+        this.f20716e = context;
         q();
     }
 }

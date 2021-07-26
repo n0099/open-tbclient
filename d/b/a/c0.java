@@ -15,7 +15,7 @@ public class c0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f68757a;
+    public static volatile String f69211a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,10 +51,10 @@ public class c0 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, y1Var)) == null) {
-            if (TextUtils.isEmpty(f68757a)) {
+            if (TextUtils.isEmpty(f69211a)) {
                 synchronized (c0.class) {
-                    if (!TextUtils.isEmpty(f68757a)) {
-                        return f68757a;
+                    if (!TextUtils.isEmpty(f69211a)) {
+                        return f69211a;
                     }
                     AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(context);
                     String id = advertisingIdInfo != null ? advertisingIdInfo.getId() : null;
@@ -63,10 +63,10 @@ public class c0 {
                     } else if (!TextUtils.equals(y1Var.D().getString("google_aid", null), id)) {
                         b(context, id, y1Var);
                     }
-                    f68757a = id;
+                    f69211a = id;
                 }
             }
-            return f68757a;
+            return f69211a;
         }
         return (String) invokeLL.objValue;
     }

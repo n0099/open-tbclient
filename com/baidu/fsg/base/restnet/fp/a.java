@@ -19,17 +19,17 @@ public class a extends BaseBean {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5225a = "/risk/init/v2/config";
+    public static final String f5251a = "/risk/init/v2/config";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5226b = 1;
+    public static final int f5252b = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f5227c;
+    public Context f5253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5228d;
+    public String f5254d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -49,14 +49,14 @@ public class a extends BaseBean {
                 return;
             }
         }
-        this.f5227c = context;
+        this.f5253c = context;
         BdWalletUtils.cleanExps(context);
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f5228d = str;
+            this.f5254d = str;
         }
     }
 
@@ -66,10 +66,10 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f5228d)) {
-                setSpParameter(this.f5228d);
+            if (!TextUtils.isEmpty(this.f5254d)) {
+                setSpParameter(this.f5254d);
             }
-            arrayList.add(new RestNameValuePair("confSign", BdWalletUtils.getRimAllConfigChangesign(this.f5227c)));
+            arrayList.add(new RestNameValuePair("confSign", BdWalletUtils.getRimAllConfigChangesign(this.f5253c)));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -90,7 +90,7 @@ public class a extends BaseBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return EnvConfig.getInstance(this.f5227c).getRimHttpsHost() + f5225a;
+            return EnvConfig.getInstance(this.f5253c).getRimHttpsHost() + f5251a;
         }
         return (String) invokeV.objValue;
     }

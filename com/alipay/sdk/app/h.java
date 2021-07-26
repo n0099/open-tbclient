@@ -12,7 +12,7 @@ public class h implements e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PayTask f1803a;
+    public final /* synthetic */ PayTask f1836a;
 
     public h(PayTask payTask) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class h implements e.a {
                 return;
             }
         }
-        this.f1803a = payTask;
+        this.f1836a = payTask;
     }
 
     @Override // com.alipay.sdk.util.e.a
@@ -43,7 +43,7 @@ public class h implements e.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1803a.dismissLoading();
+            this.f1836a.dismissLoading();
         }
     }
 }

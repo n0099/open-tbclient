@@ -23,10 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.g;
-import d.a.c.e.p.k;
-import d.a.o0.s.c.z;
-import d.a.p0.h3.l0.c;
+import d.a.d.e.m.g;
+import d.a.d.e.p.k;
+import d.a.p0.t.c.a0;
+import d.a.q0.h3.l0.c;
 /* loaded from: classes3.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
@@ -133,13 +133,13 @@ public class TbWebChromeClient extends WebChromeClient {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!z.a(str) && str2.startsWith("tiebaapp")) {
-                d.a.p0.h3.l0.d.c cVar2 = new d.a.p0.h3.l0.d.c();
-                cVar2.s(d.a.p0.h3.l0.d.g.b(str2));
+            if (!a0.a(str) && str2.startsWith("tiebaapp")) {
+                d.a.q0.h3.l0.d.c cVar2 = new d.a.q0.h3.l0.d.c();
+                cVar2.s(d.a.q0.h3.l0.d.g.b(str2));
                 cVar2.t(301);
                 callJsMethod(webView, cVar2.c(), cVar2.d());
             }
-            if (z.a(str) && (cVar = this.callback) != null && cVar.onJsPrompt(str2, jsPromptResult)) {
+            if (a0.a(str) && (cVar = this.callback) != null && cVar.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

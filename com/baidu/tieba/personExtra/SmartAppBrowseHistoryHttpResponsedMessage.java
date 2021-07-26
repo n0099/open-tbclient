@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.l2.a;
+import d.a.q0.l2.a;
 import tbclient.Error;
 import tbclient.HistorySwan.HistorySwanResIdl;
 /* loaded from: classes4.dex */

@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.j.a.a;
-import d.a.c.e.p.j;
+import d.a.d.e.j.a.a;
+import d.a.d.e.p.j;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -216,7 +216,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
             this.mFlutterNetworkInfo = new NetworkInfoAuto.FlutterNetworkInfo(flutterPluginBinding.getBinaryMessenger());
             MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-            d.a.p0.q0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
+            d.a.q0.q0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -226,7 +226,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
             MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
             this.mFlutterNetworkInfo = null;
-            d.a.p0.q0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
+            d.a.q0.q0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

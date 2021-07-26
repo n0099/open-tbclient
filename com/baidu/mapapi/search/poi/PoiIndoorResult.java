@@ -19,7 +19,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<PoiIndoorInfo> f7328a;
+    public List<PoiIndoorInfo> f7354a;
     public int pageNum;
     public int poiNum;
 
@@ -120,7 +120,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
     public List<PoiIndoorInfo> getmArrayPoiInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7328a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7354a : (List) invokeV.objValue;
     }
 
     public void setPageNum(int i2) {
@@ -140,7 +140,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
     public void setmArrayPoiInfo(List<PoiIndoorInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f7328a = list;
+            this.f7354a = list;
         }
     }
 

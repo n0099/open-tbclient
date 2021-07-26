@@ -21,10 +21,10 @@ public class StateSwitchView extends EditorInfoView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22602h;
+    public String f22760h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22603i;
+    public String f22761i;
     public int j;
     public int k;
     public boolean l;
@@ -139,9 +139,9 @@ public class StateSwitchView extends EditorInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.o == 1) {
-                setText(this.f22603i);
+                setText(this.f22761i);
             } else {
-                setText(this.f22602h);
+                setText(this.f22760h);
             }
         }
     }
@@ -186,8 +186,8 @@ public class StateSwitchView extends EditorInfoView {
     public void setStateString(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            this.f22602h = str;
-            this.f22603i = str2;
+            this.f22760h = str;
+            this.f22761i = str2;
             f();
         }
     }

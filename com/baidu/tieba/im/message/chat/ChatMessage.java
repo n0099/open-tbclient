@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.c.e.c.a;
-import d.a.c.e.m.b;
-import d.a.c.k.e.n;
+import d.a.d.c.e.c.a;
+import d.a.d.e.m.b;
+import d.a.d.k.e.n;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -156,7 +156,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0027  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0071 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0073 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -396,7 +396,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.toUserInfo : (UserData) invokeV.objValue;
     }
 
-    @Override // d.a.c.k.e.n
+    @Override // d.a.d.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -467,7 +467,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mIsPushForOperateAccount : invokeV.booleanValue;
     }
 
-    @Override // d.a.c.c.e.c.a
+    @Override // d.a.d.c.e.c.a
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

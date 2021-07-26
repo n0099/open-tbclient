@@ -28,11 +28,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.c.e.j.b.a;
-import d.a.c.e.p.l;
-import d.a.o0.f0.b;
-import d.a.o0.f0.h;
-import d.a.o0.z0.g;
+import d.a.d.e.j.b.a;
+import d.a.d.e.p.l;
+import d.a.p0.b1.g;
+import d.a.p0.h0.b;
+import d.a.p0.h0.h;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PermissionUtil {
@@ -74,7 +74,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.o0.f0.b
+            @Override // d.a.p0.h0.b
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -397,7 +397,7 @@ public class PermissionUtil {
     public static String getLastCachedOid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) ? !isAgreePrivacyPolicy() ? "" : d.a.r.b.d(context).e() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) ? !isAgreePrivacyPolicy() ? "" : d.a.s.b.d(context).e() : (String) invokeL.objValue;
     }
 
     public static String getLocalMacAddress(Context context) {
@@ -409,7 +409,7 @@ public class PermissionUtil {
     public static boolean isAgreePrivacyPolicy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? isAgreePrivacyPolicy || d.a.o0.r.d0.b.j().g("key_secret_is_show", false) || d.a.o0.r.d0.b.j().g("key_secret_is_show_new", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? isAgreePrivacyPolicy || d.a.p0.s.d0.b.j().g("key_secret_is_show", false) || d.a.p0.s.d0.b.j().g("key_secret_is_show_new", false) : invokeV.booleanValue;
     }
 
     public static Context providerContext(Context context) {
@@ -561,8 +561,9 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65570, null, z) == null) {
             isAgreePrivacyPolicy = z;
-            d.a.o0.r.d0.b.j().t("key_secret_is_show_new", z);
+            d.a.p0.s.d0.b.j().t("key_secret_is_show_new", z);
             h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
+            FH.setAgreePolicy(TbadkCoreApplication.getInst(), isAgreePrivacyPolicy);
             BdSocketLinkService.setHasAbsoluteClose(false);
             BdSocketLinkService.setAvailable(true);
             BdSocketLinkService.startService(true, "privacy agree");
@@ -571,10 +572,10 @@ public class PermissionUtil {
 
     public static void syncAgreeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65571, null, z) == null) && z && d.a.o0.r.d0.b.j().g("key_secret_is_show", false)) {
+        if ((interceptable == null || interceptable.invokeZ(65571, null, z) == null) && z && d.a.p0.s.d0.b.j().g("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            d.a.o0.r.d0.b.j().t("key_secret_is_show_new", true);
-            d.a.o0.r.d0.b.j().C("key_secret_is_show");
+            d.a.p0.s.d0.b.j().t("key_secret_is_show_new", true);
+            d.a.p0.s.d0.b.j().C("key_secret_is_show");
         }
     }
 

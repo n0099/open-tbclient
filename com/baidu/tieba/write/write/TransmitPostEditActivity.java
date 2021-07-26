@@ -112,14 +112,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
-import d.a.o0.r.s.a;
-import d.a.o0.s.c.i0;
-import d.a.o0.z0.k0;
-import d.a.p0.a4.h;
-import d.a.p0.u0.b0;
-import d.a.p0.u0.c0;
-import d.a.p0.u0.d0;
-import d.a.p0.u0.d1;
+import d.a.p0.b1.k0;
+import d.a.p0.s.s.a;
+import d.a.q0.a4.h;
+import d.a.q0.u0.b0;
+import d.a.q0.u0.c0;
+import d.a.q0.u0.d0;
+import d.a.q0.u0.d1;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -137,7 +136,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public static final int TBDS24;
     public static final int TBDS44;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.p0.z3.b dialog;
+    public d.a.q0.z3.b dialog;
     public String fromWhereToHotSelect;
     public boolean isDisalbeButtons;
     public boolean isFeedBackBar;
@@ -176,12 +175,12 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public FrsTabInfoData mFrsTabList;
     public GestureDetector mGestureDetector;
     public final Handler mHandler;
-    public final d.a.p0.a4.u.c mHighLightController;
+    public final d.a.q0.a4.u.c mHighLightController;
     public TextView mHotTopicEdt;
     public InputMethodManager mInputManager;
     public View mInterval;
     public List<HotTopicBussinessData> mList;
-    public d.a.o0.r.f0.a mLoadingDialog;
+    public d.a.p0.s.f0.a mLoadingDialog;
     public LocationModel mLocationModel;
     public int mLocationState;
     public TextView mName;
@@ -201,10 +200,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public PostPrefixData mPrefixData;
     public ImageView mPrefixIcon;
     public ArrayList<WritePrefixItemLayout> mPrefixItems;
-    public d.a.p0.a4.h mPrefixWindow;
+    public d.a.q0.a4.h mPrefixWindow;
     public int mPrivateThread;
     public View mRootView;
-    public d.a.p0.a4.u.g mTipController;
+    public d.a.q0.a4.u.g mTipController;
     public LinearLayout mTitleView;
     public Toast mTooManyEmotionToast;
     public LinearLayout mToolView;
@@ -214,7 +213,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public TextWatcher mWriteContentTextWatcher;
     public NewWriteModel mWriteModel;
     public TextWatcher mWriteTitleTextWatcher;
-    public d.a.p0.a4.m.b mWriteTool;
+    public d.a.q0.a4.m.b mWriteTool;
     public boolean needAddHotTopicSign;
     public View post_prefix_layout;
     public View prefix_divider;
@@ -227,7 +226,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22759e;
+        public final /* synthetic */ TransmitPostEditActivity f22917e;
 
         public a(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -244,32 +243,32 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22759e = transmitPostEditActivity;
+            this.f22917e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                if (view == this.f22759e.mPostTitle || view == this.f22759e.mBack || view == this.f22759e.mPost) {
+                if (view == this.f22917e.mPostTitle || view == this.f22917e.mBack || view == this.f22917e.mPost) {
                     if (z) {
-                        this.f22759e.isDisalbeButtons = true;
-                        this.f22759e.changeToolButtonStatus();
-                        if (this.f22759e.mEditor != null) {
-                            this.f22759e.mEditor.q();
+                        this.f22917e.isDisalbeButtons = true;
+                        this.f22917e.changeToolButtonStatus();
+                        if (this.f22917e.mEditor != null) {
+                            this.f22917e.mEditor.q();
                         }
-                        d.a.c.e.p.l.K(this.f22759e.getActivity(), this.f22759e.mPostTitle);
-                    } else if (view == this.f22759e.mPostTitle) {
-                        this.f22759e.mPrefix.setVisibility(0);
+                        d.a.d.e.p.l.K(this.f22917e.getActivity(), this.f22917e.mPostTitle);
+                    } else if (view == this.f22917e.mPostTitle) {
+                        this.f22917e.mPrefix.setVisibility(0);
                     }
                 }
-                if (view == this.f22759e.mPostContent && z) {
-                    this.f22759e.isDisalbeButtons = false;
-                    this.f22759e.changeToolButtonStatus();
-                    this.f22759e.mEditor.q();
-                    d.a.c.e.p.l.K(this.f22759e.getActivity(), this.f22759e.mPostContent);
+                if (view == this.f22917e.mPostContent && z) {
+                    this.f22917e.isDisalbeButtons = false;
+                    this.f22917e.changeToolButtonStatus();
+                    this.f22917e.mEditor.q();
+                    d.a.d.e.p.l.K(this.f22917e.getActivity(), this.f22917e.mPostContent);
                 }
-                this.f22759e.updateHintTextColor();
+                this.f22917e.updateHintTextColor();
             }
         }
     }
@@ -280,7 +279,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22760e;
+        public final /* synthetic */ TransmitPostEditActivity f22918e;
 
         public b(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -297,26 +296,26 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22760e = transmitPostEditActivity;
+            this.f22918e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TransmitPostEditActivity transmitPostEditActivity = this.f22760e;
+                TransmitPostEditActivity transmitPostEditActivity = this.f22918e;
                 transmitPostEditActivity.showToast(transmitPostEditActivity.mDisableAudioMessage);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements d.a.o0.w.b {
+    public class c implements d.a.p0.x.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22761e;
+        public final /* synthetic */ TransmitPostEditActivity f22919e;
 
         public c(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -333,19 +332,19 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22761e = transmitPostEditActivity;
+            this.f22919e = transmitPostEditActivity;
         }
 
-        @Override // d.a.o0.w.b
-        public void onAction(d.a.o0.w.a aVar) {
+        @Override // d.a.p0.x.b
+        public void onAction(d.a.p0.x.a aVar) {
             Object obj;
             VideoInfo videoInfo;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            if (aVar.f53487a == 31) {
-                Object obj2 = aVar.f53489c;
+            if (aVar.f54158a == 31) {
+                Object obj2 = aVar.f54160c;
                 if (obj2 instanceof Integer) {
                     int intValue = ((Integer) obj2).intValue();
                     int i2 = intValue == 5 ? 4 : intValue == 9 ? 3 : intValue == 26 ? 1 : intValue == 7 ? 2 : 0;
@@ -354,108 +353,108 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     }
                 }
             }
-            int i3 = aVar.f53487a;
+            int i3 = aVar.f54158a;
             if (i3 == 16) {
-                if (this.f22761e.isTextFull()) {
-                    this.f22761e.showToast(R.string.over_limit_tip);
+                if (this.f22919e.isTextFull()) {
+                    this.f22919e.showToast(R.string.over_limit_tip);
                 } else {
-                    this.f22761e.sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f22761e.getPageContext().getPageActivity(), 12004, true)));
+                    this.f22919e.sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f22919e.getPageContext().getPageActivity(), 12004, true)));
                 }
             } else if (i3 == 24) {
-                if (this.f22761e.isTextFull()) {
-                    this.f22761e.showToast(R.string.over_limit_tip);
+                if (this.f22919e.isTextFull()) {
+                    this.f22919e.showToast(R.string.over_limit_tip);
                     return;
                 }
-                Object obj3 = aVar.f53489c;
-                if (obj3 == null || !(obj3 instanceof d.a.o0.s.c.v)) {
+                Object obj3 = aVar.f54160c;
+                if (obj3 == null || !(obj3 instanceof d.a.p0.t.c.v)) {
                     return;
                 }
-                this.f22761e.insertFaceIconToEditText((d.a.o0.s.c.v) obj3);
+                this.f22919e.insertFaceIconToEditText((d.a.p0.t.c.v) obj3);
             } else if (i3 == 3) {
-                this.f22761e.deleteChar();
+                this.f22919e.deleteChar();
             } else if (i3 == 12 || i3 == 13 || i3 == 46 || i3 == 49) {
-                this.f22761e.refreshPostButton();
+                this.f22919e.refreshPostButton();
             } else if (i3 == 18) {
-                if (aVar.f53489c == null || this.f22761e.mAdditionData != null) {
-                    int i4 = this.f22761e.mLocationState;
+                if (aVar.f54160c == null || this.f22919e.mAdditionData != null) {
+                    int i4 = this.f22919e.mLocationState;
                     if (i4 != 0) {
                         if (i4 != 2) {
                             return;
                         }
-                        this.f22761e.goToSelectLocationActivity();
+                        this.f22919e.goToSelectLocationActivity();
                         return;
                     }
-                    Activity pageActivity = this.f22761e.getPageContext().getPageActivity();
+                    Activity pageActivity = this.f22919e.getPageContext().getPageActivity();
                     if (PermissionUtil.checkLocationForGoogle(pageActivity)) {
-                        this.f22761e.onLocViewClickedInInitState();
+                        this.f22919e.onLocViewClickedInInitState();
                         return;
                     } else {
                         PermissionUtil.reuqestLocation(pageActivity, 0);
                         return;
                     }
                 }
-                this.f22761e.requestLocationIfValid();
+                this.f22919e.requestLocationIfValid();
             } else if (i3 == 20) {
-                if (this.f22761e.mLocationModel != null) {
-                    this.f22761e.mLocationModel.M(true);
+                if (this.f22919e.mLocationModel != null) {
+                    this.f22919e.mLocationModel.M(true);
                 }
             } else if (i3 == 27) {
-                d.a.o0.r.d0.b.j().t("xiaoying_has_click", true);
+                d.a.p0.s.d0.b.j().t("xiaoying_has_click", true);
                 StatisticItem statisticItem = new StatisticItem("c10645");
-                statisticItem.param("fid", this.f22761e.mData != null ? this.f22761e.mData.getForumId() : "");
+                statisticItem.param("fid", this.f22919e.mData != null ? this.f22919e.mData.getForumId() : "");
                 TiebaStatic.log(statisticItem);
-                if (this.f22761e.mData == null || (videoInfo = this.f22761e.mData.getVideoInfo()) == null || !videoInfo.isAvaliable()) {
-                    this.f22761e.mEditor.A(new d.a.o0.w.a(2, 19, null));
+                if (this.f22919e.mData == null || (videoInfo = this.f22919e.mData.getVideoInfo()) == null || !videoInfo.isAvaliable()) {
+                    this.f22919e.mEditor.A(new d.a.p0.x.a(2, 19, null));
                     if (XiaoyingUtil.isXiaoyingInstalled()) {
                         if (!XiaoyingUtil.isXiaoyingForbidden()) {
-                            if (this.f22761e.mEditor.u()) {
-                                this.f22761e.mEditor.q();
-                                this.f22761e.mEditor.A(new d.a.o0.w.a(5, -1, null));
+                            if (this.f22919e.mEditor.u()) {
+                                this.f22919e.mEditor.q();
+                                this.f22919e.mEditor.A(new d.a.p0.x.a(5, -1, null));
                             }
-                            XiaoyingUtil.startXiaoying(this.f22761e.getActivity());
+                            XiaoyingUtil.startXiaoying(this.f22919e.getActivity());
                             return;
                         }
-                        XiaoyingUtil.showGoPluginDetailDialog(this.f22761e.getPageContext(), this.f22761e.getResources().getString(R.string.plugin_video_not_active), this.f22761e.getResources().getString(R.string.setup));
+                        XiaoyingUtil.showGoPluginDetailDialog(this.f22919e.getPageContext(), this.f22919e.getResources().getString(R.string.plugin_video_not_active), this.f22919e.getResources().getString(R.string.setup));
                         return;
                     }
-                    XiaoyingUtil.showGoPluginDetailDialog(this.f22761e.getPageContext(), this.f22761e.getResources().getString(R.string.plugin_video_install_tips), this.f22761e.getResources().getString(R.string.plugin_go_install));
+                    XiaoyingUtil.showGoPluginDetailDialog(this.f22919e.getPageContext(), this.f22919e.getResources().getString(R.string.plugin_video_install_tips), this.f22919e.getResources().getString(R.string.plugin_go_install));
                     return;
                 }
-                this.f22761e.mEditor.A(new d.a.o0.w.a(2, 19, " "));
-                this.f22761e.mEditor.A(new d.a.o0.w.a(28, 20, videoInfo));
+                this.f22919e.mEditor.A(new d.a.p0.x.a(2, 19, " "));
+                this.f22919e.mEditor.A(new d.a.p0.x.a(28, 20, videoInfo));
             } else if (i3 == 29) {
-                this.f22761e.mEditor.A(new d.a.o0.w.a(2, 19, null));
-                this.f22761e.mEditor.A(new d.a.o0.w.a(1, 2, null));
-                this.f22761e.mData.setVideoInfo(null);
-                this.f22761e.refreshPostButton();
-                if (this.f22761e.mPostContent != null) {
-                    this.f22761e.mPostContent.requestFocus();
+                this.f22919e.mEditor.A(new d.a.p0.x.a(2, 19, null));
+                this.f22919e.mEditor.A(new d.a.p0.x.a(1, 2, null));
+                this.f22919e.mData.setVideoInfo(null);
+                this.f22919e.refreshPostButton();
+                if (this.f22919e.mPostContent != null) {
+                    this.f22919e.mPostContent.requestFocus();
                 }
-                this.f22761e.mEditor.q();
-                this.f22761e.mEditor.A(new d.a.o0.w.a(5, -1, null));
-                TransmitPostEditActivity transmitPostEditActivity = this.f22761e;
-                transmitPostEditActivity.ShowSoftKeyPad(transmitPostEditActivity.mInputManager, this.f22761e.mPostContent);
+                this.f22919e.mEditor.q();
+                this.f22919e.mEditor.A(new d.a.p0.x.a(5, -1, null));
+                TransmitPostEditActivity transmitPostEditActivity = this.f22919e;
+                transmitPostEditActivity.ShowSoftKeyPad(transmitPostEditActivity.mInputManager, this.f22919e.mPostContent);
             } else if (i3 == 43) {
-                d.a.o0.r.d0.b.j().t("hot_topic_has_click", true);
-                this.f22761e.mEditor.A(new d.a.o0.w.a(2, 26, null));
-                this.f22761e.needAddHotTopicSign = true;
-                this.f22761e.performHotTopicClick(true);
-                if (this.f22761e.getRealTitleInstance().isFocused()) {
-                    this.f22761e.fromWhereToHotSelect = "from_title";
-                } else if (this.f22761e.getRealContentEdittextInstance().isFocused()) {
-                    this.f22761e.fromWhereToHotSelect = "from_content";
+                d.a.p0.s.d0.b.j().t("hot_topic_has_click", true);
+                this.f22919e.mEditor.A(new d.a.p0.x.a(2, 26, null));
+                this.f22919e.needAddHotTopicSign = true;
+                this.f22919e.performHotTopicClick(true);
+                if (this.f22919e.getRealTitleInstance().isFocused()) {
+                    this.f22919e.fromWhereToHotSelect = "from_title";
+                } else if (this.f22919e.getRealContentEdittextInstance().isFocused()) {
+                    this.f22919e.fromWhereToHotSelect = "from_content";
                 }
             } else if (i3 == 45) {
-                this.f22761e.mTitleView.setVisibility(0);
-                this.f22761e.mTitleView.requestFocus();
+                this.f22919e.mTitleView.setVisibility(0);
+                this.f22919e.mTitleView.requestFocus();
             } else if (i3 == 53) {
-                if (this.f22761e.mTitleView.hasFocus()) {
-                    this.f22761e.mPostContent.requestFocus();
-                    this.f22761e.mPostContent.setSelection(this.f22761e.mPostContent.getText().toString().length());
+                if (this.f22919e.mTitleView.hasFocus()) {
+                    this.f22919e.mPostContent.requestFocus();
+                    this.f22919e.mPostContent.setSelection(this.f22919e.mPostContent.getText().toString().length());
                 }
-                this.f22761e.mTitleView.setVisibility(8);
-            } else if (i3 == 55 && (obj = aVar.f53489c) != null && (obj instanceof Boolean)) {
-                this.f22761e.isPrivacy = ((Boolean) obj).booleanValue();
+                this.f22919e.mTitleView.setVisibility(8);
+            } else if (i3 == 55 && (obj = aVar.f54160c) != null && (obj instanceof Boolean)) {
+                this.f22919e.isPrivacy = ((Boolean) obj).booleanValue();
             }
         }
     }
@@ -466,13 +465,13 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22762e;
+        public String f22920e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22763f;
+        public String f22921f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22764g;
+        public final /* synthetic */ TransmitPostEditActivity f22922g;
 
         public d(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -489,25 +488,25 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22764g = transmitPostEditActivity;
-            this.f22762e = "";
+            this.f22922g = transmitPostEditActivity;
+            this.f22920e = "";
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f22764g.refreshPostButton();
-                this.f22764g.updateTitleStyle();
-                EditText realTitleInstance = this.f22764g.getRealTitleInstance();
+                this.f22922g.refreshPostButton();
+                this.f22922g.updateTitleStyle();
+                EditText realTitleInstance = this.f22922g.getRealTitleInstance();
                 if (editable == null || realTitleInstance == null || realTitleInstance.getText() == null) {
                     return;
                 }
-                String str = this.f22762e;
+                String str = this.f22920e;
                 if (str == null || !str.equals(editable.toString())) {
-                    if (this.f22764g.mHighLightController != null) {
-                        this.f22762e = realTitleInstance.getText().toString();
-                        this.f22764g.mHighLightController.j(realTitleInstance, true);
+                    if (this.f22922g.mHighLightController != null) {
+                        this.f22920e = realTitleInstance.getText().toString();
+                        this.f22922g.mHighLightController.j(realTitleInstance, true);
                         return;
                     }
                     return;
@@ -520,7 +519,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-                this.f22763f = charSequence != null ? charSequence.toString() : "";
+                this.f22921f = charSequence != null ? charSequence.toString() : "";
             }
         }
 
@@ -528,9 +527,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                String str = this.f22763f;
+                String str = this.f22921f;
                 if ((charSequence != null ? charSequence.toString().length() : 0) > (str != null ? str.toString().length() : 0)) {
-                    this.f22764g.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_title");
+                    this.f22922g.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_title");
                 }
             }
         }
@@ -542,13 +541,13 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22765e;
+        public String f22923e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22766f;
+        public String f22924f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22767g;
+        public final /* synthetic */ TransmitPostEditActivity f22925g;
 
         public e(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -565,25 +564,25 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22767g = transmitPostEditActivity;
-            this.f22765e = "";
+            this.f22925g = transmitPostEditActivity;
+            this.f22923e = "";
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f22767g.refreshPostButton();
-                EditText realContentEdittextInstance = this.f22767g.getRealContentEdittextInstance();
+                this.f22925g.refreshPostButton();
+                EditText realContentEdittextInstance = this.f22925g.getRealContentEdittextInstance();
                 if (editable == null || realContentEdittextInstance == null || realContentEdittextInstance.getText() == null) {
                     return;
                 }
                 int selectionEnd = realContentEdittextInstance.getSelectionEnd();
-                String str = this.f22765e;
+                String str = this.f22923e;
                 if (str == null || !str.equals(editable.toString())) {
-                    if (this.f22767g.mHighLightController != null) {
-                        this.f22765e = realContentEdittextInstance.getText().toString();
-                        this.f22767g.mHighLightController.j(realContentEdittextInstance, false);
+                    if (this.f22925g.mHighLightController != null) {
+                        this.f22923e = realContentEdittextInstance.getText().toString();
+                        this.f22925g.mHighLightController.j(realContentEdittextInstance, false);
                         return;
                     }
                     return;
@@ -596,7 +595,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-                this.f22766f = charSequence != null ? charSequence.toString() : "";
+                this.f22924f = charSequence != null ? charSequence.toString() : "";
             }
         }
 
@@ -604,9 +603,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                String str = this.f22766f;
+                String str = this.f22924f;
                 if ((charSequence != null ? charSequence.toString().length() : 0) > (str != null ? str.toString().length() : 0)) {
-                    this.f22767g.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_content");
+                    this.f22925g.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_content");
                 }
             }
         }
@@ -618,7 +617,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22768e;
+        public final /* synthetic */ TransmitPostEditActivity f22926e;
 
         public f(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -635,7 +634,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22768e = transmitPostEditActivity;
+            this.f22926e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -644,11 +643,11 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 2) {
-                    if (this.f22768e.mPostContent != null) {
-                        d.a.c.e.p.l.x(this.f22768e.getPageContext().getContext(), this.f22768e.mPostContent);
+                    if (this.f22926e.mPostContent != null) {
+                        d.a.d.e.p.l.x(this.f22926e.getPageContext().getContext(), this.f22926e.mPostContent);
                     }
-                    if (this.f22768e.mEditor != null) {
-                        this.f22768e.mEditor.q();
+                    if (this.f22926e.mEditor != null) {
+                        this.f22926e.mEditor.q();
                         return false;
                     }
                     return false;
@@ -665,7 +664,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22769e;
+        public final /* synthetic */ TransmitPostEditActivity f22927e;
 
         public g(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -682,7 +681,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22769e = transmitPostEditActivity;
+            this.f22927e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -690,8 +689,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 view.requestFocus();
-                this.f22769e.mEditor.A(new d.a.o0.w.a(5, -1, null));
-                this.f22769e.mPostContent.requestFocus();
+                this.f22927e.mEditor.A(new d.a.p0.x.a(5, -1, null));
+                this.f22927e.mPostContent.requestFocus();
             }
         }
     }
@@ -702,7 +701,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22770e;
+        public final /* synthetic */ TransmitPostEditActivity f22928e;
 
         public h(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -719,15 +718,15 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22770e = transmitPostEditActivity;
+            this.f22928e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22770e.stopTask();
-                this.f22770e.popupSaveDraft();
+                this.f22928e.stopTask();
+                this.f22928e.popupSaveDraft();
             }
         }
     }
@@ -738,7 +737,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22771a;
+        public final /* synthetic */ TransmitPostEditActivity f22929a;
 
         public i(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -755,7 +754,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22771a = transmitPostEditActivity;
+            this.f22929a = transmitPostEditActivity;
         }
 
         @Override // com.baidu.tieba.frs.TabMenuPopView.c
@@ -764,10 +763,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, d1Var) == null) || d1Var == null) {
                 return;
             }
-            this.f22771a.mCategoryView.setText(d1Var.f62611a);
-            this.f22771a.mData.setCategoryTo(d1Var.f62612b);
-            this.f22771a.mCategoryToID = d1Var.f62612b;
-            this.f22771a.mCategoryView.c();
+            this.f22929a.mCategoryView.setText(d1Var.f63254a);
+            this.f22929a.mData.setCategoryTo(d1Var.f63255b);
+            this.f22929a.mCategoryToID = d1Var.f63255b;
+            this.f22929a.mCategoryView.c();
         }
     }
 
@@ -777,7 +776,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22772e;
+        public final /* synthetic */ TransmitPostEditActivity f22930e;
 
         public j(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -794,18 +793,18 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22772e = transmitPostEditActivity;
+            this.f22930e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22772e.mCategoryView.e();
-                TransmitPostEditActivity transmitPostEditActivity = this.f22772e;
-                transmitPostEditActivity.HidenSoftKeyPad(transmitPostEditActivity.mInputManager, this.f22772e.getRealTitleInstance());
-                TransmitPostEditActivity transmitPostEditActivity2 = this.f22772e;
-                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.mInputManager, this.f22772e.getRealContentEdittextInstance());
+                this.f22930e.mCategoryView.e();
+                TransmitPostEditActivity transmitPostEditActivity = this.f22930e;
+                transmitPostEditActivity.HidenSoftKeyPad(transmitPostEditActivity.mInputManager, this.f22930e.getRealTitleInstance());
+                TransmitPostEditActivity transmitPostEditActivity2 = this.f22930e;
+                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.mInputManager, this.f22930e.getRealContentEdittextInstance());
             }
         }
     }
@@ -816,7 +815,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22773a;
+        public final /* synthetic */ TransmitPostEditActivity f22931a;
 
         public k(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -833,7 +832,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22773a = transmitPostEditActivity;
+            this.f22931a = transmitPostEditActivity;
         }
 
         @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
@@ -841,8 +840,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), d.a.c.k.d.a.class);
-                d.a.c.k.d.a aVar = runTask != null ? (d.a.c.k.d.a) runTask.getData() : null;
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), d.a.d.k.d.a.class);
+                d.a.d.k.d.a aVar = runTask != null ? (d.a.d.k.d.a) runTask.getData() : null;
                 if (aVar == null) {
                     return null;
                 }
@@ -854,7 +853,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     bitmapDrawable.setBounds(0, 0, r, r);
                 }
                 bitmapDrawable.setGravity(119);
-                return new d.a.o0.r.f0.e(bitmapDrawable, 0);
+                return new d.a.p0.s.f0.e(bitmapDrawable, 0);
             }
             return (ImageSpan) invokeL.objValue;
         }
@@ -866,7 +865,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22774a;
+        public final /* synthetic */ TransmitPostEditActivity f22932a;
 
         public l(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -883,7 +882,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22774a = transmitPostEditActivity;
+            this.f22932a = transmitPostEditActivity;
         }
 
         @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -900,7 +899,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22775e;
+        public final /* synthetic */ TransmitPostEditActivity f22933e;
 
         public m(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -917,21 +916,21 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22775e = transmitPostEditActivity;
+            this.f22933e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22775e.mPrefix.setVisibility(0);
-                this.f22775e.post_prefix_layout.setSelected(true);
-                d.a.c.e.m.g.l(this.f22775e.mPrefixWindow, view, 0, d.a.c.e.p.l.e(this.f22775e.getPageContext().getPageActivity(), 1.0f));
-                this.f22775e.mEditor.q();
-                TransmitPostEditActivity transmitPostEditActivity = this.f22775e;
-                transmitPostEditActivity.HidenSoftKeyPad(transmitPostEditActivity.mInputManager, this.f22775e.mPostTitle);
-                TransmitPostEditActivity transmitPostEditActivity2 = this.f22775e;
-                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.mInputManager, this.f22775e.mPostContent);
+                this.f22933e.mPrefix.setVisibility(0);
+                this.f22933e.post_prefix_layout.setSelected(true);
+                d.a.d.e.m.g.l(this.f22933e.mPrefixWindow, view, 0, d.a.d.e.p.l.e(this.f22933e.getPageContext().getPageActivity(), 1.0f));
+                this.f22933e.mEditor.q();
+                TransmitPostEditActivity transmitPostEditActivity = this.f22933e;
+                transmitPostEditActivity.HidenSoftKeyPad(transmitPostEditActivity.mInputManager, this.f22933e.mPostTitle);
+                TransmitPostEditActivity transmitPostEditActivity2 = this.f22933e;
+                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.mInputManager, this.f22933e.mPostContent);
             }
         }
     }
@@ -942,7 +941,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22776e;
+        public final /* synthetic */ TransmitPostEditActivity f22934e;
 
         public n(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -959,20 +958,20 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22776e = transmitPostEditActivity;
+            this.f22934e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22776e.mPrefix.setSelected(true);
-                d.a.c.e.m.g.l(this.f22776e.mPrefixWindow, view, 0, d.a.c.e.p.l.e(this.f22776e.getPageContext().getPageActivity(), 1.0f));
-                this.f22776e.mEditor.q();
-                TransmitPostEditActivity transmitPostEditActivity = this.f22776e;
-                transmitPostEditActivity.HidenSoftKeyPad(transmitPostEditActivity.mInputManager, this.f22776e.getRealTitleInstance());
-                TransmitPostEditActivity transmitPostEditActivity2 = this.f22776e;
-                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.mInputManager, this.f22776e.getRealContentEdittextInstance());
+                this.f22934e.mPrefix.setSelected(true);
+                d.a.d.e.m.g.l(this.f22934e.mPrefixWindow, view, 0, d.a.d.e.p.l.e(this.f22934e.getPageContext().getPageActivity(), 1.0f));
+                this.f22934e.mEditor.q();
+                TransmitPostEditActivity transmitPostEditActivity = this.f22934e;
+                transmitPostEditActivity.HidenSoftKeyPad(transmitPostEditActivity.mInputManager, this.f22934e.getRealTitleInstance());
+                TransmitPostEditActivity transmitPostEditActivity2 = this.f22934e;
+                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.mInputManager, this.f22934e.getRealContentEdittextInstance());
             }
         }
     }
@@ -983,7 +982,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22777e;
+        public final /* synthetic */ TransmitPostEditActivity f22935e;
 
         public o(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -1000,31 +999,31 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22777e = transmitPostEditActivity;
+            this.f22935e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!d.a.c.e.p.j.z()) {
-                    this.f22777e.showToast(R.string.neterror);
+                if (!d.a.d.e.p.j.z()) {
+                    this.f22935e.showToast(R.string.neterror);
                 }
-                if (k0.b() || this.f22777e.isEmotionCountOverLimit()) {
+                if (k0.b() || this.f22935e.isEmotionCountOverLimit()) {
                     return;
                 }
-                if (this.f22777e.mHighLightController.c(this.f22777e.mPostTitle, this.f22777e.mPostContent)) {
-                    TransmitPostEditActivity transmitPostEditActivity = this.f22777e;
+                if (this.f22935e.mHighLightController.c(this.f22935e.mPostTitle, this.f22935e.mPostContent)) {
+                    TransmitPostEditActivity transmitPostEditActivity = this.f22935e;
                     transmitPostEditActivity.showToast(transmitPostEditActivity.mHighLightController.f());
                     return;
                 }
-                TransmitPostEditActivity transmitPostEditActivity2 = this.f22777e;
-                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.mInputManager, this.f22777e.getRealTitleInstance());
-                TransmitPostEditActivity transmitPostEditActivity3 = this.f22777e;
-                transmitPostEditActivity3.HidenSoftKeyPad(transmitPostEditActivity3.mInputManager, this.f22777e.getRealContentEdittextInstance());
-                this.f22777e.mEditor.q();
+                TransmitPostEditActivity transmitPostEditActivity2 = this.f22935e;
+                transmitPostEditActivity2.HidenSoftKeyPad(transmitPostEditActivity2.mInputManager, this.f22935e.getRealTitleInstance());
+                TransmitPostEditActivity transmitPostEditActivity3 = this.f22935e;
+                transmitPostEditActivity3.HidenSoftKeyPad(transmitPostEditActivity3.mInputManager, this.f22935e.getRealContentEdittextInstance());
+                this.f22935e.mEditor.q();
                 TiebaStatic.log(new StatisticItem("c12608").param("obj_locate", 7));
-                this.f22777e.postPhotoTextThread();
+                this.f22935e.postPhotoTextThread();
             }
         }
     }
@@ -1035,7 +1034,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22778e;
+        public final /* synthetic */ TransmitPostEditActivity f22936e;
 
         public p(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -1052,7 +1051,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22778e = transmitPostEditActivity;
+            this.f22936e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -1062,8 +1061,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
                     view.requestFocus();
-                    this.f22778e.mEditor.A(new d.a.o0.w.a(5, -1, null));
-                    this.f22778e.mPostContent.requestFocus();
+                    this.f22936e.mEditor.A(new d.a.p0.x.a(5, -1, null));
+                    this.f22936e.mPostContent.requestFocus();
                     return false;
                 }
                 return false;
@@ -1078,7 +1077,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22779e;
+        public final /* synthetic */ TransmitPostEditActivity f22937e;
 
         public q(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -1095,15 +1094,15 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22779e = transmitPostEditActivity;
+            this.f22937e = transmitPostEditActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f22779e.destroyWaitingDialog();
-                this.f22779e.stopTask();
+                this.f22937e.destroyWaitingDialog();
+                this.f22937e.stopTask();
             }
         }
     }
@@ -1114,7 +1113,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22780a;
+        public final /* synthetic */ TransmitPostEditActivity f22938a;
 
         public r(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -1131,11 +1130,11 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22780a = transmitPostEditActivity;
+            this.f22938a = transmitPostEditActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(d.a.o0.r.s.a aVar) {
+        public void onNavigationButtonClick(d.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
@@ -1143,7 +1142,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(d.a.o0.r.s.a aVar) {
+        public void onPositiveButtonClick(d.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
@@ -1157,7 +1156,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22781a;
+        public final /* synthetic */ TransmitPostEditActivity f22939a;
 
         /* loaded from: classes4.dex */
         public class a implements a.e {
@@ -1180,8 +1179,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 }
             }
 
-            @Override // d.a.o0.r.s.a.e
-            public void onClick(d.a.o0.r.s.a aVar) {
+            @Override // d.a.p0.s.s.a.e
+            public void onClick(d.a.p0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
@@ -1195,7 +1194,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ s f22782e;
+            public final /* synthetic */ s f22940e;
 
             public b(s sVar) {
                 Interceptable interceptable = $ic;
@@ -1212,15 +1211,15 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                         return;
                     }
                 }
-                this.f22782e = sVar;
+                this.f22940e = sVar;
             }
 
-            @Override // d.a.o0.r.s.a.e
-            public void onClick(d.a.o0.r.s.a aVar) {
+            @Override // d.a.p0.s.s.a.e
+            public void onClick(d.a.p0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
-                    this.f22782e.f22781a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f22782e.f22781a.getActivity(), 0, 26, 1)));
+                    this.f22940e.f22939a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f22940e.f22939a.getActivity(), 0, 26, 1)));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 1));
                 }
             }
@@ -1241,69 +1240,69 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22781a = transmitPostEditActivity;
+            this.f22939a = transmitPostEditActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, i0 i0Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, d.a.p0.t.c.k0 k0Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, i0Var, writeData, antiData}) == null) {
-                this.f22781a.closeLoadingDialog();
-                if (postWriteCallBackData == null || this.f22781a.mData == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, k0Var, writeData, antiData}) == null) {
+                this.f22939a.closeLoadingDialog();
+                if (postWriteCallBackData == null || this.f22939a.mData == null) {
                     return;
                 }
-                this.f22781a.mHighLightController.n(null);
+                this.f22939a.mHighLightController.n(null);
                 if (z) {
-                    this.f22781a.sendFinishSendAction(z);
-                    this.f22781a.showTipDialog(true, postWriteCallBackData);
-                    this.f22781a.sendUpdatePhotoLiveMessage(postWriteCallBackData);
+                    this.f22939a.sendFinishSendAction(z);
+                    this.f22939a.showTipDialog(true, postWriteCallBackData);
+                    this.f22939a.sendUpdatePhotoLiveMessage(postWriteCallBackData);
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    this.f22781a.setResult(-1, intent);
-                    this.f22781a.finish();
+                    this.f22939a.setResult(-1, intent);
+                    this.f22939a.finish();
                 } else if (postWriteCallBackData.isSensitiveError()) {
-                    this.f22781a.showToast(postWriteCallBackData.getErrorString());
-                    this.f22781a.mHighLightController.o(postWriteCallBackData.getErrorString());
-                    this.f22781a.mHighLightController.n(postWriteCallBackData.getSensitiveWords());
-                    this.f22781a.mHighLightController.i(this.f22781a.mPostTitle, this.f22781a.mPostContent);
+                    this.f22939a.showToast(postWriteCallBackData.getErrorString());
+                    this.f22939a.mHighLightController.o(postWriteCallBackData.getErrorString());
+                    this.f22939a.mHighLightController.n(postWriteCallBackData.getSensitiveWords());
+                    this.f22939a.mHighLightController.i(this.f22939a.mPostTitle, this.f22939a.mPostContent);
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorLinkCountExceedLimit()) {
-                    if (d.a.c.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                        DefaultNavigationBarCoverTip.s(this.f22781a.getActivity(), this.f22781a.getActivity().getString(R.string.current_links_too_much_please_modify_and_publish), null).u();
+                    if (d.a.d.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
+                        DefaultNavigationBarCoverTip.s(this.f22939a.getActivity(), this.f22939a.getActivity().getString(R.string.current_links_too_much_please_modify_and_publish), null).u();
                     } else {
-                        DefaultNavigationBarCoverTip.s(this.f22781a.getActivity(), postWriteCallBackData.getErrorString(), null).u();
+                        DefaultNavigationBarCoverTip.s(this.f22939a.getActivity(), postWriteCallBackData.getErrorString(), null).u();
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                    d.a.o0.r.s.a aVar = new d.a.o0.r.s.a(this.f22781a.getActivity());
-                    if (d.a.c.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
-                        aVar.setMessage(this.f22781a.getActivity().getString(R.string.open_member_and_add_more_links));
+                    d.a.p0.s.s.a aVar = new d.a.p0.s.s.a(this.f22939a.getActivity());
+                    if (d.a.d.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
+                        aVar.setMessage(this.f22939a.getActivity().getString(R.string.open_member_and_add_more_links));
                     } else {
                         aVar.setMessage(postWriteCallBackData.getErrorString());
                     }
                     aVar.setNegativeButton(R.string.cancel, new a(this));
                     aVar.setPositiveButton(R.string.open_now, new b(this));
-                    aVar.create(this.f22781a.getPageContext()).show();
+                    aVar.create(this.f22939a.getPageContext()).show();
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 1));
-                } else if (postWriteCallBackData == null || !d.a.p0.r3.a.c(postWriteCallBackData.getErrorCode())) {
-                    if ((i0Var == null || writeData == null || i0Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001) {
-                        this.f22781a.showTipDialog(false, postWriteCallBackData);
-                    } else if (i0Var != null && writeData != null && i0Var.c() != null) {
+                } else if (postWriteCallBackData == null || !d.a.q0.r3.a.c(postWriteCallBackData.getErrorCode())) {
+                    if ((k0Var == null || writeData == null || k0Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001) {
+                        this.f22939a.showTipDialog(false, postWriteCallBackData);
+                    } else if (k0Var != null && writeData != null && k0Var.c() != null) {
                         if (writeData.isCanNoForum()) {
                             writeData.setForumName("");
                             writeData.setForumId("0");
                         }
-                        writeData.setVcodeMD5(i0Var.b());
-                        writeData.setVcodeUrl(i0Var.c());
-                        writeData.setVcodeExtra(i0Var.a());
-                        if (d.a.o0.a1.a.b(i0Var.d())) {
-                            this.f22781a.sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.f22781a.getPageContext().getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, i0Var.d())));
+                        writeData.setVcodeMD5(k0Var.b());
+                        writeData.setVcodeUrl(k0Var.c());
+                        writeData.setVcodeExtra(k0Var.a());
+                        if (d.a.p0.c1.a.b(k0Var.d())) {
+                            this.f22939a.sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.f22939a.getPageContext().getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, k0Var.d())));
                         } else {
-                            this.f22781a.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.f22781a.getPageContext().getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
+                            this.f22939a.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.f22939a.getPageContext().getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
                         }
                     } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 227001) {
                     } else {
-                        this.f22781a.sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f22781a.getActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
+                        this.f22939a.sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f22939a.getActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
                     }
                 }
             }
@@ -1316,7 +1315,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22783a;
+        public final /* synthetic */ TransmitPostEditActivity f22941a;
 
         public t(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -1333,15 +1332,15 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22783a = transmitPostEditActivity;
+            this.f22941a = transmitPostEditActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f22783a.showToast(R.string.no_network_guide);
-                this.f22783a.sendLocaionAction(0, true, null);
+                this.f22941a.showToast(R.string.no_network_guide);
+                this.f22941a.sendLocaionAction(0, true, null);
             }
         }
 
@@ -1350,7 +1349,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationData) == null) {
                 if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
-                    this.f22783a.sendLocaionAction(2, true, locationData.getFormatted_address());
+                    this.f22941a.sendLocaionAction(2, true, locationData.getFormatted_address());
                 } else {
                     onFail(null);
                 }
@@ -1361,12 +1360,12 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                TransmitPostEditActivity transmitPostEditActivity = this.f22783a;
+                TransmitPostEditActivity transmitPostEditActivity = this.f22941a;
                 if (StringUtils.isNull(str)) {
-                    str = this.f22783a.getPageContext().getString(R.string.location_fail);
+                    str = this.f22941a.getPageContext().getString(R.string.location_fail);
                 }
                 transmitPostEditActivity.showToast(str);
-                this.f22783a.sendLocaionAction(0, true, null);
+                this.f22941a.sendLocaionAction(0, true, null);
             }
         }
     }
@@ -1377,7 +1376,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22784a;
+        public final /* synthetic */ TransmitPostEditActivity f22942a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public u(TransmitPostEditActivity transmitPostEditActivity, int i2) {
@@ -1397,7 +1396,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22784a = transmitPostEditActivity;
+            this.f22942a = transmitPostEditActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1407,13 +1406,13 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    this.f22784a.mLocationModel.M(false);
-                    this.f22784a.mLocationModel.L(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                    this.f22784a.sendLocaionAction(2, true, responsedSelectLocation.getName());
+                    this.f22942a.mLocationModel.M(false);
+                    this.f22942a.mLocationModel.L(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    this.f22942a.sendLocaionAction(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                this.f22784a.mLocationModel.M(true);
-                this.f22784a.sendLocaionAction(0, true, null);
+                this.f22942a.mLocationModel.M(true);
+                this.f22942a.sendLocaionAction(0, true, null);
             }
         }
     }
@@ -1424,7 +1423,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22785a;
+        public final /* synthetic */ TransmitPostEditActivity f22943a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public v(TransmitPostEditActivity transmitPostEditActivity, int i2) {
@@ -1444,7 +1443,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22785a = transmitPostEditActivity;
+            this.f22943a = transmitPostEditActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1452,7 +1451,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.f22785a.showToast((String) customResponsedMessage.getData());
+                this.f22943a.showToast((String) customResponsedMessage.getData());
             }
         }
     }
@@ -1463,7 +1462,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22786e;
+        public final /* synthetic */ TransmitPostEditActivity f22944e;
 
         public w(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -1480,19 +1479,19 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22786e = transmitPostEditActivity;
+            this.f22944e = transmitPostEditActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22786e.mEditor.A(new d.a.o0.w.a(5, -1, null));
-                int emotionCheck = this.f22786e.emotionCheck();
-                if (emotionCheck < 0 || emotionCheck >= this.f22786e.mPostContent.getText().length()) {
+                this.f22944e.mEditor.A(new d.a.p0.x.a(5, -1, null));
+                int emotionCheck = this.f22944e.emotionCheck();
+                if (emotionCheck < 0 || emotionCheck >= this.f22944e.mPostContent.getText().length()) {
                     return;
                 }
-                this.f22786e.mPostContent.setSelection(emotionCheck);
+                this.f22944e.mPostContent.setSelection(emotionCheck);
             }
         }
     }
@@ -1503,7 +1502,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22787e;
+        public final /* synthetic */ TransmitPostEditActivity f22945e;
 
         public x(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -1520,14 +1519,14 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22787e = transmitPostEditActivity;
+            this.f22945e = transmitPostEditActivity;
         }
 
-        @Override // d.a.o0.r.s.a.e
-        public void onClick(d.a.o0.r.s.a aVar) {
+        @Override // d.a.p0.s.s.a.e
+        public void onClick(d.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f22787e.sendLocaionAction(0, true, null);
+                this.f22945e.sendLocaionAction(0, true, null);
                 aVar.dismiss();
             }
         }
@@ -1539,7 +1538,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22788e;
+        public final /* synthetic */ TransmitPostEditActivity f22946e;
 
         public y(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -1556,18 +1555,18 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22788e = transmitPostEditActivity;
+            this.f22946e = transmitPostEditActivity;
         }
 
-        @Override // d.a.o0.r.s.a.e
-        public void onClick(d.a.o0.r.s.a aVar) {
+        @Override // d.a.p0.s.s.a.e
+        public void onClick(d.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (d.a.c.e.p.j.z()) {
-                    this.f22788e.sendLocaionAction(1, true, null);
-                    this.f22788e.mLocationModel.K();
+                if (d.a.d.e.p.j.z()) {
+                    this.f22946e.sendLocaionAction(1, true, null);
+                    this.f22946e.mLocationModel.K();
                 } else {
-                    this.f22788e.mOnLocationCallBack.a();
+                    this.f22946e.mOnLocationCallBack.a();
                 }
                 aVar.dismiss();
             }
@@ -1580,7 +1579,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitPostEditActivity f22789e;
+        public final /* synthetic */ TransmitPostEditActivity f22947e;
 
         public z(TransmitPostEditActivity transmitPostEditActivity) {
             Interceptable interceptable = $ic;
@@ -1597,7 +1596,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     return;
                 }
             }
-            this.f22789e = transmitPostEditActivity;
+            this.f22947e = transmitPostEditActivity;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -1605,7 +1604,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                d.a.c.e.p.l.x(this.f22789e.getActivity(), this.f22789e.getCurrentFocus());
+                d.a.d.e.p.l.x(this.f22947e.getActivity(), this.f22947e.getCurrentFocus());
                 return super.onFling(motionEvent, motionEvent2, f2, f3);
             }
             return invokeCommon.booleanValue;
@@ -1629,8 +1628,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 return;
             }
         }
-        TBDS24 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24);
-        TBDS44 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
+        TBDS24 = d.a.d.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24);
+        TBDS44 = d.a.d.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
     }
 
     public TransmitPostEditActivity() {
@@ -1675,7 +1674,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         this.mCallFrom = "2";
         this.mContentBuilder = new SpannableStringBuilder();
         this.isKeyboardVisibility = false;
-        this.mHighLightController = new d.a.p0.a4.u.c();
+        this.mHighLightController = new d.a.q0.a4.u.c();
         this.mBigEmotionSpanHanlder = new k(this);
         this.mAntiInjectListener = new r(this);
         this.mOnPostWriteCallback = new s(this);
@@ -1740,7 +1739,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         if (!(interceptable == null || interceptable.invokeL(65583, this, hotTopicBussinessData) == null) || hotTopicBussinessData == null) {
             return;
         }
-        SpannableString j2 = d.a.o0.p0.b.j(d.a.o0.p0.b.a(hotTopicBussinessData.mTopicName));
+        SpannableString j2 = d.a.p0.r0.b.j(d.a.p0.r0.b.a(hotTopicBussinessData.mTopicName));
         if (j2 != null) {
             this.mPostTitle.setText(j2);
         }
@@ -1762,7 +1761,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65585, this, postWriteCallBackData)) == null) {
-            if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || d.a.c.e.p.k.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
+            if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || d.a.d.e.p.k.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
                 return false;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
@@ -1876,13 +1875,13 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         } else if ("from_title".equals(str)) {
             this.fromWhereToHotSelect = "from_title";
         }
-        if (d.a.o0.p0.b.f(String.valueOf(charSequence.charAt(i2)))) {
+        if (d.a.p0.r0.b.f(String.valueOf(charSequence.charAt(i2)))) {
             performHotTopicClick(false);
         }
     }
 
     private void hideEditorTopicTip() {
-        d.a.p0.a4.u.g gVar;
+        d.a.q0.a4.u.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65593, this) == null) || (gVar = this.mTipController) == null) {
             return;
@@ -1931,7 +1930,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             if (b2 == null) {
                 return;
             }
-            this.mCategoryList = b2.f62610b;
+            this.mCategoryList = b2.f63253b;
             this.mCategoryFromID = getIntent().getIntExtra("category_id", -1);
             List<b0> list = this.mCategoryList;
             if (list == null || list.isEmpty() || this.mCategoryFromID < 0) {
@@ -1939,16 +1938,16 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             }
             b0 b0Var = new b0();
             this.mCategoryDefault = b0Var;
-            b0Var.f62568b = 0;
-            b0Var.f62567a = getPageContext().getResources().getString(R.string.category_auto);
+            b0Var.f63211b = 0;
+            b0Var.f63210a = getPageContext().getResources().getString(R.string.category_auto);
             b0 b0Var2 = this.mCategoryDefault;
-            this.mCategoryToID = b0Var2.f62568b;
-            this.mCategoryName = b0Var2.f62567a;
+            this.mCategoryToID = b0Var2.f63211b;
+            this.mCategoryName = b0Var2.f63210a;
             for (b0 b0Var3 : this.mCategoryList) {
-                int i2 = b0Var3.f62568b;
+                int i2 = b0Var3.f63211b;
                 if (i2 == this.mCategoryFromID) {
                     this.mCategoryToID = i2;
-                    this.mCategoryName = b0Var3.f62567a;
+                    this.mCategoryName = b0Var3.f63210a;
                     return;
                 }
             }
@@ -1977,10 +1976,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         if (interceptable == null || interceptable.invokeV(65597, this) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            this.mEditor.d(new d.a.o0.w.o.a(getActivity(), 2));
+            this.mEditor.d(new d.a.p0.x.o.a(getActivity(), 2));
             if (this.mAdditionData == null) {
                 if (this.mWriteTool == null) {
-                    d.a.p0.a4.m.b bVar = new d.a.p0.a4.m.b(getActivity(), this.mCallFrom);
+                    d.a.q0.a4.m.b bVar = new d.a.q0.a4.m.b(getActivity(), this.mCallFrom);
                     this.mWriteTool = bVar;
                     bVar.i();
                     this.mWriteTool.m(FROM_SHARE_WRITE);
@@ -1989,7 +1988,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 this.mEditor.d(this.mWriteTool);
             }
             this.mEditor.h(arrayList);
-            d.a.o0.w.m n2 = this.mEditor.n(5);
+            d.a.p0.x.m n2 = this.mEditor.n(5);
             if (n2 != null) {
                 n2.j = 1;
             }
@@ -2087,8 +2086,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 this.mData.setOriginalVideoCover(this.mOriginalThreadInfo.showPicUrl);
                 this.mData.setOriginalVideoTitle(this.mOriginalThreadInfo.showText);
             }
-            if (!d.a.c.e.p.k.isEmpty(this.mTransmitOriginThreadComment)) {
-                if (!d.a.c.e.p.k.isEmpty(this.mTransmitThreadAuthorNameShow)) {
+            if (!d.a.d.e.p.k.isEmpty(this.mTransmitOriginThreadComment)) {
+                if (!d.a.d.e.p.k.isEmpty(this.mTransmitThreadAuthorNameShow)) {
                     WriteData writeData2 = this.mData;
                     writeData2.setContent("//@" + this.mTransmitThreadAuthorNameShow + " :" + this.mTransmitOriginThreadComment);
                 } else {
@@ -2123,19 +2122,19 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             }
             initEditorListener();
             this.mEditor.j();
-            d.a.o0.w.h m2 = this.mEditor.m(6);
+            d.a.p0.x.h m2 = this.mEditor.m(6);
             if (m2 != null && !TextUtils.isEmpty(this.mDisableAudioMessage)) {
                 ((View) m2).setOnClickListener(new b(this));
             }
             if (!this.isLivePhotoType) {
-                this.mEditor.A(new d.a.o0.w.a(34, 5, 1));
+                this.mEditor.A(new d.a.p0.x.a(34, 5, 1));
             }
             this.mEditor.q();
-            if (XiaoyingUtil.showXiaoyingTool() && !d.a.o0.r.d0.b.j().g("xiaoying_has_click", false)) {
-                this.mEditor.A(new d.a.o0.w.a(2, 19, "N"));
+            if (XiaoyingUtil.showXiaoyingTool() && !d.a.p0.s.d0.b.j().g("xiaoying_has_click", false)) {
+                this.mEditor.A(new d.a.p0.x.a(2, 19, "N"));
             }
-            if (!d.a.o0.r.d0.b.j().g("hot_topic_has_click", false)) {
-                this.mEditor.A(new d.a.o0.w.a(2, 26, " "));
+            if (!d.a.p0.s.d0.b.j().g("hot_topic_has_click", false)) {
+                this.mEditor.A(new d.a.p0.x.a(2, 26, " "));
             }
             if (this.mData.getType() == 0) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) getPageContext().getPageActivity(), this.writeImagesInfo.toJsonString(), true, true);
@@ -2242,10 +2241,10 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     imageView.setVisibility(0);
                     this.mPrefix.setOnClickListener(new n(this));
                 }
-                d.a.p0.a4.h hVar = new d.a.p0.a4.h(getPageContext().getPageActivity());
+                d.a.q0.a4.h hVar = new d.a.q0.a4.h(getPageContext().getPageActivity());
                 this.mPrefixWindow = hVar;
                 hVar.e(this);
-                this.mPrefixWindow.d(d.a.c.e.p.l.g(getActivity(), R.dimen.ds510));
+                this.mPrefixWindow.d(d.a.d.e.p.l.g(getActivity(), R.dimen.ds510));
                 this.mPrefixWindow.setOutsideTouchable(true);
                 this.mPrefixWindow.setFocusable(true);
                 this.mPrefixWindow.setOnDismissListener(this);
@@ -2285,15 +2284,15 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         if (!(interceptable == null || interceptable.invokeV(65605, this) == null) || (hotTopicBussinessData = (HotTopicBussinessData) ListUtils.getItem(this.mList, 0)) == null || TextUtils.isEmpty(hotTopicBussinessData.mTopicName)) {
             return;
         }
-        this.mPostTitle.setText(d.a.o0.p0.b.j(d.a.o0.p0.b.a(hotTopicBussinessData.mTopicName)));
-        this.mPostTitle.setMovementMethod(d.a.p0.z3.c.a());
+        this.mPostTitle.setText(d.a.p0.r0.b.j(d.a.p0.r0.b.a(hotTopicBussinessData.mTopicName)));
+        this.mPostTitle.setMovementMethod(d.a.q0.z3.c.a());
     }
 
     private void initUI() {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65606, this) == null) {
-            this.mLoadingDialog = new d.a.o0.r.f0.a(getPageContext());
+            this.mLoadingDialog = new d.a.p0.s.f0.a(getPageContext());
             this.isLivePhotoType = this.mData.getType() == 4 || 5 == this.mData.getType();
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.write_activity, (ViewGroup) null);
             this.mRootView = inflate;
@@ -2384,13 +2383,13 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     /* JADX INFO: Access modifiers changed from: private */
     public void performHotTopicClick(boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65609, this, z2) == null) || d.a.o0.p0.b.c(getPageContext(), z2, false)) {
+        if (!(interceptable == null || interceptable.invokeZ(65609, this, z2) == null) || d.a.p0.r0.b.c(getPageContext(), z2, false)) {
             return;
         }
         HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(getPageContext().getPageActivity(), 25004, HotSelectActivityConfig.FROM_POST_THREAD);
         WriteData writeData = this.mData;
         if (writeData != null) {
-            hotSelectActivityConfig.setForumExtra(d.a.c.e.m.b.f(writeData.getForumId(), 0L), this.mData.getFirstDir(), this.mData.getSecondDir());
+            hotSelectActivityConfig.setForumExtra(d.a.d.e.m.b.f(writeData.getForumId(), 0L), this.mData.getFirstDir(), this.mData.getSecondDir());
         }
         sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
     }
@@ -2443,7 +2442,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             this.mData.setVcode(null);
             this.mWriteModel.X().setVoice(null);
             this.mWriteModel.X().setVoiceDuringTime(-1);
-            if (!d.a.c.e.p.j.z()) {
+            if (!d.a.d.e.p.j.z()) {
                 showToast(R.string.neterror);
                 return;
             }
@@ -2479,7 +2478,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         }
     }
 
-    private void realInsert(SpannableStringBuilder spannableStringBuilder, int i2, d.a.c.k.d.a aVar, EmotionGroupType emotionGroupType) {
+    private void realInsert(SpannableStringBuilder spannableStringBuilder, int i2, d.a.d.k.d.a aVar, EmotionGroupType emotionGroupType) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLILL(65613, this, spannableStringBuilder, i2, aVar, emotionGroupType) == null) || spannableStringBuilder == null || getRealContentEdittextInstance() == null || getRealContentEdittextInstance().getText() == null) {
             return;
@@ -2496,7 +2495,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             bitmapDrawable.setBounds(0, 0, width, p2.getHeight());
         }
         bitmapDrawable.setGravity(119);
-        spannableStringBuilder.setSpan(new d.a.o0.r.f0.e(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
+        spannableStringBuilder.setSpan(new d.a.p0.s.f0.e(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
         if (EmotionGroupType.BIG_EMOTION == emotionGroupType || EmotionGroupType.USER_COLLECT == emotionGroupType) {
             int selectionStart = getRealContentEdittextInstance().getSelectionStart() - 1;
             if (getRealContentEdittextInstance().getText().length() > 1 && selectionStart >= 0 && getRealContentEdittextInstance().getText().charAt(selectionStart) != '\n') {
@@ -2589,7 +2588,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         if (interceptable == null || interceptable.invokeV(65615, this) == null) {
             if (this.mLocationModel.z()) {
                 if (this.mLocationModel.D()) {
-                    sendLocaionAction(2, true, d.a.p0.h3.m0.b.a().b().getFormatted_address());
+                    sendLocaionAction(2, true, d.a.q0.h3.m0.b.a().b().getFormatted_address());
                     return;
                 }
                 sendLocaionAction(1, true, null);
@@ -2606,7 +2605,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         if (!(interceptable == null || interceptable.invokeV(65616, this) == null) || (editorTools = this.mEditor) == null) {
             return;
         }
-        editorTools.A(new d.a.o0.w.a(54, 15, null));
+        editorTools.A(new d.a.p0.x.a(54, 15, null));
     }
 
     private void resetCheckImgState(int i2) {
@@ -2627,7 +2626,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         if (!(interceptable == null || interceptable.invokeZ(65618, this, z2) == null) || (editorTools = this.mEditor) == null) {
             return;
         }
-        editorTools.A(new d.a.o0.w.a(9, -1, Boolean.valueOf(z2)));
+        editorTools.A(new d.a.p0.x.a(9, -1, Boolean.valueOf(z2)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -2637,7 +2636,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             this.mLocationState = i2;
             EditorTools editorTools = this.mEditor;
             if (editorTools != null) {
-                editorTools.A(new d.a.o0.w.a(19, 15, new d.a.o0.w.u.a(i2, z2, str)));
+                editorTools.A(new d.a.p0.x.a(19, 15, new d.a.p0.x.u.a(i2, z2, str)));
             }
         }
     }
@@ -2648,8 +2647,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         if (!(interceptable == null || interceptable.invokeV(65620, this) == null) || this.isLivePhotoType || (editorTools = this.mEditor) == null) {
             return;
         }
-        editorTools.A(new d.a.o0.w.a(12, -1, new d.a.o0.w.r.a(this.writeImagesInfo, true)));
-        this.mEditor.A(new d.a.o0.w.a(12, 11, new d.a.o0.w.r.a(this.writeImagesInfo, true)));
+        editorTools.A(new d.a.p0.x.a(12, -1, new d.a.p0.x.r.a(this.writeImagesInfo, true)));
+        this.mEditor.A(new d.a.p0.x.a(12, 11, new d.a.p0.x.r.a(this.writeImagesInfo, true)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -2673,7 +2672,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.share));
             this.mPost = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
-            layoutParams.rightMargin = d.a.c.e.p.l.g(getPageContext().getPageActivity(), R.dimen.ds14);
+            layoutParams.rightMargin = d.a.d.e.p.l.g(getPageContext().getPageActivity(), R.dimen.ds14);
             this.mPost.setLayoutParams(layoutParams);
             this.mPost.setOnFocusChangeListener(this.mFocusChangeListener);
         }
@@ -2703,7 +2702,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     sb.append(format);
                 }
             }
-            d.a.c.e.p.l.M(getPageContext().getPageActivity(), sb.toString());
+            d.a.d.e.p.l.M(getPageContext().getPageActivity(), sb.toString());
         }
     }
 
@@ -2711,7 +2710,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65625, this) == null) {
             if (this.mTipController == null) {
-                this.mTipController = new d.a.p0.a4.u.g(getPageContext());
+                this.mTipController = new d.a.q0.a4.u.g(getPageContext());
             }
             this.mTipController.c(this.mEditor);
         }
@@ -2720,7 +2719,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     private void showLocPermissionDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65626, this) == null) {
-            d.a.o0.r.s.a aVar = new d.a.o0.r.s.a(getPageContext().getPageActivity());
+            d.a.p0.s.s.a aVar = new d.a.p0.s.s.a(getPageContext().getPageActivity());
             aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new y(this)).setNegativeButton(R.string.cancel, new x(this)).create(getPageContext());
             aVar.show();
         }
@@ -2748,7 +2747,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 if (checkVideoEasterEgg(postWriteCallBackData)) {
                     return;
                 }
-                d.a.p0.h3.q0.g.b(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                d.a.q0.h3.q0.m.b(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                 return;
             }
             showAdditionTip(z2, errorString);
@@ -2842,7 +2841,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             return;
         }
         String substring = getRealContentEdittextInstance().getText().toString().substring(0, getRealContentEdittextInstance().getSelectionStart());
-        Matcher matcher = d.a.p0.o0.a.f61066b.matcher(substring);
+        Matcher matcher = d.a.q0.o0.a.f61680b.matcher(substring);
         if (matcher.find()) {
             getRealContentEdittextInstance().getText().delete(getRealContentEdittextInstance().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getRealContentEdittextInstance().getSelectionStart());
             return;
@@ -2863,7 +2862,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.o0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2915,7 +2914,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 SpanGroupEditText spanGroupEditText2 = this.mPostContent;
                 spanGroupEditText2.setSelection(spanGroupEditText2.getText().length());
             }
-            if (!d.a.c.e.p.k.isEmpty(this.mTransmitOriginThreadComment)) {
+            if (!d.a.d.e.p.k.isEmpty(this.mTransmitOriginThreadComment)) {
                 this.mPostContent.setSelection(0);
             }
             this.mPostContent.setOnFocusChangeListener(this.mFocusChangeListener);
@@ -2949,7 +2948,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         }
     }
 
-    public void insertFaceIconToEditText(d.a.o0.s.c.v vVar) {
+    public void insertFaceIconToEditText(d.a.p0.t.c.v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, vVar) == null) {
             if (((ImageSpan[]) getRealContentEdittextInstance().getText().getSpans(0, getRealContentEdittextInstance().getText().length(), ImageSpan.class)).length >= 10) {
@@ -2962,7 +2961,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 this.mTooManyEmotionToast.show();
                 return;
             }
-            d.a.p0.o0.b.b(this, vVar, getRealContentEdittextInstance());
+            d.a.q0.o0.b.b(this, vVar, getRealContentEdittextInstance());
         }
     }
 
@@ -3059,7 +3058,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 }
                 StringBuilder sb2 = new StringBuilder();
                 if (this.needAddHotTopicSign) {
-                    sb2.append(d.a.o0.p0.b.f52250a);
+                    sb2.append(d.a.p0.r0.b.f52908a);
                     this.needAddHotTopicSign = false;
                 }
                 sb2.append(stringExtra);
@@ -3091,7 +3090,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             SkinManager.setViewTextColor(this.mName, R.color.CAM_X0105);
             updateHintTextColor();
             updateTitleStyle();
-            d.a.p0.a4.u.c cVar = this.mHighLightController;
+            d.a.q0.a4.u.c cVar = this.mHighLightController;
             if (cVar != null) {
                 cVar.m(getRealTitleInstance(), getRealContentEdittextInstance());
             }
@@ -3133,7 +3132,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            d.a.p0.z3.b bVar = new d.a.p0.z3.b(getPageContext().getPageActivity(), new l(this), new Date().getHours(), new Date().getMinutes(), false);
+            d.a.q0.z3.b bVar = new d.a.q0.z3.b(getPageContext().getPageActivity(), new l(this), new Date().getHours(), new Date().getMinutes(), false);
             this.dialog = bVar;
             bVar.setTitle(R.string.no_disturb_start_time);
             this.dialog.setButton(-1, getPageContext().getString(R.string.alert_yes_button), this.dialog);
@@ -3171,9 +3170,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                d.a.p0.a4.h hVar = this.mPrefixWindow;
+                d.a.q0.a4.h hVar = this.mPrefixWindow;
                 if (hVar != null && hVar.isShowing()) {
-                    d.a.c.e.m.g.d(this.mPrefixWindow, getPageContext().getPageActivity());
+                    d.a.d.e.m.g.d(this.mPrefixWindow, getPageContext().getPageActivity());
                     return true;
                 } else if (this.mEditor.u()) {
                     this.mEditor.q();
@@ -3197,7 +3196,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z2) == null) {
             this.isKeyboardVisibility = z2;
-            d.a.p0.a4.m.b bVar = this.mWriteTool;
+            d.a.q0.a4.m.b bVar = this.mWriteTool;
             if (bVar != null && !z2) {
                 bVar.h();
             }
@@ -3236,7 +3235,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         }
     }
 
-    @Override // d.a.p0.a4.h.a
+    @Override // d.a.q0.a4.h.a
     public void onPrefixItemClick(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
@@ -3245,7 +3244,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             resetCheckImgState(i2);
             this.mPrefix.setText(this.mPrefixData.getPrefixs().get(i2));
             refreshPostButton();
-            d.a.c.e.m.g.d(this.mPrefixWindow, getPageContext().getPageActivity());
+            d.a.d.e.m.g.d(this.mPrefixWindow, getPageContext().getPageActivity());
         }
     }
 

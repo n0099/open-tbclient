@@ -25,31 +25,31 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f30342a;
+    public static volatile boolean f30441a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f30343b;
+    public static volatile TTCustomController f30442b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f30344c;
+    public static volatile boolean f30443c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f30345d;
+    public static int f30444d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static AtomicBoolean f30346e;
+    public static AtomicBoolean f30445e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static AtomicBoolean f30347f;
+    public static AtomicBoolean f30446f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile HandlerThread f30348g;
+    public static volatile HandlerThread f30447g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile Handler f30349h;
+    public static volatile Handler f30448h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile Handler f30350i;
+    public static volatile Handler f30449i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,13 +65,13 @@ public class l {
                 return;
             }
         }
-        f30348g = new HandlerThread("tt_pangle_thread_init", 10);
-        f30348g.start();
-        f30350i = new Handler(f30348g.getLooper());
-        f30344c = false;
-        f30345d = -1;
-        f30346e = new AtomicBoolean(false);
-        f30347f = new AtomicBoolean(false);
+        f30447g = new HandlerThread("tt_pangle_thread_init", 10);
+        f30447g.start();
+        f30449i = new Handler(f30447g.getLooper());
+        f30443c = false;
+        f30444d = -1;
+        f30445e = new AtomicBoolean(false);
+        f30446f = new AtomicBoolean(false);
     }
 
     public l() {
@@ -92,11 +92,11 @@ public class l {
         Context a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f30346e.set(true);
-            f30347f.set(true);
+            f30445e.set(true);
+            f30446f.set(true);
             if (o.h().e() && (a2 = o.a()) != null) {
                 try {
-                    com.bytedance.sdk.openadsdk.l.e.b().c().tryInitTTAdNet(a2, com.bytedance.sdk.openadsdk.multipro.b.b(), true, new com.bytedance.sdk.openadsdk.l.d(a2));
+                    com.bytedance.sdk.openadsdk.k.d.b().c().tryInitTTAdNet(a2, com.bytedance.sdk.openadsdk.multipro.b.b(), true, new com.bytedance.sdk.openadsdk.k.c(a2));
                 } catch (Exception unused) {
                 }
             }
@@ -106,22 +106,22 @@ public class l {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            if (com.bytedance.sdk.openadsdk.r.d.g() == 0) {
-                com.bytedance.sdk.openadsdk.r.d.b(System.currentTimeMillis());
+            if (com.bytedance.sdk.openadsdk.q.e.g() == 0) {
+                com.bytedance.sdk.openadsdk.q.e.b(System.currentTimeMillis());
             }
-            long g2 = com.bytedance.sdk.openadsdk.r.d.g();
+            long g2 = com.bytedance.sdk.openadsdk.q.e.g();
             long currentTimeMillis = System.currentTimeMillis();
-            String b2 = com.bytedance.sdk.openadsdk.r.o.b(g2, currentTimeMillis);
-            long h2 = com.bytedance.sdk.openadsdk.r.d.h();
-            com.bytedance.sdk.openadsdk.k.a.a().a(b2, ((currentTimeMillis - h2) / 1000) + "");
-            com.bytedance.sdk.openadsdk.r.d.c(System.currentTimeMillis());
+            String b2 = com.bytedance.sdk.openadsdk.q.q.b(g2, currentTimeMillis);
+            long h2 = com.bytedance.sdk.openadsdk.q.e.h();
+            com.bytedance.sdk.openadsdk.j.a.a().a(b2, ((currentTimeMillis - h2) / 1000) + "");
+            com.bytedance.sdk.openadsdk.q.e.c(System.currentTimeMillis());
         }
     }
 
     public static void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            com.bytedance.sdk.openadsdk.n.a.c(context);
+            com.bytedance.sdk.openadsdk.m.a.c(context);
         }
     }
 
@@ -129,14 +129,14 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f30349h == null) {
+            if (f30448h == null) {
                 synchronized (l.class) {
-                    if (f30349h == null) {
-                        f30349h = new Handler(Looper.getMainLooper());
+                    if (f30448h == null) {
+                        f30448h = new Handler(Looper.getMainLooper());
                     }
                 }
             }
-            return f30349h;
+            return f30448h;
         }
         return (Handler) invokeV.objValue;
     }
@@ -163,16 +163,16 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f30348g == null || !f30348g.isAlive()) {
+            if (f30447g == null || !f30447g.isAlive()) {
                 synchronized (l.class) {
-                    if (f30348g == null || !f30348g.isAlive()) {
-                        f30348g = new HandlerThread("tt_pangle_thread_init", 10);
-                        f30348g.start();
-                        f30350i = new Handler(f30348g.getLooper());
+                    if (f30447g == null || !f30447g.isAlive()) {
+                        f30447g = new HandlerThread("tt_pangle_thread_init", 10);
+                        f30447g.start();
+                        f30449i = new Handler(f30447g.getLooper());
                     }
                 }
             }
-            return f30350i;
+            return f30449i;
         }
         return (Handler) invokeV.objValue;
     }
@@ -182,15 +182,15 @@ public class l {
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             e();
             c(context);
-            com.bytedance.sdk.openadsdk.r.m.a();
-            com.bytedance.sdk.openadsdk.r.q.a(context);
+            com.bytedance.sdk.openadsdk.q.o.a();
+            com.bytedance.sdk.openadsdk.q.s.a(context);
             b(context);
             o.i().a();
             String a2 = j.a(context);
             if (!TextUtils.isEmpty(a2)) {
                 o.g().a(a2);
             }
-            com.bytedance.sdk.openadsdk.n.a.b(a2);
+            com.bytedance.sdk.openadsdk.m.a.b(a2);
             com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a();
             com.bytedance.sdk.openadsdk.core.h.a.a().b();
             a();

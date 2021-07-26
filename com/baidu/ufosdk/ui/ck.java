@@ -12,10 +12,10 @@ public final class ck implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f23509a;
+    public final /* synthetic */ int f23667a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ cg f23510b;
+    public final /* synthetic */ cg f23668b;
 
     public ck(cg cgVar, int i2) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class ck implements View.OnClickListener {
                 return;
             }
         }
-        this.f23510b = cgVar;
-        this.f23509a = i2;
+        this.f23668b = cgVar;
+        this.f23667a = i2;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0058: INVOKE  (r0v10 java.lang.Object A[REMOVE]) = 
@@ -51,17 +51,17 @@ public final class ck implements View.OnClickListener {
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f23510b.f23503a.aF = this.f23509a;
+            this.f23668b.f23661a.aF = this.f23667a;
             com.baidu.ufosdk.f.c.a("点击未解决！！！");
-            ((Map) this.f23510b.f23503a.f23407h.get(this.f23509a)).put("ask", 3);
-            if (((Map) this.f23510b.f23503a.f23407h.get(this.f23509a)).containsKey("chatId")) {
-                FeedbackInputActivity feedbackInputActivity = this.f23510b.f23503a;
+            ((Map) this.f23668b.f23661a.f23565h.get(this.f23667a)).put("ask", 3);
+            if (((Map) this.f23668b.f23661a.f23565h.get(this.f23667a)).containsKey("chatId")) {
+                FeedbackInputActivity feedbackInputActivity = this.f23668b.f23661a;
                 StringBuilder sb = new StringBuilder();
-                sb.append(((Map) this.f23510b.f23503a.f23407h.get(this.f23509a)).get("chatId"));
-                feedbackInputActivity.f23405f = sb.toString();
+                sb.append(((Map) this.f23668b.f23661a.f23565h.get(this.f23667a)).get("chatId"));
+                feedbackInputActivity.f23563f = sb.toString();
             }
-            this.f23510b.f23503a.l.execute(new cl(this));
-            FeedbackInputActivity.a(this.f23510b.f23503a, false, true);
+            this.f23668b.f23661a.l.execute(new cl(this));
+            FeedbackInputActivity.a(this.f23668b.f23661a, false, true);
         }
     }
 }

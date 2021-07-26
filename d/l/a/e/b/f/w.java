@@ -1,9 +1,7 @@
 package d.l.a.e.b.f;
 
-import java.util.List;
+import android.net.Uri;
 /* loaded from: classes8.dex */
 public interface w {
-    void a(List<String> list);
-
-    boolean a();
+    Uri a(String str, String str2);
 }

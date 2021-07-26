@@ -19,7 +19,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseDialogModel f24504a;
+    public BaseDialogModel f24662a;
 
     /* loaded from: classes5.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
@@ -27,7 +27,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseAdapter f24505a;
+        public final /* synthetic */ BaseAdapter f24663a;
         public final BaseDialogBinding binding;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
                     return;
                 }
             }
-            this.f24505a = baseAdapter;
+            this.f24663a = baseAdapter;
             this.binding = baseDialogBinding;
         }
     }
@@ -68,7 +68,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
                 return;
             }
         }
-        this.f24504a = baseDialogModel;
+        this.f24662a = baseDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f24504a);
+            baseHolder.binding.setViewModel(this.f24662a);
         }
     }
 

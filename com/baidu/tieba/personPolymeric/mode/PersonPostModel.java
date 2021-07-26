@@ -36,11 +36,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.c.a.f;
-import d.a.c.e.p.l;
-import d.a.c.k.e.n;
-import d.a.p0.m2.e.i;
-import d.a.p0.m2.e.j;
+import d.a.d.a.f;
+import d.a.d.e.p.l;
+import d.a.d.k.e.n;
+import d.a.q0.m2.e.i;
+import d.a.q0.m2.e.j;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -70,7 +70,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public d mOnResult;
     public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
-    public d.a.c.c.g.c pageSocketListener;
+    public d.a.d.c.g.c pageSocketListener;
     public final ArrayList<n> postList;
     public final ArrayList<n> threadList;
     public int view_card_num;
@@ -459,7 +459,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return (ArrayList) invokeV.objValue;
         }
 
-        @Override // d.a.c.k.e.n
+        @Override // d.a.d.k.e.n
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -742,12 +742,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.c.c.g.c {
+    public class a extends d.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostModel f20212a;
+        public final /* synthetic */ PersonPostModel f20330a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PersonPostModel personPostModel, int i2) {
@@ -767,7 +767,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     return;
                 }
             }
-            this.f20212a = personPostModel;
+            this.f20330a = personPostModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -777,7 +777,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage)) {
                 UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
                 if (userPostPageSocketResponsedMessage.getOrginalMessage() == null || userPostPageSocketResponsedMessage.hasError()) {
-                    this.f20212a.mOnResult.S(null, this.f20212a.mIsReset);
+                    this.f20330a.mOnResult.T(null, this.f20330a.mIsReset);
                     return;
                 }
                 if (userPostPageSocketResponsedMessage.getPersonPostModel() != null) {
@@ -786,7 +786,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.L(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.M(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                 }
             }
         }
@@ -798,7 +798,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostModel f20213a;
+        public final /* synthetic */ PersonPostModel f20331a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PersonPostModel personPostModel, int i2) {
@@ -818,7 +818,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     return;
                 }
             }
-            this.f20213a = personPostModel;
+            this.f20331a = personPostModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -828,7 +828,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof UserPostPageHttpResponseMessage)) {
                 UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
                 if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
-                    this.f20213a.mOnResult.S(null, this.f20213a.mIsReset);
+                    this.f20331a.mOnResult.T(null, this.f20331a.mIsReset);
                     return;
                 }
                 if (userPostPageHttpResponseMessage.getPersonPostModel() != null) {
@@ -837,7 +837,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.L(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.M(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                 }
             }
         }
@@ -845,12 +845,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
     /* loaded from: classes4.dex */
     public interface c {
-        void L(PersonPostModel personPostModel, boolean z);
+        void M(PersonPostModel personPostModel, boolean z);
     }
 
     /* loaded from: classes4.dex */
     public interface d {
-        void S(PersonPostModel personPostModel, boolean z);
+        void T(PersonPostModel personPostModel, boolean z);
     }
 
     static {
@@ -938,7 +938,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.F = true;
                     cardPersonDynamicThreadData.E = true;
-                    long j = cardPersonDynamicThreadData.f14544i * 1000;
+                    long j = cardPersonDynamicThreadData.f14592i * 1000;
                     String yearBytime2 = StringHelper.getYearBytime(j);
                     String chineseMonthBytime = StringHelper.getChineseMonthBytime(j);
                     String dateBytime = StringHelper.getDateBytime(j);

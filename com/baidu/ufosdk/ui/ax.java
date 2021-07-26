@@ -17,7 +17,7 @@ public final class ax extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f23460a;
+    public final /* synthetic */ FeedbackHotActivity f23618a;
 
     public ax(FeedbackHotActivity feedbackHotActivity) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class ax extends Handler {
                 return;
             }
         }
-        this.f23460a = feedbackHotActivity;
+        this.f23618a = feedbackHotActivity;
     }
 
     @Override // android.os.Handler
@@ -50,23 +50,23 @@ public final class ax extends Handler {
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
             if (message.what == 3) {
-                webView = this.f23460a.j;
+                webView = this.f23618a.j;
                 if (webView.getProgress() < 100) {
-                    webView2 = this.f23460a.j;
+                    webView2 = this.f23618a.j;
                     webView2.stopLoading();
-                    view = this.f23460a.l;
+                    view = this.f23618a.l;
                     view.setVisibility(8);
-                    Context applicationContext = this.f23460a.getApplicationContext();
-                    textView2 = this.f23460a.m;
+                    Context applicationContext = this.f23618a.getApplicationContext();
+                    textView2 = this.f23618a.m;
                     com.baidu.ufosdk.f.i.a(applicationContext, textView2);
-                    linearLayout = this.f23460a.f23396h;
+                    linearLayout = this.f23618a.f23554h;
                     linearLayout.setVisibility(0);
-                    webView3 = this.f23460a.j;
+                    webView3 = this.f23618a.j;
                     webView3.setVisibility(8);
                 }
             }
             if (message.what == 0) {
-                textView = this.f23460a.n;
+                textView = this.f23618a.n;
                 textView.setText(com.baidu.ufosdk.f.s.a("8"));
             }
         }

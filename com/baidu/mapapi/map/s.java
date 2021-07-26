@@ -15,7 +15,7 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissView f7195a;
+    public final /* synthetic */ SwipeDismissView f7221a;
 
     public s(SwipeDismissView swipeDismissView) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
                 return;
             }
         }
-        this.f7195a = swipeDismissView;
+        this.f7221a = swipeDismissView;
     }
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
@@ -49,7 +49,7 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
     public void onDismiss(View view, Object obj) {
         WearMapView.OnDismissCallback onDismissCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj) == null) || (onDismissCallback = this.f7195a.f7094a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj) == null) || (onDismissCallback = this.f7221a.f7120a) == null) {
             return;
         }
         onDismissCallback.onDismiss();
@@ -59,7 +59,7 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
     public void onNotify() {
         WearMapView.OnDismissCallback onDismissCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (onDismissCallback = this.f7195a.f7094a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (onDismissCallback = this.f7221a.f7120a) == null) {
             return;
         }
         onDismissCallback.onNotify();

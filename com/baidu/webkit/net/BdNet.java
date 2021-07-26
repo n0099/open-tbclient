@@ -266,10 +266,10 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public X509TrustManager f27546a;
+        public X509TrustManager f27704a;
 
         /* renamed from: b  reason: collision with root package name */
-        public X509TrustManager f27547b;
+        public X509TrustManager f27705b;
 
         public a(KeyStore keyStore) throws KeyStoreException {
             Interceptable interceptable = $ic;
@@ -287,8 +287,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 }
             }
             try {
-                this.f27546a = a(null);
-                this.f27547b = a(keyStore);
+                this.f27704a = a(null);
+                this.f27705b = a(keyStore);
             } catch (NoSuchAlgorithmException e2) {
                 e2.printStackTrace();
             }
@@ -310,9 +310,9 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
                 try {
-                    this.f27546a.checkClientTrusted(x509CertificateArr, str);
+                    this.f27704a.checkClientTrusted(x509CertificateArr, str);
                 } catch (CertificateException unused) {
-                    this.f27547b.checkClientTrusted(x509CertificateArr, str);
+                    this.f27705b.checkClientTrusted(x509CertificateArr, str);
                 }
             }
         }
@@ -322,9 +322,9 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
                 try {
-                    this.f27546a.checkServerTrusted(x509CertificateArr, str);
+                    this.f27704a.checkServerTrusted(x509CertificateArr, str);
                 } catch (CertificateException unused) {
-                    this.f27547b.checkServerTrusted(x509CertificateArr, str);
+                    this.f27705b.checkServerTrusted(x509CertificateArr, str);
                 }
             }
         }
@@ -334,8 +334,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                X509Certificate[] acceptedIssuers = this.f27546a.getAcceptedIssuers();
-                X509Certificate[] acceptedIssuers2 = this.f27547b.getAcceptedIssuers();
+                X509Certificate[] acceptedIssuers = this.f27704a.getAcceptedIssuers();
+                X509Certificate[] acceptedIssuers2 = this.f27705b.getAcceptedIssuers();
                 X509Certificate[] x509CertificateArr = (X509Certificate[]) Arrays.copyOf(acceptedIssuers, acceptedIssuers.length + acceptedIssuers2.length);
                 System.arraycopy(acceptedIssuers2, 0, x509CertificateArr, acceptedIssuers.length, acceptedIssuers2.length);
                 return x509CertificateArr;
@@ -362,8 +362,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         this.mPriority = 1;
         this.mPoolSize = 2;
         this.mContext = new WeakReference<>(context);
-        if (com.baidu.webkit.net.a.a().f27567c == null) {
-            com.baidu.webkit.net.a.a().f27567c = getContext().getApplicationContext();
+        if (com.baidu.webkit.net.a.a().f27725c == null) {
+            com.baidu.webkit.net.a.a().f27725c = getContext().getApplicationContext();
         }
         this.mTaskList = new Vector<>();
         this.mWorkerList = new Vector<>();
@@ -436,7 +436,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 d2.getWorker().a(bdNetEngine);
                 return d2;
             } else if (pollTask != null) {
-                worker.f27569a = pollTask;
+                worker.f27727a = pollTask;
                 worker.a(bdNetEngine);
                 pollTask.setWorker(worker);
                 return pollTask;
@@ -450,15 +450,15 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                     if (com.baidu.webkit.net.a.b()) {
                         com.baidu.webkit.net.a a2 = com.baidu.webkit.net.a.a();
                         try {
-                            if (a2.f27565a != null) {
-                                a2.f27565a.clear();
-                                a2.f27565a = null;
+                            if (a2.f27723a != null) {
+                                a2.f27723a.clear();
+                                a2.f27723a = null;
                             }
-                            int size = a2.f27566b.size();
+                            int size = a2.f27724b.size();
                             for (int i2 = 0; i2 < size; i2++) {
-                                a2.f27566b.get(i2).stopDownload();
+                                a2.f27724b.get(i2).stopDownload();
                             }
-                            a2.f27566b.clear();
+                            a2.f27724b.clear();
                             releaseSSLContext();
                             BdNetTask.clearTaskPool();
                             com.baidu.webkit.net.a.c();
@@ -739,7 +739,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BdNet f27545a;
+                    public final /* synthetic */ BdNet f27703a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -759,14 +759,14 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                                 return;
                             }
                         }
-                        this.f27545a = this;
+                        this.f27703a = this;
                     }
 
                     @Override // android.os.Handler
                     public final void handleMessage(Message message) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 1) {
-                            this.f27545a.onStartError((BdNetTask) message.obj);
+                            this.f27703a.onStartError((BdNetTask) message.obj);
                         }
                     }
                 };

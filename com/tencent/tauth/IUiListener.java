@@ -6,4 +6,6 @@ public interface IUiListener {
     void onComplete(Object obj);
 
     void onError(UiError uiError);
+
+    void onWarning(int i2);
 }

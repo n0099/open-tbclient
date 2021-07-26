@@ -14,16 +14,16 @@ public class e extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b f70754f;
+    public final b f71208f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f70755g;
+    public ByteBuffer f71209g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f70756h;
+    public long f71210h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f70757i;
+    public final int f71211i;
 
     public e(int i2) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class e extends a {
                 return;
             }
         }
-        this.f70754f = new b();
-        this.f70757i = i2;
+        this.f71208f = new b();
+        this.f71211i = i2;
     }
 
     public static e r() {
@@ -55,7 +55,7 @@ public class e extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.f();
-            ByteBuffer byteBuffer = this.f70755g;
+            ByteBuffer byteBuffer = this.f71209g;
             if (byteBuffer != null) {
                 byteBuffer.clear();
             }
@@ -66,14 +66,14 @@ public class e extends a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            int i3 = this.f70757i;
+            int i3 = this.f71211i;
             if (i3 == 1) {
                 return ByteBuffer.allocate(i2);
             }
             if (i3 == 2) {
                 return ByteBuffer.allocateDirect(i2);
             }
-            ByteBuffer byteBuffer = this.f70755g;
+            ByteBuffer byteBuffer = this.f71209g;
             int capacity = byteBuffer == null ? 0 : byteBuffer.capacity();
             throw new IllegalStateException("Buffer too small (" + capacity + " < " + i2 + SmallTailInfo.EMOTION_SUFFIX);
         }
@@ -83,31 +83,31 @@ public class e extends a {
     public void n(int i2) throws IllegalStateException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            ByteBuffer byteBuffer = this.f70755g;
+            ByteBuffer byteBuffer = this.f71209g;
             if (byteBuffer == null) {
-                this.f70755g = m(i2);
+                this.f71209g = m(i2);
                 return;
             }
             int capacity = byteBuffer.capacity();
-            int position = this.f70755g.position();
+            int position = this.f71209g.position();
             int i3 = i2 + position;
             if (capacity >= i3) {
                 return;
             }
             ByteBuffer m = m(i3);
             if (position > 0) {
-                this.f70755g.position(0);
-                this.f70755g.limit(position);
-                m.put(this.f70755g);
+                this.f71209g.position(0);
+                this.f71209g.limit(position);
+                m.put(this.f71209g);
             }
-            this.f70755g = m;
+            this.f71209g = m;
         }
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f70755g.flip();
+            this.f71209g.flip();
         }
     }
 
@@ -120,6 +120,6 @@ public class e extends a {
     public final boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f70755g == null && this.f70757i == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f71209g == null && this.f71211i == 0 : invokeV.booleanValue;
     }
 }

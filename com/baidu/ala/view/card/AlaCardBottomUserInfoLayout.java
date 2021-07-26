@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.q.b2;
-import d.a.o0.z0.j0;
+import d.a.p0.b1.j0;
+import d.a.p0.s.q.b2;
 /* loaded from: classes.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
@@ -88,10 +88,10 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     public void setData(b2 b2Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2Var) == null) || b2Var == null || b2Var.g1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2Var) == null) || b2Var == null || b2Var.h1() == null) {
             return;
         }
-        AlaUserInfoData alaUserInfoData = b2Var.g1().user_info;
+        AlaUserInfoData alaUserInfoData = b2Var.h1().user_info;
         if (b2Var.H() != null) {
             str = b2Var.H().getName_show();
         } else {
@@ -104,7 +104,7 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             this.alaCardUserHeadImg.M(alaUserInfoData.portrait, 28, false);
         }
         this.alaCardUserName.setText(str);
-        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(b2Var.g1().audience_count)));
+        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(b2Var.h1().audience_count)));
     }
 
     public void setUserHeadImgVisible(int i2) {

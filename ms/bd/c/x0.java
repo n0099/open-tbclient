@@ -32,11 +32,11 @@ public final class x0 extends b.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
-            Context c2 = a.a().c();
+            Context a2 = a.c().a();
             String[] split = str.split((String) h.a(16777217, 0, 0L, "590661", new byte[]{24, 39}));
             String str2 = split[0];
             String str3 = split[1];
-            SharedPreferences.Editor edit = c2.getSharedPreferences(str2, 0).edit();
+            SharedPreferences.Editor edit = a2.getSharedPreferences(str2, 0).edit();
             edit.putString(str3, (String) obj);
             edit.commit();
             return null;

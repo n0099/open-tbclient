@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.b;
-import d.a.o0.m.d;
-import d.a.o0.r.q.b2;
+import d.a.d.e.m.b;
+import d.a.p0.n.d;
+import d.a.p0.s.q.b2;
 /* loaded from: classes3.dex */
 public class ClickableHeaderImageView extends HeadImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +35,7 @@ public class ClickableHeaderImageView extends HeadImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClickableHeaderImageView f12401e;
+        public final /* synthetic */ ClickableHeaderImageView f12431e;
 
         public a(ClickableHeaderImageView clickableHeaderImageView) {
             Interceptable interceptable = $ic;
@@ -52,26 +52,26 @@ public class ClickableHeaderImageView extends HeadImageView {
                     return;
                 }
             }
-            this.f12401e = clickableHeaderImageView;
+            this.f12431e = clickableHeaderImageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d dVar = this.f12401e.V0;
-                if ((dVar == null || !dVar.a(view)) && this.f12401e.S0 != null) {
-                    MetaData t = this.f12401e.T0 ? this.f12401e.S0.p1().t() : this.f12401e.S0.H();
+                d dVar = this.f12431e.V0;
+                if ((dVar == null || !dVar.a(view)) && this.f12431e.S0 != null) {
+                    MetaData t = this.f12431e.T0 ? this.f12431e.S0.q1().t() : this.f12431e.S0.H();
                     if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
                         return;
                     }
                     long f2 = b.f(t.getUserId(), 0L);
-                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f12401e.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
-                    createNormalConfig.setSourceTid(this.f12401e.S0.n1());
-                    createNormalConfig.setSourceNid(this.f12401e.S0.A0());
+                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f12431e.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
+                    createNormalConfig.setSourceTid(this.f12431e.S0.o1());
+                    createNormalConfig.setSourceNid(this.f12431e.S0.B0());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-                    if (this.f12401e.U0 != null) {
-                        this.f12401e.U0.onClick(view);
+                    if (this.f12431e.U0 != null) {
+                        this.f12431e.U0.onClick(view);
                     }
                 }
             }
@@ -116,14 +116,14 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.S0 = b2Var;
         this.T0 = z2;
         if (z2) {
-            H = b2Var.p1().t();
+            H = b2Var.q1().t();
         } else {
             H = b2Var.H();
         }
         setContentDescription(H.getName_show() + getContext().getString(R.string.somebodys_portrait));
         setUserId(H.getUserId());
         setUserName(H.getUserName());
-        if (b2Var.g1() != null && (this.S0.j1() == 49 || this.S0.j1() == 69)) {
+        if (b2Var.h1() != null && (this.S0.k1() == 49 || this.S0.k1() == 69)) {
             setUrl(b2Var.H().getAvater());
             M(b2Var.H().getAvater(), 28, false);
         } else {
@@ -196,7 +196,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             return;
         }
         b2 b2Var = new b2();
-        b2Var.h3(metaData);
+        b2Var.j3(metaData);
         setData(b2Var);
     }
 }

@@ -14,10 +14,10 @@ public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GameRankHorizontalLayout f15725a;
+    public GameRankHorizontalLayout f15773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15726b;
+    public TextView f15774b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameRankListViewHolder(View view) {
@@ -37,7 +37,7 @@ public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15725a = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
-        this.f15726b = (TextView) view.findViewById(R.id.close_game_rank_btn);
+        this.f15773a = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
+        this.f15774b = (TextView) view.findViewById(R.id.close_game_rank_btn);
     }
 }

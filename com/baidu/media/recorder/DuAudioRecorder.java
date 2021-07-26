@@ -32,31 +32,31 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberAudioRecorder.OnPreparedListener f8123a;
+    public CyberAudioRecorder.OnPreparedListener f8149a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberAudioRecorder.OnCompletionListener f8124b;
+    public CyberAudioRecorder.OnCompletionListener f8150b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberAudioRecorder.OnErrorListener f8125c;
+    public CyberAudioRecorder.OnErrorListener f8151c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CyberAudioRecorder.OnInfoListener f8126d;
+    public CyberAudioRecorder.OnInfoListener f8152d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberAudioRecorder.OnEncBufferCallbackListener f8127e;
+    public CyberAudioRecorder.OnEncBufferCallbackListener f8153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ByteBuffer f8128f;
+    public ByteBuffer f8154f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f8129g;
+    public long f8155g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f8130h;
+    public long f8156h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f8131i;
+    public long f8157i;
     public int j;
     public int k;
     public int l;
@@ -69,7 +69,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public ExecutorService o;
     public AudioRecord p;
     public final Object q;
-    public d.a.y.e.a r;
+    public d.a.z.e.a r;
     public Map<String, String> s;
     public Map<String, Long> t;
 
@@ -79,7 +79,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuAudioRecorder f8132e;
+        public final /* synthetic */ DuAudioRecorder f8158e;
 
         public a(DuAudioRecorder duAudioRecorder) {
             Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public class DuAudioRecorder extends CyberAudioRecorder {
                     return;
                 }
             }
-            this.f8132e = duAudioRecorder;
+            this.f8158e = duAudioRecorder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8132e.l();
+                this.f8158e.l();
             }
         }
     }
@@ -114,10 +114,10 @@ public class DuAudioRecorder extends CyberAudioRecorder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<DuAudioRecorder> f8133a;
+        public final WeakReference<DuAudioRecorder> f8159a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ DuAudioRecorder f8134b;
+        public final /* synthetic */ DuAudioRecorder f8160b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(DuAudioRecorder duAudioRecorder, DuAudioRecorder duAudioRecorder2, Looper looper) {
@@ -137,47 +137,47 @@ public class DuAudioRecorder extends CyberAudioRecorder {
                     return;
                 }
             }
-            this.f8134b = duAudioRecorder;
-            this.f8133a = new WeakReference<>(duAudioRecorder2);
+            this.f8160b = duAudioRecorder;
+            this.f8159a = new WeakReference<>(duAudioRecorder2);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             DuAudioRecorder duAudioRecorder;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (duAudioRecorder = this.f8133a.get()) == null || duAudioRecorder.mNativeContext == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (duAudioRecorder = this.f8159a.get()) == null || duAudioRecorder.mNativeContext == 0) {
                 return;
             }
             int i2 = message.what;
             if (i2 == -1) {
-                synchronized (this.f8134b.q) {
-                    this.f8134b.r.b(2);
-                    this.f8134b.q.notifyAll();
+                synchronized (this.f8160b.q) {
+                    this.f8160b.r.b(2);
+                    this.f8160b.q.notifyAll();
                 }
-                if (this.f8134b.f8125c != null) {
-                    this.f8134b.f8125c.onError(message.arg1, message.arg2, message.obj);
+                if (this.f8160b.f8151c != null) {
+                    this.f8160b.f8151c.onError(message.arg1, message.arg2, message.obj);
                 }
             } else if (i2 == 0) {
-                if (this.f8134b.f8126d != null) {
-                    this.f8134b.f8126d.onInfo(message.arg1, message.arg2, message.obj);
+                if (this.f8160b.f8152d != null) {
+                    this.f8160b.f8152d.onInfo(message.arg1, message.arg2, message.obj);
                 }
             } else if (i2 == 1) {
-                this.f8134b.nativeStart();
-                synchronized (this.f8134b.q) {
-                    this.f8134b.r.b(32);
-                    this.f8134b.q.notifyAll();
+                this.f8160b.nativeStart();
+                synchronized (this.f8160b.q) {
+                    this.f8160b.r.b(32);
+                    this.f8160b.q.notifyAll();
                 }
-                if (this.f8134b.f8123a != null) {
-                    this.f8134b.f8123a.onPrepared();
+                if (this.f8160b.f8149a != null) {
+                    this.f8160b.f8149a.onPrepared();
                 }
             } else if (i2 == 2) {
-                if (this.f8134b.f8124b != null) {
-                    this.f8134b.f8124b.onCompletion();
+                if (this.f8160b.f8150b != null) {
+                    this.f8160b.f8150b.onCompletion();
                 }
-            } else if (i2 == 3 && this.f8134b.f8127e != null) {
-                this.f8134b.f8127e.onFrameRecorded(this.f8134b.f8128f, message.arg2, (message.arg1 == 1 ? Boolean.TRUE : Boolean.FALSE).booleanValue());
-                this.f8134b.f8128f.rewind();
-                this.f8134b.nativeHandledMsgCallback();
+            } else if (i2 == 3 && this.f8160b.f8153e != null) {
+                this.f8160b.f8153e.onFrameRecorded(this.f8160b.f8154f, message.arg2, (message.arg1 == 1 ? Boolean.TRUE : Boolean.FALSE).booleanValue());
+                this.f8160b.f8154f.rewind();
+                this.f8160b.nativeHandledMsgCallback();
             }
         }
     }
@@ -218,7 +218,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
         this.o = null;
         this.p = null;
         this.q = new Object();
-        this.r = new d.a.y.e.a();
+        this.r = new d.a.z.e.a();
         this.s = new HashMap();
         this.t = new HashMap();
         Looper myLooper = Looper.myLooper();
@@ -303,10 +303,10 @@ public class DuAudioRecorder extends CyberAudioRecorder {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3)) == null) {
-            long j = this.f8130h;
+            long j = this.f8156h;
             if (j > 0) {
                 int nativeEncodePCM = nativeEncodePCM(bArr, i2, (int) Math.min(j, i3));
-                this.f8130h -= nativeEncodePCM;
+                this.f8156h -= nativeEncodePCM;
                 return nativeEncodePCM;
             } else if (j == 0) {
                 stop();
@@ -371,9 +371,9 @@ public class DuAudioRecorder extends CyberAudioRecorder {
                             break;
                     }
                     if (c2 == 0) {
-                        this.f8129g = longValue;
+                        this.f8155g = longValue;
                     } else if (c2 == 1) {
-                        this.f8131i = longValue * 1024;
+                        this.f8157i = longValue * 1024;
                     } else if (c2 == 2) {
                         this.m = (int) longValue;
                     } else if (c2 == 3) {
@@ -415,19 +415,19 @@ public class DuAudioRecorder extends CyberAudioRecorder {
             nativeSetParameter(CyberAudioRecorder.KEY_INT_IN_CHANNEL_NB, this.l);
             nativeSetParameter(CyberAudioRecorder.KEY_INT_IN_SAMPLE_FORMAT, this.k);
             nativeSetParameter(CyberAudioRecorder.KEY_INT_IN_SAMPLE_RATE, this.j);
-            long j = this.f8129g;
+            long j = this.f8155g;
             if (j > 0) {
                 long nativeGetBytesPerSample = j * this.l * this.j * nativeGetBytesPerSample(this.k);
-                this.f8130h = nativeGetBytesPerSample;
+                this.f8156h = nativeGetBytesPerSample;
                 if (nativeGetBytesPerSample == 0) {
                     CyberLog.w("DuAudioRecorder", "KEY_INT_ENC_MAX_DURATION Invalidation");
-                    this.f8130h = -1L;
+                    this.f8156h = -1L;
                 }
             }
-            long j2 = this.f8131i;
+            long j2 = this.f8157i;
             if (j2 > 0) {
                 ByteBuffer order = ByteBuffer.allocateDirect((int) j2).order(ByteOrder.nativeOrder());
-                this.f8128f = order;
+                this.f8154f = order;
                 nativeSetEncCallbackCacheBuffer(order);
             }
         }
@@ -455,9 +455,9 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f8128f = null;
-            this.f8129g = 0L;
-            this.f8130h = -1L;
+            this.f8154f = null;
+            this.f8155g = 0L;
+            this.f8156h = -1L;
             this.j = 44100;
             this.k = 1;
             this.l = 1;
@@ -582,7 +582,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public void setOnCompletionListener(CyberAudioRecorder.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onCompletionListener) == null) {
-            this.f8124b = onCompletionListener;
+            this.f8150b = onCompletionListener;
         }
     }
 
@@ -590,7 +590,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public void setOnEncBufferListener(CyberAudioRecorder.OnEncBufferCallbackListener onEncBufferCallbackListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onEncBufferCallbackListener) == null) {
-            this.f8127e = onEncBufferCallbackListener;
+            this.f8153e = onEncBufferCallbackListener;
         }
     }
 
@@ -598,7 +598,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public void setOnErrorListener(CyberAudioRecorder.OnErrorListener onErrorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onErrorListener) == null) {
-            this.f8125c = onErrorListener;
+            this.f8151c = onErrorListener;
         }
     }
 
@@ -606,7 +606,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public void setOnInfoListener(CyberAudioRecorder.OnInfoListener onInfoListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, onInfoListener) == null) {
-            this.f8126d = onInfoListener;
+            this.f8152d = onInfoListener;
         }
     }
 
@@ -614,7 +614,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public void setOnPreparedListener(CyberAudioRecorder.OnPreparedListener onPreparedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, onPreparedListener) == null) {
-            this.f8123a = onPreparedListener;
+            this.f8149a = onPreparedListener;
         }
     }
 

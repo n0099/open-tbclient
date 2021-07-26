@@ -10,7 +10,7 @@ public final class dg implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f23564a;
+    public final /* synthetic */ df f23722a;
 
     public dg(df dfVar) {
         Interceptable interceptable = $ic;
@@ -27,15 +27,15 @@ public final class dg implements Runnable {
                 return;
             }
         }
-        this.f23564a = dfVar;
+        this.f23722a = dfVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            df dfVar = this.f23564a;
-            com.baidu.ufosdk.e.a.e(dfVar.f23560a, dfVar.f23561b, dfVar.f23562c);
+            df dfVar = this.f23722a;
+            com.baidu.ufosdk.e.a.e(dfVar.f23718a, dfVar.f23719b, dfVar.f23720c);
         }
     }
 }

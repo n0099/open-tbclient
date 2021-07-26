@@ -15,7 +15,7 @@ public class aq extends ContentObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f39782a;
+    public final /* synthetic */ an f40054a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aq(an anVar, Handler handler) {
@@ -35,7 +35,7 @@ public class aq extends ContentObserver {
                 return;
             }
         }
-        this.f39782a = anVar;
+        this.f40054a = anVar;
     }
 
     @Override // android.database.ContentObserver
@@ -46,16 +46,16 @@ public class aq extends ContentObserver {
         Context context3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            an anVar = this.f39782a;
+            an anVar = this.f40054a;
             context = anVar.f67a;
             anVar.f71a = Integer.valueOf(bc.a(context).a());
-            num = this.f39782a.f71a;
+            num = this.f40054a.f71a;
             if (num.intValue() != 0) {
-                context2 = this.f39782a.f67a;
+                context2 = this.f40054a.f67a;
                 context2.getContentResolver().unregisterContentObserver(this);
-                context3 = this.f39782a.f67a;
+                context3 = this.f40054a.f67a;
                 if (bg.b(context3)) {
-                    this.f39782a.m108c();
+                    this.f40054a.m108c();
                 }
             }
         }

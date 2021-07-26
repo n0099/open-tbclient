@@ -21,30 +21,32 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.pi.UIADI2;
 import com.qq.e.comm.util.AdErrorConvertor;
+import com.qq.e.comm.util.CallbackUtil;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.VideoAdValidity;
+@Deprecated
 /* loaded from: classes6.dex */
 public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements ApkDownloadComplianceInterface, DownloadConfirmListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UIADI2 f37789a;
+    public UIADI2 f37978a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37790b;
+    public boolean f37979b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37791c;
+    public boolean f37980c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoOption2 f37792d;
+    public VideoOption2 f37981d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ExpressInterstitialAdListener f37793e;
+    public ExpressInterstitialAdListener f37982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DownloadConfirmListener f37794f;
+    public DownloadConfirmListener f37983f;
 
     /* loaded from: classes6.dex */
     public static class AdListenerAdapter implements ADListener {
@@ -52,7 +54,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ExpressInterstitialAdListener f37795a;
+        public ExpressInterstitialAdListener f37984a;
 
         public AdListenerAdapter(ExpressInterstitialAdListener expressInterstitialAdListener) {
             Interceptable interceptable = $ic;
@@ -69,45 +71,57 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
                     return;
                 }
             }
-            this.f37795a = expressInterstitialAdListener;
+            this.f37984a = expressInterstitialAdListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) || this.f37795a == null || aDEvent == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) || this.f37984a == null || aDEvent == null) {
                 return;
             }
             switch (aDEvent.getType()) {
                 case 100:
-                    this.f37795a.onAdLoaded();
+                    this.f37984a.onAdLoaded();
                     return;
                 case 101:
-                    this.f37795a.onVideoCached();
+                    this.f37984a.onVideoCached();
                     return;
                 case 102:
-                    this.f37795a.onShow();
+                    this.f37984a.onShow();
                     return;
                 case 103:
-                    this.f37795a.onExpose();
+                    this.f37984a.onExpose();
                     return;
                 case 104:
                 default:
                     return;
                 case 105:
-                    this.f37795a.onClick();
+                    this.f37984a.onClick();
                     return;
                 case 106:
-                    this.f37795a.onClose();
+                    this.f37984a.onClose();
                     return;
                 case 107:
                     if (aDEvent.getParas().length <= 0 || !(aDEvent.getParas()[0] instanceof Integer)) {
                         return;
                     }
-                    this.f37795a.onError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                    this.f37984a.onError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
                     return;
                 case 108:
-                    this.f37795a.onVideoComplete();
+                    this.f37984a.onVideoComplete();
+                    return;
+                case 109:
+                    if (CallbackUtil.hasRenderSuccessCallback(this.f37984a)) {
+                        this.f37984a.onRenderSuccess();
+                        return;
+                    }
+                    return;
+                case 110:
+                    if (CallbackUtil.hasRenderFailCallback(this.f37984a)) {
+                        this.f37984a.onRenderFail();
+                        return;
+                    }
                     return;
             }
         }
@@ -128,7 +142,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
                 return;
             }
         }
-        this.f37793e = expressInterstitialAdListener;
+        this.f37982e = expressInterstitialAdListener;
         if (GDTADManager.getInstance().isInitialized()) {
             a(context, GDTADManager.getInstance().getAppStatus().getAPPID(), str);
             return;
@@ -152,21 +166,21 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
                 return;
             }
         }
-        this.f37793e = expressInterstitialAdListener;
+        this.f37982e = expressInterstitialAdListener;
         a(context, str, str2);
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.qq.e.ads.LiteAbstractAD
     public final /* synthetic */ UIADI2 a(Context context, POFactory pOFactory, String str, String str2) {
-        return pOFactory.getExpressInterstitialADDelegate(context, str, str2, new AdListenerAdapter(this.f37793e));
+        return pOFactory.getExpressInterstitialADDelegate(context, str, str2, new AdListenerAdapter(this.f37982e));
     }
 
     @Override // com.qq.e.ads.LiteAbstractAD
     public final void a(int i2) {
         ExpressInterstitialAdListener expressInterstitialAdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (expressInterstitialAdListener = this.f37793e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (expressInterstitialAdListener = this.f37982e) == null) {
             return;
         }
         expressInterstitialAdListener.onError(AdErrorConvertor.formatErrorCode(i2));
@@ -176,15 +190,15 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
     @Override // com.qq.e.ads.LiteAbstractAD
     public final /* synthetic */ void a(UIADI2 uiadi2) {
         UIADI2 uiadi22 = uiadi2;
-        this.f37789a = uiadi22;
-        uiadi22.setVideoOption(this.f37792d);
-        if (this.f37790b) {
-            this.f37789a.loadHalfScreenAD();
-            this.f37790b = false;
+        this.f37978a = uiadi22;
+        uiadi22.setVideoOption(this.f37981d);
+        if (this.f37979b) {
+            this.f37978a.loadHalfScreenAD();
+            this.f37979b = false;
         }
-        if (this.f37791c) {
-            this.f37789a.loadFullScreenAD();
-            this.f37791c = false;
+        if (this.f37980c) {
+            this.f37978a.loadFullScreenAD();
+            this.f37980c = false;
         }
     }
 
@@ -200,7 +214,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
                 return VideoAdValidity.OVERDUE;
             }
             if (isVideoAd()) {
-                UIADI2 uiadi2 = this.f37789a;
+                UIADI2 uiadi2 = this.f37978a;
                 if (uiadi2 != null) {
                     z = uiadi2.isVideoCached();
                 } else {
@@ -219,7 +233,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
     public void closeHalfScreenAD() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 uiadi2.closeHalfScreenAD();
             } else {
@@ -231,7 +245,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
     public void destroy() {
         UIADI2 uiadi2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (uiadi2 = this.f37789a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (uiadi2 = this.f37978a) == null) {
             return;
         }
         uiadi2.destroy();
@@ -242,7 +256,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 return uiadi2.getApkInfoUrl();
             }
@@ -251,11 +265,25 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
         return (String) invokeV.objValue;
     }
 
-    public String getECPMLevel() {
+    public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+            UIADI2 uiadi2 = this.f37978a;
+            if (uiadi2 != null) {
+                return uiadi2.getECPM();
+            }
+            GDTLogger.w("don't call getECPMLevel before loading AD success");
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getECPMLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 return uiadi2.getECPMLevel();
             }
@@ -268,8 +296,8 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
     public long getExpireTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 return uiadi2.getExpireTimestamp();
             }
@@ -282,8 +310,8 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
     public int getVideoDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 return uiadi2.getVideoDuration();
             }
@@ -296,8 +324,8 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
     public boolean hasShown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 return uiadi2.hasShown();
             }
@@ -310,8 +338,8 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
     public boolean isVideoAd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 return uiadi2.isVideoAd();
             }
@@ -323,24 +351,24 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
 
     public void loadFullScreenAD() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 uiadi2.loadFullScreenAD();
             } else {
-                this.f37791c = true;
+                this.f37980c = true;
             }
         }
     }
 
     public void loadHalfScreenAD() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 uiadi2.loadHalfScreenAD();
             } else {
-                this.f37790b = true;
+                this.f37979b = true;
             }
         }
     }
@@ -349,7 +377,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
     public void onDownloadConfirm(Activity activity, int i2, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
         DownloadConfirmListener downloadConfirmListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048590, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f37794f) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048591, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f37983f) == null) {
             return;
         }
         downloadConfirmListener.onDownloadConfirm(activity, i2, str, downloadConfirmCallBack);
@@ -358,9 +386,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, downloadConfirmListener) == null) {
-            this.f37794f = downloadConfirmListener;
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || interceptable.invokeL(1048592, this, downloadConfirmListener) == null) {
+            this.f37983f = downloadConfirmListener;
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 uiadi2.setDownloadConfirmListener(this);
             }
@@ -369,20 +397,20 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
 
     public void setVideoOption(VideoOption2 videoOption2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, videoOption2) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || interceptable.invokeL(1048593, this, videoOption2) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 uiadi2.setVideoOption(videoOption2);
             } else {
-                this.f37792d = videoOption2;
+                this.f37981d = videoOption2;
             }
         }
     }
 
     public void showFullScreenAD(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, activity) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || interceptable.invokeL(1048594, this, activity) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 uiadi2.showFullScreenAD(activity);
             } else {
@@ -393,8 +421,8 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> implements Apk
 
     public void showHalfScreenAD(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, activity) == null) {
-            UIADI2 uiadi2 = this.f37789a;
+        if (interceptable == null || interceptable.invokeL(1048595, this, activity) == null) {
+            UIADI2 uiadi2 = this.f37978a;
             if (uiadi2 != null) {
                 uiadi2.showHalfScreenAD(activity);
             } else {

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.w.m;
+import d.a.p0.x.m;
 /* loaded from: classes.dex */
 public class RecorderManagerStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -40,10 +40,10 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.p0.h3.p0.a> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<d.a.q0.h3.p0.a> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001271, d.a.g.a.a.e.n()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001271, d.a.h.a.a.e.n()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -74,7 +74,7 @@ public class RecorderManagerStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001272, new d.a.g.b.c(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001272, new d.a.h.b.c(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -161,7 +161,7 @@ public class RecorderManagerStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001301, new d.a.g.b.a(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001301, new d.a.h.b.a(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -194,7 +194,7 @@ public class RecorderManagerStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001448, new d.a.g.b.b(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001448, new d.a.h.b.b(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.l;
-import d.a.o0.l.a;
-import d.a.o0.p0.b;
+import d.a.d.e.p.l;
+import d.a.p0.m.a;
+import d.a.p0.r0.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
@@ -32,10 +32,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19913e;
+    public int f20031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f19914f;
+    public TbPageContext f20032f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbTopicContainer(Context context) {
@@ -85,7 +85,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && (view.getTag() instanceof RecommendTopicData.RecommendTopicListData)) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view.getTag();
-            TbPageContext tbPageContext = this.f19914f;
+            TbPageContext tbPageContext = this.f20032f;
             if (tbPageContext != null && !b.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
@@ -102,10 +102,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             int size = (View.MeasureSpec.getSize(i2) - getPaddingRight()) - getPaddingLeft();
             int childCount = getChildCount();
-            if (childCount > this.f19913e) {
+            if (childCount > this.f20031e) {
                 while (true) {
                     childCount--;
-                    if (childCount <= this.f19913e) {
+                    if (childCount <= this.f20031e) {
                         break;
                     }
                     removeViewAt(childCount);
@@ -151,14 +151,14 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     public void setMaxChildCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f19913e = i2;
+            this.f20031e = i2;
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) {
-            this.f19914f = tbPageContext;
+            this.f20032f = tbPageContext;
         }
     }
 
@@ -181,7 +181,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        this.f19913e = 3;
+        this.f20031e = 3;
         setOrientation(0);
     }
 }

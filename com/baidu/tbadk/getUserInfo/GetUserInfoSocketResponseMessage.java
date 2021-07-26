@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.o0.z.a;
-import d.a.o0.z.b;
+import d.a.p0.a0.a;
+import d.a.p0.a0.b;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
 /* loaded from: classes3.dex */

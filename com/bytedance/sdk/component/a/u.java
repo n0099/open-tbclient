@@ -1,359 +1,170 @@
 package com.bytedance.sdk.component.a;
 
 import android.net.Uri;
-import android.text.TextUtils;
-import android.util.LruCache;
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.a.k;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import com.bytedance.sdk.component.a.v;
+import com.bytedance.sdk.component.a.w;
+import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executor;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, List<b>> f27798a;
+    public final Set<String> f27952a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, c> f27799b;
+    public final Set<String> f27953b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k.a f27800c;
+    public final w f27954c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f27801d;
+    public final v f27955d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f27802e;
+    public k.b f27956e;
 
-    /* loaded from: classes5.dex */
-    public static class a extends IllegalStateException {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str) {
-            super(str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public Pattern f27805a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public w f27806b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public List<String> f27807c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public List<String> f27808d;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public w f27809a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Set<String> f27810b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public Set<String> f27811c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f27809a = w.f27816a;
-            this.f27810b = new HashSet();
-            this.f27811c = new HashSet();
-        }
-    }
-
-    @WorkerThread
-    public u(@NonNull String str, int i2, @NonNull k.a aVar, @NonNull Executor executor, @Nullable JSONObject jSONObject) {
+    public u(@Nullable v vVar, @NonNull Set<String> set, @NonNull Set<String> set2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), aVar, executor, jSONObject};
+            Object[] objArr = {vVar, set, set2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27798a = new ConcurrentHashMap();
-        this.f27802e = false;
-        this.f27801d = str;
-        if (i2 <= 0) {
-            this.f27799b = new LruCache<>(16);
-        } else {
-            this.f27799b = new LruCache<>(i2);
-        }
-        this.f27800c = aVar;
-        if (jSONObject == null) {
-            aVar.a(d(str), new k.a.InterfaceC0312a(this, executor) { // from class: com.bytedance.sdk.component.a.u.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        this.f27954c = r.f27940a;
+        this.f27955d = vVar;
+        this.f27952a = new LinkedHashSet(set);
+        this.f27953b = new LinkedHashSet(set2);
+    }
 
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Executor f27803a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ u f27804b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                        newInitContext2.initArgs = r2;
-                        Object[] objArr2 = {this, executor};
-                        interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i5 = newInitContext2.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
-                            newInitContext2.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext2);
-                            return;
+    @MainThread
+    public final synchronized x a(boolean z, String str, b bVar) throws v.a {
+        InterceptResult invokeCommon;
+        x b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, bVar})) == null) {
+            synchronized (this) {
+                Uri parse = Uri.parse(str);
+                String host = parse.getHost();
+                if (host == null) {
+                    return null;
+                }
+                x xVar = this.f27953b.contains(bVar.a()) ? x.f27975a : null;
+                for (String str2 : this.f27952a) {
+                    if (!parse.getHost().equals(str2)) {
+                        if (host.endsWith("." + str2)) {
                         }
                     }
-                    this.f27804b = this;
-                    this.f27803a = executor;
+                    xVar = x.f27977c;
                 }
-            });
-        } else {
-            a(jSONObject);
-        }
-    }
-
-    @WorkerThread
-    private void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) {
-            this.f27798a.clear();
-            try {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
-                Iterator<String> keys = jSONObject2.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    JSONArray jSONArray = jSONObject2.getJSONArray(next);
-                    LinkedList linkedList = new LinkedList();
-                    this.f27798a.put(next, linkedList);
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        linkedList.add(c(jSONArray.getJSONObject(i2)));
+                if (xVar == null && this.f27956e != null && this.f27956e.a(str)) {
+                    if (this.f27956e.a(str, bVar.a())) {
+                        return null;
                     }
+                    xVar = x.f27977c;
                 }
-            } catch (JSONException e2) {
-                i.b("Parse configurations failed, response: " + jSONObject.toString(), e2);
+                if (z) {
+                    b2 = a(str, bVar);
+                } else {
+                    b2 = b(str, bVar);
+                }
+                return b2 != null ? b2 : xVar;
             }
-            this.f27802e = true;
         }
+        return (x) invokeCommon.objValue;
     }
 
-    private List<b> c(String str) throws a {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
-            if (this.f27802e) {
-                return this.f27798a.get(str);
-            }
-            throw new a("Permission config is outdated!");
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            return "com.bytedance.ies.web.jsbridge2.PermissionConfig." + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            b(jSONObject);
-            this.f27800c.a(d(this.f27801d), jSONObject.toString());
-        }
-    }
-
-    @NonNull
-    public c a(String str, Set<String> set) {
+    public final synchronized x b(@NonNull String str, @NonNull b bVar) {
         InterceptResult invokeLL;
+        x a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, set)) == null) {
-            Uri parse = Uri.parse(str);
-            String scheme = parse.getScheme();
-            String authority = parse.getAuthority();
-            String builder = new Uri.Builder().scheme(scheme).authority(authority).path(parse.getPath()).toString();
-            c cVar = new c();
-            if (authority != null && !authority.isEmpty()) {
-                for (String str2 : set) {
-                    if (!authority.equals(str2)) {
-                        if (authority.endsWith("." + str2)) {
-                        }
-                    }
-                    cVar.f27809a = w.f27818c;
-                    return cVar;
-                }
-                c cVar2 = this.f27799b.get(builder);
-                return cVar2 != null ? cVar2 : a(builder);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bVar)) == null) {
+            synchronized (this) {
+                a2 = a(str, bVar, false);
             }
-            cVar.f27809a = w.f27816a;
-            return cVar;
+            return a2;
         }
-        return (c) invokeLL.objValue;
+        return (x) invokeLL.objValue;
     }
 
-    @WorkerThread
-    public static b c(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
+    public void b(w.a aVar) {
+        w wVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            b bVar = new b();
-            bVar.f27805a = Pattern.compile(jSONObject.getString("pattern"));
-            bVar.f27806b = w.a(jSONObject.getString("group"));
-            bVar.f27807c = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("included_methods");
-            if (optJSONArray != null) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    bVar.f27807c.add(optJSONArray.getString(i2));
-                }
-            }
-            bVar.f27808d = new ArrayList();
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("excluded_methods");
-            if (optJSONArray2 != null) {
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    bVar.f27808d.add(optJSONArray2.getString(i3));
-                }
-            }
-            return bVar;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (wVar = this.f27954c) == null) {
+            return;
         }
-        return (b) invokeL.objValue;
+        wVar.b(aVar);
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        int length;
+    @MainThread
+    public final synchronized x a(@NonNull String str, @NonNull b bVar) throws v.a {
+        InterceptResult invokeLL;
+        x a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && (length = (split = str.split("[.]")).length) >= 2) {
-                if (length == 2) {
-                    return str;
-                }
-                return split[length - 2] + "." + split[length - 1];
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bVar)) == null) {
+            synchronized (this) {
+                a2 = a(str, bVar, true);
             }
-            return null;
+            return a2;
         }
-        return (String) invokeL.objValue;
+        return (x) invokeLL.objValue;
     }
 
-    @NonNull
-    private c a(String str) throws a {
-        InterceptResult invokeL;
+    public void a(@Nullable k.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            c cVar = new c();
-            Uri parse = Uri.parse(str);
-            String scheme = parse.getScheme();
-            String authority = parse.getAuthority();
-            String b2 = b(authority);
-            if (!TextUtils.isEmpty(scheme) && !TextUtils.isEmpty(authority) && b2 != null) {
-                List<b> c2 = c(b2);
-                if (c2 == null) {
-                    return cVar;
-                }
-                for (b bVar : c2) {
-                    if (bVar.f27805a.matcher(str).find()) {
-                        if (bVar.f27806b.compareTo(cVar.f27809a) >= 0) {
-                            cVar.f27809a = bVar.f27806b;
-                        }
-                        cVar.f27810b.addAll(bVar.f27807c);
-                        cVar.f27811c.addAll(bVar.f27808d);
-                    }
-                }
-                this.f27799b.put(str, cVar);
-                return cVar;
-            }
-            cVar.f27809a = w.f27816a;
-            return cVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f27956e = bVar;
         }
-        return (c) invokeL.objValue;
+    }
+
+    public void a(w.a aVar) {
+        w wVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || (wVar = this.f27954c) == null) {
+            return;
+        }
+        wVar.a(aVar);
+    }
+
+    private x a(@NonNull String str, @NonNull b bVar, boolean z) {
+        InterceptResult invokeLLZ;
+        v vVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, this, str, bVar, z)) == null) {
+            if (!z || (vVar = this.f27955d) == null) {
+                return null;
+            }
+            v.c a2 = vVar.a(str, this.f27952a);
+            if (a2.f27970c.contains(bVar.a())) {
+                return null;
+            }
+            if (a2.f27969b.contains(bVar.a())) {
+                return x.f27977c;
+            }
+            if (a2.f27968a.compareTo(bVar.b()) < 0) {
+                return null;
+            }
+            return a2.f27968a;
+        }
+        return (x) invokeLLZ.objValue;
     }
 }

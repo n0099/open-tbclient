@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.m.b;
-import d.a.o0.k0.d;
+import d.a.d.e.m.b;
+import d.a.p0.m0.d;
 /* loaded from: classes4.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.o0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
             if (TextUtils.isEmpty(this.mId)) {
                 finish();
             }
-            this.mFragment = VideoAggregationFragment.L0(this.mId, this.mFrom, stringExtra, stringExtra2);
+            this.mFragment = VideoAggregationFragment.Q0(this.mId, this.mFrom, stringExtra, stringExtra2);
             getSupportFragmentManager().beginTransaction().replace(R.id.container, this.mFragment).commit();
         }
     }
@@ -108,7 +108,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, keyEvent)) == null) {
             if (keyEvent != null && (videoAggregationFragment = this.mFragment) != null) {
-                if (videoAggregationFragment.P0(i2)) {
+                if (videoAggregationFragment.U0(i2)) {
                     return true;
                 }
                 return super.onKeyDown(i2, keyEvent);

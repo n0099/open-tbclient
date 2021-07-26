@@ -17,13 +17,13 @@ public class ScrollTextView extends TextView implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f13272e;
+    public Scroller f13321e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13273f;
+    public float f13322f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13274g;
+    public boolean f13323g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScrollTextView(Context context) {
@@ -43,8 +43,8 @@ public class ScrollTextView extends TextView implements Runnable {
                 return;
             }
         }
-        this.f13273f = 15.0f;
-        this.f13274g = true;
+        this.f13322f = 15.0f;
+        this.f13323g = true;
         setup(context);
     }
 
@@ -52,7 +52,7 @@ public class ScrollTextView extends TextView implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             Scroller scroller = new Scroller(context, new LinearInterpolator());
-            this.f13272e = scroller;
+            this.f13321e = scroller;
             setScroller(scroller);
         }
     }
@@ -62,8 +62,8 @@ public class ScrollTextView extends TextView implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
             int lineCount = height + ((getLineCount() - 1) * getLineHeight());
-            this.f13272e.startScroll(0, height * (-1), 0, lineCount, (int) (lineCount * this.f13273f));
-            if (this.f13274g) {
+            this.f13321e.startScroll(0, height * (-1), 0, lineCount, (int) (lineCount * this.f13322f));
+            if (this.f13323g) {
                 post(this);
             }
         }
@@ -72,7 +72,7 @@ public class ScrollTextView extends TextView implements Runnable {
     public float getSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13273f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13322f : invokeV.floatValue;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -80,7 +80,7 @@ public class ScrollTextView extends TextView implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (this.f13272e.isFinished()) {
+            if (this.f13321e.isFinished()) {
                 a();
             }
         }
@@ -90,7 +90,7 @@ public class ScrollTextView extends TextView implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f13272e.isFinished()) {
+            if (this.f13321e.isFinished()) {
                 a();
             } else {
                 post(this);
@@ -101,14 +101,14 @@ public class ScrollTextView extends TextView implements Runnable {
     public void setContinuousScrolling(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f13274g = z;
+            this.f13323g = z;
         }
     }
 
     public void setSpeed(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f13273f = f2;
+            this.f13322f = f2;
         }
     }
 
@@ -131,8 +131,8 @@ public class ScrollTextView extends TextView implements Runnable {
                 return;
             }
         }
-        this.f13273f = 15.0f;
-        this.f13274g = true;
+        this.f13322f = 15.0f;
+        this.f13323g = true;
         setup(context);
     }
 }

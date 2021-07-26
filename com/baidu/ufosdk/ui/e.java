@@ -17,16 +17,16 @@ public final class e extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f23589a;
+    public boolean f23747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f23590b;
+    public ImageView f23748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23591c;
+    public TextView f23749c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f23592d;
+    public Context f23750d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -46,51 +46,51 @@ public final class e extends LinearLayout {
                 return;
             }
         }
-        this.f23589a = false;
-        this.f23592d = context;
+        this.f23747a = false;
+        this.f23750d = context;
         setOrientation(0);
         setGravity(16);
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.f23590b = new ImageView(context);
-        this.f23591c = new TextView(context);
-        this.f23590b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
-        addView(this.f23590b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
+        this.f23748b = new ImageView(context);
+        this.f23749c = new TextView(context);
+        this.f23748b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
+        addView(this.f23748b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(com.baidu.ufosdk.f.i.a(context, 10.0f), 0, 0, 0);
-        addView(this.f23591c, layoutParams);
+        addView(this.f23749c, layoutParams);
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f23591c.setTextColor(-13421773);
+            this.f23749c.setTextColor(-13421773);
         }
     }
 
     public final void a(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f23591c.setTextSize(f2);
+            this.f23749c.setTextSize(f2);
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f23591c.setText(str);
+            this.f23749c.setText(str);
         }
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f23590b.setBackgroundDrawable(z ? new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23592d, "ufo_checkbox_checked.png")) : new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23592d, "ufo_checkbox_default.png")));
+            this.f23748b.setBackgroundDrawable(z ? new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23750d, "ufo_checkbox_checked.png")) : new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f23750d, "ufo_checkbox_default.png")));
         }
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23591c.getText().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23749c.getText().toString() : (String) invokeV.objValue;
     }
 }

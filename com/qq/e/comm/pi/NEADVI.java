@@ -7,6 +7,10 @@ import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 public interface NEADVI extends ApkDownloadComplianceInterface {
     void destroy();
 
+    int getECPM();
+
+    String getECPMLevel();
+
     void preloadVideo();
 
     void render();
@@ -16,6 +20,4 @@ public interface NEADVI extends ApkDownloadComplianceInterface {
     void setAdListener(ADListener aDListener);
 
     void setAdSize(ADSize aDSize);
-
-    void setBrowserType(int i2);
 }

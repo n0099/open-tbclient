@@ -13,16 +13,16 @@ public class F0 extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ K0 f39359a;
+    public final /* synthetic */ O0 f39575a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public F0(K0 k0, Looper looper) {
+    public F0(O0 o0, Looper looper) {
         super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k0, looper};
+            Object[] objArr = {o0, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -33,7 +33,7 @@ public class F0 extends Handler {
                 return;
             }
         }
-        this.f39359a = k0;
+        this.f39575a = o0;
     }
 
     @Override // android.os.Handler
@@ -41,16 +41,20 @@ public class F0 extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            int i2 = message.what;
-            K0.c();
-            if (i2 == 100101) {
-                this.f39359a.j.removeMessages(100101);
-                w0 a2 = x0.a(this.f39359a.f39393a);
-                y0 y0Var = new y0(null);
-                y0Var.f39722a = this.f39359a.f39394b;
-                a2.a(y0Var, s1.q(this.f39359a.f39393a) * 1000, 2002, 0).a();
-                this.f39359a.a(PBError.TIMEOUT);
+            if (message.what != 1101) {
+                return;
             }
+            this.f39575a.f39612e.removeMessages(1101);
+            O0 o0 = this.f39575a;
+            if (!o0.f39609b && o0.a(o0.f39608a)) {
+                N0 n0 = this.f39575a.f39610c;
+                if (n0 != null) {
+                    n0.a();
+                }
+                this.f39575a.f39609b = true;
+                return;
+            }
+            this.f39575a.f39612e.sendEmptyMessageDelayed(1101, 300L);
         }
     }
 }

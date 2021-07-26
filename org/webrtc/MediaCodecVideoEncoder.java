@@ -136,7 +136,7 @@ public class MediaCodecVideoEncoder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f73165e;
+        public Exception f73619e;
         public final /* synthetic */ MediaCodecVideoEncoder this$0;
 
         public C1CaughtException(MediaCodecVideoEncoder mediaCodecVideoEncoder) {
@@ -1551,7 +1551,7 @@ public class MediaCodecVideoEncoder {
                                 this.this$0.mediaCodec.release();
                             } catch (Exception e3) {
                                 Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                                this.val$caughtException.f73165e = e3;
+                                this.val$caughtException.f73619e = e3;
                             }
                             Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                             this.val$releaseDone.countDown();
@@ -1582,12 +1582,12 @@ public class MediaCodecVideoEncoder {
             }
             runningInstance = null;
             if (!z) {
-                if (c1CaughtException.f73165e == null) {
+                if (c1CaughtException.f73619e == null) {
                     Logging.d(TAG, "Java releaseEncoder done");
                     return;
                 }
-                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f73165e);
-                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f73165e.getStackTrace(), runtimeException.getStackTrace()));
+                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f73619e);
+                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f73619e.getStackTrace(), runtimeException.getStackTrace()));
                 throw runtimeException;
             }
             codecErrors++;

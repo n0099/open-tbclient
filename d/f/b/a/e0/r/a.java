@@ -23,14 +23,14 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f70266c;
+    public static final Pattern f70720c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f70267a;
+    public final l f70721a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final StringBuilder f70268b;
+    public final StringBuilder f70722b;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public final class a {
                 return;
             }
         }
-        f70266c = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
+        f70720c = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
     }
 
     public a() {
@@ -61,8 +61,8 @@ public final class a {
                 return;
             }
         }
-        this.f70267a = new l();
-        this.f70268b = new StringBuilder();
+        this.f70721a = new l();
+        this.f70722b = new StringBuilder();
     }
 
     public static boolean b(l lVar) {
@@ -73,7 +73,7 @@ public final class a {
         }
         int c2 = lVar.c();
         int d2 = lVar.d();
-        byte[] bArr = lVar.f70489a;
+        byte[] bArr = lVar.f70943a;
         if (c2 + 2 > d2) {
             return false;
         }
@@ -124,7 +124,7 @@ public final class a {
             int c2 = lVar.c();
             int d2 = lVar.d();
             while (c2 < d2 && !z) {
-                char c3 = (char) lVar.f70489a[c2];
+                char c3 = (char) lVar.f70943a[c2];
                 if ((c3 < 'A' || c3 > 'Z') && ((c3 < 'a' || c3 > 'z') && !((c3 >= '0' && c3 <= '9') || c3 == '#' || c3 == '-' || c3 == '.' || c3 == '_'))) {
                     z = true;
                 } else {
@@ -249,7 +249,7 @@ public final class a {
     public static char j(l lVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, lVar, i2)) == null) ? (char) lVar.f70489a[i2] : invokeLI.charValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, lVar, i2)) == null) ? (char) lVar.f70943a[i2] : invokeLI.charValue;
     }
 
     public static String k(l lVar) {
@@ -261,7 +261,7 @@ public final class a {
             boolean z = false;
             while (c2 < d2 && !z) {
                 int i2 = c2 + 1;
-                z = ((char) lVar.f70489a[c2]) == ')';
+                z = ((char) lVar.f70943a[c2]) == ')';
                 c2 = i2;
             }
             return lVar.u((c2 - 1) - lVar.c()).trim();
@@ -297,7 +297,7 @@ public final class a {
         }
         int indexOf = str.indexOf(91);
         if (indexOf != -1) {
-            Matcher matcher = f70266c.matcher(str.substring(indexOf));
+            Matcher matcher = f70720c.matcher(str.substring(indexOf));
             if (matcher.matches()) {
                 dVar.v(matcher.group(1));
             }
@@ -321,13 +321,13 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
-            this.f70268b.setLength(0);
+            this.f70722b.setLength(0);
             int c2 = lVar.c();
             l(lVar);
-            this.f70267a.H(lVar.f70489a, lVar.c());
-            this.f70267a.J(c2);
-            String h2 = h(this.f70267a, this.f70268b);
-            if (h2 == null || !StringUtil.ARRAY_START.equals(f(this.f70267a, this.f70268b))) {
+            this.f70721a.H(lVar.f70943a, lVar.c());
+            this.f70721a.J(c2);
+            String h2 = h(this.f70721a, this.f70722b);
+            if (h2 == null || !StringUtil.ARRAY_START.equals(f(this.f70721a, this.f70722b))) {
                 return null;
             }
             d dVar = new d();
@@ -335,12 +335,12 @@ public final class a {
             String str = null;
             boolean z = false;
             while (!z) {
-                int c3 = this.f70267a.c();
-                str = f(this.f70267a, this.f70268b);
+                int c3 = this.f70721a.c();
+                str = f(this.f70721a, this.f70722b);
                 boolean z2 = str == null || "}".equals(str);
                 if (!z2) {
-                    this.f70267a.J(c3);
-                    i(this.f70267a, dVar, this.f70268b);
+                    this.f70721a.J(c3);
+                    i(this.f70721a, dVar, this.f70722b);
                 }
                 z = z2;
             }

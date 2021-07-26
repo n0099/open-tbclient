@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.e.p.j;
-import d.a.p0.t.a.f.b;
-import d.a.p0.t.a.j.a;
+import d.a.d.e.p.j;
+import d.a.q0.t.a.f.b;
+import d.a.q0.t.a.j.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SplashHttpResponse extends JsonHttpResponsedMessage {
@@ -50,13 +50,13 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
             b b2 = b.b(a.d());
             if (!this.adInfo.shouldDownloadVideo()) {
                 AdInfo adInfo = this.adInfo;
-                adInfo.videoLocalPath = b2.f62264d;
+                adInfo.videoLocalPath = b2.f62908d;
                 a.g(adInfo);
             } else if (j.z() && j.H()) {
-                d.a.p0.t.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);
+                d.a.q0.t.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);
                 if (searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
                     a.g(this.adInfo);
-                    d.a.p0.t.a.i.a aVar = new d.a.p0.t.a.i.a();
+                    d.a.q0.t.a.i.a aVar = new d.a.q0.t.a.i.a();
                     aVar.c(this.adInfo);
                     aVar.setKey(this.adInfo.adVideoUrl);
                     aVar.execute(new Void[0]);
@@ -67,22 +67,22 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    private d.a.p0.t.a.i.a searchTask(String str) {
+    private d.a.q0.t.a.i.a searchTask(String str) {
         InterceptResult invokeL;
         BdAsyncTask<?, ?, ?> searchTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.a.p0.t.a.i.a)) {
+            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.a.q0.t.a.i.a)) {
                 return null;
             }
             try {
-                return (d.a.p0.t.a.i.a) searchTask;
+                return (d.a.q0.t.a.i.a) searchTask;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 return null;
             }
         }
-        return (d.a.p0.t.a.i.a) invokeL.objValue;
+        return (d.a.q0.t.a.i.a) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

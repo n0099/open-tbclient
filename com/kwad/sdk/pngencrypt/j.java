@@ -18,13 +18,13 @@ public class j extends DeflatedChunksSet {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f35845g;
+    public byte[] f36034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f35846h;
+    public byte[] f36035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final k f35847i;
+    public final k f36036i;
     public final e j;
     public final p k;
     public int[] l;
@@ -35,7 +35,7 @@ public class j extends DeflatedChunksSet {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f35848a;
+        public static final /* synthetic */ int[] f36037a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,25 +52,25 @@ public class j extends DeflatedChunksSet {
                 }
             }
             int[] iArr = new int[FilterType.values().length];
-            f35848a = iArr;
+            f36037a = iArr;
             try {
                 iArr[FilterType.FILTER_NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f35848a[FilterType.FILTER_SUB.ordinal()] = 2;
+                f36037a[FilterType.FILTER_SUB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f35848a[FilterType.FILTER_UP.ordinal()] = 3;
+                f36037a[FilterType.FILTER_UP.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f35848a[FilterType.FILTER_AVERAGE.ordinal()] = 4;
+                f36037a[FilterType.FILTER_AVERAGE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f35848a[FilterType.FILTER_PAETH.ordinal()] = 5;
+                f36037a[FilterType.FILTER_PAETH.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -117,7 +117,7 @@ public class j extends DeflatedChunksSet {
             }
         }
         this.l = new int[5];
-        this.f35847i = kVar;
+        this.f36036i = kVar;
         this.j = eVar;
         this.k = new p(kVar, eVar);
         com.kwad.sdk.core.d.a.a("PNG_ENCRYPT", "Creating IDAT set ");
@@ -127,9 +127,9 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
             int i3 = 1;
-            int i4 = 1 - this.f35847i.j;
+            int i4 = 1 - this.f36036i.j;
             while (i3 <= i2) {
-                this.f35845g[i3] = (byte) (this.f35731a[i3] + (((i4 > 0 ? this.f35845g[i4] & 255 : 0) + (this.f35846h[i3] & 255)) / 2));
+                this.f36034g[i3] = (byte) (this.f35920a[i3] + (((i4 > 0 ? this.f36034g[i4] & 255 : 0) + (this.f36035h[i3] & 255)) / 2));
                 i3++;
                 i4++;
             }
@@ -140,7 +140,7 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
             for (int i3 = 1; i3 <= i2; i3++) {
-                this.f35845g[i3] = this.f35731a[i3];
+                this.f36034g[i3] = this.f35920a[i3];
             }
         }
     }
@@ -149,14 +149,14 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             int i3 = 1;
-            int i4 = 1 - this.f35847i.j;
+            int i4 = 1 - this.f36036i.j;
             while (i3 <= i2) {
                 int i5 = 0;
-                int i6 = i4 > 0 ? this.f35845g[i4] & 255 : 0;
+                int i6 = i4 > 0 ? this.f36034g[i4] & 255 : 0;
                 if (i4 > 0) {
-                    i5 = this.f35846h[i4] & 255;
+                    i5 = this.f36035h[i4] & 255;
                 }
-                this.f35845g[i3] = (byte) (this.f35731a[i3] + n.a(i6, this.f35846h[i3] & 255, i5));
+                this.f36034g[i3] = (byte) (this.f35920a[i3] + n.a(i6, this.f36035h[i3] & 255, i5));
                 i3++;
                 i4++;
             }
@@ -169,18 +169,18 @@ public class j extends DeflatedChunksSet {
         if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
             int i4 = 1;
             while (true) {
-                i3 = this.f35847i.j;
+                i3 = this.f36036i.j;
                 if (i4 > i3) {
                     break;
                 }
-                this.f35845g[i4] = this.f35731a[i4];
+                this.f36034g[i4] = this.f35920a[i4];
                 i4++;
             }
             int i5 = i3 + 1;
             int i6 = 1;
             while (i5 <= i2) {
-                byte[] bArr = this.f35845g;
-                bArr[i5] = (byte) (this.f35731a[i5] + bArr[i6]);
+                byte[] bArr = this.f36034g;
+                bArr[i5] = (byte) (this.f35920a[i5] + bArr[i6]);
                 i5++;
                 i6++;
             }
@@ -191,7 +191,7 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2) == null) {
             for (int i3 = 1; i3 <= i2; i3++) {
-                this.f35845g[i3] = (byte) (this.f35731a[i3] + this.f35846h[i3]);
+                this.f36034g[i3] = (byte) (this.f35920a[i3] + this.f36035h[i3]);
             }
         }
     }
@@ -204,7 +204,7 @@ public class j extends DeflatedChunksSet {
             this.k.a(h());
             i();
             p pVar = this.k;
-            pVar.a(this.f35845g, pVar.m + 1);
+            pVar.a(this.f36034g, pVar.m + 1);
         }
     }
 
@@ -218,27 +218,27 @@ public class j extends DeflatedChunksSet {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            byte[] bArr = this.f35845g;
-            if (bArr == null || bArr.length < this.f35731a.length) {
-                byte[] bArr2 = this.f35731a;
-                this.f35845g = new byte[bArr2.length];
-                this.f35846h = new byte[bArr2.length];
+            byte[] bArr = this.f36034g;
+            if (bArr == null || bArr.length < this.f35920a.length) {
+                byte[] bArr2 = this.f35920a;
+                this.f36034g = new byte[bArr2.length];
+                this.f36035h = new byte[bArr2.length];
             }
             if (this.k.j == 0) {
-                Arrays.fill(this.f35845g, (byte) 0);
+                Arrays.fill(this.f36034g, (byte) 0);
             }
-            byte[] bArr3 = this.f35845g;
-            this.f35845g = this.f35846h;
-            this.f35846h = bArr3;
-            byte b2 = this.f35731a[0];
+            byte[] bArr3 = this.f36034g;
+            this.f36034g = this.f36035h;
+            this.f36035h = bArr3;
+            byte b2 = this.f35920a[0];
             if (!FilterType.isValidStandard(b2)) {
                 throw new PngjException("Filter type " + ((int) b2) + " invalid");
             }
             FilterType byVal = FilterType.getByVal(b2);
             int[] iArr = this.l;
             iArr[b2] = iArr[b2] + 1;
-            this.f35845g[0] = this.f35731a[0];
-            int i3 = AnonymousClass1.f35848a[byVal.ordinal()];
+            this.f36034g[0] = this.f35920a[0];
+            int i3 = AnonymousClass1.f36037a[byVal.ordinal()];
             if (i3 == 1) {
                 d(i2);
             } else if (i3 == 2) {
@@ -268,8 +268,8 @@ public class j extends DeflatedChunksSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.f();
-            this.f35845g = null;
-            this.f35846h = null;
+            this.f36034g = null;
+            this.f36035h = null;
         }
     }
 
@@ -296,17 +296,17 @@ public class j extends DeflatedChunksSet {
                     h2 = this.j.h();
                     i2 = h2 + 1;
                 }
-                if (!this.f35733c) {
+                if (!this.f35922c) {
                 }
                 return i2;
             }
             int h3 = h();
-            k kVar = this.f35847i;
-            if (h3 < kVar.f35850b - 1) {
+            k kVar = this.f36036i;
+            if (h3 < kVar.f36039b - 1) {
                 h2 = kVar.k;
                 i2 = h2 + 1;
             }
-            if (!this.f35733c) {
+            if (!this.f35922c) {
                 a(i2);
             }
             return i2;

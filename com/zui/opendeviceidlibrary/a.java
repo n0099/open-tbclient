@@ -12,7 +12,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40769a;
+    public static final boolean f41041a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public final class a {
                 return;
             }
         }
-        f40769a = Boolean.parseBoolean("true");
+        f41041a = Boolean.parseBoolean("true");
     }
 
     public a() {

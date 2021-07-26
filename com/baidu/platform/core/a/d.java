@@ -15,7 +15,7 @@ public class d extends com.baidu.platform.base.a implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetDistricSearchResultListener f9425b;
+    public OnGetDistricSearchResultListener f9451b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,16 +30,16 @@ public class d extends com.baidu.platform.base.a implements e {
                 return;
             }
         }
-        this.f9425b = null;
+        this.f9451b = null;
     }
 
     @Override // com.baidu.platform.core.a.e
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f9394a.lock();
-            this.f9425b = null;
-            this.f9394a.unlock();
+            this.f9420a.lock();
+            this.f9451b = null;
+            this.f9420a.unlock();
         }
     }
 
@@ -47,9 +47,9 @@ public class d extends com.baidu.platform.base.a implements e {
     public void a(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetDistricSearchResultListener) == null) {
-            this.f9394a.lock();
-            this.f9425b = onGetDistricSearchResultListener;
-            this.f9394a.unlock();
+            this.f9420a.lock();
+            this.f9451b = onGetDistricSearchResultListener;
+            this.f9420a.unlock();
         }
     }
 
@@ -60,7 +60,7 @@ public class d extends com.baidu.platform.base.a implements e {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, districtSearchOption)) == null) {
             b bVar = new b();
             bVar.a(SearchType.p);
-            return a(new a(districtSearchOption), this.f9425b, bVar);
+            return a(new a(districtSearchOption), this.f9451b, bVar);
         }
         return invokeL.booleanValue;
     }

@@ -1,200 +1,142 @@
 package com.bytedance.sdk.component.utils;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class j {
-    public static /* synthetic */ Interceptable $ic = null;
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f28901a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f28902b = 4;
+    public static final a f28998a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: com.bytedance.sdk.component.utils.j$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) || webView == null) {
+                return;
+            }
+            try {
+                webView.loadUrl(str);
+            } catch (Throwable unused) {
+            }
+        }
+
+        public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+    }
+
+    @TargetApi(19)
+    /* loaded from: classes5.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((AnonymousClass1) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.bytedance.sdk.component.utils.j.a
+        public void a(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) || webView == null) {
+                return;
+            }
+            boolean z = false;
+            if (str != null && str.startsWith("javascript:")) {
+                try {
+                    webView.evaluateJavascript(str, null);
+                    z = true;
+                } catch (Throwable th) {
+                    boolean z2 = th instanceof IllegalStateException;
+                }
+            }
+            if (z) {
+                return;
+            }
+            try {
+                webView.loadUrl(str);
+            } catch (Throwable unused) {
+            }
+        }
+
+        public /* synthetic */ b(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1410335756, "Lcom/bytedance/sdk/component/utils/j;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1410335756, "Lcom/bytedance/sdk/component/utils/j;");
-        }
-    }
-
-    public static void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f28902b = i2;
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            f28901a = true;
-            a(3);
-        }
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f28901a : invokeV.booleanValue;
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) || !f28901a || str2 == null || f28902b > 5) {
-            return;
-        }
-        Log.w(str, str2);
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65554, null, str, str2) == null) || str2 == null) {
-            return;
-        }
-        if (str == null) {
-            str = "Logger";
-        }
-        Log.i(str, str2);
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) || !f28901a || str2 == null || f28902b > 6) {
-            return;
-        }
-        Log.e(str, str2);
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f28902b <= 3 : invokeV.booleanValue;
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) || !f28901a || str2 == null || f28902b > 4) {
-            return;
-        }
-        Log.i(str, str2);
-    }
-
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || !f28901a || str2 == null || f28902b > 2) {
-            return;
-        }
-        Log.v(str, str2);
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || !f28901a || str2 == null || f28902b > 3) {
-            return;
-        }
-        Log.d(str, str2);
-    }
-
-    public static void c(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65550, null, str, str2, th) == null) && f28901a) {
-            if (!(str2 == null && th == null) && f28902b <= 6) {
-                Log.e(str, str2, th);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1410335756, "Lcom/bytedance/sdk/component/utils/j;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1410335756, "Lcom/bytedance/sdk/component/utils/j;");
+                return;
             }
         }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f28901a) {
-            b("Logger", str);
+        if (Build.VERSION.SDK_INT >= 19) {
+            f28998a = new b(null);
+        } else {
+            f28998a = new a(null);
         }
     }
 
-    public static void b(String str, Object... objArr) {
+    public static void a(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65548, null, str, objArr) == null) || !f28901a || objArr == null || f28902b > 4) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, webView, str) == null) {
+            f28998a.a(webView, str);
         }
-        Log.v(str, a(objArr));
-    }
-
-    public static void a(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) && f28901a) {
-            if (!(str2 == null && th == null) && f28902b <= 3) {
-                Log.d(str, str2, th);
-            }
-        }
-    }
-
-    public static void c(String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65551, null, str, objArr) == null) || !f28901a || objArr == null || f28902b > 6) {
-            return;
-        }
-        Log.v(str, a(objArr));
-    }
-
-    public static void b(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65547, null, str, str2, th) == null) && f28901a) {
-            if (!(str2 == null && th == null) && f28902b <= 5) {
-                Log.w(str, str2, th);
-            }
-        }
-    }
-
-    public static void a(String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) || !f28901a || objArr == null || f28902b > 3) {
-            return;
-        }
-        Log.v(str, a(objArr));
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && f28901a) {
-            f("Logger", str);
-        }
-    }
-
-    public static String a(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
-            if (objArr == null || objArr.length == 0) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (Object obj : objArr) {
-                if (obj != null) {
-                    sb.append(obj.toString());
-                } else {
-                    sb.append(" null ");
-                }
-                sb.append(" ");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
     }
 }

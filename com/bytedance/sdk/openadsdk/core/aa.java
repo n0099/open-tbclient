@@ -21,28 +21,28 @@ public class aa {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f29832a;
+    public static final boolean f29928a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f29833b;
+    public static final boolean f29929b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f29834c;
+    public static int f29930c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f29835d;
+    public static int f29931d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f29836e;
+    public static int f29932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f29837f;
+    public static Handler f29933f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final HashSet<String> f29838g;
+    public static final HashSet<String> f29934g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final HashSet<String> f29839h;
+    public static final HashSet<String> f29935h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,12 +58,12 @@ public class aa {
                 return;
             }
         }
-        f29832a = Build.VERSION.SDK_INT >= 16 && com.bytedance.sdk.openadsdk.r.j.e();
-        f29833b = a();
-        f29834c = -1;
-        f29835d = -1;
-        f29836e = -1;
-        f29837f = null;
+        f29928a = Build.VERSION.SDK_INT >= 16 && com.bytedance.sdk.openadsdk.q.l.e();
+        f29929b = a();
+        f29930c = -1;
+        f29931d = -1;
+        f29932e = -1;
+        f29933f = null;
         HashSet<String> hashSet = new HashSet<>();
         hashSet.add("HUAWEI C8812");
         hashSet.add("HUAWEI C8812E");
@@ -71,7 +71,7 @@ public class aa {
         hashSet.add("HUAWEI U8825D");
         hashSet.add("HUAWEI C8950D");
         hashSet.add("HUAWEI U8950D");
-        f29838g = hashSet;
+        f29934g = hashSet;
         HashSet<String> hashSet2 = new HashSet<>();
         hashSet2.add("ZTE V955");
         hashSet2.add("ZTE N881E");
@@ -79,7 +79,7 @@ public class aa {
         hashSet2.add("ZTE N880G");
         hashSet2.add("ZTE N880F");
         hashSet2.add("ZTE V889F");
-        f29839h = hashSet2;
+        f29935h = hashSet2;
     }
 
     public static void a(Context context, WebView webView) {
@@ -91,7 +91,7 @@ public class aa {
         if (activity.isFinishing()) {
             try {
                 webView.loadUrl("about:blank");
-                if (f29836e > 0) {
+                if (f29932e > 0) {
                     View rootView = webView.getRootView();
                     if (rootView instanceof ViewGroup) {
                         View childAt = ((ViewGroup) rootView).getChildAt(0);
@@ -112,7 +112,7 @@ public class aa {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f29832a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL)) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f29928a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL)) : invokeV.booleanValue;
     }
 
     public static void a(WebView webView) {

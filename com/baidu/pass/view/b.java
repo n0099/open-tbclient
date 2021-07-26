@@ -12,10 +12,10 @@ public class b implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog f9383a;
+    public final /* synthetic */ CommonDialog f9409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog.Builder f9384b;
+    public final /* synthetic */ CommonDialog.Builder f9410b;
 
     public b(CommonDialog.Builder builder, CommonDialog commonDialog) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class b implements View.OnClickListener {
                 return;
             }
         }
-        this.f9384b = builder;
-        this.f9383a = commonDialog;
+        this.f9410b = builder;
+        this.f9409a = commonDialog;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,9 +41,9 @@ public class b implements View.OnClickListener {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            onClickListener = this.f9384b.f9378g;
+            onClickListener = this.f9410b.f9404g;
             onClickListener.onClick(view);
-            this.f9383a.dismiss();
+            this.f9409a.dismiss();
         }
     }
 }

@@ -1,19 +1,30 @@
 package d.a.k;
 
+import android.view.View;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.k.b.a;
-import d.a.k.b.b;
-import d.a.k.b.d;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class c implements b.a {
+public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RelativeLayout.LayoutParams f43138e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f43139f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f43140g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public l0 f43141h;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,16 +40,61 @@ public class c implements b.a {
         }
     }
 
-    @Override // d.a.k.b.b.a
-    public List<a> a() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new d());
-            arrayList.add(new d.a.k.b.c());
-            return arrayList;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43140g : (View) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43139f : invokeV.intValue;
+    }
+
+    public RelativeLayout.LayoutParams d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43138e : (RelativeLayout.LayoutParams) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return (List) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void g(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
+            this.f43140g = view;
+        }
+    }
+
+    public void h(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.f43139f = i2;
+        }
+    }
+
+    public void i(RelativeLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, layoutParams) == null) {
+            this.f43138e = layoutParams;
+        }
+    }
+
+    public void j(l0 l0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l0Var) == null) {
+            this.f43141h = l0Var;
+        }
     }
 }

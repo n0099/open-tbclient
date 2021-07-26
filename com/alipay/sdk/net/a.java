@@ -34,13 +34,13 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1894a = "msp";
+    public static final String f1927a = "msp";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1895b = "application/octet-stream;binary/octet-stream";
+    public static final String f1928b = "application/octet-stream;binary/octet-stream";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CookieManager f1896c;
+    public static final CookieManager f1929c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.alipay.sdk.net.a$a  reason: collision with other inner class name */
@@ -50,13 +50,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1897a;
+        public final String f1930a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f1898b;
+        public final byte[] f1931b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Map<String, String> f1899c;
+        public final Map<String, String> f1932c;
 
         public C0017a(String str, Map<String, String> map, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -73,15 +73,15 @@ public final class a {
                     return;
                 }
             }
-            this.f1897a = str;
-            this.f1898b = bArr;
-            this.f1899c = map;
+            this.f1930a = str;
+            this.f1931b = bArr;
+            this.f1932c = map;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("<UrlConnectionConfigure url=%s requestBody=%s headers=%s>", this.f1897a, this.f1898b, this.f1899c) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("<UrlConnectionConfigure url=%s requestBody=%s headers=%s>", this.f1930a, this.f1931b, this.f1932c) : (String) invokeV.objValue;
         }
     }
 
@@ -91,13 +91,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, List<String>> f1900a;
+        public final Map<String, List<String>> f1933a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f1901b;
+        public final String f1934b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f1902c;
+        public final byte[] f1935c;
 
         public b(Map<String, List<String>> map, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -114,9 +114,9 @@ public final class a {
                     return;
                 }
             }
-            this.f1900a = map;
-            this.f1901b = str;
-            this.f1902c = bArr;
+            this.f1933a = map;
+            this.f1934b = str;
+            this.f1935c = bArr;
         }
     }
 
@@ -133,7 +133,7 @@ public final class a {
                 return;
             }
         }
-        f1896c = new CookieManager();
+        f1929c = new CookieManager();
     }
 
     public a() {
@@ -171,10 +171,10 @@ public final class a {
                 return null;
             }
             try {
-                c.c(f1894a, "config : " + c0017a);
-                url = new URL(c0017a.f1897a);
+                c.c(f1927a, "config : " + c0017a);
+                url = new URL(c0017a.f1930a);
                 Proxy a2 = a(context);
-                c.c(f1894a, "proxy: " + a2);
+                c.c(f1927a, "proxy: " + a2);
                 if (a2 != null) {
                     httpURLConnection2 = (HttpURLConnection) url.openConnection(a2);
                 } else {
@@ -185,24 +185,24 @@ public final class a {
                     if (httpURLConnection2 instanceof HttpsURLConnection) {
                         HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection2;
                     }
-                    if (f1896c.getCookieStore().getCookies().size() > 0) {
-                        httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f1896c.getCookieStore().getCookies()));
+                    if (f1929c.getCookieStore().getCookies().size() > 0) {
+                        httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f1929c.getCookieStore().getCookies()));
                     }
                     httpURLConnection2.setConnectTimeout(20000);
                     httpURLConnection2.setReadTimeout(30000);
                     httpURLConnection2.setInstanceFollowRedirects(true);
-                    httpURLConnection2.setRequestProperty("User-Agent", f1894a);
-                    if (c0017a.f1898b != null && c0017a.f1898b.length > 0) {
+                    httpURLConnection2.setRequestProperty("User-Agent", f1927a);
+                    if (c0017a.f1931b != null && c0017a.f1931b.length > 0) {
                         httpURLConnection2.setRequestMethod("POST");
-                        httpURLConnection2.setRequestProperty("Content-Type", f1895b);
+                        httpURLConnection2.setRequestProperty("Content-Type", f1928b);
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection2.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                         httpURLConnection2.setRequestProperty(HTTP.CONN_KEEP_ALIVE, "timeout=180, max=100");
                     } else {
                         httpURLConnection2.setRequestMethod("GET");
                     }
-                    if (c0017a.f1899c != null) {
-                        for (Map.Entry<String, String> entry : c0017a.f1899c.entrySet()) {
+                    if (c0017a.f1932c != null) {
+                        for (Map.Entry<String, String> entry : c0017a.f1932c.entrySet()) {
                             if (entry.getKey() != null) {
                                 httpURLConnection2.setRequestProperty(entry.getKey(), entry.getValue());
                             }
@@ -215,7 +215,7 @@ public final class a {
                     if ("POST".equals(httpURLConnection2.getRequestMethod())) {
                         bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection2.getOutputStream());
                         try {
-                            bufferedOutputStream2.write(c0017a.f1898b);
+                            bufferedOutputStream2.write(c0017a.f1931b);
                             bufferedOutputStream2.flush();
                         } catch (Throwable th) {
                             th = th;
@@ -272,7 +272,7 @@ public final class a {
                     for (String str : list) {
                         List<HttpCookie> parse = HttpCookie.parse(str);
                         if (parse != null && !parse.isEmpty()) {
-                            f1896c.getCookieStore().add(url.toURI(), parse.get(0));
+                            f1929c.getCookieStore().add(url.toURI(), parse.get(0));
                         }
                     }
                 }

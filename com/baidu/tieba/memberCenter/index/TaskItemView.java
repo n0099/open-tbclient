@@ -19,19 +19,19 @@ public class TaskItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18581e;
+    public Context f18666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18582f;
+    public View f18667f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18583g;
+    public TbImageView f18668g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18584h;
+    public TextView f18669h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18585i;
+    public TextView f18670i;
     public TextView j;
     public View k;
     public View l;
@@ -56,24 +56,24 @@ public class TaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18581e = context;
+        this.f18666e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f18581e).inflate(R.layout.index_task_item, this);
-            this.f18582f = inflate;
+            View inflate = LayoutInflater.from(this.f18666e).inflate(R.layout.index_task_item, this);
+            this.f18667f = inflate;
             this.l = inflate.findViewById(R.id.ly_desc);
-            this.f18583g = (TbImageView) this.f18582f.findViewById(R.id.task_icon);
-            this.f18584h = (TextView) this.f18582f.findViewById(R.id.txt_title);
-            this.f18585i = (TextView) this.f18582f.findViewById(R.id.txt_desc);
-            TextView textView = (TextView) this.f18582f.findViewById(R.id.txt_status);
+            this.f18668g = (TbImageView) this.f18667f.findViewById(R.id.task_icon);
+            this.f18669h = (TextView) this.f18667f.findViewById(R.id.txt_title);
+            this.f18670i = (TextView) this.f18667f.findViewById(R.id.txt_desc);
+            TextView textView = (TextView) this.f18667f.findViewById(R.id.txt_status);
             this.j = textView;
             textView.setOnClickListener(this.m);
             this.l.setOnClickListener(this.m);
-            this.k = this.f18582f.findViewById(R.id.divider_line);
+            this.k = this.f18667f.findViewById(R.id.divider_line);
         }
     }
 
@@ -105,7 +105,7 @@ public class TaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18581e = context;
+        this.f18666e = context;
         a();
     }
 }

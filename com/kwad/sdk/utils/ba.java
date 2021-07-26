@@ -20,13 +20,13 @@ public class ba {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f36548a = true;
+    public static boolean f36737a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f36549b;
+    public static boolean f36738b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<com.kwad.sdk.core.g.a.a> f36550c;
+    public static final List<com.kwad.sdk.core.g.a.a> f36739c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class ba {
                 return;
             }
         }
-        f36550c = new ArrayList();
+        f36739c = new ArrayList();
     }
 
     public static List<com.kwad.sdk.core.g.a.a> a(Context context, int i2) {
@@ -50,15 +50,15 @@ public class ba {
         WifiManager wifiManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i2)) == null) {
-            if (f36549b || !f36548a || !f36550c.isEmpty() || context == null) {
-                return f36550c;
+            if (f36738b || !f36737a || !f36739c.isEmpty() || context == null) {
+                return f36739c;
             }
             if (com.kwad.sdk.core.config.c.a(32L)) {
-                return f36550c;
+                return f36739c;
             }
             try {
             } catch (Exception e2) {
-                f36549b = true;
+                f36738b = true;
                 com.kwad.sdk.core.d.a.b(e2);
             }
             if ((Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") != -1 || ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") != -1) && (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) != null) {
@@ -67,22 +67,22 @@ public class ba {
                 if (scanResults != null) {
                     for (ScanResult scanResult : scanResults) {
                         com.kwad.sdk.core.g.a.a aVar = new com.kwad.sdk.core.g.a.a();
-                        aVar.f34449b = scanResult.SSID;
-                        aVar.f34450c = scanResult.BSSID;
-                        aVar.f34448a = scanResult.level;
+                        aVar.f34638b = scanResult.SSID;
+                        aVar.f34639c = scanResult.BSSID;
+                        aVar.f34637a = scanResult.level;
                         if (connectionInfo.getBSSID() == null || scanResult.BSSID == null || !TextUtils.equals(connectionInfo.getBSSID().replace("\"", ""), scanResult.BSSID.replace("\"", "")) || connectionInfo.getSSID() == null || scanResult.SSID == null || !TextUtils.equals(connectionInfo.getSSID().replace("\"", ""), scanResult.SSID.replace("\"", ""))) {
-                            f36550c.add(aVar);
+                            f36739c.add(aVar);
                         } else {
-                            f36550c.add(0, aVar);
+                            f36739c.add(0, aVar);
                         }
-                        if (f36550c.size() >= i2) {
-                            return f36550c;
+                        if (f36739c.size() >= i2) {
+                            return f36739c;
                         }
                     }
                 }
-                return f36550c;
+                return f36739c;
             }
-            return f36550c;
+            return f36739c;
         }
         return (List) invokeLI.objValue;
     }
@@ -90,7 +90,7 @@ public class ba {
     public static void a(SdkConfig sdkConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, sdkConfig) == null) {
-            f36548a = sdkConfig.canReadNearbyWifiList();
+            f36737a = sdkConfig.canReadNearbyWifiList();
         }
     }
 }

@@ -20,13 +20,13 @@ public class ae extends PayBaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25965a;
+    public String f26123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25966b;
+    public String f26124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25967c;
+    public String f26125c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> ae(Context context) {
@@ -62,11 +62,11 @@ public class ae extends PayBaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("new_passfree_status", this.f25966b));
-            arrayList.add(new RestNameValuePair("new_passfree_credit", this.f25967c));
-            if (!TextUtils.isEmpty(this.f25965a)) {
+            arrayList.add(new RestNameValuePair("new_passfree_status", this.f26124b));
+            arrayList.add(new RestNameValuePair("new_passfree_credit", this.f26125c));
+            if (!TextUtils.isEmpty(this.f26123a)) {
                 String seed = PasswordController.getSeed();
-                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25965a, seed)));
+                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f26123a, seed)));
                 arrayList.add(new RestNameValuePair("pwd_seed", SafePay.getInstance().encryptProxy(seed)));
             }
             return arrayList;

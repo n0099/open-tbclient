@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c.c.e.c.h;
-import d.a.c.c.i.a;
+import d.a.d.c.e.c.h;
+import d.a.d.c.i.a;
 /* loaded from: classes.dex */
 public abstract class ResponsedMessage<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -121,7 +121,7 @@ public abstract class ResponsedMessage<T> {
 
     public void onDecodeFailedInBackGround(int i2, T t, int i3) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), t, Integer.valueOf(i3)}) == null) && i3 == h.f40931c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), t, Integer.valueOf(i3)}) == null) && i3 == h.f41435c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

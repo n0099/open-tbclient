@@ -72,7 +72,7 @@ public class SumsungCore {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SumsungCore f27662a;
+            public final /* synthetic */ SumsungCore f27820a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -89,7 +89,7 @@ public class SumsungCore {
                         return;
                     }
                 }
-                this.f27662a = this;
+                this.f27820a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -97,9 +97,9 @@ public class SumsungCore {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     synchronized (this) {
-                        this.f27662a.mDeviceidInterface = a.AbstractBinderC0481a.a(iBinder);
-                        if (this.f27662a.mCallerCallBack != null) {
-                            this.f27662a.mCallerCallBack.a(true);
+                        this.f27820a.mDeviceidInterface = a.AbstractBinderC0483a.a(iBinder);
+                        if (this.f27820a.mCallerCallBack != null) {
+                            this.f27820a.mCallerCallBack.a(true);
                         }
                         com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceConnected");
                     }
@@ -110,7 +110,7 @@ public class SumsungCore {
             public void onServiceDisconnected(ComponentName componentName) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                    this.f27662a.mDeviceidInterface = null;
+                    this.f27820a.mDeviceidInterface = null;
                     com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceDisconnected");
                 }
             }

@@ -27,19 +27,19 @@ public final class c implements k, p.a<f<b>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.a f70091e;
+    public final b.a f70545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final n f70092f;
+    public final n f70546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f70093g;
+    public final int f70547g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b.a f70094h;
+    public final b.a f70548h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d.f.b.a.h0.b f70095i;
+    public final d.f.b.a.h0.b f70549i;
     public final t j;
     public final d.f.b.a.a0.q.k[] k;
     public k.a l;
@@ -62,15 +62,15 @@ public final class c implements k, p.a<f<b>> {
                 return;
             }
         }
-        this.f70091e = aVar2;
-        this.f70092f = nVar;
-        this.f70093g = i2;
-        this.f70094h = aVar3;
-        this.f70095i = bVar;
+        this.f70545e = aVar2;
+        this.f70546f = nVar;
+        this.f70547g = i2;
+        this.f70548h = aVar3;
+        this.f70549i = bVar;
         this.j = f(aVar);
-        a.C1982a c1982a = aVar.f70103b;
-        if (c1982a != null) {
-            this.k = new d.f.b.a.a0.q.k[]{new d.f.b.a.a0.q.k(true, null, 8, m(c1982a.f70108b), 0, 0, null)};
+        a.C1981a c1981a = aVar.f70557b;
+        if (c1981a != null) {
+            this.k = new d.f.b.a.a0.q.k[]{new d.f.b.a.a0.q.k(true, null, 8, m(c1981a.f70562b), 0, 0, null)};
         } else {
             this.k = null;
         }
@@ -86,12 +86,12 @@ public final class c implements k, p.a<f<b>> {
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, aVar)) != null) {
             return (t) invokeL.objValue;
         }
-        s[] sVarArr = new s[aVar.f70104c.length];
+        s[] sVarArr = new s[aVar.f70558c.length];
         int i2 = 0;
         while (true) {
-            a.b[] bVarArr = aVar.f70104c;
+            a.b[] bVarArr = aVar.f70558c;
             if (i2 < bVarArr.length) {
-                sVarArr[i2] = new s(bVarArr[i2].f70111c);
+                sVarArr[i2] = new s(bVarArr[i2].f70565c);
                 i2++;
             } else {
                 return new t(sVarArr);
@@ -138,7 +138,7 @@ public final class c implements k, p.a<f<b>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, fVar, j)) == null) {
             int b2 = this.j.b(fVar.d());
-            return new f<>(this.m.f70104c[b2].f70109a, null, this.f70091e.a(this.f70092f, this.m, b2, fVar, this.k), this, this.f70095i, j, this.f70093g, this.f70094h);
+            return new f<>(this.m.f70558c[b2].f70563a, null, this.f70545e.a(this.f70546f, this.m, b2, fVar, this.k), this, this.f70549i, j, this.f70547g, this.f70548h);
         }
         return (f) invokeLJ.objValue;
     }
@@ -249,7 +249,7 @@ public final class c implements k, p.a<f<b>> {
     public void q() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f70092f.a();
+            this.f70546f.a();
         }
     }
 

@@ -12,38 +12,38 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class f implements Framedata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f72365a;
+    public boolean f72819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f72366b;
+    public Framedata.Opcode f72820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer f72367c;
+    public ByteBuffer f72821c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f72368d;
+    public boolean f72822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f72369e;
+    public boolean f72823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f72370f;
+    public boolean f72824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f72371g;
+    public boolean f72825g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f72372a;
+        public static final /* synthetic */ int[] f72826a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,29 +60,29 @@ public abstract class f implements Framedata {
                 }
             }
             int[] iArr = new int[Framedata.Opcode.values().length];
-            f72372a = iArr;
+            f72826a = iArr;
             try {
                 iArr[Framedata.Opcode.PING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f72372a[Framedata.Opcode.PONG.ordinal()] = 2;
+                f72826a[Framedata.Opcode.PONG.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f72372a[Framedata.Opcode.TEXT.ordinal()] = 3;
+                f72826a[Framedata.Opcode.TEXT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f72372a[Framedata.Opcode.BINARY.ordinal()] = 4;
+                f72826a[Framedata.Opcode.BINARY.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f72372a[Framedata.Opcode.CLOSING.ordinal()] = 5;
+                f72826a[Framedata.Opcode.CLOSING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f72372a[Framedata.Opcode.CONTINUOUS.ordinal()] = 6;
+                f72826a[Framedata.Opcode.CONTINUOUS.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -103,13 +103,13 @@ public abstract class f implements Framedata {
                 return;
             }
         }
-        this.f72366b = opcode;
-        this.f72367c = g.b.k.b.a();
-        this.f72365a = true;
-        this.f72368d = false;
-        this.f72369e = false;
-        this.f72370f = false;
-        this.f72371g = false;
+        this.f72820b = opcode;
+        this.f72821c = g.b.k.b.a();
+        this.f72819a = true;
+        this.f72822d = false;
+        this.f72823e = false;
+        this.f72824f = false;
+        this.f72825g = false;
     }
 
     public static f g(Framedata.Opcode opcode) {
@@ -117,7 +117,7 @@ public abstract class f implements Framedata {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, opcode)) == null) {
             if (opcode != null) {
-                switch (a.f72372a[opcode.ordinal()]) {
+                switch (a.f72826a[opcode.ordinal()]) {
                     case 1:
                         return new g();
                     case 2:
@@ -143,35 +143,35 @@ public abstract class f implements Framedata {
     public ByteBuffer a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72367c : (ByteBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72821c : (ByteBuffer) invokeV.objValue;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72369e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72823e : invokeV.booleanValue;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72370f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72824f : invokeV.booleanValue;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public Framedata.Opcode d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72366b : (Framedata.Opcode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72820b : (Framedata.Opcode) invokeV.objValue;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72371g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72825g : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -185,9 +185,9 @@ public abstract class f implements Framedata {
                 return false;
             }
             f fVar = (f) obj;
-            if (this.f72365a == fVar.f72365a && this.f72368d == fVar.f72368d && this.f72369e == fVar.f72369e && this.f72370f == fVar.f72370f && this.f72371g == fVar.f72371g && this.f72366b == fVar.f72366b) {
-                ByteBuffer byteBuffer = this.f72367c;
-                ByteBuffer byteBuffer2 = fVar.f72367c;
+            if (this.f72819a == fVar.f72819a && this.f72822d == fVar.f72822d && this.f72823e == fVar.f72823e && this.f72824f == fVar.f72824f && this.f72825g == fVar.f72825g && this.f72820b == fVar.f72820b) {
+                ByteBuffer byteBuffer = this.f72821c;
+                ByteBuffer byteBuffer2 = fVar.f72821c;
                 return byteBuffer != null ? byteBuffer.equals(byteBuffer2) : byteBuffer2 == null;
             }
             return false;
@@ -199,7 +199,7 @@ public abstract class f implements Framedata {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f72365a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f72819a : invokeV.booleanValue;
     }
 
     public abstract void h() throws InvalidDataException;
@@ -208,9 +208,9 @@ public abstract class f implements Framedata {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int hashCode = (((this.f72365a ? 1 : 0) * 31) + this.f72366b.hashCode()) * 31;
-            ByteBuffer byteBuffer = this.f72367c;
-            return ((((((((hashCode + (byteBuffer != null ? byteBuffer.hashCode() : 0)) * 31) + (this.f72368d ? 1 : 0)) * 31) + (this.f72369e ? 1 : 0)) * 31) + (this.f72370f ? 1 : 0)) * 31) + (this.f72371g ? 1 : 0);
+            int hashCode = (((this.f72819a ? 1 : 0) * 31) + this.f72820b.hashCode()) * 31;
+            ByteBuffer byteBuffer = this.f72821c;
+            return ((((((((hashCode + (byteBuffer != null ? byteBuffer.hashCode() : 0)) * 31) + (this.f72822d ? 1 : 0)) * 31) + (this.f72823e ? 1 : 0)) * 31) + (this.f72824f ? 1 : 0)) * 31) + (this.f72825g ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -218,42 +218,42 @@ public abstract class f implements Framedata {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f72365a = z;
+            this.f72819a = z;
         }
     }
 
     public void j(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, byteBuffer) == null) {
-            this.f72367c = byteBuffer;
+            this.f72821c = byteBuffer;
         }
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f72369e = z;
+            this.f72823e = z;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f72370f = z;
+            this.f72824f = z;
         }
     }
 
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f72371g = z;
+            this.f72825g = z;
         }
     }
 
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f72368d = z;
+            this.f72822d = z;
         }
     }
 
@@ -273,11 +273,11 @@ public abstract class f implements Framedata {
             sb.append(", rsv3:");
             sb.append(e());
             sb.append(", payloadlength:[pos:");
-            sb.append(this.f72367c.position());
+            sb.append(this.f72821c.position());
             sb.append(", len:");
-            sb.append(this.f72367c.remaining());
+            sb.append(this.f72821c.remaining());
             sb.append("], payload:");
-            sb.append(this.f72367c.remaining() > 1000 ? "(too big to display)" : new String(this.f72367c.array()));
+            sb.append(this.f72821c.remaining() > 1000 ? "(too big to display)" : new String(this.f72821c.array()));
             sb.append('}');
             return sb.toString();
         }

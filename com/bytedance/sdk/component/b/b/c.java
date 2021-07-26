@@ -12,16 +12,16 @@ public final class c implements Closeable, Flushable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.a.e f28523a;
+    public final com.bytedance.sdk.component.b.b.a.a.e f28617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.a.d f28524b;
+    public final com.bytedance.sdk.component.b.b.a.a.d f28618b;
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f28524b.close();
+            this.f28618b.close();
         }
     }
 
@@ -29,7 +29,7 @@ public final class c implements Closeable, Flushable {
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28524b.flush();
+            this.f28618b.flush();
         }
     }
 }

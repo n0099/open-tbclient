@@ -14,22 +14,22 @@ public class b implements r.a, r.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f36680a;
+    public long f36869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36681b;
+    public long f36870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36682c;
+    public long f36871c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f36683d;
+    public long f36872d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36684e;
+    public int f36873e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36685f;
+    public int f36874f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class b implements r.a, r.b {
                 return;
             }
         }
-        this.f36685f = 1000;
+        this.f36874f = 1000;
     }
 
     @Override // com.kwai.filedownloader.r.b
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f36684e = 0;
-            this.f36680a = 0L;
+            this.f36873e = 0;
+            this.f36869a = 0L;
         }
     }
 
@@ -60,8 +60,8 @@ public class b implements r.a, r.b {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f36683d = SystemClock.uptimeMillis();
-            this.f36682c = j;
+            this.f36872d = SystemClock.uptimeMillis();
+            this.f36871c = j;
         }
     }
 
@@ -69,44 +69,44 @@ public class b implements r.a, r.b {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36684e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36873e : invokeV.intValue;
     }
 
     @Override // com.kwai.filedownloader.r.b
     public void b(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048579, this, j) == null) || this.f36683d <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048579, this, j) == null) || this.f36872d <= 0) {
             return;
         }
-        long j2 = j - this.f36682c;
-        this.f36680a = 0L;
-        long uptimeMillis = SystemClock.uptimeMillis() - this.f36683d;
+        long j2 = j - this.f36871c;
+        this.f36869a = 0L;
+        long uptimeMillis = SystemClock.uptimeMillis() - this.f36872d;
         if (uptimeMillis > 0) {
             j2 /= uptimeMillis;
         }
-        this.f36684e = (int) j2;
+        this.f36873e = (int) j2;
     }
 
     @Override // com.kwai.filedownloader.r.b
     public void c(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048580, this, j) == null) || this.f36685f <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048580, this, j) == null) || this.f36874f <= 0) {
             return;
         }
         boolean z = true;
-        if (this.f36680a != 0) {
-            long uptimeMillis = SystemClock.uptimeMillis() - this.f36680a;
-            if (uptimeMillis >= this.f36685f || (this.f36684e == 0 && uptimeMillis > 0)) {
-                int i2 = (int) ((j - this.f36681b) / uptimeMillis);
-                this.f36684e = i2;
-                this.f36684e = Math.max(0, i2);
+        if (this.f36869a != 0) {
+            long uptimeMillis = SystemClock.uptimeMillis() - this.f36869a;
+            if (uptimeMillis >= this.f36874f || (this.f36873e == 0 && uptimeMillis > 0)) {
+                int i2 = (int) ((j - this.f36870b) / uptimeMillis);
+                this.f36873e = i2;
+                this.f36873e = Math.max(0, i2);
             } else {
                 z = false;
             }
         }
         if (z) {
-            this.f36681b = j;
-            this.f36680a = SystemClock.uptimeMillis();
+            this.f36870b = j;
+            this.f36869a = SystemClock.uptimeMillis();
         }
     }
 }

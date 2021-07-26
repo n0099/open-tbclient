@@ -14,13 +14,13 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1535a = "f";
+    public static final String f1568a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f1536b;
+    public static byte[] f1569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f1537c;
+    public static final Charset f1570c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +36,8 @@ public class f {
                 return;
             }
         }
-        f1536b = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
-        f1537c = Charset.forName("UTF-8");
+        f1569b = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
+        f1570c = Charset.forName("UTF-8");
     }
 
     public f() {
@@ -63,7 +63,7 @@ public class f {
                 byte[] bArr2 = new byte[length];
                 for (int i2 = 0; i2 < length; i2++) {
                     bArr2[i2] = bArr[i2];
-                    for (byte b2 : f1536b) {
+                    for (byte b2 : f1569b) {
                         bArr2[i2] = (byte) (b2 ^ bArr2[i2]);
                     }
                 }

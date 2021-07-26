@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.d0.b;
-import d.a.p0.i1.c;
-import d.a.p0.i1.v.a.d;
-import d.a.p0.i1.v.a.e;
-import d.a.p0.i1.v.a.f;
+import d.a.p0.s.d0.b;
+import d.a.q0.i1.c;
+import d.a.q0.i1.v.a.d;
+import d.a.q0.i1.v.a.e;
+import d.a.q0.i1.v.a.f;
 /* loaded from: classes3.dex */
 public class TbLaunchStatic {
     public static /* synthetic */ Interceptable $ic = null;

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v1.h.a.c;
+import d.a.q0.v1.h.a.c;
 /* loaded from: classes4.dex */
 public class DeleteTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<c> {
     public static /* synthetic */ Interceptable $ic;

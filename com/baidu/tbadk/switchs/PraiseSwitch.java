@@ -24,7 +24,7 @@ public class PraiseSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.a.c.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.a.d.e.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

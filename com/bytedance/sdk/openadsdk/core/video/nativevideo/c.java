@@ -30,7 +30,7 @@ public interface c {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.nativevideo.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0345c {
+    public interface InterfaceC0347c {
         void a(int i2, int i3);
 
         void i_();
@@ -40,7 +40,7 @@ public interface c {
 
     void a(a aVar);
 
-    void a(InterfaceC0345c interfaceC0345c);
+    void a(InterfaceC0347c interfaceC0347c);
 
     void a(e eVar);
 
@@ -48,7 +48,9 @@ public interface c {
 
     void a(boolean z);
 
-    boolean a(com.bytedance.sdk.openadsdk.o.f.b bVar);
+    void a(boolean z, int i2);
+
+    boolean a(com.bytedance.sdk.openadsdk.n.f.b bVar);
 
     void b(long j);
 
@@ -61,8 +63,6 @@ public interface c {
     void d(boolean z);
 
     void e(boolean z);
-
-    void f(boolean z);
 
     void i();
 
@@ -78,21 +78,23 @@ public interface c {
 
     long o();
 
-    long p();
+    int p();
 
     long q();
 
-    int r();
+    long r();
 
-    long s();
+    int s();
 
-    boolean t();
+    long t();
 
-    com.bytedance.sdk.openadsdk.core.video.c.d u();
+    boolean u();
 
-    i v();
+    com.bytedance.sdk.openadsdk.core.video.c.d v();
 
-    boolean w();
+    i w();
 
     boolean x();
+
+    boolean y();
 }
