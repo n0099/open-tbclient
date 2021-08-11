@@ -212,7 +212,7 @@ public class b {
 
     /* JADX WARN: Type inference failed for: r6v1 */
     /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r6v3, types: [boolean, int] */
     public static void e(Activity activity, String str, int i2, boolean z, c.a.n0.a.i1.d.d.b bVar) {
         ActivityResultDispatcher resultDispatcher;
         Uri fromFile;

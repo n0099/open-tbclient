@@ -361,7 +361,7 @@ public class MessageParser {
     /* JADX WARN: Removed duplicated region for block: B:108:0x026f A[Catch: Exception -> 0x0329, TryCatch #5 {Exception -> 0x0329, blocks: (B:115:0x028d, B:117:0x0293, B:119:0x02ad, B:121:0x02bf, B:122:0x02c6, B:124:0x02ce, B:128:0x02db, B:129:0x02de, B:131:0x02e4, B:133:0x02ea, B:135:0x02f0, B:136:0x02f3, B:138:0x02f9, B:140:0x02fe, B:142:0x030a, B:144:0x0319, B:143:0x030e, B:109:0x0277, B:104:0x0260, B:108:0x026f), top: B:167:0x0260 }] */
     /* JADX WARN: Type inference failed for: r0v11, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v13 */
-    /* JADX WARN: Type inference failed for: r1v14, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v14, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r1v17 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

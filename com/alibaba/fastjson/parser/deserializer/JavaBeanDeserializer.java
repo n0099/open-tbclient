@@ -458,7 +458,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     /* JADX WARN: Removed duplicated region for block: B:113:0x0216  */
     /* JADX WARN: Removed duplicated region for block: B:61:0x0129  */
     /* JADX WARN: Type inference failed for: r17v0 */
-    /* JADX WARN: Type inference failed for: r17v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r17v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r17v3 */
     /* JADX WARN: Type inference failed for: r17v4 */
     /*

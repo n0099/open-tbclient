@@ -985,7 +985,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0763d
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v9, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
     public final void u() {
         c.a.p0.b4.k.c cVar;
         String string;
